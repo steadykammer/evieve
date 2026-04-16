@@ -392,8 +392,8 @@ morph_pulsebipulse_trirect(t, dt, morph)			// morph controls pwm, zero crossing 
 	}
 	return	morph_osc;
 }
-
-// this is here to avoid require hell
+/*
+// this was here to attempt to avoid require hell
 poly_half20(t, dt, pw)
 {
 	h	= 0;
@@ -410,6 +410,7 @@ poly_half20(t, dt, pw)
 	h2	= (poly_blamp(t7 - t77, dt) + poly_blamp(t6, dt)) / pw * PI * dt + h;
 	return	h2;
 }
+*/
 
 // !! if you call any of the above functions independently you must deal with gain & dc yourself !!
 

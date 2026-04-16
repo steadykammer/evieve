@@ -51,7 +51,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 404.0, 394.0, 229.0, 40.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "@cutoffmode sets Hz (0) or pitch (1, the default) for the cutoff inlet",
                                     "textjustification": 1
                                 }
@@ -543,11 +542,11 @@
                                     "patching_rect": [ 167.0, 428.0, 18.0, 82.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0", "1" ],
+                                            "parameter_enum": [ "0", "1", "2", "3", "4" ],
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup",
-                                            "parameter_mmax": 1,
+                                            "parameter_mmax": 4,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "radiogroup",
                                             "parameter_type": 2
@@ -658,7 +657,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 25.0, 456.0, 98.0, 25.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Select Filter",
                                     "textjustification": 1,
                                     "varname": "comment_dac[2]"
@@ -956,11 +954,28 @@
                         "classnamespace": "box",
                         "openrect": [ 22.0, 55.0, 837.0, 796.0 ],
                         "openrectmode": 0,
+                        "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.3,
+                                    "bubbleside": 3,
+                                    "id": "obj-1",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 32.0, 460.0, 72.0, 40.0 ],
+                                    "presentation_linecount": 2,
+                                    "text": "Morph Outlet",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-44",

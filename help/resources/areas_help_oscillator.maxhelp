@@ -25,6 +25,30 @@
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "id": "obj-53",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 509.0, 208.0, 106.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.classic.osc~\">evi.classic.osc~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
                     "id": "obj-52",
                     "linkbold": 1,
                     "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
@@ -785,7 +809,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 262.0, 311.0, 126.0, 60.0 ],
+                                    "patching_rect": [ 262.0, 311.0, 130.0, 60.0 ],
                                     "text": "[evi_formant_osc] does not work in gen~ alone as it requires an external LUT"
                                 }
                             },
@@ -989,22 +1013,24 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-22",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 596.0, 173.0, 113.0, 20.0 ],
-                                    "text": "[evi_classic_osc]"
+                                    "id": "obj-16",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "" ],
+                                    "patching_rect": [ 599.0, 172.0, 92.0, 22.0 ],
+                                    "text": "evi_classic_osc"
                                 }
                             },
                             {
                                 "box": {
-                                    "id": "obj-11",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 113.0, 380.0, 128.0, 20.0 ],
-                                    "text": "[evi_zeroxoscnoise]"
+                                    "id": "obj-19",
+                                    "maxclass": "newobj",
+                                    "numinlets": 5,
+                                    "numoutlets": 6,
+                                    "outlettype": [ "", "", "", "", "", "" ],
+                                    "patching_rect": [ 116.0, 379.0, 107.0, 22.0 ],
+                                    "text": "evi_zeroxoscnoise"
                                 }
                             }
                         ],
@@ -1029,16 +1055,6 @@
             },
             {
                 "box": {
-                    "id": "obj-22",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 506.0, 185.0, 113.0, 20.0 ],
-                    "text": "[evi.classic.osc~]"
-                }
-            },
-            {
-                "box": {
                     "fontsize": 13.0,
                     "id": "obj-32",
                     "maxclass": "comment",
@@ -1047,6 +1063,17 @@
                     "patching_rect": [ 287.0, 411.0, 162.0, 21.0 ],
                     "text": "quadrature oscillator",
                     "textjustification": 1
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-42",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 3,
+                    "outlettype": [ "signal", "signal", "signal" ],
+                    "patching_rect": [ 509.0, 184.0, 92.0, 22.0 ],
+                    "text": "evi.classic.osc~"
                 }
             },
             {

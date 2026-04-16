@@ -1184,13 +1184,26 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "id": "obj-10",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 334.0, 214.0, 78.0, 40.0 ],
+                                    "text": "Pings",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-14",
@@ -1313,36 +1326,97 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.8,
+                                                    "id": "obj-14",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 374.0, 95.0, 165.0, 51.0 ],
+                                                    "presentation_linecount": 3,
+                                                    "text": "you must give values to the vactrol otherwise there will be no envelope",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-13",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 271.0, 141.0, 32.0, 22.0 ],
+                                                    "text": "62.5"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-11",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 248.0, 102.0, 59.0, 22.0 ],
+                                                    "text": "0.416667"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-42",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 305.0, 142.0, 68.0, 20.0 ],
+                                                    "text": "vactrol fall"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-41",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 309.0, 103.0, 91.0, 20.0 ],
+                                                    "text": "vactrol rise"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-3",
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 246.0, 53.0, 153.0, 22.0 ],
+                                                    "patching_rect": [ 261.0, 53.0, 153.0, 22.0 ],
                                                     "text": "in 3 Resonance @default 2"
                                                 }
                                             },
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 3,
                                                     "id": "obj-12",
                                                     "linecount": 4,
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 24.0, 200.0, 150.0, 60.0 ],
+                                                    "patching_rect": [ 24.0, 198.0, 150.0, 64.0 ],
                                                     "text": "note in gen~ we use a different lpg abstraction which has internal oversampling included",
-                                                    "textjustification": 2
+                                                    "textjustification": 1
                                                 }
                                             },
                                             {
                                                 "box": {
+                                                    "bubble": 1,
                                                     "id": "obj-10",
                                                     "linecount": 4,
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 344.0, 161.0, 158.0, 60.0 ],
-                                                    "text": "in gen~ we piece together the equivalent abstractions from inside the [evi.lpg~] abstraction."
+                                                    "patching_rect": [ 374.0, 159.0, 165.0, 64.0 ],
+                                                    "text": "in gen~ we piece together the equivalent abstractions from inside the [evi.lpg~] abstraction.",
+                                                    "textjustification": 1
                                                 }
                                             },
                                             {
@@ -1351,7 +1425,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 323.0, 418.0, 74.0, 22.0 ],
+                                                    "patching_rect": [ 338.0, 418.0, 74.0, 22.0 ],
                                                     "text": "out 2 vactrol"
                                                 }
                                             },
@@ -1362,7 +1436,7 @@
                                                     "numinlets": 6,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 211.0, 180.0, 131.0, 22.0 ],
+                                                    "patching_rect": [ 226.0, 180.0, 131.0, 22.0 ],
                                                     "text": "evi_control_lpg_buchla"
                                                 }
                                             },
@@ -1373,7 +1447,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 176.0, 219.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 219.0, 89.0, 22.0 ],
                                                     "text": "evi_lpg_buchla"
                                                 }
                                             },
@@ -1384,7 +1458,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 61.0, 22.0 ],
+                                                    "patching_rect": [ 65.0, 14.0, 61.0, 22.0 ],
                                                     "text": "in 1 Audio"
                                                 }
                                             },
@@ -1395,7 +1469,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 211.0, 14.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 226.0, 14.0, 55.0, 22.0 ],
                                                     "text": "in 2 Ping"
                                                 }
                                             },
@@ -1405,7 +1479,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 176.0, 418.0, 63.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 418.0, 63.0, 22.0 ],
                                                     "text": "out 1 LPG"
                                                 }
                                             }
@@ -1415,6 +1489,18 @@
                                                 "patchline": {
                                                     "destination": [ "obj-5", 0 ],
                                                     "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-6", 1 ],
+                                                    "source": [ "obj-11", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-6", 2 ],
+                                                    "source": [ "obj-13", 0 ]
                                                 }
                                             },
                                             {

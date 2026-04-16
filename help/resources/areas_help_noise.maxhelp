@@ -221,6 +221,7 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
                                     "id": "obj-3",
                                     "maxclass": "comment",
                                     "numinlets": 1,
