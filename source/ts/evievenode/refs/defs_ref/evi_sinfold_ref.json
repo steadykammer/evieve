@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "An anti-aliased sine folding waveshaper",
-        "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation.",
+        "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation.",
         "discussion": "This is based on an idea by jhno and Trond Lossius."
     },
     "metadata": {

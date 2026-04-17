@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -49,7 +49,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 349.0, 425.0, 132.0, 23.0 ],
+                                    "patching_rect": [ 350.0, 425.0, 132.0, 23.0 ],
                                     "text": "evi.expsmooth~ 1. 22"
                                 }
                             },
@@ -111,7 +111,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 394.0, 314.0, 164.0, 54.0 ],
+                                    "patching_rect": [ 395.0, 314.0, 164.0, 54.0 ],
                                     "text": "resonance can take very high values but tuning suffers",
                                     "textjustification": 1
                                 }
@@ -169,7 +169,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "float" ],
-                                    "patching_rect": [ 349.0, 385.0, 42.0, 23.0 ],
+                                    "patching_rect": [ 350.0, 385.0, 42.0, 23.0 ],
                                     "text": "* 0.01"
                                 }
                             },
@@ -183,7 +183,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 349.0, 313.0, 57.0, 55.0 ],
+                                    "patching_rect": [ 350.0, 313.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 100.0 ],
@@ -644,7 +644,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 116.0, 336.0, 83.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
