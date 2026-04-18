@@ -516,7 +516,7 @@
     },
     "evi.rcfilter~": {
         "type": "define",
-        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
+        "digest": "Trapezoidal nonliner onepole rc filter emulation",
         "description": "evi.rcfilter~ is a 'max define' for the evi_rcfilter.gendsp gen~ abstraction. Because evi.rcfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the prewarp attribute). Optional smoothing is default off. @see: evi.onepole~ for a multimode linear version."
     },
     "evi.rect.select~": {
@@ -532,7 +532,7 @@
     "evi.reson~": {
         "type": "define",
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
-        "description": "evi.reson~ is a 'max define' for the evi_reson.gendsp gen~ abstraction. Because evi.reson~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear TPT resonant bandpass filter. evi.reson~ has exactly the same response as MSP reson~ and can therefore be used as a drop in replacement, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation."
+        "description": "evi.reson~ is a 'max define' for the evi_reson.gendsp gen~ abstraction. Because evi.reson~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear TPT resonant bandpass filter. evi.reson~ has a very similar response as MSP reson~ and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation."
     },
     "evi.ringmod.diode~": {
         "type": "abstraction",
@@ -567,7 +567,7 @@
     "evi.sinfold~": {
         "type": "define",
         "digest": "An anti-aliased sine folding waveshaper",
-        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation."
+        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation."
     },
     "evi.skfinputmix~": {
         "type": "define",

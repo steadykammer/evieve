@@ -98,7 +98,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 155.0, 182.0, 50.0, 36.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "speed (Hz)"
                                 }
                             },
@@ -126,7 +125,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 191.0, 301.0, 93.0, 25.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Fund in Hz",
                                     "textjustification": 1
                                 }
@@ -802,8 +800,20 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 103.0, 188.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 103.0, 188.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 1.1 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[14]",
+                                            "parameter_mmax": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[14]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
                                 }
                             },
                             {
@@ -1933,7 +1943,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 377.0, 516.0, 47.0, 21.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "2700"
                                 }
                             },
@@ -3025,7 +3034,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3402,8 +3411,20 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 193.0, 296.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 193.0, 296.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 1.1 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[15]",
+                                            "parameter_mmax": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[15]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
                                 }
                             },
                             {
@@ -3953,8 +3974,10 @@
             }
         ],
         "parameters": {
+            "obj-10::obj-12": [ "number[15]", "number[15]", 0 ],
             "obj-10::obj-28": [ "number[13]", "number", 0 ],
             "obj-10::obj-31": [ "number[11]", "number[3]", 0 ],
+            "obj-11::obj-12": [ "number[14]", "number[14]", 0 ],
             "obj-11::obj-26": [ "umenu", "umenu", 0 ],
             "obj-11::obj-28": [ "number[6]", "number", 0 ],
             "obj-11::obj-31": [ "number[10]", "number[3]", 0 ],

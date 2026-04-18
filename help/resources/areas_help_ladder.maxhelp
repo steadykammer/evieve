@@ -21,12 +21,23 @@
             {
                 "box": {
                     "fontsize": 13.0,
+                    "id": "obj-41",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 439.0, 381.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
                     "id": "obj-19",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 124.0, 346.0, 363.0, 21.0 ],
-                    "presentation_linecount": 2,
                     "text": "novel two pole (12dB) nonlinear ladder with allpass alignment"
                 }
             },
@@ -535,7 +546,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 441.0, 394.0, 46.0, 77.0 ]
+                    "patching_rect": [ 442.0, 404.0, 46.0, 77.0 ]
                 }
             },
             {

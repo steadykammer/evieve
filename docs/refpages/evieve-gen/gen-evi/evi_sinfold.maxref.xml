@@ -11,7 +11,7 @@
         evi_sinfold.gendsp requires the GenExpr file(s): <br />
         <o>evi_sinfold_lib</o>.genexpr <br />
          <br />
-	    Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation. <br />
+	    Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation. <br />
     </description>
     <methodlist />
     <constructorlist>

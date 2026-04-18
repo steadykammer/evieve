@@ -721,7 +721,7 @@
         "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~" ]
     },
     "evi.rcfilter~": {
-        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
+        "digest": "Trapezoidal nonliner onepole rc filter emulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],

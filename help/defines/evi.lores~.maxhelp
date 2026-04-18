@@ -622,7 +622,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 125.0, 336.0, 60.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -892,8 +891,20 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 473.0, 434.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 473.0, 434.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 0.5 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[4]",
+                                            "parameter_mmax": 1.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[4]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[1]"
                                 }
                             },
                             {
@@ -1703,7 +1714,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2213,6 +2224,7 @@
             "obj-11::obj-31": [ "live.dial[6]", "Frequency", 0 ],
             "obj-11::obj-8": [ "tab", "tab", 0 ],
             "obj-2::obj-21": [ "number", "number", 0 ],
+            "obj-2::obj-22": [ "number[4]", "number[4]", 0 ],
             "obj-2::obj-32::obj-21::obj-6": [ "live.tab[3]", "live.tab[1]", 0 ],
             "obj-2::obj-32::obj-35": [ "[5]", "Level", 0 ],
             "obj-5::obj-14": [ "toggle", "toggle", 0 ],

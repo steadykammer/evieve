@@ -22,6 +22,18 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 508.0, 208.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,
@@ -578,7 +590,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 747.0, 40.0, 158.0, 100.0 ],
+                                    "patching_rect": [ 747.0, 40.0, 161.0, 100.0 ],
                                     "text": "in gen~ this will by default only work @48kHz samplerate, unless you feed in the coefficients from an external source. @see the MSP abstraction helpfile for details"
                                 }
                             },

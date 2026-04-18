@@ -1474,7 +1474,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1613,8 +1613,8 @@
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "signal", "signal" ],
+                                    "numoutlets": 3,
+                                    "outlettype": [ "signal", "signal", "signal" ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {
@@ -1630,12 +1630,22 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.0, 683.0, 54.0, 22.0 ],
+                                                    "text": "out 2 AP"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-5",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 322.0, 683.0, 55.0, 22.0 ],
-                                                    "text": "out 2 HP"
+                                                    "text": "out 3 HP"
                                                 }
                                             },
                                             {
@@ -1709,6 +1719,12 @@
                                                 "patchline": {
                                                     "destination": [ "obj-5", 0 ],
                                                     "source": [ "obj-3", 2 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-6", 0 ],
+                                                    "source": [ "obj-3", 1 ]
                                                 }
                                             }
                                         ]
@@ -1802,7 +1818,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-14", 0 ],
-                                    "source": [ "obj-5", 1 ]
+                                    "source": [ "obj-5", 2 ]
                                 }
                             }
                         ],
@@ -1832,7 +1848,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

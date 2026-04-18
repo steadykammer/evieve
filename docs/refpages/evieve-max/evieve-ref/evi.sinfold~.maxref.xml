@@ -9,7 +9,7 @@
 		<b>evi.sinfold~</b> is a 'max define' for the <o>evi_sinfold</o>.gendsp gen~ abstraction.
 		Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By varying the @drive attribute clear tonal shifts are apparent. Can be driven hard with clean anti-aliased saturation. <br />
+		Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

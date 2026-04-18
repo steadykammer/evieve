@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 322.0, 232.0, 660.0, 568.0 ],
+        "rect": [ 100.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -20,6 +20,18 @@
         "integercoordinates": 1,
         "title": "Crossover filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-41",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 418.0, 249.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
             {
                 "box": {
                     "border": 1,

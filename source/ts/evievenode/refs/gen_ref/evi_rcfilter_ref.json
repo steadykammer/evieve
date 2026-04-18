@@ -3,7 +3,7 @@
         "name": "evi_rcfilter",
         "child": "evi.rcfilter~",
         "category": "evieve",
-        "digest": "Linear trapezoidal nonliner onepole rc filter emulation",
+        "digest": "Trapezoidal nonliner onepole rc filter emulation",
         "description": "A basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the <m>prewarp</m> attribute). Optional smoothing is default off. @see: <o>evi.onepole~</o> for a multimode linear version."
     },
     "constructor": {

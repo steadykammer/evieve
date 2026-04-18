@@ -17,6 +17,18 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-23",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 615.0, 431.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,
@@ -984,7 +996,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 618.0, 424.0, 46.0, 101.0 ]
+                    "patching_rect": [ 618.0, 454.0, 46.0, 101.0 ]
                 }
             }
         ],

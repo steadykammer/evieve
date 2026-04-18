@@ -2,6 +2,24 @@
 require("evi_polyblep_utility.genexpr");
 require("evi_polyblep_two.genexpr");
 
+// this is here to avoid require hell
+poly_half20(t, dt, pw)
+{
+	h	= 0;
+	fdp	= 1.2732395447351628;		// 4 / PI
+	t6	= (pw * 0.5 + t + 0.75) - pw;
+	t7	= t6;
+	t6	= wrap(t6, 0, 1);
+	t77	= t7 - wrap(t7, 0, 1);
+	if (t6 < pw) {
+		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+	} else {
+		h	= 0 - pw * fdp;
+	}
+	h2	= (poly_blamp(t7 - t77, dt) + poly_blamp(t6, dt)) / pw * PI * dt + h;
+	return	h2;
+}
+
 classicOscSelect(phase, nrm, width, gain, type, wav)
 {
     osc = 0;
@@ -190,6 +208,7 @@ dcn			= latch(dci,	oscsync);
 ft			= latch(filt,	oscsync);
 
 osc = 0;
+
 if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
     osc	= sin73(TWOPI * t);                 // or should be cos() here ?
 }

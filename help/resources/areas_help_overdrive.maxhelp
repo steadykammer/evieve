@@ -20,6 +20,18 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-41",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 470.0, 378.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,

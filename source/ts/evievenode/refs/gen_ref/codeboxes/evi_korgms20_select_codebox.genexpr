@@ -160,9 +160,9 @@ SandKtwo(X0, X1, hz, k1, M1, M2, load)
 
     return  dcblock(Y0), dcblock(Y1);
 }
-
+/*
 // fixed 2x quasi oversampling (hermite6)
-SandKtwo_2x6( XIN, hz, k1, M1, M2, load )
+SandKtwo_2x6(XIN, hz, k1, M1, M2, load)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -201,9 +201,9 @@ SandKtwo_2x6( XIN, hz, k1, M1, M2, load )
 
 	return dcblock(y0_0);
 }
-
+*/
 // fixed 2x quasi oversampling (cubic4)
-SandKtwo_2x4( XIN, hz, k1, M1, M2, load )
+SandKtwo_2x4(XIN, hz, k1, M1, M2, load)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -251,8 +251,9 @@ hz	    = in2;          // Hz
 k1      = in3 + in3;    // 0..1 .. 0..2
 
 M1		= int(filter);                                  // switch not morph
-if (filtersmooth > 0) 
+if (filtersmooth > 0) {
 	M1	= eviSline(M1, mstosamps(filtersmooth));
+}
 M2		= 1 - M1;
 
 // TPT Korg OTA filter

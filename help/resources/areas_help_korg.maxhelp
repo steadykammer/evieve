@@ -20,6 +20,18 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-41",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 424.0, 339.0, 52.0, 21.0 ],
+                    "text": "gen~",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,
@@ -456,7 +468,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 427.0, 346.0, 46.0, 92.0 ]
+                    "patching_rect": [ 427.0, 362.0, 46.0, 92.0 ]
                 }
             },
             {

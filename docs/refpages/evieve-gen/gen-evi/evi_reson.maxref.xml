@@ -13,7 +13,7 @@
          <br />
         evi_reson is also available in MSP as: <o>evi.reson~</o>. <br />
          <br />
-	    A linear TPT resonant bandpass filter. <o>evi.reson~</o> has exactly the same response as MSP <o>reson~</o> and can therefore be used as a drop in replacement, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation. <br />
+	    A linear TPT resonant bandpass filter. <o>evi.reson~</o> has a very similar response as MSP <o>reson~</o> and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation. <br />
     </description>
     <methodlist />
     <constructorlist>

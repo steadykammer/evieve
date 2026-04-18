@@ -283,6 +283,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        The code of this abstraction can also be used entirely inside gen~ / GenExpr using the <o>evi_lpg_buchla</o>.gendsp abstraction (with internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control. <br />
+        The code of this abstraction can also be used entirely inside gen~ / GenExpr using the <o>evi_lpg_buchla</o>.gendsp abstraction (with internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control. See the 'gen~' tab of the helpfile for details. <br />
 	</discussion>
 </c74object>

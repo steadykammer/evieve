@@ -23,7 +23,7 @@ tremAmpMix(xin, lfomix)
 Param   rate(0.5, min=0, max=1);
 Param   depth(0.75, min=0, max=1);
 Param   spread(0.25, min=0, max=1);
-Param   drive(0.5, min=0, max=1);   // dB 0..10 saturation range
+Param   drive(0.5, min=0, max=1);   // scaled downstream as dB 0..10 saturation range
 
 // bypass, ramp up, ramp down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise
 Param   lfowave(4, min=0, max=10);

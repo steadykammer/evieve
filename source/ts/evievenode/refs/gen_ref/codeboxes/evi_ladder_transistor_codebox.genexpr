@@ -285,7 +285,7 @@ Param	oversample(1, min=0, max=1);		// quasi oversample whole filter
 os		= int(oversample);
 boost	= 1.412538;							// +3dB
 
-freq, limit	= evi_hzpitchmods(in2, in3, in4, mode=cfmode, smooth=cfsmooth, high=0.41);
+freq, limit	= evi_hzpitchmods(in2, in3, in4, mode=cutoffmode, smooth=cutoffsmooth, high=0.41);
 				// + oops
 res		= clip(in5 + 0.02, 0, 2);			// 0..1 is as expected, ..2 still works but...
 if (ressmooth > 0) {						// ...lose a little tuning accuracy above 2kHz

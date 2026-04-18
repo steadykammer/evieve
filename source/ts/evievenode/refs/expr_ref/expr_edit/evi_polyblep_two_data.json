@@ -561,38 +561,6 @@
                     "digest": "Bandlimted Morph"
                 }
             ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "poly_half20",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": "Phase 0..1"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": "Phase increment"
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "pw",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
         }
     ],
     "seealso": [

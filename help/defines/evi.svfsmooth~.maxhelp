@@ -971,7 +971,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 32.0, 460.0, 72.0, 40.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Morph Outlet",
                                     "textjustification": 1
                                 }
@@ -1748,7 +1747,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2122,6 +2121,17 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 539.0, 231.0, 19.0, 22.0 ],
+                                                    "text": "f"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-22",
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
@@ -2149,7 +2159,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 539.0, 231.0, 80.0, 22.0 ],
+                                                    "patching_rect": [ 539.0, 177.0, 80.0, 22.0 ],
                                                     "text": "param morph"
                                                 }
                                             },
@@ -2347,6 +2357,19 @@
                                                     "patching_rect": [ 153.0, 285.0, 273.0, 22.0 ],
                                                     "text": "evi_svfsmooth @cutoffmode 0"
                                                 }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "hidden": 1,
+                                                    "id": "obj-24",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 560.0, 230.0, 141.0, 24.0 ],
+                                                    "text": "because gen~ bug",
+                                                    "textjustification": 1
+                                                }
                                             }
                                         ],
                                         "lines": [
@@ -2436,7 +2459,7 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-5", 3 ],
+                                                    "destination": [ "obj-6", 0 ],
                                                     "source": [ "obj-3", 0 ]
                                                 }
                                             },
@@ -2444,6 +2467,12 @@
                                                 "patchline": {
                                                     "destination": [ "obj-4", 0 ],
                                                     "source": [ "obj-5", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-5", 3 ],
+                                                    "source": [ "obj-6", 0 ]
                                                 }
                                             },
                                             {
