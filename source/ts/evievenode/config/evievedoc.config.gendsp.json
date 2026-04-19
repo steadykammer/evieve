@@ -2274,7 +2274,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "oscillator"
@@ -2298,7 +2298,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "oscillator"
@@ -2786,7 +2786,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": [
                     "filter"
@@ -3506,7 +3506,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },

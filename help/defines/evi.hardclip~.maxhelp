@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -61,8 +61,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 304.0, 562.0, 43.0, 23.0 ],
-                                    "text": "*~ 0.5"
+                                    "patching_rect": [ 304.0, 562.0, 50.0, 23.0 ],
+                                    "text": "*~ 0.25"
                                 }
                             },
                             {
@@ -218,7 +218,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.hardclip~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -531,8 +531,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 615.0, 180.0, 65.0, 21.0 ],
-                                    "text": "add gain",
-                                    "textjustification": 0
+                                    "text": "add gain"
                                 }
                             },
                             {
@@ -664,7 +663,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 49.0, 179.0, 150.0, 69.0 ],
+                                    "patching_rect": [ 49.0, 179.0, 152.0, 69.0 ],
                                     "text": "select the anti aliasing level depending on your use case",
                                     "textjustification": 1
                                 }
@@ -695,11 +694,11 @@
                                     "patching_rect": [ 115.0, 251.0, 18.0, 98.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0", "1" ],
+                                            "parameter_enum": [ "0", "1", "2", "3", "4", "5" ],
                                             "parameter_initial": [ 5.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup",
-                                            "parameter_mmax": 1,
+                                            "parameter_mmax": 5,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "radiogroup",
                                             "parameter_type": 2
@@ -995,7 +994,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 109.0, 336.0, 97.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -2249,7 +2247,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,

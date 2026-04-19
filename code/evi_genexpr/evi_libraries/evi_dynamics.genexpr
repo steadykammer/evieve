@@ -20,7 +20,7 @@ limiterHardSoft(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 	envAttack	= 0.000001;			// secs, looks like bullshit to me
 	envRelease	= release * 0.001;	// ms to secs
 
-	e1	= logAttackDecay(inPeak, envAttack, envRelease);
+	e1	= logattackdecay(inPeak, envAttack, envRelease);
 	e2	= biquadDf2(e1, a0, a1, a2, b1, b2);					// e2 is bullshit
 	k0	= maximum(((e2 - 1) + knee), 0) * (1 / knee);
 	k1	= minimum((k0), 2) * 0.25;	// you think this is wrong, but it is right
