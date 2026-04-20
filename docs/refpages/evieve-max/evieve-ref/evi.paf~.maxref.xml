@@ -111,7 +111,7 @@
 		<seealso name="evi.vosim.basic~"> </seealso>
 		<seealso name="evi.4wave~"> </seealso>
 		<seealso name="evi.blitwaves~"> </seealso>
-		<seealso name="evi.lockhart.cascade~"> </seealso>
+		<seealso name="evi.wavefolder.cascade~"> </seealso>
 		<seealso name="evi.freqshift.weaver~"> </seealso>
 		<seealso name="evi.ringmod~"> </seealso>
 	</seealsolist>

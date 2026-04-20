@@ -10,6 +10,7 @@
         },
         "classnamespace": "box",
         "rect": [ 119.0, 117.0, 886.0, 690.0 ],
+        "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -35,7 +36,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ],
-                    "text": "1 192000. 64 256"
+                    "text": "1 384000. 64 256"
                 }
             },
             {
@@ -456,7 +457,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 780.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -479,7 +480,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 718.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -502,7 +503,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 656.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -764,6 +765,7 @@
             },
             {
                 "box": {
+                    "background": 1,
                     "hidden": 1,
                     "id": "obj-37",
                     "linecount": 2,
@@ -771,7 +773,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 64.0, 73.0, 582.0, 33.0 ],
-                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 0. @nonlin 1 @vactrolscalar 100. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalersmooth 0. @sweepsmooth 0.",
+                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 1. @nonlin 1 @vactrolscalar 100. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalersmooth 0. @sweepsmooth 0.",
                     "varname": "evievedoc"
                 }
             }

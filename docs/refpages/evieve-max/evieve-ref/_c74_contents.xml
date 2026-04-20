@@ -73,8 +73,6 @@
 <refpage name='evi.ladder.transistor~.maxref.xml'/>
 <refpage name='evi.lagsmooth~.maxref.xml'/>
 <refpage name='evi.limiterfast~.maxref.xml'/>
-<refpage name='evi.lockhart.cascade~.maxref.xml'/>
-<refpage name='evi.lockhart.simple~.maxref.xml'/>
 <refpage name='evi.logahr~.maxref.xml'/>
 <refpage name='evi.logattackdecay~.maxref.xml'/>
 <refpage name='evi.logdecay~.maxref.xml'/>
@@ -134,6 +132,8 @@
 <refpage name='evi.velvetnoise~.maxref.xml'/>
 <refpage name='evi.vosim.basic~.maxref.xml'/>
 <refpage name='evi.warmer~.maxref.xml'/>
+<refpage name='evi.wavefolder.cascade~.maxref.xml'/>
+<refpage name='evi.wavefolder~.maxref.xml'/>
 <refpage name='evi.weightingcoeffs.maxref.xml'/>
 <refpage name='evi.xfade~.maxref.xml'/>
 <refpage name='evi.zeroxcount~.maxref.xml'/>

@@ -510,20 +510,6 @@
         "keywords": [],
         "seealso": [ "evi.clip~", "evi.hardclip~", "evi.softclip~" ]
     },
-    "evi.lockhart.cascade~": {
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
-        "keywords": [],
-        "seealso": [ "evi.lockhart.simple~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
-    },
-    "evi.lockhart.simple~": {
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
-        "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
-        "keywords": [],
-        "seealso": [ "evi.lockhart.cascade~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
-    },
     "evi.logahr~": {
         "digest": "Attack/hold/release envelope follower",
         "module": "evieve-ref",
@@ -571,7 +557,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.vactrol~", "evi.lockhart.cascade~", "evi.lockhart.simple~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
+        "seealso": [ "evi.vactrol~", "evi.wavefolder.cascade~", "evi.wavefolder~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
     },
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",
@@ -655,7 +641,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.formantosc~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
+        "seealso": [ "evi.formantosc~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.pan~": {
         "digest": "Pan audio signals",
@@ -816,7 +802,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
+        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
@@ -928,7 +914,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions" ],
         "keywords": [],
-        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.4wave~", "evi.blitwaves~", "evi.lockhart.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
+        "seealso": [ "evi.formantosc~", "evi.paf~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.warmer~": {
         "digest": "Complex saturation processor with options \n",
@@ -936,6 +922,20 @@
         "category": [ "evieve", "evieve Abstractions" ],
         "keywords": [],
         "seealso": [ "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.overdrive.tanh~", "evi.overdrive.atan~", "evi.overdrive.sqrt~" ]
+    },
+    "evi.wavefolder.cascade~": {
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": [ "evi.wavefolder~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
+    },
+    "evi.wavefolder~": {
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": [ "evi.wavefolder.cascade~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.weightingcoeffs": {
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",

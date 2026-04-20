@@ -84,7 +84,7 @@
         "evi.vosim.basic~",
         "evi.4wave~",
         "evi.blitwaves~",
-        "evi.lockhart.cascade~",
+        "evi.wavefolder.cascade~",
         "evi.freqshift.weaver~",
         "evi.ringmod~"
     ]

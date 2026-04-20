@@ -349,8 +349,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "logAttackDecay",
-                                    "raw": "logAttackDecay"
+                                    "name": "logattackdecay",
+                                    "raw": "logattackdecay"
                                 }
                             }
                         }

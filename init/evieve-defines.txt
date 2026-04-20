@@ -208,11 +208,11 @@ max define mc.evi.ladder.transistor~ mc.gen~ @gen evi_ladder_transistor.gendsp @
 max define evi.limiterfast~ gen~ @gen evi_limiterfast.gendsp;
 max define mc.evi.limiterfast~ mc.gen~ @gen evi_limiterfast.gendsp @chans 2;
 
-max define evi.lockhart.cascade~ gen~ @gen evi_lockhart_cascade.gendsp;
-max define mc.evi.lockhart.cascade~ mc.gen~ @gen evi_lockhart_cascade.gendsp @chans 2;
+max define evi.wavefolder.cascade~ gen~ @gen evi_wavefolder_cascade.gendsp;
+max define mc.evi.wavefolder.cascade~ mc.gen~ @gen evi_wavefolder_cascade.gendsp @chans 2;
 
-max define evi.lockhart.simple~ gen~ @gen evi_lockhart_simple.gendsp;
-max define mc.evi.lockhart.simple~ mc.gen~ @gen evi_lockhart_simple.gendsp @chans 2;
+max define evi.wavefolder~ gen~ @gen evi_wavefolder.gendsp;
+max define mc.evi.wavefolder~ mc.gen~ @gen evi_wavefolder.gendsp @chans 2;
 
 max define evi.lores~ gen~ @gen evi_lores.gendsp;
 max define mc.evi.lores~ mc.gen~ @gen evi_lores.gendsp @chans 2;

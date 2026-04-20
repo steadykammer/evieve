@@ -127,9 +127,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 25.0, 374.0, 399.0, 26.0 ],
+                    "patching_rect": [ 25.0, 374.0, 401.0, 26.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 547.0, 349.0, 400.0, 26.0 ],
+                    "presentation_rect": [ 547.0, 349.0, 401.0, 26.0 ],
                     "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
                 }
             },
@@ -212,7 +212,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 927, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 928, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -3040,6 +3040,105 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-12",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 59.0, 119.0, 424.0, 242.0 ],
+                                        "subpatcher_template": "<none>",
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-1",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 142.0, 117.0, 122.0, 33.0 ],
+                                                    "text": "^ i want the helpfiles but not the listing"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-27",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "", "", "", "" ],
+                                                    "patching_rect": [ 63.0, 95.0, 250.0, 22.0 ],
+                                                    "text": "route (choose...) evi.modalres~ mc.evi.listgen"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-7",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 65.0, 117.0, 72.0, 20.0 ],
+                                                    "text": "^ legacy"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-4",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 63.0, 48.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-8",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 294.0, 149.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-8", 0 ],
+                                                    "source": [ "obj-27", 3 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-27", 0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            }
+                                        ],
+                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                                    },
+                                    "patching_rect": [ 456.0, 291.0, 46.0, 22.0 ],
+                                    "text": "p route"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-65",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -3453,17 +3552,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-27",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "", "" ],
-                                    "patching_rect": [ 456.0, 291.0, 105.0, 22.0 ],
-                                    "text": "route (choose...)"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-20",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -3597,48 +3685,12 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 88.0, 492.0, 30.0, 30.0 ]
                                 }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-7",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 382.0, 292.0, 72.0, 20.0 ],
-                                    "text": "legacy",
-                                    "textjustification": 2
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-12",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 176.0, 439.0, 150.0, 20.0 ],
-                                    "text": "<<<<<<<<<--------------"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-4",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 294.0, 439.0, 271.0, 87.0 ],
-                                    "text": "NOTE: as of Max 9.0.7, only up to 64 items can be displayed in tab. however, from Max 9.1.0 we will have up to 10000 items, so you do not have to do anything to make sure this displays correctly all our objects - just update to 9.1.0 and it will work"
-                                }
                             }
                         ],
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-27", 0 ],
-                                    "midpoints": [ 465.5, 282.0, 465.5, 282.0 ],
+                                    "destination": [ "obj-12", 0 ],
                                     "source": [ "obj-10", 0 ]
                                 }
                             },
@@ -3647,6 +3699,13 @@
                                     "destination": [ "obj-2", 0 ],
                                     "midpoints": [ 144.5, 375.0, 144.5, 375.0 ],
                                     "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "midpoints": [ 465.5, 329.0, 144.5, 329.0 ],
+                                    "source": [ "obj-12", 0 ]
                                 }
                             },
                             {
@@ -3687,13 +3746,6 @@
                                     "destination": [ "obj-19", 0 ],
                                     "midpoints": [ 256.5, 118.5, 256.5, 118.5 ],
                                     "source": [ "obj-20", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-11", 0 ],
-                                    "midpoints": [ 551.5, 328.5, 144.5, 328.5 ],
-                                    "source": [ "obj-27", 1 ]
                                 }
                             },
                             {

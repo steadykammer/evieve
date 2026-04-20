@@ -1,10 +1,10 @@
 {
     "object": {
-        "name": "evi_lockhart_simple",
-        "child": "evi.lockhart.simple~",
+        "name": "evi_wavefolder",
+        "child": "evi.wavefolder~",
         "category": "evieve",
         "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
-        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See <o>evi.lockhart.cascade~</o> for a version with more options."
+        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See <o>evi.wavefolder.cascade~</o> for a version with more options."
     },
     "constructor": {
         "inlets": "osc"
@@ -53,8 +53,8 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "evi_lockhart_cascade",
-            "display": "evi_lockhart_cascade"
+            "name": "evi_wavefolder_cascade",
+            "display": "evi_wavefolder_cascade"
         },
         {
             "name": "evi_paf",

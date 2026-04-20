@@ -106,7 +106,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 31.0, 532.0, 130.0, 21.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "excessive amplitude",
                                     "textjustification": 1
                                 }
@@ -229,8 +228,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 4,
                                     "outlettype": [ "signal", "signal", "signal", "signal" ],
-                                    "patching_rect": [ 193.0, 336.0, 123.0, 23.0 ],
-                                    "text": "evi.lockhart.simple~",
+                                    "patching_rect": [ 193.0, 336.0, 99.0, 23.0 ],
+                                    "text": "evi.wavefolder~",
                                     "varname": "gen~_AA"
                                 }
                             },
@@ -627,7 +626,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.lockhart.simple~", 660 ],
+                                    "jsarguments": [ "evi.wavefolder~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -661,7 +660,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 400.0, 214.0, 59.0, 21.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "amount",
                                     "textjustification": 1
                                 }
@@ -824,7 +822,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 120.0, 336.0, 68.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -858,7 +855,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.lockhart.simple~ 1 1 0 1 0 oscillator",
+                    "text": "v8 evi.helpstarter.js evi.wavefolder~ 1 1 0 1 0 oscillator",
                     "textfile": {
                         "filename": "evi.helpstarter.js",
                         "flags": 0,
@@ -956,7 +953,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 53.0, 541.0, 38.0, 21.0 ],
+                                    "patching_rect": [ 53.0, 526.0, 38.0, 21.0 ],
                                     "text": "1",
                                     "textjustification": 2
                                 }
@@ -967,7 +964,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 53.0, 524.0, 38.0, 21.0 ],
+                                    "patching_rect": [ 53.0, 509.0, 38.0, 21.0 ],
                                     "text": "2",
                                     "textjustification": 2
                                 }
@@ -978,7 +975,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 53.0, 508.0, 38.0, 21.0 ],
+                                    "patching_rect": [ 53.0, 493.0, 38.0, 21.0 ],
                                     "text": "3",
                                     "textjustification": 2
                                 }
@@ -989,7 +986,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 53.0, 492.0, 38.0, 21.0 ],
+                                    "patching_rect": [ 53.0, 477.0, 38.0, 21.0 ],
                                     "text": "4",
                                     "textjustification": 2
                                 }
@@ -1000,7 +997,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 53.0, 475.0, 38.0, 21.0 ],
+                                    "patching_rect": [ 53.0, 460.0, 38.0, 21.0 ],
                                     "text": "Off",
                                     "textjustification": 2
                                 }
@@ -1042,7 +1039,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 92.0, 454.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 92.0, 439.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1087,7 +1084,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 460.0, 452.0, 300.0, 23.0 ],
+                                    "patching_rect": [ 460.0, 492.0, 300.0, 23.0 ],
                                     "text_width": 81.0
                                 }
                             },
@@ -1113,7 +1110,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 93.0, 478.0, 18.0, 82.0 ],
+                                    "patching_rect": [ 93.0, 463.0, 18.0, 82.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0", "1", "2", "3", "4" ],
@@ -1138,7 +1135,7 @@
                                     "numinlets": 5,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 128.0, 507.0, 158.0, 23.0 ],
+                                    "patching_rect": [ 128.0, 492.0, 158.0, 23.0 ],
                                     "text": "selector~ 4 1"
                                 }
                             },
@@ -1220,7 +1217,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 460.0, 507.0, 300.0, 130.0 ]
+                                    "patching_rect": [ 460.0, 522.0, 300.0, 130.0 ]
                                 }
                             },
                             {
@@ -1230,7 +1227,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 328.0, 507.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 328.0, 522.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1263,7 +1260,7 @@
                                     "filename": "evi.helpdetails.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.lockhart.simple~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.lockhart.simple~.maxhelp" ],
+                                    "jsarguments": [ "evi.wavefolder~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.wavefolder~.maxhelp" ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1306,7 +1303,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "signal", "signal", "signal", "signal" ],
                                     "patching_rect": [ 163.0, 452.0, 123.0, 23.0 ],
-                                    "text": "evi.lockhart.simple~",
+                                    "text": "evi.wavefolder~",
                                     "varname": "evieveObject"
                                 }
                             },
@@ -1379,6 +1376,23 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-3", 0 ],
+                                    "order": 2,
+                                    "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "midpoints": [ 137.5, 518.5, 337.5, 518.5 ],
+                                    "order": 1,
+                                    "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-8", 0 ],
+                                    "midpoints": [ 137.5, 518.5, 469.5, 518.5 ],
+                                    "order": 0,
                                     "source": [ "obj-17", 0 ]
                                 }
                             },
@@ -1429,21 +1443,6 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-17", 1 ],
-                                    "order": 2,
-                                    "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-6", 0 ],
-                                    "order": 1,
-                                    "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-8", 0 ],
-                                    "order": 0,
                                     "source": [ "obj-5", 0 ]
                                 }
                             }
@@ -1466,7 +1465,7 @@
                     "filename": "evi.helpname.js",
                     "id": "obj-6",
                     "ignoreclick": 1,
-                    "jsarguments": [ "evi.lockhart.simple~" ],
+                    "jsarguments": [ "evi.wavefolder~" ],
                     "maxclass": "v8ui",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -1512,7 +1511,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "mc.evi.lockhart.simple~", 660 ],
+                                    "jsarguments": [ "mc.evi.wavefolder~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1537,7 +1536,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.lockhart.simple~ is also available as an 'mc' Object",
+                                    "text": "evi.wavefolder~ is also available as an 'mc' Object",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1549,7 +1548,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
                                     "patching_rect": [ 140.0, 336.0, 144.0, 23.0 ],
-                                    "text": "mc.evi.lockhart.simple~",
+                                    "text": "mc.evi.wavefolder~",
                                     "varname": "evieveObjectMc"
                                 }
                             },
@@ -1754,7 +1753,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.lockhart.simple~", 660 ],
+                                    "jsarguments": [ "evi.wavefolder~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1779,7 +1778,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.lockhart.simple~ algorithm is also available inside the gen~ environment",
+                                    "text": "The evi.wavefolder~ algorithm is also available inside the gen~ environment",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1865,8 +1864,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 4,
                                                     "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 191.0, 267.0, 114.0, 22.0 ],
-                                                    "text": "evi_lockhart_simple"
+                                                    "patching_rect": [ 191.0, 267.0, 89.0, 22.0 ],
+                                                    "text": "evi_wavefolder"
                                                 }
                                             },
                                             {
@@ -1937,7 +1936,7 @@
                                         ]
                                     },
                                     "patching_rect": [ 193.0, 306.0, 309.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.lockhart.simple~_inside_gen~",
+                                    "text": "gen~ @title using_evi.wavefolder~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
                             },

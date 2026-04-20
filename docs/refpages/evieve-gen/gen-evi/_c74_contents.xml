@@ -94,8 +94,6 @@
 <refpage name='evi_lagsmooth.maxref.xml'/>
 <refpage name='evi_limiterfast.maxref.xml'/>
 <refpage name='evi_line.maxref.xml'/>
-<refpage name='evi_lockhart_cascade.maxref.xml'/>
-<refpage name='evi_lockhart_simple.maxref.xml'/>
 <refpage name='evi_logahr.maxref.xml'/>
 <refpage name='evi_logattackdecay.maxref.xml'/>
 <refpage name='evi_logdecay.maxref.xml'/>
@@ -165,6 +163,8 @@
 <refpage name='evi_velvetnoise.maxref.xml'/>
 <refpage name='evi_vosim_basic.maxref.xml'/>
 <refpage name='evi_warmer.maxref.xml'/>
+<refpage name='evi_wavefolder.maxref.xml'/>
+<refpage name='evi_wavefolder_cascade.maxref.xml'/>
 <refpage name='evi_zerox.maxref.xml'/>
 <refpage name='evi_zeroxcount.maxref.xml'/>
 <refpage name='evi_zeroxoscnoise.maxref.xml'/>

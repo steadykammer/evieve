@@ -272,8 +272,8 @@
 	<!--SEEALSO-->
 	<seealsolist>
 		<seealso name="evi.vactrol~"> </seealso>
-		<seealso name="evi.lockhart.cascade~"> </seealso>
-		<seealso name="evi.lockhart.simple~"> </seealso>
+		<seealso name="evi.wavefolder.cascade~"> </seealso>
+		<seealso name="evi.wavefolder~"> </seealso>
 		<seealso name="evi.modalres~"> </seealso>
 		<seealso name="evi.ringmod.diode~"> </seealso>
 		<seealso name="evi.formletfilter~"> </seealso>

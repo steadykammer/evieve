@@ -35,13 +35,23 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 197.0, 161.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "calccount": 4,
+                                    "id": "obj-6",
+                                    "maxclass": "scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 651.0, 365.0, 65.0, 65.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "format": 6,
@@ -458,6 +468,12 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
                                     "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "source": [ "obj-16", 1 ]
                                 }
                             },
                             {
@@ -1035,8 +1051,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 616.0, 367.0, 54.0, 21.0 ],
-                                    "text": "MSP"
+                                    "patching_rect": [ 616.0, 367.0, 69.0, 21.0 ],
+                                    "text": "like MSP"
                                 }
                             },
                             {
@@ -1321,6 +1337,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-26", 0 ],
+                                    "midpoints": [ 269.5, 350.0, 561.5, 350.0 ],
                                     "order": 0,
                                     "source": [ "obj-10", 0 ]
                                 }
@@ -1403,6 +1420,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-26", 1 ],
+                                    "midpoints": [ 372.5, 341.328125, 604.5, 341.328125 ],
                                     "order": 0,
                                     "source": [ "obj-8", 0 ]
                                 }
@@ -1525,7 +1543,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 411.0, 555.0, 212.0, 65.0 ],
+                                    "patching_rect": [ 411.0, 555.0, 215.0, 65.0 ],
                                     "text": "For a better gen~ frequency shifter, @see: [evi.freqshift.weaver~] (which does not rely on external coefficients)",
                                     "textjustification": 1
                                 }

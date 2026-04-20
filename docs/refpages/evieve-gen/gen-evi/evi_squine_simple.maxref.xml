@@ -92,7 +92,7 @@
         <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
         <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
         <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
-        <seealso name='evi_lockhart_cascade' display='evi_lockhart_cascade' type='genrefpage' />
+        <seealso name='evi_wavefolder_cascade' display='evi_wavefolder_cascade' type='genrefpage' />
         <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
         <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
     </seealsolist>

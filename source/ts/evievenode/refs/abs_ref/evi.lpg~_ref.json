@@ -237,8 +237,8 @@
     },
     "seealso": [
         "evi.vactrol~",
-        "evi.lockhart.cascade~",
-        "evi.lockhart.simple~",
+        "evi.wavefolder.cascade~",
+        "evi.wavefolder~",
         "evi.modalres~",
         "evi.ringmod.diode~",
         "evi.formletfilter~",

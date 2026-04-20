@@ -364,16 +364,6 @@
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
         "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
-    "evi.lockhart.cascade~": {
-        "type": "define",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": "evi.lockhart.cascade~ is a 'max define' for the evi_lockhart_cascade.gendsp gen~ abstraction. Because evi.lockhart.cascade~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See evi.lockhart.simple~ for a fixed version with less options."
-    },
-    "evi.lockhart.simple~": {
-        "type": "define",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
-        "description": "evi.lockhart.simple~ is a 'max define' for the evi_lockhart_simple.gendsp gen~ abstraction. Because evi.lockhart.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.lockhart.cascade~ for a version with more options."
-    },
     "evi.logahr~": {
         "type": "external",
         "digest": "Attack/hold/release envelope follower",
@@ -668,6 +658,16 @@
         "type": "abstraction",
         "digest": "Complex saturation processor with options \n",
         "description": "Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed."
+    },
+    "evi.wavefolder.cascade~": {
+        "type": "define",
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
+        "description": "evi.wavefolder.cascade~ is a 'max define' for the evi_wavefolder_cascade.gendsp gen~ abstraction. Because evi.wavefolder.cascade~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See evi.wavefolder~ for a fixed version with less options."
+    },
+    "evi.wavefolder~": {
+        "type": "define",
+        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
+        "description": "evi.wavefolder~ is a 'max define' for the evi_wavefolder.gendsp gen~ abstraction. Because evi.wavefolder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.wavefolder.cascade~ for a version with more options."
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",
