@@ -3,7 +3,7 @@
         "name": "evi.lpg~",
         "category": "evieve",
         "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun",
-        "description": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage.",
+        "description": "A complex and difficult to control object. Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage.",
         "discussion": "The code of this abstraction can also be used entirely inside gen~ / GenExpr using the <o>evi_lpg_buchla</o>.gendsp abstraction (with internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control. See the 'gen~' tab of the helpfile for details."
     },
     "metadata": {
@@ -117,7 +117,7 @@
             "description": "Core filter/gate functionality. Smoothly switch or interpolate between filter and gate behaviour.",
             "default": {
                 "get": 0,
-                "value": "0."
+                "value": "1."
             }
         },
         {
@@ -125,7 +125,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain.",
+            "description": "Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain. (In the gen~ only version of the LPG, @nonlin is only available at oversample 1x and 2x).",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -224,7 +224,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Core filter/gate functionality. Smoothly switch or interpolate between LPG and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone.",
+            "description": "Core filter/gate functionality. Smoothly switch or interpolate between LP(G) and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone.",
             "default": {
                 "get": 0,
                 "value": "0."

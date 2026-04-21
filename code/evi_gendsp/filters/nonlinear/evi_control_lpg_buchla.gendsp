@@ -247,8 +247,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 149.0, 140.0, 22.0 ],
-                    "text": "param vactrolscalar 100."
+                    "patching_rect": [ 49.0, 149.0, 133.0, 22.0 ],
+                    "text": "param vactrolscalar 10."
                 }
             },
             {
