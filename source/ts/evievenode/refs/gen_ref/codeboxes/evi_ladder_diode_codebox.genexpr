@@ -308,7 +308,7 @@ diode2_2x4( XIN, freq, res, tune=0.356788, shape=23.7, nonlin=2 )
 Param	tuning(0.356788, min=0, max=1);		// constant (do not change unless...)
 Param	shaping(23.7, min=1, max=40);		// constant (do not change unless...)
 
-Param	cutoffmode(1, min=0, max=1);		// in2 cutoff in: 1 = pitch, 0 = Hz
+Param	cutoffmode(0, min=0, max=1);		// in2 cutoff in: 1 = pitch, 0 = Hz
 Param	cutoffsmooth(20., min=0, max=1000);	// smooth in2 in ms, 0 == off (turn off for FM etc)
 Param	ressmooth(20., min=0, max=333);		// smooth in5 in ms, 0 = off
 

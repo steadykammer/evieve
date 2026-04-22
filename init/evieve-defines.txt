@@ -64,11 +64,11 @@ max define mc.evi.biquad~ mc.gen~ @gen evi_biquad.gendsp @chans 2;
 max define evi.blitwaves~ gen~ @gen evi_blitwaves.gendsp;
 max define mc.evi.blitwaves~ mc.gen~ @gen evi_blitwaves.gendsp @chans 2;
 
-max define evi.butterworthlp6~ gen~ @gen evi_butterworth6.gendsp;
-max define mc.evi.butterworthlp6~ mc.gen~ @gen evi_butterworth6.gendsp @chans 2;
-
 max define evi.bp~ gen~ @gen evi_bp.gendsp;
 max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
+
+max define evi.butterworthlp6~ gen~ @gen evi_butterworth6.gendsp;
+max define mc.evi.butterworthlp6~ mc.gen~ @gen evi_butterworth6.gendsp @chans 2;
 
 max define evi.butterworthlp8~ gen~ @gen evi_butterworth8.gendsp;
 max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworth8.gendsp @chans 2;
@@ -208,12 +208,6 @@ max define mc.evi.ladder.transistor~ mc.gen~ @gen evi_ladder_transistor.gendsp @
 max define evi.limiterfast~ gen~ @gen evi_limiterfast.gendsp;
 max define mc.evi.limiterfast~ mc.gen~ @gen evi_limiterfast.gendsp @chans 2;
 
-max define evi.wavefolder.cascade~ gen~ @gen evi_wavefolder_cascade.gendsp;
-max define mc.evi.wavefolder.cascade~ mc.gen~ @gen evi_wavefolder_cascade.gendsp @chans 2;
-
-max define evi.wavefolder~ gen~ @gen evi_wavefolder.gendsp;
-max define mc.evi.wavefolder~ mc.gen~ @gen evi_wavefolder.gendsp @chans 2;
-
 max define evi.lores~ gen~ @gen evi_lores.gendsp;
 max define mc.evi.lores~ mc.gen~ @gen evi_lores.gendsp @chans 2;
 
@@ -344,6 +338,12 @@ max define mc.evi.velvetnoise~ mc.gen~ @gen evi_velvetnoise.gendsp @chans 2;
 
 max define evi.vosim.basic~ gen~ @gen evi_vosim_basic.gendsp;
 max define mc.evi.vosim.basic~ mc.gen~ @gen evi_vosim_basic.gendsp @chans 2;
+
+max define evi.wavefolder.cascade~ gen~ @gen evi_wavefolder_cascade.gendsp;
+max define mc.evi.wavefolder.cascade~ mc.gen~ @gen evi_wavefolder_cascade.gendsp @chans 2;
+
+max define evi.wavefolder~ gen~ @gen evi_wavefolder.gendsp;
+max define mc.evi.wavefolder~ mc.gen~ @gen evi_wavefolder.gendsp @chans 2;
 
 max define evi.zeroxcount~ gen~ @gen evi_zeroxcount.gendsp;
 max define mc.evi.zeroxcount~ mc.gen~ @gen evi_zeroxcount.gendsp @chans 2;

@@ -1,0 +1,20 @@
+
+expA(x0)
+{
+	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
+	x *= x; x *= x; x *= x; x *= x; x *= x;
+	return x;
+}
+
+// excellent accuracy to about +36 dB, after which you are on your own
+dbtoaApprox(db)
+{
+	dbtoaA = expA(0.11512925464970 * db);
+	return dbtoaA + 0.000128;		// + offset = 0 dB == 1 amplitude
+}
+
+
+out1 = dbtoaApprox(in1);
+
+// for more dbtoa approximations @see: "evi_approx.genexpr"
+

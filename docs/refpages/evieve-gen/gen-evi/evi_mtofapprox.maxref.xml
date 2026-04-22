@@ -44,6 +44,7 @@
         <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
+        <seealso name='evi_dbtoaapprox' display='evi_dbtoaapprox' type='genrefpage' />
         <seealso name='evi_map' display='evi_map' type='genrefpage' />
         <seealso name='evi_tpqm' display='evi_tpqm' type='genrefpage' />
         <seealso name='evi_approx' display='evi_approx.genexpr' type='genrefpage' />

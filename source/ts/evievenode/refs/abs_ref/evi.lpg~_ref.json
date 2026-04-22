@@ -45,19 +45,19 @@
             "id": 6,
             "type": "signal/float",
             "digest": "Control Offset 0..1",
-            "description": "Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
+            "description": "Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 7,
             "type": "signal/float",
             "digest": "Control Scale 0..1",
-            "description": "Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
+            "description": "Scale (multiply) the voltage input to the LPG, thus extending the frequency range of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 8,
             "type": "signal/float",
             "digest": "Control Sweep 0..1",
-            "description": "Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
+            "description": "Amount of sweep range of the voltage input to the LPG, from large range to small range. Can be used as a classic sounding Lowpass filter cutoff sweeper. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         }
     ],
     "outlets": [
@@ -213,10 +213,10 @@
             "get": 0,
             "type": "float",
             "digest": "",
-            "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is '10.' which seems to work well, but very different behaviour can be achieved by modifying this.",
+            "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is '10.' which seems to work well, but very different behaviour can be achieved by modifying this. In general it is better to keep this relatively low and achieve scaling behaviour with the 'Offset', 'Scale' and 'Sweep' inlets.",
             "default": {
                 "get": 0,
-                "value": "100."
+                "value": "10."
             }
         },
         {

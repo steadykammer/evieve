@@ -147,7 +147,7 @@ multiLadder(X, cutoff, res, shape, slope, type)
 
 // declare
 
-Param	cutoffmode(1, min=0, max=1);		// cutoff (in2), 0 = in Hz, 1 = in pitch (default)
+Param	cutoffmode(0, min=0, max=1);		// cutoff (in2), 0 = in Hz (default), 1 = in pitch
 Param	shape(0.650749, min=0, max=1);		// y(1), resonance shape, you can safely ignore this
 Param	shapesmooth(0., min=0, max=111);	// in ms
 Param	slope(0., min=0, max=1);		    // interpolate 0..1, or: 0 = lp4, 0.333333 = lp3, 0.666667 = lp2, 1 = lp1

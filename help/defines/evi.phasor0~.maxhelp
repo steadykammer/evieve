@@ -87,7 +87,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 274.0, 188.0, 114.0, 36.0 ],
+                                    "patching_rect": [ 274.0, 188.0, 115.0, 36.0 ],
                                     "text": "turn off and watch the scope~",
                                     "textjustification": 2
                                 }
@@ -112,7 +112,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 484.0, 137.0, 107.0, 55.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "pause / resume phasor ramp",
                                     "textjustification": 1
                                 }
@@ -218,8 +217,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 348.0, 137.0, 107.0, 55.0 ],
-                                    "presentation_linecount": 2,
+                                    "patching_rect": [ 348.0, 137.0, 109.0, 55.0 ],
                                     "text": "is reverse phase allowed ?",
                                     "textjustification": 1
                                 }
@@ -526,7 +524,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 168.0, 336.0, 65.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1018,8 +1015,21 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 424.0, 242.0, 24.0, 24.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 424.0, 242.0, 24.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "off", "on" ],
+                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "toggle[3]",
+                                            "parameter_mmax": 1,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "toggle[3]",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "varname": "toggle"
                                 }
                             },
                             {
@@ -1117,7 +1127,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 365.0, 399.0, 359.0, 123.0 ],
-                                    "presentation_linecount": 8,
                                     "text": "|\n|\n|\n|\nA bang will cause the frequency to update before the end of the current cycle (useful at very low frequencies if you want to force the update). evi.phasor0~ uses a sample click to do a similar reset job. See also the @minimumhz attribute."
                                 }
                             },
@@ -2099,7 +2108,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 347.0, 169.0, 107.0, 55.0 ],
+                                    "patching_rect": [ 347.0, 169.0, 109.0, 55.0 ],
                                     "text": "is reverse phase allowed ?",
                                     "textjustification": 1
                                 }
@@ -2661,6 +2670,19 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 3,
+                                    "id": "obj-18",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 89.0, 235.0, 102.0, 25.0 ],
+                                    "text": "speed in Hz",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "format": 6,
                                     "id": "obj-17",
                                     "maxclass": "flonum",
@@ -2777,7 +2799,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 282.0, 139.0, 107.0, 55.0 ],
+                                    "patching_rect": [ 282.0, 139.0, 109.0, 55.0 ],
                                     "text": "is reverse phase allowed ?",
                                     "textjustification": 1
                                 }
@@ -3146,6 +3168,7 @@
             "obj-11::obj-17": [ "number", "number", 0 ],
             "obj-12::obj-15": [ "toggle", "toggle", 0 ],
             "obj-5::obj-7": [ "live.gain~[2]", "live.gain~[1]", 0 ],
+            "obj-5::obj-8": [ "toggle[3]", "toggle[3]", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,

@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -248,13 +248,15 @@
                             },
                             {
                                 "box": {
+                                    "bubble": 1,
                                     "id": "obj-13",
                                     "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 321.0, 299.0, 128.0, 36.0 ],
-                                    "text": "@io 1 = stereo, @io 0 = mono (default)"
+                                    "patching_rect": [ 321.0, 297.0, 171.0, 40.0 ],
+                                    "text": "@io 1 = stereo, @io 0 = mono (default)",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -396,6 +398,50 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-41",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 388.0, 141.0, 30.0, 23.0 ],
+                                    "text": "0.7"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-38",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 596.0, 239.0, 141.0, 36.0 ],
+                                    "text": "(evi.dfm~ has a hotter resonance tuning)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-36",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 523.0, 275.0, 57.0, 23.0 ],
+                                    "text": "clip 0. 1."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-31",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 523.0, 245.0, 71.0, 23.0 ],
+                                    "text": "* 1.428572"
+                                }
+                            },
                             {
                                 "box": {
                                     "attr": "logfreq",
@@ -812,15 +858,15 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-1", 2 ],
-                                    "order": 0,
+                                    "destination": [ "obj-3", 3 ],
+                                    "order": 1,
                                     "source": [ "obj-12", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 3 ],
-                                    "order": 1,
+                                    "destination": [ "obj-31", 0 ],
+                                    "order": 0,
                                     "source": [ "obj-12", 0 ]
                                 }
                             },
@@ -900,8 +946,26 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-36", 0 ],
+                                    "source": [ "obj-31", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 2 ],
+                                    "source": [ "obj-36", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "source": [ "obj-40", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "source": [ "obj-41", 0 ]
                                 }
                             },
                             {
@@ -1075,6 +1139,21 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.3,
+                                    "bubbleside": 2,
+                                    "id": "obj-15",
+                                    "linecount": 5,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 270.0, 247.0, 146.0, 98.0 ],
+                                    "text": "Note that evi.dfm~ specifies cutoff only in Pitch, as does the original code from which it is ported",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-21",
@@ -1264,7 +1343,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 0,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },

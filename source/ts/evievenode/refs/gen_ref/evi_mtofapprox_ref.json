@@ -42,6 +42,10 @@
     ],
     "seealso": [
         {
+            "name": "evi_dbtoaapprox",
+            "display": "evi_dbtoaapprox"
+        },
+        {
             "name": "evi_map",
             "display": "evi_map"
         },

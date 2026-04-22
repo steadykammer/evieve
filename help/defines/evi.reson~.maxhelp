@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -106,7 +106,7 @@
                                     "patching_rect": [ 584.0, 160.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 770.0 ],
+                                            "parameter_initial": [ 376.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[3]",
                                             "parameter_mmax": 1720.0,
@@ -176,7 +176,7 @@
                                     "patching_rect": [ 395.0, 160.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 100.0 ],
+                                            "parameter_initial": [ 30.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[7]",
                                             "parameter_mmax": 1000.0,
@@ -215,7 +215,7 @@
                                     "patching_rect": [ 447.0, 160.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1720.0 ],
+                                            "parameter_initial": [ 766.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[8]",
                                             "parameter_mmax": 1720.0,
@@ -247,7 +247,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 447.0, 240.0, 156.0, 23.0 ],
-                                    "text": "evi.modosc~ @offset 770",
+                                    "text": "evi.modosc~ @offset 376",
                                     "varname": "gen~_AB"
                                 }
                             },
@@ -421,7 +421,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
-                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial": [ 458.4841619861625 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[2]",
                                             "parameter_mmax": 20000.0,
@@ -460,7 +460,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
-                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial": [ 6443.0309877791115 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[3]",
                                             "parameter_mmax": 10000.0,
@@ -3222,7 +3222,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

@@ -164,6 +164,30 @@
                 "auto": true
             }
         },
+        "evi_backverb.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "reverb"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_band_reson.gendsp": {
             "define": {
                 "object": false,
@@ -662,31 +686,6 @@
                 "auto": true
             }
         },
-        "evi_butterworth6.gendsp": {
-            "define": {
-                "object": true,
-                "msp": "evi.butterworthlp6~",
-                "mcwrapper": true
-            },
-            "ref": {
-                "gen": true,
-                "msp": true
-            },
-            "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
-                "areaonly": false,
-                "areas": [
-                    "pd",
-                    "biquad"
-                ]
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "evi_bp.gendsp": {
             "define": {
                 "object": true,
@@ -702,6 +701,31 @@
                 "gentab": true,
                 "genexprtab": false,
                 "areaonly": true,
+                "areas": [
+                    "pd",
+                    "biquad"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_butterworth6.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.butterworthlp6~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
                 "areas": [
                     "pd",
                     "biquad"
@@ -1149,6 +1173,28 @@
             "db": {
                 "browser": true,
                 "auto": true
+            }
+        },
+        "evi_dbtoaapprox.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
             }
         },
         "evi_detune.gendsp": {
@@ -2261,54 +2307,6 @@
                 "auto": false
             }
         },
-        "evi_wavefolder_cascade.gendsp": {
-            "define": {
-                "object": true,
-                "msp": "evi.wavefolder.cascade~",
-                "mcwrapper": true
-            },
-            "ref": {
-                "gen": true,
-                "msp": true
-            },
-            "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": false,
-                "areaonly": false,
-                "areas": [
-                    "oscillator"
-                ]
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
-        "evi_wavefolder.gendsp": {
-            "define": {
-                "object": true,
-                "msp": "evi.wavefolder~",
-                "mcwrapper": true
-            },
-            "ref": {
-                "gen": true,
-                "msp": true
-            },
-            "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": false,
-                "areaonly": false,
-                "areas": [
-                    "oscillator"
-                ]
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "evi_log201.gendsp": {
             "define": {
                 "object": false,
@@ -2535,30 +2533,6 @@
                 "genexprtab": false,
                 "areaonly": false,
                 "areas": []
-            },
-            "db": {
-                "browser": false,
-                "auto": false
-            }
-        },
-        "evi_backverb.gendsp": {
-            "define": {
-                "object": false,
-                "msp": "",
-                "mcwrapper": false
-            },
-            "ref": {
-                "gen": true,
-                "msp": false
-            },
-            "helpfile": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areaonly": false,
-                "areas": [
-                    "reverb"
-                ]
             },
             "db": {
                 "browser": false,
@@ -4262,6 +4236,54 @@
             "db": {
                 "browser": false,
                 "auto": false
+            }
+        },
+        "evi_wavefolder_cascade.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.wavefolder.cascade~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "oscillator"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_wavefolder.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.wavefolder~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "oscillator"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
             }
         },
         "evi_windows_fft.gendsp": {

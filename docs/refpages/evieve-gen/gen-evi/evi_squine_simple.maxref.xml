@@ -16,14 +16,14 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ freq, pitch, freq, harmonics, duty } }
+                { arguments={}, inlets={ freq, pitch, hz, harmonics, duty } }
             </digest>
         </constructor>
     </constructorlist>
     <geninletlist>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                in Hz or Pitch. Oscillator frequency in Hz or Pitch depending on @freqmode attribute.
+                in Hz or Pitch. Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute.
             </digest>
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>
@@ -31,9 +31,9 @@
                 Mod @default 0.. FM the oscillator frequency, in Pitch units.
             </digest>
         </geninlet>
-        <geninlet name='freq' type='float' optional='1'>
+        <geninlet name='hz' type='float' optional='1'>
             <digest>
-                (Hz) Mod @default 0.. FM the oscillator frequency, in Hz units.
+                Mod @default 0.. FM the oscillator frequency, in Hz units.
             </digest>
         </geninlet>
         <geninlet name='harmonics' type='float' optional='1'>
@@ -53,10 +53,10 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).
+                Switch oscillator frequency (inlet 1) units between input in Pitch (on) or input in Hz (off, default).
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
         <attribute name='freqmul' type='float' get='0' set='1'>

@@ -6,6 +6,7 @@ package-info.json
 .DS_Store
 # vscode
 .vscode
+.VSCodeCounter
 # clangd
 .cache
 

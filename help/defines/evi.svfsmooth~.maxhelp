@@ -50,8 +50,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 404.0, 394.0, 229.0, 40.0 ],
-                                    "text": "@cutoffmode sets Hz (0) or pitch (1, the default) for the cutoff inlet",
+                                    "patching_rect": [ 404.0, 394.0, 239.0, 40.0 ],
+                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -1146,7 +1146,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 220.0, 232.0, 98.0, 25.0 ],
+                                    "patching_rect": [ 220.0, 313.0, 98.0, 25.0 ],
                                     "text": "Filter Cutoff",
                                     "textjustification": 1
                                 }
@@ -1169,18 +1169,20 @@
                                     "format": 6,
                                     "id": "obj-29",
                                     "maxclass": "flonum",
-                                    "maximum": 127.0,
-                                    "minimum": 0.0,
+                                    "maximum": 12544.0,
+                                    "minimum": 1.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 168.0, 233.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 168.0, 314.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 96.0 ],
+                                            "parameter_initial": [ 1760.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[3]",
+                                            "parameter_mmax": 12544.0,
+                                            "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "number[3]",
                                             "parameter_type": 0
@@ -1747,7 +1749,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2355,7 +2357,7 @@
                                                     "numoutlets": 5,
                                                     "outlettype": [ "", "", "", "", "" ],
                                                     "patching_rect": [ 153.0, 285.0, 273.0, 22.0 ],
-                                                    "text": "evi_svfsmooth @cutoffmode 0"
+                                                    "text": "evi_svfsmooth"
                                                 }
                                             },
                                             {

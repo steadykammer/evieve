@@ -125,7 +125,7 @@
                 Vactrol Envelope Output Multiplier. Effectively gain the pinging envelope into the control circuit to accentuate the ping. Otherwise should be &#x27;1&#x27;.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='100.' />
+                <attribute name='default' type='float' value='10.' />
             </attributelist>
         </attribute>
     </attributelist>

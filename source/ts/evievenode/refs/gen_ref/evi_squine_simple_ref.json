@@ -7,7 +7,7 @@
         "description": "An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
     },
     "constructor": {
-        "inlets": "freq, pitch, freq, harmonics, duty"
+        "inlets": "freq, pitch, hz, harmonics, duty"
     },
     "includes": [],
     "inlets": [
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz or Pitch",
-            "digest": "Oscillator frequency in Hz or Pitch depending on @freqmode attribute."
+            "digest": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute."
         },
         {
             "id": 2,
@@ -29,10 +29,10 @@
         },
         {
             "id": 3,
-            "name": "freq",
+            "name": "hz",
             "type": "float",
             "optional": 1,
-            "digestauto": "(Hz) Mod @default 0.",
+            "digestauto": "Mod @default 0.",
             "digest": "FM the oscillator frequency, in Hz units."
         },
         {
@@ -111,10 +111,10 @@
             "name": "freqmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).",
+            "description": "Switch oscillator frequency (inlet 1) units between input in Pitch (on) or input in Hz (off, default).",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {

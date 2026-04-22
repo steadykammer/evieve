@@ -1,0 +1,52 @@
+{
+    "object": {
+        "name": "evi_dbtoaapprox",
+        "child": "",
+        "category": "evieve",
+        "digest": "Convert dB value to Linear value.",
+        "description": "Convert dB value to Linear value using an efficient approximation of the calculation."
+    },
+    "constructor": {
+        "inlets": "db"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "db",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Decibels (dB) value input."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "amplitude",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Amplitude (linear) value output."
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_mtofapprox",
+            "display": "evi_mtofapprox"
+        },
+        {
+            "name": "evi_map",
+            "display": "evi_map"
+        },
+        {
+            "name": "evi_tpqm",
+            "display": "evi_tpqm"
+        },
+        {
+            "name": "evi_approx",
+            "display": "evi_approx.genexpr"
+        }
+    ]
+}

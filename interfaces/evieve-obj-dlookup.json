@@ -397,7 +397,7 @@
     "evi.lpg~": {
         "type": "abstraction",
         "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun \n",
-        "description": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors ( boom ) and simultaneous filter outputs. Refactored code for optimal CPU usage."
+        "description": "A complex and difficult to control object. Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors ( boom ) and simultaneous filter outputs. Refactored code for optimal CPU usage."
     },
     "evi.mattaverb~": {
         "type": "abstraction",

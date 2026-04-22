@@ -224,7 +224,7 @@ ZDFNRL2_2x4( XIN, w, k, nl )
 //	//	//	declare
 
 Param	nonlin(0, min=0, max=1);				// choose saturator in loop (default tanh approx)
-Param   cutoffmode(1, min=0, max=1);            // choose cutoff in Pitch (1) or Hz (0)
+Param   cutoffmode(0, min=0, max=1);            // choose cutoff in Pitch (1) or Hz (0)
 Param	cutoffsmooth(0., min=0, max=333);		// optional freq smooth time in ms
 Param	ressmooth(0., min=0, max=333);	        // optional res smooth time in ms
 Param   oversample(1, min=0, max=1);            // 1 = 2x, 0 = 1x

@@ -587,13 +587,29 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-15",
+                                    "ignoreclick": 1,
+                                    "maxclass": "number~",
+                                    "mode": 2,
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "float" ],
+                                    "patching_rect": [ 241.0, 367.0, 41.0, 23.0 ],
+                                    "sig": 0.0
+                                }
+                            },
                             {
                                 "box": {
                                     "hidden": 1,
@@ -1601,7 +1617,7 @@
                                 "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 129.5, 545.0, 261.9609375, 545.0, 261.9609375, 357.0, 292.5, 357.0 ],
+                                    "midpoints": [ 129.5, 545.0, 261.9609375, 545.0, 261.9609375, 359.8125, 292.5, 359.8125 ],
                                     "source": [ "obj-45", 1 ]
                                 }
                             },
@@ -1623,6 +1639,15 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-1", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-15", 0 ],
+                                    "midpoints": [ 292.5, 354.72265625, 250.5, 354.72265625 ],
+                                    "order": 1,
                                     "source": [ "obj-7", 0 ]
                                 }
                             }

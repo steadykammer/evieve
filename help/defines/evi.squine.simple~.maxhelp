@@ -198,6 +198,7 @@
                                     "fontsize": 13.0,
                                     "id": "obj-20",
                                     "maxclass": "live.dial",
+                                    "needlemode": 2,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
@@ -512,8 +513,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 381.0, 430.0, 229.0, 40.0 ],
-                                    "text": "@freqmode sets Hz (0) or pitch (1, the default) for the frequency inlet",
+                                    "patching_rect": [ 381.0, 430.0, 231.0, 40.0 ],
+                                    "text": "@freqmode sets Hz (0, the default) or pitch (1) for the frequency inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -835,8 +836,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 349.0, 444.0, 229.0, 40.0 ],
-                                    "text": "@freqmode sets Hz (0) or pitch (1, the default) for the frequency inlet",
+                                    "patching_rect": [ 349.0, 444.0, 233.0, 40.0 ],
+                                    "text": "@freqmode sets Hz (0, the default) or pitch (1) for the frequency inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -2264,7 +2265,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 48.0, 310.0, 69.0, 36.0 ],
-                                    "text": "frequency in Pitch",
+                                    "text": "frequency in Hz",
                                     "textjustification": 2
                                 }
                             },
@@ -2273,8 +2274,8 @@
                                     "format": 6,
                                     "id": "obj-17",
                                     "maxclass": "flonum",
-                                    "maximum": 127.0,
-                                    "minimum": 0.0,
+                                    "maximum": 12544.0,
+                                    "minimum": 10.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -2282,10 +2283,12 @@
                                     "patching_rect": [ 119.0, 316.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 38.0 ],
+                                            "parameter_initial": [ 73.416192 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_invisible": 1,
                                             "parameter_longname": "number[1]",
+                                            "parameter_mmax": 12544.0,
+                                            "parameter_mmin": 10.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "number[1]",
                                             "parameter_type": 3
@@ -2300,6 +2303,7 @@
                                     "fontsize": 13.0,
                                     "id": "obj-14",
                                     "maxclass": "live.dial",
+                                    "needlemode": 2,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
@@ -2921,6 +2925,7 @@
                                     "fontsize": 13.0,
                                     "id": "obj-14",
                                     "maxclass": "live.dial",
+                                    "needlemode": 2,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
@@ -3026,6 +3031,18 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "id": "obj-14",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 423.0, 285.0, 76.0, 24.0 ],
+                                                    "text": "Pitch",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-12",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
@@ -3053,7 +3070,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 251.0, 165.0, 36.0, 22.0 ],
+                                                    "patching_rect": [ 271.0, 165.0, 36.0, 22.0 ],
                                                     "text": "cycle"
                                                 }
                                             },
@@ -3064,7 +3081,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 251.0, 126.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 271.0, 126.0, 22.0, 22.0 ],
                                                     "text": "55"
                                                 }
                                             },
@@ -3075,7 +3092,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 251.0, 204.0, 30.0, 22.0 ],
+                                                    "patching_rect": [ 271.0, 204.0, 30.0, 22.0 ],
                                                     "text": "* 24"
                                                 }
                                             },
@@ -3086,7 +3103,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 398.0, 65.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 459.0, 65.0, 28.0, 22.0 ],
                                                     "text": "in 3"
                                                 }
                                             },
@@ -3097,7 +3114,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 465.0, 165.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 526.0, 165.0, 22.0, 22.0 ],
                                                     "text": "22"
                                                 }
                                             },
@@ -3108,7 +3125,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 362.0, 165.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 423.0, 165.0, 22.0, 22.0 ],
                                                     "text": "33"
                                                 }
                                             },
@@ -3119,7 +3136,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 398.0, 204.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 459.0, 204.0, 86.0, 22.0 ],
                                                     "text": "evi_lagsmooth"
                                                 }
                                             },
@@ -3130,7 +3147,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 295.0, 204.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 356.0, 204.0, 86.0, 22.0 ],
                                                     "text": "evi_logsmooth"
                                                 }
                                             },
@@ -3141,8 +3158,8 @@
                                                     "numinlets": 5,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 229.0, 286.0, 107.0, 22.0 ],
-                                                    "text": "evi_squine_simple"
+                                                    "patching_rect": [ 229.0, 286.0, 188.0, 22.0 ],
+                                                    "text": "evi_squine_simple @freqmode 1"
                                                 }
                                             },
                                             {
@@ -3163,7 +3180,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 295.0, 65.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 356.0, 65.0, 28.0, 22.0 ],
                                                     "text": "in 2"
                                                 }
                                             },

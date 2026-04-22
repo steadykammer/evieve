@@ -26,8 +26,8 @@
         {
             "id": 2,
             "type": "signal/float",
-            "digest": "Freq in Pitch (default) or Hz depending on 'cutoffmode' attribute",
-            "description": "Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute."
+            "digest": "Freq in Hz (default) or Pitch depending on 'cutoffmode' attribute",
+            "description": "Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute."
         },
         {
             "id": 3,
@@ -81,11 +81,11 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).",
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "1"
+                "value": "0"
             }
         },
         {

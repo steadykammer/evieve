@@ -24,7 +24,7 @@
 				Inlet #1: Freq in Hz or Pitch
 			</digest>
 			<description>
-				Oscillator frequency in Hz or Pitch depending on @freqmode attribute.
+				Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -37,7 +37,7 @@
 		</inlet>
 		<inlet id="3" type="signal">
 			<digest>
-				Inlet #3: Freq (Hz) Mod @default 0.
+				Inlet #3: Hz Mod @default 0.
 			</digest>
 			<description>
 				FM the oscillator frequency, in Hz units.
@@ -97,10 +97,10 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).
+				Switch oscillator frequency (inlet 1) units between input in Pitch (on) or input in Hz (off, default).
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="freqmul" get="1" set="1" type="float" min="0" max="0.5">

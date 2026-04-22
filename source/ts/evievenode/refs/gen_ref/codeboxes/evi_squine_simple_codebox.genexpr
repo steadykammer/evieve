@@ -10,7 +10,7 @@ normaliseToLimit(freq, limit)
 	return	clip((sqrt((freq * w0) / w1) - (1 - w1)) * (1 + w1), 0, 1); // should not return to 0 ?
 }
 
-Param	freqmode(1, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
+Param	freqmode(0, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
 Param	freqsmooth(20., min=0, max=1000);						// smooth in1 in ms, 0 == off
 Param	freqmul(0.1, min=0, max=0.5);							// multiplier of samplerate
 

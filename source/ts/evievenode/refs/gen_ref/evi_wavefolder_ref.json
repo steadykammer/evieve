@@ -26,6 +26,7 @@
             "name": "4-section",
             "type": "float",
             "optional": 1,
+            "digestauto": "",
             "digest": "Output 4 cascaded sections."
         },
         {
@@ -33,6 +34,7 @@
             "name": "3-section",
             "type": "float",
             "optional": 1,
+            "digestauto": "",
             "digest": "Output 3 cascaded sections."
         },
         {
@@ -40,6 +42,7 @@
             "name": "2-section",
             "type": "float",
             "optional": 1,
+            "digestauto": "",
             "digest": "Output 2 cascaded sections."
         },
         {
@@ -47,6 +50,7 @@
             "name": "1-section",
             "type": "float",
             "optional": 1,
+            "digestauto": "",
             "digest": "Output 1 section."
         }
     ],

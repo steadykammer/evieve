@@ -18,7 +18,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Freq in Hz or Pitch",
-            "description": "Oscillator frequency in Hz or Pitch depending on @freqmode attribute."
+            "description": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute."
         },
         {
             "id": 2,
@@ -29,7 +29,7 @@
         {
             "id": 3,
             "type": "signal",
-            "digest": "Freq (Hz) Mod @default 0.",
+            "digest": "Hz Mod @default 0.",
             "description": "FM the oscillator frequency, in Hz units."
         },
         {
@@ -72,11 +72,11 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Switch oscillator frequency (inlet 1) units between input in Pitch (on, default) or input in Hz (off).",
+            "description": "Switch oscillator frequency (inlet 1) units between input in Pitch (on) or input in Hz (off, default).",
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "1"
+                "value": "0"
             }
         },
         {

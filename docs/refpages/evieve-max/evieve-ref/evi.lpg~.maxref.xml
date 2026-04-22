@@ -6,7 +6,7 @@
 		Buchla Lowpass Gate emulation for your west coast synthesis fun <br />
 	</digest>
 	<description>
-		Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage. <br />
+		A complex and difficult to control object. Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -61,7 +61,7 @@
 				Control Offset 0..1
 			</digest>
 			<description>
-				Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+				Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
 			</description>
 		</inlet>
 		<inlet id="7" type="signal/float">
@@ -69,7 +69,7 @@
 				Control Scale 0..1
 			</digest>
 			<description>
-				Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+				Scale (multiply) the voltage input to the LPG, thus extending the frequency range of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
 			</description>
 		</inlet>
 		<inlet id="8" type="signal/float">
@@ -77,7 +77,7 @@
 				Control Sweep 0..1
 			</digest>
 			<description>
-				Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+				Amount of sweep range of the voltage input to the LPG, from large range to small range. Can be used as a classic sounding Lowpass filter cutoff sweeper. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
 			</description>
 		</inlet>
 	</inletlist>
@@ -151,7 +151,7 @@
 				Core filter/gate functionality. Smoothly switch or interpolate between filter and gate behaviour.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
 			</attributelist>
 		</attribute>
 		<attribute name="nonlin" get="0" set="1" type="int" size="1">
@@ -159,7 +159,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain.
+				Turning this off is atypical behaviour. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be very interesting triggering it linearly, but if you do so be careful of overall gain. (In the gen~ only version of the LPG, @nonlin is only available at oversample 1x and 2x).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -247,10 +247,10 @@
 				
 			</digest>
 			<description>
-				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is &#x27;10.&#x27; which seems to work well, but very different behaviour can be achieved by modifying this.
+				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is &#x27;10.&#x27; which seems to work well, but very different behaviour can be achieved by modifying this. In general it is better to keep this relatively low and achieve scaling behaviour with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; inlets.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
 			</attributelist>
 		</attribute>
 		<attribute name="vca" get="0" set="1" type="float" size="1">
@@ -258,7 +258,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Core filter/gate functionality. Smoothly switch or interpolate between LPG and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone.
+				Core filter/gate functionality. Smoothly switch or interpolate between LP(G) and VCA behaviour. Using the block as a pure VCA is useful but far less fun. Ultimately this can be thought of as a gate damping effect, darkening the tone.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />

@@ -49,7 +49,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 469.0, 431.0, 216.0, 36.0 ],
+                                    "patching_rect": [ 469.0, 431.0, 207.0, 36.0 ],
                                     "text": "(if @cutoffmode == 0, 'FM Pitch' inlet is ignored)"
                                 }
                             },
@@ -469,8 +469,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 456.0, 389.0, 229.0, 40.0 ],
-                                    "text": "@cutoffmode sets Hz (0) or pitch (1, the default) for the cutoff inlet",
+                                    "patching_rect": [ 456.0, 389.0, 241.0, 40.0 ],
+                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -899,14 +899,16 @@
                                     "patching_rect": [ 237.0, 318.0, 51.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 81.0 ],
+                                            "parameter_exponent": 4.0,
+                                            "parameter_initial": [ 880.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial",
-                                            "parameter_mmax": 117.0,
+                                            "parameter_longname": "live.dial[9]",
+                                            "parameter_mmax": 10000.0,
+                                            "parameter_mmin": 10.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Cutoff",
                                             "parameter_type": 0,
-                                            "parameter_unitstyle": 1
+                                            "parameter_unitstyle": 3
                                         }
                                     },
                                     "varname": "live.dial"
@@ -1252,7 +1254,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1875,7 +1877,7 @@
             "obj-10::obj-17": [ "live.dial[5]", "Res", 0 ],
             "obj-10::obj-27": [ "live.numbox[6]", "live.numbox", 0 ],
             "obj-10::obj-37": [ "live.numbox[5]", "live.numbox", 0 ],
-            "obj-2::obj-13": [ "live.dial", "Cutoff", 0 ],
+            "obj-2::obj-13": [ "live.dial[9]", "Cutoff", 0 ],
             "obj-2::obj-14": [ "live.dial[1]", "Res", 0 ],
             "obj-5::obj-13": [ "live.dial[2]", "Cutoff", 0 ],
             "obj-5::obj-19": [ "live.dial[3]", "Res", 0 ],

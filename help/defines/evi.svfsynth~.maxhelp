@@ -587,8 +587,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 441.0, 438.0, 229.0, 40.0 ],
-                                    "text": "@cutoffmode sets Hz (0) or pitch (1, the default) for the cutoff inlet",
+                                    "patching_rect": [ 441.0, 438.0, 242.0, 40.0 ],
+                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -958,13 +958,16 @@
                                     "patching_rect": [ 294.0, 128.0, 51.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 81.0 ],
+                                            "parameter_exponent": 4.0,
+                                            "parameter_initial": [ 880.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[6]",
+                                            "parameter_mmax": 10000.0,
+                                            "parameter_mmin": 10.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Cutoff",
                                             "parameter_type": 0,
-                                            "parameter_unitstyle": 1
+                                            "parameter_unitstyle": 3
                                         }
                                     },
                                     "varname": "live.dial"
@@ -1443,13 +1446,16 @@
                                     "patching_rect": [ 173.0, 315.0, 51.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 81.0 ],
+                                            "parameter_exponent": 4.0,
+                                            "parameter_initial": [ 880.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial",
+                                            "parameter_longname": "live.dial[9]",
+                                            "parameter_mmax": 10000.0,
+                                            "parameter_mmin": 10.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Cutoff",
                                             "parameter_type": 0,
-                                            "parameter_unitstyle": 1
+                                            "parameter_unitstyle": 3
                                         }
                                     },
                                     "varname": "live.dial"
@@ -2476,7 +2482,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 183.0, 285.0, 273.0, 22.0 ],
-                                                    "text": "evi_svfsynth @cutoffmode 0"
+                                                    "text": "evi_svfsynth"
                                                 }
                                             }
                                         ],
@@ -2889,7 +2895,7 @@
             "obj-11::obj-36": [ "number[8]", "number[8]", 0 ],
             "obj-11::obj-42": [ "live.dial[4]", "Res", 0 ],
             "obj-11::obj-44": [ "number[12]", "number", 0 ],
-            "obj-2::obj-13": [ "live.dial", "Cutoff", 0 ],
+            "obj-2::obj-13": [ "live.dial[9]", "Cutoff", 0 ],
             "obj-2::obj-14": [ "live.dial[1]", "Res", 0 ],
             "obj-5::obj-10": [ "toggle", "toggle", 0 ],
             "obj-5::obj-13": [ "live.dial[6]", "Cutoff", 0 ],

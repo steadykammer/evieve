@@ -71,7 +71,7 @@ mix3linear(i1, i2, i3, interp)
 
 // declare
 
-Param	cutoffmode(1, min=0, max=1);			// 0 = Hz, 1 = pitch (default)
+Param	cutoffmode(0, min=0, max=1);			// 0 = Hz (default), 1 = pitch
 Param	saturation(20., min=-20, max=40);		// internal integrator saturation in dB
 Param	saturationsmooth(0., min=0, max=111);	// in ms
 Param	morphsmooth(30., min=0, max=333);	    // in ms

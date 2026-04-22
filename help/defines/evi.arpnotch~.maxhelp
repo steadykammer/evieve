@@ -165,8 +165,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "float" ],
-                                                    "patching_rect": [ 50.0, 181.0, 34.0, 22.0 ],
-                                                    "text": "t 96."
+                                                    "patching_rect": [ 50.0, 181.0, 45.0, 22.0 ],
+                                                    "text": "t 1760."
                                                 }
                                             },
                                             {
@@ -225,7 +225,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 202.0, 192.0, 19.0, 23.0 ],
+                                    "patching_rect": [ 202.0, 273.0, 19.0, 23.0 ],
                                     "text": "p"
                                 }
                             },
@@ -283,7 +283,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 202.0, 217.0, 50.0, 21.0 ],
+                                    "patching_rect": [ 202.0, 298.0, 50.0, 21.0 ],
                                     "text": "Cutoff",
                                     "textjustification": 1
                                 }
@@ -295,7 +295,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 254.0, 240.0, 87.0, 25.0 ],
+                                    "patching_rect": [ 254.0, 321.0, 87.0, 25.0 ],
                                     "text": "Filter",
                                     "textjustification": 1
                                 }
@@ -318,18 +318,20 @@
                                     "format": 6,
                                     "id": "obj-29",
                                     "maxclass": "flonum",
-                                    "maximum": 127.0,
-                                    "minimum": 0.0,
+                                    "maximum": 12544.0,
+                                    "minimum": 1.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 202.0, 241.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 202.0, 322.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 93.0 ],
+                                            "parameter_initial": [ 1760.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[3]",
+                                            "parameter_mmax": 12544.0,
+                                            "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "number[3]",
                                             "parameter_type": 0
@@ -897,7 +899,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 308.0, 215.0, 51.0, 40.0 ],
-                                    "text": "Hz",
+                                    "text": "Pitch",
                                     "textjustification": 1
                                 }
                             },
@@ -906,8 +908,8 @@
                                     "format": 6,
                                     "id": "obj-29",
                                     "maxclass": "flonum",
-                                    "maximum": 10000.0,
-                                    "minimum": 10.0,
+                                    "maximum": 127.0,
+                                    "minimum": 0.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -915,13 +917,11 @@
                                     "patching_rect": [ 308.0, 281.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1000.0 ],
+                                            "parameter_initial": [ 83.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[5]",
-                                            "parameter_mmax": 10000.0,
-                                            "parameter_mmin": 10.0,
                                             "parameter_modmode": 3,
-                                            "parameter_shortname": "number[3]",
+                                            "parameter_shortname": "number[5]",
                                             "parameter_type": 0
                                         }
                                     },
@@ -1066,7 +1066,8 @@
                                         "flags": 0,
                                         "embed": 0,
                                         "autowatch": 1
-                                    }
+                                    },
+                                    "varname": "v8ui_AA"
                                 }
                             },
                             {
@@ -1111,8 +1112,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 299.0, 236.0, 158.0, 51.0 ],
-                                                    "text": "@cutoffmode sets Hz (0) or pitch (1, the default) for the cutoff inlet",
+                                                    "patching_rect": [ 299.0, 236.0, 162.0, 51.0 ],
+                                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff inlet",
                                                     "textjustification": 1
                                                 }
                                             },
@@ -1123,8 +1124,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 365.0, 58.0, 28.0, 22.0 ],
-                                                    "text": "in 4"
+                                                    "patching_rect": [ 365.0, 58.0, 65.0, 22.0 ],
+                                                    "text": "in 4 Morph"
                                                 }
                                             },
                                             {
@@ -1134,13 +1135,13 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 290.0, 58.0, 28.0, 22.0 ],
-                                                    "text": "in 3"
+                                                    "patching_rect": [ 290.0, 58.0, 53.0, 22.0 ],
+                                                    "text": "in 3 Res"
                                                 }
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\nout1 = evi_arpnotch(in1, in2, in3, in4, cutoffmode=0);\r\n\r\n",
+                                                    "code": "\r\nout1 = evi_arpnotch(in1, in2, in3, in4, cutoffmode=1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1160,7 +1161,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 135.0, 250.0, 162.0, 22.0 ],
-                                                    "text": "evi_arpnotch @cutoffmode 0"
+                                                    "text": "evi_arpnotch @cutoffmode 1"
                                                 }
                                             },
                                             {
@@ -1181,8 +1182,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 215.0, 58.0, 28.0, 22.0 ],
-                                                    "text": "in 2"
+                                                    "patching_rect": [ 215.0, 58.0, 58.0, 22.0 ],
+                                                    "text": "in 2 Pitch"
                                                 }
                                             },
                                             {
@@ -1510,7 +1511,7 @@
         "parameters": {
             "obj-10::obj-15": [ "number[7]", "number[4]", 0 ],
             "obj-10::obj-20": [ "number[6]", "number[1]", 0 ],
-            "obj-10::obj-29": [ "number[5]", "number[3]", 0 ],
+            "obj-10::obj-29": [ "number[5]", "number[5]", 0 ],
             "obj-2::obj-15": [ "number[4]", "number[4]", 0 ],
             "obj-2::obj-18": [ "number", "number", 0 ],
             "obj-2::obj-20": [ "number[1]", "number[1]", 0 ],

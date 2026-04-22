@@ -292,7 +292,7 @@ sexySVFselect(X, w2, res, mod, os)
 // declare
 
 Param   slope(0, min=0, max=1);         // 0 = 12dB filters only, 1 = and 24dB filters
-Param	cutoffmode(1, min=0, max=1);    // cutoff (in2), 0 = in Hz, 1 = in pitch
+Param	cutoffmode(0, min=0, max=1);    // cutoff (in2), 0 = in Hz, 1 = in pitch
 Param	shape(sqrt1_2, min=0, max=1);   // y(1) (0.603553), do not touch
 Param	shapesmooth(0., min=0, max=100);// in ms (22.666)
 Param	filtinterp(0., min=0, max=1);   // 0=LP, 0.5=BP, 1=HP

@@ -29,10 +29,10 @@
 		</inlet>
 		<inlet id="2" type="signal/float">
 			<digest>
-				Inlet #2: Freq in Pitch (default) or Hz depending on &#x27;cutoffmode&#x27; attribute
+				Inlet #2: Freq in Hz (default) or Pitch depending on &#x27;cutoffmode&#x27; attribute
 			</digest>
 			<description>
-				Cutoff frequency in Pitch (default) or Hz depending on the @cutoffmode attribute.
+				Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute.
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -73,10 +73,10 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Switch cutoff frequency (inlet 2) between Pitch (default on) or Hz (off).
+				Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="morphsmooth" get="1" set="1" type="float" min="0" max="333">
