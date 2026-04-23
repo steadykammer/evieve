@@ -10,7 +10,15 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Nonlinear",
+            "evieve Modulation",
+            "evieve Effect",
+            "evieve Saturation",
+            "evieve AntiAliased",
+            "evieve Dynamics"
+        ]
     },
     "includes": [],
     "inlets": [

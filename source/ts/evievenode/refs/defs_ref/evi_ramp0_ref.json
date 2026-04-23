@@ -10,7 +10,14 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Control",
+            "evieve Modulation",
+            "evieve Source",
+            "evieve Utility",
+            "evieve Map"
+        ]
     },
     "includes": [
         "evi_counting.genexpr"

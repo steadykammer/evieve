@@ -10,7 +10,12 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear",
+            "evieve Filter TPT",
+            "evieve Effect"
+        ]
     },
     "includes": [
         "evi_svfs_lto.genexpr"

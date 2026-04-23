@@ -10,7 +10,11 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Source",
+            "evieve AntiAliased"
+        ]
     },
     "includes": [
         "evi_polyblep_two.genexpr",

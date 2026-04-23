@@ -10,7 +10,13 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Modulation",
+            "evieve Effect",
+            "evieve Saturation",
+            "evieve AntiAliased"
+        ]
     },
     "includes": [
         "evi_counting.genexpr",

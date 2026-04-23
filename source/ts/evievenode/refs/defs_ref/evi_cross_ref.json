@@ -10,7 +10,13 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear",
+            "evieve Filter TPT",
+            "evieve Crossover",
+            "evieve MSP Substitution"
+        ]
     },
     "includes": [
         "evi_crossovers.genexpr"

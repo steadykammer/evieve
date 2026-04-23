@@ -54,7 +54,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_approx.genexpr\");\r\n\r\n// Max Matthews complex resonator, thanks to Oli Larkin & Julian Parker\r\n// @see: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf\r\n\r\nmaxRes(x, cps, decay, inviter, histAx, histBx)\n{\n    decayc = tauA(decay * inviter);\r\n    v  = cps * TWOPI / samplerate;\r\n    cv = cos73(v) * decayc;\n    sv = sin73(v) * decayc;\n    y  = (sv * histAx) + (histBx * cv);\n    histAy = x + (histAx * cv) + (histBx * -sv);\n    histBy = y;\n\n    return y, histAy, histBy;\n}\r\n\r\nData    hist(2, 1);\r\n\r\nITERATIONS  = 10;           // pitch changes with iterations\r\ninvITER     = 1 / ITERATIONS;\r\n\r\nX       = in1;\r\nfreq    = in2;\r\ndecay   = maximum(in3, 0);  // this is not seconds ?!\r\n\r\nsum = 0;\r\nfor (i = 1; i <= ITERATIONS; i += 1)\r\n{\r\n    histAx = peek(hist, 0);\r\n    histBx = peek(hist, 1);\r\n\tsum, histAy, histBy = maxRes(X, freq * i, decay * (1 - i / ITERATIONS), invITER, histAx, histBx);\r\n    poke(hist, histAy, 0);\r\n    poke(hist, histBy, 1);\r\n    sum += sum;\r\n}\r\n\r\nout1 = sum * (1 / (ITERATIONS + ITERATIONS));\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_approx.genexpr\");\r\n\r\n// Max Matthews complex resonator, thanks to Oli Larkin & Julian Parker\r\n// @see: M. Mathews and J. O. Smith, https://ccrma.stanford.edu/~jos/smac03maxjos/smac03maxjos.pdf\r\n\r\nmaxRes(x, cps, decay, inviter, histAx, histBx)\n{\n    decayc = tauA(decay * inviter);\r\n    v  = cps * TWOPI / samplerate;\r\n    cv = cos73a(v) * decayc;\n    sv = sin73a(v) * decayc;\n    y  = (sv * histAx) + (histBx * cv);\n    histAy = x + (histAx * cv) + (histBx * -sv);\n    histBy = y;\n\n    return y, histAy, histBy;\n}\r\n\r\nData    hist(2, 1);\r\n\r\nITERATIONS  = 10;           // pitch changes with iterations\r\ninvITER     = 1 / ITERATIONS;\r\n\r\nX       = in1;\r\nfreq    = in2;\r\ndecay   = maximum(in3, 0);  // this is not seconds ?!\r\n\r\nsum = 0;\r\nfor (i = 1; i <= ITERATIONS; i += 1)\r\n{\r\n    histAx = peek(hist, 0);\r\n    histBx = peek(hist, 1);\r\n\tsum, histAy, histBy = maxRes(X, freq * i, decay * (1 - i / ITERATIONS), invITER, histAx, histBx);\r\n    poke(hist, histAy, 0);\r\n    poke(hist, histBy, 1);\r\n    sum += sum;\r\n}\r\n\r\nout1 = sum * (1 / (ITERATIONS + ITERATIONS));\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -104,7 +104,6 @@
                     "source": [ "obj-5", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

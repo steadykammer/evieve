@@ -2,987 +2,987 @@
     "evi.4wave~": {
         "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source" ],
         "keywords": [],
         "seealso": [ "evi.saw~", "evi.rect~", "evi.tri~", "evi.blitwaves~" ]
     },
     "evi.adsr~": {
         "digest": "ADSR envelope generator, similar features to adsr~ but with logarithmic segments \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.phasor0~", "evi.ramp0~", "evi.lpg~", "evi.limiterfast~", "evi.zeroxcount~" ]
     },
     "evi.algoverb~": {
         "digest": "True stereo algorithmic reverb \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.allpass~": {
         "digest": "Reimplementation of MSP allpass~ filter delay",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Effect", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.comb~", "evi.teeth~" ]
     },
     "evi.am~": {
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.tremolo~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.arpnotch~": {
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.svfsmooth~", "evi.svfsynth~", "evi.filter.morph~", "evi.svf~", "evi.korgms20~", "evi.ladder.transistor~" ]
     },
     "evi.audiodust~": {
         "digest": "Spikey sparse noise implementation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Noise", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.backverb~": {
         "digest": "Ursa Major reverb unit with saturating feedback \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.baxandall~": {
         "digest": "Emulation of a classic baxandall EQ",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear" ],
         "keywords": [],
         "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.tilt~" ]
     },
     "evi.biquad.filter~": {
         "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Coefficients" ],
         "keywords": [],
         "seealso": [ "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.filter~" ]
     },
     "evi.biquadcoeff": {
         "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Coefficients" ],
         "keywords": [],
         "seealso": [ "evi.biquadcoeff~", "evi.biquad.filter~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.weightingcoeffs", "evi.filter~" ]
     },
     "evi.biquadcoeff~": {
         "digest": "Audio rate biquad coefficients calculator with selection of 40 different filter types.",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Coefficients" ],
         "keywords": [],
         "seealso": [ "evi.biquadcoeff", "evi.biquad.filter~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.weightingcoeffs", "evi.filter~" ]
     },
     "evi.blitwaves~": {
         "digest": "No aliasing BLIT oscillators with a choice of simultaneous wave shapes outputs",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.4wave~", "evi.classic.osc~", "evi.morph.trap~" ]
     },
     "evi.bp~": {
         "digest": "Reimplementation of Pd 'bp~' filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear" ],
         "keywords": [],
         "seealso": [ "evi.vcf~", "evi.butterworthlp6~", "evi.reson~", "evi.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.butterworthlp6~": {
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear" ],
         "keywords": [],
         "seealso": [ "evi.butterworthlp8~", "evi.bp~", "evi.vcf~", "evi.filter~", "evi.reson~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.butterworthlp8~": {
         "digest": "Variable order TPT Butterworth Lowpass filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.butterworthlp6~", "evi.filter~", "evi.biquad.butterworth~" ]
     },
     "evi.cfsmooth~": {
         "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [ "smooth", "ramp" ],
         "seealso": [ "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.chorus.digital~": {
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.clipasym~": {
         "digest": "Variable asymmetric clipping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.korgms10~", "evi.warmer~", "evi.sinfold~", "evi.shaper~", "evi.softclip~", "evi.hardclip~" ]
     },
     "evi.clip~": {
         "digest": "Anti-aliased clipping algorithms for your audio",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.limiterfast~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.comb~": {
         "digest": "Reimplementation of MSP comb~ filter delay",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Effect", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.allpass~", "evi.teeth~" ]
     },
     "evi.crossover.3band~": {
         "digest": "Linkwitz-Riley 3-way (low/mid/high) crossover filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Crossover" ],
         "keywords": [],
         "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.crossover.allpass~": {
         "digest": "Allpass filter for aligning audio bands using evieve crossover filters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Crossover" ],
         "keywords": [],
         "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.3band~", "evi.crossover.sum~" ]
     },
     "evi.crossover.sum~": {
         "digest": "Summing, including allpass alignment, for use with evi.crossover.3band~",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Crossover" ],
         "keywords": [],
         "seealso": [ "evi.cross~", "evi.crossover~", "evi.crossover.3band~", "evi.crossover.allpass~" ]
     },
     "evi.crossover~": {
         "digest": "A choice of 2 or 4 pole Linkwitz-Riley crossover filters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Crossover" ],
         "keywords": [],
         "seealso": [ "evi.cross~", "evi.crossover.3band~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.cross~": {
         "digest": "Reimplementation of MSP cross~ filter as Likwitz-Riley",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Crossover", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.crossover~", "evi.crossover.3band~", "evi.crossover.sum~", "evi.crossover.allpass~" ]
     },
     "evi.damp.macro~": {
         "digest": "A 'one knob' macroisation for simple low/high onepole damping filters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Utility", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.damp~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.damp~": {
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Utility", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.damp.macro~", "evi.onepole~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.dcblock~": {
         "digest": "DC Blocking filter \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "biquad~" ]
     },
     "evi.detune~": {
         "digest": "A quirky digital Detune effect with filtering and saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~" ]
     },
     "evi.dfm~": {
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Nonlinear", "evieve Filter Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.korgms20.select~" ]
     },
     "evi.eq3stereo~": {
         "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.eq3~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq3~": {
         "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.eq3stereo~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq5~": {
         "digest": "5-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq8~": {
         "digest": "8-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq5~", "evi.filter.eq~" ]
     },
     "evi.expsmooth~": {
         "digest": "Exponential signal smoother",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [ "smooth", "ramp" ],
         "seealso": [ "evi.cfsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.filter.allpass~": {
         "digest": "TPT allpass filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.bandpass~": {
         "digest": "TPT bandpass filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.bell~": {
         "digest": "TPT peak/notch filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.eq~": {
         "digest": "EQ type TPT filters with a choice of 7 filters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Coefficients" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.highpass~": {
         "digest": "TPT highpass filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.highshelf~": {
         "digest": "TPT highshelf filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.lowpass~": {
         "digest": "TPT lowpass filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.lowshelf~": {
         "digest": "TPT lowshelf filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.morph~": {
         "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of evi.svf~.",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.notch~": {
         "digest": "TPT notch filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.peak~": {
         "digest": "TPT peaking filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.resonant~": {
         "digest": "TPT resonant filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.reson~", "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.tilt~" ]
     },
     "evi.filter.shelving~": {
         "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.filter.tilt~": {
         "digest": "TPT tilt filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~" ]
     },
     "evi.filter~": {
         "digest": "All-in-one TPT twopole filter section with a choice of 12 different filter types",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Coefficients" ],
         "keywords": [],
         "seealso": [ "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.flanger.digital~": {
         "digest": "A basic two-stage Flanger effect with saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.chorus.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.formantfilter.morph~": {
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.formantfilter~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantfilter~": {
         "digest": "A classic formant filter which can smoothly morph singing voice type and sung vowel sounds for voxy filtering effects on your audio streams \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.formantfilter.morph~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantosc~": {
         "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Oscillator", "evieve Source", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.paf~", "evi.vosim.basic~", "evi.formantfilter~", "evi.formantfilter.morph~" ]
     },
     "evi.formletfilter~": {
         "digest": "A ringing formlet filter model",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.reson~", "evi.modalres~", "evi.formantfilter~", "evi.formantfilter.morph~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~" ]
     },
     "evi.freezeverb~": {
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.freqshift.hilbert~": {
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Modulation", "evieve Effect", "evieve Nonlinear" ],
         "keywords": [],
         "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs", "evi.sinfold~" ]
     },
     "evi.freqshift.weaver~": {
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Modulation", "evieve Effect", "evieve Nonlinear" ],
         "keywords": [],
         "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~", "evi.sinfold~" ]
     },
     "evi.gaussiannoise~": {
         "digest": "Gaussian distributed noise approximation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Source", "evieve Noise", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.audiodust~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.gigaverb~": {
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.hardclip~": {
         "digest": "Anti-aliased hard clipping function",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.clip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.hilbert~": {
         "digest": "Hilbert quadrature (phase shift) filter \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Utility", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.polyphaseiirhilbertcoeffs", "evi.freqshift.hilbert~", "evi.phaseshift~", "evi.cross~" ]
     },
     "evi.korgms10~": {
         "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.korgms20~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.transistor~" ]
     },
     "evi.korgms20.select~": {
         "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.dfm~", "evi.ladder.moog~" ]
     },
     "evi.korgms20~": {
         "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation with simultaneous outputs",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.korgms10~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.diode~" ]
     },
     "evi.ladder.diode~": {
         "digest": "TPT nonlinear Diode Ladder filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.poles~" ]
     },
     "evi.ladder.moog~": {
         "digest": "Nonlinear 24dB Moog Ladder filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.ladder.transistor~", "evi.ladder.poles~", "evi.ladder.diode~" ]
     },
     "evi.ladder.poles~": {
         "digest": "TPT nonlinear transistor Ladder filter emulation with switchable (interpolated) poles",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.lorez~", "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.diode~" ]
     },
     "evi.ladder.transistor~": {
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.ladder.moog~", "evi.ladder.poles~", "evi.ladder.diode~" ]
     },
     "evi.lagsmooth~": {
         "digest": "Smooth signal ramp generator with logarithmic curve",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [ "smooth", "ramp" ],
         "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.logsmooth~", "evi_smooth" ]
     },
     "evi.limiterfast~": {
         "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.clip~", "evi.hardclip~", "evi.softclip~" ]
     },
     "evi.logahr~": {
         "digest": "Attack/hold/release envelope follower",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.logdecay~", "evi.logattackdecay~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logattackdecay~": {
         "digest": "Attack/decay envelope follower",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.logdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logdecay~": {
         "digest": "Decay envelope follower",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.logattackdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
     },
     "evi.logsmooth~": {
         "digest": "Logarithmic signal smoother",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [ "smooth", "ramp" ],
         "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth" ]
     },
     "evi.lores~": {
         "digest": "Reimplementation of MSP lores~ filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.lorez~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.lorez~": {
         "digest": "A novel two-pole nonlinear Ladder filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.lores~", "evi.ladder.moog~", "evi.ladder.transistor~", "evi.ladder.poles~", "evi.ladder.diode~", "evi.korgms20.select~" ]
     },
     "evi.lpg~": {
         "digest": "Buchla Lowpass Gate emulation for your west coast synthesis fun \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Nonlinear", "evieve Effect", "evieve Modulation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.vactrol~", "evi.wavefolder.cascade~", "evi.wavefolder~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
     },
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.modalres~": {
         "digest": "Max Mathews modal resonator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Filter", "evieve Source" ],
         "keywords": [],
         "seealso": [ "evi.formletfilter~", "evi.reson~", "evi.hilbert~", "evi.sustainverb~" ]
     },
     "evi.modosc~": {
         "digest": "A deluxe cosine LFO with range and offset shaping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.phasor0~", "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.audiodust~" ]
     },
     "evi.morph.trap~": {
         "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.morph.tri~", "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.morph.tri~": {
         "digest": "A selection of morphing triangular anti-aliased oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.morph.trap~", "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.multimode~": {
         "digest": "Simultaneous outputs for all filters available from a linear TPT SVF",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT" ],
         "keywords": [],
         "seealso": [ "evi.svf~", "evi.filter~", "evi.svfinputmix~", "evi.onepole~" ]
     },
     "evi.onepole.shelving~": {
         "digest": "Onepole shelving filters with simultaneous outputs",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.onepole~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.onepole~": {
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.rcfilter~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.crossover.allpass~", "evi.filter~" ]
     },
     "evi.overdrive.atan~": {
         "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.overdrive.sqrt~", "evi.overdrive.tanh~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.sqrt~": {
         "digest": "High quality anti-aliased passive tanh-like input/output saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.tanh~": {
         "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.shaper~", "evi.sinfold~", "evi.clip~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.paf~": {
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.pan~": {
         "digest": "Pan audio signals",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
     "evi.phaser.analog~": {
         "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve Modulation", "evieve MSP Substitution", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.filter.allpass~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.phasor0~": {
         "digest": "Zero-reset phasor with settings for reverse and pause",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": [ "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
     },
     "evi.plateverb~": {
         "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "digest": "Coefficients calculator for polyphase IIR halfband allpass quadrature hilbert filter cascade, outputs messages, dict and buffer~ arrays \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Coefficients", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.hilbert~", "evi.freqshift.hilbert~", "evi.weightingcoeffs" ]
     },
     "evi.quadosc~": {
         "digest": "Phase locked quadrature oscillator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.4wave~", "evi.blitwaves~", "evi.phasor0~", "evi_cossin" ]
     },
     "evi.ramp0~": {
         "digest": "Ramp generator, with options for zero-reset, loop, restingstate, curve and pause",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": [ "evi.phasor0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
     },
     "evi.randy~": {
         "digest": "Cubic interpolated version of the linear MSP rand~",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map", "evieve Noise" ],
         "keywords": [],
         "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~" ]
     },
     "evi.rcfilter~": {
         "digest": "Trapezoidal nonliner onepole rc filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.onepole~", "evi.tone.macro~", "evi.korgms20.select~", "evi.ladder.moog~" ]
     },
     "evi.rect.select~": {
         "digest": "Selection of anti-aliased square-like oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.rect~": {
         "digest": "High quality anti-aliased square wave oscillator with PWM",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.saw~", "evi.tri~", "evi.4wave~", "ev.rect.select~", "evi.blitwaves~" ]
     },
     "evi.reson~": {
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.lores~", "evi.onepole~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.ringmod.diode~": {
         "digest": "Analog-modelled diode-based ring modulator effect \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.ringmod~", "evi.freqshift.weaver~", "evi.freqshift.hilbert~", "evi.sinfold~" ]
     },
     "evi.ringmod~": {
         "digest": "Anti-aliased nonlinear ring modulator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.ringmod.diode~", "evi.freqshift.weaver~", "evi.freqshift.hilbert~", "evi.sinfold~" ]
     },
     "evi.saw.select~": {
         "digest": "Selection of anti-aliased saw-like oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.saw~": {
         "digest": "High quality anti-aliased saw wave oscillator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.rect~", "evi.tri~", "evi.4wave~", "ev.saw.select~", "evi.blitwaves~" ]
     },
     "evi.shaper~": {
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.softclip~", "evi.sinfold~", "evi.warmer~", "evi.clipasym~" ]
     },
     "evi.sine.select~": {
         "digest": "Selection of anti-aliased sine-like oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.sinfold~": {
         "digest": "An anti-aliased sine folding waveshaper",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.softclip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.skfinputmix~": {
         "digest": "Sallen-Key input mixing multimode filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve AntiAliased", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.svfinputmix~", "evi.svf~", "evi.multimode~", "evi.filter~", "evi.svfsynth~" ]
     },
     "evi.softclip~": {
         "digest": "Anti-aliased soft clipping function",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.clip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.squine.simple~": {
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.zitaverb~" ]
     },
     "evi.svfinputmix~": {
         "digest": "SVF input mixing multimode filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter TPT", "evieve Filter Linear", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.skfinputmix~", "evi.svf~", "evi.multimode~", "evi.filter~", "evi.svfsmooth~" ]
     },
     "evi.svfsmooth~": {
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.arpnotch~", "evi.svfsynth~", "evi.svf~", "evi.korgms10~", "evi.ladder.poles~" ]
     },
     "evi.svfsynth~": {
         "digest": "Nonlinear TPT SVF multimode synth filter with oversampling options",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.svfsmooth~", "evi.arpnotch~", "evi.svf~", "evi.korgms20.select~", "evi.ladder.moog~" ]
     },
     "evi.svf~": {
         "digest": "Reimplementation of MSP svf~ as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.multimode~", "evi.svfsmooth~", "evi.svfsynth~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
     "evi.teeth~": {
         "digest": "Reimplementation of MSP teeth~ filter delay",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Effect", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.allpass~", "evi.comb~" ]
     },
     "evi.tone.macro~": {
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve AntiAliased", "evieve Effect", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~", "evi.lorez~" ]
     },
     "evi.tpqm": {
         "digest": "Three point quadratic map \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": [ "evi.list.interp", "evi.list.xfade", "mc.evi.listgen", "evi.transratio" ]
     },
     "evi.transratio": {
         "digest": "Convert semitones to pitch and vica versa \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": []
     },
     "evi.tremolo~": {
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.am~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.tri.select~": {
         "digest": "Selection of anti-aliased triangle-like oscillators",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.sine.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.tri~": {
         "digest": "High quality anti-aliased triangle wave oscillator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.saw~", "evi.rect~", "evi.4wave~", "ev.tri.select~", "evi.blitwaves~" ]
     },
     "evi.vactrol~": {
         "digest": "Vactrol response time domain filter envelope",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
     },
     "evi.vcf~": {
         "digest": "Reimplementation of Pd 'vcf~' filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Filter", "evieve Filter Linear" ],
         "keywords": [],
         "seealso": [ "evi.bp~", "evi.butterworthlp6~", "evi.reson~", "evi.filter~", "evi.biquadcoeff", "evi.biquadcoeff~", "evi.biquad.filter~" ]
     },
     "evi.velvetnoise~": {
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Noise", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
     },
     "evi.vosim.basic~": {
         "digest": "A basic implementation of a 'vosim' formant oscillator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Source", "evieve AntiAliased", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.paf~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
     "evi.warmer~": {
         "digest": "Complex saturation processor with options \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve AntiAliased" ],
         "keywords": [],
         "seealso": [ "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.overdrive.tanh~", "evi.overdrive.atan~", "evi.overdrive.sqrt~" ]
     },
     "evi.wavefolder.cascade~": {
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.wavefolder~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.wavefolder~": {
         "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Oscillator", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve AntiAliased", "evieve Dynamics" ],
         "keywords": [],
         "seealso": [ "evi.wavefolder.cascade~", "evi.lpg~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.freqshift.weaver~", "evi.ringmod~", "evi.ringmod.diode~" ]
     },
     "evi.weightingcoeffs": {
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Coefficients", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.polyphaseiirhilbertcoeffs" ]
     },
     "evi.xfade~": {
         "digest": "Crossfade audio signals",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Objects" ],
+        "category": [ "evieve", "evieve Externals" ],
         "keywords": [],
         "seealso": [ "evi.pan~", "evi_utilities" ]
     },
     "evi.zeroxcount~": {
         "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous analysis outputs",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
     },
     "evi.zeroxoscnoise~": {
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve GenAbstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Oscillator", "evieve Effect", "evieve Noise" ],
         "keywords": [],
         "seealso": [ "evi.blitwaves~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~" ]
     },
     "evi.zitaverb~": {
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~" ]
     },
     "mc.evi.bands~": {
         "digest": "Evenly distribute resonant filter bands across a spectrum \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Effect", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.formantfilter~", "evi.formantfilter.morph~", "evi.reson~" ]
     },
     "mc.evi.listgen": {
         "digest": "Create message lists with mcwrapper features \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": [ "mcwrapper-group" ]
     }

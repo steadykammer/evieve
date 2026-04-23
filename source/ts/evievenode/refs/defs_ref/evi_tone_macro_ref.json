@@ -10,7 +10,15 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Filter",
+            "evieve Filter TPT",
+            "evieve Filter Nonlinear",
+            "evieve AntiAliased",
+            "evieve Effect",
+            "evieve Onepole"
+        ]
     },
     "includes": [
         "evi_rcfilters.genexpr",

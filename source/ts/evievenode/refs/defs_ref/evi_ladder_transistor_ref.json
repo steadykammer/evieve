@@ -10,7 +10,13 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Nonlinear",
+            "evieve Filter TPT",
+            "evieve Nonlinear",
+            "evieve AntiAliased"
+        ]
     },
     "includes": [
         "evi_tanh.genexpr",

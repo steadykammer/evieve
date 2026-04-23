@@ -2527,7 +2527,7 @@ function createMaxKeyCommands()
 		"commands": {
 			"genTilde": {
 				"letterKey": "g",
-				"insertText": "\"newobj @text \"gen~ ", // + space
+				"insertText": "\"newobj @text gen~ \"", // + space
 				"instructText": "\"gen~ object...\""
 			},
 			"genCodebox": {
@@ -2896,7 +2896,7 @@ const externalsXmlMetadata = [
 		"maxattr_name": "tag"
 	},
 	{
-		"#text": "evieve Objects",
+		"#text": "evieve Externals",
 		"maxattr_name": "tag"
 	}
 ];
@@ -3362,7 +3362,6 @@ async function testPeggySideBar(fullPathToTest: string)
 
 // very stupid and dangerous pete style package building
 
-// bug, two internal folders not copied: algoresources & helpresources. why ?!?!
 function buildPackage(dest?: string, zip = false)
 {
 	const source = "../../../../../evieve";
@@ -3383,6 +3382,7 @@ function buildPackage(dest?: string, zip = false)
 			!(src.indexOf('.gitignore') > -1) &&
 			!(src.indexOf('.gitmodules') > -1) &&
 			!(src.indexOf('.vscode') > -1) && 
+			!(src.indexOf('.VSCodeCounter') > -1) && 
 			!(src.indexOf('.DS_Store') > -1)
 		}
 	});

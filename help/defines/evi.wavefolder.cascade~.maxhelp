@@ -35,12 +35,25 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-10",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 425.0, 298.0, 184.0, 54.0 ],
+                                    "text": "the higher the cascade, the greater amount of input gain can be managed",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -651,8 +664,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 177.0, 192.0, 50.0, 21.0 ],
-                                    "text": "depth",
+                                    "patching_rect": [ 159.0, 192.0, 86.0, 21.0 ],
+                                    "text": "depth (gain)",
                                     "textjustification": 1
                                 }
                             },

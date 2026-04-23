@@ -2121,7 +2121,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2136,7 +2136,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evieve: msp", 660 ],
+                                    "jsarguments": [ "evieve: msp-substitutions", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2161,7 +2161,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "There are other msp objects in evieve. Here is an overview.",
+                                    "text": "There are other msp-substitutions objects in evieve. Here is an overview.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2193,7 +2193,7 @@
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
-                    "text": "p \"evieve msp\"",
+                    "text": "p \"evieve: msp\"",
                     "varname": "areas_tab"
                 }
             }

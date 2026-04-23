@@ -15,7 +15,7 @@
 
 // basic cos/sin approximations, accuracy just about ok for audio, @see evi_trig.genexpr
 
-cosQ73(x)
+cosQ73a(x)
 {
 	c1 =  0.999999953464;
 	c2 = -0.499999053455;
@@ -28,7 +28,7 @@ cosQ73(x)
 }
 
 // only about 1.2 x faster than library cos()
-cos73(x)
+cos73a(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
 	x = x % TWOPI;					// phasewrap(x) cheaper ?
@@ -36,35 +36,35 @@ cos73(x)
 	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
 	cosreturn = 0;
 	if 				(QUAD == 0) {
-		cosreturn =  cosQ73(x);
+		cosreturn =  cosQ73a(x);
 	} else if 		(QUAD == 1) {
-		cosreturn = -cosQ73(PI - x);
+		cosreturn = -cosQ73a(PI - x);
 	} else if 		(QUAD == 2) {
-		cosreturn = -cosQ73(x - PI);
+		cosreturn = -cosQ73a(x - PI);
 	} else {	//	(QUAD == 3)
-		cosreturn =  cosQ73(TWOPI - x);
+		cosreturn =  cosQ73a(TWOPI - x);
 	}
 	return cosreturn;
 }
 
-sin73(x)
+sin73a(x)
 {
-	return cos73(HALFPI - x);
+	return cos73a(HALFPI - x);
 }
 
 // no branching, stay out the while loop in export, for param rate etc
-cos73param(x)
+cos73aparam(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
 	x = x % TWOPI;					// phasewrap(x) cheaper ?
 	x = (x < 0) ? -x : x;
 	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
-	return (QUAD == 0) ? cosQ73(x) : ((QUAD == 1) ? -cosQ73(PI - x) : ((QUAD == 2) ? -cosQ73(x - PI) : cosQ73(TWOPI - x)));
+	return (QUAD == 0) ? cosQ73a(x) : ((QUAD == 1) ? -cosQ73a(PI - x) : ((QUAD == 2) ? -cosQ73a(x - PI) : cosQ73a(TWOPI - x)));
 }
 
-sin73param(x)
+sin73aparam(x)
 {
-	return cos73param(HALFPI - x);
+	return cos73aparam(HALFPI - x);
 }
 
 // for crossfading and panning etc
@@ -375,16 +375,16 @@ c2pApprox(real, imag)
 // poltocar approx
 p2cApprox(alpha, theta)
 {
-	real = alpha * cos73(theta);
-	imag = alpha * sin73(theta);
+	real = alpha * cos73a(theta);
+	imag = alpha * sin73a(theta);
 	return real, imag;
 }
 
 // poltocar approx, keep out of while loop in export
 p2cApproxParam(alpha, theta)
 {
-	real = alpha * cos73Param(theta);
-	imag = alpha * sin73Param(theta);
+	real = alpha * cos73aparam(theta);
+	imag = alpha * sin73aparam(theta);
 	return real, imag;
 }
 

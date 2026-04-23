@@ -10,7 +10,12 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Source",
+            "evieve AntiAliased",
+            "evieve Effect"
+        ]
     },
     "includes": [
         "evi_trig.genexpr"

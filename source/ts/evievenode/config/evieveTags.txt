@@ -1,0 +1,23 @@
+evieve Oscillator
+evieve Control
+evieve Reverb
+evieve Nonlinear
+evieve Filter
+evieve Filter Linear
+evieve Modulation
+evieve Effect
+evieve Filter TPT
+evieve Filter Nonlinear
+evieve Source
+evieve Noise
+evieve Smooth
+evieve Saturation
+evieve AntiAliased
+evieve MSP Substitution
+evieve Crossover
+evieve Utility
+evieve Dynamics
+evieve Onepole
+evieve Coefficients
+evieve Map
+

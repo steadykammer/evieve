@@ -117,8 +117,8 @@ svfSinMulti(X, cutoff, damp)
 
 	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
 	w	= PI * cutoff / SAMPLERATE;
-	s1	= sin73(w);
-	s2	= sin73(w + w);
+	s1	= sin73a(w);
+	s2	= sin73a(w + w);
 	nrm	= 1 / (2 + (k * s1));				// k == damp
 	g0	= s2 * nrm;
 	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
@@ -148,8 +148,8 @@ svfSinSingle(X, cutoff, damp, filt)
 
 	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
 	w	= PI * cutoff / SAMPLERATE;
-	s1	= sin73(w);
-	s2	= sin73(w + w);
+	s1	= sin73a(w);
+	s2	= sin73a(w + w);
 	nrm	= 1 / (2 + (k * s1));				// k == damp
 	g0	= s2 * nrm;
 	g1	= ((-2 * s1 * s1) - (k * s2)) * nrm;
@@ -196,8 +196,8 @@ svfSinSingle(X, cutoff, damp, filt)
 inputMixingSvfCoefficients(cutoff, res)
 {
     w	= PI * cutoff / SAMPLERATE;
-    s1	= sin73param(w);
-    s2	= sin73param(w + w);
+    s1	= sin73aparam(w);
+    s2	= sin73aparam(w + w);
 
     rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
     rc2 = rc + rc;
@@ -233,8 +233,8 @@ inputMixingSvf(vlow, vband, vhigh, cutoff, res)
     History	ic1eq(0), ic2eq(0);
 
     w	= PI * cutoff / SAMPLERATE;
-    s1	= sin73(w);
-    s2	= sin73(w + w);
+    s1	= sin73a(w);
+    s2	= sin73a(w + w);
 
     rc  = clip(res, (s1 * 0.5), minimum((1 - w), 0.97));
     rc2 = rc + rc;

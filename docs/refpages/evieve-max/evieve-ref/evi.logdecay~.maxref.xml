@@ -6,7 +6,7 @@
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
-    <metadata name="tag">evieve Objects</metadata>
+    <metadata name="tag">evieve Externals</metadata>
   </metadatalist>
   <inletlist>
     <inlet id="0" type="signal/float">

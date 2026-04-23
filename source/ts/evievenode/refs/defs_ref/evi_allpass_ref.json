@@ -10,7 +10,11 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Effect",
+            "evieve MSP Substitution"
+        ]
     },
     "includes": [
         "evi_smooth.genexpr"

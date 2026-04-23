@@ -1,6 +1,6 @@
 
 
-cosQ73(x)
+cosQ73b(x)
 {
 	c1 =  0.999999953464;
 	c2 = -0.499999053455;
@@ -13,7 +13,7 @@ cosQ73(x)
 }
 
 // only about 1.2 x faster than library cos()
-cos73(x)
+cos73b(x)
 {
 	TWOOVERPI = 0.63661977236758;	// 2 / PI
 	x = x % TWOPI;								// phasewrap(x) cheaper ?
@@ -21,20 +21,20 @@ cos73(x)
 	QUAD = int(x * TWOOVERPI);		// get quadrant # (0..3) we are in
 	cosreturn = 0;
 	if 				(QUAD == 0) {
-		cosreturn =  cosQ73(x);
+		cosreturn =  cosQ73b(x);
 	} else if 		(QUAD == 1) {
-		cosreturn = -cosQ73(PI - x);
+		cosreturn = -cosQ73b(PI - x);
 	} else if 		(QUAD == 2) {
-		cosreturn = -cosQ73(x - PI);
+		cosreturn = -cosQ73b(x - PI);
 	} else {	//	(QUAD == 3)
-		cosreturn =  cosQ73(TWOPI - x);
+		cosreturn =  cosQ73b(TWOPI - x);
 	}
 	return cosreturn;
 }
 
-sin73(x)
+sin73b(x)
 {
-	return cos73(HALFPI - x);
+	return cos73b(HALFPI - x);
 }
 
 // variable dcblock() so that effect can be bypassed (a0 = 1)

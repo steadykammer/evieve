@@ -13,6 +13,10 @@
 		<metadata name="author">Pete Dowling</metadata>
 		<metadata name="tag">evieve</metadata>
 		<metadata name="tag">evieve Abstractions</metadata>
+		<metadata name="tag">evieve Nonlinear</metadata>
+		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve Saturation</metadata>
+		<metadata name="tag">evieve AntiAliased</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>

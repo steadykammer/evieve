@@ -134,7 +134,9 @@ function dumpcategory(categorySearched: string) {
 	const sorted = outputObjects.sort(alphabeticalSort);
 
 	for (let i = 0; i < sorted.length; i++) {
-		outlet(1, 'append', sorted[i]);
+		if (!excludeObjects.includes(sorted[i])) {
+			outlet(1, 'append', sorted[i]);
+		}
 	}
 }
 
@@ -168,6 +170,16 @@ function alphabeticalSort(a: string, b: string) {
 	return 0 // default return value (no sorting)
 }
 alphabeticalSort.local = 1;
+
+// temp, need to automate this
+// objects for which we do create refs/helpfiles but do not want listed in our overview:
+const excludeObjects = [
+	"evi.modalres~", // todo
+	"evi.tpqm",
+	"evi.transratio",
+	"mc.evi.bands~",
+	"mc.evi.listgen"
+];
 
 const module = {};
 export = {};

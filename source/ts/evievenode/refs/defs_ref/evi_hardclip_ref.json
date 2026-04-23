@@ -10,7 +10,12 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Saturation",
+            "evieve AntiAliased",
+            "evieve Dynamics"
+        ]
     },
     "includes": [
         "evi_interp.genexpr"

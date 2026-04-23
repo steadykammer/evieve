@@ -13,6 +13,10 @@
 		<metadata name="author">Pete Dowling</metadata>
 		<metadata name="tag">evieve</metadata>
 		<metadata name="tag">evieve Abstractions</metadata>
+		<metadata name="tag">evieve Filter</metadata>
+		<metadata name="tag">evieve Filter Linear</metadata>
+		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve Utility</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>

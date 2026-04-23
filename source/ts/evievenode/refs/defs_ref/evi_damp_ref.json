@@ -10,7 +10,12 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear",
+            "evieve Utility",
+            "evieve Onepole"
+        ]
     },
     "includes": [
         "evi_rcfilters.genexpr"

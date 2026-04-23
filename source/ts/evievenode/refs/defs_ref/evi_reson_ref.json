@@ -10,7 +10,11 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear",
+            "evieve MSP Substitution"
+        ]
     },
     "includes": [
         "evi_svfs_tpt_filters.genexpr"

@@ -3061,30 +3061,6 @@
                                         "boxes": [
                                             {
                                                 "box": {
-                                                    "hidden": 1,
-                                                    "id": "obj-1",
-                                                    "linecount": 2,
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 142.0, 117.0, 122.0, 33.0 ],
-                                                    "text": "^ i want the helpfiles but not the listing"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 4,
-                                                    "numoutlets": 4,
-                                                    "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 63.0, 95.0, 250.0, 22.0 ],
-                                                    "text": "route (choose...) evi.modalres~ mc.evi.listgen"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "hidden": 1,
                                                     "id": "obj-7",
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
@@ -3121,12 +3097,6 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-8", 0 ],
-                                                    "source": [ "obj-27", 3 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
                                                     "source": [ "obj-4", 0 ]
                                                 }
                                             }

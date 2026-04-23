@@ -4,7 +4,7 @@ evieve — History
 Change Log
 -----------------------------------------------------------------------------------------
 
-Changes in 0.0.1
+Changes in 0.0.3
 
 Improvements
 
@@ -12,19 +12,27 @@ Bug Fixes
 
 -------
 
-Changes in 0.0.1
+Changes in 0.0.2
+
+As sent to Rod, James, Alex & JKC
 
 New Features
+- all helpfiles made (apart from the 'mc' tabs)
 
 Improvements
+- all filters and oscillators default to Hz as input units, pitch still available via the attribute
 
 Bug Fixes
+- fixed evi_hzpitchmods attributes referencing (e.g. in Ladders)
 
 -------
 
 Changes in 0.0.1
 
-Bug Fixes
+As sent to Rod, James & Alex
+
+New Features
+- all ref docs done
 
 -------
 

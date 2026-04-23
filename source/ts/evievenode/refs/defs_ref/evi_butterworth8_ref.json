@@ -10,7 +10,11 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear",
+            "evieve Filter TPT"
+        ]
     },
     "includes": [
         "evi_approx.genexpr"

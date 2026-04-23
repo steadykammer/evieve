@@ -10,7 +10,13 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Control",
+            "evieve Modulation",
+            "evieve Source",
+            "evieve Utility"
+        ]
     },
     "includes": [
         "evi_smooth.genexpr"

@@ -85,7 +85,9 @@ function dumpcategory(categorySearched) {
   }
   const sorted = outputObjects.sort(alphabeticalSort);
   for (let i = 0; i < sorted.length; i++) {
-    outlet(1, "append", sorted[i]);
+    if (!excludeObjects.includes(sorted[i])) {
+      outlet(1, "append", sorted[i]);
+    }
   }
 }
 function findObjectForCategory(d, categorySearched) {
@@ -113,5 +115,13 @@ function alphabeticalSort(a, b) {
   return 0;
 }
 alphabeticalSort.local = 1;
+const excludeObjects = [
+  "evi.modalres~",
+  // todo
+  "evi.tpqm",
+  "evi.transratio",
+  "mc.evi.bands~",
+  "mc.evi.listgen"
+];
 const module = {};
 module.exports = {};

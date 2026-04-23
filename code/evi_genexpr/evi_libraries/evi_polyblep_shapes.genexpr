@@ -23,7 +23,7 @@ poly_half(t, dt)
 	tdp		=  0.6366197723675814;	//  2 / PI
 	t2		=  wrap(t + 0.5, 0, 1);
 	if (t < 0.5) {
-		h0	= sin73(TWOPI * t);
+		h0	= sin73b(TWOPI * t);
 		h 	= (h0 + h0) - tdp;
 	} else {
 		h	= -tdp;
@@ -43,7 +43,7 @@ poly_half2(t, dt, pw)
 	t6	= wrap(t6, 0, 1);
 	t77	= t7 - wrap(t7, 0, 1);
 	if (t6 < pw) {
-		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+		h	= (sin73b(t6 / pw * PI) * 2) - pw * fdp;
 	} else {
 		h	= 0 - pw * fdp;
 	}
@@ -64,7 +64,7 @@ poly_half22(t, dt, pw)
 //	if (pw == 0.5) {
 		h 	= poly_half(t, dt);		// same shape at default pw, because this algo aliases like hell
 	} else if (t6 < pw) {
-		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+		h	= (sin73b(t6 / pw * PI) * 2) - pw * fdp;
 	} else {
 		h	= 0 - pw * fdp;
 	}
@@ -76,12 +76,12 @@ poly_half22(t, dt, pw)
 
 poly_sin(t)
 {
-	return	sin73(TWOPI * t);
+	return	sin73b(TWOPI * t);
 }
 
 poly_cos(t)
 {
-	return	cos73(TWOPI * t);
+	return	cos73b(TWOPI * t);
 }
 
 // full-wave rectified sine
@@ -91,7 +91,7 @@ poly_full(t, dt)
 {
 	fdp	= 1.2732395447351628;		// 4 / PI
 	t1	= wrap(t + 0.25, 0, 1);
-	f0	= sin73(PI * t1);
+	f0	= sin73b(PI * t1);
 	f 	= (f0 + f0) - fdp;
 	f  += TWOPI * dt * poly_blamp(t1, dt);
 	return	f;
@@ -106,7 +106,7 @@ poly_sinp(t, dt)
 	t2	= wrap(t + 0.5, 0, 1);
 	s	= 0;
 	if (t < 0.5) {
-		ss 	=  sin73(t * PI);
+		ss 	=  sin73b(t * PI);
 		s	= (ss + ss) - tdp;
 	} else {
 		s	= -tdp;
@@ -123,7 +123,7 @@ poly_sawp(t2, dt)					// not t
 //	t2	= wrap(t + 0.5, 0, 1);		// surely should not shift this for phase zero crossing ??
 	w	= 0;
 	if (t2 >= 0.5) {
-		w	= (cos73(t2 * TWOPI) + 1) - 0.5;
+		w	= (cos73b(t2 * TWOPI) + 1) - 0.5;
 	} else {
 		w	= -0.5;
 	}
@@ -140,7 +140,7 @@ poly_alt(t, dt)
 	t2	= wrap(t + 0.5, 0, 1);
 	at	= 0;
 	if (t2 < 0.5) {
-		at	= sin73(t2 * pi4);
+		at	= sin73b(t2 * pi4);
 	} else {
 		at	= 0;
 	}
@@ -162,7 +162,7 @@ poly_camel(t, dt)
 	t33	= wrap(t3, 0, 1);
 	c	= 0;
 	if (t < 0.5) {
-		cc  =  abs(sin73(t * pi4));
+		cc  =  abs(sin73b(t * pi4));
 		c	= (cc + cc) - tdp;
 	} else {
 		c	= -tdp;
@@ -178,7 +178,7 @@ poly_sin2(t, dt)
 {
 	msp	= -1.772453850905516;		// -sqrt(PI);
 	t2	=  wrap(t + 0.5, 0, 1);
-	s1	=  sin73(t * TWOPI);
+	s1	=  sin73b(t * TWOPI);
 	s2 	=  s1 * s1;
 	s0 	= (t < 0.5) ? s2 : -s2;
 	s2	= ((poly_bluh((t + 0.5) - t2, dt) - poly_bluh(t, dt)) * (dt * dt) * msp) + s0;
@@ -210,7 +210,7 @@ poly_circ(t, dt)
 	t33		= wrap(t3, 0, 1);
 	// "mimic linear-phase filter by mixing 1st-order low-pass filtered square...
 	lp	   += (poly_blep(t22, dt) - poly_blep(t3 - t33, dt) + ((t22 < 0.5) * 2 - 1) - lp) / (dt + od2psn) * dt;
-	cc		= (lp + sin73(t * TWOPI)) * 0.5;//odt;						// ... with sine"
+	cc		= (lp + sin73b(t * TWOPI)) * 0.5;//odt;						// ... with sine"
 	return	cc;
 }
 
@@ -286,8 +286,8 @@ poly_cubsaw(t, dt)
 // ok for full range
 poly_sawsin(t, dt)
 {
-//	return	((poly_blep(t, dt) + sin73((0.5 - t) * PI)) * -1);
-	return -(poly_blep(t, dt) + sin73((0.5 - t) * PI));
+//	return	((poly_blep(t, dt) + sin73b((0.5 - t) * PI)) * -1);
+	return -(poly_blep(t, dt) + sin73b((0.5 - t) * PI));
 }
 
 // sine sawtooth (-sawtoothsine)
@@ -295,7 +295,7 @@ poly_sawsin(t, dt)
 // ok for full range
 poly_sinsaw(t, dt)
 {
-	return	(poly_blep(t, dt) + sin73((0.5 - t) * PI));
+	return	(poly_blep(t, dt) + sin73b((0.5 - t) * PI));
 }
 
 // highpass filtered sawtooth approximation

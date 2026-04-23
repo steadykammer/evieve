@@ -10,7 +10,12 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Effect",
+            "evieve Saturation",
+            "evieve AntiAliased"
+        ]
     },
     "includes": [
         "evi_sinfold_lib.genexpr"

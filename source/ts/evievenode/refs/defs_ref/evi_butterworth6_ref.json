@@ -10,7 +10,10 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Filter",
+            "evieve Filter Linear"
+        ]
     },
     "includes": [
         "evi_biquads_extras.genexpr"

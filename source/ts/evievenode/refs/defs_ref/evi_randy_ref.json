@@ -10,7 +10,15 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Oscillator",
+            "evieve Control",
+            "evieve Modulation",
+            "evieve Source",
+            "evieve Utility",
+            "evieve Map",
+            "evieve Noise"
+        ]
     },
     "includes": [],
     "inlets": [

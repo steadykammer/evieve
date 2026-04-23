@@ -15,7 +15,10 @@
 	<metadatalist>
 		<metadata name="author">Pete Dowling</metadata>
 		<metadata name="tag">evieve</metadata>
-		<metadata name="tag">evieve Gen Abstractions</metadata>
+		<metadata name="tag">evieve GenAbstractions</metadata>
+		<metadata name="tag">evieve Oscillator</metadata>
+		<metadata name="tag">evieve Source</metadata>
+		<metadata name="tag">evieve AntiAliased</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>

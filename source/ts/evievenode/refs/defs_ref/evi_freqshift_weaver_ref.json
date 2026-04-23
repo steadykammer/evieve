@@ -10,7 +10,11 @@
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Modulation",
+            "evieve Effect",
+            "evieve Nonlinear"
+        ]
     },
     "includes": [
         "evi_ssb.genexpr"
