@@ -1,31 +1,63 @@
 
-/*
+//	//	//	!! These are templates for copy/pasting and testing/making your own quasi resamplers;
+//	//	//	it is not advised to "require" this file directly !!
 
-	THIS FILE IS SOME OLD BULLSHIT AND IS TO BE COMPLETELY REWRITTEN
-	WITH BETTER STUFF BEFORE RELEASE
+//	//	//
 
-*/
+//	//	//	There is no native resampling in gen~, which poses a real problem.
+//	//	//	It is almost impossible, or at least prohibitively expensive, to create
+//	//	//	proper linear phase polyphase resamplers in gen~. Therefore evieve uses
+//	//	//	the very odd interpolation trick detailed in this file, which can have
+//	//	//	good results in certain circumstances.
+
+//	//	//	This file contains some variations on the same idea. First are one in one out
+//	//	//	interpolators for memoryless non-linearities. Then the same for two inputs one output.
+//	//	//	Finally there are versions which can be used for nonlinear filters. Comments
+//	//	//	in the code detail how it is done.
+
+//	//	//
 
 //	//	//	gen~ / GenExpr resamplers by Pete for evieve, thanks to Martijn Zwartjes
 //	//	//	(for the idea) and Alex Harker (for finding my mistakes).
+
 //	//	//	Basic cubic interpolation hacks in lieu of real resampling being not
 //	//	//	available in gen~. High frequency response is poor using these methods.
 //	//	//	These are relatively expensive, and literally process functions x times.
+//	//	//	Furthermore, there is no way of making these reusable functions in gen~
+//	//	//	so all the code here is for copy/pasting :-(
 
-//	//	//	These methods are not very good for oscillators or ringing resonance (filters),
-//	//	//	as those require really fine interpolation (e.g. use [poly~] for that).
-//	//	//	In evieve, these methods are mainly used on all the non-linearities and seem reasonable for that task.
+//	//	//
 
-//	//	//	!! These are templates for copy/pasting and testing/making your own resamplers;
-//	//	//	it is not advised to "require" this file directly !!
+//	//	//	Custom 4-point cubic and 6-point hermite interpolation:
+require("evi_interp.genexpr");
+//	//	//	About interpolation:
+
+//	//	//	This technique uses 4-point and 6-point interpolators for different tasks.
+//	//	//	We could use the gen~ native [interp] with modes 'cubic', 'spline' & 'spline6'.
+//	//	//	However, the native 'cubic' is no use, as it is a sort of weird tri-cubic
+//	//	//	and produces strange results with bad high frequency response. Native 'spline' is good,
+//	//	//	but quite expensive. Native 'spline6' is strange also, see the 'evi_interp.genexpr' file
+//	//	//	for an explanation. So we use evieve interpolators, 'cubic_hermite_interp()' which
+//	//	//	is high quality and cheap, and 'hermite_sixpoint_interp()' which works well.
+
+//	//	//	The choice of 4-point/6-point interpolator is down to CPU and situation. For
+//	//	//	example, 6-point does not work well for filters as it leaves a notch near nyquist,
+//	//	//	whereas sometimes 2x oversampling using 6-point is fine for a basic Adaa non-linearity.
+
+//	//	//
 
 
-require("evi_interp.genexpr"); // 4-point cubic and 6-point hermite
+//	//	//	SECTION 1:
+//	//	//	These first methods are not good for oscillators or ringing resonance (filters),
+//	//	//	as those require really fine interpolation (e.g. use [poly~] for that, or see 'SECTION 4').
+//	//	//	In evieve, these methods are mainly used on all the memoryless non-linearities
+//	//	//	(as well as anti derivative anti aliasing techniques) and seem reasonable for that task.
 
 
+// Memoryless non-linearity example:
 YOUR_FUNCTION_GOES_HERE(x)
 {	// EXAMPLE
-	// 'high quality' Lambert tanh approx, excellent numeric and sonic closeness to 'real' tanh
+	// tanh Lambert approx, excellent numeric and sonic closeness to 'real' tanh
 	x2 = x * x;
 	a = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
 	b = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;
@@ -33,10 +65,10 @@ YOUR_FUNCTION_GOES_HERE(x)
 	// EXAMPLE
 }
 
+//	//	//	4-point
 
-// not useful on its own, we use it for 6x & 8x
-// fixed 2x quasi oversampling, plus voodoo for GenExpr
-EVI_RESAMPLE_TEMPLATE_2x(XIN)					// XIN presumed to be audio signal inlet
+// fixed 2x quasi oversampling 4-point, plus voodoo for GenExpr
+EVI_RESAMPLE_TEMPLATE_2x_4POINT(XIN)			// XIN presumed to be audio signal inlet
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -45,17 +77,22 @@ EVI_RESAMPLE_TEMPLATE_2x(XIN)					// XIN presumed to be audio signal inlet
 	History	doX0(0);
 
 	// up 2x
-	x0_0_a	= XIN + 0;							// could  be cheaper "cubic", but worse high frequency response
-	x1_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x0_0_a	= XIN + 0;
+	// could  be native "spline":
+	// x1_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+
 	x2_0	= umT1_0 + 0;
 
 	// process 2x
 	y1_0	= YOUR_FUNCTION_GOES_HERE(x1_0);	// you could also have other parameter inlets here but
-	y2_0	= YOUR_FUNCTION_GOES_HERE(x2_0);	// the first (XIN) inlet is the audio targeted for resampling
+	y2_0	= YOUR_FUNCTION_GOES_HERE(x2_0);	// the first (XIN) inlet is the audio targeted for 'resampling'
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	// could  be native "spline":
+	// y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
 
 	y0_0	= (doX0 + y2_1) * 0.5;
 
@@ -76,7 +113,7 @@ EVI_RESAMPLE_TEMPLATE_2x(XIN)					// XIN presumed to be audio signal inlet
 
 // I am not convinced 3x, 6x, 9x are correct
 // fixed 3x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_3x(XIN)
+EVI_RESAMPLE_TEMPLATE_3x_4POINT(XIN)
 {	// up 3
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 3
@@ -90,9 +127,9 @@ EVI_RESAMPLE_TEMPLATE_3x(XIN)
 
 	// up 3x
 	x0_0_a	= XIN + 0;
-	x1_0	= umT0_0 + 0;	// my instinct says this should be umT1_0 ??
-	x2_0	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x3_0	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x1_0	= umT0_0 + 0;	// TODO: work out umT1_0 ?
+	x2_0	= cubic_hermite_interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x3_0	= cubic_hermite_interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a);
 
 	// process 3x
 	y1_0	= YOUR_FUNCTION_GOES_HERE(x1_0);
@@ -101,9 +138,9 @@ EVI_RESAMPLE_TEMPLATE_3x(XIN)
 
 	// down 3x
 	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
 	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
 
 	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
 
@@ -127,7 +164,7 @@ EVI_RESAMPLE_TEMPLATE_3x(XIN)
 
 
 // fixed 4x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_4x(XIN)
+EVI_RESAMPLE_TEMPLATE_4x_4POINT(XIN)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 4
@@ -139,9 +176,10 @@ EVI_RESAMPLE_TEMPLATE_4x(XIN)
 
 	// up 4x
 	x0_0_a	= XIN + 0;
-	x1_0	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x2_0	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x3_0	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
+	x1_0	= cubic_hermite_interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= cubic_hermite_interp(0.5,		umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+
 
 	// process 4x
 	y1_0	= YOUR_FUNCTION_GOES_HERE(x1_0);
@@ -151,13 +189,13 @@ EVI_RESAMPLE_TEMPLATE_4x(XIN)
 
 	// down 4x
 	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
+	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
 
 	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
+	y3_1	= cubic_hermite_interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
 
 	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
+	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
 
 	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
 
@@ -187,14 +225,11 @@ EVI_RESAMPLE_TEMPLATE_4x(XIN)
 // the following higher order resamplers are made from combining the previous 
 // basic 2x, 3x & 4x resamplers, so you will also have to replace the processing 
 // functions with wrapped lower order resampling functions
-// N.B. it is debatable whether we should bother going to "cubic" here,
-// maybe they should all stay "spline"
 
 
 // I am not convinced 3x, 6x, 9x are correct
-// a bit stupid
 // fixed 6x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_6x(XIN)
+EVI_RESAMPLE_TEMPLATE_6x_4POINT(XIN)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -208,8 +243,8 @@ EVI_RESAMPLE_TEMPLATE_6x(XIN)
 	x2_0	= umT1_0 + 0;
 
 	// process 6x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_3x(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_3x(x2_0);
+	y1_0	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x1_0);
+	y2_0	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x2_0);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -232,10 +267,8 @@ EVI_RESAMPLE_TEMPLATE_6x(XIN)
 }
 
 
-// this is probably the best / most useful of the 4-pointers
-// quite stupid
 // fixed 8x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_8x(XIN)
+EVI_RESAMPLE_TEMPLATE_8x_4POINT(XIN)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -249,8 +282,8 @@ EVI_RESAMPLE_TEMPLATE_8x(XIN)
 	x2_0	= umT1_0 + 0;
 
 	// process 8x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_4x(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_4x(x2_0);
+	y1_0	= EVI_RESAMPLE_TEMPLATE_4x_4POINT(x1_0);
+	y2_0	= EVI_RESAMPLE_TEMPLATE_4x_4POINT(x2_0);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -274,9 +307,8 @@ EVI_RESAMPLE_TEMPLATE_8x(XIN)
 
 
 // I am not convinced 3x, 6x, 9x are correct
-// less stupid than you think
 // fixed 9x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_9x(XIN)
+EVI_RESAMPLE_TEMPLATE_9x_4POINT(XIN)
 {	// up 3
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 3
@@ -295,9 +327,9 @@ EVI_RESAMPLE_TEMPLATE_9x(XIN)
 	x3_0	= cubic_hermite_interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a);
 
 	// process 9x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_3x(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_3x(x2_0);
-	y3_0	= EVI_RESAMPLE_TEMPLATE_3x(x3_0);
+	y1_0	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x1_0);
+	y2_0	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x2_0);
+	y3_0	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x3_0);
 
 	// down 3x
 	y2_0_a	= y2_0 + 0;
@@ -326,145 +358,41 @@ EVI_RESAMPLE_TEMPLATE_9x(XIN)
 }
 
 
-// stupid
+// you might be thinking we do 12x and 16x now, but i can save you the
+// bother - they are pointless using this dodgy interpolation technique
+
 // fixed 12x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_12x(XIN)
-{	// up 4
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x
-	x0_0_a	= XIN + 0;
-	x1_0	= cubic_hermite_interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x2_0	= cubic_hermite_interp(0.5,		umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-
-	// process 12x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_3x(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_3x(x2_0);
-	y3_0	= EVI_RESAMPLE_TEMPLATE_3x(x3_0);
-	y4_0	= EVI_RESAMPLE_TEMPLATE_3x(umT1_0 + 0);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
+EVI_RESAMPLE_TEMPLATE_12x_4POINT(XIN)
+{
+	return XIN;
 }
-
-
-// this is strangely pointless - almost no difference to the 8x version
-// really stupid
 // fixed 16x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_16x(XIN)
-{	// up 4
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x
-	x0_0_a	= XIN + 0;
-	x1_0	= cubic_hermite_interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x2_0	= cubic_hermite_interp(0.5,		umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-
-	// process 16x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_4x(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_4x(x2_0);
-	y3_0	= EVI_RESAMPLE_TEMPLATE_4x(x3_0);
-	y4_0	= EVI_RESAMPLE_TEMPLATE_4x(umT1_0 + 0);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
+EVI_RESAMPLE_TEMPLATE_16x_4POINT(XIN)
+{
+	return XIN;
 }
 
 
 // !! for testing ONLY !!
-TEST_RESAMPLER(x, order)
+TEST_RESAMPLER_4POINT(x, order)
 {
 	y 		= 0;
 	if 			(order == 1) {
-		y 	= EVI_RESAMPLE_TEMPLATE_2x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_2x_4POINT(x);
 	} else if	(order == 2) {
-		y 	= EVI_RESAMPLE_TEMPLATE_3x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_3x_4POINT(x);
 	} else  if	(order == 3) {
-		y 	= EVI_RESAMPLE_TEMPLATE_4x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_4x_4POINT(x);
 	} else  if	(order == 4) {
-		y 	= EVI_RESAMPLE_TEMPLATE_6x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_6x_4POINT(x);
 	} else  if	(order == 5) {
-		y 	= EVI_RESAMPLE_TEMPLATE_8x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_8x_4POINT(x);
 	} else  if	(order == 6) {
-		y 	= EVI_RESAMPLE_TEMPLATE_9x(x);
-	} else  if	(order == 7) {
-		y 	= EVI_RESAMPLE_TEMPLATE_12x(x);
-	} else  if	(order == 8) {
-		y 	= EVI_RESAMPLE_TEMPLATE_16x(x);
+		y 	= EVI_RESAMPLE_TEMPLATE_9x_4POINT(x);
+	// } else  if	(order == 7) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_12x_4POINT(x);
+	// } else  if	(order == 8) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_16x_4POINT(x);
 	} else {//	(order == 0) {
 		y 	= YOUR_FUNCTION_GOES_HERE(x);
 	}
@@ -473,547 +401,12 @@ TEST_RESAMPLER(x, order)
 }
 
 
-//	//	//	//	//	//
+//	//	//
+//	//	//	6-point hermite instead of 4-point like all the above
+//	//	//
 
 
-// the next part of this file repeats the above but for downsampling stages only.
-// this is useful for generators such as oscillators that only require
-// the multiple processing then interpolation on output.
-// these are therefore a bit cheaper as no upsampling stage is neeeded,
-// but the trade off is that they are not very effective :-(
-
-
-// EXAMPLE, required for "YOUR_GENERATOR_FUNCTION_GOES_HERE()"
-// simple 4 point polyBLEP
-poly_blep(t, dt)
-{
-	yblep	= 0;
-	if (t < dt) {
-		alpha	=  (t / dt) - 1;
-		yblep	= -(alpha * alpha);
-	} else if (t > 1 - dt) {
-		alpha	=  (t - 1) / dt + 1;
-		yblep	=  (alpha * alpha);
-	} else {
-		yblep	=  0;
-	}
-	return	yblep;
-}
-// EXAMPLE
-
-
-YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt)
-{	// EXAMPLE
-	// interesting polyblep sawtooth-pulse oscilaltor that aliases in high range
-	t2	= wrap(t + 0.5, 0, 1);
-	w	= 0;
-	if (t2 >= 0.5) {
-		w	= (cos(t2 * twopi) + 1) - 0.5;	// (should approx cos() here)
-	} else {
-		w	= 0 - 0.5;
-	}
-	wp	= (-poly_blep(t2, dt) + w);
-	return	wp * 0.5;
-	// EXAMPLE
-}
-
-
-// fixed 2x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_2x(t, dt)
-{	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// process 2x
-	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return y0_0;
-}
-
-
-// fixed 3x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt)
-{	// down 3
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	// align
-	History	doX0(0);
-
-	ODT		= 0.3333333333333333;
-	TDT		= 0.6666666666666667;
-
-	// process 3x
-	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y3_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-
-	// down 3x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	return y0_0;
-}
-
-
-// fixed 4x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 4x
-	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y3_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-	y4_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
-
-
-// the following higher order downsamplers are made from combining the previous 
-// basic 2x, 3x & 4x downsamplers, so you will also have to replace the processing 
-// functions with wrapped lower order resampling functions
-
-
-// fixed 6x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_6x(t, dt)
-{	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// process 6x
-	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return y0_0;
-}
-
-
-// fixed 8x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_8x(t, dt)
-{	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// process 8x
-	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return y0_0;
-}
-
-
-// fixed 9x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_9x(t, dt)
-{	// down 3
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	// align
-	History	doX0(0);
-
-	ODT		= 0.3333333333333333;
-	TDT		= 0.6666666666666667;
-
-	// process 9x
-	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y3_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-
-	// down 3x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
-
-	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	return y0_0;
-}
-
-
-// fixed 12x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_12x(t, dt)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 12x
-	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y3_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	y4_0	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
-
-
-// fixed 16x quasi downsampling 
-EVI_DOWNSAMPLE_TEMPLATE_16x(t, dt)
-{	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// process 16x
-	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-	y3_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-	y4_0	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return y0_0;
-}
-
-
-// !! for testing ONLY !!
-TEST_DOWNSAMPLER(t, dt, order)
-{
-	y 		= 0;
-	z		= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
-
-	if 			(order == 1) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_2x(t, dt);
-	} else if	(order == 2) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_3x(t, dt);
-	} else  if	(order == 3) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_4x(t, dt);
-	} else  if	(order == 4) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_6x(t, dt);
-	} else  if	(order == 5) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_8x(t, dt);
-	} else  if	(order == 6) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_9x(t, dt);
-	} else  if	(order == 7) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_12x(t, dt);
-	} else  if	(order == 8) {
-		y 	= EVI_DOWNSAMPLE_TEMPLATE_16x(t, dt);
-	} else {//	(order == 0) {
-		y 	= z;
-	}
-
-	return 	y, z;
-}
-
-
-//	//	//	//	//	//
-
-
-// examples of other configurations...
-
-
-// EXAMPLE, ringmod with two inputs
-// (based on "enhanced ring mod" after Beat Frei, ICST)
-EXAMPLE_TWO_INLETS_ONE_OUTLET(xin1, xin2)
-{
-	History x1(0), x2(0), y1(0);
-	stage1	= xin1 + x1;
-	stage2	= xin2 + x2;
-	smix	= (stage1 * stage2) * 0.416666666667;
-	rmod	= smix - (y1 * 0.666666666666);
-	x1 = xin1;
-	x2 = xin2;
-	y1 = rmod;
-	return dcblock(rmod);
-}
-
-
-// fixed 3x quasi oversampling, with two audio inlets
-EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS(XIN1, XIN2)
-{	// up 3 in1
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// up 3 in2
-	History	vmTm1_0(0), vmT0_0(0), vmT1_0(0);
-	// down 3
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	// align
-	History	doX0(0);
-
-	ODT		= 0.3333333333333333;
-	TDT		= 0.6666666666666667;
-
-	// up 3x in1
-	x0_0_a	= XIN1 + 0;
-	x1_0_a	= umT0_0 + 0;
-	x2_0_a	= interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x3_0_a	= interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-
-	// up 3x in2
-	x0_0_b	= XIN2 + 0;
-	x1_0_b	= vmT0_0 + 0;
-	x2_0_b	= interp(ODT, vmTm1_0, vmT0_0, vmT1_0, x0_0_b, mode="spline");
-	x3_0_b	= interp(TDT, vmTm1_0, vmT0_0, vmT1_0, x0_0_b, mode="spline");
-
-	// process 3x
-	y1_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x1_0_a, x1_0_b);
-	y2_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x2_0_a, x2_0_b);
-	y3_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x3_0_a, x3_0_b);
-
-	// down 3x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
-
-	// update in1
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	// update in2
-	vmTm1_0	= vmT0_0;
-	vmT0_0	= vmT1_0;
-	vmT1_0	= x0_0_b;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	return	dcblock(y0_0);
-}
-
-// fixed 4x quasi oversampling, with two audio inlets
-EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS(XIN1, XIN2)
-{	// up 4 in1
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// up 4 in2
-	History	vmTm1_0(0), vmT0_0(0), vmT1_0(0);
-	// down 4
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
-	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x in1
-	x0_0_a	= XIN1 + 0;
-	x1_0_a	= interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x2_0_a	= interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-	x3_0_a	= interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a, mode="spline");
-
-	// up 4x in2
-	x0_0_b	= XIN2 + 0;
-	x1_0_b	= interp(0.25,	vmTm1_0, vmT0_0, vmT1_0, x0_0_b, mode="spline");
-	x2_0_b	= interp(0.5,	vmTm1_0, vmT0_0, vmT1_0, x0_0_b, mode="spline");
-	x3_0_b	= interp(0.75,	vmTm1_0, vmT0_0, vmT1_0, x0_0_b, mode="spline");
-
-	// process 4x
-	y1_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x1_0_a,		x1_0_b);
-	y2_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x2_0_a,		x2_0_b);
-	y3_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x3_0_a,		x3_0_b);
-	y4_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(umT1_0 + 0,	vmT1_0 + 0);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1, mode="spline");
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= interp(0.5,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2, mode="spline");
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3, mode="spline");
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update in1
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	// update in2
-	vmTm1_0	= vmT0_0;
-	vmT0_0	= vmT1_0;
-	vmT1_0	= x0_0_b;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= y3_0;
-
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= y4_0;
-
-	return dcblock(y0_0);
-}
-
-
-// 6-point hermite instead of 4-point like all the above
-// !! most of these are broken... ...i am still working on them... !!
-
-
-// fixed 2x quasi oversampling, this one works and is really useful
+// fixed 2x quasi oversampling 6-point, this one works and is really useful
 EVI_RESAMPLE_TEMPLATE_2x_6POINT(XIN)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
@@ -1054,6 +447,10 @@ EVI_RESAMPLE_TEMPLATE_2x_6POINT(XIN)
 
 	return y0_0;
 }
+
+
+/*
+// still working on these...
 
 
 // fixed 3x quasi oversampling
@@ -1184,7 +581,6 @@ EVI_RESAMPLE_TEMPLATE_4x_6POINT(XIN)
 // functions with wrapped lower order resampling functions
 
 
-// a bit stupid
 // fixed 6x quasi oversampling 
 EVI_RESAMPLE_TEMPLATE_6x_6POINT(XIN)
 {	// up 2
@@ -1228,7 +624,6 @@ EVI_RESAMPLE_TEMPLATE_6x_6POINT(XIN)
 }
 
 
-// quite stupid
 // fixed 8x quasi oversampling 
 EVI_RESAMPLE_TEMPLATE_8x_6POINT(XIN)
 {	// up 2
@@ -1272,7 +667,6 @@ EVI_RESAMPLE_TEMPLATE_8x_6POINT(XIN)
 }
 
 
-// less stupid than you think
 // fixed 9x quasi oversampling 
 EVI_RESAMPLE_TEMPLATE_9x_6POINT(XIN)
 {	// up 3
@@ -1330,164 +724,808 @@ EVI_RESAMPLE_TEMPLATE_9x_6POINT(XIN)
 }
 
 
-// stupid
-// fixed 12x quasi oversampling 
-EVI_RESAMPLE_TEMPLATE_12x_6POINT(XIN)
-{	// up 4
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 4
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	History	dmT3_2(0), dmT2_2(0), dmT1_2(0), dmT0_2(0), dmTm1_2(0);
-	History	dmT3_3(0), dmT2_3(0), dmT1_3(0), dmT0_3(0), dmTm1_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.25,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x3_0	= hermite_sixpoint_interp(0.75,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-
-	// process 12x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(x2_0);
-	y3_0	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(x3_0);
-	y4_0	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(umT2_0 + 0);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.25,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= hermite_sixpoint_interp(0.5,	y3_0_a,	dmTm1_2, dmT0_2, dmT1_2, dmT2_2, dmT3_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= hermite_sixpoint_interp(0.75,	y4_0_a,	dmTm1_3, dmT0_3, dmT1_3, dmT2_3, dmT3_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	dmT3_2	= dmT2_2;
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= dmTm1_2;
-	dmTm1_2	= y3_0;
-
-	dmT3_3	= dmT2_3;
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= dmTm1_3;
-	dmTm1_3	= y4_0;
-
-	return y0_0;
-}
-
-
-// really stupid
-// fixed 16x quasi oversampling
-EVI_RESAMPLE_TEMPLATE_16x_6POINT(XIN)
-{	// up 4
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 4
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	History	dmT3_2(0), dmT2_2(0), dmT1_2(0), dmT0_2(0), dmTm1_2(0);
-	History	dmT3_3(0), dmT2_3(0), dmT1_3(0), dmT0_3(0), dmTm1_3(0);
-	// align
-	History	doX0(0);
-
-	// up 4x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.25,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x3_0	= hermite_sixpoint_interp(0.75,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-
-	// process 16x
-	y1_0	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(x1_0);
-	y2_0	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(x2_0);
-	y3_0	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(x3_0);
-	y4_0	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(umT2_0 + 0);
-
-	// down 4x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.25,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y3_0_a	= y3_0 + 0;
-	y3_1	= hermite_sixpoint_interp(0.5,	y3_0_a,	dmTm1_2, dmT0_2, dmT1_2, dmT2_2, dmT3_2);
-
-	y4_0_a	= y4_0 + 0;
-	y4_1	= hermite_sixpoint_interp(0.75,	y4_0_a,	dmTm1_3, dmT0_3, dmT1_3, dmT2_3, dmT3_3);
-
-	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	dmT3_2	= dmT2_2;
-	dmT2_2	= dmT1_2;
-	dmT1_2	= dmT0_2;
-	dmT0_2	= dmTm1_2;
-	dmTm1_2	= y3_0;
-
-	dmT3_3	= dmT2_3;
-	dmT2_3	= dmT1_3;
-	dmT1_3	= dmT0_3;
-	dmT0_3	= dmTm1_3;
-	dmTm1_3	= y4_0;
-
-	return y0_0;
-}
-
-
 // !! for testing ONLY !!
 TEST_RESAMPLER_6POINT(x, order)
 {
 	y 		= 0;
 	if 			(order == 1) {
 		y 	= EVI_RESAMPLE_TEMPLATE_2x_6POINT(x);
-	} else if	(order == 2) {
-		y 	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(x);
-	} else  if	(order == 3) {
-		y 	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(x);
-	} else  if	(order == 4) {
-		y 	= EVI_RESAMPLE_TEMPLATE_6x_6POINT(x);
-	} else  if	(order == 5) {
-		y 	= EVI_RESAMPLE_TEMPLATE_8x_6POINT(x);
-	} else  if	(order == 6) {
-		y 	= EVI_RESAMPLE_TEMPLATE_9x_6POINT(x);
-	} else  if	(order == 7) {
-		y 	= EVI_RESAMPLE_TEMPLATE_12x_6POINT(x);
-	} else  if	(order == 8) {
-		y 	= EVI_RESAMPLE_TEMPLATE_16x_6POINT(x);
+	// } else if	(order == 2) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_3x_6POINT(x);
+	// } else  if	(order == 3) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_4x_6POINT(x);
+	// } else  if	(order == 4) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_6x_6POINT(x);
+	// } else  if	(order == 5) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_8x_6POINT(x);
+	// } else  if	(order == 6) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_9x_6POINT(x);
+	// } else  if	(order == 7) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_12x_4POINT_6POINT(x);
+	// } else  if	(order == 8) {
+	// 	y 	= EVI_RESAMPLE_TEMPLATE_16x_4POINT_6POINT(x);
 	} else {//	(order == 0) {
 		y 	= YOUR_FUNCTION_GOES_HERE(x);
 	}
 
 	return 	y;
 }
+
+*/
+
+
+//	//	//	//	//	//
+
+
+//	//	//	SECTION 2:
+//	//	//	the next part of this file repeats the above but for downsampling stages only.
+//	//	//	this is useful for generators such as oscillators that only require
+//	//	//	the multiple processing then interpolation on output.
+//	//	//	these are therefore a bit cheaper as no upsampling stage is neeeded,
+//	//	//	but the trade off is that they are not very effective :-(
+
+
+// EXAMPLE, required for "YOUR_GENERATOR_FUNCTION_GOES_HERE()"
+// simple 2 point polyBLEP
+poly_blep(t, dt)
+{
+	yblep	= 0;
+	if (t < dt) {
+		alpha	=  (t / dt) - 1;
+		yblep	= -(alpha * alpha);
+	} else if (t > 1 - dt) {
+		alpha	=  (t - 1) / dt + 1;
+		yblep	=  (alpha * alpha);
+	} else {
+		yblep	=  0;
+	}
+	return	yblep;
+}
+// EXAMPLE
+
+
+YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt)
+{	// EXAMPLE
+	// interesting polyblep sawtooth-pulse oscilaltor that aliases in high range
+	t2	= wrap(t + 0.5, 0, 1);
+	w	= 0;
+	if (t2 >= 0.5) {
+		w	= (cos(t2 * twopi) + 1) - 0.5;	// (should approx cos() here)
+	} else {
+		w	= 0 - 0.5;
+	}
+	wp	= (-poly_blep(t2, dt) + w);
+	return	wp * 0.5;
+	// EXAMPLE
+}
+
+
+// fixed 2x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_2x_4POINT(t, dt)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 2x
+	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+
+// fixed 3x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt)
+{	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// process 3x
+	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y3_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+	y3_0_a	= y3_0 + 0;
+	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return y0_0;
+}
+
+
+// fixed 4x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT(t, dt)
+{	// down 4
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
+	// align
+	History	doX0(0);
+
+	// process 4x
+	y1_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y2_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y3_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+	y4_0	= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+
+	// down 4x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y3_0_a	= y3_0 + 0;
+	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
+
+	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= y4_0;
+
+	return y0_0;
+}
+
+
+// the following higher order downsamplers are made from combining the previous 
+// basic 2x, 3x & 4x downsamplers, so you will also have to replace the processing 
+// functions with wrapped lower order resampling functions
+
+
+// fixed 6x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_6x_4POINT(t, dt)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 6x
+	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+
+// fixed 8x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_8x_4POINT(t, dt)
+{	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// process 8x
+	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT(t, dt);
+	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT(t, dt);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return y0_0;
+}
+
+
+// fixed 9x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_9x_4POINT(t, dt)
+{	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// process 9x
+	y1_0	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+	y2_0	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+	y3_0	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+	y3_0_a	= y3_0 + 0;
+	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return y0_0;
+}
+
+
+// fixed 12x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_12x_4POINT(t, dt)
+{
+	return 0;
+}
+
+
+// fixed 16x quasi downsampling 
+EVI_DOWNSAMPLE_TEMPLATE_16x_4POINT(t, dt)
+{
+	return 0;
+}
+
+
+// !! for testing ONLY !!
+TEST_DOWNSAMPLER_4POINT(t, dt, order)
+{
+	y 		= 0;
+	z		= YOUR_GENERATOR_FUNCTION_GOES_HERE(t, dt);
+
+	if 			(order == 1) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_2x_4POINT(t, dt);
+	} else if	(order == 2) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT(t, dt);
+	} else  if	(order == 3) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT(t, dt);
+	} else  if	(order == 4) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_6x_4POINT(t, dt);
+	} else  if	(order == 5) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_8x_4POINT(t, dt);
+	} else  if	(order == 6) {
+		y 	= EVI_DOWNSAMPLE_TEMPLATE_9x_4POINT(t, dt);
+	// } else  if	(order == 7) {
+	// 	y 	= EVI_DOWNSAMPLE_TEMPLATE_12x_4POINT(t, dt);
+	// } else  if	(order == 8) {
+	// 	y 	= EVI_DOWNSAMPLE_TEMPLATE_16x_4POINT(t, dt);
+	} else {//	(order == 0) {
+		y 	= z;
+	}
+
+	return 	y, z;
+}
+
+
+//	//	//	//	//	//
+
+
+//	//	//	SECTION 3:
+//	//	//	examples of other configurations...
+//	//	//	Two audio inputs, one audio output,
+//	//	//	for example a ring modulator.
+
+
+// EXAMPLE, ringmod with two inputs
+// (based on "enhanced ring mod" after Beat Frei, ICST)
+EXAMPLE_TWO_INLETS_ONE_OUTLET(xin1, xin2)
+{
+	History x1(0), x2(0), y1(0);
+	stage1	= xin1 + x1;
+	stage2	= xin2 + x2;
+	smix	= (stage1 * stage2) * 0.416666666667;
+	rmod	= smix - (y1 * 0.666666666666);
+	x1 = xin1;
+	x2 = xin2;
+	y1 = rmod;
+	return dcblock(rmod);
+}
+
+//	//	//	4-point
+
+// fixed 3x quasi oversampling 4-point, with two audio inlets
+EVI_RESAMPLE_TEMPLATE_3x_4POINT_TWO_INPUTS(XIN1, XIN2)
+{	// up 3 in1
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// up 3 in2
+	History	vmTm1_0(0), vmT0_0(0), vmT1_0(0);
+	// down 3
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	// align
+	History	doX0(0);
+
+	ODT		= 0.3333333333333333;
+	TDT		= 0.6666666666666667;
+
+	// up 3x in1
+	x0_0_a	= XIN1 + 0;
+	x1_0_a	= umT0_0 + 0;
+	x2_0_a	= cubic_hermite_interp(ODT, umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x3_0_a	= cubic_hermite_interp(TDT, umTm1_0, umT0_0, umT1_0, x0_0_a);
+
+	// up 3x in2
+	x0_0_b	= XIN2 + 0;
+	x1_0_b	= vmT0_0 + 0;
+	x2_0_b	= cubic_hermite_interp(ODT, vmTm1_0, vmT0_0, vmT1_0, x0_0_b);
+	x3_0_b	= cubic_hermite_interp(TDT, vmTm1_0, vmT0_0, vmT1_0, x0_0_b);
+
+	// process 3x
+	y1_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x1_0_a, x1_0_b);
+	y2_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x2_0_a, x2_0_b);
+	y3_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x3_0_a, x3_0_b);
+
+	// down 3x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(TDT,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+	y3_0_a	= y3_0 + 0;
+	y3_1	= cubic_hermite_interp(ODT,	y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y0_0	= (doX0 + y2_1 + y3_1) * ODT;
+
+	// update in1
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	// update in2
+	vmTm1_0	= vmT0_0;
+	vmT0_0	= vmT1_0;
+	vmT1_0	= x0_0_b;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	return	dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling 4-point, with two audio inlets
+EVI_RESAMPLE_TEMPLATE_4x_4POINT_TWO_INPUTS(XIN1, XIN2)
+{	// up 4 in1
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// up 4 in2
+	History	vmTm1_0(0), vmT0_0(0), vmT1_0(0);
+	// down 4
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	History	dmT2_2(0), dmT1_2(0), dmT0_2(0);
+	History	dmT2_3(0), dmT1_3(0), dmT0_3(0);
+	// align
+	History	doX0(0);
+
+	// up 4x in1
+	x0_0_a	= XIN1 + 0;
+	x1_0_a	= cubic_hermite_interp(0.25,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0_a	= cubic_hermite_interp(0.5,		umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x3_0_a	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+
+	// up 4x in2
+	x0_0_b	= XIN2 + 0;
+	x1_0_b	= cubic_hermite_interp(0.25,	vmTm1_0, vmT0_0, vmT1_0, x0_0_b);
+	x2_0_b	= cubic_hermite_interp(0.5,		vmTm1_0, vmT0_0, vmT1_0, x0_0_b);
+	x3_0_b	= cubic_hermite_interp(0.75,	vmTm1_0, vmT0_0, vmT1_0, x0_0_b);
+
+	// process 4x
+	y1_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x1_0_a,		x1_0_b);
+	y2_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x2_0_a,		x2_0_b);
+	y3_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(x3_0_a,		x3_0_b);
+	y4_0	= EXAMPLE_TWO_INLETS_ONE_OUTLET(umT1_0 + 0,	vmT1_0 + 0);
+
+	// down 4x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.25,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y3_0_a	= y3_0 + 0;
+	y3_1	= cubic_hermite_interp(0.5,		y3_0_a,	dmT0_2, dmT1_2, dmT2_2);
+
+	y4_0_a	= y4_0 + 0;
+	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
+
+	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
+
+	// update in1
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	// update in2
+	vmTm1_0	= vmT0_0;
+	vmT0_0	= vmT1_0;
+	vmT1_0	= x0_0_b;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	dmT2_2	= dmT1_2;
+	dmT1_2	= dmT0_2;
+	dmT0_2	= y3_0;
+
+	dmT2_3	= dmT1_3;
+	dmT1_3	= dmT0_3;
+	dmT0_3	= y4_0;
+
+	return dcblock(y0_0);
+}
+
+//	//	//	6-point
+
+// fixed 2x quasi oversampling 6-point, with two audio inlets
+EVI_RESAMPLE_TEMPLATE_2x_6POINT_TWO_INPUTS(XIN1, XIN2)
+{	// up 2 in1
+	History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// up 2 in2
+	History vmTm2_0(0), vmTm1_0(0), vmT0_0(0), vmT1_0(0), vmT2_0(0);
+	// down 2
+	History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History doX0(0);
+
+	// up 2x in1
+	x0_0_a  = XIN1 + 0;
+	x1_0_a  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0_a  = umT2_0 + 0;
+
+	// up 2x in2
+	x0_0_b  = XIN2 + 0;
+	x1_0_b  = hermite_sixpoint_interp(0.5,  vmTm2_0, vmTm1_0, vmT0_0, vmT1_0, vmT2_0, x0_0_b);
+	x2_0_b  = vmT2_0 + 0;
+
+	// process 2x
+	y1_0    = EXAMPLE_TWO_INLETS_ONE_OUTLET(x1_0_a, x1_0_b);
+	y2_0    = EXAMPLE_TWO_INLETS_ONE_OUTLET(x2_0_a, x2_0_b);
+
+	// down 2x
+	y2_0_a  = y2_0 + 0;
+	y2_1    = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0    = (doX0 + y2_1) * 0.5;
+
+	// update in1
+	umTm2_0 = umTm1_0;
+	umTm1_0 = umT0_0;
+	umT0_0  = umT1_0;
+	umT1_0  = umT2_0;
+	umT2_0  = x0_0_a;
+
+	// update in2
+	vmTm2_0 = vmTm1_0;
+	vmTm1_0 = vmT0_0;
+	vmT0_0  = vmT1_0;
+	vmT1_0  = vmT2_0;
+	vmT2_0  = x0_0_b;
+
+	doX0    = y1_0;
+
+	dmT3_1  = dmT2_1;
+	dmT2_1  = dmT1_1;
+	dmT1_1  = dmT0_1;
+	dmT0_1  = dmTm1_1;
+	dmTm1_1 = y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 4x quasi oversampling 6-point, with two audio inlets
+EVI_RESAMPLE_TEMPLATE_4x_6POINT_TWO_INPUTS(XIN1, XIN2)
+{	// up 2 in1
+	History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// up 2 in2
+	History vmTm2_0(0), vmTm1_0(0), vmT0_0(0), vmT1_0(0), vmT2_0(0);
+	// down 2
+	History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History doX0(0);
+
+	// up 2x in1
+	x0_0_a  = XIN1 + 0;
+	x1_0_a  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0_a  = umT2_0 + 0;
+
+	// up 2x in2
+	x0_0_b  = XIN2 + 0;
+	x1_0_b  = hermite_sixpoint_interp(0.5,  vmTm2_0, vmTm1_0, vmT0_0, vmT1_0, vmT2_0, x0_0_b);
+	x2_0_b  = vmT2_0 + 0;
+
+	// process 4x
+	y1_0    = EVI_RESAMPLE_TEMPLATE_2x_6POINT_TWO_INPUTS(x1_0_a, x1_0_b);
+	y2_0    = EVI_RESAMPLE_TEMPLATE_2x_6POINT_TWO_INPUTS(x2_0_a, x2_0_b);
+
+	// down 2x
+	y2_0_a  = y2_0 + 0;
+	y2_1    = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0    = (doX0 + y2_1) * 0.5;
+
+	// update in1
+	umTm2_0 = umTm1_0;
+	umTm1_0 = umT0_0;
+	umT0_0  = umT1_0;
+	umT1_0  = umT2_0;
+	umT2_0  = x0_0_a;
+
+	// update in2
+	vmTm2_0 = vmTm1_0;
+	vmTm1_0 = vmT0_0;
+	vmT0_0  = vmT1_0;
+	vmT1_0  = vmT2_0;
+	vmT2_0  = x0_0_b;
+
+	doX0    = y1_0;
+
+	dmT3_1  = dmT2_1;
+	dmT2_1  = dmT1_1;
+	dmT1_1  = dmT0_1;
+	dmT0_1  = dmTm1_1;
+	dmTm1_1 = y2_0;
+
+	return dcblock(y0_0);
+}
+
+// fixed 8x quasi oversampling 6-point, with two audio inlets
+EVI_RESAMPLE_TEMPLATE_8x_6POINT_TWO_INPUTS(XIN1, XIN2)
+{	// up 2 in1
+	History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
+	// up 2 in2
+	History vmTm2_0(0), vmTm1_0(0), vmT0_0(0), vmT1_0(0), vmT2_0(0);
+	// down 2
+	History dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
+	// align
+	History doX0(0);
+
+	// up 2x in1
+	x0_0_a  = XIN1 + 0;
+	x1_0_a  = hermite_sixpoint_interp(0.5,  umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x2_0_a  = umT2_0 + 0;
+
+	// up 2x in2
+	x0_0_b  = XIN2 + 0;
+	x1_0_b  = hermite_sixpoint_interp(0.5,  vmTm2_0, vmTm1_0, vmT0_0, vmT1_0, vmT2_0, x0_0_b);
+	x2_0_b  = vmT2_0 + 0;
+
+	// process 8x
+	y1_0    = EVI_RESAMPLE_TEMPLATE_4x_6POINT_TWO_INPUTS(x1_0_a, x1_0_b);
+	y2_0    = EVI_RESAMPLE_TEMPLATE_4x_6POINT_TWO_INPUTS(x2_0_a, x2_0_b);
+
+	// down 2x
+	y2_0_a  = y2_0 + 0;
+	y2_1    = hermite_sixpoint_interp(0.5,  y2_0_a, dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+
+	y0_0    = (doX0 + y2_1) * 0.5;
+
+	// update in1
+	umTm2_0 = umTm1_0;
+	umTm1_0 = umT0_0;
+	umT0_0  = umT1_0;
+	umT1_0  = umT2_0;
+	umT2_0  = x0_0_a;
+
+	// update in2
+	vmTm2_0 = vmTm1_0;
+	vmTm1_0 = vmT0_0;
+	vmT0_0  = vmT1_0;
+	vmT1_0  = vmT2_0;
+	vmT2_0  = x0_0_b;
+
+	doX0    = y1_0;
+
+	dmT3_1  = dmT2_1;
+	dmT2_1  = dmT1_1;
+	dmT1_1  = dmT0_1;
+	dmT0_1  = dmTm1_1;
+	dmTm1_1 = y2_0;
+
+	return dcblock(y0_0);
+}
+
+
+//	//	//	//	//	//
+
+
+//	//	//	SECTION 4:
+//	//	//	FILTERS:
+//	//	//	This is more complicated. For nonlinear processes with state (i.e., filters)
+//	//	//	one needs to prepare the processing (the filter) then apply a slightly
+//	//	//	different interpolation routine.
+//	//	//	In the example below we use the filter from 'evi_lorez.gendsp' as a starting
+//	//	//	point. Note the below code is much worse than the code in that abstraction
+//	//	//	as we ignore dependencies for the sake of brevity here...
+
+
+// two poles of a nonlinear ladder with allpass alignment, ready for 2x oversampling.
+// rubbish version for the resampling template demonstration, see 'evi_lorez.gendsp' for the real version
+NONLIN_FILTER_TWOPOLE_2PASS(xin0, xin1, hz, res)		// NOTE: two audio inlets are declared! xin0 & xin1
+{														// this becomes clearer in below examples
+    History s1(0), s2(0), s3(0);
+
+    // painful coefficients, only needed once
+    invsr = 1 / samplerate;
+    invsr05 = invsr * 0.5;
+    k = res + res + res;
+    k2 = sqrt2 + 0.353553 * res;
+    w = twopi * hz;
+    g0 = ((1 / invsr) * tan(w * invsr05)) * invsr05;  // !! (1/invsr) not (2/invsr) for 2x processing
+    g1 = 1 + g0;
+    g = g0 / g1;
+    ga = (g + g) - 1;
+    lp1fb = g * ga / g1;
+    lp2fb = ga / g1;
+    ap3fb = 2 / g1;
+    alpha = 1 / (1 + k * ga * g * g);
+
+    // nonlinear feeder, only needed once
+    mK = ((s1 * lp1fb) + (s2 * lp2fb) + (s3 * ap3fb)) * -k;
+
+	//	//	//
+    //	//	//	pass 1, this is the audio loop of the filter, we repeat it below for double processing
+	//	//	//	Note, if we were not oversampling, this is the only 'pass' we would need
+	X0 = mK + xin0;
+    u0 = atan(X0 * alpha);
+    // lowpass 1
+    xg0 = (u0 - s1) * g;
+    lp10 = xg0 + s1;
+    s1 = xg0 + lp10;
+    // lowpass 2
+    yg0 = (lp10 - s2) * g;
+    lp20 = yg0 + s2;
+    s2 = yg0 + lp20;
+    // allpass
+    zg0 = (lp20 - s3) * g;
+    lp30 = zg0 + s3;
+    hp30 = lp20 - lp30;
+    ap30 = (lp30 - hp30) * k2;							// 'ap30' is the first return 
+    s3 = zg0 + lp30;
+
+	//	//	//
+    //	//	//	pass 2, this is the audio loop of the filter repeated using the same memory state but different variables
+	//	//	//
+    X1 = mK + xin1;
+    u1 = atan(X1 * alpha);
+    // lowpass 1
+    xg1 = (u1 - s1) * g;
+    lp11 = xg1 + s1;
+    s1 = xg1 + lp11;
+    // lowpass 2
+    yg1 = (lp11 - s2) * g;
+    lp21 = yg1 + s2;
+    s2 = yg1 + lp21;
+    // allpass
+    zg1 = (lp21 - s3) * g;
+    lp31 = zg1 + s3;
+    hp31 = lp21 - lp31;
+    ap31 = (lp31 - hp31) * k2;							// 'ap31' is the second return
+    s3 = zg1 + lp31;
+
+    // taps
+    return ap30, ap31;									// NOTE, return two audio outs from both passes of the processing
+}
+
+
+//	//	//	Next, we create an interpolator quasi resampler for 2x processing
+//	//	//	(use 4-point for filters)
+
+
+// fixed 2x quasi oversampling 4-point, 2 processing loops
+NONLIN_FILTER_TWOPOLE_2PASS_2x_4POINT( XIN, hz, res )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	// Note, we have created two interpolated audio inputs to send to our special filter module (x1_0 & x2_0)
+	y1_0, y2_0	= NONLIN_FILTER_TWOPOLE_2PASS(x1_0, x2_0, hz, res);
+	// Note, we get both loop retuns from our special filter module (y1_0 & y2_0)
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+
+//	//	//	Now we can call it like this:
+// lorez = NONLIN_FILTER_TWOPOLE_2PASS_2x_4POINT(in1, in2, in3);
+//	//	//	'in1' is our audio input, 'in2' and 'in3' are our frequency and resonance inlets respectively
+
+
+//	//	//	The above is a 2x oversampling example.
+//	//	//	For higher order resampling we need to prepare multiple versions
+//	//	//	of our filter when employing this hacky technique.
+//	//	//	For an evieve example of how horrible this gets for performing
+//	//	//	2x, 3x, 4x, 6x, & 8x filter resampling, see the .genexpr file:
+//	//	//	'evi_buchla.genexpr'
+//	//	//	or make use of the gen~ abstraction:
+//	//	//	'evi_lpg_buchla.gendsp'
+//	//	//	(see the 'gen~' tab of the [evi.lpg~] MSP abstraction)
+
 

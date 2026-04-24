@@ -22,8 +22,7 @@
     },
     "includes": [
         "evi_smooth.genexpr",
-        "evi_sources.genexpr",
-        "evi_rcfilters.genexpr"
+        "evi_sources.genexpr"
     ],
     "inlets": [
         {
@@ -137,7 +136,7 @@
             "name": "envresponse",
             "get": 1,
             "type": "int",
-            "digest": "0..4",
+            "digest": "Select 0..4",
             "description": "The type of envelope shape the automatic envelope uses. 0=off (valid for turning off the noise), 1=linear, 2=log (default), 3=vactrol fast, 4=vactrol slow. Linear is an exact destination ramp. Log and vactrols are inexact analog release stages.",
             "default": {
                 "min": "0",

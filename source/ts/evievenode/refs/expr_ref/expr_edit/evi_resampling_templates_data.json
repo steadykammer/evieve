@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "!! These are templates for copy/pasting and testing/making your own quasi resamplers; it is not advised to 'require' this file directly !!",
     "requires": [
         "evi_interp.genexpr"
     ],

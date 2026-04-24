@@ -44,6 +44,14 @@ lfoMix(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri ph
     return fastskewlfo052ar(mix(tri, sine, shape), skew);
 }
 
+// sine lfo with added skew, phase 0..1 in, wave 0..1 out
+lfoSkew(phase, skew)
+{
+   	sine = (phase > 0.5) ? phase - 1 : phase;
+    sine = sine * (4 - (abs(sine) * 8)) + 0.5;
+    return fastskewlfo052ar(sine, skew);
+}
+
 // ---
 
 // cheap and dirty approx, good enough for lfos

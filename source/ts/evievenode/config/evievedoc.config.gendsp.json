@@ -2620,7 +2620,7 @@
             "helpfile": {
                 "msp": true,
                 "gentab": true,
-                "genexprtab": true,
+                "genexprtab": false,
                 "areaonly": false,
                 "areas": []
             },
