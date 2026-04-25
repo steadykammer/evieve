@@ -1033,17 +1033,6 @@
                                     "patching_rect": [ 599.0, 172.0, 92.0, 22.0 ],
                                     "text": "evi_classic_osc"
                                 }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-19",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 6,
-                                    "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 116.0, 379.0, 107.0, 22.0 ],
-                                    "text": "evi_zeroxoscnoise"
-                                }
                             }
                         ],
                         "lines": []

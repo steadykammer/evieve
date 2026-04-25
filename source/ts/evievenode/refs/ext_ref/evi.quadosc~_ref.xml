@@ -16,7 +16,16 @@
 			Cycling '74
 		</metadata>
 		<metadata name="tag">
-			evieve Objects
+			evieve Externals
+		</metadata>
+		<metadata name="tag">
+			evieve Oscillator
+		</metadata>
+		<metadata name="tag">
+			evieve Modulation
+		</metadata>
+		<metadata name="tag">
+			evieve Source
 		</metadata>
 	</metadatalist>
 	<!--INLETS-->

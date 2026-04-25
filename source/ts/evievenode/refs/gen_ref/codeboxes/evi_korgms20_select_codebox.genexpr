@@ -10,7 +10,7 @@
 // between 12dB LP & 6dB HP filter types, realised in transposed TPT form. With 2x option.
 
 require("evi_tanh.genexpr");
-require("evi_smooth.genexpr");
+//require("evi_smooth.genexpr");
 require("evi_interp.genexpr");
 
 // filter 1x
@@ -19,7 +19,8 @@ SandKone(X, hz, k1, M1, M2, load)
     History	state0(0), state1(0), state2(0), state3(0);         // (T) S&K state initialise
 
     // prewarp to alpha/beta
-    g0      = tanA2(hz * PI / SAMPLERATE);
+//  g0      = tanA2(hz * PI / SAMPLERATE);
+    g0      = evi_tan(hz * PI / SAMPLERATE);
     oneg	=  1 + g0;											// divisor
     alphas	=  g0 / oneg;										// G (feedforward)
     k1as	= mix(k1, -1, M1) * alphas;
@@ -73,7 +74,8 @@ SandKtwo(X0, X1, hz, k1, M1, M2, load)
     History	state0(0), state1(0), state2(0), state3(0);
 
     // prewarp to alpha/beta
-    g0      = tanA2(hz * PI / SAMPLERATE) * 0.5;
+//  g0      = tanA2(hz * PI / SAMPLERATE) * 0.5;
+    g0      = evi_tan(hz * PI / SAMPLERATE) * 0.5;
     oneg	=  1 + g0;
     alphas	=  g0 / oneg;
     k1as	= mix(k1, -1, M1) * alphas;
@@ -216,7 +218,7 @@ SandKtwo_2x4(XIN, hz, k1, M1, M2, load)
 	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
 	x2_0	= umT1_0 + 0;
 
-	// process 2x//
+	// process 2x
 	y1_0, y2_0	= SandKtwo(x1_0, x2_0, hz, k1, M1, M2, load);
 
 	// down 2x
@@ -252,7 +254,8 @@ k1      = in3 + in3;    // 0..1 .. 0..2
 
 M1		= int(filter);                                  // switch not morph
 if (filtersmooth > 0) {
-	M1	= eviSline(M1, mstosamps(filtersmooth));
+//	M1	= eviSline(M1, mstosamps(filtersmooth));
+	M1	= evi_sline(M1, mstosamps(filtersmooth));
 }
 M2		= 1 - M1;
 

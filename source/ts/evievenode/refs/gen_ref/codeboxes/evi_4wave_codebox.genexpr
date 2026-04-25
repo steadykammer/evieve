@@ -32,7 +32,7 @@ if (zero) {
 out1        = decorelateOsc(dcblock(polysaw4(t, dt)));
 out2        = decorelateOsc(dcblock(polyrect4(t, dt)));
 out3        = decorelateOsc(dcblock(polytri4(tt, dt)));
-out4        = twoHarm(sin73(t * TWOPI) * sqrt1_2);
+out4        = twoHarm(sin73b(t * TWOPI) * sqrt1_2);
 // phase
 out5        = t;
 

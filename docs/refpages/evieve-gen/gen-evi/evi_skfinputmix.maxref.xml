@@ -9,7 +9,7 @@
         <b>evi_skfinputmix</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_skfinputmix.gendsp requires the GenExpr file(s): <br />
-        <o>evi_tanh</o>.genexpr, <o>evi_trig</o>.genexpr, <o>evi_smooth</o>.genexpr <br />
+        <o>evi_tanh</o>.genexpr, <o>evi_trig</o>.genexpr, <o>evi_smooth</o>.genexpr, <o>evi_smooth_bank</o>.genexpr <br />
          <br />
         evi_skfinputmix is also available in MSP as: <o>evi.skfinputmix~</o>. <br />
          <br />

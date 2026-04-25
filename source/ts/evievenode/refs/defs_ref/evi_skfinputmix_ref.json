@@ -15,14 +15,15 @@
             "evieve Filter",
             "evieve Filter TPT",
             "evieve Filter Nonlinear",
-            "evieve AntiAliased",
+            "evieve Antialiased",
             "evieve Effect"
         ]
     },
     "includes": [
         "evi_tanh.genexpr",
         "evi_trig.genexpr",
-        "evi_smooth.genexpr"
+        "evi_smooth.genexpr",
+        "evi_smooth_bank.genexpr"
     ],
     "inlets": [
         {

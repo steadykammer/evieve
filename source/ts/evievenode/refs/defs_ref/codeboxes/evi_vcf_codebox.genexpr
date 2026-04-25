@@ -1,7 +1,7 @@
 
-// Puckette's vcf~ from Pd by pete for evieve
+// Puckette's vcf~ from Pd by pete for evieve, original (c) Puckette, BSD
 
-cosQ73(x) {
+cosQ73v(x) {
 	c1 =  0.999999953464;
 	c2 = -0.499999053455;
 	c3 =  0.0416635846769;
@@ -19,13 +19,13 @@ cos73nc(x) {
 	quad = int(x * 0.63661977236758);// 2 / pi
 	cosreturn = 0;
 	if 				(quad == 0) {
-		cosreturn =  cosQ73(x);
+		cosreturn =  cosQ73v(x);
 	} else if 		(quad == 1) {
-		cosreturn = -cosQ73(pi - x);
+		cosreturn = -cosQ73v(pi - x);
 	} else if 		(quad == 2) {	// we only might reach the 3rd quadrant
-		cosreturn = -cosQ73(x - pi);
+		cosreturn = -cosQ73v(x - pi);
 	} else {	//	(quad == 3)		// we never reach the 4th quadrant here
-		cosreturn =  cosQ73(twopi - x);
+		cosreturn =  cosQ73v(twopi - x);
 	}
 	return cosreturn;
 }

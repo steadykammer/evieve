@@ -5089,8 +5089,8 @@
                                     ],
                                     "callee": {
                                         "type": "Identifier",
-                                        "name": "sin73param",
-                                        "raw": "sin73param"
+                                        "name": "sin73aparam",
+                                        "raw": "sin73aparam"
                                     }
                                 },
                                 "right": {
@@ -5131,8 +5131,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "cos73param",
-                                    "raw": "cos73param"
+                                    "name": "cos73aparam",
+                                    "raw": "cos73aparam"
                                 }
                             }
                         }

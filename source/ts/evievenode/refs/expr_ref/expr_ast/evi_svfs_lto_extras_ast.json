@@ -2395,8 +2395,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }
@@ -2431,8 +2431,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }
@@ -3203,8 +3203,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }
@@ -3239,8 +3239,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }
@@ -4063,8 +4063,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73param",
-                                    "raw": "sin73param"
+                                    "name": "sin73aparam",
+                                    "raw": "sin73aparam"
                                 }
                             }
                         }
@@ -4099,8 +4099,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73param",
-                                    "raw": "sin73param"
+                                    "name": "sin73aparam",
+                                    "raw": "sin73aparam"
                                 }
                             }
                         }
@@ -5023,8 +5023,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }
@@ -5059,8 +5059,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "sin73",
-                                    "raw": "sin73"
+                                    "name": "sin73a",
+                                    "raw": "sin73a"
                                 }
                             }
                         }

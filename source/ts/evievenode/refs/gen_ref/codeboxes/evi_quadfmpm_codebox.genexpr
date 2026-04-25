@@ -84,7 +84,7 @@ if (xfade_p) {
 
 // Op
 
-modOsc		= sin73(phasor(fmm)*twopi + lpfir3(modfb_a*modOscPrev));
+modOsc		= sin73a(phasor(fmm)*twopi + lpfir3(modfb_a*modOscPrev));
 modZerox	= (modOscPrev*modOsc) <= 0;
 modOscPrev	= modOsc;
 modBias		= latch(index, modZerox);

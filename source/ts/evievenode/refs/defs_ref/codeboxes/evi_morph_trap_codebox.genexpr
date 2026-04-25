@@ -166,7 +166,7 @@ ft			= latch(filt,	oscsync);
 
 osc = 0;
 if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
-    osc	= sin73(TWOPI * t) * sqrt1_2;
+    osc	= sin73b(TWOPI * t) * sqrt1_2;
 }
 else {
     osc = morphOscSelectOversample(t, dt, Morph, a, wv, ov);

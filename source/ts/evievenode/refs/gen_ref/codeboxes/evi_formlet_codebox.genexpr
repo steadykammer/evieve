@@ -30,7 +30,7 @@ ringCoefs(w0, ringTime)
 	R       = maximum(expA(LOGTH / (ringTime * samplerate)), 0);
 	R2      = R + R;
 	RR      = R * R;
-	cosT    = (R2 * cos73(w0)) / (1 + RR);
+	cosT    = (R2 * cos73a(w0)) / (1 + RR);
 	return  (R2 * cosT), -RR;			// return two feedback coefficients b1 & b2
 }
 

@@ -14,288 +14,279 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    !! This file is designed to be read, not required; these are templates for copy/pasting and testing/making your own quasi resamplers; it is not advised to 'require' this file directly !! Why: There is no native resampling in gen~, which poses a real problem. This file includes various basic cubic interpolation hacks. First are one in one out interpolators for memoryless non-linearities. Then the same for two inputs one output. Finally there are versions which can be used for nonlinear filters. Comments in the code detail how it is done. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="YOUR_FUNCTION_GOES_HERE ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        A memoryless nonlinearity placeholder for demonstration purposes only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_2x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        2x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_3x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        3x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_6x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        4x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_8x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_6x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        6x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_9x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_8x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        8x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_12x ( )">
+    <entry name="EVI_RESAMPLE_TEMPLATE_9x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        9x oversampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_16x ( )">
+    <entry name="TEST_RESAMPLER_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        If/else block to call in order to test the 4-point interpolator templates <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: order, <i>Oversampling order: 0&#x3D;1x, 1&#x3D;2x, 2&#x3D;3x, 3&#x3D;4x, 4&#x3D;6x, 5&#x3D;8x, 6&#x3D;9x</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="TEST_RESAMPLER ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: order, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="poly_blep ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="YOUR_GENERATOR_FUNCTION_GOES_HERE ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_2x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_3x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_4x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_6x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_8x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_9x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_12x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_DOWNSAMPLE_TEMPLATE_16x ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="TEST_DOWNSAMPLER ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: dt, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: order, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EXAMPLE_TWO_INLETS_ONE_OUTLET ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
     <entry name="EVI_RESAMPLE_TEMPLATE_2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        2x oversampling 6-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_3x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Audio output, <i>Nonlinear output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_4x_6POINT ( )">
+    <entry name="YOUR_GENERATOR_FUNCTION_GOES_HERE ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        An oscillator source placeholder for demonstration purposes only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Aliasing oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_6x_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_2x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        2x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_8x_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        3x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_9x_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        4x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_12x_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_6x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        6x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="EVI_RESAMPLE_TEMPLATE_16x_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_8x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
+        8x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
 
       </description>
     </entry>
-    <entry name="TEST_RESAMPLER_6POINT ( )">
+    <entry name="EVI_DOWNSAMPLE_TEMPLATE_9x_4POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: order, <i></i> <br />
+        9x downsampling 4-point interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Oscillator, <i>Antialiased oscillator output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="TEST_DOWNSAMPLER_4POINT ( )">
+      <description>
+        If/else block to call in order to test the 4-point downsampler templates <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>Phase 0..1 at speed in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: dt, <i>Phase increment: speed in Hz divided by SAMPLERATE</i> <br />
+        <b>In 3</b>: type=<i>input</i>: order, <i>Downsampling order: 0&#x3D;1x, 1&#x3D;2x, 2&#x3D;3x, 3&#x3D;4x, 4&#x3D;6x, 5&#x3D;8x, 6&#x3D;9x</i> <br />
+
+        <b>Return 1</b>: Oscillator, <i>Oscillator at selected downsampling</i> <br />
+        <b>Return 2</b>: Oscillator, <i>Always 1x version of the oscillator</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EXAMPLE_TWO_INLETS_ONE_OUTLET ( )">
+      <description>
+        Two audio inlets one audio outlet function placeholder for demonstration purposes only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EVI_RESAMPLE_TEMPLATE_3x_4POINT_TWO_INPUTS ( )">
+      <description>
+        3x oversampling 4-point interpolator two audio inputs template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One resampled audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x_4POINT_TWO_INPUTS ( )">
+      <description>
+        4x oversampling 4-point interpolator two audio inputs template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One resampled audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EVI_RESAMPLE_TEMPLATE_2x_6POINT_TWO_INPUTS ( )">
+      <description>
+        2x oversampling 6-point interpolator two audio inputs template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One resampled audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EVI_RESAMPLE_TEMPLATE_4x_6POINT_TWO_INPUTS ( )">
+      <description>
+        4x oversampling 6-point interpolator two audio inputs template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One resampled audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="EVI_RESAMPLE_TEMPLATE_8x_6POINT_TWO_INPUTS ( )">
+      <description>
+        8x oversampling 6-point interpolator two audio inputs template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Audio input 2</i> <br />
+
+        <b>Return 1</b>: Audio output, <i>One resampled audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="NONLIN_FILTER_TWOPOLE_2PASS ( )">
+      <description>
+        Nonlinear filter with 2 processing passes placeholder for demonstration purposes only <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin0, <i>Interpolated audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin1, <i>Interpolated audio input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>Filter frequency in Hz</i> <br />
+        <b>In 4</b>: type=<i>input</i>: res, <i>Filter resonance 0..1</i> <br />
+
+        <b>Return 1</b>: , <i>Interpolated audio output 1 (from pass 1)</i> <br />
+        <b>Return 2</b>: , <i>Interpolated audio output 2 (from pass 2)</i> <br />
+
+      </description>
+    </entry>
+    <entry name="NONLIN_FILTER_TWOPOLE_2PASS_2x_4POINT ( )">
+      <description>
+        2x oversampling 4-point 2-pass filter interpolator template <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>Filter frequency in Hz</i> <br />
+        <b>In 3</b>: type=<i>input</i>: res, <i>Filter resonance 0..1</i> <br />
+
+        <b>Return 1</b>: Nonlinear filter output, <i>Resampled antialiased filter output</i> <br />
 
       </description>
     </entry>
@@ -307,6 +298,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_adaa" type="refpage"/>
+    <seealso name="evi_buchla" type="refpage"/>
+    <seealso name="evi_interp" type="refpage"/>
+    <seealso name="evi_saturators" type="refpage"/>
+    <seealso name="evi_waveshaping" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

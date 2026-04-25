@@ -31,7 +31,7 @@
         A 'sparse noise' algorithm (similar to 'audioDust()') mixable with a full 'velvet noise' algorithm <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: freq, <i>Frequency in Hz</i> <br />
-        <b>In 2</b>: type=<i>input</i>: mix, <i>Mix 0..1 between sparse noise..velvet noise</i> <br />
+        <b>In 2</b>: type=<i>input</i>: mixN, <i></i> <br />
         <b>In 3</b>: type=<i>param</i> (optional): amp, default: <b>1</b>, <i>The amplitude of the noise, typically left at &#x27;1&#x27;</i> <br />
 
         <b>Return 1</b>: mixNoise, <i>The mix of sparse and velvet noise</i> <br />

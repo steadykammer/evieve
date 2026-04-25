@@ -3,7 +3,8 @@
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND.
  * evievedoc.js is for using via the ./doc/evievedoc.maxpat for auto creating all
  * of the evieve Package documentation, including building the Package for release.
- * NOTE: this file is completely horrible and should probably only be used by Pete.
+ * NOTE: this file is completely horrible and should probably only be used by Pete,
+ * as it never got beyond it's POC stage.
  */
 
 import * as max from 'max-api-or-nah';
@@ -475,6 +476,24 @@ async function autoCreateExternalsXml()
 	let refDir = `${cwd()}/${config.referenceFiles.externals.config}`;
 	let outDir = `${cwd()}/${config.referenceFiles.externals.output}`;
 	let refFiles = getFileNamesFromPath(refDir, 'xml');
+
+	// must be in sync with 'attributeXmlPrefix' const
+	const externalsXmlMetadataArray = [
+		{
+			"#text": "Pete Dowling",
+			"maxattr_name": "author"
+		},
+		{
+			"#text": "evieve",
+			"maxattr_name": "tag"
+		}
+	];
+
+	const tagConfig: any = {
+		"#text": "evieve",
+		"maxattr_name": "tag"
+	};
+
 	const parseOptions = {
 		preserveOrder: false, // true = shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
@@ -496,7 +515,26 @@ async function autoCreateExternalsXml()
 		const xmlData = fs.readFileSync(`${refDir}/${file}`, 'utf8');
 		const jsonData = parser.parse(xmlData);
 		const outName = file.replace('_ref.xml', '.maxref.xml');
-		jsonData.c74object.metadatalist.metadata = externalsXmlMetadata;
+
+		let thisXmlMetadataArray: {}[] = externalsXmlMetadataArray.slice();
+
+		let tagsArray = [];
+		if (Object.hasOwn(jsonData.c74object, 'metadatalist')) {
+			for (const tag of jsonData.c74object.metadatalist.metadata) {
+				if (tag.maxattr_name === 'tag') {
+					tagsArray.push(tag['#text']);
+				}
+			}
+			if (tagsArray.length) {
+				for (const tag of tagsArray) {
+					let thisTag: any = JSON.parse(JSON.stringify(tagConfig));
+					thisTag['#text'] = tag;
+					thisXmlMetadataArray.push(thisTag);
+				}
+			}
+		}
+
+		jsonData.c74object.metadatalist.metadata = thisXmlMetadataArray;
 		jsonData.c74object.maxattr_module = 'evieve-ref';
 		jsonData.c74object.maxattr_category = 'evieve';
 		// not for now, do this manually

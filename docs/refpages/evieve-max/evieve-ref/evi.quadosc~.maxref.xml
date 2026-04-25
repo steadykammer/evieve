@@ -7,6 +7,9 @@
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
     <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Oscillator</metadata>
+    <metadata name="tag">evieve Modulation</metadata>
+    <metadata name="tag">evieve Source</metadata>
   </metadatalist>
   <inletlist>
     <inlet id="0" type="signal/float">

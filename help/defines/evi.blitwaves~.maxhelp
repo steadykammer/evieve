@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1681,13 +1681,23 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "spectroscope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 370.0, 435.0, 300.0, 100.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "dontreplace": 1,
@@ -1698,7 +1708,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 171.0, 296.0, 50.0, 23.0 ],
-                                    "text": "37"
+                                    "text": "110"
                                 }
                             },
                             {
@@ -1820,8 +1830,8 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 6,
                                                     "outlettype": [ "", "", "", "", "", "" ],
-                                                    "patching_rect": [ 176.0, 185.0, 80.0, 22.0 ],
-                                                    "text": "evi_blitwaves"
+                                                    "patching_rect": [ 176.0, 185.0, 145.0, 22.0 ],
+                                                    "text": "evi_blitwaves @smooth 0"
                                                 }
                                             },
                                             {
@@ -1961,7 +1971,15 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-15", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-5", 0 ]
                                 }
                             }

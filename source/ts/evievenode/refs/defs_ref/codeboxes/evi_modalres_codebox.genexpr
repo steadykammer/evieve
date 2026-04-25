@@ -8,8 +8,8 @@ maxRes(x, cps, decay, inviter, histAx, histBx)
 {
     decayc = tauA(decay * inviter);
     v  = cps * TWOPI / samplerate;
-    cv = cos73(v) * decayc;
-    sv = sin73(v) * decayc;
+    cv = cos73a(v) * decayc;
+    sv = sin73a(v) * decayc;
     y  = (sv * histAx) + (histBx * cv);
     histAy = x + (histAx * cv) + (histBx * -sv);
     histBy = y;

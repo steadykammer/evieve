@@ -4,7 +4,28 @@
 
 require("evi_smooth.genexpr");
 require("evi_sources.genexpr");
-require("evi_rcfilters.genexpr");
+
+// the first two are here to avoid gen~ bugs circular require hell (would normally require("evi_rcfilters.genexpr"))...
+
+rcDampCoeffs0b(cutoff, damp)			// cutoff in Hz, damp must clamp 0..1 (1 = highpass/lowpass)
+{
+	g0		=  tanA(PI * cutoff / SAMPLERATE);	// prewarp
+	ks		= (damp * 0.5) + 0.5;		// damp 0..1 = sqrt..lin
+	ks05	= (ks - 0.5);
+	ksom	= ((1 - ks) + 0.5) - 0.5;
+	g01		=  1 + g0;
+	g1 		=  g0 / interp((ks05 + ks05), sqrt(g01), g01, mode="linear");
+	d1		= interp((ksom + ksom), sqrt(damp), damp, mode="linear");
+	return	g1, d1;						// rc filter warped cf (g)	// rc filter warped gain (k)
+}
+
+rcFilterDampb(Vin, g, k)
+{
+	History	   s(0);
+	Lp		= (g * Vin + s) / (g + 1);
+	s		= (Lp + Lp) - s;
+	return	Vin + (k * (Lp - Vin));
+}
 
 zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
 {
@@ -76,8 +97,8 @@ noiseSources(ZeroxEnv, MixNoise, pitchLow, pitchHigh)
     gaussian = gaussianNoise(0.6403882032022076);
     interpNoise = interp(tpqmAmp, dustVelvet, gaussian, mode="linear");
 
-    g, k	= rcDampCoeffs0(freqDamp, dynamicDamp);
-    rcLP	= rcFilterDamp(interpNoise, g, k);
+    g, k	= rcDampCoeffs0b(freqDamp, dynamicDamp);
+    rcLP	= rcFilterDampb(interpNoise, g, k);
 
     return  rcLP;
 }

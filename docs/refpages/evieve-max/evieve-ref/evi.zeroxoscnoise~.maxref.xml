@@ -9,13 +9,13 @@
 		<b>evi.zeroxoscnoise~</b> is a 'max define' for the <o>evi_zeroxoscnoise</o>.gendsp gen~ abstraction.
 		Because evi.zeroxoscnoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		This object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also a very interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings is smoothed from linear to vactrol like control shapes. <br />
+		This object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also an interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings can be smoothed from linear to vactrol-like control shapes. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
 		<metadata name="author">Pete Dowling</metadata>
 		<metadata name="tag">evieve</metadata>
-		<metadata name="tag">evieve GenAbstractions</metadata>
+		<metadata name="tag">evieve Gen Abstractions</metadata>
 		<metadata name="tag">evieve Control</metadata>
 		<metadata name="tag">evieve Modulation</metadata>
 		<metadata name="tag">evieve Source</metadata>
@@ -147,7 +147,7 @@
 		</attribute>
 		<attribute name="envresponse" get="1" set="1" type="int" min="0" max="4">
 			<digest>
-				0..4
+				Select 0..4
 			</digest>
 			<description>
 				The type of envelope shape the automatic envelope uses. 0&#x3D;off (valid for turning off the noise), 1&#x3D;linear, 2&#x3D;log (default), 3&#x3D;vactrol fast, 4&#x3D;vactrol slow. Linear is an exact destination ramp. Log and vactrols are inexact analog release stages.

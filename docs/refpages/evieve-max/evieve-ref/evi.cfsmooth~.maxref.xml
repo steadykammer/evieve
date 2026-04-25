@@ -7,6 +7,7 @@
     <metadata name="author">Pete Dowling</metadata>
     <metadata name="tag">evieve</metadata>
     <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Smooth</metadata>
   </metadatalist>
   <inletlist>
     <inlet id="0" type="signal/float/int">

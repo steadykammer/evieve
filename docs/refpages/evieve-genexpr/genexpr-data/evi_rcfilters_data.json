@@ -1,8 +1,7 @@
 {
     "description": "Classic analog onepole RC filters in trapezoidal form. These are high quality and extremely efficient onepole filter primitives used all over evieve and very useful in day to day patching situations. One of the reasons we use trapezoidal rule is so that the filter can be correctly nonlinearised in TPT form.",
     "requires": [
-        "evi_approx.genexpr",
-        "evi_interp.genexpr"
+        "evi_approx.genexpr"
     ],
     "functions": [
         {

@@ -46,8 +46,8 @@
                 {
                     "id": 2,
                     "kind": "input",
-                    "name": "mix",
-                    "digest": "Mix 0..1 between sparse noise..velvet noise"
+                    "name": "mixN",
+                    "digest": ""
                 },
                 {
                     "id": 3,

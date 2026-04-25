@@ -102,7 +102,7 @@ Param	const3mul	 ( 0.333333333333333,	min=  0,	max= 1 );//  1 / 3
 
 xover_N		= twopi * crossover / samplerate;
 damp_M		= minimum(damp, (samplerate * 0.25));
-damp_N		= 1 - cosQ73(twopi * damp_M / samplerate);
+damp_N		= 1 - cosQ73a(twopi * damp_M / samplerate);
 
 //pd_Samp	= maximum(mstosamps(predelay), 1);// not convinced we need this clip
 pd_Samp		= mstosamps(predelay);

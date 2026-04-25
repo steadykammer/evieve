@@ -1,6 +1,22 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 
 require("evi_approx.genexpr");
-require("evi_interp.genexpr");
+// require("evi_interp.genexpr");
 
 //	//	//	coefficients
 
@@ -392,7 +408,8 @@ rcOnePole_x2( XIN, g )
 
 	// up 2x
 	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	// x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
+	x1_0	= interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a, mode="spline6");
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
@@ -401,7 +418,8 @@ rcOnePole_x2( XIN, g )
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+	// y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
+	y2_1	= interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1, mode="spline6");
 
 	y0_0	= (doX0 + y2_1) * 0.5;
 

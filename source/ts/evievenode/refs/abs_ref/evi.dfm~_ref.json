@@ -12,7 +12,7 @@
             "evieve Filter",
             "evieve Nonlinear",
             "evieve Filter Nonlinear",
-            "evieve AntiAliased"
+            "evieve Antialiased"
         ]
     },
     "inlets": [

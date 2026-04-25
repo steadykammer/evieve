@@ -226,7 +226,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.zeroxoscnoise~\">evi.zeroxoscnoise~</link> oscillator / noise mixer for vocoders, but very useful as a source on it's own",
+                    "text": "<link href=\"; max openhelp evi.zeroxoscnoise~\">evi.zeroxoscnoise~</link> oscillator / noise mixer for vocoders, but useful as a source on it's own",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },

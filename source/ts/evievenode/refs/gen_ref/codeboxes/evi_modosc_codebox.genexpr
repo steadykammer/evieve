@@ -18,7 +18,7 @@ modSinOsc(thisphase)
 // approx
 modSinOscApprox(thisphase)
 {
-	return	sin73(thisphase * TWOPI);
+	return	sin73a(thisphase * TWOPI);
 }
 
 History	autoreset(1);
@@ -52,7 +52,7 @@ static		= delta(sync) != 0;					// phasor is / is not moving
 resetramp, rrn	= eviLine(static, resettime);	// must be exact ramp
 autoreset	= rauto ? ((change(rrn == 1) > 0) * (static == 0)) : 0;	// end of down ramp only, not up
 
-theOsc		= modSinOscApprox(sync);//modSinOsc(sync) * resetramp;
+theOsc		= modSinOscApprox(sync);
 
 out1		= ((theOsc * theAmp) + theAdd) * resetramp;
 out2        = theOsc;                           // raw aux

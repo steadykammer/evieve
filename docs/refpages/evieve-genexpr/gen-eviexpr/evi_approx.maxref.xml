@@ -14,53 +14,43 @@
     Numeric approximations used all over evieve. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="cosQ73 ( )">
+    <entry name="cosQ73a ( )">
       <description>
-        Represents a quarter section of a cosine function, used by subsequent approximations <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: cos, <i>approximated section of a cosine</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
-    <entry name="cos73 ( )">
+    <entry name="cos73a ( )">
       <description>
-        Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
-    <entry name="sin73 ( )">
+    <entry name="sin73a ( )">
       <description>
-        Approximated sine function to 7.3 digits of precision, just about accurate enough for audio <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: sine, <i>sine function</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
-    <entry name="cos73param ( )">
+    <entry name="cos73aparam ( )">
       <description>
-        Same as 'cos73()' but appropriate for Param rate usage (stays out of while loop) <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
-    <entry name="sin73param ( )">
+    <entry name="sin73aparam ( )">
       <description>
-        Same as 'sin73()' but appropriate for Param rate usage (stays out of while loop) <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: sine, <i>sine function</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

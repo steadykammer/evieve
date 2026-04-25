@@ -6,8 +6,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "cosQ73",
-                "raw": "cosQ73"
+                "name": "cosQ73b",
+                "raw": "cosQ73b"
             },
             "params": [
                 {
@@ -239,8 +239,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "cos73",
-                "raw": "cos73"
+                "name": "cos73b",
+                "raw": "cos73b"
             },
             "params": [
                 {
@@ -440,8 +440,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "cosQ73",
-                                                "raw": "cosQ73"
+                                                "name": "cosQ73b",
+                                                "raw": "cosQ73b"
                                             }
                                         }
                                     }
@@ -501,8 +501,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "cosQ73",
-                                                        "raw": "cosQ73"
+                                                        "name": "cosQ73b",
+                                                        "raw": "cosQ73b"
                                                     }
                                                 },
                                                 "prefix": true
@@ -564,8 +564,8 @@
                                                         ],
                                                         "callee": {
                                                             "type": "Identifier",
-                                                            "name": "cosQ73",
-                                                            "raw": "cosQ73"
+                                                            "name": "cosQ73b",
+                                                            "raw": "cosQ73b"
                                                         }
                                                     },
                                                     "prefix": true
@@ -607,8 +607,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "cosQ73",
-                                                        "raw": "cosQ73"
+                                                        "name": "cosQ73b",
+                                                        "raw": "cosQ73b"
                                                     }
                                                 }
                                             }
@@ -636,8 +636,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "sin73",
-                "raw": "sin73"
+                "name": "sin73b",
+                "raw": "sin73b"
             },
             "params": [
                 {
@@ -675,8 +675,8 @@
                             ],
                             "callee": {
                                 "type": "Identifier",
-                                "name": "cos73",
-                                "raw": "cos73"
+                                "name": "cos73b",
+                                "raw": "cos73b"
                             }
                         },
                         "isjump": true

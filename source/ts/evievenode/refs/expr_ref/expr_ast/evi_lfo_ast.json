@@ -694,6 +694,178 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "lfoSkew",
+                "raw": "lfoSkew"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "skew",
+                    "raw": "skew"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sine",
+                                "raw": "sine"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "BinaryExpression",
+                                    "operator": ">",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    }
+                                },
+                                "consequent": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                },
+                                "alternate": {
+                                    "type": "Identifier",
+                                    "name": "phase",
+                                    "raw": "phase"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "sine",
+                                "raw": "sine"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "sine",
+                                        "raw": "sine"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 4,
+                                            "raw": "4",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "sine",
+                                                        "raw": "sine"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "abs",
+                                                    "raw": "abs"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 8,
+                                                "raw": "8",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "sine",
+                                    "raw": "sine"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "skew",
+                                    "raw": "skew"
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "fastskewlfo052ar",
+                                "raw": "fastskewlfo052ar"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "tanhC",
                 "raw": "tanhC"
             },

@@ -12,7 +12,6 @@
      <br />
     The <b>evi_rcfilters.genexpr</b> file also requires: <br />
     evi_approx.genexpr <br />
-    evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
     Classic analog onepole RC filters in trapezoidal form. These are high quality and extremely efficient onepole filter primitives used all over evieve and very useful in day to day patching situations. One of the reasons we use trapezoidal rule is so that the filter can be correctly nonlinearised in TPT form. <br />

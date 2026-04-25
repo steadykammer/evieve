@@ -7,7 +7,7 @@
 
 require("evi_tanh.genexpr");
 require("evi_trig.genexpr");
-require("evi_smooth.genexpr");
+require("evi_smooth_bank.genexpr");
 
 inputMixingSkfCoefficients(cutoff, res)
 {

@@ -1,3 +1,8 @@
+evieve
+evieve Externals
+evieve Abstractions
+evieve Gen Abstractions
+
 evieve Oscillator
 evieve Control
 evieve Reverb
@@ -12,7 +17,7 @@ evieve Source
 evieve Noise
 evieve Smooth
 evieve Saturation
-evieve AntiAliased
+evieve Antialiased
 evieve MSP Substitution
 evieve Crossover
 evieve Utility
@@ -20,4 +25,3 @@ evieve Dynamics
 evieve Onepole
 evieve Coefficients
 evieve Map
-

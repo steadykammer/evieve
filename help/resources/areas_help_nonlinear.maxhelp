@@ -903,17 +903,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-7",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 318.0, 103.0, 100.0, 22.0 ],
-                                    "text": "evi_ladder_diode"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-6",
                                     "maxclass": "newobj",
                                     "numinlets": 3,
@@ -977,6 +966,17 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 19.0, 103.0, 35.0, 22.0 ],
                                     "text": "out 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-7",
+                                    "maxclass": "newobj",
+                                    "numinlets": 5,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 318.0, 103.0, 100.0, 22.0 ],
+                                    "text": "evi_ladder_diode"
                                 }
                             }
                         ],

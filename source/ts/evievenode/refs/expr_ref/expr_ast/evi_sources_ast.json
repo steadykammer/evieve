@@ -217,8 +217,8 @@
                 },
                 {
                     "type": "Identifier",
-                    "name": "mix",
-                    "raw": "mix"
+                    "name": "mixN",
+                    "raw": "mixN"
                 },
                 {
                     "type": "Identifier",
@@ -550,8 +550,8 @@
                                 "arguments": [
                                     {
                                         "type": "Identifier",
-                                        "name": "mix",
-                                        "raw": "mix"
+                                        "name": "mixN",
+                                        "raw": "mixN"
                                     },
                                     {
                                         "type": "Identifier",

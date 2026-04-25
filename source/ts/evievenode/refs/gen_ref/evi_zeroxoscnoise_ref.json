@@ -4,7 +4,7 @@
         "child": "evi.zeroxoscnoise~",
         "category": "evieve",
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
-        "description": "This object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also a very interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings is smoothed from linear to vactrol like control shapes."
+        "description": "This object produces a mix of bandlimited oscillators and coloured noise via an envelope created by a zerocrossing detector on the audio input. This is a classic source for a vocoder type effect, but is also an interesting audio source in it's own right. The type of oscillator and the type of noise can be morphed in realtime. The default oscillator is a non-bandlimited train pulse for glottal excitation, but using the other bandlimited oscillators gives a solid synth like source. The noise types morph between sparse (dust), velvet and gaussian (almost white). The envelope produced by the audio input zero crossings can be smoothed from linear to vactrol-like control shapes."
     },
     "constructor": {
         "inlets": "audio, oscillators, oscillators, oscillators, noise"

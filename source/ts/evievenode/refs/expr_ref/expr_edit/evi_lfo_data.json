@@ -121,6 +121,32 @@
             ]
         },
         {
+            "document": true,
+            "digest": "",
+            "name": "lfoSkew",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "skew",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
             "document": false,
             "digest": "",
             "name": "tanhC",

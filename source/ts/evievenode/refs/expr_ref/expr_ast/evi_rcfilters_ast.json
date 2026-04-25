@@ -19,25 +19,6 @@
                 ]
             },
             "gen_kind": "compiler_command"
-        },
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "require"
-                },
-                "arguments": [
-                    {
-                        "type": "Literal",
-                        "value": "evi_interp.genexpr",
-                        "raw": "\"evi_interp.genexpr\"",
-                        "gen_kind": "string"
-                    }
-                ]
-            },
-            "gen_kind": "compiler_command"
         }
     ],
     "functions": [
@@ -6766,12 +6747,28 @@
                                         "type": "Identifier",
                                         "name": "x0_0_a",
                                         "raw": "x0_0_a"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": "spline6",
+                                            "raw": "\"spline6\"",
+                                            "gen_kind": "string"
+                                        },
+                                        "gen_kind": "attribute"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "hermite_sixpoint_interp",
-                                    "raw": "hermite_sixpoint_interp"
+                                    "name": "interp",
+                                    "raw": "interp"
                                 }
                             }
                         }
@@ -6942,12 +6939,28 @@
                                         "type": "Identifier",
                                         "name": "dmT3_1",
                                         "raw": "dmT3_1"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": "spline6",
+                                            "raw": "\"spline6\"",
+                                            "gen_kind": "string"
+                                        },
+                                        "gen_kind": "attribute"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "hermite_sixpoint_interp",
-                                    "raw": "hermite_sixpoint_interp"
+                                    "name": "interp",
+                                    "raw": "interp"
                                 }
                             }
                         }

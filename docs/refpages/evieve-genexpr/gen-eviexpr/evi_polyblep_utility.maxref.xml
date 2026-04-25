@@ -14,23 +14,27 @@
     This file is not very interesting on it's own and simply contains code found elsewhere in the evieve Package. It is for making the evieve polyblep requires more manageable when building gen~ or MSP abstractions. <br />
   </description>
   <misc name="GenExpr Functions">
-    <entry name="cos73 ( )">
+    <entry name="cosQ73b ( )">
       <description>
-        Cosine approximation to 7.3 digits of accuracy <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: Cos, <i>Cosine oscillator</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>
-    <entry name="sin73 ( )">
+    <entry name="cos73b ( )">
       <description>
-        Sine approximation to 7.3 digits of accuracy <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i>Phase 0..TWOPI</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
 
-        <b>Return 1</b>: Sin, <i>Sine oscillator</i> <br />
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="sin73b ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

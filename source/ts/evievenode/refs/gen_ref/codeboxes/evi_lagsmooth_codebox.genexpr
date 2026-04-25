@@ -12,7 +12,7 @@ lagpole(x, c, l)							// value / coefficient / previous
 	return ((1 - c) * x) + (c * l);			// no need for abs here ?
 }
 
-// a bit like Supercollider [lag3]
+// a bit like Supercollider [lag3], GPLv2
 // original by James MacCartney, mod by me
 lagsmooth(v, lp0)							// destination value / time (in seconds)
 {

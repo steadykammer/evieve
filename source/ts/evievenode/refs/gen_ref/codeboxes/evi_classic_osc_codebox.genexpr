@@ -12,7 +12,7 @@ poly_half20(t, dt, pw)
 	t6	= wrap(t6, 0, 1);
 	t77	= t7 - wrap(t7, 0, 1);
 	if (t6 < pw) {
-		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
+		h	= (sin73b(t6 / pw * PI) * 2) - pw * fdp;
 	} else {
 		h	= 0 - pw * fdp;
 	}
@@ -55,7 +55,7 @@ classicOscSelect(phase, nrm, width, gain, type, wav)
             osc = poly_half20(phase, nrm, pwm);
         }
         else {  // (type == 0)
-            osc = sin73(phase * TWOPI);
+            osc = sin73b(phase * TWOPI);
         }
     }
 
@@ -210,7 +210,7 @@ ft			= latch(filt,	oscsync);
 osc = 0;
 
 if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
-    osc	= sin73(TWOPI * t);                 // or should be cos() here ?
+    osc	= sin73b(TWOPI * t);                 // or should be cos() here ?
 }
 else {
     osc = classicOscSelectOversample(t, dt, pulseWidth, a, tp, wv, ov);

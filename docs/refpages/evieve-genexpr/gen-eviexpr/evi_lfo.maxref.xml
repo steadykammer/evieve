@@ -30,6 +30,15 @@
 
       </description>
     </entry>
+    <entry name="lfoSkew ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="lfoShapes01 ( )">
       <description>
         Collection of computed switchable LFOs, all wave selections in output range 0..1 <br />

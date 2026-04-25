@@ -3,9 +3,9 @@
     "requires": [],
     "functions": [
         {
-            "document": false,
+            "document": true,
             "digest": "",
-            "name": "cosQ73",
+            "name": "cosQ73b",
             "inputs": [
                 {
                     "id": 1,
@@ -24,41 +24,41 @@
         },
         {
             "document": true,
-            "digest": "Cosine approximation to 7.3 digits of accuracy",
-            "name": "cos73",
+            "digest": "",
+            "name": "cos73b",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "Phase 0..TWOPI"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Cos",
-                    "digest": "Cosine oscillator"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Sine approximation to 7.3 digits of accuracy",
-            "name": "sin73",
+            "digest": "",
+            "name": "sin73b",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": "Phase 0..TWOPI"
+                    "digest": ""
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Sin",
-                    "digest": "Sine oscillator"
+                    "name": "",
+                    "digest": ""
                 }
             ]
         },

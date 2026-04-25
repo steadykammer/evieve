@@ -12,7 +12,8 @@
     "includes": [
         "evi_tanh",
         "evi_trig",
-        "evi_smooth"
+        "evi_smooth",
+        "evi_smooth_bank"
     ],
     "inlets": [
         {

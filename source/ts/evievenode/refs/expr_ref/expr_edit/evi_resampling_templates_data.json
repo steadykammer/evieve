@@ -1,18 +1,158 @@
 {
-    "description": "!! These are templates for copy/pasting and testing/making your own quasi resamplers; it is not advised to 'require' this file directly !!",
+    "description": "!! This file is designed to be read, not required; these are templates for copy/pasting and testing/making your own quasi resamplers; it is not advised to 'require' this file directly !! Why: There is no native resampling in gen~, which poses a real problem. This file includes various basic cubic interpolation hacks. First are one in one out interpolators for memoryless non-linearities. Then the same for two inputs one output. Finally there are versions which can be used for nonlinear filters. Comments in the code detail how it is done.",
     "requires": [
         "evi_interp.genexpr"
     ],
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "A memoryless nonlinearity placeholder for demonstration purposes only",
             "name": "YOUR_FUNCTION_GOES_HERE",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "2x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_2x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "3x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_3x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "4x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "6x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_6x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "8x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_8x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "9x oversampling 4-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_9x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "EVI_RESAMPLE_TEMPLATE_12x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
                     "digest": ""
                 }
             ],
@@ -25,9 +165,9 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_2x",
+            "name": "EVI_RESAMPLE_TEMPLATE_16x_4POINT",
             "inputs": [
                 {
                     "id": 1,
@@ -46,172 +186,52 @@
         },
         {
             "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_3x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_4x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_6x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_8x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_9x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_12x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_16x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "TEST_RESAMPLER",
+            "digest": "If/else block to call in order to test the 4-point interpolator templates",
+            "name": "TEST_RESAMPLER_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "order",
-                    "digest": ""
+                    "digest": "Oversampling order: 0=1x, 1=2x, 2=3x, 3=4x, 4=6x, 5=8x, 6=9x"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
                 }
             ]
         },
         {
             "document": true,
+            "digest": "2x oversampling 6-point interpolator template",
+            "name": "EVI_RESAMPLE_TEMPLATE_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "Nonlinear output"
+                }
+            ]
+        },
+        {
+            "document": false,
             "digest": "",
             "name": "poly_blep",
             "inputs": [
@@ -238,13 +258,195 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "An oscillator source placeholder for demonstration purposes only",
             "name": "YOUR_GENERATOR_FUNCTION_GOES_HERE",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Aliasing oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "2x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_2x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "3x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_3x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "4x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_4x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "6x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_6x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "8x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_8x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "9x downsampling 4-point interpolator template",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_9x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": "Phase 0..1 at speed in Hz"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "dt",
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Oscillator",
+                    "digest": "Antialiased oscillator output"
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_12x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
                     "digest": ""
                 },
                 {
@@ -263,9 +465,9 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_2x",
+            "name": "EVI_DOWNSAMPLE_TEMPLATE_16x_4POINT",
             "inputs": [
                 {
                     "id": 1,
@@ -290,487 +492,278 @@
         },
         {
             "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_3x",
+            "digest": "If/else block to call in order to test the 4-point downsampler templates",
+            "name": "TEST_DOWNSAMPLER_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Phase 0..1 at speed in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_4x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_6x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_8x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_9x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_12x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_DOWNSAMPLE_TEMPLATE_16x",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "TEST_DOWNSAMPLER",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "t",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "dt",
-                    "digest": ""
+                    "digest": "Phase increment: speed in Hz divided by SAMPLERATE"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "order",
-                    "digest": ""
+                    "digest": "Downsampling order: 0=1x, 1=2x, 2=3x, 3=4x, 4=6x, 5=8x, 6=9x"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Oscillator",
+                    "digest": "Oscillator at selected downsampling"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Oscillator",
+                    "digest": "Always 1x version of the oscillator"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Two audio inlets one audio outlet function placeholder for demonstration purposes only",
             "name": "EXAMPLE_TWO_INLETS_ONE_OUTLET",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Audio input 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "One audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_3x_TWO_INPUTS",
+            "digest": "3x oversampling 4-point interpolator two audio inputs template",
+            "name": "EVI_RESAMPLE_TEMPLATE_3x_4POINT_TWO_INPUTS",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Audio input 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "One resampled audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_4x_TWO_INPUTS",
+            "digest": "4x oversampling 4-point interpolator two audio inputs template",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x_4POINT_TWO_INPUTS",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Audio input 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Audio output",
+                    "digest": "One resampled audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_2x_6POINT",
+            "digest": "2x oversampling 6-point interpolator two audio inputs template",
+            "name": "EVI_RESAMPLE_TEMPLATE_2x_6POINT_TWO_INPUTS",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_3x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_4x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_6x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_8x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_9x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_12x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "EVI_RESAMPLE_TEMPLATE_16x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "TEST_RESAMPLER_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
+                    "name": "XIN1",
+                    "digest": "Audio input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
-                    "name": "order",
-                    "digest": ""
+                    "name": "XIN2",
+                    "digest": "Audio input 2"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "One resampled audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "4x oversampling 6-point interpolator two audio inputs template",
+            "name": "EVI_RESAMPLE_TEMPLATE_4x_6POINT_TWO_INPUTS",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN1",
+                    "digest": "Audio input 1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "XIN2",
+                    "digest": "Audio input 2"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "One resampled audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "8x oversampling 6-point interpolator two audio inputs template",
+            "name": "EVI_RESAMPLE_TEMPLATE_8x_6POINT_TWO_INPUTS",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN1",
+                    "digest": "Audio input 1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "XIN2",
+                    "digest": "Audio input 2"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Audio output",
+                    "digest": "One resampled audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Nonlinear filter with 2 processing passes placeholder for demonstration purposes only",
+            "name": "NONLIN_FILTER_TWOPOLE_2PASS",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xin0",
+                    "digest": "Interpolated audio input 1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "xin1",
+                    "digest": "Interpolated audio input 2"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "hz",
+                    "digest": "Filter frequency in Hz"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "res",
+                    "digest": "Filter resonance 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
                     "name": "",
-                    "digest": ""
+                    "digest": "Interpolated audio output 1 (from pass 1)"
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": "Interpolated audio output 2 (from pass 2)"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "2x oversampling 4-point 2-pass filter interpolator template",
+            "name": "NONLIN_FILTER_TWOPOLE_2PASS_2x_4POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "hz",
+                    "digest": "Filter frequency in Hz"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "res",
+                    "digest": "Filter resonance 0..1"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Nonlinear filter output",
+                    "digest": "Resampled antialiased filter output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_adaa",
+        "evi_buchla",
+        "evi_interp",
+        "evi_saturators",
+        "evi_waveshaping"
+    ]
 }
