@@ -1,0 +1,32 @@
+{
+    "boxes": [
+        {
+            "box": {
+                "maxclass": "live.scope~",
+                "patching_rect": [ 290.0, 289.0, 130.0, 130.0 ],
+                "samples": 48000.0,
+                "rounded": 1.0,
+                "grid": 3,
+                "numinlets": 2,
+                "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                "horizonal_divisions": 8,
+                "id": "obj-1",
+                "numoutlets": 1,
+                "horizontal_divisions": 8,
+                "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
+                "vertical_divisions": 4,
+                "outlettype": [ "bang" ]
+            }
+        }
+    ],
+    "appversion": {
+        "major": 9,
+        "minor": 2,
+        "revision": 0,
+        "architecture": "x64",
+        "modernui": 1
+    },
+    "classnamespace": "box",
+    "preview_image": [ 3263, "png", "IBkSG0fBZn....PCIgDQRA..Bf...H.BHX....vB7awX....DLmPIQEBHf.B7g.YHB..LXWRDEDU3wY6b+raaidEFG97QJK6jlhNQ+4NYVLylhBz6wdkzqotQxxAn.EwxljcQ5nINutEclEhFgOO6nWcNwle9mMoS6m+4ed5zoS0iO9XsDrc61Z8500zzTUUU2e+804ymqVqMyS10wtc6pUqVc45iGOVO+7yy3Dc8zZsZ2tcUeeeUUUSSS0gCGpwwwYdxtNZsVse+9pqqqpZ4s+ccc0986ubu933Xc3vgKmE78t999Z+98WtdXXnNb3vLNQWOSSS050qqsa2VU8k6ENe9bc+82OyS1aS2d6s0lMaptkTb...+u83iOVmNcp5DG..vW6wGer5l6g..f2dDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..Pn8i+3ONM2Cw0Teee0ZsKWOLLTSSKm+IXIu+sVq566ewGy9a+Wx6+yO+7LMMWee69OMMUCCCy3D812pUqVM2yvr5augYow9a+WxV56+R97+Vqsn2++e3QL..PPf...gUGNbXtmgqpO9wOV2byMWdtie5Sepd5oml4o55YylMu3Wq5CO7vh44P1Zs5ie7iW1+ooo5zoS0333LOYWGsVq1rYS008ketfk19200Ua1r4x6fy33Xc5zoEy6fPeeesYylKWOLLTmNcZFmnqqat4l5G9genp5K2K7zSOUO7vCy7T811pk1Kow2dXvvvP87yO+hWbuum8Z6+R4qAdsOGOLLrX9FjK88+0BAVRujhulkx89SSSWBi+5O1RY++8xiX..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..HHP..ff.A..BBD..Hr5t2+Gm6Y3p5128g5latolllppp5t2et5VctZs1LOYWG29tOT888Wt9t2+X87yOOiSz0Sq0pae2GpttesK9t2+4ZbbbFmpqmeY++5uVeIs+ccc0su6CWtdZZpt68e9xYAeuquuuVe2e3x0iii0cu+yy3Dc8LMMUqWu9x92Zsp0utt68mm4I6ss1e6u+OVF2c7ezZsWb.4R4vweg8+W2+oooEy2b3WX+W16+WGGa+Wd6+uUqd2G9Sy8L..vaLdGD..Hr5w+0+btmA..dio8m+K+UODF..dgUedg8aP3qeIUpZ48hprj2+u8EzrJ6u8eYu+KoWR4k99+6wpCGNL2yvU0lMap0qWe4PgGd3g5omdZlmpqmsa2VqVs5x0mNcZQ8m431sau7m44zzTc73wEygDsVq1sa2kHwk19200U61s6x2jXbbrNd73hIPnuuu1sa2kqGFFpiGONiSz00M2bSsYylppubuv4ymqSmNMyS0aaqVJ2b7eyzzTMNNtX9+Agu0R5mf50X+WN6+qsm1+kytuj2+eu7Ww...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DVsZ0p4dFtpZs1KttuuuVsZU7w+d0qs+KY888UW2xsSdIs+u183Kou9+0977R47+ooo3y0sVawr++d09oe5mll6g..f2VVF+nC..7ah.A..Bqd94mm6Y3ppuu+EOKxgggZZZ47TVVx6eq0hmCo829uj2+kz4+e69OMMUCCCy3D812piGON2yvU01saq0qWe4PgO8oOUmOedw7RJta2tW7h47vCOrXNjn0Z0tc6tbHwzzTc+82Wiiiy7jcczZsZ+98WdY0VZ6eWWWse+9K2qONNVGOdbwDHz22W62u+x0CCC0R47+oooZ85001saqp9x8BO8zS082e+LOYus4QL..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..PPf...AAB..DDH..Pn61auctmA..dC41aus51rYSIR..fp9RbvlMap+MZXJN5qgvVpN.....IUjSD4pPfIH" ]
+}
