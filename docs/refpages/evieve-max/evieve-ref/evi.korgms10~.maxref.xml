@@ -100,6 +100,17 @@
 				<attribute name="default" get="0" set="0" size="1" value="0.05" />
 			</attributelist>
 		</attribute>
+		<attribute name="oversample" get="1" set="1" type="int" min="0" max="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				If on (1) the filter is 2x oversampled. If off (0, the default), the filter runs at samplerate. Oversampling is recommended to deal with the nonlinear behaviour of the filter, but is expensive because of the multimode outputs.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -110,7 +121,7 @@
 		<seealso name="evi.korgms20~"> </seealso>
 		<seealso name="evi.korgms20.select~"> </seealso>
 		<seealso name="evi.dfm~"> </seealso>
-		<seealso name="evi.ladder.transistor~"> </seealso>
+		<seealso name="evi.ladder.diode~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

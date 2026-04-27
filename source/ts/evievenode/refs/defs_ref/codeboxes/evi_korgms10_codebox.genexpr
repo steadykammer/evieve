@@ -10,6 +10,7 @@
 
 require("evi_tanh.genexpr");
 require("evi_sources.genexpr");
+require("evi_interp.genexpr");
 
 // skew nonlin
 
@@ -24,100 +25,313 @@ aTnhLxAS(x, a)
 	return tnhXa;
 }
 
-// S&K state initialise
-History	state0(0), state1(0), state2(0);
+// filter 1x
 
-// do not change
-Param   load(1.333333333333, min=0.25, max=4);
+SandKone(x0, hz, k0, load, noiz)
+{
+	// S&K state initialise
+	History	state0(0), state1(0), state2(0);
+
+	// constants
+	tr		= 0.55032120814910446;
+	// roots for R1C1 == R2C2
+	r1		= 2.618033988749895;		    // -0.5 * (-3 - pow(5, 0.5));
+	r2		= 0.3819660112501051;		    // -0.5 * (pow(5, 0.5) - 3);
+	// lossy RC/CR bpf
+	l0		= 0.3819660112501052;           // ('l0' is 'r2')
+
+	// prewarp (like BZT but not)
+	t1 		=  1 / SAMPLERATE;
+	t2		=  t1 * 0.5;
+	w2		= (2 / t1) * tanA2((TWOPI * hz) * t2);
+	g0		=  w2 * t2;
+	ff		=  g0 / (1 + g0);			    // feedforward coefficient
+
+	// single amplifier model
+	k1		= (k0 * 3.008912) + (ff * 0.03);// self-oscillation @ 3
+	ik1     =  1  /  k1;
+	g1		=  r2 *  g0;                    // low edge
+	g2		=  r1 *  g0;                    // high edge
+	gl		=  1  +  g1;
+	gh		=  1  +  g2;
+
+	// coefficients
+	a1		=  g1 / gl;						// g low
+	a2		=  g2 / gh;						// g high
+	b1		= -l0 / gl;
+	l1		=  l0 * k1;
+	l2		=  l1 * a2;
+	b2		= (l1 - (l1 * a1)) / gh;
+	a0		=  1  / (1 - l2 + (l2 * a1));
+
+	ng1	= 0;
+	if (noiz > 0) {                   		// only compute if required
+		ng0		= gaussianNoise(noiz);
+		ng1     = ng0 * (k1 + g0);
+	//  N.B. - noise injection not required for self-oscillation, just for noise :-)
+	}
+
+	// 1st lowpass integrator
+	lp1vn	= (x0 - state1) * a1;           // input
+	lp1		= lp1vn + state1;
+	state1	= lp1vn + lp1;
+	hp1		=  x0 - lp1;
+
+	// sum feedback
+	hp2fb	= state2 * b1;
+	bp2fb	= state0 * b2;
+	k35		= hp2fb + bp2fb;
+
+	hp0     = (k35 - lp1) * a0;
+	bp2     = ((k35 - (state1 * b1)) * a0) * sqrt2;	    
+
+	// process nonlinear
+	u		= a0 * (hp1 + k35) * k1;        // !! * 'k1'
+	u       = aTnhLxAS(u, load);
+
+	// 2nd lowpass integrator (loaded lpf)
+	lp2vn	= (u - state2) * a1;	        // !! not 'a2'
+	lp2		= lp2vn + state2;
+	state2	= lp2vn + lp2;					//
+	hp2		=  u - lp2;
+
+	YL		= k1 * lp2;									// Korg 12 dB LP (!! level res dependent)
+	YH		= u * ik1;								    // Korg 6 dB HP
+	YF		= hp2 * ik1;							    // sort of made up 12 dB HP
+	YB      = bp2 * ik1;                                // sort of made up 12 dB BP ?
+
+	// feedback loop (loaded bpf)
+	bp2vn	= (hp2 - state0) * a2;	        // !! 'a2'
+	bp2		= bp2vn + state0;
+	state0	= bp2vn + bp2 + ng1;	        // inject noise at feedback integrator
+
+	return	dcblock(YL * 0.25),							// 12dB LP
+				dcblock(YH * sqrt1_2),					// 6dB HP
+					dcblock(YF * 0.68),					// 12dB HP
+						dcblock(YB * 0.5);				// 12dB BP
+}
+
+// filter 2x
+
+SandKtwo(x0, x1, hz, k0, load, noiz)
+{
+	// S&K state initialise
+	History	state0(0), state1(0), state2(0);
+
+	// constants
+	tr		= 0.55032120814910446;
+	// roots for R1C1 == R2C2
+	r1		= 2.618033988749895;		    // -0.5 * (-3 - pow(5, 0.5));
+	r2		= 0.3819660112501051;		    // -0.5 * (pow(5, 0.5) - 3);
+	// lossy RC/CR bpf
+	l0		= 0.3819660112501052;           // ('l0' is 'r2')
+
+	// prewarp (like BZT but not)
+	t1 		=  1 / SAMPLERATE;
+	t2		=  t1 * 0.5;
+	w2		= (2 / t1) * tanA2((TWOPI * hz) * t2);
+	g0		=  w2 * t2 * 0.5;               // os here
+	ff		=  g0 / (1 + g0);			    // feedforward coefficient
+
+	// single amplifier model
+	k1		= (k0 * 3.008912) + (ff * 0.03);// self-oscillation @ 3
+	ik1     =  1  /  k1;
+	g1		=  r2 *  g0;                    // low edge
+	g2		=  r1 *  g0;                    // high edge
+	gl		=  1  +  g1;
+	gh		=  1  +  g2;
+
+	// coefficients
+	a1		=  g1 / gl;						// g low
+	a2		=  g2 / gh;						// g high
+	b1		= -l0 / gl;
+	l1		=  l0 * k1;
+	l2		=  l1 * a2;
+	b2		= (l1 - (l1 * a1)) / gh;
+	a0		=  1  / (1 - l2 + (l2 * a1));
+
+	ng1	= 0;
+	if (noiz > 0) {                   		// only compute if required
+		ng0		= gaussianNoise(noiz);
+		ng1     = ng0 * (k1 + g0) * 0.5;    // os here
+	//  N.B. - noise injection not required for self-oscillation, just for noise :-)
+	}
+
+	// pass 1
+
+	// 1st lowpass integrator
+	lp1vn0	= (x0 - state1) * a1;           // input
+	lp10	= lp1vn0 + state1;
+	state1	= lp1vn0 + lp10;
+	hp10	=  x0 - lp10;
+
+	// sum feedback
+	hp2fb0	= state2 * b1;
+	bp2fb0	= state0 * b2;
+	k350	= hp2fb0 + bp2fb0;
+
+	hp00    = (k350 - lp10) * a0;
+	bp20    = ((k350 - (state1 * b1)) * a0) * sqrt2;	    
+
+	// process nonlinear
+	u0		= a0 * (hp10 + k350) * k1;      // !! * 'k1'
+	u0      = aTnhLxAS(u0, load);
+
+	// 2nd lowpass integrator (loaded lpf)
+	lp2vn0	= (u0 - state2) * a1;	        // !! not 'a2'
+	lp20	= lp2vn0 + state2;
+	state2	= lp2vn0 + lp20;				//
+	hp20	=  u0 - lp20;
+
+	YL0		= k1 * lp20;								// Korg 12 dB LP (!! level res dependent)
+	YH0		= u0 * ik1;								    // Korg 6 dB HP
+	YF0		= hp20 * ik1;							    // sort of made up 12 dB HP
+	YB0     = bp20 * ik1;                               // sort of made up 12 dB BP ?
+
+	// feedback loop (loaded bpf)
+	bp2vn0	= (hp20 - state0) * a2;	        // !! 'a2'
+	bp20	= bp2vn0 + state0;
+	state0	= bp2vn0 + bp20 + ng1;	        // inject noise at feedback integrator
+
+	// pass 2
+
+	// 1st lowpass integrator
+	lp1vn1	= (x1 - state1) * a1;           // input
+	lp11	= lp1vn1 + state1;
+	state1	= lp1vn1 + lp11;
+	hp11	=  x1 - lp11;
+
+	// sum feedback
+	hp2fb1	= state2 * b1;
+	bp2fb1	= state0 * b2;
+	k351	= hp2fb1 + bp2fb1;
+
+	hp01    = (k351 - lp11) * a0;
+	bp21    = ((k351 - (state1 * b1)) * a0) * sqrt2;	    
+
+	// process nonlinear
+	u1		= a0 * (hp11 + k351) * k1;      // !! * 'k1'
+	u1      = aTnhLxAS(u1, load);
+
+	// 2nd lowpass integrator (loaded lpf)
+	lp2vn1	= (u1 - state2) * a1;	        // !! not 'a2'
+	lp21	= lp2vn1 + state2;
+	state2	= lp2vn1 + lp21;				//
+	hp21	=  u1 - lp21;
+
+	YL1		= k1 * lp21;								// Korg 12 dB LP (!! level res dependent)
+	YH1		= u1 * ik1;								    // Korg 6 dB HP
+	YF1		= hp21 * ik1;							    // sort of made up 12 dB HP
+	YB1     = bp21 * ik1;                               // sort of made up 12 dB BP ?
+
+	// feedback loop (loaded bpf)
+	bp2vn1	= (hp21 - state0) * a2;	        // !! 'a2'
+	bp21	= bp2vn1 + state0;
+	state0	= bp2vn1 + bp21 + ng1;	        // inject noise at feedback integrator
+
+	return	dcblock(YL0 * 0.25), dcblock(YL1 * 0.25),				// 12dB LP x2
+				dcblock(YH0 * sqrt1_2), dcblock(YH1 * sqrt1_2),		// 6dB HP x2
+					dcblock(YF0 * 0.68), dcblock(YF1 * 0.68),		// 12dB HP x2
+						dcblock(YB0 * 0.5), dcblock(YB1 * 0.5);	    // 12dB BP x2
+}
+
+// fixed 2x quasi oversampling 4-point, 2 processing loops, 4 outputs
+
+SandKtwo_2x4point( XIN, hz, res, load, noiz )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2 out1
+	History	dmT2_10(0), dmT1_10(0), dmT0_10(0);
+	// down 2 out2
+	History	dmT2_11(0), dmT1_11(0), dmT0_11(0);
+	// down 2 out3
+	History	dmT2_12(0), dmT1_12(0), dmT0_12(0);
+	// down 2 out4
+	History	dmT2_13(0), dmT1_13(0), dmT0_13(0);
+	// align
+	History	doX00(0), doX01(0), doX02(0), doX03(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_00, y2_00, y1_01, y2_01, y1_02, y2_02, y1_03, y2_03	
+        = SandKtwo(x1_0, x2_0, hz, res, load, noiz);
+
+	// down 2x out1
+	y2_00_a	= y2_00 + 0;
+	y2_10	= cubic_hermite_interp(0.5,	y2_00_a,	dmT0_10, dmT1_10, dmT2_10);
+
+	// down 2x out2
+	y2_01_a	= y2_01 + 0;
+	y2_11	= cubic_hermite_interp(0.5,	y2_01_a,	dmT0_11, dmT1_11, dmT2_11);
+
+	// down 2x out3
+	y2_02_a	= y2_02 + 0;
+	y2_12	= cubic_hermite_interp(0.5,	y2_02_a,	dmT0_12, dmT1_12, dmT2_12);
+
+	// down 2x out4
+	y2_03_a	= y2_03 + 0;
+	y2_13	= cubic_hermite_interp(0.5,	y2_03_a,	dmT0_13, dmT1_13, dmT2_13);
+
+	y0_00	= (doX00 + y2_10) * 0.5;
+	y0_01	= (doX01 + y2_11) * 0.5;
+	y0_02	= (doX02 + y2_12) * 0.5;
+	y0_03	= (doX03 + y2_13) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX00	= y1_00;
+	doX01	= y1_01;
+	doX02	= y1_02;
+	doX03	= y1_03;
+
+	dmT2_10	= dmT1_10;
+	dmT1_10	= dmT0_10;
+	dmT0_10	= y2_00;
+
+	dmT2_11	= dmT1_11;
+	dmT1_11	= dmT0_11;
+	dmT0_11	= y2_01;
+
+	dmT2_12	= dmT1_12;
+	dmT1_12	= dmT0_12;
+	dmT0_12	= y2_02;
+
+	dmT2_13	= dmT1_13;
+	dmT1_13	= dmT0_13;
+	dmT0_13	= y2_03;
+
+	return y0_00, y0_01, y0_02, y0_03;
+}
+
+Param   load(1.333333333333, min=0.25, max=4);			// do not change
+Param   oversample(0, min=0, max=1);                    // default 1x
 
 // amplitude level of noise in filter, 0..1 remapped 0.. 10% of gaussian level
 Param	noiselevel(0.05, min=0, max=1); // default 0.05 = gaussian level of 0.000008
 noiz	= (noiselevel * noiselevel * noiselevel) * 0.064038820320221;
 
+os      = int(oversample);
+
 // parse
 
-x0	= in1;
+X	= in1;
 hz	= clamp(in2, 1.07, 14988);          // hz
-k0	= clamp(in3, 0.000003, 1.12000001);
+res	= clamp(in3, 0.000003, 1.12000001);
 
-// constants
-
-tr		= 0.55032120814910446;
-// roots for R1C1 == R2C2
-r1		= 2.618033988749895;		    // -0.5 * (-3 - pow(5, 0.5));
-r2		= 0.3819660112501051;		    // -0.5 * (pow(5, 0.5) - 3);
-// lossy RC/CR bpf
-l0		= 0.3819660112501052;           // ('l0' is 'r2')
-
-// prewarp (like BZT but not)
-
-t1 		=  1 / SAMPLERATE;
-t2		=  t1 * 0.5;
-w2		= (2 / t1) * tanA2((TWOPI * hz) * t2);
-g0		=  w2 * t2;
-ff		=  g0 / (1 + g0);			    // feedforward coefficient
-
-// single amplifier model
-
-k1		= (k0 * 3.008912) + (ff * 0.03);// self-oscillation @ 3
-ik1     =  1  /  k1;
-g1		=  r2 *  g0;                    // low edge
-g2		=  r1 *  g0;                    // high edgegl		=  1  +  g1;
-gh		=  1  +  g2;
-
-// coefficients
-
-a1		=  g1 / gl;						// g low
-a2		=  g2 / gh;						// g high
-b1		= -l0 / gl;
-l1		=  l0 * k1;
-l2		=  l1 * a2;
-b2		= (l1 - (l1 * a1)) / gh;
-a0		=  1  / (1 - l2 + (l2 * a1));
-
-ng1	= 0;
-if (noiselevel > 0) {                   // only compute if required
-	ng0		= gaussianNoise(noiz);
-    ng1     = ng0 * (k1 + g0);
-//  N.B. - noise injection not required for self-oscillation, just for noise :-)
+// 'Korg 35' single-amplifier Sallen-Key filter
+if (os) {
+    // 2x slightly limits resonance for high frequencies, not as useful for highpasses
+    out1, out2, out3, out4  = SandKtwo_2x4point(X, hz, res, load, noiz);
 }
-
-// 1st lowpass integrator
-lp1vn	= (x0 - state1) * a1;           // input
-lp1		= lp1vn + state1;
-state1	= lp1vn + lp1;
-hp1		=  x0 - lp1;
-
-// sum feedback
-hp2fb	= state2 * b1;
-bp2fb	= state0 * b2;
-k35		= hp2fb + bp2fb;
-
-hp0     = (k35 - lp1) * a0;
-bp2     = ((k35 - (state1 * b1)) * a0) * sqrt2;	    
-
-// process nonlinear
-u		= a0 * (hp1 + k35) * k1;        // !! * 'k1'
-u       = aTnhLxAS(u, load);
-
-// 2nd lowpass integrator (loaded lpf)
-lp2vn	= (u - state2) * a1;	        // !! not 'a2'
-lp2		= lp2vn + state2;
-state2	= lp2vn + lp2 + ng1;		    // inject noise if highpass
-hp2		=  u - lp2;
-
-YL		= k1 * lp2;									// Korg 12 dB LP (!! level res dependent)
-YH		= u * ik1;								    // Korg 6 dB HP
-YF		= hp2 * ik1;							    // sort of made up 12 dB HP
-YB      = bp2 * ik1;                                // sort of made up 12 dB BP ?
-
-// feedback loop (loaded bpf)
-bp2vn	= (hp2 - state0) * a2;	        // !! 'a2'
-bp2		= bp2vn + state0;
-state0	= bp2vn + bp2 + ng1;	        // inject noise if lowpass
-
-out1	= dcblock(YL * 0.25);                       // 12dB LP
-out2	= dcblock(YH * sqrt1_2);                    // 6dB HP
-out3	= dcblock(YF * 0.5);                        // 12dB HP
-out4    = dcblock(YB * 0.25);                       // 12dB BP
+else {
+    // default 1x
+    out1, out2, out3, out4  = SandKone(X, hz, res, load, noiz);
+}
 

@@ -3,6 +3,7 @@
     evieve is a library of GenExpr audio code by Pete Dowling.
 
     evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
     For license details @see: 'license.txt' in the root of the Package, or access it via
     the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
 
@@ -1544,5 +1545,5 @@ NONLIN_FILTER_TWOPOLE_2PASS_2x_4POINT( XIN, hz, res )
 //	//	//	or make use of the gen~ abstraction:
 //	//	//	'evi_lpg_buchla.gendsp'
 //	//	//	(see the 'gen~' tab of the [evi.lpg~] MSP abstraction)
-
+//	//	//	For multimode outputs whilst oversampling, see 'evi_korgms20.gendsp'
 

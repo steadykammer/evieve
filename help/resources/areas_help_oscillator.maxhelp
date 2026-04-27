@@ -380,7 +380,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 479.0, 124.0, 87.0, 21.0 ],
+                    "patching_rect": [ 458.0, 124.0, 87.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -588,7 +588,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 347.0, 100.0, 130.0, 21.0 ],
+                    "patching_rect": [ 326.0, 100.0, 130.0, 21.0 ],
                     "text": "<<-- contains:",
                     "textjustification": 2
                 }
@@ -776,7 +776,7 @@
                     "numinlets": 2,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 479.0, 100.0, 69.0, 22.0 ],
+                    "patching_rect": [ 458.0, 100.0, 69.0, 22.0 ],
                     "text": "evi.4wave~"
                 }
             },

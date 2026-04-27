@@ -9,7 +9,7 @@
         <b>evi_korgms10</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_korgms10.gendsp requires the GenExpr file(s): <br />
-        <o>evi_tanh</o>.genexpr, <o>evi_sources</o>.genexpr <br />
+        <o>evi_tanh</o>.genexpr, <o>evi_sources</o>.genexpr, <o>evi_interp</o>.genexpr <br />
          <br />
         evi_korgms10 is also available in MSP as: <o>evi.korgms10~</o>. <br />
          <br />
@@ -52,6 +52,17 @@
                 <attribute name='default' type='float' value='0.05' />
             </attributelist>
         </attribute>
+        <attribute name='oversample' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                If on (1) the filter is 2x oversampled. If off (0, the default), the filter runs at samplerate. Oversampling is recommended to deal with the nonlinear behaviour of the filter, but is expensive because of the multimode outputs.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='0' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
@@ -62,5 +73,6 @@
         <seealso name='evi_korgms20' display='evi_korgms20' type='genrefpage' />
         <seealso name='evi_korgms20_select' display='evi_korgms20_select' type='genrefpage' />
         <seealso name='evi_ladder_transistor' display='evi_ladder_transistor' type='genrefpage' />
+        <seealso name='evi_ladder_diode' display='evi_ladder_diode' type='genrefpage' />
     </seealsolist>
 </c74object>

@@ -20,7 +20,8 @@
     },
     "includes": [
         "evi_tanh.genexpr",
-        "evi_sources.genexpr"
+        "evi_sources.genexpr",
+        "evi_interp.genexpr"
     ],
     "inlets": [
         {
@@ -119,6 +120,18 @@
                 "max": "1",
                 "value": "0.05"
             }
+        },
+        {
+            "name": "oversample",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "If on (1) the filter is 2x oversampled. If off (0, the default), the filter runs at samplerate. Oversampling is recommended to deal with the nonlinear behaviour of the filter, but is expensive because of the multimode outputs.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
         }
     ],
     "example": {
@@ -129,6 +142,6 @@
         "evi.korgms20~",
         "evi.korgms20.select~",
         "evi.dfm~",
-        "evi.ladder.transistor~"
+        "evi.ladder.diode~"
     ]
 }

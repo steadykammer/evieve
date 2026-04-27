@@ -452,7 +452,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.korgms20~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.transistor~" ]
+        "seealso": [ "evi.korgms20~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.diode~" ]
     },
     "evi.korgms20.select~": {
         "digest": "Korg OTA dual-amplifier buffered modified Sallen-Key topology nonlinear filter emulation",
@@ -466,7 +466,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Filter TPT", "evieve Nonlinear", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.korgms10~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.diode~" ]
+        "seealso": [ "evi.korgms10~", "evi.korgms20.select~", "evi.dfm~", "evi.ladder.transistor~" ]
     },
     "evi.ladder.diode~": {
         "digest": "TPT nonlinear Diode Ladder filter emulation",

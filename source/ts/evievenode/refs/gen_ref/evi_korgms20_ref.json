@@ -10,7 +10,8 @@
         "inlets": "audio, cutoff, resonance"
     },
     "includes": [
-        "evi_tanh"
+        "evi_tanh",
+        "evi_interp"
     ],
     "inlets": [
         {
@@ -66,6 +67,16 @@
                 "type": "float",
                 "value": "1.333333333333"
             }
+        },
+        {
+            "name": "oversample",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "If on (1) the filter is 2x oversampled. If off (0, the default), the filter runs at samplerate. Oversampling is recommended to deal with the nonlinear behaviour of the filter, but is expensive because of the multimode outputs.",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
         }
     ],
     "seealso": [
@@ -80,6 +91,10 @@
         {
             "name": "evi_ladder_diode",
             "display": "evi_ladder_diode"
+        },
+        {
+            "name": "evi_ladder_transistor",
+            "display": "evi_ladder_transistor"
         }
     ]
 }

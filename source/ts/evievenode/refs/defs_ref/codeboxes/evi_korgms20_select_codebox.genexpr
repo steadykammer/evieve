@@ -162,50 +162,9 @@ SandKtwo(X0, X1, hz, k1, M1, M2, load)
 
     return  dcblock(Y0), dcblock(Y1);
 }
-/*
-// fixed 2x quasi oversampling (hermite6)
-SandKtwo_2x6(XIN, hz, k1, M1, M2, load)
-{	// up 2
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 2
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	// align
-	History	doX0(0);
 
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= umT2_0 + 0;
-
-	// process 2x
-    y1_0, y2_0 = SandKtwo(x1_0, x2_0, hz, k1, M1, M2, load);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	return dcblock(y0_0);
-}
-*/
 // fixed 2x quasi oversampling (cubic4)
-SandKtwo_2x4(XIN, hz, k1, M1, M2, load)
+SandKtwo_2x4point(XIN, hz, k1, M1, M2, load)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -262,10 +221,10 @@ M2		= 1 - M1;
 // TPT Korg OTA filter
 if (os) {
     // 2x slightly limits resonance for high frequencies, not as useful for highpass
-    out1    = SandKtwo_2x4(X, hz, k1, M1, M2, load);
+    out1    = SandKtwo_2x4point(X, hz, k1, M1, M2, load);
 }
 else {
-    // default
+    // 1x
     out1    = SandKone(X, hz, k1, M1, M2, load);
 }
 

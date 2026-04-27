@@ -10,54 +10,200 @@
 // 'Korg OTA' filter @see: "evi_korgms20_select". Thanks to Will Pirkle.
 
 require("evi_tanh.genexpr");
+require("evi_interp.genexpr");
 
-History	state0(0), state1(0), state2(0);					// S&K state initialise
+// filter 1x
+SandKone(X, hz, res, load)
+{
+    History	state0(0), state1(0), state2(0);					// S&K state initialise
+    k1	    = res + res;	// 0..1 .. 0..2
 
-// do not change
-Param   load(1.333333333333, min=0.5, max=2);
+    // prewarp to alpha/beta
+    g		=  tanA2(hz * PI / SAMPLERATE);					    // hz to norm
+    oneg	=  1 + g;											// divisor
+    alphas	=  g / oneg;										// G (feedforward)
+    betalp	= (k1 - (k1 * alphas)) / oneg;						// feedback...
+    betahp	= -1 / oneg;										// ...
+    alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar value
+    k2		= (1 / k1);
+
+    // 1st lowpass integrator
+    lp1vn	= (X - state1) * alphas;
+    lp1		= lp1vn + state1;
+    state1	= lp1vn + lp1;
+
+    // make s35 from feedbacks
+    hp1fb	= state0 * betahp;
+    lp2fb	= state2 * betalp;
+    s35		= hp1fb + lp2fb;
+
+    // create nonlinear s35
+    u		= alpha0 * (lp1 + s35);
+    u		= tanhLxA((u * load), load);
+
+    // 2nd lowpass integrator
+    lp2vn	= (u - state2) * alphas;
+    lp2		= lp2vn + state2;
+    state2	= lp2vn + lp2;
+
+    Y		= k1 * lp2;
+
+    // highpass feedback loop
+    hp1vn	= (Y - state0) * alphas;
+    bp1		= hp1vn + state0;
+    state0	= hp1vn + bp1;
+    hp1		= Y - bp1;		// 6 dB HP
+
+    LP		= Y * k2;		// 12 dB LP
+
+    return  dcblock(LP) * 0.944061, dcblock(hp1) * 0.901571;    // 12dB LP, 6dB HP
+}
+
+// filter 2x
+SandKtwo(X0, X1, hz, res, load)
+{
+    History	state0(0), state1(0), state2(0);					// S&K state initialise
+    k1	    = res + res;	// 0..1 .. 0..2
+
+    // prewarp to alpha/beta
+    g		=  tanA2(hz * PI / SAMPLERATE) * 0.5;			    // hz to norm, os
+    oneg	=  1 + g;											// divisor
+    alphas	=  g / oneg;										// G (feedforward)
+    betalp	= (k1 - (k1 * alphas)) / oneg;						// feedback...
+    betahp	= -1 / oneg;										// ...
+    alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar value
+    k2		= (1 / k1);
+
+    // pass 1
+
+    // 1st lowpass integrator
+    lp1vn0	= (X0 - state1) * alphas;
+    lp10	= lp1vn0 + state1;
+    state1	= lp1vn0 + lp10;
+
+    // make s35 from feedbacks
+    hp1fb0	= state0 * betahp;
+    lp2fb0	= state2 * betalp;
+    s350	= hp1fb0 + lp2fb0;
+
+    // create nonlinear s35
+    u0		= alpha0 * (lp10 + s350);
+    u0		= tanhLxA((u0 * load), load);
+
+    // 2nd lowpass integrator
+    lp2vn0	= (u0 - state2) * alphas;
+    lp20	= lp2vn0 + state2;
+    state2	= lp2vn0 + lp20;
+
+    Y0		= k1 * lp20;
+
+    // highpass feedback loop
+    hp1vn0	= (Y0 - state0) * alphas;
+    bp10	= hp1vn0 + state0;
+    state0	= hp1vn0 + bp10;
+    hp10	= Y0 - bp10;	// 6 dB HP
+
+    LP0		= Y0 * k2;		// 12 dB LP
+
+    // pass 2
+
+    // 1st lowpass integrator
+    lp1vn1	= (X1 - state1) * alphas;
+    lp11	= lp1vn1 + state1;
+    state1	= lp1vn1 + lp11;
+
+    // make s35 from feedbacks
+    hp1fb1	= state0 * betahp;
+    lp2fb1	= state2 * betalp;
+    s351	= hp1fb1 + lp2fb1;
+
+    // create nonlinear s35
+    u1		= alpha0 * (lp11 + s351);
+    u1		= tanhLxA((u1 * load), load);
+
+    // 2nd lowpass integrator
+    lp2vn1	= (u1 - state2) * alphas;
+    lp21	= lp2vn1 + state2;
+    state2	= lp2vn1 + lp21;
+
+    Y1		= k1 * lp21;
+
+    // highpass feedback loop
+    hp1vn1	= (Y1 - state0) * alphas;
+    bp11    = hp1vn1 + state0;
+    state0	= hp1vn1 + bp11;
+    hp11	= Y1 - bp11;	// 6 dB HP
+
+    LP1		= Y1 * k2;		// 12 dB LP
+
+    return  dcblock(LP0) * 0.944061, dcblock(LP1) * 0.944061,           // 12dB LP x2
+                dcblock(hp10) * 0.901571, dcblock(hp11) * 0.901571;     // 6dB HP x2
+}
+
+// fixed 2x quasi oversampling 4-point, 2 processing loops, 2 outputs
+SandKtwo_2x4point( XIN, hz, res, load )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2 out1
+	History	dmT2_10(0), dmT1_10(0), dmT0_10(0);
+	// down 2 out2
+	History	dmT2_11(0), dmT1_11(0), dmT0_11(0);
+	// align
+	History	doX00(0), doX01(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_00, y2_00, y1_01, y2_01	= SandKtwo(x1_0, x2_0, hz, res, load);
+
+	// down 2x out1
+	y2_00_a	= y2_00 + 0;
+	y2_10	= cubic_hermite_interp(0.5,	y2_00_a,	dmT0_10, dmT1_10, dmT2_10);
+
+	// down 2x out2
+	y2_01_a	= y2_01 + 0;
+	y2_11	= cubic_hermite_interp(0.5,	y2_01_a,	dmT0_11, dmT1_11, dmT2_11);
+
+	y0_00	= (doX00 + y2_10) * 0.5;
+	y0_01	= (doX01 + y2_11) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX00	= y1_00;
+	doX01	= y1_01;
+
+	dmT2_10	= dmT1_10;
+	dmT1_10	= dmT0_10;
+	dmT0_10	= y2_00;
+
+	dmT2_11	= dmT1_11;
+	dmT1_11	= dmT0_11;
+	dmT0_11	= y2_01;
+
+	return y0_00, y0_01;
+}
+
+Param   load(1.333333333333, min=0.5, max=2);           // do not change
+Param   oversample(0, min=0, max=1);                    // default 1x
+os      = int(oversample);
 
 X	    = in1;
 hz	    = in2;	        // hz
-k1	    = in3 + in3;	// 0..1 .. 0..2
+res	    = in3;          // 0..1
 
-// prewarp to alpha/beta
-g		=  tanA2(hz * PI / SAMPLERATE);					    // hz to norm
-oneg	=  1 + g;											// divisor
-alphas	=  g / oneg;										// G (feedforward)
-betalp	= (k1 - (k1 * alphas)) / oneg;						// feedback...
-betahp	= -1 / oneg;										// ...
-alpha0	=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar value
-k2		= (1 / k1);
-
-// 1st lowpass integrator
-lp1vn	= (X - state1) * alphas;
-lp1		= lp1vn + state1;
-state1	= lp1vn + lp1;
-
-// make s35 from feedbacks
-hp1fb	= state0 * betahp;
-lp2fb	= state2 * betalp;
-s35		= hp1fb + lp2fb;
-
-// create nonlinear s35
-u		= alpha0 * (lp1 + s35);
-u		= tanhLxA((u * load), load);
-
-// 2nd lowpass integrator
-lp2vn	= (u - state2) * alphas;
-lp2		= lp2vn + state2;
-state2	= lp2vn + lp2;
-
-Y		= k1 * lp2;
-
-// highpass feedback loop
-hp1vn	= (Y - state0) * alphas;
-bp1		= hp1vn + state0;
-state0	= hp1vn + bp1;
-hp1		= Y - bp1;		// 6 dB HP
-
-LP		= Y * k2;		// 12 dB LP
-
-out1	= dcblock(LP) * 0.944061;
-out2	= dcblock(hp1) * 0.901571;
+// TPT Korg OTA filter
+if (os) {
+    // 2x slightly limits resonance for high frequencies, not as useful for highpass
+    out1, out2  = SandKtwo_2x4point(X, hz, res, load);
+}
+else {
+    // default
+    out1, out2  = SandKone(X, hz, res, load);
+}
 
