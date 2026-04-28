@@ -1517,6 +1517,30 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-6",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 382.0, 364.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "5",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-51",
                                     "maxclass": "newobj",
@@ -1552,7 +1576,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 225.0, 420.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 425.0, 158.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1636,7 +1660,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 427.0, 158.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 114.0, 158.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1660,7 +1684,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 114.0, 158.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 80.0, 389.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2986,6 +3010,54 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 58.0, 341.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-22",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 58.0, 580.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "autofit": 2,
                                     "data": [ 4229, "", "IBkSG0fBZn....PCIgDQRA..AH....f9HX....fR4mDj....DLmPIQEBHf.B7g.YHB..PvSRDEDU3wY6culrapqD.Fs8sNyKfQlfQFhQlu+H61Qah.Df.jU+sp5TmDGLuLpUqG.ud+98aA.l1+6o2A.vyi.A.f.A.f.A.PHP..DBD..Qj+6pVwduWZaaSdY7duHhr424n6CKs+na2vsstrq8cl+4wVO3uN6uuy+9gmuW6yQZmyWLPf26kttNooo4ymMMM8q+dLorL5xIh7YYm+2256n+Y070yRh8cWZ4hssScatz1Y94ys11gKS31ao8ukN+Ea8jx2O0eOQ4Q+sKkfialQPee+thhmRl.6Y4Nq6Z6.TZ7duz22mzxtZeDzzzr6BQot72UgSBB.rM5rP.Pf..Pf..HDH..xFABRYX1.v2uMG0..T+VLP.C6FfcrXf.lpl.1AcVH.HP..HP..DBD..g.A.PXBEA.gITD.DZZ..jBOPf26y5DapuumIJEPDEaff99doqqK4G0RoXOO5l.rjhMPfVyMcXIv0qHCD38dYZZRbNmHhPs3.WrUeJF+T0FqYCnsoeXXX0fAozteM3RrGuyguGCD4224kbWXBK3xdAmbFCCChHh750qOe1ZurQRIiAMn1zzTzkOL3fFzPDQFGGIX.pdEWf.sPpy49T.T6zvX07GVS9ZZaaS9E9f9xcAvJJt9Hv68RSSymWrJssshy4NcyTz.Lo9xWI1eFnVUbYDnE9CkiNKbuuslh8mApUEWffkJzmifAGYJSyvWBKn3ZZPIPG5RMvAYEfZWwkQvUKkNJTj+1TBxH.V.YDj.xH.0Ny83LeOGW054.f4L2yifTaZvd9N.e6LWeDjJxF.VB8QvL5DZBvRHPvFZZZXjCP0i.A.f28gysTs+V87ArAyM7gqgmGAvpVMi.q11XJ7CqgLB1.mGfErZFALLZ.e2RMq9UyHvpMMHF5rP7sYOYyxnFDfNKDV0pYDPSC.9tkZYXSMghnoN.wQSCRDmOPMyTYDHx5s4eoB6b+FfZGyifYneQfEYpLBRoPdr.fVMnHrCSEHfz6g0b5ITjUQmBhZwdtVl.AAlllnY.vjLSffi7PK8HKCPoXOSJPyDHH0WYZzYgvhVMPPM04Z43cmHPsxLYDPs5vhx1nFP6hApelIifsD6VPdokAn1rYf.KkRMSuXXUjQvOn1dXYl6kf5QnYEQvBTqHi..Pff8vR8WBrEF9vD0zzv4BTsHifevMbDrLBDDf.Avp17dMvREN1J0+Z5du.HDCeH.noA.f.AhHoMxHVpIRvdHPPfTJryPHhZDABRDYDfZl4BDDqF8TtEjApYlYlEVKGG.6AO7RmQqsmG7H.+KyDH..KimPQ6DYMfZDYDDffdvpHPf7mZ42pSUHHA9Fwiyb.j7yQCxHXmHvHpQl4UdFSZHXQo9nDvb2FxTiNrjrLghpoLBxwKA0ZLvHfHFJif0ROZOOIlpofi.JyzYgKUPmlJfZV1F9vZAcRHrJF9v.TyOrHt6CAPxHP.Pk6zyifZRN6i.ZlApMlIPvREd2yLNjNbDealllnyByMBDfuMzYg.HYDH..DHXOnSBw2FlYgKXo14S6+gkYt.AyqUeO0xmqfEdu+y+ATBLWffX16cY4YK.222KcccRWWGACvkhQM3BjqLBBa2FABPIvbABlWXdOOKBTmovq9c0H0DH.k.yEHHl6rvnts7du3btjm4W.WIBDb.moIBCCCexFPWODH.OMBDb.msf67.IDH.OMBDbilWfussspdtPhuWlKPPXgw69ccvR07S+Dfml4BDD5HE9ZZZNbA2XAdXFMhRfoCDnEBu6Biw1djQ.dRlNPvYbjfGwtAPHi.TBLWffbUa7QqAedmCxPHhRf4BDDycTq7ZcLIib.dZDH3lvaiYTxLSffvo167OqDv6TQ7j1LPPIUX4LhcbbjZoOZM5qcdj9I.OMyjQvRt61mGKPBMW.OsUCDz11dqWjdk0H122eYq6TLMMQmBhhUQkQPee+sld7c0t7TOlnoA3oTLAB7d+sLm6exzv25AmJABvSY0.A24CXyX8peIK26mzrA7j1rOBtK515pZK+Yd5EG5HmSRczIXHDwSoXZZfpDtAfRY42SfjqZYAxkhIPvS0186rfGCSHJUESf.Qdl1IWJENKk8CXSaFHnVt.8IONXNDfRm4lhw28wSpauqtyRAVSwzzfmp.5QxT3H0tu01oVx7BemJl.Ah7cM7YeS6q.aoXBDb00HdEq+TxhYOY5nOXTAtaESffZouH.9Fs4TLFmyQ5KBNui6VwjQvU+V+IWSw3PWUyYniCwcqXBD7MJkfIZa9SovM2Eh3oTL2zQ28E+6o.5b686r2LcHP.taESFAsss2ROlqEhaZZNcSQ1p.6dKPSSBvSoXBDHx8buFTx01ly8s999a+I9D9dUTABtCOQstotMyUeDz22KCCCxvvfz00Qv.rIyEHPcllgjZA6mn.n26kggAQj+lgE2+BXKlMPvcZuYDbFZg9wwQw68m503NrihIPvcdgZt1VW097YxVQukmm+Jem.AXMESffmvU2eA2cgOMafviK8yHP.VioCDbW1S.Gsc8Gof6RSmYZd.1x+8z6.2sZtvvRSRp6ZNZfuWlIi.smzyQyARccbjGQYGsM85xGa6wS+HaKkqkLQffkNQb1fBqUK6Yy73nABhUXWONIq.6I0qwMQff42Yi0XyC151c9L88.peESff111K8hzb+5HeqBVG8Yh3QeSJsUyPXXDsqTtlpXBDTqdhWabq8uQf.aI0euIPPg4HsmOkrOneBrK5rvEbGEFxQMuotNRc4neBrG5rvMbWu4gt52aBZ+Cjx1hlGfkXt.A4pPvVEpt6WyYorsHPfMQmEthqrS7NaAs8Tf8LuwlP8iNKbA0Vsg6IPPXGFVamGJMduO543k97qRpCKuYdIndmNaszWYJ74n4JduWZaakWudIud8hotbDccc+ySGJu2KcccE44Ky7ZQWclmdwgRov5cbta9yefsjqG9Igi7xvvP0ccRtLOPfHk4P3ZtlFTSNRFCm8FPRuSFaZZjwwQYbb7ys4bIVS2SKVff6rSjyVeDb1zS666qxZKV6XJWcV3V0bb2cTX3TYVadPaa6m..5c3I9Cmy842PMKp6LHfHEx7Hv+yCRyZryoR434JuWFB+21y1QuArNxuIwdBHEtNCWF76ru7+77irTc4ABTgWfnYIDVix7ZWB+rqnCotxZQuq1.lq96HEgYCD62hvrBpsf96U3wuy49TYXIGj7R6rvggAw4b+JEI8ymll9rtCengnWHoW301194jYtt.KGQlCqYMTtZG3VcF4Y1NGYTI1J6ivrBp8.A643SOekZG5l6ycOdeDD66EFQTqYIL8o4OnM0kouu+S6RKQOw90Y5ef8FHPah2VaOq7fRM7Z0knAE0.jgm215b3Sj4vk8LKTuXHrCjBu.IV6LSccVxxcG3sUFAGQpcF47sky4V83Zd+OTicRrHxuxlMl4Shmk9ykjKqOBzlEnCwj17fibhHrYB5euDr0ECW05NzQq8XOowqKSJaqv934L7d+u5mnR427q1SMGCtj.Ag0JF9eg+aoXZZRd85kz008oYB9elcV4nFwyJ1wTtufcoKLN6PQk5uGgcRXpq2y73SWyjnqq6SeIMMMIcccUaFFkfKKif4oQ111Jiii+5+Kxep4Xbb7yxMNN9o1jlllOc1XXvkvueoImybwkp0NmsgbqBqGoF9il4lFjWOGpYT5bNQj+lRtUxN3NcI8QPXF.y+7kV9kVl0dp7Vpt5wKNG8CgNBMascNRfMccOLLrq.HgU.Lu+jZ+Ynk0gg6oCFLeTrzrlV5+uGOw02E6K3jkBljq0cNoWPj6KNa+Y57tTGuc1.Aa0wdgcR3QW2o1K35w5RiNjlIftbOUuqqBy3M7727QNYO+F8nA2duBmy8tooYsE4qgy4dKh7diC4cSD4y4HcaLNNlk08333uV+K8YGkt+5btE21G83I76m59QJGSgq2X62otuoWaqqKc6mxwZN+MN159nGWw3btjVebSGcRwdeIj6NiLzd5A+TW+wpIJ0gLbs0cpSSZsIJol4f1mR6cRloiBQXGQFJrSIe5ldb61JZRskQPtOdzZUxYM0wV+JIyY0Da8kqiksVOmIqivL7156NNN9qZ+aZZd6bt+46MOKgkpI8H6uoZss6QjZFAlKPPNOIGtd25hmiRuvT+AM2AahcdIL31YEt+GJWo3uUvfveeRM0+s9MsFCDTrcVXtcUo5kRuue10+zzz+rMxcyPz0+QGof4zNPK19e31Hb9gbF5bMIbed94rTmBzZSCz8QcDPBGF6Tu85i0Qra04rOgW+DEJJ8Gnu81KoiOsRufY9PToKankZuX3mG1VybOzg6YllEdSPEter1PXs15W+Nk3STmZVNmmLoNOPLSFAgzYq17OaokMGe9cHbam5w27.Fo7c1ikV+45N.Mz7LMhsLgKar00RA8UZVFas9OJsh26dtDXh.As+bqLq+4qP37hOGVZhUs113rMWHkswYDdQ9U86PtaxzbZVxOwj94JYhlF.XUo1z.lGAPDobtiNwyf.AeQtxBq9etsegMQffuHW4MaCMAz1HPvWFJrhqvpABpsdFEvhRoxCxH.nxkRE5qNOBHMzxS3cb2Zymf4+awl7My+bx.rNkR4XSLghpIwtsmCszLjK1zgVj+DXQmZxDHvtHPvWl111KYX9L48fuQjR.d5i..vnF..xH.n5wvGhjQ1e11pABnyiJKW4suKrMF0fuHW4MEDAXrsUCDvPJ88YoadnsxlfrMrMxHnxnuVvhgB5XIDHnxnYCnOvVK4WXrnbvnF.TwRsR.BDT4Ha.jBBD..BD.T63lNxvB6zPXaLEiMr1edsjSeDXaoVQ.ABpTLYvfHLpA.XGHP.PkiNKD.zYg.HMDH..DH..b2GlrvW.o5Pyo2C+g+YfuQDHHQdu+y84+7+er2rP.eSHPPhzrA566kggA4862+5ea9aXn4eVXFCgOEgHSBbkRdRk8dEiiiuaZZVaQLGmy8d9oMQj2Nm6y+VSSyaQj+4+bN26wwwO+cc4FGGelCFT8RsLLcV3Ev68x33nHhHNmSd+98m2YgZD5wwwOOLRYp.imFMM3hEl1eXA9tttne9V1aPiizrCsoKzrE6Xy.AK8fvDGSaaqLMM8Iig8zQiZAzqNCB82b8MkbeeOAD9Rk50JjQvMqssUFFF9zr.sPWJEzt5ZnC6nyvLBHHP8ay.AZaaweDqPgy4907LPWNmy8Y40B9sss+p+AJomxv59Qor+fyK0aG8WueGLNXy389+4Bb.78Pytaq2RVLpA.UNt6CuH2QG1AbmnyBO.ZCMpMalQ.CeHP8ay.ALpA.eu3oXL.x2SwXZZ.P8iLB..8Q..Hi..HzGA.PHi..HDH..BSw3cimXweuN6ucy+9KMYcVZYl+.tcokc9sN7R2JwwVew1mSQRAB16CmhTOgu1A2ZKySZZZpXGIkRdeKj1uSg6qg8Ek94z+T4QJWSr5yi.Qjn2GywJnqeF0XtcD88d9wBmSWq1sspIcMwdozf+0lAB.P8iNKD.DH..DH..BAB.fPf..HDH..hH+edkmpqYawC2H.....IUjSD4pPfIH" ],
                                     "embed": 1,
@@ -3573,13 +3645,109 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-6",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 526.0, 199.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "3",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-38",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 276.0, 333.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "4",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-33",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 168.0, 199.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-35",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 141.0, 610.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "attr": "logfreq",
@@ -3590,7 +3758,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 415.0, 449.0, 300.0, 23.0 ],
+                                    "patching_rect": [ 415.0, 464.0, 300.0, 23.0 ],
                                     "text_width": 82.0
                                 }
                             },

@@ -132,7 +132,7 @@ svfSinMulti(X, cutoff, damp)
 {
 	History ic1eq(0), ic2eq(0);
 
-	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	k	= 1 - (damp * 0.922);//1 - damp;	// shitty
 	w	= PI * cutoff / SAMPLERATE;
 	s1	= sin73a(w);
 	s2	= sin73a(w + w);
@@ -163,7 +163,7 @@ svfSinSingle(X, cutoff, damp, filt)
 {
 	History ic1eq(0), ic2eq(0);
 
-	k	= 1 - (damp * 0.992);//1 - damp;	// shitty
+	k	= 1 - (damp * 0.922);//1 - damp;	// shitty
 	w	= PI * cutoff / SAMPLERATE;
 	s1	= sin73a(w);
 	s2	= sin73a(w + w);

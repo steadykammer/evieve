@@ -276,7 +276,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 258.0, 351.0, 150.0, 69.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "this is basically a peak limiter, so boost gain in order to hear/see effect",
                                     "textjustification": 1
                                 }
@@ -630,8 +629,6 @@
                                         },
                                         "classnamespace": "box",
                                         "rect": [ 431.0, 231.0, 1028.0, 734.0 ],
-                                        "default_fontsize": 12.0,
-                                        "default_fontname": "Arial",
                                         "gridonopen": 2,
                                         "lefttoolbarpinned": 2,
                                         "toptoolbarpinned": 2,
@@ -740,8 +737,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 902.0, 611.0, 84.0, 22.0 ],
-                                                    "text": "definepoint $1",
-                                                    "textjustification": 0
+                                                    "text": "definepoint $1"
                                                 }
                                             },
                                             {
@@ -781,8 +777,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 814.0, 611.0, 77.0, 22.0 ],
-                                                    "text": "defineline $1",
-                                                    "textjustification": 0
+                                                    "text": "defineline $1"
                                                 }
                                             },
                                             {
@@ -1609,10 +1604,6 @@
                                         "toolbarexclusions": [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
                                     },
                                     "patching_rect": [ 455.0, 398.0, 61.0, 23.0 ],
-                                    "saved_object_attributes": {
-                                        "fontname": "Arial",
-                                        "fontsize": 12.0
-                                    },
                                     "text": "p setup"
                                 }
                             },
@@ -2650,6 +2641,78 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-1",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 465.0, 157.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "3",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 4.0, 225.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-8",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 244.0, 566.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "clipheight": 38.0,
                                     "data": {
                                         "clips": [
@@ -2722,8 +2785,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 355.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
@@ -2740,8 +2802,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 518.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
@@ -2849,8 +2910,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 223.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
@@ -3536,13 +3596,109 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-22",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 548.0, 284.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "4",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-1",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 481.0, 132.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "3",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 4.0, 195.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-8",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 242.0, 566.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "bubble": 1,
@@ -3580,11 +3736,11 @@
                                     "patching_rect": [ 570.0, 269.0, 18.0, 50.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0", "1" ],
+                                            "parameter_enum": [ "0", "1", "2" ],
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup",
-                                            "parameter_mmax": 1,
+                                            "parameter_mmax": 2,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "radiogroup",
                                             "parameter_type": 2
@@ -3680,8 +3836,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 358.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
@@ -3698,8 +3853,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 519.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
@@ -3715,8 +3869,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 223.0, 391.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 48000.0,
-                                    "smooth": 0
+                                    "samples": 48000.0
                                 }
                             },
                             {
