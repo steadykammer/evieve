@@ -4,101 +4,101 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Represents a quarter section of a cosine function, used by subsequent approximations",
             "name": "cosQ73a",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..twopi"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "cos",
+                    "digest": "approximated section of a cosine"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio",
             "name": "cos73a",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..twopi"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "cosine",
+                    "digest": "cosine function"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Approximated sine function to 7.3 digits of precision, just about accurate enough for audio",
             "name": "sin73a",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..twopi"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "sine",
+                    "digest": "sine function"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'cos73a()' but appropriate for Param rate usage (stays out of while loop)",
             "name": "cos73aparam",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..twopi"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "cosine",
+                    "digest": "cosine function"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Same as 'sin73a()' but appropriate for Param rate usage (stays out of while loop)",
             "name": "sin73aparam",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "0..twopi"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "sine",
+                    "digest": "sine function"
                 }
             ]
         },

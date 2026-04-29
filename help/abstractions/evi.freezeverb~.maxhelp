@@ -263,17 +263,7 @@
                                                 "absolutepath": "drumLoop.aif",
                                                 "filename": "drumLoop.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u338009934",
-                                                "loop": 1,
-                                                "content_state": {
-                                                    "loop": 1
-                                                }
-                                            },
-                                            {
-                                                "absolutepath": "DDG-Guitar-4.wav",
-                                                "filename": "DDG-Guitar-4.wav",
-                                                "filekind": "audiofile",
-                                                "id": "u529007661",
+                                                "id": "u157005534",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -283,7 +273,17 @@
                                                 "absolutepath": "duduk.aif",
                                                 "filename": "duduk.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u190005635",
+                                                "id": "u054005751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "lit112.wav",
+                                                "filename": "lit112.wav",
+                                                "filekind": "audiofile",
+                                                "id": "u755005854",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -3812,17 +3812,7 @@
                                                 "absolutepath": "drumLoop.aif",
                                                 "filename": "drumLoop.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u338009934",
-                                                "loop": 1,
-                                                "content_state": {
-                                                    "loop": 1
-                                                }
-                                            },
-                                            {
-                                                "absolutepath": "DDG-Guitar-4.wav",
-                                                "filename": "DDG-Guitar-4.wav",
-                                                "filekind": "audiofile",
-                                                "id": "u529007661",
+                                                "id": "u157005534",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -3832,7 +3822,17 @@
                                                 "absolutepath": "duduk.aif",
                                                 "filename": "duduk.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u190005635",
+                                                "id": "u054005751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "lit112.wav",
+                                                "filename": "lit112.wav",
+                                                "filekind": "audiofile",
+                                                "id": "u755005854",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -4265,13 +4265,138 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-42",
+                                    "maxclass": "flonum",
+                                    "maximum": 0.0,
+                                    "minimum": -90.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 665.0, 210.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[3]",
+                                            "parameter_mmax": 0.0,
+                                            "parameter_mmin": -90.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[3]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[2]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-41",
+                                    "maxclass": "flonum",
+                                    "maximum": 0.0,
+                                    "minimum": -90.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 573.0, 210.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ -10.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[2]",
+                                            "parameter_mmax": 0.0,
+                                            "parameter_mmin": -90.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[2]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-40",
+                                    "maxclass": "flonum",
+                                    "maximum": 0.0,
+                                    "minimum": -90.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 474.0, 210.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ -20.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[1]",
+                                            "parameter_mmax": 0.0,
+                                            "parameter_mmin": -90.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[1]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 665.0, 251.0, 78.0, 23.0 ],
+                                    "text": "prepend dry"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-15",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 474.0, 251.0, 88.0, 23.0 ],
+                                    "text": "prepend early"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-16",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 573.0, 251.0, 80.0, 23.0 ],
+                                    "text": "prepend wet"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "meter~",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "orientation": 2,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 92.0, 388.0, 16.0, 89.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-3",
@@ -4285,8 +4410,40 @@
                             },
                             {
                                 "box": {
+                                    "clipheight": 29.0,
                                     "data": {
-                                        "clips": []
+                                        "clips": [
+                                            {
+                                                "absolutepath": "drumLoop.aif",
+                                                "filename": "drumLoop.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u916010013",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u288010751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "sho0630.aif",
+                                                "filename": "sho0630.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u269010823",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
                                     },
                                     "id": "obj-1",
                                     "maxclass": "mc.playlist~",
@@ -4408,6 +4565,18 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-7", 1 ],
                                     "source": [ "obj-3", 1 ]
                                 }
@@ -4420,8 +4589,40 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
+                                    "destination": [ "obj-15", 0 ],
+                                    "source": [ "obj-40", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-16", 0 ],
+                                    "source": [ "obj-41", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "source": [ "obj-42", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-6", 0 ]
                                 }
                             }
                         ],
@@ -4451,7 +4652,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4537,17 +4738,7 @@
                                                 "absolutepath": "drumLoop.aif",
                                                 "filename": "drumLoop.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u338009934",
-                                                "loop": 1,
-                                                "content_state": {
-                                                    "loop": 1
-                                                }
-                                            },
-                                            {
-                                                "absolutepath": "DDG-Guitar-4.wav",
-                                                "filename": "DDG-Guitar-4.wav",
-                                                "filekind": "audiofile",
-                                                "id": "u529007661",
+                                                "id": "u157005534",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -4557,7 +4748,17 @@
                                                 "absolutepath": "duduk.aif",
                                                 "filename": "duduk.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u190005635",
+                                                "id": "u054005751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "lit112.wav",
+                                                "filename": "lit112.wav",
+                                                "filekind": "audiofile",
+                                                "id": "u755005854",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -5786,14 +5987,6 @@
             "obj-11::obj-6::obj-55::obj-54::obj-7": [ "modShape", "modShape", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-8": [ "modSkew", "modSkew", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-9": [ "outputNonlinGains", "outputNonlinGains", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-10": [ "highPass", "highPass", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-12": [ "fdnGain", "fdnGain", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-2": [ "early", "early", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-3": [ "feedback", "feedback", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-33": [ "dryWet", "dryWet", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-35": [ "smoothTime[6]", "smoothTime", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-5": [ "damp[1]", "damp", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-9": [ "crossover", "crossover", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-10": [ "dryWet[10]", "dryWet", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-2": [ "lowDamp", "lowDamp", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-3": [ "highDamp", "highDamp", 0 ],
@@ -5843,6 +6036,9 @@
             "obj-5::obj-5::obj-54::obj-8": [ "smoothTime[7]", "smoothTime", 0 ],
             "obj-5::obj-5::obj-54::obj-9": [ "damping[3]", "damping", 0 ],
             "obj-5::obj-76": [ "number", "number", 0 ],
+            "obj-9::obj-40": [ "number[1]", "number[1]", 0 ],
+            "obj-9::obj-41": [ "number[2]", "number[2]", 0 ],
+            "obj-9::obj-42": [ "number[3]", "number[3]", 0 ],
             "obj-9::obj-5::obj-54::obj-10": [ "eqHighGain[1]", "eqHighGain", 0 ],
             "obj-9::obj-5::obj-54::obj-12": [ "earlyGain[1]", "earlyGain", 0 ],
             "obj-9::obj-5::obj-54::obj-15": [ "eqLowGain[1]", "eqLowGain", 0 ],

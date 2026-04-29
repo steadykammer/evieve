@@ -32,7 +32,7 @@
         {
             "id": 2,
             "type": "signal/float",
-            "digest": "Freq in Hz (default) or Pitch depending on 'cutoffmode' attribute",
+            "digest": "Freq in Hz (default) or Pitch depending on 'cutoffmode' attribute @default 1000",
             "description": "Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute."
         },
         {

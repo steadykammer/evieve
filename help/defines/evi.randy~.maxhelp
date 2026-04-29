@@ -1125,26 +1125,16 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-1",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
+                                    "code": "\r\n// noise related sources live in this .genexpr file:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\n// the equivalent function to [evi.randy~] is 'eviRandy()'\r\n// note that the core code takes a phasor() source as input, not frequency directly\r\n\r\nph = phasor(in1);\r\n\r\nout1, out2 = eviRandy(ph);\r\n\r\n// there are similar functions in this file, such as:\r\nout3, out4 = eviRand(ph);\r\n\r\n// other interesting functions include:\r\nout5, out6 = eviRandLfo(in1, 0.7, 0);\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-3",
+                                    "maxclass": "gen.codebox~",
                                     "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 75.0, 338.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.lesson_step_circle"
-                                        }
-                                    },
-                                    "text": "3",
-                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                    "numoutlets": 6,
+                                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 41.0, 192.0, 732.0, 309.0 ]
                                 }
                             },
                             {
@@ -1160,7 +1150,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 283.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 93.0, 154.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1184,7 +1174,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 589.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 555.0, 574.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1201,7 +1191,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 470.0, 523.0, 130.0, 21.0 ],
+                                    "patching_rect": [ 326.0, 627.0, 130.0, 21.0 ],
                                     "text": "linear rand",
                                     "textjustification": 1
                                 }
@@ -1212,7 +1202,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 523.0, 130.0, 21.0 ],
+                                    "patching_rect": [ 41.0, 627.0, 130.0, 21.0 ],
                                     "text": "cubic rand",
                                     "textjustification": 1
                                 }
@@ -1223,7 +1213,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 470.0, 391.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 326.0, 518.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1233,7 +1223,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 311.0, 235.0, 104.0, 36.0 ],
+                                    "patching_rect": [ 415.0, 108.0, 104.0, 36.0 ],
                                     "text": "high values brownish noise"
                                 }
                             },
@@ -1244,7 +1234,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 108.0, 235.0, 113.0, 36.0 ],
+                                    "patching_rect": [ 210.0, 108.0, 113.0, 36.0 ],
                                     "text": "low values useful LFO source",
                                     "textjustification": 2
                                 }
@@ -1256,7 +1246,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 268.0, 241.0, 41.0, 23.0 ],
+                                    "patching_rect": [ 372.0, 114.0, 41.0, 23.0 ],
                                     "text": "1369."
                                 }
                             },
@@ -1267,7 +1257,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 223.0, 241.0, 30.0, 23.0 ],
+                                    "patching_rect": [ 325.0, 114.0, 30.0, 23.0 ],
                                     "text": "4.4"
                                 }
                             },
@@ -1280,7 +1270,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 223.0, 281.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 41.0, 152.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 4.4 ],
@@ -1301,7 +1291,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 391.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 41.0, 518.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1343,122 +1333,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "signal", "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 891.0, 722.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-5",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 347.0, 648.0, 35.0, 22.0 ],
-                                                    "text": "out 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 64.0, 37.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// noise related sources live in this .genexpr file:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\n\r\n// the equivalent function to [evi.randy~] is 'eviRandy()'\r\n// note that the core code takes a phasor() source as input, not frequency directly\r\n\r\nph = phasor(in1);\r\n\r\nout1, out2 = eviRandy(ph);\r\n\r\n\r\n// there are similar functions in this file, such as:\r\nout3, out4 = eviRand(ph);\r\n\r\n\r\n// other interesting functions include:\r\nout5, out6 = eviRandLfo(in1, 0.7, 0);\r\n\r\n\r\n// etc\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 6,
-                                                    "outlettype": [ "", "", "", "", "", "" ],
-                                                    "patching_rect": [ 64.0, 92.0, 727.0, 499.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 64.0, 648.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-5", 0 ],
-                                                    "source": [ "obj-3", 2 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 266.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.randy~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 576.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 577.0, 561.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1472,7 +1352,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 586.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 624.0, 571.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1483,30 +1363,32 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-8", 0 ],
+                                    "midpoints": [ 334.5, 144.5, 50.5, 144.5 ],
                                     "source": [ "obj-13", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-8", 0 ],
+                                    "midpoints": [ 381.5, 144.5, 50.5, 144.5 ],
                                     "source": [ "obj-14", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
-                                    "source": [ "obj-5", 1 ]
+                                    "source": [ "obj-3", 2 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-8", 0 ]
                                 }
                             }

@@ -11,7 +11,6 @@
         "classnamespace": "box",
         "openrect": [ 40.0, 98.0, 967.0, 829.0 ],
         "openrectmode": 0,
-        "bglocked": 1,
         "openinpresentation": 1,
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
@@ -25,6 +24,33 @@
         "integercoordinates": 1,
         "title": "evieve Objects Overview",
         "boxes": [
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Lato",
+                    "fontsize": 13.0,
+                    "id": "obj-42",
+                    "justification": 1,
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 25.0, 735.0, 296.0, 51.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 114.0, 80.0, 829.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "These are the evieve object examples available in Max, many are also available in gen~. For more evieve code explore the <link href=\"; max openhelp loadevieveGenExprIndex\">evieve GenExpr Index</link>.",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
             {
                 "box": {
                     "hidden": 1,
@@ -212,7 +238,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 928, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -3903,7 +3929,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 154.0, 51.0, 570.0, 64.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 16.0, 27.0, 933.0, 64.0 ],
+                    "presentation_rect": [ 105.0, 18.0, 844.0, 64.0 ],
                     "text": "evieve Objects Overview",
                     "textjustification": 1
                 }

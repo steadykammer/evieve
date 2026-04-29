@@ -1977,7 +1977,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1986,12 +1986,26 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hz(1000, min=10, max=20000);\r\n\r\n\r\n// 'eviXoverAllpass1()' is the same as [evi.crossover.allpass~ @order 0]\r\nout1 = eviXoverAllpass1(in1, hz);\r\n\r\n// 'eviXoverAllpass2()' is the same as [evi.crossover.allpass~ @order 1]\r\nout2 = eviXoverAllpass2(in1, hz);\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXoverAllpass1Stereo(in1, in2, hz);\r\n\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-1",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 2,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 73.0, 198.0, 644.0, 345.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-14",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 432.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 73.0, 560.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
@@ -2002,7 +2016,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 281.0, 67.0, 23.0 ],
+                                    "patching_rect": [ 73.0, 158.0, 67.0, 23.0 ],
                                     "text": "saw~ 110."
                                 }
                             },
@@ -2015,7 +2029,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 482.0, 241.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 172.0, 118.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 1000.0 ],
@@ -2037,7 +2051,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 482.0, 281.0, 74.0, 23.0 ],
+                                    "patching_rect": [ 172.0, 158.0, 74.0, 23.0 ],
                                     "text": "prepend hz"
                                 }
                             },
@@ -2080,123 +2094,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 850.0, 493.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 38.0, 22.0 ],
-                                                    "text": "in 1 L"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 746.0, 14.0, 40.0, 22.0 ],
-                                                    "text": "in 2 R"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hz(1000, min=10, max=20000);\r\n\r\n\r\n// 'eviXoverAllpass1()' is the same as [evi.crossover.allpass~ @order 0]\r\nout1 = eviXoverAllpass1(in1, hz);\r\n\r\n// 'eviXoverAllpass2()' is the same as [evi.crossover.allpass~ @order 1]\r\nout2 = eviXoverAllpass2(in1, hz);\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXoverAllpass1Stereo(in1, in2, hz);\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 4,
-                                                    "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 50.0, 64.0, 715.0, 318.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 422.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 1 ],
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 333.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.crossover.allpass~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 73.0, 600.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -2210,7 +2113,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 120.0, 610.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -2220,13 +2123,19 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-14", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
                                     "source": [ "obj-12", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-1", 0 ],
                                     "source": [ "obj-13", 0 ]
                                 }
                             },
@@ -2248,12 +2157,6 @@
                                 "patchline": {
                                     "destination": [ "obj-12", 0 ],
                                     "source": [ "obj-21", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-14", 0 ],
-                                    "source": [ "obj-5", 0 ]
                                 }
                             }
                         ],

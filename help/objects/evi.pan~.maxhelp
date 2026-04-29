@@ -1612,6 +1612,20 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "code": "\r\n// There is no separate gen~ abstraction for the evieve panner. Instead there are a few\r\n// simple utilities for mixing sources in the 'evi_utilities.genexpr' file:\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n\r\n// This 'panQuartApproxMono()' function is the equivalent of [evi.pan~ @mode 0]\r\nout1, out2 = panQuartApproxMono(in1, in2);\r\n\r\n// This 'panQuartApproxDual()' function is the equivalent of [evi.pan~ @mode 1]\r\nout3, out4 = panQuartApproxDual(in1, 0, in2, in2);\r\n\r\n\r\n// There are also crossfading functions in 'evi_utilities' as well:\r\nout5 = xfadeQuartApproxMono(in1, 0, in2);\r\n\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-3",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 2,
+                                    "numoutlets": 5,
+                                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 10.0, 159.0, 753.0, 312.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-8",
                                     "maxclass": "number",
@@ -1621,17 +1635,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 539.0, 336.0, 50.0, 23.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 511.0, 282.0, 78.0, 21.0 ],
-                                    "text": "Pan 0..1"
+                                    "patching_rect": [ 274.0, 488.0, 50.0, 23.0 ]
                                 }
                             },
                             {
@@ -1647,7 +1651,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 437.0, 283.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 722.0, 117.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1671,7 +1675,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 550.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 430.0, 584.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1689,7 +1693,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 281.0, 74.0, 23.0 ],
+                                    "patching_rect": [ 10.0, 115.0, 74.0, 23.0 ],
                                     "text": "cycle~ 110."
                                 }
                             },
@@ -1704,7 +1708,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 459.0, 281.0, 50.0, 23.0 ]
+                                    "patching_rect": [ 744.0, 115.0, 50.0, 23.0 ]
                                 }
                             },
                             {
@@ -1714,7 +1718,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 459.0, 376.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 194.0, 528.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1724,7 +1728,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 376.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 10.0, 528.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1753,6 +1757,17 @@
                             },
                             {
                                 "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 649.0, 117.0, 78.0, 21.0 ],
+                                    "text": "Pan 0..1",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
@@ -1767,139 +1782,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "signal", "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 879.0, 647.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-5",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 243.0, 593.0, 35.0, 22.0 ],
-                                                    "text": "out 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 55.0, 28.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 806.0, 28.0, 28.0, 22.0 ],
-                                                    "text": "in 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// There is no separate gen~ abstraction for the evieve panner. Instead there are a few\r\n// simple utilities for mixing sources in the 'evi_utilities.genexpr' file:\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n\r\n// This 'panQuartApproxMono()' function is the equivalent of [evi.pan~ @mode 0]\r\nout1, out2 = panQuartApproxMono(in1, in2);\r\n\r\n// This 'panQuartApproxDual()' function is the equivalent of [evi.pan~ @mode 1]\r\nout3, out4 = panQuartApproxDual(in1, 0, in2, in2);\r\n\r\n\r\n// There are also crossfading functions in 'evi_utilities' as well:\r\nout5 = xfadeQuartApproxMono(in1, 0, in2);\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 5,
-                                                    "outlettype": [ "", "", "", "", "" ],
-                                                    "patching_rect": [ 55.0, 93.0, 770.0, 441.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 55.0, 593.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 1 ],
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-5", 0 ],
-                                                    "source": [ "obj-3", 1 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 255.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.pan~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 452.0, 571.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1913,7 +1801,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 499.0, 581.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1923,33 +1811,33 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 1 ],
+                                    "destination": [ "obj-3", 1 ],
                                     "source": [ "obj-15", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-16", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-12", 0 ],
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-13", 0 ],
-                                    "source": [ "obj-5", 1 ]
+                                    "source": [ "obj-3", 1 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-12", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 548.5, 367.5, 232.5, 367.5 ],
+                                    "midpoints": [ 283.5, 519.5, 19.5, 519.5 ],
                                     "order": 1,
                                     "source": [ "obj-8", 0 ]
                                 }
@@ -1958,7 +1846,7 @@
                                 "patchline": {
                                     "destination": [ "obj-13", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 548.5, 367.5, 468.5, 367.5 ],
+                                    "midpoints": [ 283.5, 519.5, 203.5, 519.5 ],
                                     "order": 0,
                                     "source": [ "obj-8", 0 ]
                                 }

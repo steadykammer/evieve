@@ -324,7 +324,7 @@
                         "toolbaradditions": [ "transport", "audiosolo", "audiomute" ],
                         "toolbarexclusions": [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
                     },
-                    "patching_rect": [ 703.0, 262.0, 34.0, 22.0 ],
+                    "patching_rect": [ 704.0, 262.0, 34.0, 22.0 ],
                     "text": "p init"
                 }
             },
@@ -538,10 +538,10 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 639.0, 315.5, 168.5, 22.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 100, 172, 458, 650 ],
+                        "client_rect": [ 1057, 45, 1440, 407 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
-                        "storage_rect": [ 333, 69, 1280, 583 ]
+                        "storage_rect": [ 583, 69, 1034, 197 ]
                     },
                     "text": "pattrstorage evi_sustainverb",
                     "varname": "evi_sustainverb"
@@ -1064,19 +1064,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 802.7142857142857, 250.5, 101.0, 22.0 ],
                                     "restore": [ 43.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 43.0 ],
-                                            "parameter_longname": "bypass[11]",
-                                            "parameter_mmax": 500.0,
-                                            "parameter_mmin": 1.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "smoothTime",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr smoothTime",
@@ -1095,19 +1084,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 603.7142857142857, 213.0, 74.0, 22.0 ],
                                     "restore": [ 1.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet[13]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "dryWet",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr dryWet",
@@ -1126,19 +1104,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 558.7142857142857, 252.0, 78.0, 22.0 ],
                                     "restore": [ -3.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ -3.0 ],
-                                            "parameter_longname": "fdnGain[8]",
-                                            "parameter_mmax": 20.0,
-                                            "parameter_mmin": -80.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "fdnGain",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr fdnGain",
@@ -1156,20 +1123,9 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 513.7142857142857, 291.0, 85.0, 22.0 ],
-                                    "restore": [ 0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "damp[18]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 4,
-                                            "parameter_shortname": "highPass",
-                                            "parameter_type": 0
-                                        }
-                                    },
+                                    "restore": [ 0.0 ],
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr highPass",
@@ -1188,20 +1144,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 196.85714285714286, 213.0, 88.0, 22.0 ],
                                     "restore": [ 3000.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 3000.0 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "crossover[13]",
-                                            "parameter_mmax": 10000.0,
-                                            "parameter_mmin": 10.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "crossover",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr crossover",
@@ -1220,19 +1164,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 247.28571428571428, 174.0, 66.0, 22.0 ],
                                     "restore": [ 0.2 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 0.2 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "midDecay[13]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "damp",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr damp",
@@ -1251,19 +1184,8 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 98.42857142857143, 252.0, 85.0, 22.0 ],
                                     "restore": [ 0.707107 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 0.707107 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "lowDecay[8]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "feedback",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr feedback",
@@ -1281,20 +1203,9 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 49.0, 291.0, 62.0, 22.0 ],
-                                    "restore": [ 0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_linknames": 1,
-                                            "parameter_longname": "preDelay[13]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "early",
-                                            "parameter_type": 0
-                                        }
-                                    },
+                                    "restore": [ 0.0 ],
                                     "saved_object_attributes": {
-                                        "parameter_enable": 1,
+                                        "parameter_enable": 0,
                                         "parameter_mappable": 0
                                     },
                                     "text": "pattr early",
@@ -1765,7 +1676,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 207.5, 43.0, 30.0, 30.0 ]
                 }
             },
@@ -1777,7 +1688,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 87.5, 43.0, 30.0, 30.0 ]
                 }
             },

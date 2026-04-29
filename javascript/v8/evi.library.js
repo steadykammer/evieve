@@ -1,4 +1,21 @@
 "use strict";
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 export const eviUtil = {
   clamp: (value, min, max) => {
     return Math.min(max, Math.max(min, value));
@@ -55,12 +72,12 @@ export const eviUtil = {
   atodb: (amplitude) => {
     return eviConst.TWENTYDIVLOGTEN * Math.log(Math.abs(amplitude));
   },
-  // db to amp with floor, like [evi.dbtoa_floor]
+  // db to amp with floor, like [evi.dbtoa]
   // (for using gain to explicitly mute poly~ voices, for example)
   dbtoaFloor: (db, floor = -70) => {
     return db > floor ? Math.exp(eviConst.LOGTENDIVTWENTY * db) : 0;
   },
-  // amp to db with db floor, like [evi.atodb_floor]
+  // amp to db with db floor, like [evi.atodb]
   // (for avoiding -inf's & nan's in array transposing, for example)
   atodbFloor: (amplitude, floor = -120, mode = 0) => {
     const aClamped = mode > 0 ? Math.max(amplitude, 0) : Math.abs(amplitude);

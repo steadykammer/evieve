@@ -16,41 +16,51 @@
   <misc name="GenExpr Functions">
     <entry name="cosQ73a ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Represents a quarter section of a cosine function, used by subsequent approximations <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: cos, <i>approximated section of a cosine</i> <br />
 
       </description>
     </entry>
     <entry name="cos73a ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Approximated cosine function to 7.3 digits of precision, just about accurate enough for audio <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
 
       </description>
     </entry>
     <entry name="sin73a ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Approximated sine function to 7.3 digits of precision, just about accurate enough for audio <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: sine, <i>sine function</i> <br />
 
       </description>
     </entry>
     <entry name="cos73aparam ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Same as 'cos73a()' but appropriate for Param rate usage (stays out of while loop) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: cosine, <i>cosine function</i> <br />
 
       </description>
     </entry>
     <entry name="sin73aparam ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        Same as 'sin73a()' but appropriate for Param rate usage (stays out of while loop) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>0..twopi</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: sine, <i>sine function</i> <br />
 
       </description>
     </entry>

@@ -83,7 +83,7 @@
             "description": "Internally, increasing depth increases the amplitude size of the LFO movement.",
             "default": {
                 "type": "float",
-                "value": "0.5"
+                "value": "0.75"
             }
         },
         {

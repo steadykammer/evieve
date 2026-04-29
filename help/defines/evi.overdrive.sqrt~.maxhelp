@@ -1798,7 +1798,7 @@
                             {
                                 "box": {
                                     "bgcolor": [ 0.125, 0.125, 0.125, 0.0 ],
-                                    "fgcolor": [ 1.0, 0.0, 0.0, 0.0 ],
+                                    "fgcolor": [ 1.0, 0.0, 0.0, 1.0 ],
                                     "id": "obj-23",
                                     "markercolor": [ 0.221327066888467, 0.221327006361825, 0.221327022178404, 0.0 ],
                                     "maxclass": "spectroscope~",
@@ -4161,7 +4161,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4170,12 +4170,26 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n\r\n// there are many different saturators available, the default\r\n// altTanhSqrtAdaa2 (2nd order antiderivative) is just one of them:\r\nout1 = altTanhSqrtAdaa2(in1);\r\n\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-3",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 61.0, 206.0, 673.0, 275.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-13",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 226.0, 82.0, 23.0 ],
+                                    "patching_rect": [ 61.0, 126.0, 82.0, 23.0 ],
                                     "text": "cycle~ 1660."
                                 }
                             },
@@ -4186,7 +4200,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 281.0, 36.0, 23.0 ],
+                                    "patching_rect": [ 61.0, 166.0, 36.0, 23.0 ],
                                     "text": "*~ 4."
                                 }
                             },
@@ -4197,7 +4211,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 512.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 61.0, 513.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
@@ -4208,7 +4222,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 259.0, 387.0, 300.0, 100.0 ]
+                                    "patching_rect": [ 248.0, 513.0, 300.0, 100.0 ]
                                 }
                             },
                             {
@@ -4250,106 +4264,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 838.0, 495.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n\r\n// there are many different saturators available, the default\r\n// altTanhSqrtAdaa2 (2nd order antiderivative) is just one of them:\r\nout1 = altTanhSqrtAdaa2(in1);\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 73.0, 696.0, 297.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 409.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 312.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.overdrive.sqrt~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 61.0, 568.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -4363,7 +4283,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 108.0, 578.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -4373,7 +4293,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-12", 0 ]
                                 }
                             },
@@ -4387,14 +4307,14 @@
                                 "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "order": 0,
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
                                     "order": 1,
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {

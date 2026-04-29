@@ -1146,11 +1146,25 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "code": "\r\n// There is no separate gen~ abstraction for the evieve quadrature oscillator.\r\n// Instead there are a few simple functions for cos/sin sources in\r\n// the 'evi_cossin.genexpr' file:\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'quadOsc()' function is the equivalent of [evi.quadosc~]\r\nout1, out2 = quadOsc(in1, in2);\r\n\r\n// This 'quadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout3, out4, out5, out6 = quadOscSync(in1, in2);\r\n\r\n\r\n// There are other interesting oscillators in 'evi_cossin',\r\n// such as this state variable filter quadrature oscillator:\r\nout7, out8 = tptSvfQuadOsc(in1, 0, in2, soft=0.1);\r\n\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-10",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 2,
+                                    "numoutlets": 8,
+                                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 18.0, 169.0, 734.0, 340.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-16",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 275.0, 282.0, 150.0, 21.0 ],
+                                    "patching_rect": [ 18.0, 106.0, 72.0, 21.0 ],
                                     "text": "Hz"
                                 }
                             },
@@ -1167,7 +1181,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 282.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 70.0, 131.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1191,7 +1205,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 550.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 597.0, 132.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1211,7 +1225,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 223.0, 281.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 18.0, 129.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 220.0 ],
@@ -1234,7 +1248,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 529.0, 391.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 529.0, 541.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -1245,7 +1259,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 427.0, 391.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 426.0, 541.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -1256,7 +1270,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 325.0, 391.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 324.0, 541.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -1267,7 +1281,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 391.0, 100.0, 100.0 ]
+                                    "patching_rect": [ 222.0, 541.0, 100.0, 100.0 ]
                                 }
                             },
                             {
@@ -1309,171 +1323,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 4,
-                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 880.0, 577.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-7",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 594.0, 506.0, 35.0, 22.0 ],
-                                                    "text": "out 4"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-6",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 485.0, 506.0, 35.0, 22.0 ],
-                                                    "text": "out 3"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-5",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 376.0, 506.0, 35.0, 22.0 ],
-                                                    "text": "out 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 811.0, 14.0, 28.0, 22.0 ],
-                                                    "text": "in 2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// There is no separate gen~ abstraction for the evieve quadrature oscillator. Instead there are\r\n// a few simple functions for cos/sin sources in the 'evi_cossin.genexpr' file:\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'quadOsc()' function is the equivalent of [evi.quadosc~]\r\nout1, out2 = quadOsc(in1, in2);\r\n\r\n// This 'quadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout3, out4, out5, out6 = quadOscSync(in1, in2);\r\n\r\n\r\n// There are other interesting oscillators in 'evi_cossin',\r\n// such as this state variable filter quadrature oscillator:\r\nout7, out8 = tptSvfQuadOsc(in1, 0, in2, soft=0.1);\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 8,
-                                                    "outlettype": [ "", "", "", "", "", "", "", "" ],
-                                                    "patching_rect": [ 50.0, 60.0, 780.0, 409.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 267.0, 506.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 1 ],
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 2 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-5", 0 ],
-                                                    "source": [ "obj-3", 3 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-6", 0 ],
-                                                    "source": [ "obj-3", 4 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-7", 0 ],
-                                                    "source": [ "obj-3", 5 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 325.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.quadosc~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 619.0, 119.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1487,7 +1342,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 666.0, 129.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1497,32 +1352,32 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-12", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-10", 2 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-3", 0 ],
-                                    "source": [ "obj-5", 1 ]
+                                    "source": [ "obj-10", 3 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "source": [ "obj-5", 2 ]
+                                    "source": [ "obj-10", 4 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-8", 0 ],
-                                    "source": [ "obj-5", 3 ]
+                                    "source": [ "obj-10", 5 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "source": [ "obj-12", 0 ]
                                 }
                             }
                         ],

@@ -44,13 +44,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 131.0, 493.0, 244.0, 18.0 ],
+                    "patching_rect": [ 130.0, 493.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.warmer~\">evi.warmer~</link> complex saturation",
+                    "text": "<link href=\"; max openhelp evi.shaper~\">evi.shaper~</link> even/odd harmonics",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -242,8 +242,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 491.0, 74.0, 22.0 ],
-                    "text": "evi.warmer~"
+                    "patching_rect": [ 55.0, 491.0, 71.0, 22.0 ],
+                    "text": "evi.shaper~"
                 }
             },
             {
@@ -388,11 +388,44 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 401.0, 148.0, 402.0, 332.0 ],
+                        "rect": [ 401.0, 148.0, 402.0, 525.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-8",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 101.0, 463.0, 67.0, 22.0 ],
+                                    "text": "evi_shaper"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-7",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 101.0, 409.0, 65.0, 22.0 ],
+                                    "text": "evi_sinfold"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 101.0, 355.0, 77.0, 22.0 ],
+                                    "text": "evi_clipasym"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-5",
@@ -400,7 +433,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 241.0, 110.0, 22.0 ],
+                                    "patching_rect": [ 101.0, 241.0, 110.0, 22.0 ],
                                     "text": "evi_overdrive_tanh"
                                 }
                             },
@@ -411,7 +444,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 116.0, 172.0, 250.0, 22.0 ],
+                                    "patching_rect": [ 101.0, 172.0, 250.0, 22.0 ],
                                     "text": "evi_overdrive_atan @aa 1 @hfcompensate 0"
                                 }
                             },
@@ -422,7 +455,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 103.0, 145.0, 22.0 ],
+                                    "patching_rect": [ 101.0, 103.0, 145.0, 22.0 ],
                                     "text": "evi_overdrive_sqrt @aa 5"
                                 }
                             },
@@ -432,7 +465,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 116.0, 20.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 101.0, 20.0, 150.0, 20.0 ],
                                     "text": "evieve Overdrives in gen~"
                                 }
                             },

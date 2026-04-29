@@ -1535,17 +1535,7 @@
                                                 "absolutepath": "drumLoop.aif",
                                                 "filename": "drumLoop.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u338009934",
-                                                "loop": 1,
-                                                "content_state": {
-                                                    "loop": 1
-                                                }
-                                            },
-                                            {
-                                                "absolutepath": "DDG-Guitar-4.wav",
-                                                "filename": "DDG-Guitar-4.wav",
-                                                "filekind": "audiofile",
-                                                "id": "u571016369",
+                                                "id": "u157005534",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -1555,7 +1545,17 @@
                                                 "absolutepath": "duduk.aif",
                                                 "filename": "duduk.aif",
                                                 "filekind": "audiofile",
-                                                "id": "u190005635",
+                                                "id": "u054005751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "lit112.wav",
+                                                "filename": "lit112.wav",
+                                                "filekind": "audiofile",
+                                                "id": "u755005854",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -1570,7 +1570,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 69.0, 330.0, 250.0, 90.0 ],
+                                    "patching_rect": [ 69.0, 330.0, 241.0, 90.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -3361,7 +3361,8 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
@@ -3369,12 +3370,60 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "meter~",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "orientation": 2,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 92.0, 388.0, 16.0, 89.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-8",
+                                    "maxclass": "flonum",
+                                    "maximum": 1.0,
+                                    "minimum": 0.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 493.0, 211.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[3]",
+                                            "parameter_mmax": 1.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-10",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 493.0, 251.0, 98.0, 23.0 ],
+                                    "text": "prepend drywet"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-6",
                                     "maxclass": "meter~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "float" ],
-                                    "patching_rect": [ 294.0, 415.0, 138.0, 36.0 ]
+                                    "patching_rect": [ 294.0, 414.0, 138.0, 38.0 ]
                                 }
                             },
                             {
@@ -3390,8 +3439,40 @@
                             },
                             {
                                 "box": {
+                                    "clipheight": 29.0,
                                     "data": {
-                                        "clips": []
+                                        "clips": [
+                                            {
+                                                "absolutepath": "drumLoop.aif",
+                                                "filename": "drumLoop.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u916010013",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u288010751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "sho0630.aif",
+                                                "filename": "sho0630.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u269010823",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
                                     },
                                     "id": "obj-1",
                                     "maxclass": "mc.playlist~",
@@ -3513,6 +3594,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-10", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-7", 1 ],
                                     "source": [ "obj-3", 1 ]
                                 }
@@ -3525,7 +3612,15 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-3", 0 ],
+                                    "order": 0,
                                     "source": [ "obj-5", 0 ]
                                 }
                             },
@@ -3533,6 +3628,12 @@
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
                                     "source": [ "obj-5", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "source": [ "obj-8", 0 ]
                                 }
                             }
                         ],
@@ -3562,7 +3663,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4979,14 +5080,6 @@
             "obj-11::obj-6::obj-55::obj-54::obj-7": [ "modShape", "modShape", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-8": [ "modSkew", "modSkew", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-9": [ "outputNonlinGains", "outputNonlinGains", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-10": [ "highPass[2]", "highPass", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-12": [ "fdnGain[2]", "fdnGain", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-2": [ "early[2]", "early", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-3": [ "feedback[2]", "feedback", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-33": [ "dryWet[2]", "dryWet", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-35": [ "smoothTime[6]", "smoothTime", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-5": [ "damp[3]", "damp", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-9": [ "crossover[2]", "crossover", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-10": [ "dryWet[12]", "dryWet", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-2": [ "lowDamp", "lowDamp", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-3": [ "highDamp", "highDamp", 0 ],
@@ -5008,47 +5101,16 @@
             "obj-11::obj-6::obj-6::obj-54::obj-5": [ "midDecay", "midDecay", 0 ],
             "obj-11::obj-6::obj-6::obj-54::obj-9": [ "crossover[3]", "crossover", 0 ],
             "obj-12::obj-15": [ "number[2]", "number", 0 ],
-            "obj-12::obj-1::obj-54::obj-10": [ "highPass[3]", "highPass", 0 ],
-            "obj-12::obj-1::obj-54::obj-12": [ "fdnGain[8]", "fdnGain", 0 ],
-            "obj-12::obj-1::obj-54::obj-2": [ "early[3]", "early", 0 ],
-            "obj-12::obj-1::obj-54::obj-3": [ "feedback[5]", "feedback", 0 ],
-            "obj-12::obj-1::obj-54::obj-33": [ "dryWet[4]", "dryWet", 0 ],
-            "obj-12::obj-1::obj-54::obj-35": [ "bypass[11]", "smoothTime", 0 ],
-            "obj-12::obj-1::obj-54::obj-5": [ "damp[5]", "damp", 0 ],
-            "obj-12::obj-1::obj-54::obj-9": [ "crossover[4]", "crossover", 0 ],
             "obj-12::obj-42": [ "number[1]", "number", 0 ],
-            "obj-2::obj-5::obj-54::obj-10": [ "highPass", "highPass", 0 ],
-            "obj-2::obj-5::obj-54::obj-12": [ "fdnGain", "fdnGain", 0 ],
-            "obj-2::obj-5::obj-54::obj-2": [ "early", "early", 0 ],
-            "obj-2::obj-5::obj-54::obj-3": [ "feedback", "feedback", 0 ],
-            "obj-2::obj-5::obj-54::obj-33": [ "dryWet", "dryWet", 0 ],
-            "obj-2::obj-5::obj-54::obj-35": [ "smoothTime", "smoothTime", 0 ],
-            "obj-2::obj-5::obj-54::obj-5": [ "damp", "damp", 0 ],
-            "obj-2::obj-5::obj-54::obj-9": [ "crossover", "crossover", 0 ],
             "obj-2::obj-6": [ "number", "number", 0 ],
             "obj-5::obj-13": [ "toggle[2]", "toggle[2]", 0 ],
             "obj-5::obj-36": [ "number[13]", "number[1]", 0 ],
-            "obj-5::obj-3::obj-54::obj-10": [ "highPass[4]", "highPass", 0 ],
-            "obj-5::obj-3::obj-54::obj-12": [ "fdnGain[3]", "fdnGain", 0 ],
-            "obj-5::obj-3::obj-54::obj-2": [ "early[4]", "early", 0 ],
-            "obj-5::obj-3::obj-54::obj-3": [ "feedback[6]", "feedback", 0 ],
-            "obj-5::obj-3::obj-54::obj-33": [ "dryWet[13]", "dryWet", 0 ],
-            "obj-5::obj-3::obj-54::obj-35": [ "bypass[5]", "smoothTime", 0 ],
-            "obj-5::obj-3::obj-54::obj-5": [ "damp[11]", "damp", 0 ],
-            "obj-5::obj-3::obj-54::obj-9": [ "crossover[5]", "crossover", 0 ],
             "obj-5::obj-49": [ "number[9]", "number", 0 ],
             "obj-5::obj-51": [ "number[10]", "number[10]", 0 ],
             "obj-5::obj-52": [ "toggle[3]", "toggle[2]", 0 ],
             "obj-5::obj-62": [ "number[11]", "number", 0 ],
             "obj-5::obj-63": [ "number[12]", "number", 0 ],
-            "obj-9::obj-5::obj-54::obj-10": [ "highPass[1]", "highPass", 0 ],
-            "obj-9::obj-5::obj-54::obj-12": [ "fdnGain[1]", "fdnGain", 0 ],
-            "obj-9::obj-5::obj-54::obj-2": [ "early[1]", "early", 0 ],
-            "obj-9::obj-5::obj-54::obj-3": [ "feedback[1]", "feedback", 0 ],
-            "obj-9::obj-5::obj-54::obj-33": [ "dryWet[1]", "dryWet", 0 ],
-            "obj-9::obj-5::obj-54::obj-35": [ "smoothTime[1]", "smoothTime", 0 ],
-            "obj-9::obj-5::obj-54::obj-5": [ "damp[1]", "damp", 0 ],
-            "obj-9::obj-5::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
+            "obj-9::obj-8": [ "number[3]", "number", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,

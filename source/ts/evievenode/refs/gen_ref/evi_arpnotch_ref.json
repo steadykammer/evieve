@@ -26,7 +26,7 @@
             "name": "freq",
             "type": "float",
             "optional": 1,
-            "digestauto": "in Hz (default) or Pitch depending on 'cutoffmode' attribute",
+            "digestauto": "in Hz (default) or Pitch depending on 'cutoffmode' attribute @default 1000",
             "digest": "Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute."
         },
         {

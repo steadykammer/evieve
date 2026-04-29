@@ -1,3 +1,20 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 
 /*
 	js extensions for evieve, 2021
@@ -47,7 +64,7 @@ function EviUtilities()
 		return this.dbtoa(db);
 	}
 
-	// db to amp with floor, like [evi.dbtoa_floor]
+	// db to amp with floor, like [evi.dbtoa]
 	// (for using gain to explicitly mute poly~ voices, for example)
 	this.dbtoaFloor = function(db, floor)				// "floor" = lowest dB value to report zero amplitude
 	{
@@ -110,7 +127,7 @@ function EviUtilities()
 		return this.atodb(a);
 	}
 
-	// amp to db with db floor, like [evi.atodb_floor]
+	// amp to db with db floor, like [evi.atodb]
 	// (for avoiding -inf's & nan's in array transposing, for example)
 	this.atodbFloor = function(a, floor, mode)			// "floor" = largest dB value to use, "mode" 0/1 = take amplitude input as abs() or max()
 	{
@@ -302,19 +319,6 @@ function EviApproximations()
 
 	this.sin73 = function(x) {
 		return this.cos73(eviConst.HALFPI - x);
-	}
-
-	// we do not need these in JS, designed for gen~ parameter rate usage, but might as well throw it in here
-	this.cos73param = function(x) {
-		x = x % eviConst.TWOPI;
-		x = (x < 0) ? -x : x;
-		var quad = Math.floor(x * eviConst.TWOOVERPI);	// get quadrant # (0 to 3) we're in
-		// because we want to keep this shit out of the while loop in gen~...
-		return (quad == 0) ? this.cosQ73(x) : ((quad == 1) ? -this.cosQ73(Math.PI - x) : ((quad == 2) ? -this.cosQ73(x - Math.PI) : this.cosQ73(eviConst.TWOPI - x)));
-	}
-
-	this.sin73param = function(x) {
-		return this.cos_73_param(eviConst.HALFPI - x);
 	}
 
 	// 'expA()' is cheaper than library 'Math.exp()', not amazing, but worth it

@@ -34,7 +34,7 @@
 		</inlet>
 		<inlet id="2" type="signal/float">
 			<digest>
-				Inlet #2: Freq in Hz (default) or Pitch depending on &#x27;cutoffmode&#x27; attribute
+				Inlet #2: Freq in Hz (default) or Pitch depending on &#x27;cutoffmode&#x27; attribute @default 1000
 			</digest>
 			<description>
 				Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute.

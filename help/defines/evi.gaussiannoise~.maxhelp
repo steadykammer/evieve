@@ -1000,12 +1000,26 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "code": "\r\n// noise related sources live in this .genexpr file:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\n\r\n// default (gain 0.6403882032022076) gives very close to unity amplitude (-1..1) output\r\ngain = 0.6403882032022076;\r\n\r\n\r\n// the equivalent function to [evi.gaussiannoise~] is 'gaussianNoise()'\r\n// note because of the vaguaries of gen~ we must have an input here rather than a param\r\nout1, out2, out3 = gaussianNoise(gain);\r\n\r\n\r\n// there are similar noise functions in this file, such as:\r\nout4, out5, out6 = audioDust(in1);\r\n\r\n\r\n// or velvet noise:\r\nout7, out8, out9 = sparseVelvetNoise(in1, 1);\r\n\r\n\r\n// etc\r\n\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-1",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 1,
+                                    "numoutlets": 9,
+                                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 10.0, 109.0, 756.0, 443.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-8",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 440.0, 57.0, 23.0 ],
+                                    "patching_rect": [ 10.0, 573.0, 57.0, 23.0 ],
                                     "text": "*~ 0.125"
                                 }
                             },
@@ -1016,7 +1030,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 312.0, 387.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 175.0, 573.0, 178.0, 85.0 ]
                                 }
                             },
                             {
@@ -1058,106 +1072,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 911.0, 729.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 64.0, 37.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// noise related sources live in this .genexpr file:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\n\r\n// default (gain 0.6403882032022076) gives very close to unity amplitude (-1..1) output\r\ngain = 0.6403882032022076;\r\n\r\n\r\n// the equivalent function to [evi.gaussiannoise~] is 'gaussianNoise()'\r\n// note because of the vaguaries of gen~ we must have an input here rather than a param\r\nout1, out2, out3 = gaussianNoise(gain);\r\n\r\n\r\n// there are similar noise functions in this file, such as:\r\nout4, out5, out6 = audioDust(in1);\r\n\r\n\r\n// or velvet noise:\r\nout7, out8, out9 = sparseVelvetNoise(in1, 1);\r\n\r\n\r\n// etc\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 9,
-                                                    "outlettype": [ "", "", "", "", "", "", "", "", "" ],
-                                                    "patching_rect": [ 64.0, 92.0, 727.0, 499.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 64.0, 648.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 317.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.gaussiannoise~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 10.0, 613.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1171,7 +1091,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 57.0, 623.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1183,14 +1103,14 @@
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
                                     "order": 0,
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-1", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-8", 0 ],
                                     "order": 1,
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-1", 0 ]
                                 }
                             },
                             {

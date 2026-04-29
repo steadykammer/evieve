@@ -3,7 +3,7 @@
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
  */
 
-// based on ej original, used in e.g. 'overview' patchers to dump categories of objects to umenus based on qlookup
+// based on ej (Cycling '74) original, used in e.g. 'overview' patchers to dump categories of objects to umenus based on qlookup
 
 inlets = 1;
 outlets = 2; // outlet 0 is menu, outlet 1 is tabs

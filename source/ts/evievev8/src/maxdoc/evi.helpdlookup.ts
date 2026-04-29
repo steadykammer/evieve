@@ -1,3 +1,20 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 
 /*!
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND

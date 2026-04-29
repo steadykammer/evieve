@@ -31,7 +31,7 @@
         </geninlet>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                in Hz (default) or Pitch depending on &#x27;cutoffmode&#x27; attribute. Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute.
+                in Hz (default) or Pitch depending on &#x27;cutoffmode&#x27; attribute @default 1000. Cutoff frequency in Hz (default) or Pitch depending on the @cutoffmode attribute.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>

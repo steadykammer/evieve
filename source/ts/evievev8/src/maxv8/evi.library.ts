@@ -1,3 +1,20 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 
 /*
 	v8 extensions for evieve
@@ -76,14 +93,14 @@ export const eviUtil = {
       return eviConst.TWENTYDIVLOGTEN * Math.log(Math.abs(amplitude))
     },
 
-    // db to amp with floor, like [evi.dbtoa_floor]
+    // db to amp with floor, like [evi.dbtoa]
     // (for using gain to explicitly mute poly~ voices, for example)
     dbtoaFloor: (db: number, floor = -70) => {
       // "floor" = lowest dB value to report zero amplitude
       return db > floor ? Math.exp(eviConst.LOGTENDIVTWENTY * db) : 0.0 // amplitude clipped
     },
 
-    // amp to db with db floor, like [evi.atodb_floor]
+    // amp to db with db floor, like [evi.atodb]
     // (for avoiding -inf's & nan's in array transposing, for example)
     atodbFloor: (amplitude: number, floor = -120, mode = 0) => {
       // "floor" = largest dB value to use, "mode" 0/1 = take amplitude input as abs() or max()
@@ -480,17 +497,17 @@ export const eviApprox = {
 // this is stupid
 export const eviConst = {
     // const
-    E:                  Math.E,						// 2.718281828459045
-    PI:                 Math.PI,					// 3.141592653589793
+    E:                  Math.E,						          // 2.718281828459045
+    PI:                 Math.PI,					          // 3.141592653589793
     PHI:                1.618033988749895,
-    SQRT2:              Math.SQRT2,					// 1.414213562373095
-    SQRT1_2:            Math.SQRT1_2,				// 0.707106781186548
-    LOGTWO:             Math.LN2,					// 0.6931471805599453
-    LOGTEN:             Math.LN10,					// 2.302585092994046
-    LOGTENTWO:          0.3010299956639811,			// log10(2.)
+    SQRT2:              Math.SQRT2,					        // 1.414213562373095
+    SQRT1_2:            Math.SQRT1_2,				        // 0.707106781186548
+    LOGTWO:             Math.LN2,					          // 0.6931471805599453
+    LOGTEN:             Math.LN10,					        // 2.302585092994046
+    LOGTENTWO:          0.3010299956639811,			    // log10(2.)
     LOGTEN2:            0.3010299956639811,         // LOGTENTWO
-    LOGTWOE:            Math.LOG2E,					// 1.4426950408889634
-    LOGTENE:            Math.LOG10E,				// 0.43429448190325176
+    LOGTWOE:            Math.LOG2E,					        // 1.4426950408889634
+    LOGTENE:            Math.LOG10E,				        // 0.43429448190325176
     EPSILON:            1e-10,
     EPSILON10:          1e-10,                      // EPSILON
     EPSILON09:          1e-09,
@@ -529,27 +546,27 @@ export const eviConst = {
     SIXPI:              18.849555921538759,
     EIGHTPI:            25.132741228718346,
     // trig
-    RADTODEG:           57.29577951308232,			// 180.0 / PI
-    DEGTORAD:           0.017453292519943295,		// PI / 180.0
+    RADTODEG:           57.29577951308232,			    // 180.0 / PI
+    DEGTORAD:           0.017453292519943295,		    // PI / 180.0
     RADTOHZ:            0.15915494309189535,        // INVTWOPI
     RADPERSEC:          0.15915494309189535,
-    EPOWTWO:            7.389056098930649,			// e^2.
+    EPOWTWO:            7.389056098930649,			    // e^2.
     EPOW2:              7.389056098930649,          // EPOWTWO
-    EPOWTWODIVFOUR:     1.84726402473396,			// EPOWTWO / 4.
+    EPOWTWODIVFOUR:     1.84726402473396,			      // EPOWTWO / 4.
     EPOW2DIV4:          1.84726402473396,           // EPOWTWODIVFOUR
     INVPHI:             0.618033988749895,
     SQRT05:             Math.SQRT1_2,               // SQRT1_2
-    ALPHA:              0.6403882032022076,			// (1. + sqrt(17.)) / 8.
-    QUARTPAR:          -0.8284271247461903,			// 2. - (4. * SQRT1_2)
+    ALPHA:              0.6403882032022076,			    // (1. + sqrt(17.)) / 8.
+    QUARTPAR:          -0.8284271247461903,			    // 2. - (4. * SQRT1_2)
     // music
-    LOG0001:           -6.907755278982137,			// ln(0.0001)
+    LOG0001:           -6.907755278982137,			    // ln(0.0001)
     LINDB:              8.685889638065036553,       // TWENTYDIVLOGTEN
     DBLIN:              0.11512925464970228,        // LOGTENDIVTWENTY  // 1. / TWENTYDIVLOGTEN
     TWOPOWTWELFTH:      1.059463094359295264561825,	// 12th root of 2
     LAURA:              1.059463094359295264561825, // love laura
-    LOGTWODIVTWELVE:    0.057762265046662105,		// (log(2.) / 12.)	
-    TWELVEDIVLOGTWO:    17.3123404906675609,		// (12. * log2) : (1. / LOGTWODIVTWELVE)
-    PITCHFREQ:          2.10117843869262,			// log(440.) - (log(2.) * 69. / 12.)
+    LOGTWODIVTWELVE:    0.057762265046662105,		    // (log(2.) / 12.)	
+    TWELVEDIVLOGTWO:    17.3123404906675609,		    // (12. * log2) : (1. / LOGTWODIVTWELVE)
+    PITCHFREQ:          2.10117843869262,			      // log(440.) - (log(2.) * 69. / 12.)
     FREQPITCH:         -36.3763165622959152
 
 } as const

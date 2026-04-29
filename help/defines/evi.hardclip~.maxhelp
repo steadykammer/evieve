@@ -2344,6 +2344,7 @@
                         },
                         "classnamespace": "box",
                         "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,

@@ -639,7 +639,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.am~ can be saturated at the amplitude modulation stage, extending the range of the LFOs.",
+                                    "text": "evi.am~ can be saturated and antialiased at the amplitude modulation stage, extending the range of the LFOs.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1693,7 +1693,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2416,6 +2416,7 @@
                                 "box": {
                                     "attr": "lfowave",
                                     "id": "obj-20",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,

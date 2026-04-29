@@ -2444,7 +2444,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3099,13 +3099,26 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
-                        "bglocked": 1,
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "code": "\r\n// [evi.reson~] or [evi_reson] is just one of the many basic filter types\r\n// available in the svf tpt filters require file:\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   smooth(22., min=0, max=333);\r\nParam   compensate(0, min=0, max=1);\r\n\r\nx = noise();\r\n\r\n// 'eviFilterReson()' is the equivalent of [evi.reson~],\r\n// MSP ordering of inputs, and like MSP gain is still linear here!\r\n                    // gain, Hz, Q\nout1 = eviFilterReson(x, 1, in1, in2, compensate, smooth=smooth);\r\n\r\n// there is also a stereo version:\r\n\r\nout2, out3 = eviFilterResonStereo(x, x, 1, in1, in2, compensate, smooth=smooth);\r\n",
+                                    "fontface": 0,
+                                    "fontname": "<Monospaced>",
+                                    "fontsize": 13.0,
+                                    "id": "obj-14",
+                                    "maxclass": "gen.codebox~",
+                                    "numinlets": 2,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "signal", "signal", "signal" ],
+                                    "patching_rect": [ 10.0, 171.0, 708.0, 344.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -3119,7 +3132,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 516.0, 312.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 396.0, 107.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3143,7 +3156,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 448.0, 267.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 677.0, 117.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3167,7 +3180,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 267.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 85.0, 117.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3191,7 +3204,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 550.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 145.0, 625.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3210,7 +3223,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 538.0, 310.0, 24.0, 24.0 ]
+                                    "patching_rect": [ 418.0, 105.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -3329,7 +3342,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 470.0, 209.0, 36.0, 23.0 ],
+                                    "patching_rect": [ 699.0, 59.0, 36.0, 23.0 ],
                                     "text": "p init"
                                 }
                             },
@@ -3343,7 +3356,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 223.0, 249.0, 73.0, 55.0 ],
+                                    "patching_rect": [ 10.0, 99.0, 73.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -3371,7 +3384,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 470.0, 249.0, 73.0, 55.0 ],
+                                    "patching_rect": [ 699.0, 99.0, 73.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -3399,7 +3412,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 388.0, 442.0, 300.0, 23.0 ],
+                                    "patching_rect": [ 418.0, 532.0, 300.0, 23.0 ],
                                     "text_width": 75.0
                                 }
                             },
@@ -3410,7 +3423,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 482.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 10.0, 557.0, 50.0, 23.0 ],
                                     "text": "*~ 0.25"
                                 }
                             },
@@ -3421,7 +3434,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 388.0, 482.0, 300.0, 100.0 ]
+                                    "patching_rect": [ 418.0, 557.0, 300.0, 100.0 ]
                                 }
                             },
                             {
@@ -3434,7 +3447,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 538.0, 336.0, 150.0, 23.0 ]
+                                    "patching_rect": [ 418.0, 131.0, 150.0, 23.0 ]
                                 }
                             },
                             {
@@ -3476,123 +3489,12 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 934.0, 610.0 ],
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 14.0, 46.0, 22.0 ],
-                                                    "text": "in 1 Hz"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 812.0, 14.0, 41.0, 22.0 ],
-                                                    "text": "in 2 Q"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "code": "\r\n// [evi.reson~] or [evi_reson] is just one of the many basic filter types\r\n// available in the svf tpt filters require file:\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   smooth(22., min=0, max=333);\r\nParam   compensate(0, min=0, max=1);\r\n\r\nx = noise();\r\n\r\n\r\n// 'eviFilterReson()' is the equivalent of [evi.reson~],\r\n// MSP ordering of inputs, and like MSP gain is still linear here!\r\n                    // gain, Hz, Q\nout1 = eviFilterReson(x, 1, in1, in2, compensate, smooth=smooth);\r\n\r\n\r\n// there is also a stereo version:\r\n\r\nout2, out3 = eviFilterResonStereo(x, x, 1, in1, in2, compensate, smooth=smooth);\r\n\r\n\r\n",
-                                                    "fontface": 0,
-                                                    "fontname": "<Monospaced>",
-                                                    "fontsize": 12.0,
-                                                    "id": "obj-3",
-                                                    "maxclass": "codebox",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 50.0, 58.0, 781.0, 436.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 527.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-3", 1 ],
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 336.0, 266.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.reson~_with_GenExpr",
-                                    "varname": "evieveObjectGenExpr"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-7",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 328.0, 124.0, 40.0 ],
-                                    "text": "Double-Click to see the example",
-                                    "textjustification": 1,
-                                    "varname": "comment_gen"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-9",
                                     "local": 1,
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 10.0, 612.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -3606,7 +3508,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 57.0, 622.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -3636,7 +3538,22 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 1 ],
+                                    "destination": [ "obj-1", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "midpoints": [ 19.5, 552.296875, 427.5, 552.296875 ],
+                                    "order": 0,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-14", 1 ],
                                     "source": [ "obj-15", 0 ]
                                 }
                             },
@@ -3649,7 +3566,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-14", 0 ],
                                     "source": [ "obj-31", 0 ]
                                 }
                             },
@@ -3661,21 +3578,8 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-1", 0 ],
-                                    "order": 1,
-                                    "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "order": 0,
-                                    "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-14", 0 ],
+                                    "midpoints": [ 427.5, 162.5, 19.5, 162.5 ],
                                     "source": [ "obj-6", 0 ]
                                 }
                             }

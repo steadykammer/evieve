@@ -245,7 +245,7 @@ Param	nonlin(0, min=0, max=1);				// 0 = cubic, 1 = tanh
 n		= int(nonlin);
 b       = int(bounds);
 
-s		= (in2 * in2 * in2 * 0.5) + 0.5;	    // in2 = 0..1
+s		= (in2 * 0.5) + 0.5;	                // in2 = 0..1
 a		= (sqrt(1 - s) * 3.73) + 0.251189;		// -12..12 dB
 m		= ((s * s * s) + 0.995262) - 0.120262;	// max +6dB
 

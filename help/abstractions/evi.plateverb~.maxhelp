@@ -4670,13 +4670,24 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "meter~",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "orientation": 2,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 92.0, 388.0, 16.0, 89.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-36",
@@ -4786,8 +4797,40 @@
                             },
                             {
                                 "box": {
+                                    "clipheight": 29.0,
                                     "data": {
-                                        "clips": []
+                                        "clips": [
+                                            {
+                                                "absolutepath": "drumLoop.aif",
+                                                "filename": "drumLoop.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u916010013",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u288010751",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "sho0630.aif",
+                                                "filename": "sho0630.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u269010823",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
                                     },
                                     "id": "obj-1",
                                     "maxclass": "mc.playlist~",
@@ -4939,7 +4982,15 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-3", 0 ],
+                                    "order": 0,
                                     "source": [ "obj-5", 0 ]
                                 }
                             },
@@ -4976,7 +5027,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -7225,14 +7276,6 @@
             "obj-11::obj-6::obj-55::obj-54::obj-7": [ "modShape", "modShape", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-8": [ "modSkew", "modSkew", 0 ],
             "obj-11::obj-6::obj-55::obj-54::obj-9": [ "outputNonlinGains", "outputNonlinGains", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-10": [ "highPass", "highPass", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-12": [ "fdnGain[8]", "fdnGain", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-2": [ "early", "early", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-3": [ "feedback", "feedback", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-33": [ "dryWet", "dryWet", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-35": [ "bypass[11]", "smoothTime", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-5": [ "damp[1]", "damp", 0 ],
-            "obj-11::obj-6::obj-5::obj-54::obj-9": [ "crossover", "crossover", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-10": [ "dryWet[4]", "dryWet", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-2": [ "lowDamp", "lowDamp", 0 ],
             "obj-11::obj-6::obj-68::obj-54::obj-3": [ "highDamp", "highDamp", 0 ],

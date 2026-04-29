@@ -49,7 +49,7 @@
                 Internally, increasing depth increases the amplitude size of the LFO movement.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.5' />
+                <attribute name='default' type='float' value='0.75' />
             </attributelist>
         </attribute>
         <attribute name='factor' type='float' get='0' set='1'>
