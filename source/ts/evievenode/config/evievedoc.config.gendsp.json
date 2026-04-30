@@ -1197,6 +1197,28 @@
                 "auto": false
             }
         },
+        "evi_detune_wrap.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.detune.wrap~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_detune.gendsp": {
             "define": {
                 "object": true,

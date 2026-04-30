@@ -149,10 +149,15 @@
         "digest": "DC Blocking filter \n",
         "description": "A basic dc blocking filter utility for cleaning your audio signals."
     },
-    "evi.detune~": {
+    "evi.detune.wrap~": {
         "type": "define",
         "digest": "A quirky digital Detune effect with filtering and saturation",
-        "description": "evi.detune~ is a 'max define' for the evi_detune.gendsp gen~ abstraction. Because evi.detune~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner, feedback path and output are saturated and anti-aliased."
+        "description": "evi.detune.wrap~ is a 'max define' for the evi_detune_wrap.gendsp gen~ abstraction. Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune.wrap~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See evi.detune~ for a much simpler and efficient version of this algorithm."
+    },
+    "evi.detune~": {
+        "type": "define",
+        "digest": "A quirky digital Detune effect, LoFi and old school",
+        "description": "evi.detune~ is a 'max define' for the evi_detune.gendsp gen~ abstraction. Because evi.detune~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. Includes a linkwitz-riley crossover to shift the focus and strength of the effect. See evi.detune.wrap~ for a more complex and expensive version of this algorithm."
     },
     "evi.dfm~": {
         "type": "abstraction",

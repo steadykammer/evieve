@@ -211,6 +211,10 @@
         {
             "name": "evi_phasor0",
             "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_detune_wrap",
+            "display": "evi_detune_wrap"
         }
     ]
 }

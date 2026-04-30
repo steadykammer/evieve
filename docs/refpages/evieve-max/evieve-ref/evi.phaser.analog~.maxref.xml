@@ -92,6 +92,7 @@
 		<seealso name="evi.am~"> </seealso>
 		<seealso name="evi.tremolo~"> </seealso>
 		<seealso name="evi.phaser.analog~"> </seealso>
+		<seealso name="evi.detune.wrap~"> </seealso>
 		<seealso name="evi.detune~"> </seealso>
 		<seealso name="evi.phasor0~"> </seealso>
 	</seealsolist>

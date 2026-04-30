@@ -28,6 +28,8 @@
         "boxes": [
             {
                 "box": {
+                    "annotation": "Pin the evieve GenExpr Index on top of all other windows",
+                    "annotation_name": "Pin On Top",
                     "fontname": "Lato",
                     "id": "obj-11",
                     "maxclass": "textbutton",
@@ -264,7 +266,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 15.0, 116.0, 67.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 822, ";", "#Q", "window", "size", 63, 131, 859, 792, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 63, 131, 796, 822, ";", "#Q", "window", "size", 63, 131, 859, 762, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },

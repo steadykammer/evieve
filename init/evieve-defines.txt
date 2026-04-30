@@ -109,6 +109,9 @@ max define mc.evi.damp.macro~ mc.gen~ @gen evi_damp_macro.gendsp @chans 2;
 max define evi.damp~ gen~ @gen evi_damp.gendsp;
 max define mc.evi.damp~ mc.gen~ @gen evi_damp.gendsp @chans 2;
 
+max define evi.detune.wrap~ gen~ @gen evi_detune_wrap.gendsp;
+max define mc.evi.detune.wrap~ mc.gen~ @gen evi_detune_wrap.gendsp @chans 2;
+
 max define evi.detune~ gen~ @gen evi_detune.gendsp;
 max define mc.evi.detune~ mc.gen~ @gen evi_detune.gendsp @chans 2;
 

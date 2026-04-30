@@ -71,9 +71,14 @@ varDcblock(x0, a0)
 	return	y0;
 }
 
+preWarp0(cutoff)
+{
+	return tanA2(PI * cutoff / SAMPLERATE);
+}
+
 preWarpG(cutoff)
 {
-	g0		=  tanA2(PI * cutoff / SAMPLERATE);
+	g0		=  preWarp0(cutoff);
 	return	g0 / (1 + g0);
 }
 

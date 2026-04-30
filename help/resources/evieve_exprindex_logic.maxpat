@@ -189,7 +189,7 @@
                                     "fontname": "Lato",
                                     "fontsize": 14.0,
                                     "frozen_box_attributes": [ "presentation_rect" ],
-                                    "htabcolor": [ 0.0936600403422, 0.093660003365525, 0.093660012949313, 1.0 ],
+                                    "htabcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
                                     "id": "obj-55",
                                     "margin": 2,
                                     "maxclass": "tab",
@@ -213,7 +213,7 @@
                                     },
                                     "spacing_x": 2.0,
                                     "spacing_y": 2.0,
-                                    "tabcolor": [ 0.15302081646527, 0.153020772941671, 0.153020784351525, 1.0 ],
+                                    "tabcolor": [ 0.184856270724233, 0.184856220728344, 0.184856233838455, 1.0 ],
                                     "tabs": " ",
                                     "varname": "#0_seealso"
                                 }
@@ -2158,17 +2158,19 @@
             },
             {
                 "box": {
+                    "bubble": 1,
+                    "bubbleside": 3,
                     "fontname": "Lato",
-                    "fontsize": 14.0,
+                    "fontsize": 12.0,
                     "id": "obj-10",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 352.0, 112.0, 78.0, 23.0 ],
+                    "patching_rect": [ 352.0, 112.0, 78.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 257.0, 78.0, 23.0 ],
+                    "presentation_rect": [ 2.0, 256.0, 79.0, 25.0 ],
                     "text": "Function:",
-                    "textjustification": 2
+                    "textjustification": 1
                 }
             },
             {
@@ -2203,17 +2205,19 @@
             },
             {
                 "box": {
+                    "bubble": 1,
+                    "bubbleside": 3,
                     "fontname": "Lato",
-                    "fontsize": 14.0,
+                    "fontsize": 12.0,
                     "id": "obj-7",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 44.0, 250.0, 78.0, 23.0 ],
+                    "patching_rect": [ 44.0, 250.0, 72.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 0.0, 42.0, 78.0, 23.0 ],
+                    "presentation_rect": [ 29.0, 41.0, 52.0, 25.0 ],
                     "text": "File:",
-                    "textjustification": 2
+                    "textjustification": 1
                 }
             },
             {

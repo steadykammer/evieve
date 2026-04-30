@@ -11,97 +11,102 @@
     By declaring <m>require("evi_resbank.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_resbank.genexpr</b> file also requires: <br />
-    evi_smooth.genexpr <br />
-    evi_interp.genexpr <br />
+    evi_utilities.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Three different resonant-like filters for filterbank style setups, originally created for the evieve vocoder. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="adSc1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        First order antiderivative of a tanh()-like function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="adSc1_2x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: tanh(), <i>Antialiased audio output</i> <br />
 
       </description>
     </entry>
     <entry name="svfButterCoeffs ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: R, <i></i> <br />
+        Resonance coefficients calculator for the 'svfButterPreWarp()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: R, <i>resonance inverted</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: R1, <i>Coefficient 1</i> <br />
+        <b>Return 2</b>: R2, <i>Coefficient 2</i> <br />
+        <b>Return 3</b>: R3, <i>Coefficient 3</i> <br />
+        <b>Return 4</b>: R4, <i>Coefficient 4</i> <br />
 
       </description>
     </entry>
     <entry name="svfButterPreWarp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: resonance, <i></i> <br />
+        Coefficients calculator for the 'svfButterBp()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: resonance, <i>Normalised 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
-        <b>Return 5</b>: , <i></i> <br />
-        <b>Return 6</b>: , <i></i> <br />
+        <b>Return 1</b>: w0, <i>Normalised frequency coefficient</i> <br />
+        <b>Return 2</b>: pksR, <i>Normalised resonance coefficient as factor of resonance and frequency</i> <br />
+        <b>Return 3</b>: R1, <i>Resonance coefficient 1</i> <br />
+        <b>Return 4</b>: R2, <i>Resonance coefficient 2</i> <br />
+        <b>Return 5</b>: R3, <i>Resonance coefficient 3</i> <br />
+        <b>Return 6</b>: R4, <i>Resonance coefficient 4</i> <br />
 
       </description>
     </entry>
     <entry name="svfCoeffReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: q, <i></i> <br />
+        Coefficients calculator for the 'svfSectionReson()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: hz, <i>Cutoff in Hz</i> <br />
+        <b>In 2</b>: type=<i>input</i>: q, <i>Resonance 0.05..10000</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: a0, <i>Filter coefficient 1</i> <br />
+        <b>Return 2</b>: a1, <i>Filter coefficient 2</i> <br />
+        <b>Return 3</b>: a2, <i>Filter coefficient 3</i> <br />
+        <b>Return 4</b>: k, <i>Gain coefficient</i> <br />
 
       </description>
     </entry>
     <entry name="svfButterBp ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
+        Transposed TPT SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: w, <i>Frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i>Gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Bandpass, <i>TPT Bandpass filter</i> <br />
 
       </description>
     </entry>
     <entry name="svfSectionReson ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: v0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: a0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: a1, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: a2, <i></i> <br />
+        Linear Trapezoidal SVF <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: v0, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: a0, <i>Filter coefficient 1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: a1, <i>Filter coefficient 2</i> <br />
+        <b>In 4</b>: type=<i>input</i>: a2, <i>Filter coefficient 3</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Bandpass, <i>LTO Bandpass filter</i> <br />
 
       </description>
     </entry>
     <entry name="onepole4 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: w, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: k, <i></i> <br />
+        It is a shocking bastardisation of an evieve transistor ladder (@see: 'evi_ladder_moog.gendsp') <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: w, <i>Frequency coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k, <i>Gain coefficient</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
-        <b>Return 4</b>: , <i></i> <br />
+        <b>Return 1</b>: LP_24dB, <i>Lowpass output, 24dB</i> <br />
+        <b>Return 2</b>: LP_12dB, <i>Lowpass output, 12dB</i> <br />
+        <b>Return 3</b>: BP_18dB, <i>Bandpass output, 18dB</i> <br />
+        <b>Return 4</b>: HP_24dB, <i>Highpass output, 24dB</i> <br />
 
       </description>
     </entry>
@@ -113,6 +118,11 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_svfs_tpt" type="refpage"/>
+    <seealso name="evi_svfs_lto" type="refpage"/>
+    <seealso name="evi_clip" type="refpage"/>
+    <seealso name="evi_tanh" type="refpage"/>
+    <seealso name="evi_adaa" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

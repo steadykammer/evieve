@@ -214,6 +214,7 @@
         "evi.flanger.digital~",
         "evi.chorus.digital~",
         "evi.phaser.analog~",
+        "evi.detune.wrap~",
         "evi.detune~",
         "evi.phasor0~"
     ]

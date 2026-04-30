@@ -1,24 +1,26 @@
 {
     "object": {
-        "name": "evi.detune~",
-        "parent": "evi_detune",
+        "name": "evi.detune.wrap~",
+        "parent": "evi_detune_wrap",
         "category": "evieve",
         "tilde": "~",
-        "digest": "A quirky digital Detune effect, LoFi and old school",
-        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. Includes a linkwitz-riley crossover to shift the focus and strength of the effect. See <o>evi.detune.wrap~</o> for a more complex and expensive version of this algorithm.",
+        "digest": "A quirky digital Detune effect with filtering and saturation",
+        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm.",
         "discussion": ""
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": [
+            "evieve Nonlinear",
             "evieve Modulation",
             "evieve Effect"
         ]
     },
     "includes": [
-        "evi_smooth_bank.genexpr",
         "evi_crossovers.genexpr",
-        "evi_utilities.genexpr"
+        "evi_butterworth.genexpr",
+        "evi_svfs_tpt.genexpr",
+        "evi_adaa.genexpr"
     ],
     "inlets": [
         {
@@ -65,13 +67,13 @@
             "name": "history",
             "arg": [
                 {
-                    "name": "dryL",
+                    "name": "circuitL",
                     "type": "int",
                     "units": "default: 0",
                     "optional": 1
                 },
                 {
-                    "name": "dryR",
+                    "name": "circuitR",
                     "type": "int",
                     "units": "default: 0",
                     "optional": 1
@@ -119,6 +121,18 @@
             }
         },
         {
+            "name": "feedback",
+            "get": 1,
+            "type": "float",
+            "digest": "Linear gain -1..1",
+            "description": "The level of gain to send the tapped audio through the feedback saturator.",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "0."
+            }
+        },
+        {
             "name": "latency",
             "get": 1,
             "type": "int",
@@ -140,6 +154,54 @@
                 "min": "0",
                 "max": "1",
                 "value": "0.9"
+            }
+        },
+        {
+            "name": "postfilterfrequency",
+            "get": 1,
+            "type": "float",
+            "digest": "Frequency in Hz",
+            "description": "A clean linear lowpass butterworth for attenuating the top end if needed.",
+            "default": {
+                "min": "1000",
+                "max": "samplerate*0.49",
+                "value": "16000."
+            }
+        },
+        {
+            "name": "prefilterbandwidth",
+            "get": 1,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "The bandwidth approx 0..10 octaves of the pre-filter (inverse resonance).",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "prefilterfrequency",
+            "get": 1,
+            "type": "float",
+            "digest": "Frequency in Hz",
+            "description": "The frequency of the pre-filter. A linear TPT morphing filter which can be used for shaping the input to the detuner. Filter type set by @prefiltermorph attribute.",
+            "default": {
+                "min": "125",
+                "max": "16000",
+                "value": "8000."
+            }
+        },
+        {
+            "name": "prefiltermorph",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "Smoothly interpolate the filter type of the pre-filter, 0=lowpass, 0.5=bandpass, 1=highpass.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0."
             }
         },
         {
@@ -172,12 +234,13 @@
         "image": ""
     },
     "seealso": [
-        "evi.detune.wrap~",
+        "evi.detune~",
         "evi.freqshift.weaver~",
         "evi.chorus.digital~",
         "evi.flanger.digital~",
         "evi.am~",
         "evi.tremolo~",
-        "evi.phaser.analog~"
+        "evi.phaser.analog~",
+        "evi.freqshift.hilbert~"
     ]
 }

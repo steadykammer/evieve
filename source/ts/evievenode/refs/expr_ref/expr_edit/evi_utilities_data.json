@@ -98,6 +98,26 @@
         },
         {
             "document": true,
+            "digest": "Filter cutoff coefficient warp",
+            "name": "preWarp0",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "cutoff",
+                    "digest": "in Hz"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "w",
+                    "digest": "approximation of tan(PI * cutoff / SAMPLERATE)"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Warp Hz..g for trapezoidal linear rc filters",
             "name": "preWarpG",
             "inputs": [

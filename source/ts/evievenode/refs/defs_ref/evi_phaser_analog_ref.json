@@ -308,6 +308,7 @@
         "evi.am~",
         "evi.tremolo~",
         "evi.phaser.analog~",
+        "evi.detune.wrap~",
         "evi.detune~",
         "evi.phasor0~"
     ]

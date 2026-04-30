@@ -1,8 +1,7 @@
 {
-    "description": "",
+    "description": "Three different resonant-like filters for filterbank style setups, originally created for the evieve vocoder.",
     "requires": [
-        "evi_smooth.genexpr",
-        "evi_interp.genexpr"
+        "evi_utilities.genexpr"
     ],
     "functions": [
         {
@@ -47,258 +46,218 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order antiderivative of a tanh()-like function",
             "name": "adSc1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "tanh()",
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "adSc1_2x_6POINT",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "XIN",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "rcPreWarp0",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "cutoff",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
+            "digest": "Resonance coefficients calculator for the 'svfButterPreWarp()'",
             "name": "svfButterCoeffs",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "R",
-                    "digest": ""
+                    "digest": "resonance inverted"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "R1",
+                    "digest": "Coefficient 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "R2",
+                    "digest": "Coefficient 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "R3",
+                    "digest": "Coefficient 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "R4",
+                    "digest": "Coefficient 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for the 'svfButterBp()'",
             "name": "svfButterPreWarp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "cutoff",
-                    "digest": ""
+                    "digest": "in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "resonance",
-                    "digest": ""
+                    "digest": "Normalised 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "w0",
+                    "digest": "Normalised frequency coefficient"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "pksR",
+                    "digest": "Normalised resonance coefficient as factor of resonance and frequency"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "R1",
+                    "digest": "Resonance coefficient 1"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "R2",
+                    "digest": "Resonance coefficient 2"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "R3",
+                    "digest": "Resonance coefficient 3"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "R4",
+                    "digest": "Resonance coefficient 4"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Coefficients calculator for the 'svfSectionReson()'",
             "name": "svfCoeffReson",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Cutoff in Hz"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "q",
-                    "digest": ""
+                    "digest": "Resonance 0.05..10000"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "a0",
+                    "digest": "Filter coefficient 1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "a1",
+                    "digest": "Filter coefficient 2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "a2",
+                    "digest": "Filter coefficient 3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "k",
+                    "digest": "Gain coefficient"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Transposed TPT SVF",
             "name": "svfButterBp",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "w",
-                    "digest": ""
+                    "digest": "Frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Bandpass",
+                    "digest": "TPT Bandpass filter"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Linear Trapezoidal SVF",
             "name": "svfSectionReson",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "v0",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "a0",
-                    "digest": ""
+                    "digest": "Filter coefficient 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "a1",
-                    "digest": ""
+                    "digest": "Filter coefficient 2"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "a2",
-                    "digest": ""
+                    "digest": "Filter coefficient 3"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Bandpass",
+                    "digest": "LTO Bandpass filter"
                 }
             ]
         },
@@ -489,51 +448,57 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "It is a shocking bastardisation of an evieve transistor ladder (@see: 'evi_ladder_moog.gendsp')",
             "name": "onepole4",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "w",
-                    "digest": ""
+                    "digest": "Frequency coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k",
-                    "digest": ""
+                    "digest": "Gain coefficient"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LP_24dB",
+                    "digest": "Lowpass output, 24dB"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "LP_12dB",
+                    "digest": "Lowpass output, 12dB"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "BP_18dB",
+                    "digest": "Bandpass output, 18dB"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "HP_24dB",
+                    "digest": "Highpass output, 24dB"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_svfs_tpt",
+        "evi_svfs_lto",
+        "evi_clip",
+        "evi_tanh",
+        "evi_adaa"
+    ]
 }

@@ -1,3 +1,20 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
 
 /*!
  * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND.
@@ -630,14 +647,6 @@ function parseDataForQlookup()
 
 		qlookup[objectName].keywords = [];
 		if (Object.hasOwn(xmlResult.c74object, 'misc')) {
-			// const discussionData = xmlResult.c74object.misc.filter((el: any) => el.maxattr_name === 'Discussion');
-			// if (Array.isArray(discussionData)) {
-			// 	const keywordData = discussionData[0].entry.filter((el: any) => el.maxattr_name === 'Keywords');
-			// 	if (keywordData.length > 0) {
-			// 		qlookup[objectName].keywords = keywordData[0].description.split(',');
-			// 	}
-			// 	qlookup[objectName].keywords = qlookup[objectName].keywords.map((item: string) => item.trim());
-			// }
 			let keywordData = '';
 			if (Object.hasOwn(xmlResult.c74object.misc, 'entry')) {
 				if (xmlResult.c74object.misc.entry.maxattr_name === 'Keywords') {
@@ -3015,9 +3024,7 @@ function extractParam(node: any, name: string)
 // called from Max {extract_genexpr_asts}
 async function extractGenExprASTs()
 {
-	// cannot work out PEG parsing syntax errors on only these four files (they compile in gen~ fine)
-	// const tempIgnore: string[] = ['evi_counting.genexpr', 'evi_rcfilters.genexpr', 'evi_reverb_library.genexpr', 'evi_sources.genexpr'];
-	// ^^ it turns out this was a Cycling bug with the genexpr.pegjs grammar being slightly different to the lua gen grammar ^^
+	// there was a Cycling bug with the genexpr.pegjs grammar being slightly different to the lua gen grammar
 
 	const genexprsFolder = `${cwd()}/${config.referenceFiles.genExpr.input}`;
 	const fullGenexprsPaths = getFilePathsFromPathRecursive(genexprsFolder, 'genexpr');

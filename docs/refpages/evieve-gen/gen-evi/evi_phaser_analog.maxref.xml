@@ -50,5 +50,6 @@
         <seealso name='evi_phaser_analog' display='evi_phaser_analog' type='genrefpage' />
         <seealso name='evi_detune' display='evi_detune' type='genrefpage' />
         <seealso name='evi_phasor0' display='evi_phasor0' type='genrefpage' />
+        <seealso name='evi_detune_wrap' display='evi_detune_wrap' type='genrefpage' />
     </seealsolist>
 </c74object>

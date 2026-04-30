@@ -1,6 +1,8 @@
 
 /*!
- * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ * This file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ * This file is part of the 'evieve' Package for Max.
+ * evieve is a library of GenExpr audio code by Pete Dowling.
  */
 
 // based on ej (Cycling '74) original, used in e.g. 'overview' patchers to dump categories of objects to umenus based on qlookup

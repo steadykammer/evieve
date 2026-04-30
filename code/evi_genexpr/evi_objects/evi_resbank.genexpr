@@ -21,9 +21,10 @@
 // originally created for the pete vocoder
 
 
-require("evi_smooth.genexpr");
-require("evi_interp.genexpr");
+require("evi_utilities.genexpr");
 
+
+// nonlinear
 
 funcSc0(x) // tanh Lambert approx
 {
@@ -60,55 +61,8 @@ adSc1(x)			// first antiderivative only (half sample)
 	return y;
 }
 
-// fake 2x oversample
-adSc1_2x_6POINT(XIN)
-{	// up 2
-	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
-	// down 2
-	History	dmT3_1(0), dmT2_1(0), dmT1_1(0), dmT0_1(0), dmTm1_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= hermite_sixpoint_interp(0.5,	umTm2_0, umTm1_0, umT0_0, umT1_0, umT2_0, x0_0_a);
-	x2_0	= umT2_0 + 0;
-
-	// process 2x
-	y1_0	= adSc1(x1_0);
-	y2_0	= adSc1(x2_0);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= hermite_sixpoint_interp(0.5,	y2_0_a,	dmTm1_1, dmT0_1, dmT1_1, dmT2_1, dmT3_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm2_0	= umTm1_0;
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0 	= umT2_0;
-	umT2_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT3_1	= dmT2_1;
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= dmTm1_1;
-	dmTm1_1	= y2_0;
-
-	return dcblock(y0_0);
-}
-
 
 // coefficients
-
-rcPreWarp0(cutoff)
-{
-	return	tanA2(PI * cutoff / SAMPLERATE);
-}
 
 svfButterCoeffs(R)	// TODO: could optimise more by just using cosQ32() quadrants
 {
@@ -132,7 +86,7 @@ svfButterPreWarp(cutoff, resonance)				// use with "svfButterBp()"
 
 	R1, R2, R3, R4 = svfButterCoeffs(R);
 
-	w0	= clip(rcPreWarp0(cutoff), 0.000001, HALFPI);
+	w0	= clip(preWarp0(cutoff), 0.000001, HALFPI);// surely this clip is not needed?
 	pk	= ((1 - w0) * 0.41421356237309515) + 1;	// everybody needs a bosom for a pillow
 	pksR = RR * (pk + (sqrt1_2 * sR));
 
@@ -142,7 +96,7 @@ svfButterPreWarp(cutoff, resonance)				// use with "svfButterBp()"
 // no dB gain required for filterbank usage
 svfCoeffReson(hz, q)							// use with "svfSectionReson()"
 {
-	g 	= rcPreWarp0(hz);
+	g 	= preWarp0(hz);
 	k 	= 1 / q;								// ('adaptive Q' goes here)
 	a0	= 1 / (1 + g * (g + k));
 	a1	= g * a0;
@@ -223,7 +177,6 @@ onepole_next(y, x, g, s, k)
 {
 //	t = funcSc0(x - (k * y));				// tanhL()
 	t = adSc1((x - (k * y)), 0);			// 1st order antiderivative
-//	t = adSc1_2x_6POINT((x - (k * y)), 0);	// 1st order antiderivative but 2x oversampled
 	return y - (((t * g) + s - y) / ((((t * t) - 1) * k * g) - 1));
 }
 /*

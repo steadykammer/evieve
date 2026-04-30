@@ -3,16 +3,19 @@
         "name": "evi_detune",
         "child": "evi.detune~",
         "category": "evieve",
-        "digest": "A quirky digital Detune effect, LoFi and old school",
-        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. Includes a linkwitz-riley crossover to shift the focus and strength of the effect. See <o>evi.detune.wrap~</o> for a more complex and expensive version of this algorithm."
+        "digest": "A quirky digital Detune effect with filtering and saturation",
+        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm."
     },
     "constructor": {
         "inlets": "left, right, reset"
     },
     "includes": [
         "evi_smooth_bank",
+        "evi_waveshaping",
         "evi_crossovers",
-        "evi_utilities"
+        "evi_butterworth",
+        "evi_svfs_tpt",
+        "evi_adaa"
     ],
     "inlets": [
         {
@@ -98,6 +101,16 @@
             }
         },
         {
+            "name": "feedback",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "The level of gain to send the tapped audio through the feedback saturator.",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
             "name": "latency",
             "type": "int",
             "digest": "@min 0, @max 4",
@@ -115,6 +128,46 @@
             "default": {
                 "type": "float",
                 "value": "0.9"
+            }
+        },
+        {
+            "name": "postfilterfrequency",
+            "type": "float",
+            "digest": "@min 1000, @max samplerate*0.49",
+            "description": "A clean linear lowpass butterworth for attenuating the top end if needed.",
+            "default": {
+                "type": "float",
+                "value": "16000."
+            }
+        },
+        {
+            "name": "prefilterbandwidth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "The bandwidth approx 0..10 octaves of the pre-filter (inverse resonance).",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "prefilterfrequency",
+            "type": "float",
+            "digest": "@min 125, @max 16000",
+            "description": "The frequency of the pre-filter. A linear TPT morphing filter which can be used for shaping the input to the detuner. Filter type set by @prefiltermorph attribute.",
+            "default": {
+                "type": "float",
+                "value": "8000."
+            }
+        },
+        {
+            "name": "prefiltermorph",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "Smoothly interpolate the filter type of the pre-filter, 0=lowpass, 0.5=bandpass, 1=highpass.",
+            "default": {
+                "type": "float",
+                "value": "0."
             }
         },
         {
@@ -136,13 +189,19 @@
                 "type": "int",
                 "value": "4"
             }
+        },
+        {
+            "name": "xover",
+            "type": "float",
+            "digest": "@min 125, @max 1000",
+            "description": "Crossover frequency in Hz. Below this crossover point (the bass) the audio is mono summed, saturated and added back into the wet output mix. Above this crossover point the audio is chanelled through the detune effect.",
+            "default": {
+                "type": "float",
+                "value": "250."
+            }
         }
     ],
     "seealso": [
-        {
-            "name": "evi_detune_wrap",
-            "display": "evi_detune_wrap"
-        },
         {
             "name": "evi_chorus_digital",
             "display": "evi_chorus_digital"
@@ -164,8 +223,16 @@
             "display": "evi_phaser_analog"
         },
         {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
             "name": "evi_freqshift_weaver",
             "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_freqshift_hilbert",
+            "display": "evi_freqshift_hilbert"
         }
     ]
 }

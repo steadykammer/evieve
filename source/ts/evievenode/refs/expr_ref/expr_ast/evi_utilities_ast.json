@@ -1037,6 +1037,69 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "preWarp0",
+                "raw": "preWarp0"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "cutoff",
+                    "raw": "cutoff"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "BinaryExpression",
+                                    "operator": "/",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "PI",
+                                            "raw": "PI"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cutoff",
+                                            "raw": "cutoff"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "SAMPLERATE",
+                                        "raw": "SAMPLERATE"
+                                    }
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "tanA2",
+                                "raw": "tanA2"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "preWarpG",
                 "raw": "preWarpG"
             },
@@ -1068,33 +1131,15 @@
                                 "type": "CallExpression",
                                 "arguments": [
                                     {
-                                        "type": "BinaryExpression",
-                                        "operator": "/",
-                                        "left": {
-                                            "type": "BinaryExpression",
-                                            "operator": "*",
-                                            "left": {
-                                                "type": "Identifier",
-                                                "name": "PI",
-                                                "raw": "PI"
-                                            },
-                                            "right": {
-                                                "type": "Identifier",
-                                                "name": "cutoff",
-                                                "raw": "cutoff"
-                                            }
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "SAMPLERATE",
-                                            "raw": "SAMPLERATE"
-                                        }
+                                        "type": "Identifier",
+                                        "name": "cutoff",
+                                        "raw": "cutoff"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanA2",
-                                    "raw": "tanA2"
+                                    "name": "preWarp0",
+                                    "raw": "preWarp0"
                                 }
                             }
                         }

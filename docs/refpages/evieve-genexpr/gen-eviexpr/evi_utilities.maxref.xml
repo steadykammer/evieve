@@ -50,6 +50,16 @@
 
       </description>
     </entry>
+    <entry name="preWarp0 ( )">
+      <description>
+        Filter cutoff coefficient warp <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: cutoff, <i>in Hz</i> <br />
+
+        <b>Return 1</b>: w, <i>approximation of tan(PI * cutoff / SAMPLERATE)</i> <br />
+
+      </description>
+    </entry>
     <entry name="preWarpG ( )">
       <description>
         Warp Hz..g for trapezoidal linear rc filters <br />

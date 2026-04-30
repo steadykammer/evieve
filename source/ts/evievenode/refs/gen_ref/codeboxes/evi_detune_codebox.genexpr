@@ -1,13 +1,25 @@
 
-// overcomplex stereo detune effect
+// lofi and old school stereo detune effect
 // loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett (mda-vst.com)
+// @see: 'evi_detune_wrap.gendsp' or [evi.detune.wrap~] for a more complex and expensive version of this algorithm
 
 require("evi_smooth_bank.genexpr");
-require("evi_waveshaping.genexpr");
 require("evi_crossovers.genexpr");
-require("evi_butterworth.genexpr");
-require("evi_svfs_tpt.genexpr");
-require("evi_adaa.genexpr");
+require("evi_utilities.genexpr");
+
+polyNom(x)
+{
+	x2 = x*x;
+	x3 = x*x2;
+	return (x + (x3 * -0.18963)) + (x3 * x2 * 0.016182);
+}
+
+polySat(x)
+{
+	p531 = polyNom(x);
+	pn = -1.8153 > x ? -1 : p531;
+	return x > 1.8153 ? 1 : pn;
+}
 
 History init(1), prevSize(4096), prevWin(4);
 
@@ -16,32 +28,18 @@ History	pos0(0), pos1(0), pos2(0);					// write / read phases
 History phaseReset(1);
 
 History dryL(0), dryR(0);                           // align
-History circuitL(0), circuitR(0);
 
-Param   xover(250., min=125, max=1000);             // detune takes place above xover freq
-Param	feedback(0., min=-1, max=1);				// feedback gain, amplitude, -1..1
+Param   crossover(250., min=125, max=1000);         // detune takes place above crossover freq
 Param   drywet(sqrt1_2, min=0, max=1);              // entire effect
-
-Param   prefilterfrequency(8000., min=125, max=16000);
-Param   prefilterbandwidth(0.5, min=0, max=1);
-Param   prefiltermorph(0., min=0, max=1);           // 0=lowpass, 0.5=bandpass, 1=highpass
 
 Param	detune(0.3, min=0, max=1);
 Param	mix(0.9, min=0, max=1);                     // dry/wet of just detune effect
 Param	window(4, min=0, max=5);					// detune window, default 4 == "Hann"
 Param	latency(4, min=0, max=4);					// 0..4, default 4 = 4096 samples
 
-Param   postfilterfrequency(16000., min=1000, max=samplerate*0.49);
-
 Param   smooth(22., min=0, max=333);                // ms
 smsecs  = smooth * 0.001;
 smsamps = smsecs * samplerate;
-
-feedbackgain = feedback * sqrt1_2;                  // because (it works)
-prefiltfreq  = prefilterfrequency;
-prefiltbw    = prefilterbandwidth;
-prefiltmorph = prefiltermorph;
-postfiltfreq = postfilterfrequency;
 
 dimdata     = dim(detuneData);
 reset		= clip(in3, 0, 1);
@@ -55,6 +53,7 @@ Size05  = Size / 2;
 Win     = latch(int(window), phaseReset + retrigger);
 a0, a1, a2 = windowCoeffs(Win);
 
+// horrible
 if ((init) || (prevSize != Size) || (prevWin != Win)) {
     for (w = 0; w < winsize; w += 1) {
         win = winMan(w, a0, a1, a2, windowsize=winsize);
@@ -72,8 +71,8 @@ prevWin = Win;
 // DETUNE
 
 laura	= 1.059463094359295264561825;
-//semi	= eviLine((3 * detune * detune * detune), smsamps); // original
-semi	= eviLine((3 * detune * detune), smsamps);
+//semi	= evi_line((3 * detune * detune * detune), smsamps); // original
+semi	= evi_line((3 * detune * detune), smsamps);
 dpos2	= pow(laura, semi);				                // dpos2 (must be accurate = use 'pow()')
 dpos1	= 1 / dpos2;
 //dryMix, wetMix = logsmoothBank2((1 - (mix * mix)), ((2 - mix) * mix), smsecs); // original, this does not work well
@@ -95,13 +94,13 @@ xR      = in2;
 dryL    = xL;
 dryR    = xR;
 // xover
-xoverLowL, xoverLowR, wetInL, wetInR = eviXover2pole2bandStereo(xL, xR, xover);
+xoverLowL, xoverLowR, wetInL, wetInR = eviXover2pole2bandStereo(xL, xR, crossover);
 
 // INPUTS
 
-circMonoWet = wetMix * ((circuitL + circuitR) * 0.5);	// 'mix' wet input to detuneData poke
-circLdry = circuitL * dryMix;							// 'dry' Left mix
-circRdry = circuitR * dryMix;							// 'dry' Right mix
+circMonoWet = wetMix * ((wetInL + wetInR) * 0.5);	// 'mix' wet input to detuneData poke
+circLdry = wetInL * dryMix;							// 'dry' Left mix
+circRdry = wetInR * dryMix;							// 'dry' Right mix
 // always write input to buffer
 poke(detuneData, circMonoWet, p0, 0, index="samples", boundmode="wrap");
 
@@ -126,12 +125,6 @@ Rbx  = peek(detuneData, Rp2i, 0, interp="cubic", boundmode="wrap", index="sample
 Rx   = peek(detuneData, Rp0i, 1, interp="linear", boundmode="wrap", index="samples");	// read window from windowMem
 preSumR = Rbx + (Rx * (Rax - Rbx));				// d = Right
 
-// POST FILTER
-
-G = fWarp(postfiltfreq);
-postFiltL = butterworthLowpass5(preSumL, G);
-postFiltR = butterworthLowpass5(preSumR, G);
-
 // LOW END
 
 lowMono = (xoverLowL + xoverLowR) * sqrt1_2;
@@ -141,36 +134,14 @@ lowSumR = lowSat + circRdry;
 
 // OUTPUTS
 
-wetL    = lowSumL + postFiltL;
-wetR    = lowSumR + postFiltR;
+wetL    = lowSumL + preSumL;
+wetR    = lowSumR + preSumR;
 
 // xfade dry / wet & output
 outputL, outputR = stereoXfadePar(dryL, dryR, wetL, wetR, drywet);
 
 out1 = outputL;
 out2 = outputR;
-
-// FEEDBACK
-
-// mono
-fbSum = (((preSumL + preSumR) * sqrt1_2) * feedbackgain);
-fbX = altTanhSqrtAdaa1(fbSum);
-
-// PRE FILTER
-
-// morphL, _lpL, _bpL, _hpL, _notchL = evi_svfsmooth(wetInL, prefiltfreq, prefiltres, prefiltmorph);
-// morphR, _lpR, _bpR, _hpR, _notchR = evi_svfsmooth(wetInR, prefiltfreq, prefiltres, prefiltmorph);
-// gain in dB, bandwidth 0..1, smooth in ms
-morphL, morphR = eviFilterMorphLpBpHpStereo(wetInL, wetInR, prefiltfreq, 0, prefiltbw, prefiltmorph, smooth=smooth);
-
-// WRITE
-
-writeL = eCubicAdaa2(morphL + fbX);
-writeR = eCubicAdaa2(morphR + fbX);
-
-// this could be a delay()
-circuitL = writeL;
-circuitR = writeR;
 
 out3 = p0;
 

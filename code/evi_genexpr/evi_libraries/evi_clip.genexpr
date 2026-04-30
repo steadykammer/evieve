@@ -677,16 +677,15 @@ funcSc0(x) // alternative tanh approx
 	return	(x > 0) ? res : -res; // >= ?
 }
 
-funcSc1(x) // first antiderivative
+funcSc1(x) // first antiderivative, approx version for Adaa1
 {
-//	return log(cosh(x)); // Approxes no good as do not match our tanh() Approx
 	return logApprox(coshApprox(x));
 }
 
-funcSc11(x) // first antiderivative
+funcSc11(x) // first antiderivative, real version for Adaa2
 {
-	return log(cosh(x)); // Approxes no good as do not match our tanh() Approx
-//	return logApprox(coshApprox(x));
+	return log(cosh(x));
+//	return logApprox(coshApprox(x)); // Approxes no good for Adaa2 as do not match our tanh() Approx
 }
 
 // almost pointless because so expensive with this forced precision
