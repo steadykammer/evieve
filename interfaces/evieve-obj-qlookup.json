@@ -450,7 +450,7 @@
     "evi.hilbert~": {
         "digest": "Hilbert quadrature (phase shift) filter \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Utility", "evieve Modulation", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Utility", "evieve Modulation" ],
         "keywords": [],
         "seealso": [ "evi.polyphaseiirhilbertcoeffs", "evi.freqshift.hilbert~", "evi.phaseshift~", "evi.cross~" ]
     },
@@ -548,7 +548,7 @@
     "evi.lores~": {
         "digest": "Reimplementation of MSP lores~ filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.lorez~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
@@ -646,7 +646,7 @@
     "evi.paf~": {
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased", "evieve Effect" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
@@ -667,7 +667,7 @@
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Modulation", "evieve MSP Substitution", "evieve Utility" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve MSP Substitution", "evieve Utility" ],
         "keywords": [],
         "seealso": [ "evi.filter.allpass~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.svf~", "evi.cross~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
@@ -716,7 +716,7 @@
     "evi.rcfilter~": {
         "digest": "Trapezoidal nonliner onepole rc filter emulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve Onepole" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve Nonlinear", "evieve Onepole" ],
         "keywords": [],
         "seealso": [ "evi.onepole~", "evi.tone.macro~", "evi.korgms20.select~", "evi.ladder.moog~" ]
     },
@@ -737,7 +737,7 @@
     "evi.reson~": {
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.lores~", "evi.onepole~", "evi.svf~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
@@ -807,7 +807,7 @@
     "evi.squine.simple~": {
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased", "evieve Effect" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.paf~", "evi.vosim.basic~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
@@ -842,7 +842,7 @@
     "evi.svf~": {
         "digest": "Reimplementation of MSP svf~ as a TPT filter",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve MSP Substitution" ],
         "keywords": [],
         "seealso": [ "evi.filter~", "evi.multimode~", "evi.svfsmooth~", "evi.svfsynth~", "evi.lores~", "evi.onepole~", "evi.reson~", "evi.cross~", "evi.phaseshift~", "evi.hilbert~", "evi.allpass~", "evi.comb~", "evi.teeth~", "evi.bp~", "evi.vcf~" ]
     },
@@ -919,7 +919,7 @@
     "evi.vosim.basic~": {
         "digest": "A basic implementation of a 'vosim' formant oscillator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased", "evieve Effect" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
         "seealso": [ "evi.formantosc~", "evi.paf~", "evi.4wave~", "evi.blitwaves~", "evi.wavefolder.cascade~", "evi.freqshift.weaver~", "evi.ringmod~" ]
     },
@@ -968,7 +968,7 @@
     "evi.zeroxoscnoise~": {
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Oscillator", "evieve Effect", "evieve Noise" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Oscillator", "evieve Effect", "evieve Noise" ],
         "keywords": [],
         "seealso": [ "evi.blitwaves~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~" ]
     },

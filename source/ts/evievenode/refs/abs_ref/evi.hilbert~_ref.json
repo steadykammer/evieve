@@ -13,8 +13,7 @@
             "evieve Filter Linear",
             "evieve MSP Substitution",
             "evieve Utility",
-            "evieve Modulation",
-            "evieve Effect"
+            "evieve Modulation"
         ]
     },
     "inlets": [
