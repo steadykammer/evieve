@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -355,7 +355,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 264.0, 255.0, 135.0, 23.0 ],
-                                    "text": "evi.cfsmooth~ 500. 11"
+                                    "text": "evi.cfsmooth~ 458. 11"
                                 }
                             },
                             {
@@ -365,8 +365,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 337.0, 392.0, 143.0, 23.0 ],
-                                    "text": "evi.lagsmooth~ 100. 33"
+                                    "patching_rect": [ 337.0, 392.0, 151.0, 23.0 ],
+                                    "text": "evi.lagsmooth~ 6443. 33"
                                 }
                             },
                             {
@@ -517,7 +517,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
-                                            "parameter_initial": [ 458.4841619861625 ],
+                                            "parameter_initial": [ 458.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[2]",
                                             "parameter_mmax": 20000.0,
@@ -556,7 +556,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
-                                            "parameter_initial": [ 6443.0309877791115 ],
+                                            "parameter_initial": [ 6443.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[3]",
                                             "parameter_mmax": 10000.0,
@@ -3099,7 +3099,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,

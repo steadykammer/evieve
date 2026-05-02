@@ -189,7 +189,7 @@ tptSvfUnit(cutoff, Q, os=0)				// Q is full, must be remapped from 0..1 upstream
 	return 	g, r, h;
 }
 
-// external, for writing Historys in/out of a Data for inline cascades
+// external, for writing Historys in/out of a Data() for inline cascades
 tptSvfExternal(x, g, r, a, s1i, s2i)
 {
 	yH	= (x - (r + g) * s1i - s2i) * a;
