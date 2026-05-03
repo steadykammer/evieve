@@ -16,6 +16,29 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-14",
+                    "ignoreclick": 1,
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 495.0, 465.0, 332.0, 22.0 ],
+                    "presentation_linecount": 3,
+                    "text": "HISS Tools is not installed\\, this evieve patcher will not work !"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 540.0, 516.0, 123.0, 22.0 ],
+                    "text": "print evieve: @level 1"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-3",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -33,7 +56,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 606.0, 248.0, 24.0, 24.0 ]
+                    "patching_rect": [ 606.0, 218.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -44,14 +67,14 @@
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 508.0, 246.0, 24.0, 24.0 ]
+                    "patching_rect": [ 508.0, 216.0, 24.0, 24.0 ]
                 }
             },
             {
                 "box": {
                     "comment": "",
                     "id": "obj-11",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -75,10 +98,10 @@
                     "id": "obj-8",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "bang", "bang" ],
-                    "patching_rect": [ 571.0, 448.0, 32.0, 22.0 ],
-                    "text": "t b b"
+                    "numoutlets": 3,
+                    "outlettype": [ "bang", "bang", "bang" ],
+                    "patching_rect": [ 571.0, 418.0, 42.0, 22.0 ],
+                    "text": "t b b b"
                 }
             },
             {
@@ -88,7 +111,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "close" ],
-                    "patching_rect": [ 611.0, 308.0, 43.0, 22.0 ],
+                    "patching_rect": [ 611.0, 278.0, 43.0, 22.0 ],
                     "text": "t close"
                 }
             },
@@ -99,7 +122,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 512.0, 363.0, 51.0, 22.0 ],
+                    "patching_rect": [ 512.0, 333.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -110,7 +133,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "open", "int" ],
-                    "patching_rect": [ 505.0, 308.0, 52.0, 22.0 ],
+                    "patching_rect": [ 505.0, 278.0, 52.0, 22.0 ],
                     "text": "t open 1"
                 }
             },
@@ -131,7 +154,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "openrect": [ 500.0, 300.0, 500.0, 300.0 ],
+                        "openrect": [ 500.0, 300.0, 500.0, 335.0 ],
                         "openrectmode": 0,
                         "openinpresentation": 1,
                         "gridonopen": 2,
@@ -154,7 +177,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 44.0, 144.0, 67.0, 22.0 ],
-                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "noclose", "nozoom", "float", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 500, 300, 1000, 540, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "noclose", "nozoom", "float", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 500, 300, 1000, 575, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                     "text": "thispatcher"
                                 }
                             },
@@ -280,7 +303,7 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Close this window and open the Max Package Manager for me",
+                                    "annotation": "Open the Max Package Manager for me",
                                     "annotation_name": "Do Package Install",
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
@@ -384,7 +407,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 522.0, 403.0, 51.0, 22.0 ],
+                    "patching_rect": [ 522.0, 373.0, 51.0, 22.0 ],
                     "text": "p modal"
                 }
             },
@@ -1032,7 +1055,15 @@
         "lines": [
             {
                 "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "order": 1,
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-7", 0 ],
+                    "order": 0,
                     "source": [ "obj-1", 0 ]
                 }
             },
@@ -1076,6 +1107,12 @@
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
                     "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "source": [ "obj-14", 0 ]
                 }
             },
             {
@@ -1129,13 +1166,13 @@
             {
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
-                    "source": [ "obj-8", 0 ]
+                    "source": [ "obj-8", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-94", 0 ],
-                    "source": [ "obj-8", 1 ]
+                    "source": [ "obj-8", 2 ]
                 }
             },
             {
@@ -1163,6 +1200,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

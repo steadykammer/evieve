@@ -54,6 +54,7 @@
                     "annotation": "Click for 'evieve Package Overview'",
                     "annotation_name": "evieve Package Overview",
                     "handoff": "",
+                    "hint": "Click for 'evieve Package Overview'",
                     "hltcolor": [ 1.0, 1.0, 1.0, 0.5 ],
                     "id": "obj-4",
                     "maxclass": "ubutton",
@@ -64,6 +65,8 @@
                     "patching_rect": [ 11.0, 11.0, 98.0, 98.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 0.0, 0.0, 98.0, 98.0 ],
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "basic_ubutton"
                 }
             }

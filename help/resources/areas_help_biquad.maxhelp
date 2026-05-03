@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 131.0, 868.0, 785.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -18,6 +18,44 @@
         "integercoordinates": 1,
         "title": "Legacy Biquad Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-16",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 15.0, 490.0, 166.0, 36.0 ],
+                    "presentation_linecount": 2,
+                    "text": "Or compare Biquads and TPT Filters here:"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-15",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 13.0, 528.0, 175.0, 21.0 ],
+                    "text": "Compare Biquads / TPT Filters",
+                    "texton": "Compare Biquads / TPT Filters"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 109.0, 609.0, 210.0, 22.0 ],
+                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                }
+            },
             {
                 "box": {
                     "border": 1,
@@ -122,7 +160,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 17.0, 416.0, 166.0, 108.0 ],
+                    "patching_rect": [ 15.0, 356.0, 166.0, 108.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },
@@ -134,7 +172,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 15.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 13.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -146,7 +184,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 15.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 13.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -158,7 +196,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 15.0, 570.0, 184.0, 22.0 ],
+                    "patching_rect": [ 13.0, 570.0, 184.0, 22.0 ],
                     "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
@@ -170,7 +208,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 15.0, 528.0, 169.0, 20.0 ],
+                    "patching_rect": [ 13.0, 468.0, 175.0, 21.0 ],
                     "text": "TPT Filters in evieve",
                     "texton": "TPT Filters in evieve"
                 }
@@ -549,8 +587,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 543.0, 120.0, 69.0, 36.0 ],
-                    "text": "all in one section",
-                    "textjustification": 0
+                    "text": "all in one section"
                 }
             },
             {
@@ -611,6 +648,20 @@
                 "patchline": {
                     "destination": [ "obj-52", 0 ],
                     "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-15", 0 ]
                 }
             },
             {

@@ -601,7 +601,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 32.0, 73.0, 301.0, 21.0 ],
-                    "text": "high quality 4-point polyBlep"
+                    "text": "4-point polyBlep"
                 }
             },
             {

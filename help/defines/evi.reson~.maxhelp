@@ -44,6 +44,107 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "appearance": 2,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-32",
+                                    "maxclass": "live.numbox",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "float" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 182.0, 295.0, 61.0, 18.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_exponent": 2.0,
+                                            "parameter_initial": [ 220.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "live.numbox[1]",
+                                            "parameter_mmax": 1720.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "live.numbox",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 3
+                                        }
+                                    },
+                                    "varname": "live.numbox[3]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-20",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 30.0, 322.0, 51.0, 50.0 ],
+                                    "text": "Off\nNoise\nOsc",
+                                    "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-17",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 182.0, 320.0, 67.0, 23.0 ],
+                                    "text": "rect~ 220."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "disabled": [ 0, 0, 0 ],
+                                    "id": "obj-18",
+                                    "itemtype": 0,
+                                    "maxclass": "radiogroup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 83.0, 320.0, 18.0, 50.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "0", "1", "2" ],
+                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "radiogroup[2]",
+                                            "parameter_mmax": 2,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "radiogroup",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "size": 3,
+                                    "value": 2,
+                                    "varname": "radiogroup"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-21",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 118.0, 392.0, 83.0, 23.0 ],
+                                    "text": "selector~ 2 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-30",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 120.0, 320.0, 47.0, 23.0 ],
+                                    "text": "noise~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -533,17 +634,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-23",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 118.0, 352.0, 47.0, 23.0 ],
-                                    "text": "noise~"
-                                }
-                            },
-                            {
-                                "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-15",
@@ -708,20 +798,32 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-21", 2 ],
+                                    "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-21", 0 ],
+                                    "source": [ "obj-18", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-16", 0 ],
                                     "source": [ "obj-19", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-19", 0 ],
-                                    "source": [ "obj-22", 0 ]
+                                    "destination": [ "obj-1", 0 ],
+                                    "source": [ "obj-21", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-1", 0 ],
-                                    "source": [ "obj-23", 0 ]
+                                    "destination": [ "obj-19", 0 ],
+                                    "source": [ "obj-22", 0 ]
                                 }
                             },
                             {
@@ -751,8 +853,20 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-21", 1 ],
+                                    "source": [ "obj-30", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-8", 0 ],
                                     "source": [ "obj-31", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-17", 0 ],
+                                    "source": [ "obj-32", 0 ]
                                 }
                             },
                             {
@@ -3713,10 +3827,12 @@
             "obj-11::obj-15": [ "live.dial[7]", "Resonance", 0 ],
             "obj-11::obj-31": [ "live.dial[6]", "Frequency", 0 ],
             "obj-13::obj-15": [ "live.dial[3]", "Resonance", 0 ],
+            "obj-13::obj-18": [ "radiogroup[2]", "radiogroup", 0 ],
             "obj-13::obj-22": [ "number[8]", "number[8]", 0 ],
             "obj-13::obj-25": [ "number[3]", "number[8]", 0 ],
             "obj-13::obj-26": [ "number[7]", "number[7]", 0 ],
             "obj-13::obj-31": [ "live.dial[2]", "Frequency", 0 ],
+            "obj-13::obj-32": [ "live.numbox[1]", "live.numbox", 0 ],
             "obj-13::obj-37": [ "number", "number", 0 ],
             "obj-2::obj-11": [ "number[2]", "number", 0 ],
             "obj-2::obj-17": [ "number[1]", "number[1]", 0 ],

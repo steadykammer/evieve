@@ -17,6 +17,7 @@
         "devicewidth": 660.0,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
+        "title": "Noise Sources in evieve",
         "boxes": [
             {
                 "box": {
@@ -306,8 +307,8 @@
                 "box": {
                     "border": 0,
                     "fontface": 0,
-                    "fontname": "Lato",
-                    "fontsize": 12.0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
                     "id": "obj-27",
                     "linkbold": 1,
                     "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
@@ -315,7 +316,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 162.0, 542.0, 318.0, 22.0 ],
+                    "patching_rect": [ 162.0, 537.0, 318.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"

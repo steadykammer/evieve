@@ -22,6 +22,43 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-60",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 445.0, 471.0, 152.0, 50.0 ],
+                    "text": "But if you need Biquads there are many of those in evieve as well:"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 203.0, 523.0, 175.0, 21.0 ],
+                    "text": "Compare Biquads / TPT Filters",
+                    "texton": "Compare Biquads / TPT Filters"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-57",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 203.0, 570.0, 210.0, 22.0 ],
+                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,
@@ -460,7 +497,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 626.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 641.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -472,7 +509,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 626.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 641.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -484,7 +521,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 626.0, 570.0, 222.0, 22.0 ],
+                    "patching_rect": [ 641.0, 570.0, 222.0, 22.0 ],
                     "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
@@ -509,7 +546,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 406.0, 570.0, 198.0, 22.0 ],
+                    "patching_rect": [ 436.0, 570.0, 198.0, 22.0 ],
                     "text": "list.reg areas_help_biquad.maxhelp"
                 }
             },
@@ -521,7 +558,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 406.0, 523.0, 169.0, 20.0 ],
+                    "patching_rect": [ 436.0, 523.0, 169.0, 20.0 ],
                     "text": "Biquad Filters in evieve",
                     "texton": "Biquad Filters in evieve"
                 }
@@ -534,8 +571,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 151.0, 471.0, 462.0, 50.0 ],
-                    "text": "You should always favour these linear filters over Biquads as they are superior TPT filters with excellent modulation characteristics, but if you need Biquads there are many of those in evieve as well:"
+                    "patching_rect": [ 155.0, 471.0, 272.0, 50.0 ],
+                    "text": "You should always favour these linear filters over Biquads as they are superior TPT filters with excellent modulation characteristics:"
                 }
             },
             {
@@ -937,6 +974,20 @@
                 "patchline": {
                     "destination": [ "obj-17", 0 ],
                     "source": [ "obj-46", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-57", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-57", 0 ]
                 }
             },
             {

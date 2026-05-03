@@ -22,11 +22,12 @@
                 "box": {
                     "fontsize": 13.0,
                     "id": "obj-41",
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 508.0, 380.0, 52.0, 21.0 ],
-                    "text": "gen~",
+                    "patching_rect": [ 468.0, 335.0, 133.0, 65.0 ],
+                    "text": "MSP substitutions as well as all evieve smoothers available in gen~",
                     "textjustification": 1
                 }
             },
