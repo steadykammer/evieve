@@ -401,6 +401,20 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "attr": "linearmode",
+                                    "id": "obj-42",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 784.0, 557.0, 93.0, 22.0 ],
+                                    "text_width": 70.0
+                                }
+                            },
+                            {
+                                "box": {
                                     "bubble": 1,
                                     "bubbleside": 2,
                                     "id": "obj-75",
@@ -3110,6 +3124,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "source": [ "obj-42", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-7", 0 ],
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -3226,13 +3246,27 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "attr": "linearmode",
+                                    "id": "obj-52",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 425.0, 607.0, 93.0, 22.0 ],
+                                    "text_width": 70.0
+                                }
+                            },
                             {
                                 "box": {
                                     "bubble": 1,
@@ -3289,7 +3323,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 357.0, 258.0, 238.0 ],
+                                    "patching_rect": [ 46.0, 357.0, 263.0, 238.0 ],
                                     "text": "Now let's listen to the three filters. Turn on the 'Biquad audio' selector~ choice. You can hear the result is far better than in the previous 'control' tab example because we are audio rate smoothing. However, as we learnt in #1 of this patcher (the [p whereToSmoothTheCoefficients] subpatch) this is expensive. Now switch to the 'SVF control' selector~ choice. You can hear it is quite good but with fast control changes the high frequencies are a bit grainy. It is still pretty good though. Finally, switch to the 'SVF audio' selector~ choice. A/B with the Biquad. The SVF is ever so slightly smoother in the high frequency sweep, and a little more bass is present, but it is almost the same."
                                 }
                             },
@@ -3988,6 +4022,7 @@
                                     "fontsize": 13.0,
                                     "id": "obj-124",
                                     "maxclass": "live.dial",
+                                    "needlemode": 2,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
@@ -3997,7 +4032,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[5]",
+                                            "parameter_longname": "live.dial[11]",
                                             "parameter_mmax": 20.0,
                                             "parameter_mmin": -20.0,
                                             "parameter_modmode": 3,
@@ -6689,6 +6724,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "source": [ "obj-52", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-116", 2 ],
                                     "order": 1,
                                     "source": [ "obj-86", 0 ]
@@ -6794,7 +6835,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,
@@ -6802,6 +6843,20 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "attr": "linearmode",
+                                    "id": "obj-52",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 692.0, 737.0, 93.0, 22.0 ],
+                                    "text_width": 70.0
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-54",
@@ -8239,6 +8294,7 @@
                                     "fontsize": 13.0,
                                     "id": "obj-14",
                                     "maxclass": "live.dial",
+                                    "needlemode": 2,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
@@ -8596,6 +8652,13 @@
                                     "destination": [ "obj-11", 0 ],
                                     "source": [ "obj-48", 0 ]
                                 }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-52", 0 ]
+                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -8650,7 +8713,7 @@
             "obj-2::obj-109": [ "toggle[1]", "toggle[1]", 0 ],
             "obj-2::obj-110": [ "toggle[2]", "toggle[2]", 0 ],
             "obj-2::obj-119": [ "radiogroup[4]", "radiogroup[1]", 0 ],
-            "obj-2::obj-124": [ "live.dial[5]", "dB", 0 ],
+            "obj-2::obj-124": [ "live.dial[11]", "dB", 0 ],
             "obj-2::obj-141": [ "number[9]", "number[9]", 0 ],
             "obj-2::obj-16": [ "live.dial[6]", "Q", 0 ],
             "obj-2::obj-19": [ "live.dial[10]", "Freq", 0 ],
