@@ -22,6 +22,7 @@
         "showrootpatcherontab": 0,
         "showontab": 0,
         "integercoordinates": 1,
+        "title": "evieve Compare: Linear TPT Filters",
         "boxes": [
             {
                 "box": {
