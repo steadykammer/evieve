@@ -17,9 +17,73 @@
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve substitutions for MSP filters",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-49",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 337.0, 121.0, 6.0, 23.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-48",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 255.0, 121.0, 6.0, 23.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-47",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 64.0, 195.0, 6.0, 27.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-21",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 64.0, 121.0, 6.0, 23.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 120.0, 557.0, 14.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 111.0, 525.0, 259.0, 13.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-18",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 30.0, 411.0, 259.0, 13.0 ]
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -382,7 +446,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 334.0, 517.0, 73.0, 20.0 ],
+                    "patching_rect": [ 319.0, 496.0, 73.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -406,7 +470,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 200.0, 517.0, 139.0, 21.0 ],
+                    "patching_rect": [ 185.0, 496.0, 139.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -430,7 +494,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 126.0, 517.0, 73.0, 20.0 ],
+                    "patching_rect": [ 111.0, 496.0, 73.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -438,17 +502,6 @@
                     },
                     "text": "<link href=\"; max openhelp evi.bp~\">evi.bp~</link>",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-12",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 334.0, 493.0, 50.0, 22.0 ],
-                    "text": "evi.vcf~"
                 }
             },
             {
@@ -533,7 +586,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 298.0, 266.0, 175.0, 36.0 ],
+                    "patching_rect": [ 229.0, 259.0, 175.0, 36.0 ],
                     "text": "needs to be an abstraction because of coefficients"
                 }
             },
@@ -544,8 +597,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 30.0, 320.0, 182.0, 21.0 ],
-                    "text": "Simpler basic ports:"
+                    "patching_rect": [ 30.0, 344.0, 182.0, 21.0 ],
+                    "text": "Simpler basic ports"
                 }
             },
             {
@@ -585,12 +638,22 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-2",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 76.0, 343.0, 191.0, 20.0 ],
+                                    "text": "Simpler basic ports"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-25",
                                     "linecount": 7,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 747.0, 40.0, 161.0, 100.0 ],
+                                    "patching_rect": [ 747.0, 40.0, 162.0, 100.0 ],
                                     "text": "in gen~ this will by default only work @48kHz samplerate, unless you feed in the coefficients from an external source. @see the MSP abstraction helpfile for details"
                                 }
                             },
@@ -877,178 +940,13 @@
             },
             {
                 "box": {
-                    "id": "obj-90",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 30.0, 358.0, 72.0, 22.0 ],
-                    "text": "evi.allpass~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-60",
-                    "maxclass": "newobj",
-                    "numinlets": 6,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 229.0, 358.0, 72.0, 22.0 ],
-                    "text": "evi.teeth~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-57",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 133.5, 358.0, 64.0, 22.0 ],
-                    "text": "evi.comb~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-84",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 200.0, 493.0, 110.0, 22.0 ],
-                    "text": "evi.butterworthlp6~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-20",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 30.0, 124.0, 67.0, 22.0 ],
-                    "text": "evi.rcfilter~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-16",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 229.0, 124.0, 60.0, 22.0 ],
-                    "text": "evi.lorez~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-15",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 5,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 317.0, 124.0, 89.0, 22.0 ],
-                    "text": "evi.svfsmooth~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-14",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 229.0, 273.0, 67.0, 22.0 ],
-                    "text": "evi.hilbert~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-9",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 30.0, 199.0, 64.0, 22.0 ],
-                    "text": "evi.damp~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-6",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 126.0, 493.0, 51.0, 22.0 ],
-                    "text": "evi.bp~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 136.0, 67.0, 64.0, 22.0 ],
-                    "text": "evi.reson~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 397.0, 67.0, 63.0, 22.0 ],
-                    "text": "evi.cross~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 229.0, 67.0, 60.0, 22.0 ],
-                    "text": "evi.lores~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 30.0, 67.0, 77.0, 22.0 ],
-                    "text": "evi.onepole~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-1",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 4,
-                    "outlettype": [ "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 317.0, 67.0, 51.0, 22.0 ],
-                    "text": "evi.svf~"
-                }
-            },
-            {
-                "box": {
                     "fontsize": 13.0,
                     "id": "obj-44",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 30.0, 494.0, 104.0, 21.0 ],
-                    "text": "Pd filters:"
+                    "text": "Pd filters"
                 }
             },
             {
@@ -1065,11 +963,12 @@
             {
                 "box": {
                     "fontsize": 13.0,
+                    "hidden": 1,
                     "id": "obj-64",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 196.0, 470.0, 118.0, 21.0 ],
+                    "patching_rect": [ 191.0, 473.0, 118.0, 21.0 ],
                     "text": "6-pole derivative"
                 }
             },
@@ -1083,17 +982,6 @@
                     "numoutlets": 0,
                     "patching_rect": [ 200.0, 8.0, 435.0, 36.0 ],
                     "text": "The main point of all these is so that they can all be used inside GenExpr code, but they have also been rewritten using superior TPT filters"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-91",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 489.0, 67.0, 89.0, 22.0 ],
-                    "text": "evi.phaseshift~"
                 }
             },
             {

@@ -17,9 +17,21 @@
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve filters ported from Pd",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 87.0, 341.0, 104.0, 21.0 ],
+                    "text": "See Also"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -136,7 +148,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 297.0, 358.0, 169.0, 20.0 ],
+                    "patching_rect": [ 297.0, 388.0, 169.0, 20.0 ],
                     "text": "Biquad Filters in evieve",
                     "texton": "Biquad Filters in evieve"
                 }
@@ -149,7 +161,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 87.0, 358.0, 169.0, 20.0 ],
+                    "patching_rect": [ 87.0, 388.0, 169.0, 20.0 ],
                     "text": "MSP Filters in evieve",
                     "texton": "MSP Filters in evieve"
                 }
@@ -198,7 +210,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 133.0, 410.0, 169.0, 20.0 ],
+                    "patching_rect": [ 133.0, 440.0, 169.0, 20.0 ],
                     "text": " TPT Filters in evieve",
                     "texton": " TPT Filters in evieve"
                 }
@@ -223,7 +235,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 356.0, 410.0, 169.0, 20.0 ],
+                    "patching_rect": [ 356.0, 440.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -366,7 +378,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 30.0, 30.0, 104.0, 21.0 ],
-                    "text": "Pd filters:"
+                    "text": "Pd filters"
                 }
             },
             {
@@ -377,7 +389,8 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 168.0, 100.0, 118.0, 21.0 ],
-                    "text": "6-pole derivative"
+                    "text": "6-pole derivative",
+                    "textjustification": 1
                 }
             },
             {

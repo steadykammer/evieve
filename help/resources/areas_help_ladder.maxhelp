@@ -9,15 +9,64 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 131.0, 835.0, 710.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Ladder Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-2",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 32.0, 488.0, 162.0, 21.0 ],
+                    "text": "See Also"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 365.0, 19.0, 190.0, 21.0 ],
+                    "text": "Compare Nonlinear Ladder filters",
+                    "texton": "Compare Nonlinear Ladder filters"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-57",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 148.0, 609.0, 221.0, 22.0 ],
+                    "text": "list.reg evicompare_ladderfilters.maxpat"
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-21",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 196.0, 11.0, 167.0, 36.0 ],
+                    "text": "For interactive comparison of Ladder filters see:"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -25,20 +74,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 439.0, 381.0, 52.0, 21.0 ],
+                    "patching_rect": [ 439.0, 369.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-19",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 124.0, 346.0, 363.0, 21.0 ],
-                    "text": "novel two pole (12dB) nonlinear ladder with allpass alignment"
                 }
             },
             {
@@ -55,25 +93,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 369.0, 120.0, 20.0 ],
+                    "patching_rect": [ 62.0, 337.0, 486.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link>",
+                    "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> - novel two pole (12dB) nonlinear ladder with allpass alignment",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-13",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 345.0, 60.0, 22.0 ],
-                    "text": "evi.lorez~"
                 }
             },
             {
@@ -90,13 +117,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 310.0, 120.0, 20.0 ],
+                    "patching_rect": [ 62.0, 276.0, 493.0, 37.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link>",
+                    "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link> - unlike above 'transistor' ladders which scale with resonance, this is a diode ladder filter which peaks with resonance, like a Roland 303",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -114,13 +141,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 251.0, 120.0, 20.0 ],
+                    "patching_rect": [ 62.0, 225.0, 486.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link>",
+                    "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link> - transistor Ladder filter with variable poles output choices",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -138,13 +165,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 192.0, 152.0, 20.0 ],
+                    "patching_rect": [ 62.0, 175.0, 518.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link>",
+                    "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link> - transistor Ladder filter tuned hot and aggressive for dirty synths",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -162,13 +189,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 133.0, 120.0, 20.0 ],
+                    "patching_rect": [ 62.0, 113.0, 493.0, 37.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link>",
+                    "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link> - clean, in tune and versatile transistor Ladder filter for all situations, a high quality Moog emulation",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -180,7 +207,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 32.0, 570.0, 222.0, 22.0 ],
+                    "patching_rect": [ 17.0, 570.0, 222.0, 22.0 ],
                     "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
@@ -192,7 +219,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 47.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 32.0, 526.0, 191.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -205,7 +232,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 456.0, 570.0, 177.0, 22.0 ],
+                    "patching_rect": [ 441.0, 570.0, 177.0, 22.0 ],
                     "text": "list.reg areas_help_svf.maxhelp"
                 }
             },
@@ -217,7 +244,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 456.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 441.0, 526.0, 191.0, 20.0 ],
                     "text": "Nonlinear SVF Filters in evieve",
                     "texton": "Nonlinear SVF Filters in evieve"
                 }
@@ -230,7 +257,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 441.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -242,7 +269,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 441.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -254,7 +281,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 252.0, 570.0, 185.0, 22.0 ],
+                    "patching_rect": [ 237.0, 570.0, 185.0, 22.0 ],
                     "text": "list.reg areas_help_korg.maxhelp"
                 }
             },
@@ -266,7 +293,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 252.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 237.0, 526.0, 191.0, 20.0 ],
                     "text": "Nonlinear Korg Filters in evieve",
                     "texton": "Nonlinear Korg Filters in evieve"
                 }
@@ -279,54 +306,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 55.0, 518.0, 36.0 ],
+                    "patching_rect": [ 62.0, 62.0, 518.0, 36.0 ],
                     "text": "All evieve Ladders are modern TPT ('Zero Delay Feedback') filters with internal saturation and self-oscillation, with excellent behaviour under audio rate modulation"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-17",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 279.0, 398.0, 36.0 ],
-                    "text": "unlike above 'transistor' ladders which scale with resonance, this is a diode ladder filter which peaks with resonance, like a Roland 303"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-15",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 228.0, 335.0, 21.0 ],
-                    "text": "transistor Ladder filter with variable poles output choices"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-14",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 184.0, 169.0, 385.0, 21.0 ],
-                    "text": "transistor Ladder filter tuned hot and aggressive for dirty synths"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-12",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 163.0, 102.0, 308.0, 36.0 ],
-                    "text": "clean, in tune and versatile transistor Ladder filter for all situations, a high quality Moog emulation"
                 }
             },
             {
@@ -337,8 +318,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 404.0, 187.0, 36.0 ],
-                    "text": "legacy Z-1 (not ZDF) old style Ladders, useful for comparison"
+                    "patching_rect": [ 62.0, 405.0, 187.0, 36.0 ],
+                    "text": "legacy Z-1 (not TPT) old style Ladders, useful for comparison"
                 }
             },
             {
@@ -348,7 +329,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 484.0, 146.0, 22.0 ],
+                    "patching_rect": [ 172.0, 449.0, 146.0, 22.0 ],
                     "text": "gen~ @gen evi_pmladder"
                 }
             },
@@ -359,52 +340,8 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 448.0, 93.0, 22.0 ],
+                    "patching_rect": [ 62.0, 449.0, 93.0, 22.0 ],
                     "text": "evi.ladder.antti~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 286.0, 100.0, 22.0 ],
-                    "text": "evi.ladder.diode~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 227.0, 99.0, 22.0 ],
-                    "text": "evi.ladder.poles~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 168.0, 120.0, 22.0 ],
-                    "text": "evi.ladder.transistor~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 109.0, 100.0, 22.0 ],
-                    "text": "evi.ladder.moog~"
                 }
             },
             {
@@ -532,7 +469,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 374.0, 484.0, 181.0, 22.0 ],
+                    "patching_rect": [ 374.0, 449.0, 181.0, 22.0 ],
                     "text": "gen~ @t evieve_ladders_in_gen"
                 }
             },
@@ -546,7 +483,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 442.0, 404.0, 46.0, 77.0 ]
+                    "patching_rect": [ 442.0, 392.0, 45.0, 54.0 ]
                 }
             },
             {
@@ -562,6 +499,13 @@
             }
         ],
         "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-57", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-20", 0 ]
+                }
+            },
             {
                 "patchline": {
                     "destination": [ "obj-33", 0 ],
@@ -609,6 +553,13 @@
                     "destination": [ "obj-53", 0 ],
                     "hidden": 1,
                     "source": [ "obj-54", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-57", 0 ]
                 }
             }
         ],

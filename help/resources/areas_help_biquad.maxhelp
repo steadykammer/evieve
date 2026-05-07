@@ -9,12 +9,13 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 868.0, 785.0 ],
+        "rect": [ 63.0, 100.0, 956.0, 700.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Legacy Biquad Filters in evieve",
         "boxes": [
@@ -27,8 +28,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 15.0, 490.0, 166.0, 36.0 ],
-                    "presentation_linecount": 2,
-                    "text": "Or compare Biquads and TPT Filters here:"
+                    "text": "Compare Biquads and TPT Filters here:"
                 }
             },
             {
@@ -52,7 +52,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 109.0, 609.0, 210.0, 22.0 ],
+                    "patching_rect": [ 208.0, 570.0, 210.0, 22.0 ],
                     "text": "list.reg evicompare_biquadsvf.maxpat"
                 }
             },

@@ -15,9 +15,55 @@
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Oscillators in evieve",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-6",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 35.0, 474.0, 380.0, 13.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 34.0, 384.0, 465.0, 16.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 33.0, 307.0, 388.0, 12.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-3",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 33.0, 217.0, 575.0, 14.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 33.0, 139.0, 498.0, 12.0 ]
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -25,7 +71,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 508.0, 395.0, 52.0, 21.0 ],
+                    "patching_rect": [ 508.0, 399.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -44,7 +90,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 509.0, 208.0, 106.0, 21.0 ],
+                    "patching_rect": [ 509.0, 187.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -68,7 +114,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 326.0, 292.0, 127.0, 20.0 ],
+                    "patching_rect": [ 326.0, 277.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -92,7 +138,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 156.0, 292.0, 106.0, 21.0 ],
+                    "patching_rect": [ 156.0, 277.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -116,7 +162,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 32.0, 292.0, 106.0, 21.0 ],
+                    "patching_rect": [ 32.0, 277.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -140,7 +186,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 328.0, 460.0, 127.0, 20.0 ],
+                    "patching_rect": [ 328.0, 445.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -164,7 +210,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 33.0, 460.0, 127.0, 20.0 ],
+                    "patching_rect": [ 33.0, 445.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -188,7 +234,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 392.0, 377.0, 127.0, 20.0 ],
+                    "patching_rect": [ 392.0, 356.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -212,7 +258,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 299.0, 376.0, 87.0, 21.0 ],
+                    "patching_rect": [ 299.0, 355.0, 87.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -236,7 +282,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 172.0, 376.0, 127.0, 20.0 ],
+                    "patching_rect": [ 172.0, 355.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -260,7 +306,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 33.0, 376.0, 127.0, 20.0 ],
+                    "patching_rect": [ 33.0, 355.0, 127.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -284,7 +330,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 386.0, 208.0, 106.0, 21.0 ],
+                    "patching_rect": [ 386.0, 187.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -308,7 +354,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 275.0, 208.0, 106.0, 21.0 ],
+                    "patching_rect": [ 275.0, 187.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -332,7 +378,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 154.0, 208.0, 106.0, 21.0 ],
+                    "patching_rect": [ 154.0, 187.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -356,7 +402,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 34.0, 208.0, 106.0, 21.0 ],
+                    "patching_rect": [ 34.0, 187.0, 106.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -380,7 +426,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 458.0, 124.0, 87.0, 21.0 ],
+                    "patching_rect": [ 458.0, 109.0, 87.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -404,7 +450,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 267.0, 124.0, 68.0, 21.0 ],
+                    "patching_rect": [ 267.0, 109.0, 68.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -428,7 +474,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 150.0, 124.0, 87.0, 21.0 ],
+                    "patching_rect": [ 150.0, 109.0, 87.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -452,7 +498,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 35.0, 124.0, 87.0, 21.0 ],
+                    "patching_rect": [ 35.0, 109.0, 87.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -460,17 +506,6 @@
                     },
                     "text": "<link href=\"; max openhelp evi.saw~\">evi.saw~</link>",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 328.0, 436.0, 80.0, 22.0 ],
-                    "text": "evi.quadosc~"
                 }
             },
             {
@@ -493,7 +528,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 172.0, 522.0, 191.0, 20.0 ],
+                    "patching_rect": [ 172.0, 507.0, 191.0, 20.0 ],
                     "text": "Noise Sources in evieve",
                     "texton": "Noise Sources in evieve"
                 }
@@ -530,7 +565,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 396.0, 228.0, 36.0 ],
+                    "patching_rect": [ 33.0, 407.0, 228.0, 36.0 ],
                     "text": "oscillator / noise mixer for vocoders, but useful as a source on it's own"
                 }
             },
@@ -541,7 +576,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 325.0, 457.0, 21.0 ],
+                    "patching_rect": [ 33.0, 333.0, 457.0, 21.0 ],
                     "text": "special oscillators"
                 }
             },
@@ -553,7 +588,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 286.0, 228.0, 164.0, 36.0 ],
+                    "patching_rect": [ 286.0, 239.0, 164.0, 36.0 ],
                     "text": "no aliasing polyBlit with simultaneous outlets",
                     "textjustification": 1
                 }
@@ -566,7 +601,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 228.0, 206.0, 36.0 ],
+                    "patching_rect": [ 32.0, 239.0, 206.0, 36.0 ],
                     "text": "2-point polyBlep but with useful morphing capabilities"
                 }
             },
@@ -577,7 +612,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 157.0, 303.0, 21.0 ],
+                    "patching_rect": [ 32.0, 164.0, 303.0, 21.0 ],
                     "text": "2-point polyBlep but with large variety of shapes"
                 }
             },
@@ -588,7 +623,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 326.0, 100.0, 130.0, 21.0 ],
+                    "patching_rect": [ 325.0, 109.0, 130.0, 21.0 ],
                     "text": "<<-- contains:",
                     "textjustification": 2
                 }
@@ -600,184 +635,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 73.0, 301.0, 21.0 ],
+                    "patching_rect": [ 33.0, 86.0, 301.0, 21.0 ],
                     "text": "4-point polyBlep"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-19",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 6,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 32.0, 436.0, 111.0, 22.0 ],
-                    "text": "evi.zeroxoscnoise~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-17",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 392.0, 352.0, 97.0, 22.0 ],
-                    "text": "evi.vosim.basic~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-16",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 267.0, 100.0, 44.0, 22.0 ],
-                    "text": "evi.tri~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-15",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 275.0, 184.0, 79.0, 22.0 ],
-                    "text": "evi.tri.select~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-14",
-                    "maxclass": "newobj",
-                    "numinlets": 5,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 32.0, 352.0, 108.0, 22.0 ],
-                    "text": "evi.squine.simple~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-13",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 386.0, 184.0, 91.0, 22.0 ],
-                    "text": "evi.sine.select~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-12",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 32.0, 100.0, 56.0, 22.0 ],
-                    "text": "evi.saw~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-11",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 32.0, 184.0, 90.0, 22.0 ],
-                    "text": "evi.saw.select~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-10",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 150.0, 100.0, 54.0, 22.0 ],
-                    "text": "evi.rect~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-9",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 154.0, 184.0, 89.0, 22.0 ],
-                    "text": "evi.rect.select~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-8",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 5,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 299.0, 352.0, 61.0, 22.0 ],
-                    "text": "evi.paf~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-7",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 156.0, 268.0, 82.0, 22.0 ],
-                    "text": "evi.morph.tri~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-6",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 32.0, 268.0, 92.0, 22.0 ],
-                    "text": "evi.morph.trap~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 4,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 172.0, 352.0, 94.0, 22.0 ],
-                    "text": "evi.formantosc~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 6,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 326.0, 268.0, 84.0, 22.0 ],
-                    "text": "evi.blitwaves~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 458.0, 100.0, 69.0, 22.0 ],
-                    "text": "evi.4wave~"
                 }
             },
             {
@@ -821,7 +680,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 262.0, 311.0, 130.0, 60.0 ],
+                                    "patching_rect": [ 253.0, 311.0, 130.0, 60.0 ],
                                     "text": "[evi_formant_osc] does not work in gen~ alone as it requires an external LUT"
                                 }
                             },
@@ -1037,7 +896,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 433.0, 521.0, 195.0, 22.0 ],
+                    "patching_rect": [ 433.0, 506.0, 195.0, 22.0 ],
                     "text": "gen~ @t evieve_oscillators_in_gen"
                 }
             },
@@ -1051,7 +910,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 511.0, 417.0, 46.0, 101.0 ]
+                    "patching_rect": [ 511.0, 422.0, 45.0, 81.0 ]
                 }
             },
             {
@@ -1061,20 +920,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 287.0, 411.0, 162.0, 21.0 ],
+                    "patching_rect": [ 287.0, 422.0, 162.0, 21.0 ],
                     "text": "quadrature oscillator",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-42",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 3,
-                    "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 509.0, 184.0, 92.0, 22.0 ],
-                    "text": "evi.classic.osc~"
                 }
             },
             {

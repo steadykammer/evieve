@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -930,12 +930,12 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 129.0, 336.0, 49.0, 23.0 ],
+                    "patching_rect": [ 114.0, 336.0, 83.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
-                    "text": "p more",
-                    "varname": "more_tab"
+                    "text": "p modulation",
+                    "varname": "modulation_tab"
                 }
             },
             {
@@ -1917,7 +1917,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

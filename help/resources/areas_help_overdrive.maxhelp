@@ -15,6 +15,7 @@
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Overdrive & Saturation Options in evieve",
         "boxes": [
@@ -25,7 +26,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 470.0, 378.0, 52.0, 21.0 ],
+                    "patching_rect": [ 507.0, 143.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -44,7 +45,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 130.0, 493.0, 244.0, 18.0 ],
+                    "patching_rect": [ 55.0, 472.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -68,7 +69,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 126.0, 454.0, 244.0, 18.0 ],
+                    "patching_rect": [ 55.0, 433.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -92,7 +93,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 138.0, 415.0, 244.0, 18.0 ],
+                    "patching_rect": [ 55.0, 394.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -116,13 +117,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 307.0, 287.0, 30.0 ],
+                    "patching_rect": [ 55.0, 247.0, 315.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.tanh~\">evi.overdrive.tanh~</link> overdrive with filtering",
+                    "text": "<link href=\"; max openhelp evi.overdrive.tanh~\">evi.overdrive.tanh~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -140,13 +141,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 253.0, 244.0, 18.0 ],
+                    "patching_rect": [ 55.0, 193.0, 300.0, 38.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.atan~\">evi.overdrive.atan~</link> shaped overdrive",
+                    "text": "<link href=\"; max openhelp evi.overdrive.atan~\">evi.overdrive.atan~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -164,13 +165,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 199.0, 244.0, 18.0 ],
+                    "patching_rect": [ 55.0, 139.0, 245.0, 36.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.sqrt~\">evi.overdrive.sqrt~</link> passive overdrive",
+                    "text": "<link href=\"; max openhelp evi.overdrive.sqrt~\">evi.overdrive.sqrt~</link> passive overdrive, tanh-like input/output (cheapest)",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -182,7 +183,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 178.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 55.0, 648.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -194,7 +195,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 178.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 55.0, 609.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -206,7 +207,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 178.0, 570.0, 222.0, 22.0 ],
+                    "patching_rect": [ 55.0, 570.0, 222.0, 22.0 ],
                     "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
@@ -218,7 +219,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 178.0, 523.0, 169.0, 20.0 ],
+                    "patching_rect": [ 55.0, 515.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -231,41 +232,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 55.0, 349.0, 341.0, 50.0 ],
+                    "patching_rect": [ 55.0, 325.0, 341.0, 50.0 ],
                     "text": "There are many more saturation options in evieve MSP, gen~ and GenExpr. Check out the .genexpr source code for more, as well as the collection of nonlinear filters."
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-17",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 491.0, 71.0, 22.0 ],
-                    "text": "evi.shaper~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-16",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 452.0, 69.0, 22.0 ],
-                    "text": "evi.sinfold~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-15",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 413.0, 81.0, 22.0 ],
-                    "text": "evi.clipasym~"
                 }
             },
             {
@@ -276,87 +244,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 55.0, 57.0, 463.0, 50.0 ],
+                    "patching_rect": [ 55.0, 72.0, 463.0, 50.0 ],
                     "text": "All evieve overdrives are built using 'anti-derivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
-                }
-            },
-            {
-                "box": {
-                    "attr": "hfcompensate",
-                    "id": "obj-12",
-                    "maxclass": "attrui",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 164.0, 121.0, 135.0, 22.0 ],
-                    "text_width": 99.0
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-10",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 165.0, 284.0, 492.0, 21.0 ],
-                    "text": "with 'Drive' input, as well as input/output gain wrapping and shaping filtering options"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-8",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 167.0, 230.0, 465.0, 21.0 ],
-                    "text": "with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 13.0,
-                    "id": "obj-7",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 164.0, 176.0, 252.0, 21.0 ],
-                    "text": "passive, tanh-like input/output (cheapest)"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-5",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 175.0, 107.0, 22.0 ],
-                    "text": "evi.overdrive.sqrt~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 55.0, 229.0, 110.0, 22.0 ],
-                    "text": "evi.overdrive.atan~"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-2",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 55.0, 283.0, 110.0, 22.0 ],
-                    "text": "evi.overdrive.tanh~"
                 }
             },
             {
@@ -388,44 +277,11 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 401.0, 148.0, 402.0, 525.0 ],
+                        "rect": [ 401.0, 148.0, 402.0, 345.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
-                            {
-                                "box": {
-                                    "id": "obj-8",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 101.0, 463.0, 67.0, 22.0 ],
-                                    "text": "evi_shaper"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-7",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 101.0, 409.0, 65.0, 22.0 ],
-                                    "text": "evi_sinfold"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 101.0, 355.0, 77.0, 22.0 ],
-                                    "text": "evi_clipasym"
-                                }
-                            },
                             {
                                 "box": {
                                     "id": "obj-5",
@@ -495,7 +351,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 398.0, 523.0, 197.0, 22.0 ],
+                    "patching_rect": [ 435.0, 288.0, 197.0, 22.0 ],
                     "text": "gen~ @t evieve_overdrives_in_gen"
                 }
             },
@@ -509,7 +365,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 473.0, 404.0, 46.0, 101.0 ]
+                    "patching_rect": [ 510.0, 169.0, 46.0, 101.0 ]
                 }
             },
             {
@@ -522,64 +378,9 @@
                     "numoutlets": 0,
                     "patching_rect": [ 0.0, 0.0, 660.0, 568.0 ]
                 }
-            },
-            {
-                "box": {
-                    "attr": "aa",
-                    "id": "obj-11",
-                    "maxclass": "attrui",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 55.0, 121.0, 84.0, 22.0 ],
-                    "text_width": 44.0
-                }
             }
         ],
         "lines": [
-            {
-                "patchline": {
-                    "destination": [ "obj-2", 0 ],
-                    "order": 0,
-                    "source": [ "obj-11", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "order": 1,
-                    "source": [ "obj-11", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-5", 0 ],
-                    "order": 2,
-                    "source": [ "obj-11", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-2", 0 ],
-                    "order": 0,
-                    "source": [ "obj-12", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "order": 1,
-                    "source": [ "obj-12", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-5", 0 ],
-                    "order": 2,
-                    "source": [ "obj-12", 0 ]
-                }
-            },
             {
                 "patchline": {
                     "destination": [ "obj-29", 0 ],

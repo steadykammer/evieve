@@ -38,7 +38,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1839,6 +1839,7 @@
                                         "bottomtoolbarpinned": 2,
                                         "toolbars_unpinned_last_save": 15,
                                         "subpatcher_template": "sub",
+                                        "isolateaudio": 1,
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -3531,7 +3532,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 357.0, 260.0, 238.0 ],
+                                    "patching_rect": [ 46.0, 357.0, 263.0, 238.0 ],
                                     "text": "Now let's listen to the three filters. Turn on the 'Biquad audio' selector~ choice. You can hear the result is far better than in the previous 'control' tab example because we are audio rate smoothing. However, as we learnt in #1 of this patcher (the [p whereToSmoothTheCoefficients] subpatch) this is expensive. Now switch to the 'SVF control' selector~ choice. You can hear it is quite good but with fast control changes the high frequencies are a bit grainy. It is still pretty good though. Finally, switch to the 'SVF audio' selector~ choice. A/B with the Biquad. The SVF is ever so slightly smoother in the high frequency sweep, and a little more bass is present, but it is almost the same."
                                 }
                             },
@@ -6138,6 +6139,7 @@
                                         "bottomtoolbarpinned": 2,
                                         "toolbars_unpinned_last_save": 15,
                                         "subpatcher_template": "sub",
+                                        "isolateaudio": 1,
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -7043,7 +7045,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,

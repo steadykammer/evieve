@@ -15,9 +15,92 @@
         "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Signal Smoothing in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-48",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 222.0, 483.0, 159.0, 21.0 ],
+                    "text": "See Also"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-44",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 222.0, 510.0, 175.0, 21.0 ],
+                    "text": "evieve Compare: Smoothers",
+                    "texton": "evieve Compare: Smoothers"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-45",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 222.0, 570.0, 215.0, 22.0 ],
+                    "text": "list.reg evicompare_smoothers.maxpat"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-46",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 222.0, 630.0, 51.0, 22.0 ],
+                    "text": "pcontrol"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-47",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 222.0, 601.0, 79.0, 22.0 ],
+                    "text": "prepend load"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-42",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 5,
+                    "outlettype": [ "multichannelsignal", "multichannelsignal", "", "", "" ],
+                    "patching_rect": [ 185.0, 115.0, 70.0, 22.0 ],
+                    "text": "mc.zigzag~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-43",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 4,
+                    "outlettype": [ "signal", "signal", "", "bang" ],
+                    "patching_rect": [ 185.0, 80.0, 51.0, 22.0 ],
+                    "text": "zigzag~"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -264,7 +347,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 392.0, 115.0, 60.0, 22.0 ],
+                    "patching_rect": [ 432.0, 115.0, 60.0, 22.0 ],
                     "text": "mc.slide~"
                 }
             },
@@ -275,7 +358,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 268.0, 115.0, 102.0, 22.0 ],
+                    "patching_rect": [ 308.0, 115.0, 102.0, 22.0 ],
                     "text": "mc.rampsmooth~"
                 }
             },
@@ -286,7 +369,7 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "multichannelsignal", "", "" ],
-                    "patching_rect": [ 109.0, 115.0, 64.0, 22.0 ],
+                    "patching_rect": [ 103.0, 115.0, 64.0, 22.0 ],
                     "text": "mc.curve~"
                 }
             },
@@ -418,7 +501,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 268.0, 43.0, 159.0, 21.0 ],
+                    "patching_rect": [ 308.0, 43.0, 159.0, 21.0 ],
                     "text": "MSP"
                 }
             },
@@ -440,7 +523,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 392.0, 80.0, 40.0, 22.0 ],
+                    "patching_rect": [ 432.0, 80.0, 40.0, 22.0 ],
                     "text": "slide~"
                 }
             },
@@ -451,7 +534,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 268.0, 80.0, 82.0, 22.0 ],
+                    "patching_rect": [ 308.0, 80.0, 82.0, 22.0 ],
                     "text": "rampsmooth~"
                 }
             },
@@ -462,7 +545,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 109.0, 80.0, 45.0, 22.0 ],
+                    "patching_rect": [ 103.0, 80.0, 45.0, 22.0 ],
                     "text": "curve~"
                 }
             },
@@ -894,7 +977,29 @@
                 }
             }
         ],
-        "lines": [],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-45", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-44", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-47", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-45", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-46", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-47", 0 ]
+                }
+            }
+        ],
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }

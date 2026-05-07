@@ -17,9 +17,21 @@
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Crossover filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-19",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 60.0, 424.0, 169.0, 21.0 ],
+                    "text": "See Also"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -308,8 +320,8 @@
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 60.0, 462.0, 169.0, 20.0 ],
-                    "text": " TPT Filters in evieve",
-                    "texton": " TPT Filters in evieve"
+                    "text": "Linear TPT Filters in evieve",
+                    "texton": "Linear TPT Filters in evieve"
                 }
             },
             {
