@@ -9,11 +9,16 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 956.0, 700.0 ],
+        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
         "gridonopen": 2,
+        "toolbarvisible": 0,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 2,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
@@ -27,7 +32,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 490.0, 166.0, 36.0 ],
+                    "patching_rect": [ 15.0, 490.0, 169.0, 36.0 ],
                     "text": "Compare Biquads and TPT Filters here:"
                 }
             },

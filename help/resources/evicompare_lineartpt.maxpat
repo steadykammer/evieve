@@ -4284,7 +4284,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -4935,8 +4935,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 447.0, 258.0, 204.0, 37.0 ],
-                                                    "text": "Turn off @smooth (default on) if audio rate modulating the inlet",
+                                                    "patching_rect": [ 447.0, 258.0, 212.0, 37.0 ],
+                                                    "text": "Turn off @smooth (default on) if audio rate modulating the 4th inlet",
                                                     "textjustification": 1
                                                 }
                                             },
@@ -8035,7 +8035,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

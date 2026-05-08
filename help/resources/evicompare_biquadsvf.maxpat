@@ -47,6 +47,154 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-12",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 823.0, 164.0, 171.0, 47.0 ],
+                                    "presentation_linecount": 4,
+                                    "text": "All filters referenced in this comparison patcher are available inside gen~",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-10",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "dsp.gen",
+                                        "rect": [ 408.0, 361.0, 738.0, 446.0 ],
+                                        "gridonopen": 2,
+                                        "subpatcher_template": "sub",
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-13",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 517.0, 128.0, 96.0, 20.0 ],
+                                                    "text": "TPT SVFs"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-12",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.0, 128.0, 96.0, 20.0 ],
+                                                    "text": "Biquads"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-11",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 336.0, 53.0, 150.0, 20.0 ],
+                                                    "text": "For example"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-9",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 517.0, 333.0, 61.0, 22.0 ],
+                                                    "text": "evi_reson"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 517.0, 264.0, 103.0, 22.0 ],
+                                                    "text": "evi_filter_lowpass"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-7",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 517.0, 195.0, 53.0, 22.0 ],
+                                                    "text": "evi_filter"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 186.0, 264.0, 117.0, 22.0 ],
+                                                    "text": "evi_biquad_lowpass"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-5",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 186.0, 195.0, 96.0, 22.0 ],
+                                                    "text": "evi_biquad_filter"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 72.0, 52.0, 28.0, 22.0 ],
+                                                    "text": "in 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 72.0, 333.0, 35.0, 22.0 ],
+                                                    "text": "out 1"
+                                                }
+                                            }
+                                        ],
+                                        "lines": []
+                                    },
+                                    "patching_rect": [ 823.0, 254.0, 171.0, 22.0 ],
+                                    "text": "gen~ @title availibilty_in_gen~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-8",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -922,13 +1070,13 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\ntptSvf(x, g, r, h)\n{\n\tHistory\ts1(0), s2(0);\n\n\t// compute highpass output\n\tyH\t= (x - (r + g) * s1 - s2) * h;\n\n\t// compute bandpass output by applying 1st integrator to highpass output\n\tgyH\t= g * yH;\n\tyB\t= gyH + s1;\n\ts1\t= gyH + yB;\t\t\t\t\t\t// state update in 1st integrator\n\n\t// compute lowpass output by applying 2nd integrator to bandpass output\n\tgyB\t= g * yB;\n\tyL\t= gyB + s2;\n\ts2\t= gyB + yL;\t\t\t\t\t\t// state update in 2nd integrator\n\n\treturn\tyL, yB, yH;\t\t\t\t\t// lowpass, bandpass, highpass\n}\n\r\n// (we mix yL, yB & yH exterally using the cL, cB & cH coefficients,\r\n// for the lowpass this would require 1 more multiply op)\r\ndummy1 = in1; dummy2 = in2; // gen~ bug, ignore\r\nout1 = 0;\r\n",
+                                                    "code": "\r\ntptSvf(x, g, r, h)\n{\n\tHistory\ts1(0), s2(0);\n\n\t// compute highpass output\n\tyH\t= (x - (r + g) * s1 - s2) * h;\n\n\t// compute bandpass output by applying first integrator to highpass output\n\tgyH\t= g * yH;\n\tyB\t= gyH + s1;\n\ts1\t= gyH + yB;\t\t\t\t\t\t// state update in first integrator\n\n\t// compute lowpass output by applying second integrator to bandpass output\n\tgyB\t= g * yB;\n\tyL\t= gyB + s2;\n\ts2\t= gyB + yL;\t\t\t\t\t\t// state update in second integrator\n\n\treturn\tyL, yB, yH;\t\t\t\t\t// lowpass, bandpass, highpass\n}\n\r\n// (we mix yL, yB & yH exterally using the cL, cB & cH coefficients,\r\n// for the lowpass this would require 1 more multiply op)\r\n\r\nout1 = 0;\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
                                                     "id": "obj-1",
                                                     "maxclass": "gen.codebox~",
-                                                    "numinlets": 2,
+                                                    "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
                                                     "patching_rect": [ 593.0, 321.0, 623.0, 414.0 ]
