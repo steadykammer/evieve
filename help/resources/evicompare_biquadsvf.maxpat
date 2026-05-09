@@ -38,7 +38,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -53,7 +53,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 823.0, 164.0, 171.0, 47.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "All filters referenced in this comparison patcher are available inside gen~",
                                     "textjustification": 1
                                 }
@@ -839,7 +838,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 47.0, 292.0, 384.0, 91.0 ],
-                                    "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters. Switch to 'Biquad' in the selector~. You will hear grungy bassy mess. Switch to the 'SVF' selector~. You will here FM-ed noise with a peak. Now switch the 'INPUT' selector~ to 'Osc'. A/B the filters at the 'OUTPUT'. The 'Osc' source makes the effect much clearer."
+                                    "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters. Switch to 'Biquad' in the selector~. You will hear grungy bassy mess. Switch to the 'SVF' selector~. You will hear FM-ed noise with a peak. Now switch the 'INPUT' selector~ to 'Osc'. A/B the filters at the 'OUTPUT'. The 'Osc' source makes the effect much clearer."
                                 }
                             },
                             {
@@ -4993,6 +4992,30 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-17",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 749.0, 528.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.lesson_step_circle"
+                                                        }
+                                                    },
+                                                    "text": "6",
+                                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "bubble": 1,
                                                     "bubblepoint": 0.9,
                                                     "bubbleside": 2,
@@ -7193,7 +7216,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,

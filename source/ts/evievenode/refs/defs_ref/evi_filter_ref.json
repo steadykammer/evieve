@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "All-in-one TPT twopole filter section with a choice of 12 different filter types",
         "description": "This filter block can be switched between 12 different filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most linear filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic filtering is required.",
-        "discussion": "For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
+        "discussion": "For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -60,7 +60,7 @@
             "name": "filter",
             "get": 1,
             "type": "int",
-            "digest": "0..12",
+            "digest": "Select 0..12",
             "description": "Set the filter type by integer index: 0=Bypass, 1=Lowpass, 2=Highpass, 3=Bandpass, 4=Peak, 5=Notch, 6=Resonant, 7=Bell (default), 8=BellAdaptiveQ, 9=Lowshelf, 10=Highshelf, 11=Tilt, 12=Allpass",
             "default": {
                 "min": "0",
@@ -89,7 +89,7 @@
         "evi.filter.eq~",
         "evi.filter.shelving~",
         "evi.filter.morph~",
-        "evi.filter.allpass",
+        "evi.filter.allpass~",
         "evi.filter.bandpass~",
         "evi.filter.bell~",
         "evi.filter.highpass~",

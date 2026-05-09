@@ -162,7 +162,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 617.0, 148.0, 50.0, 21.0 ],
+                                    "patching_rect": [ 644.0, 148.0, 50.0, 21.0 ],
                                     "text": "skew"
                                 }
                             },
@@ -172,7 +172,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 489.0, 148.0, 50.0, 21.0 ],
+                                    "patching_rect": [ 503.0, 148.0, 50.0, 21.0 ],
                                     "text": "depth"
                                 }
                             },
@@ -187,7 +187,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 617.0, 171.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 644.0, 171.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 2.0 ],
@@ -322,10 +322,10 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 489.0, 171.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 503.0, 171.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[3]",
                                             "parameter_mmax": 1.0,
@@ -377,8 +377,8 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 361.0, 211.0, 275.0, 23.0 ],
-                                    "text": "gen~ @expr scale(cycle(in1)\\, -1\\, 1\\, in2\\, 1\\, in3)",
+                                    "patching_rect": [ 361.0, 211.0, 302.0, 23.0 ],
+                                    "text": "gen~ @expr scale(cycle(in1)\\, -1\\, 1\\, (1 - in2)\\, 1\\, in3)",
                                     "varname": "gen~_AB"
                                 }
                             },
@@ -438,7 +438,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 465.0, 171.0, 30.0, 23.0 ],
+                                    "patching_rect": [ 470.0, 171.0, 30.0, 23.0 ],
                                     "text": "0."
                                 }
                             },
@@ -449,7 +449,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 538.0, 171.0, 30.0, 23.0 ],
+                                    "patching_rect": [ 556.0, 171.0, 30.0, 23.0 ],
                                     "text": "1."
                                 }
                             },

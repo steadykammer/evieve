@@ -16,6 +16,18 @@
         "boxes": [
             {
                 "box": {
+                    "hidden": 1,
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 160.0, 236.0, 91.0, 22.0 ],
+                    "text": "routepass reset"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-2",
                     "maxclass": "newobj",
                     "numinlets": 2,
@@ -361,7 +373,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "float" ],
                     "patching_rect": [ 64.0, 147.0, 30.0, 30.0 ]
                 }
             },
@@ -618,6 +630,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-12", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-1", 7 ],
                     "source": [ "obj-13", 3 ]
                 }
@@ -850,6 +869,13 @@
                 "patchline": {
                     "destination": [ "obj-8", 0 ],
                     "source": [ "obj-56", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-63", 4 ]
                 }
             },
             {

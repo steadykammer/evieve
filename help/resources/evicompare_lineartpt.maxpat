@@ -211,7 +211,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1236,6 +1236,7 @@
                                     "fontsize": 12.0,
                                     "id": "obj-15",
                                     "maxclass": "spectrumdraw~",
+                                    "mode": 3,
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
@@ -4284,7 +4285,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -4702,7 +4703,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -8035,7 +8036,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
