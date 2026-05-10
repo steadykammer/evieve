@@ -12,7 +12,7 @@
     "evi.algoverb~": {
         "type": "abstraction",
         "digest": "True stereo algorithmic reverb \n",
-        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear SVF filters in both the feedback path and end of wet path."
+        "description": "Relatively expensive algorithmic reverb with many tweekable parameters, 15 embedded presets and an internal pattrstorage system. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as linear TPT SVF filters in both the feedback path and end of wet path."
     },
     "evi.allpass~": {
         "type": "define",

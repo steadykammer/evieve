@@ -15,6 +15,7 @@
 // TODO:
 // fix: maxsustain, zerophase, loop
 // implement: inverse env curves, constant rate or constant time option
+// add ability for sustain to be > 1 (like [adsr~])
 
 require("evi_approx.genexpr");
 
@@ -58,7 +59,7 @@ History	env(0), state(0), targetRatioRise(0.3), targetRatioFall(0.05);
 Param	riseratio(0.3,	min=0.000001, max=10);	// very logarithmic .. almost linear	// minimum -120 dB
 Param	fallratio(0.05,	min=0.000001, max=10);	// very exponential .. almost linear	// minimum -120 dB
 
-History	valAtTrigger(1), prev_val(0);
+History	valAtTrigger(1), prev_val_abs(0);
 History	attackCoeff(0), attackBase(0), decayCoeff(0), decayBase(0), releaseCoeff(0), releaseBase(0);
 History	computeFalls(0), prev_rR(0), prev_fR(0), prev_susL(-1), prev_attRate(-1), prev_decRate(-1), prev_relRate(-1);
 
@@ -88,14 +89,15 @@ velCvre	= int(velocitycurve);	constR	= int(constantrate);	zrphse	= int(zerophase
 
 // parse input triggers
 
-value				=	maximum(in1, 0);		// anything > 0 (amplitude, velocity, pitch, whatever)
-gate				=	value > 0;				// make 'gate' (1/0 gate on/off)
+value				=	in1;                    // can be positive or negative, 0 zeros
+valAbs              =   abs(value);             // anything > 0 (amplitude, velocity, pitch, whatever)
+gate				=	valAbs > 0;				// make 'gate' (1/0 gate on/off)
 trg0				=	delta(gate) > 0;		// rising edge from 0 (gate-on 'click'-impulse)
-klick				= -(value) + prev_val;		// make trigger impulses
+klick				= -(valAbs) + prev_val_abs;	// make trigger impulses
 trgU				=	klick < 0;				// from zero or any upwards change
 trgD				=	klick > 0;				// to zero or any downwards change
 trgUD				=	trgU  + trgD;			// either from zero or to zero or any upwards or downwards changes
-prev_val			=	value;					// update
+prev_val_abs		=	valAbs;					// update
 
 // parse parameters
 
@@ -315,11 +317,11 @@ if (velocitysense > 0) {						//  optional velocity sensitivity (default 1 == fu
 		envnorm	= envmax;						// 'envmax' default = 127 (assumes 'velocity' but can be anything)
 	scalar		= simpleScale((valAtTrigger / envnorm), (1 - velocitysense),	velCvre);	//	log	|| lin	||	exp
 }												//								velCvre:		pos	||	0	||	neg
-env				= env * scalar;					//  env 0..1 by default scaled by it's input value (like [adsr~])
+envOut			= env * scalar;					//  env 0..1 by default scaled by it's input value (like [adsr~])
 
 // outlets
 
-out1			= env;							//	DAHDSHR envelope 0..value..0
+out1			= envOut;						//	DAHDSHR envelope 0..value..0
 out2			= gate;							//	new env trigger 1/0
 out3			= active == 0;					//  mute 1/0
 out4			= state;						//	segment # 0, 1, 2, 3, 4, 5, 6, 7, 8, 0

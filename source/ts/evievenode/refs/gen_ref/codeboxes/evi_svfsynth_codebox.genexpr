@@ -305,11 +305,11 @@ oso     = os > 0;
 
 // inputs (smooth || mod res & cutoff externally)
 
-res		= clip(		in3, 0, 2);		    // if shape <= 0.603553, max res 
-cutoff	= maximum(	in2, 0);		    // cutoff freq (default in pitch)
+res		= clip(		in3, 0, 2) * 1.09;  // if shape <= 0.603553, max res 
+cutoff	= maximum(	in2, 0);		    // cutoff freq (default in Hz)
 
 x		= 			in1 * sqrt1_2;	    // audio input
-X		=			dcblock(x);		    // clean, why?
+X		=			x;//dcblock(x);     // clean, why?
 
 // freq warp
 
@@ -362,6 +362,6 @@ if (tfdb) {
     y24					= dcblock(     yY * sqrt2);
 }
 
-out1	= y12;          // 12 dB filter outputs (mixed)
-out2	= y24;          // 24 dB filter outputs (mixed)
+out1	= y12 * sqrt1_2;                // 12 dB filter outputs (mixed)
+out2	= y24 * sqrt1_2;                // 24 dB filter outputs (mixed)
 

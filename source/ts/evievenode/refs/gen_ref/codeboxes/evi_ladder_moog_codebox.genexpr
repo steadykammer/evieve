@@ -218,7 +218,7 @@ ZDFNRL2_2x4( XIN, w, k, nl )
 	dmT1_1	= dmT0_1;
 	dmT0_1	= y2_0;
 
-	return y0_0;
+	return dcblock(y0_0);
 }
 
 //	//	//	declare
@@ -234,12 +234,12 @@ cfm     = int(cutoffmode);
 
 //	//	//	inputs
 
-res		= clip(in3, 0, 2);						// 0..1..2
+res		= clip(in3, 0, 2) * 1.09;				// 0..1..2
 freq    = in2;
 if (cfm) {
-    freq	= mtofApprox(freq);                 // if cutoffmode
+    freq = mtofApprox(freq);                    // if cutoffmode
 }
-x		= dcblock(in1);							// clean input, why pete?
+x		= in1;//dcblock(in1);					// clean input, why pete?
 
 //	//	//	parse
 

@@ -157,8 +157,8 @@ cutofftype		= int(cutoffmode);			// 0 = in Hz, 1 = (default) in pitch
 
 // inputs (smooth || modulate resonance & cutoff externally)
 
-resonance		=  clip(	in3, 0, 2);		// minimum 0.43, but 1=1.1 & 2=1.95
-resonance		= (resonance <= 1) ? ((resonance * 0.666666666667) + 0.433333333333) : (((resonance - 1) * 0.85) + 1.1);
+resonance		=  clip(	in3, 0, 2);		// minimum 0.43, but 1=1.19 & 2=1.99
+resonance		= (resonance <= 1) ? ((resonance * 0.765667) + 0.433333) : (((resonance - 1) * 0.801) + 1.188);
 cutoff			=  maximum(	in2, 1);		// cutoff freq (default in pitch)
 
 XIN				= 			in1 * sqrt2;	// audio input

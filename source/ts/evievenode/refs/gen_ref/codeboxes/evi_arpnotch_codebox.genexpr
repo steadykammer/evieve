@@ -93,5 +93,5 @@ LP, HP	= eviArpSmoothCore(X * (k + sqrt2), W, R, 10);
 svfMix  = makeM * (lowM * LP + highM * HP);     // low + high = notch
 
 // outputs
-out1	= dcblock(svfMix);                      // LP..Notch..HP via 'morph'
+out1	= dcblock(svfMix * sqrt1_2);            // LP..Notch..HP via 'morph'
 

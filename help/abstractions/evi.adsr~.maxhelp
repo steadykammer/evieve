@@ -21,6 +21,127 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-12",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 0,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "bglocked": 1,
+                        "default_fontsize": 13.0,
+                        "gridonopen": 2,
+                        "showontab": 1,
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 5,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "", "signal" ],
+                                    "patching_rect": [ 382.0, 258.0, 62.0, 23.0 ],
+                                    "text": "evi.adsr~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 5,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "", "" ],
+                                    "patching_rect": [ 213.0, 258.0, 61.0, 23.0 ],
+                                    "text": "adsr~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "border": 0,
+                                    "embed": 0,
+                                    "filename": "evi.helpname.js",
+                                    "id": "obj-2",
+                                    "ignoreclick": 1,
+                                    "jsarguments": [ "evi.adsr~", 660 ],
+                                    "maxclass": "v8ui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
+                                    "textfile": {
+                                        "filename": "evi.helpname.js",
+                                        "flags": 0,
+                                        "embed": 0,
+                                        "autowatch": 1
+                                    },
+                                    "varname": "v8ui_AA"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "id": "obj-4",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
+                                    "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "local": 1,
+                                    "maxclass": "ezdac~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 223.0, 579.0, 45.0, 45.0 ],
+                                    "varname": "mcs_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 270.0, 589.0, 86.0, 25.0 ],
+                                    "text": "Audio On",
+                                    "textjustification": 1,
+                                    "varname": "comment_dac"
+                                }
+                            }
+                        ],
+                        "lines": [],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 238.0, 336.0, 70.0, 23.0 ],
+                    "saved_object_attributes": {
+                        "fontsize": 13.0
+                    },
+                    "text": "p compare",
+                    "varname": "example_tab[1]"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-11",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -110,7 +231,7 @@
                         "lines": [],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 302.0, 336.0, 51.0, 23.0 ],
+                    "patching_rect": [ 464.0, 336.0, 51.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -209,7 +330,7 @@
                         "lines": [],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 229.0, 336.0, 68.0, 23.0 ],
+                    "patching_rect": [ 352.0, 336.0, 68.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -899,7 +1020,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 146.0, 336.0, 66.0, 23.0 ],
+                    "patching_rect": [ 128.0, 336.0, 66.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1092,8 +1213,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 308.0, 483.0, 59.0, 23.0 ],
-                                    "text": "mute 1"
+                                    "patching_rect": [ 308.0, 483.0, 59.0, 23.0 ]
                                 }
                             },
                             {
@@ -1460,9 +1580,9 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 437.0, 506.0, 83.0, 36.0 ],
+                                    "patching_rect": [ 437.0, 506.0, 87.0, 36.0 ],
                                     "style": "helpfile_label",
-                                    "text": "busy state for thispoly~"
+                                    "text": "env segment state sync"
                                 }
                             },
                             {
@@ -1745,9 +1865,22 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "id": "obj-15",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 427.0, 316.0, 61.0, 25.0 ],
+                                    "text": "mute",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "mute 0/1",
                                     "id": "obj-38",
                                     "ignoreclick": 1,
                                     "maxclass": "number~",
@@ -1829,8 +1962,6 @@
                                         },
                                         "classnamespace": "box",
                                         "rect": [ 454.0, 116.0, 244.0, 400.0 ],
-                                        "default_fontsize": 12.0,
-                                        "default_fontname": "Arial",
                                         "gridonopen": 2,
                                         "lefttoolbarpinned": 2,
                                         "toptoolbarpinned": 2,
@@ -1997,10 +2128,6 @@
                                         "toolbarexclusions": [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
                                     },
                                     "patching_rect": [ 533.0, 291.0, 54.0, 23.0 ],
-                                    "saved_object_attributes": {
-                                        "fontname": "Arial",
-                                        "fontsize": 12.0
-                                    },
                                     "text": "p points"
                                 }
                             },
@@ -2088,17 +2215,6 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 197.0, 117.0, 156.0, 21.0 ],
                                     "text": "from the [adsr~] helpfile"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-25",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 101.0, 156.0, 37.0, 23.0 ],
-                                    "text": "abs~"
                                 }
                             },
                             {
@@ -2230,7 +2346,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 101.0, 116.0, 47.0, 23.0 ],
+                                    "patching_rect": [ 101.0, 156.0, 47.0, 23.0 ],
                                     "text": "noise~"
                                 }
                             },
@@ -2735,7 +2851,13 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-25", 0 ],
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-18", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-20", 0 ],
                                     "source": [ "obj-19", 0 ]
                                 }
                             },
@@ -2769,12 +2891,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-20", 0 ],
-                                    "source": [ "obj-25", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-69", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-27", 0 ]
@@ -2798,13 +2914,6 @@
                                     "destination": [ "obj-24", 0 ],
                                     "midpoints": [ 206.5, 227.5, 227.5, 227.5 ],
                                     "order": 0,
-                                    "source": [ "obj-37", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "order": 2,
                                     "source": [ "obj-37", 0 ]
                                 }
                             },
@@ -2867,7 +2976,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 475.0, 336.0, 50.0, 23.0 ],
+                    "patching_rect": [ 559.0, 336.0, 50.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },

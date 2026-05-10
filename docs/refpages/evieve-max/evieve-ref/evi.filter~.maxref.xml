@@ -74,7 +74,7 @@
 	<attributelist>
 		<attribute name="filter" get="1" set="1" type="int" min="0" max="12">
 			<digest>
-				0..12
+				Select 0..12
 			</digest>
 			<description>
 				Set the filter type by integer index: 0&#x3D;Bypass, 1&#x3D;Lowpass, 2&#x3D;Highpass, 3&#x3D;Bandpass, 4&#x3D;Peak, 5&#x3D;Notch, 6&#x3D;Resonant, 7&#x3D;Bell (default), 8&#x3D;BellAdaptiveQ, 9&#x3D;Lowshelf, 10&#x3D;Highshelf, 11&#x3D;Tilt, 12&#x3D;Allpass
@@ -104,7 +104,7 @@
 		<seealso name="evi.filter.eq~"> </seealso>
 		<seealso name="evi.filter.shelving~"> </seealso>
 		<seealso name="evi.filter.morph~"> </seealso>
-		<seealso name="evi.filter.allpass"> </seealso>
+		<seealso name="evi.filter.allpass~"> </seealso>
 		<seealso name="evi.filter.bandpass~"> </seealso>
 		<seealso name="evi.filter.bell~"> </seealso>
 		<seealso name="evi.filter.highpass~"> </seealso>
@@ -118,6 +118,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile. <br />
+        For a complete list of the available filter types (by index) double-click the abstraction and look at the comments at the top of the code block. For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile. <br />
 	</discussion>
 </c74object>

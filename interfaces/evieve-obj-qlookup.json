@@ -368,7 +368,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Coefficients" ],
         "keywords": [],
-        "seealso": [ "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
+        "seealso": [ "evi.filter.eq~", "evi.filter.shelving~", "evi.filter.morph~", "evi.filter.allpass~", "evi.filter.bandpass~", "evi.filter.bell~", "evi.filter.highpass~", "evi.filter.highshelf~", "evi.filter.lowpass~", "evi.filter.lowshelf~", "evi.filter.notch~", "evi.filter.peak~", "evi.filter.resonant~", "evi.filter.tilt~" ]
     },
     "evi.flanger.digital~": {
         "digest": "A basic two-stage Flanger effect with saturation",

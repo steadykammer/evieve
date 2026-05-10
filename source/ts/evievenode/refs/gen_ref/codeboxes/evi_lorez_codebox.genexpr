@@ -69,7 +69,7 @@ twopoleLadder2(xin0, xin1, hz, res)
     s3 = zg1 + lp31;
 
     // taps
-    return ap30, ap31;
+    return ap30 * sqrt1_2, ap31 * sqrt1_2;
 }
 
 // fixed 2x quasi oversampling (hermite6)
@@ -190,7 +190,7 @@ twopoleLadder1(xin, hz, res)// self-oscillates at res==1 but gets a bit funky up
     ap3 = (lp3 - hp3) * k2;
     s3 = zg + lp3;
     // tap
-    return ap3;
+    return ap3 * sqrt1_2;
 }
 
 // linear
