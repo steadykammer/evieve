@@ -16,14 +16,21 @@
     See the GNU General Public License for more details.
 */
 
-// i spent a long time doing antiderivative anti aliasing techniques based on the ubiquitous literature / code:
-// TODO: efflam, parker et al, holters, vicanek, chowdry <<-- must link
+
+// most of the adaa (anti derivative antialiasing) in evieve is in this file
+
+
+// theory:
+// The original Efflam Le Bivic paper: https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf
+// The Martin Holters followup is excellent: https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf
+// Martin Vicanek has good takes on it: https://vicanek.de/articles/AADistortion.pdf
+// Takamitsu Endo's overview of all of the above is essential reading: https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing
+
+
 // TODO: the vicanek pre/post filter idea in the kernel?
 // TODO: investigate stefan's 3rd order?
+// TODO: assimilating Adaa1 into filter integrators
 
-// ...but i did not find it easy until encountering Takamitsu Endo's overview of all of the above.
-// @see: https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing
-// Thanks so much Takamitsu for all your work. Endo does not have a license for the antiderivatives part of his repo. Here we use the standard evieve license for the evieve bits.
 
 // pete says: if you are interested in the topic, look at the references above, not the code below.
 
@@ -31,10 +38,14 @@
 require("evi_utilities.genexpr"); // includes "evi_approx.genexpr"
 
 
-// antiderivatives, f(x) (F0), 1st order (F1), 2nd order (F2)
+// adaa below are made up of the naive function (F0),
+// it's first antiderivative (F1) - 1st order,
+// and it's second antiderivative (F2) - 2nd order,
+// Adaa1 convolves F0 & F1,
+// Adaa2 convolves F0, F1 & F2
 
 
-// 
+//  //  //  Antialiased Hard Clipper, does nothing unless you clip
 
 hardclipF0(x)
 {
@@ -66,7 +77,7 @@ hardclipF2(x)
 hardclipAdaa1(x0)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
   y1 = 0;
   d0 = x0 - x1;
@@ -85,9 +96,9 @@ hardclipAdaa1(x0)
 hardclipAdaa2(x0)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = hardclipF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -96,7 +107,7 @@ hardclipAdaa2(x0)
     s0 = (hardclipF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = hardclipF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -120,7 +131,7 @@ hardclipAdaa2(x0)
 }
 
 
-// 
+//  //  //  half wave rectifier, is PASSIVE
 
 halfrectF0(x)
 {
@@ -140,7 +151,7 @@ halfrectF2(x)
 halfrectAdaa1(x0)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
   y1 = 0;
   d0 = x0 - x1;
@@ -159,7 +170,7 @@ halfrectAdaa1(x0)
 halfrectAdaa2(x0)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
   s0 = x0;//0;
   d0 = x0 - x1;
@@ -194,7 +205,8 @@ halfrectAdaa2(x0)
 }
 
 
-// 
+//  //  //  power is PASSIVE, beta (b) is linear at 'b' == 1, in range 0.01..1 = rounded clip..linear,
+//  //  //  in range 1..10..100.. power..cubic..extreme.. typically this is special with 'b' in range 1..20
 
 powerF0(x, beta=2.345)
 {
@@ -219,18 +231,17 @@ powerF2(x, beta=2.345)
   return eviCopysign(output, x);
 }
 
-// TODO: beta
-
-powerAdaa1(x0)
+// this does not work when changing / modulating 'b', only works with static b
+powerAdaa1(x0, b=2.345)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
   y1 = 0;
   d0 = x0 - x1;
-  s0 = powerF1(x0);    // func1
+  s0 = powerF1(x0, beta=b);    // func1
   if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = powerF0(0.5 * (x0 + x1)); // func0
+    y1 = powerF0(0.5 * (x0 + x1), beta=b); // func0
   } else {
     y1 = (s0 - s1) / d0;
   }
@@ -240,31 +251,32 @@ powerAdaa1(x0)
   return y1;
 }
 
-powerAdaa2(x0)
+// this does not work when changing / modulating 'b', only works with static b
+powerAdaa2(x0, b=2.345)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // 
 
   s0 = x0;//0;
   d0 = x0 - x1;
-  f2_x1 = powerF2(x1); // func2
+  f2_x1 = powerF2(x1, beta=b); // func2
   if (abs(d0) < eps) {  // ill condition
-    s0 = powerF1(0.5 * (x0 + x1)); // func1
+    s0 = powerF1(0.5 * (x0 + x1), beta=b); // func1
   } else {
-    s0 = (powerF2(x0) - f2_x1) / d0; // func2
+    s0 = (powerF2(x0, beta=b) - f2_x1) / d0; // func2
   }
 
   y1 = x0;//0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = powerF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+    y1 = powerF0(x0 + (x1 + x1) + x2, beta=b) * 0.25; // func0
   } else if (abs(d1) < eps) { // ill condition
     x_bar = 0.5 * (x0 + x2);
     x_delta = x_bar - x1;
     if (x_delta < eps) {  // ill condition
-      y1 = powerF0((x_bar + x1) * 0.5);  // func0
+      y1 = powerF0((x_bar + x1) * 0.5, beta=b);  // func0
     } else {
-      y1 = (2 / x_delta) * (powerF1(x_bar) + (f2_x1 - powerF2(x_bar)) / x_delta); // func1, func2
+      y1 = (2 / x_delta) * (powerF1(x_bar, beta=b) + (f2_x1 - powerF2(x_bar, beta=b)) / x_delta); // func1, func2
     }
   } else {
     s0s1 = s0 - s1;
@@ -278,93 +290,36 @@ powerAdaa2(x0)
 }
 
 
-// softclip2 is an original Takamitsu Endo idea
+//  //  //  log shaper, is PASSIVE, transparent and clean harmonics
 
-// softclip2 works mostly the same as hard-cliping. However, there's
-// a 2nd order (quadratic) region near threshold.
-//
-// - `h`: threshold of clipping.
-// - `ratio`: the ratio between linear region and quadratic curve region.
-//    0 is fully linear, 1 is fully quadratic.
-softclip2F0(x, h=1, ratio=0.5)
+log1pF0(x)
 {
-  z = abs(x);
-
-  a1 = h * ratio;
-  if (z <= a1)
-    return x;
-
-  a2 = (h + h) - a1;
-  if (z >= a2) {
-    return eviCopysign(h, x);
-  }
-
-  C1 = a2 - z;
-  hct = h + C1 * C1 / (a1 - h) * 0.25;
-  return eviCopysign(hct, x);
+  return eviCopysign(eviLog1p(abs(x)), x);
 }
 
-softclip2F1(x, h=1, ratio=0.5)
+log1pF1(x)
 {
   z = abs(x);
-
-  a1 = h * ratio;
-  if (z <= a1)
-    return z * z * 0.5;
-
-  a2 = (h + h) - a1;
-  ha12 = (h - a1) * 0.083333333333333;
-  ahz = a1 * (a1 * 0.5 - h) + h * z;
-  C0 = a1 - a2;
-  if (z >= a2)
-    return ahz + C0 * C0 * C0 / ha12;
-
-  C1 = z - a2;
-  return ahz + (C0 * C0 * C0 - C1 * C1 * C1) / ha12;
+  return (z + 1) * eviLog1p(z) - z;
 }
 
-softclip2F2(x, h=1, ratio=0.5)
+log1pF2(x)
 {
-  ods = 0.166666666666667;
   z = abs(x);
-
-  a1 = h * ratio;
-  if (z <= a1)
-    return x * x * x * ods;
-
-  a2 = (h + h) - a1;
-  C0 = a1 - a2;
-  C1 = z - a1;
-  z3 = z + z + z;
-  z4 = z + z + z + z;//z3 + z;
-  a13 = a1 + a1 + a1;
-  h05 = h * 0.5;
-  h36 = a1 * a1 * (z3 - (a1 + a1)) * ods + C1 * C1;
-  h48 = (h - a1) * 0.020833333333333;
-  if (z >= a2) {
-    output = (h36 * h05 + (C0 * C0 * C0 * (z4 - a13 - a2)) / h48);
-    return eviCopysign(output, x);
-  }
-
-  a24 = a2 + a2 + a2 + a2;
-  C00 = C0 + C0;
-  C2 = z + a1;
-  output = (h36 * (h05 - (C2 * C2 + C00 * C0 - a24 * (C0 + z)) / h48));
-  return eviCopysign(output, x);
+  z1 = z + 1;
+  return eviCopysign(((z1 + z1) * z1 * eviLog1p(z) - (z + z + z + 2) * z) * 0.25, x);
 }
 
-// TODO: h & ratio
-
-softclip2Adaa1(x0)
+log1pAdaa1(x0)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // TODO, work out precision
 
   y1 = 0;
   d0 = x0 - x1;
-  s0 = softclip2F1(x0);    // func1
+  s0 = log1pF1(x0);    // func1
   if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = softclip2F0(0.5 * (x0 + x1)); // func0
+    y1 = log1pF0(0.5 * (x0 + x1)); // func0
   } else {
     y1 = (s0 - s1) / d0;
   }
@@ -374,31 +329,31 @@ softclip2Adaa1(x0)
   return y1;
 }
 
-softclip2Adaa2(x0)
+log1pAdaa2(x0)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, work out precision
 
   s0 = x0;//0;
   d0 = x0 - x1;
-  f2_x1 = softclip2F2(x1); // func2
+  f2_x1 = log1pF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
-    s0 = softclip2F1(0.5 * (x0 + x1)); // func1
+    s0 = log1pF1(0.5 * (x0 + x1)); // func1
   } else {
-    s0 = (softclip2F2(x0) - f2_x1) / d0; // func2
+    s0 = (log1pF2(x0) - f2_x1) / d0; // func2
   }
 
   y1 = x0;//0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = softclip2F0(x0 + (x1 + x1) + x2) * 0.25; // func0
+    y1 = log1pF0(x0 + (x1 + x1) + x2) * 0.25; // func0
   } else if (abs(d1) < eps) { // ill condition
     x_bar = 0.5 * (x0 + x2);
     x_delta = x_bar - x1;
     if (x_delta < eps) {  // ill condition
-      y1 = softclip2F0((x_bar + x1) * 0.5);  // func0
+      y1 = log1pF0((x_bar + x1) * 0.5);  // func0
     } else {
-      y1 = (2 / x_delta) * (softclip2F1(x_bar) + (f2_x1 - softclip2F2(x_bar)) / x_delta); // func1, func2
+      y1 = (2 / x_delta) * (log1pF1(x_bar) + (f2_x1 - log1pF2(x_bar)) / x_delta); // func1, func2
     }
   } else {
     s0s1 = s0 - s1;
@@ -412,150 +367,7 @@ softclip2Adaa2(x0)
 }
 
 
-// softclipN is an original Takamitsu Endo idea
-
-// softclipN draws a curve that can be used as an
-// input/output response of a compressor.
-// `C` is the threshold, `R` and `beta` controls knee,
-// `1 / S` is compression ratio.
-//
-// - `C`: Clipping threshold.
-// - `R`: Ratio of polynomial region.
-// - `beta`: Order of polynomial.
-// - `S`: Slope of secondary linear region.
-softclipNF0(x0, C=1., R=0.5, beta=2., S=0.1)
-{
-  z = abs(x0);
-
-  rc = C * R;
-  if (z <= rc)
-    return x0;
-
-  xc = rc + beta * (C - rc);
-  A = (rc - C) / pow(xc - rc, beta);
-  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
-
-  output = 0;
-  if (z < xs) {
-    output = A * pow(xc - z, beta) + C;
-  } else {
-    output = A * pow(xc - xs, beta) + C + S * (z - xs);
-  }
-
-  return eviCopysign(output, x0);
-}
-
-softclipNF1(x0, C=1., R=0.5, beta=2., S=0.1)
-{
-  z = abs(x0);
-
-  rc = C * R;
-  if (z <= rc)
-    return x0 * x0 * 0.5;
-
-  xc = rc + beta * (C - rc);
-  Q0 = xc - rc;
-  A = (rc - C) / pow(Q0, beta);
-  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
-  b1 = 1 + beta;
-  Q0_pow_b1 = pow(Q0, b1);
-
-  if (z < xs) {
-    return A * (Q0_pow_b1 - pow(xc - z, b1)) / b1 + rc * rc * 0.5 + C * (z - rc);
-  } else {
-    return (A * Q0_pow_b1 / b1 + C * Q0 + S * (z * z - xc * xc) * 0.5 + rc * rc * 0.5 + (z - xc) * (A * pow(xc - xs, beta) + C - S * xs));
-  }
-}
-
-softclipNF2(x0, C=1., R=0.5, beta=2., S=0.1)
-{
-  odt = 0.333333333333333;
-  ods = 0.166666666666667;
-  z = abs(x0);
-
-  rc = C * R;
-  if (z <= rc)
-    return x0 * x0 * x0 * ods;
-
-  xc = rc + beta * (C - rc);
-  Q0 = xc - rc;
-  A = (rc - C) / pow(Q0, beta);
-  xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
-  b1 = 1 + beta;
-  b2 = 2 + beta;
-
-  if (z < xs) {
-    Q1 = z - rc;
-    output = (A * ((pow(xc - z, b2) - pow(Q0, b2)) / (b1 * b2) + pow(Q0, b1) * Q1 / b1) + rc * rc * (z * 0.5 - rc * odt) + C * Q1 * Q1 * 0.5);
-    return eviCopysign(output, x0);
-  }
-
-  Q2 = xc - xs;
-  Q2_pow_beta = pow(Q2, beta);
-  output = (A * pow(Q0, b2) * (1 - 1 / b2) / b1 + C * Q0 * Q0 * 0.5 + S * (z * z * z - xc * xc * xc) * ods + rc * rc * (xc * 0.5 - rc * odt) + (z - xc) * (A * (pow(Q0, b1) / b1 - xc * Q2_pow_beta) - C * rc + S * xc * (xs - xc * 0.5) + rc * rc * 0.5 + (z + xc) * 0.5 * (A * Q2_pow_beta + C - S * xs)));
-  return eviCopysign(output, x0);
-}
-
-// TODO: C, R, beta & S
-
-softclipNAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = softclipNF1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = softclipNF0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-softclipNAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = softclipNF2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = softclipNF1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (softclipNF2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = softclipNF0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = softclipNF0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (softclipNF1(x_bar) + (f2_x1 - softclipNF2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
-
-// 
+//  //  //  atan, used in evi.overdrive.atan~ etc, works great
 
 atanF00(x)
 {   // 2/PI
@@ -646,7 +458,7 @@ atanAdaa2(x0, reset)
 }
 
 
-// 
+//  //  //  tanh-like
 
 algebraicF0(x)
 {
@@ -725,82 +537,7 @@ algebraicAdaa2(x0)
 }
 
 
-// 
-
-log1pF0(x)
-{
-  return eviCopysign(eviLog1p(abs(x)), x);
-}
-
-log1pF1(x)
-{
-  z = abs(x);
-  return (z + 1) * eviLog1p(z) - z;
-}
-
-log1pF2(x)
-{
-  z = abs(x);
-  z1 = z + 1;
-  return eviCopysign(((z1 + z1) * z1 * eviLog1p(z) - (z + z + z + 2) * z) * 0.25, x);
-}
-
-log1pAdaa1(x0)
-{
-  History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  y1 = 0;
-  d0 = x0 - x1;
-  s0 = log1pF1(x0);    // func1
-  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = log1pF0(0.5 * (x0 + x1)); // func0
-  } else {
-    y1 = (s0 - s1) / d0;
-  }
-
-  s1 = s0;
-  x1 = x0;
-  return y1;
-}
-
-log1pAdaa2(x0)
-{
-  History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
-
-  s0 = x0;//0;
-  d0 = x0 - x1;
-  f2_x1 = log1pF2(x1); // func2
-  if (abs(d0) < eps) {  // ill condition
-    s0 = log1pF1(0.5 * (x0 + x1)); // func1
-  } else {
-    s0 = (log1pF2(x0) - f2_x1) / d0; // func2
-  }
-
-  y1 = x0;//0;
-  d1 = x0 - x2;
-  if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = log1pF0(x0 + (x1 + x1) + x2) * 0.25; // func0
-  } else if (abs(d1) < eps) { // ill condition
-    x_bar = 0.5 * (x0 + x2);
-    x_delta = x_bar - x1;
-    if (x_delta < eps) {  // ill condition
-      y1 = log1pF0((x_bar + x1) * 0.5);  // func0
-    } else {
-      y1 = (2 / x_delta) * (log1pF1(x_bar) + (f2_x1 - log1pF2(x_bar)) / x_delta); // func1, func2
-    }
-  } else {
-    s0s1 = s0 - s1;
-    y1 = (s0s1 + s0s1) / d1;
-  }
-
-  s1 = s0;
-  x2 = x1;
-  x1 = x0;
-  return y1;
-}
-
+//  //  //  tanh-like
 
 // these are the antiderivatives of the approximation, not of a real tanh - that is crucial !
 // sadly we still end up with a bloody Li2 in the 2nd order :-(
@@ -896,9 +633,10 @@ altTanhAdaa2(x0, reset)
   return y1;
 }
 
+//  //  //  tanh-like
 
 // Pete says: this is a "buzzy" tanh approx, be warned
-// actually "sin(atan(x))" written algebraically
+// actually "sin(atan(x))" algebraically
 
 altTanhSqrtF0(x)
 {
@@ -974,7 +712,7 @@ altTanhSqrtAdaa2(x0)
 }
 
 
-// 
+//  //  //  tanh-like
 
 altTanhPolyF0(x)
 {
@@ -1047,6 +785,8 @@ altTanhPolyAdaa2(x0)
   return y1;
 }
 
+
+//  //  //  sine shaping
 
 // you think this is stupid, but it is correct...
 
@@ -1122,7 +862,7 @@ sinAdaa2(x0, osf)
 }
 
 
-// 
+//  //  //  cubic nonlinearity
 
 eCubicF0(x)
 {
@@ -1203,7 +943,7 @@ eCubicAdaa2(x)
   return y1;
 }
 
-// 
+//  //  //  PASSIVE, 'a' must be fixed and in range 0.01..0.99
 
 tarrabiaF0(x, a)
 {
@@ -1226,10 +966,11 @@ tarrabiaF2(x, a)
     return (sign(x) * ((a + 1) * ((am1 + am1) * a * ax * logApprox(abs(a * (ax + ax - 1) + 1)) - am1 * (am1 * logApprox(abs(apa * ax - a + 1)) + apa * ax) + 2 * a*a * x*x) + loma * a*a*a - loma * a*a - loma * a + loma)) / (8 * a*a*a);
 }
 
-tarrabiaAdaa1(x0, a)
+// this does not work when changing / modulating 'a', only works with static a
+tarrabiaAdaa1(x0, a=0.5)
 {
   History x1(0), s1(0);
-  eps = 0.00001;  // TODO, work out precision
+  eps = 0.00001;  // 
 
   y1 = 0;
   d0 = x0 - x1;
@@ -1245,11 +986,11 @@ tarrabiaAdaa1(x0, a)
   return y1;
 }
 
-// this does not work when changing / modulating 'a'
-tarrabiaAdaa2(x0, a)
+// sadly the Adaa2 is sometimes unstable, maybe limit the bounds of 'a' ?
+tarrabiaAdaa2(x0, a=0.5)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.00000000001;  // TODO, work out precision
+  eps = 0.001;  // really ?
 
   s0 = 0;
   d0 = x0 - x1;
@@ -1283,7 +1024,10 @@ tarrabiaAdaa2(x0, a)
   return y1;
 }
 
-//
+
+//  //  //  szilagyi
+
+// folds, onle harmonic, only works with full scale and gain to +6dB unless you compensate
 
 szilagyiF0(x)
 {
@@ -1358,6 +1102,318 @@ szilagyiAdaa2(x0)
 	return y1;
 }
 
+
+// softclip2 is an original Takamitsu Endo idea
+
+// softclip2 works mostly the same as hard-cliping. However, there's
+// a 2nd order (quadratic) region near threshold.
+//
+// - `h`: threshold of clipping. []
+// - `ratio`: the ratio between linear region and quadratic curve region. [pete says: soft..hard]
+//    0 is fully linear, 1 is fully quadratic.
+
+softclip2F0(x, h=1, ratio=0.5)
+{
+  scout = 0;
+  z = abs(x);
+
+  a1 = h * ratio;
+  a2 = (h + h) - a1;
+
+  if (z <= a1) {
+    scout = x;
+  }
+  else if (z >= a2) {
+    scout = eviCopysign(h, x);
+  }
+  else {
+    C1 = a2 - z;
+    hct = h + C1 * C1 / (a1 - h) * 0.25;
+    scout = eviCopysign(hct, x);
+  }
+
+  return scout;
+}
+
+softclip2F1(x, h=1, ratio=0.5)
+{
+  scout = 0;
+  z = abs(x);
+
+  a1 = h * ratio;
+  if (z <= a1) {
+    scout = z * z * 0.5;
+  }
+  else {
+    a2 = (h + h) - a1;
+    // ha12 = (h - a1) * 0.083333333333333;  // NO !
+    // ahz = a1 * (a1 * 0.5 - h) + h * z;    // NO !
+    C0 = a1 - a2;
+    if (z >= a2) {
+      scout = a1 * (a1 * 0.5 - h) + h * z + C0 * C0 * C0 / (h - a1) * 0.083333333333333;
+    }
+    else {
+      C1 = z - a2;
+      scout = a1 * (a1 * 0.5 - h) + h * z + (C0 * C0 * C0 - C1 * C1 * C1) / (h - a1) * 0.083333333333333;
+    }
+  }
+
+  return scout;
+}
+
+softclip2F2(x, h=1, ratio=0.5)
+{
+  scout = 0;
+  ods = 0.166666666666667;
+  z = abs(x);
+
+  a1 = h * ratio;
+  if (z <= a1) {
+    scout = x * x * x * ods;
+  }
+  else {
+    a2 = (h + h) - a1;
+    C0 = a1 - a2;
+    C1 = z - a1;
+    z3 = z + z + z;
+    z4 = z + z + z + z;
+    a13 = a1 + a1 + a1;
+    h05 = h * 0.5;
+    // h36 = a1 * a1 * (z3 - (a1 + a1)) * ods + C1 * C1;  // NO !
+    // h48 = (h - a1) * 0.020833333333333;                // NO !
+    if (z >= a2) {
+      output = (a1 * a1 * (z3 - (a1 + a1)) * ods + C1 * C1 * h05 + (C0 * C0 * C0 * (z4 - a13 - a2)) / (h - a1) * 0.020833333333333);
+      scout = eviCopysign(output, x);
+    }
+    else {
+      a24 = a2 + a2 + a2 + a2;
+      C00 = C0 + C0;
+      C2 = z + a1;
+      output = (a1 * a1 * (z3 - (a1 + a1)) * ods + C1 * C1 * (h05 - (C2 * C2 + C00 * C0 - a24 * (C0 + z)) / (h - a1) * 0.020833333333333));
+      scout = eviCopysign(output, x);
+    }
+  }
+
+  return scout;
+}
+
+softclip2Adaa1(x0, h=1, ratio=0.5)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // 
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = softclip2F1(x0, h=h, ratio=ratio);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = softclip2F0(0.5 * (x0 + x1), h=h, ratio=ratio); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+softclip2Adaa2(x0, h=1, ratio=0.5)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // 
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = softclip2F2(x1, h=h, ratio=ratio); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = softclip2F1(0.5 * (x0 + x1), h=h, ratio=ratio); // func1
+  } else {
+    s0 = (softclip2F2(x0, h=h, ratio=ratio) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = softclip2F0(x0 + (x1 + x1) + x2, h=h, ratio=ratio) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = softclip2F0((x_bar + x1) * 0.5, h=h, ratio=ratio);  // func0
+    } else {
+      y1 = (2 / x_delta) * (softclip2F1(x_bar, h=h, ratio=ratio) + (f2_x1 - softclip2F2(x_bar, h=h, ratio=ratio)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
+
+// softclipN is an original Takamitsu Endo idea
+
+// softclipN draws a curve that can be used as an
+// input/output response of a compressor.
+// `C` is the threshold, `R` and `beta` controls knee,
+// `1 / S` is compression ratio.
+//
+// - `C`: Clipping threshold. [0..1..2 = no harmonics..harmonics..no harmonics]
+// - `R`: Ratio of polynomial region. [soft..hard]
+// - `beta`: Order of polynomial. [1..160]
+// - `S`: Slope of secondary linear region. [< 0 folds, > 0 clips]
+softclipNF0(x0, C=1., R=0.5, beta=2., S=0.1)
+{
+  scout = 0;
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc) {
+    scout = x0;
+  }
+  else {
+    xc = rc + beta * (C - rc);
+    A = (rc - C) / pow(xc - rc, beta);
+    xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+
+    output = 0;
+    if (z < xs) {
+      output = A * pow(xc - z, beta) + C;
+    } else {
+      output = A * pow(xc - xs, beta) + C + S * (z - xs);
+    }
+
+    scout = eviCopysign(output, x0);
+  }
+
+  return scout;
+}
+
+softclipNF1(x0, C=1., R=0.5, beta=2., S=0.1)
+{
+  scout = 0;
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc) {
+    scout = x0 * x0 * 0.5;
+  }
+  else {
+    xc = rc + beta * (C - rc);
+    Q0 = xc - rc;
+    A = (rc - C) / pow(Q0, beta);
+    xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+    b1 = 1 + beta;
+    Q0_pow_b1 = pow(Q0, b1);
+
+    if (z < xs) {
+      scout = A * (Q0_pow_b1 - pow(xc - z, b1)) / b1 + rc * rc * 0.5 + C * (z - rc);
+    } else {
+      scout = (A * Q0_pow_b1 / b1 + C * Q0 + S * (z * z - xc * xc) * 0.5 + rc * rc * 0.5 + (z - xc) * (A * pow(xc - xs, beta) + C - S * xs));
+    }
+  }
+
+  return scout;
+}
+
+softclipNF2(x0, C=1., R=0.5, beta=2., S=0.1)
+{
+  scout = 0;
+  odt = 0.333333333333333;
+  ods = 0.166666666666667;
+  z = abs(x0);
+
+  rc = C * R;
+  if (z <= rc) {
+    scout = x0 * x0 * x0 * ods;
+  }
+  else {
+    xc = rc + beta * (C - rc);
+    Q0 = xc - rc;
+    A = (rc - C) / pow(Q0, beta);
+    xs = xc - pow(-S / (A * beta), 1 / (beta - 1));
+    b1 = 1 + beta;
+    b2 = 2 + beta;
+
+    if (z < xs) {
+      Q1 = z - rc;
+      output = (A * ((pow(xc - z, b2) - pow(Q0, b2)) / (b1 * b2) + pow(Q0, b1) * Q1 / b1) + rc * rc * (z * 0.5 - rc * odt) + C * Q1 * Q1 * 0.5);
+      scout = eviCopysign(output, x0);
+    }
+    else {
+      Q2 = xc - xs;
+      Q2_pow_beta = pow(Q2, beta);
+      output = (A * pow(Q0, b2) * (1 - 1 / b2) / b1 + C * Q0 * Q0 * 0.5 + S * (z * z * z - xc * xc * xc) * ods + rc * rc * (xc * 0.5 - rc * odt) + (z - xc) * (A * (pow(Q0, b1) / b1 - xc * Q2_pow_beta) - C * rc + S * xc * (xs - xc * 0.5) + rc * rc * 0.5 + (z + xc) * 0.5 * (A * Q2_pow_beta + C - S * xs)));
+      scout = eviCopysign(output, x0);
+    }
+  }
+
+  return scout;
+}
+
+// leaving pete's param defaults in place you get a nice diode like saturator with up to +20dB input gain
+softclipNAdaa1(x0, C=0.707107, R=0.707107, beta=2., S=0.01)
+{
+  History x1(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  y1 = 0;
+  d0 = x0 - x1;
+  s0 = softclipNF1(x0, C=C, R=R, beta=beta, S=S);    // func1
+  if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
+    y1 = softclipNF0(0.5 * (x0 + x1), C=C, R=R, beta=beta, S=S); // func0
+  } else {
+    y1 = (s0 - s1) / d0;
+  }
+
+  s1 = s0;
+  x1 = x0;
+  return y1;
+}
+
+// leaving pete's param defaults in place you get a nice diode like saturator with up to +20dB input gain
+softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=2., S=0.01)
+{
+  History x1(0), x2(0), s1(0);
+  eps = 0.000001;  // TODO, work out precision
+
+  s0 = x0;//0;
+  d0 = x0 - x1;
+  f2_x1 = softclipNF2(x1, C=C, R=R, beta=beta, S=S); // func2
+  if (abs(d0) < eps) {  // ill condition
+    s0 = softclipNF1(0.5 * (x0 + x1), C=C, R=R, beta=beta, S=S); // func1
+  } else {
+    s0 = (softclipNF2(x0, C=C, R=R, beta=beta, S=S) - f2_x1) / d0; // func2
+  }
+
+  y1 = x0;//0;
+  d1 = x0 - x2;
+  if (x1 == 0 && x2 == 0) { // ill condition
+    y1 = softclipNF0(x0 + (x1 + x1) + x2, C=C, R=R, beta=beta, S=S) * 0.25; // func0
+  } else if (abs(d1) < eps) { // ill condition
+    x_bar = 0.5 * (x0 + x2);
+    x_delta = x_bar - x1;
+    if (x_delta < eps) {  // ill condition
+      y1 = softclipNF0((x_bar + x1) * 0.5, C=C, R=R, beta=beta, S=S);  // func0
+    } else {
+      y1 = (2 / x_delta) * (softclipNF1(x_bar, C=C, R=R, beta=beta, S=S) + (f2_x1 - softclipNF2(x_bar, C=C, R=R, beta=beta, S=S)) / x_delta); // func1, func2
+    }
+  } else {
+    s0s1 = s0 - s1;
+    y1 = (s0s1 + s0s1) / d1;
+  }
+
+  s1 = s0;
+  x2 = x1;
+  x1 = x0;
+  return y1;
+}
+
+
 // the Adaa templates
 // these are just like the previous evieve and the Chowdry, but the adaa2 is cleverer
 
@@ -1425,7 +1481,8 @@ adaa_2_template(x0)
 }
 */
 
-// other
+
+//  //  //  other
 
 /*
 // Lambert-W function
@@ -1532,4 +1589,5 @@ lockhartAA(Xo, loop=1000)
 
   return  dcblock(Yn);
 }
+
 

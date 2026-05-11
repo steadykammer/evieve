@@ -145,7 +145,7 @@
             "get": 0,
             "type": "float",
             "digest": "Expected maximum of input to left trigger inlet",
-            "description": "This can be any value, by default it assumes velocity. Only used if the <m>velocitysense</m> attribute is > 0.",
+            "description": "This can be any value, by default it assumes velocity. Only used if the @velocitysense attribute is > 0.",
             "default": {
                 "get": 0,
                 "value": "127."
@@ -178,7 +178,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Time in ms for second hold segment, between sustain and release",
+            "description": "Time in ms for second hold segment, before release",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -310,7 +310,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Velocity sensitivity 0..1 (<m>envmax</m> is only used if this > 0.)",
+            "description": "Velocity sensitivity 0..1 (@envmax is only used if this > 0.)",
             "default": {
                 "get": 0,
                 "value": "0."
