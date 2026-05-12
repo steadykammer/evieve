@@ -1,0 +1,126 @@
+{
+    "object": {
+        "name": "evi.softresponder~",
+        "parent": "evi_softresponder",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_adaa.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio to be soft clipped",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Antialiased soft clipped output",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "algo",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "softBeta",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "2",
+                "max": "32",
+                "value": "4."
+            }
+        },
+        {
+            "name": "softC",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.64",
+                "max": "1.4",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softH",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.01",
+                "max": "2",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softR",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0.01",
+                "max": "0.99",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softRatio",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softS",
+            "get": 1,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "0.05",
+                "value": "0.01"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

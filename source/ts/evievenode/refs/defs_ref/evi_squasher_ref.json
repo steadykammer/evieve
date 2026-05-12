@@ -1,0 +1,54 @@
+{
+    "object": {
+        "name": "evi.squasher~",
+        "parent": "evi_squasher",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_adaa.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio to be shaped",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Antialiased shaped output",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "harmonics",
+            "get": 1,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "min": "0",
+                "max": "3",
+                "value": "2"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

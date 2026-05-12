@@ -1,0 +1,28 @@
+
+require("evi_adaa.genexpr");
+
+// antialiased soft clipping
+
+// it is strongly advised that you never change these 'constants':
+Param   softH(sqrt1_2, min=0.01, max=2);
+Param   softRatio(sqrt1_2, min=0, max=1);
+Param   softC(sqrt1_2, min=0.64, max=1.4);
+Param   softR(sqrt1_2, min=0.01, max=0.99);
+Param   softBeta(4., min=2, max=32);
+Param   softS(0.01, min=0, max=0.05);
+
+// select:
+Param   algo(0, min=0, max=1);  // 0 = clearer harmonics, 1 = more bassy
+alg     = int(algo);
+
+// audio:
+responder = 0;
+if (alg == 1) {
+    responder = softclipNAdaa2(in1, C=softC, R=softR, beta=softBeta, S=softS);
+}
+else {
+    responder = softclip2Adaa2(in1, h=softH, ratio=softRatio);
+}
+
+out1 = responder;
+

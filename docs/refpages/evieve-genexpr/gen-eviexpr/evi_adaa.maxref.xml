@@ -62,6 +62,7 @@
         First order anti-derivative anti-aliasing of a power function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
 
         <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 
@@ -72,48 +73,29 @@
         Second order anti-derivative anti-aliasing of a power function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
 
         <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 
       </description>
     </entry>
-    <entry name="softclip2Adaa1 ( )">
+    <entry name="log1pAdaa1 ( )">
       <description>
-        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        First order anti-derivative anti-aliasing of a log1p() function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
 
-        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
+        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
 
       </description>
     </entry>
-    <entry name="softclip2Adaa2 ( )">
+    <entry name="log1pAdaa2 ( )">
       <description>
-        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        Second order anti-derivative anti-aliasing of a log1p() function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
 
-        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
-
-      </description>
-    </entry>
-    <entry name="softclipNAdaa1 ( )">
-      <description>
-        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
-
-        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
-
-      </description>
-    </entry>
-    <entry name="softclipNAdaa2 ( )">
-      <description>
-        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
-
-        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
+        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
 
       </description>
     </entry>
@@ -159,26 +141,6 @@
 
       </description>
     </entry>
-    <entry name="log1pAdaa1 ( )">
-      <description>
-        First order anti-derivative anti-aliasing of a log1p() function <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
-
-        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
-
-      </description>
-    </entry>
-    <entry name="log1pAdaa2 ( )">
-      <description>
-        Second order anti-derivative anti-aliasing of a log1p() function <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to shape</i> <br />
-
-        <b>Return 1</b>: Shaped output, <i>Saturated shaped audio output</i> <br />
-
-      </description>
-    </entry>
     <entry name="altTanhAdaa1 ( )">
       <description>
         First order anti-derivative anti-aliasing of an alternative tanh-like function <br />
@@ -221,7 +183,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhPolyAdaa1 ( )">
+    <entry name="foldPolyAdaa1 ( )">
       <description>
         First order anti-derivative anti-aliasing of a polynomial tanh-like function <br />
         <br />
@@ -231,7 +193,7 @@
 
       </description>
     </entry>
-    <entry name="altTanhPolyAdaa2 ( )">
+    <entry name="foldPolyAdaa2 ( )">
       <description>
         Second order anti-derivative anti-aliasing of a polynomial tanh-like function <br />
         <br />
@@ -288,7 +250,7 @@
         First order anti-derivative anti-aliasing of a novel waveshaper function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i>Amount of saturation (linear)</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.5</b>, <i>Amount of saturation (linear)</i> <br />
 
         <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
@@ -299,7 +261,7 @@
         Second order anti-derivative anti-aliasing of a novel waveshaper function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>input</i>: a, <i>Amount of saturation (linear)</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.5</b>, <i>Amount of saturation (linear)</i> <br />
 
         <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
@@ -318,6 +280,58 @@
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
         <b>Return 1</b>: , <i>Anti-aliased clipping output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="softclip2Adaa1 ( )">
+      <description>
+        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.707107</b>, <i></i> <br />
+
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="softclip2Adaa2 ( )">
+      <description>
+        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): h, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): ratio, default: <b>0.707107</b>, <i></i> <br />
+
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="softclipNAdaa1 ( )">
+      <description>
+        First order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>4</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.01</b>, <i></i> <br />
+
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="softclipNAdaa2 ( )">
+      <description>
+        Second order anti-derivative anti-aliasing of a variable soft clipping function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to Soft Clip</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): C, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): R, default: <b>0.707107</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): beta, default: <b>4</b>, <i></i> <br />
+        <b>In 5</b>: type=<i>param</i> (optional): S, default: <b>0.01</b>, <i></i> <br />
+
+        <b>Return 1</b>: Soft Clip, <i>Anti-aliased soft clipping output</i> <br />
 
       </description>
     </entry>

@@ -1,0 +1,7 @@
+
+require("evi_adaa.genexpr");
+
+// antialiased half wave signal rectifier
+
+out1 = halfrectAdaa2(in1);
+

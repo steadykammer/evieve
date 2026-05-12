@@ -1,0 +1,41 @@
+{
+    "object": {
+        "name": "evi.rectify~",
+        "parent": "evi_rectify",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": []
+    },
+    "includes": [
+        "evi_adaa.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio to be rectified",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Antialiased rectified output",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}

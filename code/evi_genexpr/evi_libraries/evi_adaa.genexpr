@@ -61,7 +61,7 @@ hardclipF1(x)
     return z - 0.5;
   }
 }
-
+/*
 hardclipF2(x)
 {
   ods = 0.166666666666667;
@@ -72,6 +72,23 @@ hardclipF2(x)
     xt6 = x * x05 + ods;
     return eviCopysign(xt6, x) - x05;
   }
+}
+*/
+hardclipF2(x)
+{
+  y = 0;
+  ods = 0.166666666666667;
+  if (abs(x) < 1) {
+    y = x * x * x * ods;
+  } else {
+    x05 = x * 0.5;
+    if (x > 0) {
+      y = (x * x05 + ods) - x05;
+    } else {
+      y = -(x * x05 + ods) - x05;
+    }
+  }
+  return y;
 }
 
 hardclipAdaa1(x0)
@@ -172,7 +189,7 @@ halfrectAdaa2(x0)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // 
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = halfrectF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -181,7 +198,7 @@ halfrectAdaa2(x0)
     s0 = (halfrectF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = halfrectF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -232,16 +249,16 @@ powerF2(x, beta=2.345)
 }
 
 // this does not work when changing / modulating 'b', only works with static b
-powerAdaa1(x0, b=2.345)
+powerAdaa1(x0, beta=2.345)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // 
 
   y1 = 0;
   d0 = x0 - x1;
-  s0 = powerF1(x0, beta=b);    // func1
+  s0 = powerF1(x0, beta=beta);    // func1
   if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = powerF0(0.5 * (x0 + x1), beta=b); // func0
+    y1 = powerF0(0.5 * (x0 + x1), beta=beta); // func0
   } else {
     y1 = (s0 - s1) / d0;
   }
@@ -252,31 +269,31 @@ powerAdaa1(x0, b=2.345)
 }
 
 // this does not work when changing / modulating 'b', only works with static b
-powerAdaa2(x0, b=2.345)
+powerAdaa2(x0, beta=2.345)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // 
+  eps = 0.0000001;  // 
 
   s0 = x0;//0;
   d0 = x0 - x1;
-  f2_x1 = powerF2(x1, beta=b); // func2
+  f2_x1 = powerF2(x1, beta=beta); // func2
   if (abs(d0) < eps) {  // ill condition
-    s0 = powerF1(0.5 * (x0 + x1), beta=b); // func1
+    s0 = powerF1(0.5 * (x0 + x1), beta=beta); // func1
   } else {
-    s0 = (powerF2(x0, beta=b) - f2_x1) / d0; // func2
+    s0 = (powerF2(x0, beta=beta) - f2_x1) / d0; // func2
   }
 
   y1 = x0;//0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = powerF0(x0 + (x1 + x1) + x2, beta=b) * 0.25; // func0
+    y1 = powerF0(x0 + (x1 + x1) + x2, beta=beta) * 0.25; // func0
   } else if (abs(d1) < eps) { // ill condition
     x_bar = 0.5 * (x0 + x2);
     x_delta = x_bar - x1;
     if (x_delta < eps) {  // ill condition
-      y1 = powerF0((x_bar + x1) * 0.5, beta=b);  // func0
+      y1 = powerF0((x_bar + x1) * 0.5, beta=beta);  // func0
     } else {
-      y1 = (2 / x_delta) * (powerF1(x_bar, beta=b) + (f2_x1 - powerF2(x_bar, beta=b)) / x_delta); // func1, func2
+      y1 = (2 / x_delta) * (powerF1(x_bar, beta=beta) + (f2_x1 - powerF2(x_bar, beta=beta)) / x_delta); // func1, func2
     }
   } else {
     s0s1 = s0 - s1;
@@ -458,7 +475,7 @@ atanAdaa2(x0, reset)
 }
 
 
-//  //  //  tanh-like
+//  //  //  tanh-like, but not actually particularly good (weak sound) compared to the other tanh-like options in this file
 
 algebraicF0(x)
 {
@@ -537,12 +554,11 @@ algebraicAdaa2(x0)
 }
 
 
-//  //  //  tanh-like
+//  //  //  very tanh-like, closest
 
 // these are the antiderivatives of the approximation, not of a real tanh - that is crucial !
 // sadly we still end up with a bloody Li2 in the 2nd order :-(
 
-// note: this tanh approx becomes not-tanh-like above about +22dB input gain (wave folds)
 // note: the entire approx is -6dB down, but we boost it on input before adaa to match tanh()
 
 altTanhF0(x)
@@ -556,12 +572,6 @@ altTanhF0(x)
 altTanhF1(x)
 {
   lex = log(exp(x) + 1); // not exp- or log- Approx() !
-  return lex + lex - x;
-}
-
-altTanhF11(x)
-{
-  lex = logApprox(expApprox(x) + 1); // ok for just Adaa1 ?
   return lex + lex - x;
 }
 
@@ -633,7 +643,7 @@ altTanhAdaa2(x0, reset)
   return y1;
 }
 
-//  //  //  tanh-like
+//  //  //  tanh-like, pretty close
 
 // Pete says: this is a "buzzy" tanh approx, be warned
 // actually "sin(atan(x))" algebraically
@@ -712,33 +722,33 @@ altTanhSqrtAdaa2(x0)
 }
 
 
-//  //  //  tanh-like
+//  //  //  tanh-like, actually wavefolds but in a very smooth way
 
-altTanhPolyF0(x)
+foldPolyF0(x)
 {
   return x / (1 + (0.28 * x*x));
 }
 
-altTanhPolyF1(x)
+foldPolyF1(x)
 {     // Adaa1 works with logApprox() here but not in low freq input, but then Adaa2 does not work at all
   return (25 * log(7 * x*x + 25)) * 0.071428571428571;
 }
 
-altTanhPolyF2(x)
+foldPolyF2(x)
 {                                   // atanA() does not work here, regardless of precision
   return (25 * (x * log(7 * x*x + 25) - 14 * (x * 0.142857142857143 - (5 * atan((2.645751311064591 * x) * 0.2)) * 0.053994924715604))) * 0.071428571428571;
 }
 
-altTanhPolyAdaa1(x0)
+foldPolyAdaa1(x0)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // TODO, work out precision
 
   y1 = 0;
   d0 = x0 - x1;
-  s0 = altTanhPolyF1(x0);    // func1
+  s0 = foldPolyF1(x0);    // func1
   if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {  // ill condition
-    y1 = altTanhPolyF0(0.5 * (x0 + x1)); // func0
+    y1 = foldPolyF0(0.5 * (x0 + x1)); // func0
   } else {
     y1 = (s0 - s1) / d0;
   }
@@ -748,31 +758,31 @@ altTanhPolyAdaa1(x0)
   return y1;
 }
 
-altTanhPolyAdaa2(x0)
+foldPolyAdaa2(x0)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, work out precision
 
   s0 = x0;//0;
   d0 = x0 - x1;
-  f2_x1 = altTanhPolyF2(x1); // func2
+  f2_x1 = foldPolyF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
-    s0 = altTanhPolyF1(0.5 * (x0 + x1)); // func1
+    s0 = foldPolyF1(0.5 * (x0 + x1)); // func1
   } else {
-    s0 = (altTanhPolyF2(x0) - f2_x1) / d0; // func2
+    s0 = (foldPolyF2(x0) - f2_x1) / d0; // func2
   }
 
   y1 = x0;//0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
-    y1 = altTanhPolyF0(x0 + (x1 + x1) + x2) * 0.25; // func0
+    y1 = foldPolyF0(x0 + (x1 + x1) + x2) * 0.25; // func0
   } else if (abs(d1) < eps) { // ill condition
     x_bar = 0.5 * (x0 + x2);
     x_delta = x_bar - x1;
     if (x_delta < eps) {  // ill condition
-      y1 = altTanhPolyF0((x_bar + x1) * 0.5);  // func0
+      y1 = foldPolyF0((x_bar + x1) * 0.5);  // func0
     } else {
-      y1 = (2 / x_delta) * (altTanhPolyF1(x_bar) + (f2_x1 - altTanhPolyF2(x_bar)) / x_delta); // func1, func2
+      y1 = (2 / x_delta) * (foldPolyF1(x_bar) + (f2_x1 - foldPolyF2(x_bar)) / x_delta); // func1, func2
     }
   } else {
     s0s1 = s0 - s1;
@@ -824,12 +834,13 @@ sinAdaa1(x0, osf)
   return y1;
 }
 
+// if using Adaa2 must highpass input before
 sinAdaa2(x0, osf)
 {
   History x1(0), x2(0), s1(0);
   eps = (osf <= 2) ? 0.000000000001 : ((osf == 4) ? 0.00000001 : 0.000001);
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = sinF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -838,7 +849,7 @@ sinAdaa2(x0, osf)
     s0 = (sinF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = sinF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -875,6 +886,7 @@ eCubicF1(x)
 //  x = clip(x, -1, 1);
   xm3 = x*x - 3;
   return -xm3*xm3 * 0.083333333333333;
+  // return -(x*x - 3)*(x*x - 3) * 0.083333333333333;
 }
 
 eCubicF2(x)
@@ -888,7 +900,7 @@ eCubicF2(x)
 eCubicAdaa1(x)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // TODO, check precision
   x0 = clip(x, -1, 1);
 
   y1 = 0;
@@ -908,7 +920,7 @@ eCubicAdaa1(x)
 eCubicAdaa2(x)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // TODO, check precision
   x0 = clip(x, -1, 1);
 
   s0 = 0;
@@ -1027,7 +1039,7 @@ tarrabiaAdaa2(x0, a=0.5)
 
 //  //  //  szilagyi
 
-// folds, onle harmonic, only works with full scale and gain to +6dB unless you compensate
+// folds, one harmonic, only works with full scale and gain to +6dB unless you compensate
 
 szilagyiF0(x)
 {
@@ -1197,7 +1209,7 @@ softclip2F2(x, h=1, ratio=0.5)
   return scout;
 }
 
-softclip2Adaa1(x0, h=1, ratio=0.5)
+softclip2Adaa1(x0, h=0.707107, ratio=0.707107)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // 
@@ -1216,7 +1228,7 @@ softclip2Adaa1(x0, h=1, ratio=0.5)
   return y1;
 }
 
-softclip2Adaa2(x0, h=1, ratio=0.5)
+softclip2Adaa2(x0, h=0.707107, ratio=0.707107)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // 
@@ -1356,7 +1368,7 @@ softclipNF2(x0, C=1., R=0.5, beta=2., S=0.1)
 }
 
 // leaving pete's param defaults in place you get a nice diode like saturator with up to +20dB input gain
-softclipNAdaa1(x0, C=0.707107, R=0.707107, beta=2., S=0.01)
+softclipNAdaa1(x0, C=0.707107, R=0.707107, beta=4., S=0.01)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // TODO, work out precision
@@ -1376,7 +1388,7 @@ softclipNAdaa1(x0, C=0.707107, R=0.707107, beta=2., S=0.01)
 }
 
 // leaving pete's param defaults in place you get a nice diode like saturator with up to +20dB input gain
-softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=2., S=0.01)
+softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=4., S=0.01)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, work out precision

@@ -17,7 +17,7 @@ tremAmpMix(xin, lfomix)
 {
     History tamdummy(0);
     trem = dcblock(xin * lfomix);
-	return altTanhPolyAdaa2(trem);
+	return foldPolyAdaa2(trem);
 }
 
 Param   rate(0.5, min=0, max=1);

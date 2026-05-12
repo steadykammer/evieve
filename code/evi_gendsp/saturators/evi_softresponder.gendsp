@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 612.0, 100.0, 496.0, 301.0 ],
+        "rect": [ 612.0, 100.0, 750.0, 600.0 ],
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
@@ -26,13 +26,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 19.0, 179.0, 22.0 ],
-                    "text": "in 1 (signal) Audio to be rectified"
+                    "patching_rect": [ 49.0, 19.0, 198.0, 22.0 ],
+                    "text": "in 1 (signal) Audio to be soft clipped"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n// antialiased half wave signal rectifier\r\n\r\nout1 = halfrectAdaa2(in1);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n// antialiased soft clipping\r\n\r\n// it is strongly advised that you never change these 'constants':\r\nParam   softH(sqrt1_2, min=0.01, max=2);\r\nParam   softRatio(sqrt1_2, min=0, max=1);\r\nParam   softC(sqrt1_2, min=0.64, max=1.4);\r\nParam   softR(sqrt1_2, min=0.01, max=0.99);\r\nParam   softBeta(4., min=2, max=32);\r\nParam   softS(0.01, min=0, max=0.05);\r\n\r\n// select:\r\nParam   algo(0, min=0, max=1);  // 0 = clearer harmonics, 1 = more bassy\r\nalg     = int(algo);\r\n\r\n// audio:\r\nresponder = 0;\r\nif (alg == 1) {\r\n    responder = softclipNAdaa2(in1, C=softC, R=softR, beta=softBeta, S=softS);\r\n}\r\nelse {\r\n    responder = softclip2Adaa2(in1, h=softH, ratio=softRatio);\r\n}\r\n\r\nout1 = responder;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -41,7 +41,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 58.0, 399.0, 184.0 ]
+                    "patching_rect": [ 49.0, 58.0, 654.0, 477.0 ]
                 }
             },
             {
@@ -50,8 +50,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 259.0, 221.0, 22.0 ],
-                    "text": "out 1 (signal) Antialiased rectified output"
+                    "patching_rect": [ 49.0, 552.0, 240.0, 22.0 ],
+                    "text": "out 1 (signal) Antialiased soft clipped output"
                 }
             }
         ],
@@ -68,6 +68,7 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

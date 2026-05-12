@@ -1,0 +1,113 @@
+{
+    "object": {
+        "name": "evi_softresponder",
+        "child": "evi.softresponder~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "audio"
+    },
+    "includes": [
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "to be soft clipped",
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "antialiased",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "soft clipped output",
+            "digest": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "algo",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "softBeta",
+            "type": "float",
+            "digest": "@min 2, @max 32",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "4."
+            }
+        },
+        {
+            "name": "softC",
+            "type": "float",
+            "digest": "@min 0.64, @max 1.4",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softH",
+            "type": "float",
+            "digest": "@min 0.01, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softR",
+            "type": "float",
+            "digest": "@min 0.01, @max 0.99",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softRatio",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "softS",
+            "type": "float",
+            "digest": "@min 0, @max 0.05",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.01"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

@@ -104,6 +104,7 @@
 <refpage name='evi.randy~.maxref.xml'/>
 <refpage name='evi.rcfilter~.maxref.xml'/>
 <refpage name='evi.rect.select~.maxref.xml'/>
+<refpage name='evi.rectify~.maxref.xml'/>
 <refpage name='evi.rect~.maxref.xml'/>
 <refpage name='evi.reson~.maxref.xml'/>
 <refpage name='evi.ringmod.diode~.maxref.xml'/>
@@ -115,6 +116,8 @@
 <refpage name='evi.sinfold~.maxref.xml'/>
 <refpage name='evi.skfinputmix~.maxref.xml'/>
 <refpage name='evi.softclip~.maxref.xml'/>
+<refpage name='evi.softresponder~.maxref.xml'/>
+<refpage name='evi.squasher~.maxref.xml'/>
 <refpage name='evi.squine.simple~.maxref.xml'/>
 <refpage name='evi.sustainverb~.maxref.xml'/>
 <refpage name='evi.svfinputmix~.maxref.xml'/>

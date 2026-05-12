@@ -3373,6 +3373,30 @@
                 "auto": true
             }
         },
+        "evi_rectify.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.rectify~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": [
+                    "overdrive"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_reson.gendsp": {
             "define": {
                 "object": true,
@@ -3667,6 +3691,54 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_softresponder.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.softresponder~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": [
+                    "overdrive"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_squasher.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.squasher~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": [
+                    "overdrive"
+                ]
             },
             "db": {
                 "browser": true,

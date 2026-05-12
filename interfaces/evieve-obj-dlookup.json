@@ -524,6 +524,11 @@
         "digest": "High quality anti-aliased square wave oscillator with PWM",
         "description": "evi.rect~ is a 'max define' for the evi_rect.gendsp gen~ abstraction. Because evi.rect~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
+    "evi.rectify~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
     "evi.reson~": {
         "type": "define",
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
@@ -573,6 +578,16 @@
         "type": "define",
         "digest": "Anti-aliased soft clipping function",
         "description": "evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction. Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick all purpose and efficient soft clipper. evi.softclip~ does not have all the options of evi.hardclip~ or evi.clip~. It aims to be an easy tanh~ replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. At high input gains the behaviour is less tanh-like as it folds."
+    },
+    "evi.softresponder~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
+    },
+    "evi.squasher~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
     },
     "evi.squine.simple~": {
         "type": "define",

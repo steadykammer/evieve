@@ -131,6 +131,7 @@
 <refpage name='evi_rcfilter.maxref.xml'/>
 <refpage name='evi_rect.maxref.xml'/>
 <refpage name='evi_rect_select.maxref.xml'/>
+<refpage name='evi_rectify.maxref.xml'/>
 <refpage name='evi_reson.maxref.xml'/>
 <refpage name='evi_ringmod.maxref.xml'/>
 <refpage name='evi_saw.maxref.xml'/>
@@ -143,6 +144,8 @@
 <refpage name='evi_sline.maxref.xml'/>
 <refpage name='evi_smoothstep.maxref.xml'/>
 <refpage name='evi_softclip.maxref.xml'/>
+<refpage name='evi_softresponder.maxref.xml'/>
+<refpage name='evi_squasher.maxref.xml'/>
 <refpage name='evi_squine_simple.maxref.xml'/>
 <refpage name='evi_sustainfdn.maxref.xml'/>
 <refpage name='evi_sustainfdnclear.maxref.xml'/>

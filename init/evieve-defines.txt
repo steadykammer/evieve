@@ -275,6 +275,9 @@ max define mc.evi.rect.select~ mc.gen~ @gen evi_rect_select.gendsp @chans 2;
 max define evi.rect~ gen~ @gen evi_rect.gendsp;
 max define mc.evi.rect~ mc.gen~ @gen evi_rect.gendsp @chans 2;
 
+max define evi.rectify~ gen~ @gen evi_rectify.gendsp;
+max define mc.evi.rectify~ mc.gen~ @gen evi_rectify.gendsp @chans 2;
+
 max define evi.reson~ gen~ @gen evi_reson.gendsp;
 max define mc.evi.reson~ mc.gen~ @gen evi_reson.gendsp @chans 2;
 
@@ -301,6 +304,12 @@ max define mc.evi.skfinputmix~ mc.gen~ @gen evi_skfinputmix.gendsp @chans 2;
 
 max define evi.softclip~ gen~ @gen evi_softclip.gendsp;
 max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
+
+max define evi.softresponder~ gen~ @gen evi_softresponder.gendsp;
+max define mc.evi.softresponder~ mc.gen~ @gen evi_softresponder.gendsp @chans 2;
+
+max define evi.squasher~ gen~ @gen evi_squasher.gendsp;
+max define mc.evi.squasher~ mc.gen~ @gen evi_squasher.gendsp @chans 2;
 
 max define evi.squine.simple~ gen~ @gen evi_squine_simple.gendsp;
 max define mc.evi.squine.simple~ mc.gen~ @gen evi_squine_simple.gendsp @chans 2;

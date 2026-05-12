@@ -1,0 +1,42 @@
+{
+    "object": {
+        "name": "evi_rectify",
+        "child": "evi.rectify~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "audio"
+    },
+    "includes": [
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "to be rectified",
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "antialiased",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "rectified output",
+            "digest": ""
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

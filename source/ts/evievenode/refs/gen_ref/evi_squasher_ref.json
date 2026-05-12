@@ -1,0 +1,53 @@
+{
+    "object": {
+        "name": "evi_squasher",
+        "child": "evi.squasher~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "audio"
+    },
+    "includes": [
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "to be shaped",
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "antialiased",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "shaped output",
+            "digest": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "harmonics",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

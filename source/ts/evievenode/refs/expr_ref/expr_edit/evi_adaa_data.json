@@ -50,7 +50,13 @@
                     "digest": ""
                 }
             ],
-            "returns": []
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
         },
         {
             "document": true,
@@ -286,6 +292,14 @@
                     "kind": "input",
                     "name": "x0",
                     "digest": "Audio input to distort"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 2.345,
+                    "type": "float",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -306,6 +320,14 @@
                     "kind": "input",
                     "name": "x0",
                     "digest": "Audio input to distort"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 2.345,
+                    "type": "float",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -319,29 +341,13 @@
         {
             "document": false,
             "digest": "",
-            "name": "softclip2F0",
+            "name": "log1pF0",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "h",
-                    "default": 1,
-                    "type": "integer",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "ratio",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
                 }
             ],
             "returns": [
@@ -355,29 +361,13 @@
         {
             "document": false,
             "digest": "",
-            "name": "softclip2F1",
+            "name": "log1pF1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "h",
-                    "default": 1,
-                    "type": "integer",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "ratio",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
                 }
             ],
             "returns": [
@@ -391,29 +381,13 @@
         {
             "document": false,
             "digest": "",
-            "name": "softclip2F2",
+            "name": "log1pF2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "h",
-                    "default": 1,
-                    "type": "integer",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "ratio",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
                 }
             ],
             "returns": [
@@ -426,231 +400,41 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
-            "name": "softclip2Adaa1",
+            "digest": "First order anti-derivative anti-aliasing of a log1p() function",
+            "name": "log1pAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": "Audio input to Soft Clip"
+                    "digest": "Audio input to shape"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "name": "Shaped output",
+                    "digest": "Saturated shaped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
-            "name": "softclip2Adaa2",
+            "digest": "Second order anti-derivative anti-aliasing of a log1p() function",
+            "name": "log1pAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x0",
-                    "digest": "Audio input to Soft Clip"
+                    "digest": "Audio input to shape"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "softclipNF0",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "C",
-                    "default": 1,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "R",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "beta",
-                    "default": 2,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "param",
-                    "name": "S",
-                    "default": 0.1,
-                    "type": "float",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "softclipNF1",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "C",
-                    "default": 1,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "R",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "beta",
-                    "default": 2,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "param",
-                    "name": "S",
-                    "default": 0.1,
-                    "type": "float",
-                    "digest": ""
-                }
-            ],
-            "returns": []
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "softclipNF2",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "param",
-                    "name": "C",
-                    "default": 1,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "R",
-                    "default": 0.5,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "beta",
-                    "default": 2,
-                    "type": "float",
-                    "digest": ""
-                },
-                {
-                    "id": 5,
-                    "kind": "param",
-                    "name": "S",
-                    "default": 0.1,
-                    "type": "float",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
-            "name": "softclipNAdaa1",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to Soft Clip"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
-            "name": "softclipNAdaa2",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to Soft Clip"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "name": "Shaped output",
+                    "digest": "Saturated shaped audio output"
                 }
             ]
         },
@@ -909,106 +693,6 @@
         {
             "document": false,
             "digest": "",
-            "name": "log1pF0",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "log1pF1",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "log1pF2",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a log1p() function",
-            "name": "log1pAdaa1",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to shape"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "Shaped output",
-                    "digest": "Saturated shaped audio output"
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a log1p() function",
-            "name": "log1pAdaa2",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to shape"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "Shaped output",
-                    "digest": "Saturated shaped audio output"
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
             "name": "altTanhF0",
             "inputs": [
                 {
@@ -1030,26 +714,6 @@
             "document": false,
             "digest": "",
             "name": "altTanhF1",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "x",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": false,
-            "digest": "",
-            "name": "altTanhF11",
             "inputs": [
                 {
                     "id": 1,
@@ -1241,7 +905,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhPolyF0",
+            "name": "foldPolyF0",
             "inputs": [
                 {
                     "id": 1,
@@ -1261,7 +925,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhPolyF1",
+            "name": "foldPolyF1",
             "inputs": [
                 {
                     "id": 1,
@@ -1281,7 +945,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhPolyF2",
+            "name": "foldPolyF2",
             "inputs": [
                 {
                     "id": 1,
@@ -1301,7 +965,7 @@
         {
             "document": true,
             "digest": "First order anti-derivative anti-aliasing of a polynomial tanh-like function",
-            "name": "altTanhPolyAdaa1",
+            "name": "foldPolyAdaa1",
             "inputs": [
                 {
                     "id": 1,
@@ -1321,7 +985,7 @@
         {
             "document": true,
             "digest": "Second order anti-derivative anti-aliasing of a polynomial tanh-like function",
-            "name": "altTanhPolyAdaa2",
+            "name": "foldPolyAdaa2",
             "inputs": [
                 {
                     "id": 1,
@@ -1641,8 +1305,10 @@
                 },
                 {
                     "id": 2,
-                    "kind": "input",
+                    "kind": "param",
                     "name": "a",
+                    "default": 0.5,
+                    "type": "float",
                     "digest": "Amount of saturation (linear)"
                 }
             ],
@@ -1667,8 +1333,10 @@
                 },
                 {
                     "id": 2,
-                    "kind": "input",
+                    "kind": "param",
                     "name": "a",
+                    "default": 0.5,
+                    "type": "float",
                     "digest": "Amount of saturation (linear)"
                 }
             ],
@@ -1777,6 +1445,446 @@
                     "id": 1,
                     "name": "",
                     "digest": "Anti-aliased clipping output"
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclip2F0",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "h",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "ratio",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclip2F1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "h",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "ratio",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclip2F2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "h",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "ratio",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
+            "name": "softclip2Adaa1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": "Audio input to Soft Clip"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "h",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "ratio",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
+            "name": "softclip2Adaa2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": "Audio input to Soft Clip"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "h",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "ratio",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclipNF0",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "C",
+                    "default": 1,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 2,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "S",
+                    "default": 0.1,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclipNF1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "C",
+                    "default": 1,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 2,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "S",
+                    "default": 0.1,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "softclipNF2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "C",
+                    "default": 1,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0.5,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 2,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "S",
+                    "default": 0.1,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
+            "name": "softclipNAdaa1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": "Audio input to Soft Clip"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "C",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 4,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "S",
+                    "default": 0.01,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
+            "name": "softclipNAdaa2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": "Audio input to Soft Clip"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "C",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "R",
+                    "default": 0.707107,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "beta",
+                    "default": 4,
+                    "type": "float",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "param",
+                    "name": "S",
+                    "default": 0.01,
+                    "type": "float",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Soft Clip",
+                    "digest": "Anti-aliased soft clipping output"
                 }
             ]
         },
