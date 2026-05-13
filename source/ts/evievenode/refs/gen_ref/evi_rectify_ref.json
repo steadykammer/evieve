@@ -3,8 +3,8 @@
         "name": "evi_rectify",
         "child": "evi.rectify~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Antialiased half wave signal rectifier",
+        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
     },
     "constructor": {
         "inlets": "audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to be rectified",
-            "digest": ""
+            "digest": "Audio input is expected not to exceed -1..1"
         }
     ],
     "outlets": [
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "rectified output",
-            "digest": ""
+            "digest": "Output is rectified, antialiased and dcblocked"
         }
     ],
     "attributes": [],
@@ -37,6 +37,50 @@
         {
             "name": "",
             "display": ""
+        },
+        {
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_squasher",
+            "display": "evi_squasher"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_softresponder",
+            "display": "evi_softresponder"
+        },
+        {
+            "name": "evi_overdrive_sqrt",
+            "display": "evi_overdrive_sqrt"
+        },
+        {
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
         }
     ]
 }

@@ -4,13 +4,17 @@
         "parent": "evi_squasher",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Antialiased quadratic signal shaper",
+        "description": "<o>evi.squasher~</o> is a simple passive audio signal quadratic shaper. <o>evi.squasher~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain.",
+        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Saturation",
+            "evieve Antialiased"
+        ]
     },
     "includes": [
         "evi_adaa.genexpr"
@@ -20,7 +24,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio to be shaped",
-            "description": ""
+            "description": "Audio input is expected not to exceed -1..1"
         }
     ],
     "outlets": [
@@ -28,7 +32,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Antialiased shaped output",
-            "description": ""
+            "description": "Output is waveshaped and antialiased"
         }
     ],
     "messages": [],
@@ -37,8 +41,8 @@
             "name": "harmonics",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0..3",
+            "description": "The shaper can be switched between soft..hard over 4 settings. 0 = the least harmonics, 3 = the most harmonics.",
             "default": {
                 "min": "0",
                 "max": "3",
@@ -50,5 +54,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.rectify~",
+        "evi.softresponder~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.shaper~",
+        "evi.sinfold~",
+        "evi.clipasym~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.rcfilter~"
+    ]
 }

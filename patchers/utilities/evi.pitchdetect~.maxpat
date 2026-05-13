@@ -177,7 +177,7 @@
                 "box": {
                     "comment": "(signal) Dry Audio, optionally Time Aligned",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -211,7 +211,7 @@
                 "box": {
                     "comment": "(int) Current Latency in Samples",
                     "id": "obj-25",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -222,7 +222,7 @@
                 "box": {
                     "comment": "(signal) Detected Frequency in Hz",
                     "id": "obj-24",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -255,11 +255,11 @@
                 "box": {
                     "comment": "(signal) Input to Detect / (messages) to evi.pitchdetect~",
                     "id": "obj-21",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 49.0, 34.0, 30.0, 30.0 ]
                 }
             },
@@ -267,11 +267,11 @@
                 "box": {
                     "id": "obj-20",
                     "maxclass": "newobj",
-                    "numinlets": 3,
+                    "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 437.0, 344.0, 79.0, 22.0 ],
-                    "text": "clip~ 1. 1100."
+                    "patching_rect": [ 437.0, 344.0, 81.0, 22.0 ],
+                    "text": "maximum~ 0."
                 }
             },
             {
@@ -596,7 +596,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

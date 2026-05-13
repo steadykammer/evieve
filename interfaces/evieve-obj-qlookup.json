@@ -728,11 +728,11 @@
         "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.saw.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.rectify~": {
-        "digest": 0,
+        "digest": "Antialiased half wave signal rectifier",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.squasher~", "evi.softresponder~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.rcfilter~" ]
     },
     "evi.rect~": {
         "digest": "High quality anti-aliased square wave oscillator with PWM",
@@ -812,18 +812,18 @@
         "seealso": [ "evi.clip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.softresponder~": {
-        "digest": 0,
+        "digest": "Static antialiased soft clipping harmonics generator",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.squasher~", "evi.rectify~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.rcfilter~" ]
     },
     "evi.squasher~": {
-        "digest": 0,
+        "digest": "Antialiased quadratic signal shaper",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.rectify~", "evi.softresponder~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.rcfilter~" ]
     },
     "evi.squine.simple~": {
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",

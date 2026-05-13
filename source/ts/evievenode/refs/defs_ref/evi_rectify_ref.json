@@ -4,13 +4,18 @@
         "parent": "evi_rectify",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Antialiased half wave signal rectifier",
+        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification.",
+        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Effect",
+            "evieve Saturation",
+            "evieve Antialiased"
+        ]
     },
     "includes": [
         "evi_adaa.genexpr"
@@ -20,7 +25,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio to be rectified",
-            "description": ""
+            "description": "Audio input is expected not to exceed -1..1"
         }
     ],
     "outlets": [
@@ -28,7 +33,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Antialiased rectified output",
-            "description": ""
+            "description": "Output is rectified, antialiased and dcblocked"
         }
     ],
     "messages": [],
@@ -37,5 +42,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.squasher~",
+        "evi.softresponder~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.shaper~",
+        "evi.sinfold~",
+        "evi.clipasym~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.rcfilter~"
+    ]
 }

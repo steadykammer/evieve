@@ -526,8 +526,8 @@
     },
     "evi.rectify~": {
         "type": "define",
-        "digest": 0,
-        "description": ""
+        "digest": "Antialiased half wave signal rectifier",
+        "description": "evi.rectify~ is a 'max define' for the evi_rectify.gendsp gen~ abstraction. Because evi.rectify~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.rectify~ is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. evi.rectify~ is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
     },
     "evi.reson~": {
         "type": "define",
@@ -581,13 +581,13 @@
     },
     "evi.softresponder~": {
         "type": "define",
-        "digest": 0,
-        "description": ""
+        "digest": "Static antialiased soft clipping harmonics generator",
+        "description": "evi.softresponder~ is a 'max define' for the evi_softresponder.gendsp gen~ abstraction. Because evi.softresponder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA choice of two similar but different antialiased soft-ish / hard-ish static clipping algorithms"
     },
     "evi.squasher~": {
         "type": "define",
-        "digest": 0,
-        "description": ""
+        "digest": "Antialiased quadratic signal shaper",
+        "description": "evi.squasher~ is a 'max define' for the evi_squasher.gendsp gen~ abstraction. Because evi.squasher~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.squasher~ is a simple passive audio signal quadratic shaper. evi.squasher~ is antialiased via anti derivative antialiasing, but is not designed for driving with high gain."
     },
     "evi.squine.simple~": {
         "type": "define",

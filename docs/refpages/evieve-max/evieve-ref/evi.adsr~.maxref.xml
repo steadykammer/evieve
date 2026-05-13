@@ -172,7 +172,7 @@
 				Expected maximum of input to left trigger inlet
 			</digest>
 			<description>
-				This can be any value, by default it assumes velocity. Only used if the &lt;m&gt;velocitysense&lt;/m&gt; attribute is &gt; 0.
+				This can be any value, by default it assumes velocity. Only used if the @velocitysense attribute is &gt; 0.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="127." />
@@ -205,7 +205,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Time in ms for second hold segment, between sustain and release
+				Time in ms for second hold segment, before release
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -337,7 +337,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Velocity sensitivity 0..1 (&lt;m&gt;envmax&lt;/m&gt; is only used if this &gt; 0.)
+				Velocity sensitivity 0..1 (@envmax is only used if this &gt; 0.)
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />

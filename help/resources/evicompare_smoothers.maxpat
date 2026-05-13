@@ -84,7 +84,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -464,7 +464,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -3809,7 +3809,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -6108,12 +6108,18 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ],
                                     "bubbleside": 3,
                                     "id": "obj-61",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 503.0, 648.0, 74.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_syntax_objectcolor"
+                                        }
+                                    },
                                     "text": "in gen~",
                                     "textjustification": 1
                                 }
@@ -6121,11 +6127,17 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ],
                                     "id": "obj-60",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 489.0, 648.0, 74.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_syntax_objectcolor"
+                                        }
+                                    },
                                     "text": "in gen~",
                                     "textjustification": 1
                                 }
@@ -6133,11 +6145,17 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ],
                                     "id": "obj-59",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 489.0, 501.0, 74.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_syntax_objectcolor"
+                                        }
+                                    },
                                     "text": "in Max",
                                     "textjustification": 1
                                 }
@@ -7658,12 +7676,18 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ],
                                     "bubbleside": 3,
                                     "id": "obj-62",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 503.0, 501.0, 74.0, 24.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_syntax_objectcolor"
+                                        }
+                                    },
                                     "text": "in Max",
                                     "textjustification": 1
                                 }

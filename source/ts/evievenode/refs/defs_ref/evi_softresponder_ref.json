@@ -4,13 +4,17 @@
         "parent": "evi_softresponder",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE",
-        "discussion": ""
+        "digest": "Static antialiased soft clipping harmonics generator",
+        "description": "A choice of two similar but different antialiased soft-ish / hard-ish static clipping algorithms",
+        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",
-        "tags": []
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Saturation",
+            "evieve Antialiased"
+        ]
     },
     "includes": [
         "evi_adaa.genexpr"
@@ -20,7 +24,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio to be soft clipped",
-            "description": ""
+            "description": "Audio input is expected not to exceed -1..1"
         }
     ],
     "outlets": [
@@ -28,7 +32,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Antialiased soft clipped output",
-            "description": ""
+            "description": "Output is waveshaped and antialiased"
         }
     ],
     "messages": [],
@@ -37,8 +41,8 @@
             "name": "algo",
             "get": 1,
             "type": "int",
-            "digest": "",
-            "description": "",
+            "digest": "Select 0/1",
+            "description": "Select algorithm type 1 (0) or algorithm type 2 (1). Type 1 is 'harder' with clearer harmonics, type 2 is 'softer' and a bit more bassy.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -50,7 +54,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "2",
                 "max": "32",
@@ -62,7 +66,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "0.64",
                 "max": "1.4",
@@ -74,7 +78,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "0.01",
                 "max": "2",
@@ -86,7 +90,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "0.01",
                 "max": "0.99",
@@ -98,7 +102,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "0",
                 "max": "1",
@@ -110,7 +114,7 @@
             "get": 1,
             "type": "float",
             "digest": "",
-            "description": "",
+            "description": false,
             "default": {
                 "min": "0",
                 "max": "0.05",
@@ -122,5 +126,17 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "evi.squasher~",
+        "evi.rectify~",
+        "evi.hardclip~",
+        "evi.softclip~",
+        "evi.shaper~",
+        "evi.sinfold~",
+        "evi.clipasym~",
+        "evi.overdrive.sqrt~",
+        "evi.overdrive.atan~",
+        "evi.overdrive.tanh~",
+        "evi.rcfilter~"
+    ]
 }

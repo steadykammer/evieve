@@ -19,11 +19,37 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Overdrive & Saturation Options in evieve",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 429.0, 515.0, 175.0, 21.0 ],
+                    "text": "Compare evieve Saturation",
+                    "texton": "Compare evieve Saturation"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-57",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 429.0, 570.0, 211.0, 22.0 ],
+                    "text": "list.reg evicompare_saturation.maxpat"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -405,6 +431,20 @@
                     "destination": [ "obj-27", 0 ],
                     "hidden": 1,
                     "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-57", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-5", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-57", 0 ]
                 }
             }
         ],

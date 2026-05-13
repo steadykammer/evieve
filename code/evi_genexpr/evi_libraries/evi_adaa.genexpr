@@ -730,7 +730,7 @@ foldPolyF0(x)
 }
 
 foldPolyF1(x)
-{     // Adaa1 works with logApprox() here but not in low freq input, but then Adaa2 does not work at all
+{ // Adaa1 works with logApprox() here but not in low freq input, but then Adaa2 does not work at all
   return (25 * log(7 * x*x + 25)) * 0.071428571428571;
 }
 
@@ -742,7 +742,7 @@ foldPolyF2(x)
 foldPolyAdaa1(x0)
 {
   History x1(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // TODO, check precision
 
   y1 = 0;
   d0 = x0 - x1;
@@ -761,7 +761,7 @@ foldPolyAdaa1(x0)
 foldPolyAdaa2(x0)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.000001;  // TODO, work out precision
+  eps = 0.000001;  // TODO, check precision
 
   s0 = x0;//0;
   d0 = x0 - x1;
@@ -1496,34 +1496,7 @@ adaa_2_template(x0)
 
 //  //  //  other
 
-/*
-// Lambert-W function
-lambertW(x, ln1, loop, thresh)
-{
-  // initial guess (use previous value)
-  w   = ln1;
 
-  // Haley's method (section 4.2 of the paper)
-  for (i = 0; i < loop; i += 1) {
-//    expw  = expApprox(w);
-    expw  = exp(w);       // :-(
-        w1      = w + 1;
-
-    p   = (w * expw) - x;
-    r   = w1 * expw;
-    s   = (w + 2) / (w1 + w1);
-    err   = (p / (r - (p * s)));
-
-    if (abs(err) < thresh) {
-        break;
-    }
-
-    w    -= err;
-  }
-
-  return  w;
-}
-*/
 // Lambert-W function
 lambertW(x, ln1, loop, thresh)
 {

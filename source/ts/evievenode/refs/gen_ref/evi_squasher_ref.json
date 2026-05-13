@@ -3,8 +3,8 @@
         "name": "evi_squasher",
         "child": "evi.squasher~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "Antialiased quadratic signal shaper",
+        "description": "<o>evi.squasher~</o> is a simple passive audio signal quadratic shaper. <o>evi.squasher~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain."
     },
     "constructor": {
         "inlets": "audio"
@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to be shaped",
-            "digest": ""
+            "digest": "Audio input is expected not to exceed -1..1"
         }
     ],
     "outlets": [
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "shaped output",
-            "digest": ""
+            "digest": "Output is waveshaped and antialiased"
         }
     ],
     "attributes": [
@@ -37,7 +37,7 @@
             "name": "harmonics",
             "type": "int",
             "digest": "@min 0, @max 3",
-            "description": "",
+            "description": "The shaper can be switched between soft..hard over 4 settings. 0 = the least harmonics, 3 = the most harmonics.",
             "default": {
                 "type": "int",
                 "value": "2"
@@ -46,8 +46,48 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_rectify",
+            "display": "evi_rectify"
+        },
+        {
+            "name": "evi_softresponder",
+            "display": "evi_softresponder"
+        },
+        {
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_overdrive_sqrt",
+            "display": "evi_overdrive_sqrt"
+        },
+        {
+            "name": "evi_overdrive_atan",
+            "display": "evi_overdrive_atan"
+        },
+        {
+            "name": "evi_overdrive_tanh",
+            "display": "evi_overdrive_tanh"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
         }
     ]
 }
