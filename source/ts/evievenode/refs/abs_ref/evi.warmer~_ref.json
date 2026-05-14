@@ -197,6 +197,9 @@
         "evi.clipasym~",
         "evi.sinfold~",
         "evi.shaper~",
+        "evi.rectify~",
+        "evi.softresponder~",
+        "evi.squasher~",
         "evi.overdrive.tanh~",
         "evi.overdrive.atan~",
         "evi.overdrive.sqrt~"

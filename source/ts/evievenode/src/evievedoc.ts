@@ -2990,6 +2990,7 @@ const areas = [
 	["noise", `\"Noise Sources in evieve\"`],
 	["reverb", `\"Reverbs in evieve\"`],
 	["overdrive", `\"Nonlinear Overdrive in evieve\"`],
+	["saturation", `\"Nonlinear Saturation in evieve\"`],
 	["smooth", `\"Signal Smoothers in evieve\"`]
 ];
 

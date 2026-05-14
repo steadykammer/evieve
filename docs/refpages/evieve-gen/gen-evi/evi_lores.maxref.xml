@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                The 2x oversampling slightly improves the high frequency response, but it probably isn&#x27;t worth it
+                The 2x oversampling improves the high frequency response, more closely matching the MSP original. Also useful if audio rate modulating the filter.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

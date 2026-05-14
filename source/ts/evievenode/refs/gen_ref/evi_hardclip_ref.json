@@ -98,6 +98,18 @@
         {
             "name": "evi_baxandall",
             "display": "evi_baxandall"
+        },
+        {
+            "name": "evi_rectify",
+            "display": "evi_rectify"
+        },
+        {
+            "name": "evi_softresponder",
+            "display": "evi_softresponder"
+        },
+        {
+            "name": "evi_squasher",
+            "display": "evi_squasher"
         }
     ]
 }

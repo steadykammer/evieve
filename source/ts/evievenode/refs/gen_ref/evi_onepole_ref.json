@@ -4,7 +4,7 @@
         "child": "evi.onepole~",
         "category": "evieve",
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
-        "description": "Three matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs."
+        "description": "Three matched onepole filters in Lowpass, Allpass and Highpass types at three independent outputs. An efficient workhorse onepole for all generic patching needs."
     },
     "constructor": {
         "inlets": "input, hz"

@@ -581,7 +581,7 @@ altTanhF2(x)
   return -(li2ex + li2ex + li2ex + li2ex + x*x) * 0.5;
 }
 
-altTanhAdaa1(x0, reset)
+altTanhAdaa1(x, reset)
 {
   History x1(0), s1(0);
   eps = 0.000001; // TODO, precision
@@ -589,6 +589,7 @@ altTanhAdaa1(x0, reset)
     x1 = 0; s1 = 0;
   }
 
+  x0 = x * 1.995262; // (approx is -6dB down)
   y1 = x0;
   d0 = x0 - x1;
   s0 = altTanhF1(x0); // func1
@@ -603,7 +604,7 @@ altTanhAdaa1(x0, reset)
   return y1;
 }
 
-altTanhAdaa2(x0, reset)
+altTanhAdaa2(x, reset)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.000001; // TODO, precision
@@ -611,6 +612,7 @@ altTanhAdaa2(x0, reset)
     x1 = 0; x2 = 0; s1 = 0;
   }
 
+  x0 = x * 1.995262; // (approx is -6dB down)
   s0 = x0;
   d0 = x0 - x1;
   f2_x1 = altTanhF2(x1);  // func2

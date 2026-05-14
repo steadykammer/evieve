@@ -83,5 +83,8 @@
         <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
         <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
         <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_rectify' display='evi_rectify' type='genrefpage' />
+        <seealso name='evi_softresponder' display='evi_softresponder' type='genrefpage' />
+        <seealso name='evi_squasher' display='evi_squasher' type='genrefpage' />
     </seealsolist>
 </c74object>

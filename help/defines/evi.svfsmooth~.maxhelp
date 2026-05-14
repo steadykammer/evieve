@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2072,8 +2072,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 131.0, 150.0, 21.0 ],
-                                    "text": "a bit like the 'more' tab"
+                                    "patching_rect": [ 97.0, 131.0, 185.0, 21.0 ],
+                                    "text": "a bit like the 'modulation' tab"
                                 }
                             },
                             {
@@ -2445,8 +2445,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 38.0, 36.0, 150.0, 20.0 ],
-                                                    "text": "a bit like the 'more' tab"
+                                                    "patching_rect": [ 38.0, 36.0, 166.0, 20.0 ],
+                                                    "text": "a bit like the 'modulation' tab"
                                                 }
                                             },
                                             {

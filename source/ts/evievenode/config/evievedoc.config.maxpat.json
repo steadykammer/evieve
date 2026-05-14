@@ -836,7 +836,9 @@
                 "mcchild": "mc.evi.warmer~",
                 "gentab": true,
                 "genexprtab": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,

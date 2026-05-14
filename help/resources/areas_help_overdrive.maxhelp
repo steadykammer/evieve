@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 754.0, 687.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -23,8 +23,33 @@
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
-        "title": "Overdrive & Saturation Options in evieve",
+        "title": "Overdrive Options in evieve",
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-3",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 55.0, 570.0, 215.0, 22.0 ],
+                    "text": "list.reg areas_help_saturation.maxhelp"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 55.0, 493.0, 169.0, 20.0 ],
+                    "text": "Saturation in evieve",
+                    "texton": "Saturation in evieve"
+                }
+            },
             {
                 "box": {
                     "id": "obj-5",
@@ -33,7 +58,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 429.0, 515.0, 175.0, 21.0 ],
+                    "patching_rect": [ 429.0, 493.0, 175.0, 21.0 ],
                     "text": "Compare evieve Saturation",
                     "texton": "Compare evieve Saturation"
                 }
@@ -57,81 +82,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 507.0, 143.0, 52.0, 21.0 ],
+                    "patching_rect": [ 502.0, 193.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "border": 1,
-                    "evaluatehref": 1,
-                    "fontface": 0,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
-                    "id": "obj-19",
-                    "linkbold": 1,
-                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
-                    "maxclass": "markup",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 472.0, 244.0, 18.0 ],
-                    "saved_attribute_attributes": {
-                        "textcolor": {
-                            "expression": "themecolor.theme_textcolor"
-                        }
-                    },
-                    "text": "<link href=\"; max openhelp evi.shaper~\">evi.shaper~</link> even/odd harmonics",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "border": 1,
-                    "evaluatehref": 1,
-                    "fontface": 0,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
-                    "id": "obj-13",
-                    "linkbold": 1,
-                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
-                    "maxclass": "markup",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 433.0, 244.0, 18.0 ],
-                    "saved_attribute_attributes": {
-                        "textcolor": {
-                            "expression": "themecolor.theme_textcolor"
-                        }
-                    },
-                    "text": "<link href=\"; max openhelp evi.sinfold~\">evi.sinfold~</link> sine waveshaping",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "border": 1,
-                    "evaluatehref": 1,
-                    "fontface": 0,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
-                    "id": "obj-9",
-                    "linkbold": 1,
-                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
-                    "maxclass": "markup",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 394.0, 244.0, 18.0 ],
-                    "saved_attribute_attributes": {
-                        "textcolor": {
-                            "expression": "themecolor.theme_textcolor"
-                        }
-                    },
-                    "text": "<link href=\"; max openhelp evi.clipasym~\">evi.clipasym~</link> asymmetric distortion",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -148,7 +101,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 247.0, 315.0, 33.0 ],
+                    "patching_rect": [ 55.0, 262.0, 315.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -172,7 +125,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 193.0, 300.0, 38.0 ],
+                    "patching_rect": [ 55.0, 208.0, 300.0, 38.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -196,7 +149,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 139.0, 245.0, 36.0 ],
+                    "patching_rect": [ 55.0, 154.0, 245.0, 36.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -238,7 +191,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 55.0, 570.0, 222.0, 22.0 ],
+                    "patching_rect": [ 246.0, 609.0, 222.0, 22.0 ],
                     "text": "list.reg areas_help_nonlinear.maxhelp"
                 }
             },
@@ -250,7 +203,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 55.0, 515.0, 169.0, 20.0 ],
+                    "patching_rect": [ 246.0, 494.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -259,12 +212,12 @@
                 "box": {
                     "fontsize": 13.0,
                     "id": "obj-20",
-                    "linecount": 3,
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 55.0, 325.0, 341.0, 50.0 ],
-                    "text": "There are many more saturation options in evieve MSP, gen~ and GenExpr. Check out the .genexpr source code for more, as well as the collection of nonlinear filters."
+                    "patching_rect": [ 55.0, 378.0, 341.0, 65.0 ],
+                    "text": "There are many more saturation options in evieve MSP, gen~ and GenExpr. Check out the .genexpr source code for more, as well as the collection of nonlinear filters and the comparison patchers."
                 }
             },
             {
@@ -275,7 +228,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 55.0, 72.0, 463.0, 50.0 ],
+                    "patching_rect": [ 55.0, 87.0, 463.0, 50.0 ],
                     "text": "All evieve overdrives are built using 'anti-derivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
                 }
             },
@@ -382,7 +335,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 435.0, 288.0, 197.0, 22.0 ],
+                    "patching_rect": [ 429.0, 319.0, 197.0, 22.0 ],
                     "text": "gen~ @t evieve_overdrives_in_gen"
                 }
             },
@@ -396,7 +349,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 510.0, 169.0, 46.0, 101.0 ]
+                    "patching_rect": [ 505.0, 216.0, 46.0, 101.0 ]
                 }
             },
             {
@@ -412,6 +365,13 @@
             }
         ],
         "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-2", 0 ]
+                }
+            },
             {
                 "patchline": {
                     "destination": [ "obj-29", 0 ],
@@ -431,6 +391,13 @@
                     "destination": [ "obj-27", 0 ],
                     "hidden": 1,
                     "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-3", 0 ]
                 }
             },
             {

@@ -97,6 +97,10 @@
         {
             "name": "evi_hardclip",
             "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_rectify",
+            "display": "evi_rectify"
         }
     ]
 }

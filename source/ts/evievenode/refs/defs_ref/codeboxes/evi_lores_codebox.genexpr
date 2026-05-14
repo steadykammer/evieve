@@ -149,8 +149,8 @@ svfSinLowresFull2(X0, X1, cutoff, damp)
 	return low0, low1;
 }
 
-// fixed 2x quasi oversampling (hermite6)
-svfSinLowresFull2_2x( XIN, cutoff, damp )
+// fixed 2x quasi oversampling (hermite6), do not use
+svfSinLowresFull2_2x6( XIN, cutoff, damp )
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -190,7 +190,44 @@ svfSinLowresFull2_2x( XIN, cutoff, damp )
 	return dcblock(y0_0);
 }
 
-// the oversampling slightly improves the HF response, but it probably isn't worth it
+// fixed 2x quasi oversampling (cubic4)
+svfSinLowresFull2_2x( XIN, cutoff, damp )
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0, y2_0	= svfSinLowresFull2(x1_0, x2_0, cutoff, damp);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return dcblock(y0_0);
+}
+
+// the oversampling improves the HF response
 Param   oversample(0, min=0, max=1);
 os      = int(oversample);
 

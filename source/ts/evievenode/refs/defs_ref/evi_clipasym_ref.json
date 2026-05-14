@@ -92,6 +92,7 @@
         "evi.sinfold~",
         "evi.shaper~",
         "evi.softclip~",
-        "evi.hardclip~"
+        "evi.hardclip~",
+        "evi.rectify~"
     ]
 }

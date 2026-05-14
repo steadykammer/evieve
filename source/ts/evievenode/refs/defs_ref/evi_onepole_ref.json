@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
-        "description": "Three matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs.",
+        "description": "Three matched onepole filters in Lowpass, Allpass and Highpass types at three independent outputs. An efficient workhorse onepole for all generic patching needs.",
         "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve: msp' tab of the helpfile."
     },
     "metadata": {

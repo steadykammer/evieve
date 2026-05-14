@@ -843,7 +843,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -865,7 +867,9 @@
                 "gentab": true,
                 "genexprtab": false,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -2012,7 +2016,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -2899,7 +2905,8 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "overdrive",
+                    "saturation"
                 ]
             },
             "db": {
@@ -2923,7 +2930,8 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "overdrive",
+                    "saturation"
                 ]
             },
             "db": {
@@ -2947,7 +2955,8 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "overdrive",
+                    "saturation"
                 ]
             },
             "db": {
@@ -3389,7 +3398,7 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "saturation"
                 ]
             },
             "db": {
@@ -3528,7 +3537,9 @@
                 "gentab": true,
                 "genexprtab": false,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -3598,7 +3609,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -3690,7 +3703,9 @@
                 "gentab": true,
                 "genexprtab": true,
                 "areaonly": false,
-                "areas": []
+                "areas": [
+                    "saturation"
+                ]
             },
             "db": {
                 "browser": true,
@@ -3713,7 +3728,7 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "saturation"
                 ]
             },
             "db": {
@@ -3737,7 +3752,7 @@
                 "genexprtab": true,
                 "areaonly": false,
                 "areas": [
-                    "overdrive"
+                    "saturation"
                 ]
             },
             "db": {

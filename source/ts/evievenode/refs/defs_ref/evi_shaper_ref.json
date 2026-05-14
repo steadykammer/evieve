@@ -93,6 +93,9 @@
         "evi.softclip~",
         "evi.sinfold~",
         "evi.warmer~",
-        "evi.clipasym~"
+        "evi.clipasym~",
+        "evi.rectify~",
+        "evi.softresponder~",
+        "evi.squasher~"
     ]
 }

@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "devicewidth": 660.0,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -26,11 +27,97 @@
         "boxes": [
             {
                 "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-33",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 447.0, 387.0, 20.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "1",
+                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 14.0,
+                    "id": "obj-32",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 458.0, 79.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max html_ref evi_rand\">evi_rand</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-25",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 566.0, 458.0, 77.0, 17.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.randy~\">evi.randy~</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-30",
+                    "ignoreclick": 1,
+                    "linecount": 3,
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 257.0, 609.0, 210.0, 49.0 ],
+                    "text": ";\rmax launchbrowser https://github.com/testcase/gen_noise"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-7",
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 10.0, 459.0, 100.0, 100.0 ]
+                    "patching_rect": [ 10.0, 458.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -40,9 +127,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 41.0, 426.0, 52.0, 21.0 ],
+                    "patching_rect": [ 55.0, 426.0, 52.0, 21.0 ],
                     "text": "gen~",
-                    "textjustification": 1
+                    "textjustification": 2
                 }
             },
             {
@@ -106,8 +193,8 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 255.0, 365.0, 35.0, 22.0 ],
-                                    "text": "out 1"
+                                    "patching_rect": [ 255.0, 365.0, 169.0, 22.0 ],
+                                    "text": "out 1 Cosine interpolated rand"
                                 }
                             },
                             {
@@ -172,7 +259,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 94.0, 425.0, 226.0, 22.0 ],
+                    "patching_rect": [ 109.0, 425.0, 226.0, 22.0 ],
                     "text": "gen~ @t evieve_noise_sources_in_gen~"
                 }
             },
@@ -183,33 +270,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 41.0, 387.0, 66.0, 21.0 ],
+                    "patching_rect": [ 41.0, 386.0, 66.0, 21.0 ],
                     "text": "GenExpr",
-                    "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "border": 1,
-                    "evaluatehref": 1,
-                    "fontface": 0,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
-                    "id": "obj-25",
-                    "linkbold": 1,
-                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
-                    "maxclass": "markup",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 390.0, 430.0, 77.0, 17.0 ],
-                    "saved_attribute_attributes": {
-                        "textcolor": {
-                            "expression": "themecolor.theme_textcolor"
-                        }
-                    },
-                    "text": "<link href=\"; max openhelp evi.randy~\">evi.randy~</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textjustification": 2
                 }
             },
             {
@@ -226,7 +289,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 225.0, 312.0, 286.0, 33.0 ],
+                    "patching_rect": [ 225.0, 305.0, 286.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -250,7 +313,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 225.0, 228.0, 283.0, 33.0 ],
+                    "patching_rect": [ 225.0, 216.0, 283.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -274,7 +337,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 208.0, 132.0, 275.0, 56.0 ],
+                    "patching_rect": [ 208.0, 138.0, 275.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -298,7 +361,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 200.0, 60.0, 283.0, 33.0 ],
+                    "patching_rect": [ 200.0, 66.0, 283.0, 33.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -321,13 +384,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 162.0, 537.0, 318.0, 22.0 ],
+                    "patching_rect": [ 162.0, 536.0, 338.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "For more noise, see the Todd Ingalls code: <link href=\"; max launchbrowser https://github.com/testcase/gen_noise\">GitHub</link>",
+                    "text": "For more gen noise, see the Todd Ingalls code: <link href=\"; max launchbrowser https://github.com/testcase/gen_noise\">GitHub</link>",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -342,7 +405,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 285.0, 284.0, 50.0, 22.0 ],
+                    "patching_rect": [ 285.0, 271.0, 50.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_initial": [ 96.0 ],
@@ -364,7 +427,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 515.0, 459.0, 100.0, 100.0 ]
+                    "patching_rect": [ 549.0, 458.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -505,7 +568,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 109.0, 386.0, 246.0, 22.0 ],
+                    "patching_rect": [ 109.0, 385.0, 246.0, 22.0 ],
                     "text": "gen~ @t evieve_noise_sources_in_GenExpr"
                 }
             },
@@ -516,7 +579,7 @@
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 401.0, 375.0, 45.0, 45.0 ]
+                    "patching_rect": [ 401.0, 374.0, 45.0, 45.0 ]
                 }
             },
             {
@@ -527,7 +590,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 32.0, 284.0, 70.0, 22.0 ],
+                    "patching_rect": [ 32.0, 271.0, 70.0, 22.0 ],
                     "text": "loadmess 1"
                 }
             },
@@ -554,7 +617,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 109.0, 280.0, 150.0, 30.0 ],
+                    "patching_rect": [ 109.0, 267.0, 150.0, 30.0 ],
                     "quality": "basic",
                     "saved_attribute_attributes": {
                         "candicane2": {
@@ -588,7 +651,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 41.0, 65.0, 51.0, 22.0 ],
+                    "patching_rect": [ 109.0, 43.0, 51.0, 22.0 ],
                     "text": "sig~ 5.7"
                 }
             },
@@ -599,7 +662,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 184.0, 111.0, 51.0, 22.0 ],
+                    "patching_rect": [ 184.0, 117.0, 51.0, 22.0 ],
                     "text": "sig~ 0.5"
                 }
             },
@@ -609,7 +672,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 515.0, 347.0, 100.0, 100.0 ]
+                    "patching_rect": [ 549.0, 346.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -618,7 +681,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 515.0, 235.0, 100.0, 100.0 ]
+                    "patching_rect": [ 549.0, 234.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -627,7 +690,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 515.0, 122.0, 100.0, 100.0 ]
+                    "patching_rect": [ 549.0, 121.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -636,7 +699,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 515.0, 10.0, 100.0, 100.0 ]
+                    "patching_rect": [ 549.0, 9.0, 100.0, 100.0 ]
                 }
             },
             {
@@ -646,7 +709,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 19.0, 19.0, 163.0, 21.0 ],
+                    "patching_rect": [ 10.0, 9.0, 163.0, 21.0 ],
                     "text": "Noise sources in evieve"
                 }
             },
@@ -670,7 +733,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 127.0, 499.0, 191.0, 20.0 ],
+                    "patching_rect": [ 127.0, 498.0, 191.0, 20.0 ],
                     "text": "Oscillators in evieve",
                     "texton": "Oscillators in evieve"
                 }
@@ -706,7 +769,7 @@
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 109.0, 233.0, 111.0, 22.0 ],
+                    "patching_rect": [ 109.0, 221.0, 111.0, 22.0 ],
                     "text": "evi.gaussiannoise~"
                 }
             },
@@ -717,7 +780,7 @@
                     "numinlets": 5,
                     "numoutlets": 6,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 109.0, 317.0, 111.0, 22.0 ],
+                    "patching_rect": [ 109.0, 311.0, 111.0, 22.0 ],
                     "text": "evi.zeroxoscnoise~"
                 }
             },
@@ -728,7 +791,7 @@
                     "numinlets": 2,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 109.0, 149.0, 94.0, 22.0 ],
+                    "patching_rect": [ 109.0, 155.0, 94.0, 22.0 ],
                     "text": "evi.velvetnoise~"
                 }
             },
@@ -739,7 +802,7 @@
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 109.0, 65.0, 86.0, 22.0 ],
+                    "patching_rect": [ 109.0, 71.0, 86.0, 22.0 ],
                     "text": "evi.audiodust~"
                 }
             },
@@ -759,7 +822,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-10", 0 ],
-                    "midpoints": [ 118.5, 99.64453125, 460.15234375, 99.64453125, 460.15234375, 6.62109375, 524.5, 6.62109375 ],
+                    "midpoints": [ 118.5, 105.4375, 474.91796875, 105.4375, 474.91796875, 5.62109375, 558.5, 5.62109375 ],
                     "source": [ "obj-1", 0 ]
                 }
             },
@@ -791,21 +854,21 @@
             {
                 "patchline": {
                     "destination": [ "obj-11", 0 ],
-                    "midpoints": [ 118.5, 195.25, 482.84375, 195.25, 482.84375, 117.5390625, 524.5, 117.5390625 ],
+                    "midpoints": [ 118.5, 192.5078125, 499.1953125, 192.5078125, 499.1953125, 116.5390625, 558.5, 116.5390625 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-21", 0 ],
-                    "midpoints": [ 345.5, 454.125, 524.5, 454.125 ],
+                    "midpoints": [ 345.5, 453.125, 558.5, 453.125 ],
                     "source": [ "obj-20", 3 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 294.5, 313.140625, 141.5, 313.140625 ],
+                    "midpoints": [ 294.5, 302.0, 141.5, 302.0 ],
                     "source": [ "obj-23", 0 ]
                 }
             },
@@ -818,6 +881,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-30", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-27", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-35", 0 ],
                     "hidden": 1,
                     "source": [ "obj-29", 0 ]
@@ -826,7 +896,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-13", 0 ],
-                    "midpoints": [ 118.5, 343.0, 524.5, 343.0 ],
+                    "midpoints": [ 118.5, 340.09375, 558.5, 340.09375 ],
                     "source": [ "obj-3", 0 ]
                 }
             },
@@ -840,14 +910,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-12", 0 ],
-                    "midpoints": [ 118.5, 265.87109375, 504.77734375, 265.87109375, 504.77734375, 228.703125, 524.5, 228.703125 ],
+                    "midpoints": [ 118.5, 257.0859375, 518.78515625, 257.0859375, 518.78515625, 227.703125, 558.5, 227.703125 ],
                     "source": [ "obj-4", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
-                    "midpoints": [ 103.5, 453.0, 19.5, 453.0 ],
+                    "midpoints": [ 118.5, 452.0, 19.5, 452.0 ],
                     "source": [ "obj-5", 0 ]
                 }
             }

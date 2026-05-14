@@ -538,17 +538,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-35",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 312.0, 578.0, 316.0, 65.0 ],
-                                    "text": "Notice that these are slightly different filters (the evieve has zeros at DC and Nyquist, the MSP is more like a shelf). @see [evi.damp~] for a filter more similar to MSP [onepole~]."
-                                }
-                            },
-                            {
-                                "box": {
                                     "attr": "logfreq",
                                     "id": "obj-33",
                                     "lock": 1,
@@ -846,6 +835,30 @@
                                     "patching_rect": [ 125.0, 321.0, 100.0, 23.0 ],
                                     "text": "evi.onepole~",
                                     "varname": "evieveObject"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "border": 1,
+                                    "evaluatehref": 1,
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-3",
+                                    "linkbold": 1,
+                                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                                    "maxclass": "markup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 315.0, 580.0, 313.0, 68.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "text": "Notice that these are slightly different filters (the evieve has zeros at DC and Nyquist, the MSP is more like a shelf). @see <link href=\"; max openhelp evi.damp~\">evi.damp~</link> for a filter more similar to MSP <link href=\"; max openhelp onepole~\">onepole~</link>.",
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -1654,7 +1667,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

@@ -8,7 +8,7 @@
     <description>
         <b>evi_rand</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Generate a signal consisting of random values between -1..1 at a frequency specified at its input. Linearly interpolates between values. <br />
+	    Generate a signal consisting of random values between -1..1 at a frequency specified at its input. Linearly interpolates between values. Additionally has cosine interpolated output (middle) and white noise sync source output (right). <br />
     </description>
     <methodlist />
     <constructorlist>

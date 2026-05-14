@@ -9,7 +9,7 @@
 		<b>evi.onepole~</b> is a 'max define' for the <o>evi_onepole</o>.gendsp gen~ abstraction.
 		Because evi.onepole~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Three matched onepole filters in Lowpass, Allpass and Highpass types at thee independent outputs. An efficient workhorse onepole for all generic patching needs. <br />
+		Three matched onepole filters in Lowpass, Allpass and Highpass types at three independent outputs. An efficient workhorse onepole for all generic patching needs. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

@@ -13,7 +13,7 @@
          <br />
         evi_svf is also available in MSP as: <o>evi.svf~</o>. <br />
          <br />
-	    Linear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block. It is very efficient and using just a single outlet is an acceptable use case. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of <o>evi.svf~</o> is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP <o>svf~</o> as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering. <br />
+	    Linear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block and is very efficient. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of <o>evi.svf~</o> is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP <o>svf~</o> as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                The 2x oversampling is only useful for lowpass and bandpass outputs usage. It sort-of more closely matches the frequency response of the MSP Chamberlain SVF for those filter types.
+                The 2x oversampling is most useful for lowpass and bandpass outputs usage. Engaging it more closely matches the frequency response of the MSP Chamberlain SVF for those filter types.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

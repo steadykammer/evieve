@@ -1,6 +1,8 @@
 "use strict";
 /*!
- * this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ * This file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
+ * This file is part of the 'evieve' Package for Max.
+ * evieve is a library of GenExpr audio code by Pete Dowling.
  */
 let objectNameArgument = "";
 let createDacForHelpfile = false;
