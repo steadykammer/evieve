@@ -167,7 +167,7 @@
         "evi.overdrive.atan~",
         "evi.shaper~",
         "evi.sinfold~",
-        "evi.clip~",
+        "evi.clipper~",
         "evi.hardclip~",
         "evi.softclip~",
         "evi.clipasym~",

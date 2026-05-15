@@ -758,8 +758,8 @@
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to saturate"
+                    "name": "x",
+                    "digest": ""
                 },
                 {
                     "id": 2,
@@ -784,8 +784,8 @@
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to saturate"
+                    "name": "x",
+                    "digest": ""
                 },
                 {
                     "id": 2,

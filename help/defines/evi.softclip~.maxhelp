@@ -292,7 +292,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "The point of [evi.softclip~] is to cleanly clip your audio chain as cheaply as possible when you need it, but in an anti-aliased way. It cannot be driven as hard as [evi.hardclip~] or [evi.clip~].",
+                                    "text": "The point of [evi.softclip~] is to cleanly clip your audio chain as cheaply as possible when you need it, but in an anti-aliased way. It cannot be driven as hard as [evi.hardclip~] or [evi.clipper~].",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -701,7 +701,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 365.0, 370.0, 275.0, 55.0 ],
-                                    "text": "[evi.softclip~] contains one of the soft clipping algorithms from the [evi.clip~] object",
+                                    "text": "[evi.softclip~] contains one of the soft clipping algorithms from the [evi.clipper~] object",
                                     "textjustification": 1
                                 }
                             },
@@ -750,7 +750,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 559.0, 427.0, 208.0, 23.0 ],
-                                    "text": "evi.clip~ @clip 1 @oversampling 0"
+                                    "text": "evi.clipper~ @clip 1 @oversampling 0"
                                 }
                             },
                             {
@@ -1777,7 +1777,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// soft clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clip.genexpr\");\r\n\r\n// ^^ this is not exactly the same as evi_softclip but contains equivalent functions\r\n\r\n\r\n// the default setting in evi_softclip is simply this 'adSc2()' function:\r\nout1 = adSc2(in1);\r\n\r\n\r\n// other options are simply different functions, such as this highest quality setting:\r\nout2 = adSc2_4x_6POINT(in1);\r\n\r\n",
+                                                    "code": "\r\n// soft clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\n// ^^ this is not exactly the same as evi_softclip but contains equivalent functions\r\n\r\n\r\n// the default setting in evi_softclip is simply this 'adSc2()' function:\r\nout1 = adSc2(in1);\r\n\r\n\r\n// other options are simply different functions, such as this highest quality setting:\r\nout2 = adSc2_4x_6POINT(in1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

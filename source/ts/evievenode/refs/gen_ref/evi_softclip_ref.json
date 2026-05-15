@@ -4,7 +4,7 @@
         "child": "evi.softclip~",
         "category": "evieve",
         "digest": "Anti-aliased soft clipping function",
-        "description": "A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clip~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. At high input gains the behaviour is less tanh-like as it folds."
+        "description": "A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clipper~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function."
     },
     "constructor": {
         "inlets": "audio"
@@ -83,12 +83,16 @@
             "display": "evi_rectify"
         },
         {
-            "name": "evi_softresponder",
-            "display": "evi_softresponder"
+            "name": "evi_softstatic",
+            "display": "evi_softstatic"
         },
         {
-            "name": "evi_squasher",
-            "display": "evi_squasher"
+            "name": "evi_squeeze",
+            "display": "evi_squeeze"
+        },
+        {
+            "name": "evi_clipper",
+            "display": "evi_clipper"
         }
     ]
 }

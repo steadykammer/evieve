@@ -43,9 +43,9 @@
         <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
         <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
         <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
-        <seealso name='evi_squasher' display='evi_squasher' type='genrefpage' />
+        <seealso name='evi_squeeze' display='evi_squeeze' type='genrefpage' />
         <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
-        <seealso name='evi_softresponder' display='evi_softresponder' type='genrefpage' />
+        <seealso name='evi_softstatic' display='evi_softstatic' type='genrefpage' />
         <seealso name='evi_overdrive_sqrt' display='evi_overdrive_sqrt' type='genrefpage' />
         <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
         <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />

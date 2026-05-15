@@ -98,7 +98,7 @@
 		<seealso name="evi.overdrive.tanh~"> </seealso>
 		<seealso name="evi.shaper~"> </seealso>
 		<seealso name="evi.sinfold~"> </seealso>
-		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.clipper~"> </seealso>
 		<seealso name="evi.hardclip~"> </seealso>
 		<seealso name="evi.softclip~"> </seealso>
 		<seealso name="evi.clipasym~"> </seealso>

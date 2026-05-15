@@ -11,7 +11,7 @@
     },
     "includes": [
         "evi_smooth",
-        "evi_clip",
+        "evi_clipping",
         "evi_biquads_filters"
     ],
     "inlets": [
@@ -118,6 +118,10 @@
         {
             "name": "evi_softclip",
             "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipper",
+            "display": "evi_clipper"
         }
     ]
 }

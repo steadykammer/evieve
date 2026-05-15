@@ -79,8 +79,8 @@ max define mc.evi.chorus.digital~ mc.gen~ @gen evi_chorus_digital.gendsp @chans 
 max define evi.classic.osc~ gen~ @gen evi_classic_osc.gendsp;
 max define mc.evi.classic.osc~ mc.gen~ @gen evi_classic_osc.gendsp @chans 2;
 
-max define evi.clip~ gen~ @gen evi_clip_hardsoft.gendsp;
-max define mc.evi.clip~ mc.gen~ @gen evi_clip_hardsoft.gendsp @chans 2;
+max define evi.clipper~ gen~ @gen evi_clipper.gendsp;
+max define mc.evi.clipper~ mc.gen~ @gen evi_clipper.gendsp @chans 2;
 
 max define evi.clipasym~ gen~ @gen evi_clipasym.gendsp;
 max define mc.evi.clipasym~ mc.gen~ @gen evi_clipasym.gendsp @chans 2;
@@ -305,11 +305,11 @@ max define mc.evi.skfinputmix~ mc.gen~ @gen evi_skfinputmix.gendsp @chans 2;
 max define evi.softclip~ gen~ @gen evi_softclip.gendsp;
 max define mc.evi.softclip~ mc.gen~ @gen evi_softclip.gendsp @chans 2;
 
-max define evi.softresponder~ gen~ @gen evi_softresponder.gendsp;
-max define mc.evi.softresponder~ mc.gen~ @gen evi_softresponder.gendsp @chans 2;
+max define evi.softstatic~ gen~ @gen evi_softstatic.gendsp;
+max define mc.evi.softstatic~ mc.gen~ @gen evi_softstatic.gendsp @chans 2;
 
-max define evi.squasher~ gen~ @gen evi_squasher.gendsp;
-max define mc.evi.squasher~ mc.gen~ @gen evi_squasher.gendsp @chans 2;
+max define evi.squeeze~ gen~ @gen evi_squeeze.gendsp;
+max define mc.evi.squeeze~ mc.gen~ @gen evi_squeeze.gendsp @chans 2;
 
 max define evi.squine.simple~ gen~ @gen evi_squine_simple.gendsp;
 max define mc.evi.squine.simple~ mc.gen~ @gen evi_squine_simple.gendsp @chans 2;

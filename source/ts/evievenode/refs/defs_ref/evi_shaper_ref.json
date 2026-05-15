@@ -95,7 +95,7 @@
         "evi.warmer~",
         "evi.clipasym~",
         "evi.rectify~",
-        "evi.softresponder~",
-        "evi.squasher~"
+        "evi.softstatic~",
+        "evi.squeeze~"
     ]
 }

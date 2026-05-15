@@ -24,7 +24,7 @@ require("evi_adaa.genexpr");
 require("evi_biquads.genexpr");
 require("evi_buchla.genexpr");
 require("evi_butterworth.genexpr");
-require("evi_clip.genexpr");
+require("evi_clipping.genexpr");
 require("evi_counting.genexpr");
 require("evi_crossovers.genexpr");
 require("evi_dynamics.genexpr");

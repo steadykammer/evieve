@@ -778,7 +778,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 368.0, 366.0, 228.0, 69.0 ],
-                                    "text": "[evi.hardclip~] contains the hard clipping algorithm from [evi.clip~], but with more anti aliasing options",
+                                    "text": "[evi.hardclip~] contains the hard clipping algorithm from [evi.clipper~], but with more anti aliasing options",
                                     "textjustification": 1
                                 }
                             },
@@ -815,7 +815,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 536.0, 437.0, 103.0, 23.0 ],
-                                    "text": "evi.clip~ @clip 0"
+                                    "text": "evi.clipper~ @clip 0"
                                 }
                             },
                             {
@@ -2532,7 +2532,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// hard clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clip.genexpr\");\r\n\r\n// ^^ this is not exactly the same as evi_hardclip but contains equivalent functions\r\n\r\n\r\n// the default setting in evi_hardclip is simply this 'adHc2()' function:\r\nout1 = adHc2(in1);\r\n\r\n\r\n// other @aa options are simply different functions, such as this highest quality setting:\r\nout2 = adHc2_4x_6POINT(in1);\r\n\r\n",
+                                                    "code": "\r\n// hard clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\n// ^^ this is not exactly the same as evi_hardclip but contains equivalent functions\r\n\r\n\r\n// the default setting in evi_hardclip is simply this 'adHc2()' function:\r\nout1 = adHc2(in1);\r\n\r\n\r\n// other @aa options are simply different functions, such as this highest quality setting:\r\nout2 = adHc2_4x_6POINT(in1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

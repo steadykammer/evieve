@@ -114,12 +114,12 @@
             "display": "evi_rectify"
         },
         {
-            "name": "evi_softresponder",
-            "display": "evi_softresponder"
+            "name": "evi_softstatic",
+            "display": "evi_softstatic"
         },
         {
-            "name": "evi_squasher",
-            "display": "evi_squasher"
+            "name": "evi_squeeze",
+            "display": "evi_squeeze"
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "object": {
-        "name": "evi.softresponder~",
-        "parent": "evi_softresponder",
+        "name": "evi.softstatic~",
+        "parent": "evi_softstatic",
         "category": "evieve",
         "tilde": "~",
         "digest": "Static antialiased soft clipping harmonics generator",
@@ -127,7 +127,7 @@
         "image": ""
     },
     "seealso": [
-        "evi.squasher~",
+        "evi.squeeze~",
         "evi.rectify~",
         "evi.hardclip~",
         "evi.softclip~",

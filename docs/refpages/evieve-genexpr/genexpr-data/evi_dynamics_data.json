@@ -2,7 +2,7 @@
     "description": "Dynamics functions for evieve",
     "requires": [
         "evi_smooth.genexpr",
-        "evi_clip.genexpr",
+        "evi_clipping.genexpr",
         "evi_tanh.genexpr",
         "evi_biquads_filters.genexpr"
     ],

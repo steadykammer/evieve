@@ -10309,8 +10309,8 @@
             "params": [
                 {
                     "type": "Identifier",
-                    "name": "x0",
-                    "raw": "x0"
+                    "name": "x",
+                    "raw": "x"
                 },
                 {
                     "type": "Identifier",
@@ -10456,6 +10456,33 @@
                             ]
                         },
                         "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1.995262,
+                                    "raw": "1.995262",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
                     },
                     {
                         "type": "ExpressionStatement",
@@ -10741,8 +10768,8 @@
             "params": [
                 {
                     "type": "Identifier",
-                    "name": "x0",
-                    "raw": "x0"
+                    "name": "x",
+                    "raw": "x"
                 },
                 {
                     "type": "Identifier",
@@ -10936,6 +10963,33 @@
                             ]
                         },
                         "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1.995262,
+                                    "raw": "1.995262",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
                     },
                     {
                         "type": "ExpressionStatement",

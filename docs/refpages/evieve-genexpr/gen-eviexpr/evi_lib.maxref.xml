@@ -15,7 +15,7 @@
     evi_biquads.genexpr <br />
     evi_buchla.genexpr <br />
     evi_butterworth.genexpr <br />
-    evi_clip.genexpr <br />
+    evi_clipping.genexpr <br />
     evi_counting.genexpr <br />
     evi_crossovers.genexpr <br />
     evi_dynamics.genexpr <br />

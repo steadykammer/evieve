@@ -81,7 +81,7 @@
         <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
         <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
         <seealso name='evi_rectify' display='evi_rectify' type='genrefpage' />
-        <seealso name='evi_softresponder' display='evi_softresponder' type='genrefpage' />
-        <seealso name='evi_squasher' display='evi_squasher' type='genrefpage' />
+        <seealso name='evi_softstatic' display='evi_softstatic' type='genrefpage' />
+        <seealso name='evi_squeeze' display='evi_squeeze' type='genrefpage' />
     </seealsolist>
 </c74object>

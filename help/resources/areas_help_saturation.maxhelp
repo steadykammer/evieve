@@ -93,7 +93,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.clip~\">evi.clip~</link> hard, soft, diode and asymmetric clipping",
+                    "text": "<link href=\"; max openhelp evi.clipper~\">evi.clipper~</link> hard, soft, diode and asymmetric clipping",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -111,13 +111,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 169.0, 333.0, 15.0 ],
+                    "patching_rect": [ 47.0, 169.0, 333.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.squasher~\">evi.squasher~</link> quadratic signal shaper",
+                    "text": "<link href=\"; max openhelp evi.squeeze~\">evi.squeeze~</link> quadratic signal shaper",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -135,13 +135,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 152.0, 333.0, 15.0 ],
+                    "patching_rect": [ 47.0, 152.0, 332.0, 17.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.softresponder~\">evi.softresponder~</link> soft clipping harmonics generator",
+                    "text": "<link href=\"; max openhelp evi.softstatic~\">evi.softstatic~</link> soft clipping harmonics generator",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -532,7 +532,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 198.0, 571.0, 86.0, 20.0 ],
+                                    "patching_rect": [ 198.0, 571.0, 92.0, 20.0 ],
                                     "text": "evi.softclip~"
                                 }
                             },
@@ -583,7 +583,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 210.0, 203.0, 86.0, 20.0 ],
-                                    "text": "evi.squasher~"
+                                    "text": "evi.squeeze~"
                                 }
                             },
                             {
@@ -593,7 +593,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 234.0, 164.0, 118.0, 20.0 ],
-                                    "text": "evi.softresponder~"
+                                    "text": "evi.softstatic~"
                                 }
                             },
                             {
@@ -612,8 +612,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 229.0, 493.0, 182.0, 20.0 ],
-                                    "text": "evi.clip~ !! differently named !!"
+                                    "patching_rect": [ 195.0, 493.0, 95.0, 20.0 ],
+                                    "text": "evi.clipper~"
                                 }
                             },
                             {
@@ -674,7 +674,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 128.0, 202.0, 80.0, 22.0 ],
-                                    "text": "evi_squasher"
+                                    "text": "evi_squeeze"
                                 }
                             },
                             {
@@ -685,7 +685,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 128.0, 163.0, 104.0, 22.0 ],
-                                    "text": "evi_softresponder"
+                                    "text": "evi_softstatic"
                                 }
                             },
                             {
@@ -750,8 +750,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 492.0, 99.0, 22.0 ],
-                                    "text": "evi_clip_hardsoft"
+                                    "patching_rect": [ 128.0, 492.0, 66.0, 22.0 ],
+                                    "text": "evi_clipper"
                                 }
                             },
                             {

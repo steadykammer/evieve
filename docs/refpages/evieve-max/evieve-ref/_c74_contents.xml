@@ -20,7 +20,7 @@
 <refpage name='evi.chorus.digital~.maxref.xml'/>
 <refpage name='evi.classic.osc~.maxref.xml'/>
 <refpage name='evi.clipasym~.maxref.xml'/>
-<refpage name='evi.clip~.maxref.xml'/>
+<refpage name='evi.clipper~.maxref.xml'/>
 <refpage name='evi.comb~.maxref.xml'/>
 <refpage name='evi.crossover.3band~.maxref.xml'/>
 <refpage name='evi.crossover.allpass~.maxref.xml'/>
@@ -116,8 +116,8 @@
 <refpage name='evi.sinfold~.maxref.xml'/>
 <refpage name='evi.skfinputmix~.maxref.xml'/>
 <refpage name='evi.softclip~.maxref.xml'/>
-<refpage name='evi.softresponder~.maxref.xml'/>
-<refpage name='evi.squasher~.maxref.xml'/>
+<refpage name='evi.softstatic~.maxref.xml'/>
+<refpage name='evi.squeeze~.maxref.xml'/>
 <refpage name='evi.squine.simple~.maxref.xml'/>
 <refpage name='evi.sustainverb~.maxref.xml'/>
 <refpage name='evi.svfinputmix~.maxref.xml'/>

@@ -31,8 +31,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_clip.genexpr",
-                        "raw": "\"evi_clip.genexpr\"",
+                        "value": "evi_clipping.genexpr",
+                        "raw": "\"evi_clipping.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

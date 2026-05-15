@@ -238,7 +238,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 929, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -3938,7 +3938,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.0936600403422, 0.093660003365525, 0.093660012949313, 1.0 ],
+                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-2",
                     "maxclass": "panel",
@@ -3961,7 +3961,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.0936600403422, 0.093660003365525, 0.093660012949313, 1.0 ],
+                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-3",
                     "maxclass": "panel",
@@ -3984,7 +3984,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.0936600403422, 0.093660003365525, 0.093660012949313, 1.0 ],
+                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-5",
                     "maxclass": "panel",

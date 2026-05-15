@@ -1,7 +1,7 @@
 // simple but antialiased clipping for your audio
 // antiderivative anti aliasing + quasi oversampling, by Pete for evieve, 2022
 // "Diode" aliases far sooner than "Hard" or "Soft", sorry
-require("evi_clip.genexpr");
+require("evi_clipping.genexpr");
 Param	oversampling(2, min=0, max=2);	// 0 = 1x, 1 = 2x, 2 = 4x
 Param	clip(0, min=0, max=3);			// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym
 cp		= int(clip);

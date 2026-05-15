@@ -1166,7 +1166,7 @@
         "evi_adaa",
         "evi_waveshaping",
         "evi_tanh",
-        "evi_clip",
+        "evi_clipping",
         "evi_interp",
         "evi_resampling_templates"
     ]

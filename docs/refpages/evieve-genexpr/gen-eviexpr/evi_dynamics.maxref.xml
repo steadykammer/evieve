@@ -12,7 +12,7 @@
      <br />
     The <b>evi_dynamics.genexpr</b> file also requires: <br />
     evi_smooth.genexpr <br />
-    evi_clip.genexpr <br />
+    evi_clipping.genexpr <br />
     evi_tanh.genexpr <br />
     evi_biquads_filters.genexpr <br />
     <br />

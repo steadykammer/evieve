@@ -213,8 +213,8 @@
 		<seealso name="evi.sinfold~"> </seealso>
 		<seealso name="evi.shaper~"> </seealso>
 		<seealso name="evi.rectify~"> </seealso>
-		<seealso name="evi.softresponder~"> </seealso>
-		<seealso name="evi.squasher~"> </seealso>
+		<seealso name="evi.softstatic~"> </seealso>
+		<seealso name="evi.squeeze~"> </seealso>
 		<seealso name="evi.overdrive.tanh~"> </seealso>
 		<seealso name="evi.overdrive.atan~"> </seealso>
 		<seealso name="evi.overdrive.sqrt~"> </seealso>

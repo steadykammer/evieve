@@ -5,7 +5,7 @@
         "evi_biquads.genexpr",
         "evi_buchla.genexpr",
         "evi_butterworth.genexpr",
-        "evi_clip.genexpr",
+        "evi_clipping.genexpr",
         "evi_counting.genexpr",
         "evi_crossovers.genexpr",
         "evi_dynamics.genexpr",

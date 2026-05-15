@@ -553,7 +553,7 @@
     <seealso name="evi_adaa" type="refpage"/>
     <seealso name="evi_waveshaping" type="refpage"/>
     <seealso name="evi_tanh" type="refpage"/>
-    <seealso name="evi_clip" type="refpage"/>
+    <seealso name="evi_clipping" type="refpage"/>
     <seealso name="evi_interp" type="refpage"/>
     <seealso name="evi_resampling_templates" type="refpage"/>
   </seealsolist>

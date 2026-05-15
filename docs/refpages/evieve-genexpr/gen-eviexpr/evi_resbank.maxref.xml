@@ -120,7 +120,7 @@
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
     <seealso name="evi_svfs_tpt" type="refpage"/>
     <seealso name="evi_svfs_lto" type="refpage"/>
-    <seealso name="evi_clip" type="refpage"/>
+    <seealso name="evi_clipping" type="refpage"/>
     <seealso name="evi_tanh" type="refpage"/>
     <seealso name="evi_adaa" type="refpage"/>
   </seealsolist>

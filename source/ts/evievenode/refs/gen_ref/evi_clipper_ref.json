@@ -56,6 +56,10 @@
     ],
     "seealso": [
         {
+            "name": "",
+            "display": ""
+        },
+        {
             "name": "evi_limiterfast",
             "display": "evi_limiterfast"
         },
@@ -84,6 +88,18 @@
             "display": "evi_sinfold"
         },
         {
+            "name": "evi_rectify",
+            "display": "evi_rectify"
+        },
+        {
+            "name": "evi_softstatic",
+            "display": "evi_softstatic"
+        },
+        {
+            "name": "evi_squeeze",
+            "display": "evi_squeeze"
+        },
+        {
             "name": "evi_overdrive_sqrt",
             "display": "evi_overdrive_sqrt"
         },
@@ -106,18 +122,6 @@
         {
             "name": "evi_baxandall",
             "display": "evi_baxandall"
-        },
-        {
-            "name": "evi_rectify",
-            "display": "evi_rectify"
-        },
-        {
-            "name": "evi_softstatic",
-            "display": "evi_softstatic"
-        },
-        {
-            "name": "evi_squeeze",
-            "display": "evi_squeeze"
         }
     ]
 }

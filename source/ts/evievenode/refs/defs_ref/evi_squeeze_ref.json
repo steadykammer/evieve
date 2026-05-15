@@ -1,11 +1,11 @@
 {
     "object": {
-        "name": "evi.squasher~",
-        "parent": "evi_squasher",
+        "name": "evi.squeeze~",
+        "parent": "evi_squeeze",
         "category": "evieve",
         "tilde": "~",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "<o>evi.squasher~</o> is a simple passive audio signal quadratic shaper. <o>evi.squasher~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain.",
+        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain.",
         "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
@@ -56,7 +56,7 @@
     },
     "seealso": [
         "evi.rectify~",
-        "evi.softresponder~",
+        "evi.softstatic~",
         "evi.hardclip~",
         "evi.softclip~",
         "evi.shaper~",

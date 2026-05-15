@@ -19,7 +19,7 @@
     },
     "includes": [
         "evi_smooth.genexpr",
-        "evi_clip.genexpr",
+        "evi_clipping.genexpr",
         "evi_biquads_filters.genexpr"
     ],
     "inlets": [
@@ -112,7 +112,7 @@
         "image": ""
     },
     "seealso": [
-        "evi.clip~",
+        "evi.clipper~",
         "evi.hardclip~",
         "evi.softclip~"
     ]

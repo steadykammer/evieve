@@ -9175,8 +9175,8 @@
                                     ],
                                     "callee": {
                                         "type": "Identifier",
-                                        "name": "adHc2",
-                                        "raw": "adHc2"
+                                        "name": "adHc1",
+                                        "raw": "adHc1"
                                     }
                                 },
                                 "right": {
@@ -9541,8 +9541,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "adHc2",
-                                    "raw": "adHc2"
+                                    "name": "adHc1",
+                                    "raw": "adHc1"
                                 }
                             }
                         }

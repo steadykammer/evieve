@@ -552,8 +552,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 212.0, 376.0, 90.0, 23.0 ],
-                                    "text": "evi.squasher~"
+                                    "patching_rect": [ 212.0, 376.0, 85.0, 23.0 ],
+                                    "text": "evi.squeeze~"
                                 }
                             },
                             {
@@ -597,7 +597,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.squasher~", 660 ],
+                                    "jsarguments": [ "evi.squeeze~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -623,7 +623,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "evi.squasher~ is passive and does not cope with audio out of bounds, so it you are going to be inputting high gain audio, it is best to (antialias) clip it first. A onepole filter can be useful on the output.",
+                                    "text": "evi.squeeze~ is passive and does not cope with audio out of bounds, so it you are going to be inputting high gain audio, it is best to (antialias) clip it first. A onepole filter can be useful on the output.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -812,7 +812,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter evi.squasher~ 1 1 0 1 1 saturation",
+                    "text": "v8 evi.helpstarter evi.squeeze~ 1 1 0 1 1 saturation",
                     "textfile": {
                         "filename": "evi.helpstarter.js",
                         "flags": 0,
@@ -1190,7 +1190,7 @@
                                     "filename": "evi.helpdetails.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.squasher~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.squasher~.maxhelp" ],
+                                    "jsarguments": [ "evi.squeeze~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.squeeze~.maxhelp" ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1232,8 +1232,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 260.0, 412.0, 90.0, 23.0 ],
-                                    "text": "evi.squasher~",
+                                    "patching_rect": [ 260.0, 412.0, 85.0, 23.0 ],
+                                    "text": "evi.squeeze~",
                                     "varname": "evieveObject"
                                 }
                             },
@@ -1371,7 +1371,7 @@
                     "filename": "evi.helpname.js",
                     "id": "obj-9",
                     "ignoreclick": 1,
-                    "jsarguments": [ "evi.squasher~" ],
+                    "jsarguments": [ "evi.squeeze~" ],
                     "maxclass": "v8ui",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -1417,7 +1417,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "mc.evi.squasher~", 660 ],
+                                    "jsarguments": [ "mc.evi.squeeze~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1442,7 +1442,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.squasher~ is also available as an 'mc' Object",
+                                    "text": "evi.squeeze~ is also available as an 'mc' Object",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1454,7 +1454,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
                                     "patching_rect": [ 140.0, 336.0, 111.0, 23.0 ],
-                                    "text": "mc.evi.squasher~",
+                                    "text": "mc.evi.squeeze~",
                                     "varname": "evieveObjectMc"
                                 }
                             },
@@ -2015,7 +2015,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.squasher~", 660 ],
+                                    "jsarguments": [ "evi.squeeze~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2040,7 +2040,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.squasher~ algorithm is also available inside the gen~ environment",
+                                    "text": "The evi.squeeze~ algorithm is also available inside the gen~ environment",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2092,7 +2092,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 276.0, 294.0, 199.0, 20.0 ],
+                                                    "patching_rect": [ 269.0, 294.0, 206.0, 20.0 ],
                                                     "text": "antialiased quadratic signal shaper"
                                                 }
                                             },
@@ -2230,8 +2230,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 194.0, 293.0, 80.0, 22.0 ],
-                                                    "text": "evi_squasher"
+                                                    "patching_rect": [ 194.0, 293.0, 76.0, 22.0 ],
+                                                    "text": "evi_squeeze"
                                                 }
                                             },
                                             {
@@ -2359,7 +2359,7 @@
                                         ]
                                     },
                                     "patching_rect": [ 223.0, 336.0, 276.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.squasher~_inside_gen~",
+                                    "text": "gen~ @title using_evi.squeeze~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
                             },
@@ -2659,7 +2659,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.squasher~", 660 ],
+                                    "jsarguments": [ "evi.squeeze~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2684,7 +2684,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.squasher~ algorithm can also be used inside GenExpr code",
+                                    "text": "The evi.squeeze~ algorithm can also be used inside GenExpr code",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2731,7 +2731,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// most anti derivative antialiasing in evieve is contained in this .genexpr file:\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n\r\nParam   harmonics(2, min=0, max=3);\r\nharms = selector((int(harmonics) + 1), 3, 7, 15, 31);\r\n\r\n\r\n// the function used for [evi.squasher~] is:\r\nout1 = powerAdaa2(in1, beta=harms);\r\n\r\n\r\n// there is also a cheaper but less well antialiased version:\r\nout2 = powerAdaa1(in1, beta=harms);\r\n\r\n\r\n// there are many more antialiased memoryless nonlinearities in 'evi_adaa.genexpr'\r\n\r\n\r\n",
+                                                    "code": "\r\n// most anti derivative antialiasing in evieve is contained in this .genexpr file:\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n\r\nParam   harmonics(2, min=0, max=3);\r\nharms = selector((int(harmonics) + 1), 3, 7, 15, 31);\r\n\r\n\r\n// the function used for [evi.squeeze~] is:\r\nout1 = powerAdaa2(in1, beta=harms);\r\n\r\n\r\n// there is also a cheaper but less well antialiased version:\r\nout2 = powerAdaa1(in1, beta=harms);\r\n\r\n\r\n// there are many more antialiased memoryless nonlinearities in 'evi_adaa.genexpr'\r\n\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2775,8 +2775,8 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 321.0, 287.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.squasher~_with_GenExpr",
+                                    "patching_rect": [ 223.0, 321.0, 283.0, 23.0 ],
+                                    "text": "gen~ @title using_evi.squeeze~_with_GenExpr",
                                     "varname": "evieveObjectGenExpr"
                                 }
                             },
@@ -2910,7 +2910,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2931,7 +2931,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,

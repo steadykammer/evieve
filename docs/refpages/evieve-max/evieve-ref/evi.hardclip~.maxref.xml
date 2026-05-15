@@ -9,7 +9,7 @@
 		<b>evi.hardclip~</b> is a 'max define' for the <o>evi_hardclip</o>.gendsp gen~ abstraction.
 		Because evi.hardclip~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clip~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material. <br />
+		To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clipper~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -66,15 +66,15 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
-		<seealso name="evi.clip~"> </seealso>
+		<seealso name="evi.clipper~"> </seealso>
 		<seealso name="evi.softclip~"> </seealso>
 		<seealso name="evi.clipasym~"> </seealso>
 		<seealso name="evi.shaper~"> </seealso>
 		<seealso name="evi.warmer~"> </seealso>
 		<seealso name="evi.sinfold~"> </seealso>
 		<seealso name="evi.rectify~"> </seealso>
-		<seealso name="evi.softresponder~"> </seealso>
-		<seealso name="evi.squasher~"> </seealso>
+		<seealso name="evi.softstatic~"> </seealso>
+		<seealso name="evi.squeeze~"> </seealso>
 		<seealso name="evi.overdrive.sqrt~"> </seealso>
 		<seealso name="evi.overdrive.atan~"> </seealso>
 		<seealso name="evi.overdrive.tanh~"> </seealso>

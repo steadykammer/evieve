@@ -497,7 +497,7 @@
     "seealso": [
         "evi_svfs_tpt",
         "evi_svfs_lto",
-        "evi_clip",
+        "evi_clipping",
         "evi_tanh",
         "evi_adaa"
     ]

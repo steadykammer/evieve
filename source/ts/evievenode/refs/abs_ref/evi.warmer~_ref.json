@@ -198,8 +198,8 @@
         "evi.sinfold~",
         "evi.shaper~",
         "evi.rectify~",
-        "evi.softresponder~",
-        "evi.squasher~",
+        "evi.softstatic~",
+        "evi.squeeze~",
         "evi.overdrive.tanh~",
         "evi.overdrive.atan~",
         "evi.overdrive.sqrt~"

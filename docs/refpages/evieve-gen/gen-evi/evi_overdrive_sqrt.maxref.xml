@@ -70,5 +70,6 @@
         <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
         <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
         <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
+        <seealso name='evi_clipper' display='evi_clipper' type='genrefpage' />
     </seealsolist>
 </c74object>

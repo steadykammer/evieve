@@ -828,10 +828,10 @@
                 "auto": true
             }
         },
-        "evi_clip_hardsoft.gendsp": {
+        "evi_clipper.gendsp": {
             "define": {
                 "object": true,
-                "msp": "evi.clip~",
+                "msp": "evi.clipper~",
                 "mcwrapper": true
             },
             "ref": {
@@ -3712,10 +3712,10 @@
                 "auto": true
             }
         },
-        "evi_softresponder.gendsp": {
+        "evi_softstatic.gendsp": {
             "define": {
                 "object": true,
-                "msp": "evi.softresponder~",
+                "msp": "evi.softstatic~",
                 "mcwrapper": true
             },
             "ref": {
@@ -3736,10 +3736,10 @@
                 "auto": true
             }
         },
-        "evi_squasher.gendsp": {
+        "evi_squeeze.gendsp": {
             "define": {
                 "object": true,
-                "msp": "evi.squasher~",
+                "msp": "evi.squeeze~",
                 "mcwrapper": true
             },
             "ref": {

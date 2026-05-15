@@ -242,7 +242,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 247.0, 150.0, 21.0 ],
+                                    "patching_rect": [ 211.0, 247.0, 150.0, 21.0 ],
                                     "text": "@clip 1 == soft clip"
                                 }
                             },
@@ -253,8 +253,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 87.0, 246.0, 103.0, 23.0 ],
-                                    "text": "evi.clip~ @clip 1"
+                                    "patching_rect": [ 87.0, 246.0, 122.0, 23.0 ],
+                                    "text": "evi.clipper~ @clip 1"
                                 }
                             },
                             {
@@ -276,7 +276,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -301,7 +301,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The point of evi.clip~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
+                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -642,7 +642,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 247.0, 150.0, 21.0 ],
+                                    "patching_rect": [ 211.0, 247.0, 150.0, 21.0 ],
                                     "text": "@clip 0 == hard clip"
                                 }
                             },
@@ -653,8 +653,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 87.0, 246.0, 103.0, 23.0 ],
-                                    "text": "evi.clip~ @clip 0"
+                                    "patching_rect": [ 87.0, 246.0, 122.0, 23.0 ],
+                                    "text": "evi.clipper~ @clip 0"
                                 }
                             },
                             {
@@ -676,7 +676,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -701,7 +701,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The point of evi.clip~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
+                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -835,7 +835,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1100,7 +1100,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 311.0, 445.0, 412.0, 21.0 ],
+                                    "patching_rect": [ 330.0, 445.0, 412.0, 21.0 ],
                                     "text": "'@oversampling 2' is the default but you do not always need this"
                                 }
                             },
@@ -1193,8 +1193,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 148.0, 444.0, 161.0, 23.0 ],
-                                    "text": "evi.clip~ @oversampling 2"
+                                    "patching_rect": [ 148.0, 444.0, 180.0, 23.0 ],
+                                    "text": "evi.clipper~ @oversampling 2"
                                 }
                             },
                             {
@@ -1205,7 +1205,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1231,7 +1231,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "\"Adaa\" stands for \"Antiderivative Anti Aliasing\" and the minimum oversampling in evi.clip~ is a 2nd order Adaa, which for most light purposes will be enough. You only need further oversampling options for extreme inputs.",
+                                    "text": "\"Adaa\" stands for \"Antiderivative Anti Aliasing\" and the minimum oversampling in evi.clipper~ is a 2nd order Adaa, which for most light purposes will be enough. You only need further oversampling options for extreme inputs.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1376,7 +1376,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter.js evi.clip~ 1 1 0 1 1 saturation",
+                    "text": "v8 evi.helpstarter.js evi.clipper~ 1 1 0 1 1 saturation",
                     "textfile": {
                         "filename": "evi.helpstarter.js",
                         "flags": 0,
@@ -1698,7 +1698,7 @@
                                     "filename": "evi.helpdetails.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.clip~.maxhelp" ],
+                                    "jsarguments": [ "evi.clipper~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.clipper~.maxhelp" ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1740,8 +1740,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 140.0, 429.0, 56.0, 23.0 ],
-                                    "text": "evi.clip~",
+                                    "patching_rect": [ 140.0, 429.0, 75.0, 23.0 ],
+                                    "text": "evi.clipper~",
                                     "varname": "evieveObject"
                                 }
                             },
@@ -1863,7 +1863,7 @@
                     "filename": "evi.helpname.js",
                     "id": "obj-6",
                     "ignoreclick": 1,
-                    "jsarguments": [ "evi.clip~" ],
+                    "jsarguments": [ "evi.clipper~" ],
                     "maxclass": "v8ui",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -1909,7 +1909,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "mc.evi.clip~", 660 ],
+                                    "jsarguments": [ "mc.evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1934,7 +1934,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.clip~ is also available as an 'mc' Object",
+                                    "text": "evi.clipper~ is also available as an 'mc' Object",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1946,7 +1946,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
                                     "patching_rect": [ 140.0, 336.0, 100.0, 23.0 ],
-                                    "text": "mc.evi.clip~",
+                                    "text": "mc.evi.clipper~",
                                     "varname": "evieveObjectMc"
                                 }
                             },
@@ -2129,7 +2129,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2154,7 +2154,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.clip~ algorithm is also available inside the gen~ environment",
+                                    "text": "The evi.clipper~ algorithm is also available inside the gen~ environment",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2180,28 +2180,13 @@
                                         "boxes": [
                                             {
                                                 "box": {
-                                                    "bubble": 1,
-                                                    "bubblepoint": 0.25,
-                                                    "bubbleside": 0,
-                                                    "id": "obj-7",
-                                                    "linecount": 2,
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 110.0, 125.0, 175.0, 52.0 ],
-                                                    "text": "look, it is named differently inside gen~ (sorry)",
-                                                    "textjustification": 1
-                                                }
-                                            },
-                                            {
-                                                "box": {
                                                     "id": "obj-5",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 86.0, 101.0, 99.0, 22.0 ],
-                                                    "text": "evi_clip_hardsoft"
+                                                    "patching_rect": [ 86.0, 101.0, 66.0, 22.0 ],
+                                                    "text": "evi_clipper"
                                                 }
                                             },
                                             {
@@ -2241,8 +2226,8 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 242.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.clip~_inside_gen~",
+                                    "patching_rect": [ 223.0, 336.0, 261.0, 23.0 ],
+                                    "text": "gen~ @title using_evi.clipper~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
                             },
@@ -2470,7 +2455,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.clip~", 660 ],
+                                    "jsarguments": [ "evi.clipper~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2495,7 +2480,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.clip~ algorithm can also be used inside GenExpr code",
+                                    "text": "The evi.clipper~ algorithm can also be used inside GenExpr code",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2542,7 +2527,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// in evieve genexpr...\r\n\r\n// ...many naive (not antialiased) waveshapers are here:\r\n//require(\"evi_waveshaping.genexpr\");\r\n\r\n// ...many ADAA waveshapers are here:\r\n//require(\"evi_adaa.genexpr\");\r\n\r\n// ...many quasi oversampled waveshapers are here:\r\n//require(\"evi_saturators.genexpr\");\r\n\r\n\r\n// the exact functions from the [evi.clip~] object are all included here:\r\nrequire(\"evi_clip.genexpr\");\r\n\r\n\r\n// it is probably best to experiment with the defined objects in MSP or gen~, then look into\r\n// the content of the above files via the \"evieve GenExpr Index\" (in the 'Extras' menu)\r\n\r\n\r\n// to use the 2nd order antiderivative hard clipper in your own code, you would just\r\n// require the above 'evi_clip.genexpr' file then call:\r\nout1 = adHc2(in1);\r\n\r\n// ...or the 4x oversampled version like this:\r\nout2 = adHc2_4x_6POINT(in1);\r\n\r\n",
+                                                    "code": "\r\n// in evieve genexpr...\r\n\r\n// ...many naive (not antialiased) waveshapers are here:\r\n//require(\"evi_waveshaping.genexpr\");\r\n\r\n// ...many ADAA waveshapers are here:\r\n//require(\"evi_adaa.genexpr\");\r\n\r\n// ...many quasi oversampled waveshapers are here:\r\n//require(\"evi_saturators.genexpr\");\r\n\r\n\r\n// the exact functions from the [evi.clipper~] object are all included here:\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\n\r\n// it is probably best to experiment with the defined objects in MSP or gen~, then look into\r\n// the content of the above files via the \"evieve GenExpr Index\" (in the 'Extras' menu)\r\n\r\n\r\n// to use the 2nd order antiderivative hard clipper in your own code, you would just\r\n// require the above 'evi_clipping.genexpr' file then call:\r\nout1 = adHc2(in1);\r\n\r\n// ...or the 4x oversampled version like this:\r\nout2 = adHc2_4x_6POINT(in1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2586,8 +2571,8 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 253.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.clip~_with_GenExpr",
+                                    "patching_rect": [ 223.0, 336.0, 272.0, 23.0 ],
+                                    "text": "gen~ @title using_evi.clipper~_with_GenExpr",
                                     "varname": "evieveObjectGenExpr"
                                 }
                             },

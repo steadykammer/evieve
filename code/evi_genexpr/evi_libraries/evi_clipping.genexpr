@@ -548,7 +548,7 @@ diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 asym(xin)
 {
 	History hd(0);
-	x  = adHc2(xin) * 2.058918;
+	x  = adHc1(xin) * 2.058918;
 	a  = sqrt1_2 + expApprox(sqrt(abs(x)) * -sqrt1_2);
 	ex = expApprox(x);
 	y  = (ex - expApprox(-x * a)) / (ex + 1 / ex);
@@ -561,7 +561,7 @@ asymWrap(x2, drive) // basically the Gloubi-boulga by Laurent de Soras
 	History hdw(0);
 	d  = LN2 * drive;
 	s  = 1 / sqrt(d);
-	x1 = adHc2(x2);
+	x1 = adHc1(x2);
 	x  = clamp(x1 * d, -40, 40); // chosen for dcblock & approxes
 	a  = 1 + expApprox(sqrt(abs(x)) * -0.75);
 	ex = expApprox(x);

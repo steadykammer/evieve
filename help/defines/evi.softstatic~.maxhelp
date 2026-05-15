@@ -788,8 +788,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 212.0, 322.0, 116.0, 23.0 ],
-                                    "text": "evi.softresponder~",
+                                    "patching_rect": [ 212.0, 322.0, 88.0, 23.0 ],
+                                    "text": "evi.softstatic~",
                                     "varname": "evieveObject[1]"
                                 }
                             },
@@ -812,7 +812,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.softresponder~", 660 ],
+                                    "jsarguments": [ "evi.softstatic~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -839,7 +839,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "evi.softresponder~ is passive and does not cope with audio out of bounds, so it you are going to be inputting high gain audio, it is best to (antialias) clip it first. A onepole filter can be useful on the output.",
+                                    "text": "evi.softstatic~ is passive and does not cope with audio out of bounds, so it you are going to be inputting high gain audio, it is best to (antialias) clip it first. A onepole filter can be useful on the output.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1025,7 +1025,7 @@
                         "embed": 0,
                         "parameter_enable": 0
                     },
-                    "text": "v8 evi.helpstarter evi.softresponder~ 1 1 0 1 1 saturation",
+                    "text": "v8 evi.helpstarter evi.softstatic~ 1 1 0 1 1 saturation",
                     "textfile": {
                         "filename": "evi.helpstarter.js",
                         "flags": 0,
@@ -1378,8 +1378,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 260.0, 412.0, 116.0, 23.0 ],
-                                    "text": "evi.softresponder~",
+                                    "patching_rect": [ 260.0, 412.0, 88.0, 23.0 ],
+                                    "text": "evi.softstatic~",
                                     "varname": "evieveObject[1]"
                                 }
                             },
@@ -1402,7 +1402,7 @@
                                     "filename": "evi.helpdetails.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.softresponder~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.softresponder~.maxhelp" ],
+                                    "jsarguments": [ "evi.softstatic~", "pants:/Users/stkr/Dev/evieve/help/defines/evi.softstatic~.maxhelp" ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1560,7 +1560,7 @@
                     "filename": "evi.helpname.js",
                     "id": "obj-9",
                     "ignoreclick": 1,
-                    "jsarguments": [ "evi.softresponder~" ],
+                    "jsarguments": [ "evi.softstatic~" ],
                     "maxclass": "v8ui",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -1606,7 +1606,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "mc.evi.softresponder~", 660 ],
+                                    "jsarguments": [ "mc.evi.softstatic~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -1631,7 +1631,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.softresponder~ is also available as an 'mc' Object",
+                                    "text": "evi.softstatic~ is also available as an 'mc' Object",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1643,7 +1643,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
                                     "patching_rect": [ 140.0, 336.0, 137.0, 23.0 ],
-                                    "text": "mc.evi.softresponder~",
+                                    "text": "mc.evi.softstatic~",
                                     "varname": "evieveObjectMc"
                                 }
                             },
@@ -2276,7 +2276,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.softresponder~", 660 ],
+                                    "jsarguments": [ "evi.softstatic~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -2301,7 +2301,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.softresponder~ algorithm is also available inside the gen~ environment",
+                                    "text": "The evi.softstatic~ algorithm is also available inside the gen~ environment",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2427,8 +2427,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 48.0, 439.0, 104.0, 22.0 ],
-                                                    "text": "evi_softresponder"
+                                                    "patching_rect": [ 48.0, 439.0, 78.0, 22.0 ],
+                                                    "text": "evi_softstatic"
                                                 }
                                             },
                                             {
@@ -3008,7 +3008,7 @@
                                         ]
                                     },
                                     "patching_rect": [ 223.0, 336.0, 302.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.softresponder~_inside_gen~",
+                                    "text": "gen~ @title using_evi.softstatic~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
                             },
@@ -3334,7 +3334,7 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.softresponder~", 660 ],
+                                    "jsarguments": [ "evi.softstatic~", 660 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -3359,7 +3359,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.softresponder~ algorithm can also be used inside GenExpr code",
+                                    "text": "The evi.softstatic~ algorithm can also be used inside GenExpr code",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -3406,7 +3406,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// most anti derivative antialiasing in evieve is contained in this .genexpr file:\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n\r\nParam   algo(0, min=0, max=1);  // 0 = clearer harmonics, 1 = more bassy\r\nalg     = int(algo);\r\n\r\n\r\n// the functions used for [evi.softresponder~] are:\r\n\r\nresponder2 = 0;\r\nif (alg == 1) {\r\n    responder2 = softclipNAdaa2(in1, C=sqrt1_2, R=sqrt1_2, beta=4, S=0.01);\r\n}\r\nelse {\r\n    responder2 = softclip2Adaa2(in1, h=sqrt1_2, ratio=sqrt1_2);\r\n}\r\n\r\nout1 = responder2;\r\n\r\n\r\n// there are also cheaper but less well antialiased versions:\r\n\r\nresponder1 = 0;\r\nif (alg == 1) {\r\n    responder1 = softclipNAdaa1(in1, C=sqrt1_2, R=sqrt1_2, beta=4, S=0.01);\r\n}\r\nelse {\r\n    responder1 = softclip2Adaa1(in1, h=sqrt1_2, ratio=sqrt1_2);\r\n}\r\n\r\nout2 = responder1;\r\n\r\n\r\n// there are many more antialiased memoryless nonlinearities in 'evi_adaa.genexpr'\r\n\r\n",
+                                                    "code": "\r\n// most anti derivative antialiasing in evieve is contained in this .genexpr file:\r\nrequire(\"evi_adaa.genexpr\");\r\n\r\n\r\nParam   algo(0, min=0, max=1);  // 0 = clearer harmonics, 1 = more bassy\r\nalg     = int(algo);\r\n\r\n\r\n// the functions used for [evi.softstatic~] are:\r\n\r\nresponder2 = 0;\r\nif (alg == 1) {\r\n    responder2 = softclipNAdaa2(in1, C=sqrt1_2, R=sqrt1_2, beta=4, S=0.01);\r\n}\r\nelse {\r\n    responder2 = softclip2Adaa2(in1, h=sqrt1_2, ratio=sqrt1_2);\r\n}\r\n\r\nout1 = responder2;\r\n\r\n\r\n// there are also cheaper but less well antialiased versions:\r\n\r\nresponder1 = 0;\r\nif (alg == 1) {\r\n    responder1 = softclipNAdaa1(in1, C=sqrt1_2, R=sqrt1_2, beta=4, S=0.01);\r\n}\r\nelse {\r\n    responder1 = softclip2Adaa1(in1, h=sqrt1_2, ratio=sqrt1_2);\r\n}\r\n\r\nout2 = responder1;\r\n\r\n\r\n// there are many more antialiased memoryless nonlinearities in 'evi_adaa.genexpr'\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -3450,8 +3450,8 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 306.0, 313.0, 23.0 ],
-                                    "text": "gen~ @title using_evi.softresponder~_with_GenExpr",
+                                    "patching_rect": [ 223.0, 306.0, 285.0, 23.0 ],
+                                    "text": "gen~ @title using_evi.softstatic~_with_GenExpr",
                                     "varname": "evieveObjectGenExpr"
                                 }
                             },
@@ -3606,7 +3606,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,

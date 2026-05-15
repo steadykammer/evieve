@@ -145,7 +145,7 @@
       <description>
         First order anti-derivative anti-aliasing of an alternative tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
         <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
@@ -156,7 +156,7 @@
       <description>
         Second order anti-derivative anti-aliasing of an alternative tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
         <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />

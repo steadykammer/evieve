@@ -21,7 +21,7 @@
     "evi_biquads_selectors.genexpr": "Library",
     "evi_biquads_union.genexpr": "Library",
     "evi_butterworth.genexpr": "Library",
-    "evi_clip.genexpr": "Library",
+    "evi_clipping.genexpr": "Library",
     "evi_counting.genexpr": "Library",
     "evi_crossovers.genexpr": "Library",
     "evi_dynamics.genexpr": "Library",

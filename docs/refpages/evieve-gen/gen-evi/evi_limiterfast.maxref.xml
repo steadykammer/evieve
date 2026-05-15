@@ -9,7 +9,7 @@
         <b>evi_limiterfast</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_limiterfast.gendsp requires the GenExpr file(s): <br />
-        <o>evi_smooth</o>.genexpr, <o>evi_clip</o>.genexpr, <o>evi_biquads_filters</o>.genexpr <br />
+        <o>evi_smooth</o>.genexpr, <o>evi_clipping</o>.genexpr, <o>evi_biquads_filters</o>.genexpr <br />
          <br />
         evi_limiterfast is also available in MSP as: <o>evi.limiterfast~</o>. <br />
          <br />
@@ -89,5 +89,6 @@
     <seealsolist>
         <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
         <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_clipper' display='evi_clipper' type='genrefpage' />
     </seealsolist>
 </c74object>

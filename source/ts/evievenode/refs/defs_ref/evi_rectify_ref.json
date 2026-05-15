@@ -43,8 +43,8 @@
         "image": ""
     },
     "seealso": [
-        "evi.squasher~",
-        "evi.softresponder~",
+        "evi.squeeze~",
+        "evi.softstatic~",
         "evi.hardclip~",
         "evi.softclip~",
         "evi.shaper~",

@@ -55,8 +55,8 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
-		<seealso name="evi.squasher~"> </seealso>
-		<seealso name="evi.softresponder~"> </seealso>
+		<seealso name="evi.squeeze~"> </seealso>
+		<seealso name="evi.softstatic~"> </seealso>
 		<seealso name="evi.hardclip~"> </seealso>
 		<seealso name="evi.softclip~"> </seealso>
 		<seealso name="evi.shaper~"> </seealso>

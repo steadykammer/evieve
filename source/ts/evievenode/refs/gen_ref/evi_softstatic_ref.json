@@ -1,7 +1,7 @@
 {
     "object": {
-        "name": "evi_softresponder",
-        "child": "evi.softresponder~",
+        "name": "evi_softstatic",
+        "child": "evi.softstatic~",
         "category": "evieve",
         "digest": "Static antialiased soft clipping harmonics generator",
         "description": "A choice of two similar but different antialiased soft-ish / hard-ish static clipping algorithms"
@@ -106,8 +106,12 @@
     ],
     "seealso": [
         {
-            "name": "evi_squasher",
-            "display": "evi_squasher"
+            "name": "",
+            "display": ""
+        },
+        {
+            "name": "evi_squeeze",
+            "display": "evi_squeeze"
         },
         {
             "name": "evi_rectify",
