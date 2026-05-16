@@ -22,7 +22,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 784.0, 272.0, 73.0, 22.0 ],
+                    "patching_rect": [ 780.0, 272.0, 73.0, 22.0 ],
                     "text": "history bcl 0"
                 }
             },
@@ -32,7 +32,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 784.0, 356.0, 171.0, 22.0 ],
+                    "patching_rect": [ 780.0, 356.0, 171.0, 22.0 ],
                     "text": "out 2 (signal) Vactrol Envelope"
                 }
             },
@@ -62,7 +62,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 784.0, 12.0, 132.0, 20.0 ],
+                    "patching_rect": [ 780.0, 12.0, 132.0, 20.0 ],
                     "text": "0..1"
                 }
             },
@@ -72,7 +72,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 648.0, 12.0, 132.0, 20.0 ],
+                    "patching_rect": [ 648.0, 12.0, 130.0, 20.0 ],
                     "text": "0..1"
                 }
             },
@@ -137,7 +137,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 784.0, 131.0, 105.0, 22.0 ],
+                    "patching_rect": [ 780.0, 131.0, 105.0, 22.0 ],
                     "text": "param response 1"
                 }
             },
@@ -159,8 +159,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 516.0, 224.0, 131.0, 22.0 ],
-                    "text": "param scalersmooth 0."
+                    "patching_rect": [ 516.0, 224.0, 127.0, 22.0 ],
+                    "text": "param scalesmooth 0."
                 }
             },
             {
@@ -203,7 +203,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 784.0, 170.0, 98.0, 22.0 ],
+                    "patching_rect": [ 780.0, 170.0, 98.0, 22.0 ],
                     "text": "setparam control"
                 }
             },
@@ -225,8 +225,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 516.0, 263.0, 133.0, 22.0 ],
-                    "text": "setparam scalersmooth"
+                    "patching_rect": [ 516.0, 263.0, 129.0, 22.0 ],
+                    "text": "setparam scalesmooth"
                 }
             },
             {
@@ -269,7 +269,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 784.0, 34.0, 137.0, 22.0 ],
+                    "patching_rect": [ 780.0, 34.0, 137.0, 22.0 ],
                     "text": "in 6 (signal/float) Sweep"
                 }
             },
@@ -280,8 +280,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 648.0, 34.0, 134.0, 22.0 ],
-                    "text": "in 5 (signal/float) Scaler"
+                    "patching_rect": [ 648.0, 34.0, 130.0, 22.0 ],
+                    "text": "in 5 (signal/float) Scale"
                 }
             },
             {

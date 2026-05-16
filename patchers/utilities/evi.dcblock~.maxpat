@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -106,7 +106,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 49.0, 34.0, 30.0, 30.0 ]
                 }
             },
@@ -131,7 +131,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 227.0, 143.0, 95.0, 47.0 ],
-                    "presentation_linecount": 3,
                     "text": "0.99 = heavy,\n1. = bypassed,\ndefault 0.9997"
                 }
             },
@@ -145,6 +144,18 @@
                     "numoutlets": 0,
                     "patching_rect": [ 206.0, 234.0, 116.0, 20.0 ],
                     "text": "remove DC offset"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-3",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 158.0, 286.0, 135.0, 33.0 ],
+                    "text": "this abstraction should not have to exist"
                 }
             }
         ],

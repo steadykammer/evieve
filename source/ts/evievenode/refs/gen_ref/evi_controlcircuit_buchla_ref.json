@@ -7,7 +7,7 @@
         "description": "Analog modelled control circuit for the voltage control of the <o>evi_lpg_buchla</o>.gendsp frequency inlet. Also embedded in the MSP abstraction <o>evi.lpg~</o>."
     },
     "constructor": {
-        "inlets": "v_c, offset, scaler, sweep"
+        "inlets": "v_c, offset, scale, sweep"
     },
     "includes": [
         "evi_rcfilters"
@@ -31,7 +31,7 @@
         },
         {
             "id": 3,
-            "name": "scaler",
+            "name": "scale",
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @max 1 @default 0.48",
@@ -99,6 +99,16 @@
         },
         {
             "name": "scalersmooth",
+            "type": "float",
+            "digest": "@min 0, @max 111",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "scalesmooth",
             "type": "float",
             "digest": "@min 0, @max 111",
             "description": "If > 0, smooths the 'scale' control (inlet 3) by this amount in ms.",

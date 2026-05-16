@@ -17,7 +17,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ v_c, offset, scaler, sweep } }
+                { arguments={}, inlets={ v_c, offset, scale, sweep } }
             </digest>
         </constructor>
     </constructorlist>
@@ -32,7 +32,7 @@
                 @min 0 @max 1 @default 0.1. 0..1. Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
-        <geninlet name='scaler' type='float' optional='1'>
+        <geninlet name='scale' type='float' optional='1'>
             <digest>
                 @min 0 @max 1 @default 0.48. 0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
@@ -88,7 +88,7 @@
                 <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='scalersmooth' type='float' get='0' set='1'>
+        <attribute name='scalesmooth' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 111
             </digest>

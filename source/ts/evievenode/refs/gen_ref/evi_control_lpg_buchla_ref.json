@@ -7,7 +7,7 @@
         "description": "Analog modelled vactrol envelope and control circuit for the voltage control of the <o>evi_lpg_buchla</o>.gendsp frequency inlet. Also embedded in the MSP abstraction <o>evi.lpg~</o>."
     },
     "constructor": {
-        "inlets": "ping, vactrol, vactrol, offset, scaler, sweep"
+        "inlets": "ping, vactrol, vactrol, offset, scale, sweep"
     },
     "includes": [],
     "inlets": [
@@ -43,7 +43,7 @@
         },
         {
             "id": 5,
-            "name": "scaler",
+            "name": "scale",
             "type": "float",
             "optional": 1,
             "digest": "0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
@@ -96,7 +96,7 @@
             }
         },
         {
-            "name": "scalersmooth",
+            "name": "scalesmooth",
             "type": "float",
             "digest": "",
             "description": "If > 0, smooths the 'scale' control (inlet 5) by this amount in ms.",

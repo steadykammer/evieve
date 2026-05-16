@@ -6,7 +6,7 @@
 		Buchla Lowpass Gate emulation for your west coast synthesis fun <br />
 	</digest>
 	<description>
-		A complex and difficult to control object. Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013 . In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage. <br />
+		Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013 . In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (<m>boom</m> ) and simultaneous filter outputs. Refactored code for optimal CPU usage. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -194,7 +194,7 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
 			</attributelist>
 		</attribute>
-		<attribute name="scalersmooth" get="0" set="1" type="float" size="1">
+		<attribute name="scalesmooth" get="0" set="1" type="float" size="1">
 			<digest>
 				Time in ms
 			</digest>
@@ -251,7 +251,7 @@
 		</attribute>
 		<attribute name="vactrolscalar" get="0" set="1" type="float" size="1">
 			<digest>
-				
+				Float 1..10000
 			</digest>
 			<description>
 				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. The default is &#x27;10.&#x27; which seems to work well, but very different behaviour can be achieved by modifying this. In general it is better to keep this relatively low and achieve scaling behaviour with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; inlets.

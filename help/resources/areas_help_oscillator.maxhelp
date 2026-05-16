@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
@@ -678,6 +679,17 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "newobj",
+                                    "numinlets": 5,
+                                    "numoutlets": 6,
+                                    "outlettype": [ "", "", "", "", "", "" ],
+                                    "patching_rect": [ 116.0, 379.0, 107.0, 22.0 ],
+                                    "text": "evi_zeroxoscnoise"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-21",

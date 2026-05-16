@@ -68,7 +68,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 152.0, 44.0, 389.0, 33.0 ],
-                    "text": "@: smooth boom vca lpg nonlin vactrolscalar vactrolcontrolhz vactrolcontroldamp response offsetsmooth scalersmooth sweepsmooth"
+                    "text": "@: smooth boom vca lpg nonlin vactrolscalar vactrolcontrolhz vactrolcontroldamp response offsetsmooth scalesmooth sweepsmooth"
                 }
             },
             {
@@ -179,7 +179,7 @@
                                     "numoutlets": 8,
                                     "outlettype": [ "", "", "", "", "", "", "", "" ],
                                     "patching_rect": [ 621.0, 276.0, 327.0, 35.0 ],
-                                    "text": "routepass vactrolscalar vactrolcontrolhz vactrolcontroldamp response offsetsmooth scalersmooth sweepsmooth"
+                                    "text": "routepass vactrolscalar vactrolcontrolhz vactrolcontroldamp response offsetsmooth scalesmooth sweepsmooth"
                                 }
                             },
                             {
@@ -773,7 +773,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 64.0, 73.0, 582.0, 33.0 ],
-                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 1. @nonlin 1 @vactrolscalar 10. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalersmooth 0. @sweepsmooth 0.",
+                    "text": "evievedoc @smooth 15.111 @boom 0. @vca 0. @lpg 1. @nonlin 1 @vactrolscalar 10. @vactrolcontrolhz 143. @vactrolcontroldamp 0. @response 1 @offsetsmooth 0. @scalesmooth 0. @sweepsmooth 0.",
                     "varname": "evievedoc"
                 }
             }

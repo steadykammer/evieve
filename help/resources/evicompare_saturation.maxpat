@@ -3174,6 +3174,228 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-10",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 139.0, 296.0, 40.0, 22.0 ],
+                                    "text": "*~ 10."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 391.0, 386.0, 209.0, 22.0 ],
+                                    "text": "gen~ @gen evi_ringmod_parkernaive"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
+                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "grid": 3,
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-39",
+                                    "line_width": 2.0,
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 148.0, 416.0, 130.0, 130.0 ],
+                                    "rounded": 1.0,
+                                    "samples": 10.0,
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-70",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 211.0, 594.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-18",
+                                    "local": 1,
+                                    "maxclass": "ezdac~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 233.0, 581.0, 45.0, 45.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-8",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 233.0, 251.0, 70.0, 22.0 ],
+                                    "text": "loadmess 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-7",
+                                    "maxclass": "flonum",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 400.0, 251.0, 50.0, 22.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 163.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_invisible": 1,
+                                            "parameter_longname": "number[8]",
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "number[8]",
+                                            "parameter_type": 3
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-4",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 400.0, 290.0, 70.0, 22.0 ],
+                                    "text": "cycle~ 163."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "data": {
+                                        "clips": [
+                                            {
+                                                "absolutepath": "duduk.aif",
+                                                "filename": "duduk.aif",
+                                                "filekind": "audiofile",
+                                                "id": "u812006268",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "obj-6",
+                                    "maxclass": "playlist~",
+                                    "mode": "basic",
+                                    "numinlets": 1,
+                                    "numoutlets": 5,
+                                    "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 233.0, 282.0, 150.0, 30.0 ],
+                                    "quality": "basic",
+                                    "saved_attribute_attributes": {
+                                        "candicane2": {
+                                            "expression": ""
+                                        },
+                                        "candicane3": {
+                                            "expression": ""
+                                        },
+                                        "candicane4": {
+                                            "expression": ""
+                                        },
+                                        "candicane5": {
+                                            "expression": ""
+                                        },
+                                        "candicane6": {
+                                            "expression": ""
+                                        },
+                                        "candicane7": {
+                                            "expression": ""
+                                        },
+                                        "candicane8": {
+                                            "expression": ""
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "color2": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "color3": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "color4": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
+                                    "freqrange": [ 10.0, 24000.0 ],
+                                    "id": "obj-3",
+                                    "linearmode": 1,
+                                    "maxclass": "spectrumdraw~",
+                                    "mode3": 0,
+                                    "mousedatapos": 2,
+                                    "numinlets": 4,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 309.0, 463.0, 545.0, 281.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "thickness2": 2.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-2",
+                                    "maxclass": "newobj",
+                                    "numinlets": 8,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 660.0, 329.0, 93.0, 22.0 ],
+                                    "text": "evi.lpg~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 309.0, 329.0, 110.0, 22.0 ],
+                                    "text": "evi.ringmod.diode~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
@@ -3210,7 +3432,81 @@
                                 }
                             }
                         ],
-                        "lines": [],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-39", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-10", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-10", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 2 ],
+                                    "source": [ "obj-2", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 1 ],
+                                    "order": 1,
+                                    "source": [ "obj-4", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 1 ],
+                                    "order": 0,
+                                    "source": [ "obj-4", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-4", 0 ],
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 1 ],
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            }
+                        ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 376.0, 255.0, 81.0, 22.0 ],
@@ -3825,7 +4121,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "8",
+                                    "text": "9",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -3838,7 +4134,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 949.0, 406.0, 206.0, 20.0 ],
-                                    "text": "Red = atan~",
+                                    "text": "Red = naive atan~",
                                     "textcolor": [ 0.5019607843137255, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -3874,7 +4170,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "9",
+                                    "text": "8",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -4659,7 +4955,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "5",
+                                    "text": "6",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -4683,7 +4979,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "6",
+                                    "text": "5",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -5515,7 +5811,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 502.0, 406.0, 206.0, 20.0 ],
-                                    "text": "Red = clip~",
+                                    "text": "Red = naive clip~",
                                     "textcolor": [ 0.5019607843137255, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -5994,7 +6290,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "4",
+                                    "text": "3",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -6018,7 +6314,7 @@
                                             "expression": "themecolor.live_key_assignment"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "4",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -6370,7 +6666,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 55.0, 406.0, 206.0, 20.0 ],
-                                    "text": "Red = tanh~",
+                                    "text": "Red = naive tanh~",
                                     "textcolor": [ 0.5019607843137255, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -6916,6 +7212,30 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-3",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 439.0, 508.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        }
+                                    },
+                                    "text": "7",
+                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "fontsize": 13.0,
                                     "id": "obj-26",
                                     "maxclass": "message",
@@ -7240,7 +7560,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 965.0, 40.0, 365.0, 145.0 ],
-                                    "text": "The closer the frequencies are to nyquist, and the greater gain they are, the more foldback aliasing will occur. If you cannot hear it, it does not mean that it is not bad. Aliasing stays in your audio chain and there is nothing you can do to get rid of it, not even filtering, and it will greatly affect your final output, masking the audio you actually want. In this tab we chose some unrealistic extreme cases to demonstrate the effect. But your audio will likely have many more harmonics in it than a cosine wave! In the next tabs we compare aliasing with antialiased saturation..."
+                                    "text": "The closer the frequencies are to nyquist, and the greater gain they are, the more foldback aliasing will occur. If you cannot hear it, it does not mean that it is not bad. Aliasing stays in your audio chain and there is nothing you can do to get rid of it, not even filtering, and it will greatly affect your final output, masking the audio you actually want. In this tab we chose some unrealistic extreme cases to demonstrate the effect. But your audio will likely have many more harmonics in it than a cosine wave! In the next tab we compare aliasing with antialiased saturation..."
                                 }
                             },
                             {
@@ -7851,7 +8171,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 439.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 1000.0,
+                                    "samples": 10.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -7905,7 +8225,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -8097,7 +8417,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 270.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 1000.0,
+                                    "samples": 10.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -8131,7 +8451,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 608.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 1000.0,
+                                    "samples": 10.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -8332,6 +8652,7 @@
                                     "fontsize": 12.0,
                                     "freqrange": [ 10.0, 24000.0 ],
                                     "id": "obj-1",
+                                    "linearmode": 1,
                                     "maxclass": "spectrumdraw~",
                                     "mode3": 0,
                                     "mousedatapos": 2,
@@ -8386,12 +8707,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-37",
-                                    "linecount": 5,
+                                    "linecount": 4,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 84.0 ],
-                                    "text": "Saturation is good. Aliasing is bad. Saturation adds harmonics to your audio. Adding harmonics to your audio causes aliasing. Aliasing is a mathematical fact. It is not an opinion and not an aesthetic. It is just bad. It destroys your audio and will destroy your music especially if performing through a full range PA. It needs to be managed, just as you would manage bass and headroom. In this tab we just go through the basics for the sake of completeness. In further tabs we look at antialiased saturation in evieve.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 69.0 ],
+                                    "text": "Saturation is good. Aliasing is bad. Saturation adds harmonics to your audio. Adding harmonics to your audio causes aliasing. Aliasing is a mathematical fact, not an aesthetic. It is just bad. It destroys your audio and will destroy your music especially if performing through a full range PA. In this first tab we just listen to and look at some aliasing. In further tabs we look at antialiased saturation in evieve.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -8763,6 +9084,7 @@
             "obj-2::obj-72": [ "toggle[7]", "toggle", 0 ],
             "obj-2::obj-79": [ "number[7]", "number", 0 ],
             "obj-2::obj-84": [ "radiogroup[3]", "radiogroup", 0 ],
+            "obj-4::obj-7": [ "number[8]", "number[8]", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,

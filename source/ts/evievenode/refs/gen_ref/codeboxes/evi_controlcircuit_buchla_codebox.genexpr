@@ -112,8 +112,8 @@ if (offsetsmooth > 0) {					// turn off if modulating
 }
 // 0.48 = tuned for original fixed input range
 scaler	= in3;							// 0..1				// should default to input "0.48"
-if (scalersmooth > 0) {					// turn off if static or modulating
-	scaler = evi_logsmooth(scaler, scalersmooth);
+if (scalesmooth > 0) {					// turn off if static or modulating
+	scaler = evi_logsmooth(scaler, scalesmooth);
 }
 // 0.408141 tuned for original fixed power output but taking into account fastpow() approximation here
 sweep	= (in4 * 0.977062) + 0.999938;	// 0.999938..1.997	// must default to input "0.408141" output "1.398717"

@@ -36,13 +36,13 @@ if (adaaxx == 1) {
 } else if (adaaxx == 2) {
 	atanoutput = atanAdaa1_4x_6POINT(ataninput, reset);
 } else if (adaaxx == 3) {	// default
-	atanoutput = atanAdaa2(ataninput, reset);
+	atanoutput = dcblock(atanAdaa2(ataninput, reset));
 } else if (adaaxx == 4) {
 	atanoutput = atanAdaa2_2x_6POINT(ataninput, reset);
 } else if (adaaxx == 5) {
 	atanoutput = atanAdaa2_4x_6POINT(ataninput, reset);
 } else {					// (adaaxx == 0)
-	atanoutput = atanAdaa1(ataninput, reset);
+	atanoutput = dcblock(atanAdaa1(ataninput, reset));
 }
 
 if (hfcomp) {
