@@ -38,7 +38,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -463,8 +463,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 261.0, 185.0, 445.0, 22.0 ],
-                                                    "text": "list.lookup filter biquad nonlinear crossover msp oscillator reverb overdrive smooth"
+                                                    "patching_rect": [ 261.0, 185.0, 448.0, 22.0 ],
+                                                    "text": "list.lookup filter biquad nonlinear crossover msp oscillator reverb saturation smooth"
                                                 }
                                             },
                                             {
@@ -747,7 +747,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -765,8 +765,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 910.0, 92.0, 154.0, 52.0 ],
-                                    "presentation_linecount": 6,
+                                    "patching_rect": [ 910.0, 92.0, 155.0, 52.0 ],
                                     "text": "increasing this will blow up [reson~] immediately",
                                     "textjustification": 1
                                 }
@@ -961,7 +960,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-72",
@@ -1022,7 +1021,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-63",
@@ -1046,7 +1045,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-61",
@@ -1088,12 +1087,12 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 605.0, 653.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.094525624565048, 0.094525586030663, 0.09452559599708, 1.0 ]
+                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-40",
@@ -1408,7 +1407,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-50",
@@ -1610,7 +1609,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-29",
@@ -1694,7 +1693,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-16",
@@ -1915,7 +1914,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-8",
@@ -1939,7 +1938,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-41",
@@ -1963,7 +1962,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-39",
@@ -1987,7 +1986,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-34",
@@ -2011,7 +2010,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-33",
@@ -2035,7 +2034,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-32",
@@ -2059,7 +2058,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -2083,7 +2082,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -4042,7 +4041,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-144",
@@ -4104,7 +4103,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-138",
@@ -4140,7 +4139,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-136",
@@ -4277,7 +4276,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-35",
@@ -6420,12 +6419,12 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 449.0, 675.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.094525624565048, 0.094525586030663, 0.09452559599708, 1.0 ]
+                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-29",
@@ -6489,7 +6488,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-41",
@@ -6513,7 +6512,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-39",
@@ -6537,7 +6536,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-34",
@@ -6561,7 +6560,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-33",
@@ -6585,7 +6584,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-32",
@@ -6609,7 +6608,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -6633,7 +6632,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -6657,7 +6656,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-82",
@@ -8014,7 +8013,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-41",
@@ -8038,7 +8037,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-40",
@@ -8062,7 +8061,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-39",
@@ -8086,7 +8085,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-34",
@@ -8110,7 +8109,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-33",
@@ -8134,7 +8133,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-32",
@@ -8158,7 +8157,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -8182,7 +8181,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -8235,7 +8234,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-12",
@@ -8259,7 +8258,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-7",
@@ -8283,7 +8282,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-29",
@@ -8307,7 +8306,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-35",
@@ -8331,7 +8330,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-82",
@@ -8342,7 +8341,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 683.0, 119.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 494.0, 119.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -8491,7 +8490,6 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 427.0, 311.0, 92.0, 52.0 ],
-                                                    "presentation_linecount": 2,
                                                     "text": "biquad included inside",
                                                     "textjustification": 1
                                                 }
@@ -8823,7 +8821,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 705.0, 118.0, 109.0, 22.0 ],
+                                    "patching_rect": [ 516.0, 118.0, 109.0, 22.0 ],
                                     "text": "p compareBiquads"
                                 }
                             },
@@ -9499,7 +9497,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 661.0, 633.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.094525624565048, 0.094525586030663, 0.09452559599708, 1.0 ]
+                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
                                 }
                             },
                             {

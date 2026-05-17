@@ -185,7 +185,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -209,7 +209,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -233,7 +233,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -257,7 +257,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -333,7 +333,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -779,7 +779,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -803,7 +803,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-10",
@@ -1205,7 +1205,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -1364,7 +1364,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-4",
@@ -1388,7 +1388,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -1550,7 +1550,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -1705,7 +1705,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2098,8 +2098,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 216.0, 230.0, 495.0, 22.0 ],
-                                                    "text": "list.lookup filter biquad compare nonlinear crossover msp oscillator reverb overdrive smooth"
+                                                    "patching_rect": [ 216.0, 230.0, 498.0, 22.0 ],
+                                                    "text": "list.lookup filter biquad compare nonlinear crossover msp oscillator reverb saturation smooth"
                                                 }
                                             },
                                             {
@@ -2399,7 +2399,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2539,7 +2539,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -2563,7 +2563,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -2587,7 +2587,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -2963,7 +2963,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -2987,7 +2987,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-29",
@@ -3090,7 +3090,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-52",
@@ -3215,8 +3215,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 726.0, 214.0, 162.0, 37.0 ],
-                                    "text": "Interrogate code used by abstractions inside",
+                                    "patching_rect": [ 726.0, 214.0, 149.0, 37.0 ],
+                                    "text": "Read code used by abstractions inside",
                                     "textjustification": 1
                                 }
                             },
@@ -4059,7 +4059,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// Most of our individual TPT Linear Filters live inside this .genexpr file:\r\n\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   HZ(500, min=10, max=10000);\r\nParam   DB(0, min=-30, max=30);\r\nParam   Q(sqrt1_2, min=0.05, max=20);\r\n\r\n// You can read all of the functions in the above \"require()\" file using the\r\n// \"evieve GenExpr Index\" accessible from the \"Extras\" menu in Max, or via it's ref page.\r\n\r\n// By using \"require()\" here we gain local access to all of the internal functions in this file.\r\n\r\n// The \"evi_filter_lowpass.gendsp\" abstraction uses this core function:\r\n\r\nout1    = eviFilterLowpass(in1, in2, in3, in4); // <<-- call the core function\r\n\r\n// Which is roughly the same as doing this (bug in gen~, cannot declare here)...\r\n\r\n//out2  = evi_filter_lowpass(in1, in2, in3, in4); // <<-- call the .gendsp abstraction\r\nout2    = 0;\r\n// ...but \"out1\" is ever so slightly more efficient.\r\n\r\n// As we know from previous tabs, each high level filter object has an @smooth\r\n// attribute (parameter). This uses an if/else block (inside the 'eviFilterLowpass()' function),\r\n// which is expensive. Now that we have the core .genexpr code from our parent file\r\n// via \"require()\", we could bypass this if/else block if we know we do not need smoothing:\r\n\r\ngain1 \t\t= dbtoaApprox(in3); // dB to linear\ng1, r1, h1, cL1, cB1, cH1 = tptSvfCoeffLowpass(in2, gain1, in4); // lowpass coefficients\nyL1, yB1, yH1 \t= tptSvf(in1, g1, r1, h1); // core generic SVF filter used for all evieve filters\nlowpass1\t\t= (yL1 * cL1); // make lowpass\nout3        = lowpass1;\r\n\r\n// One further step, if we use \"Params\" (declared above), the coefficients will be computed at\r\n// param rate - much cheaper. The below is an alternate cheaper version of 'eviFilterLowpass()':\r\n\r\ngain2 \t\t= dbtoaApprox(DB); // dB to linear, param rate\ng2, r2, h2, cL2, cB2, cH2 = tptSvfCoeffLowpass(HZ, gain2, Q); // lowpass coefficients, param rate\nyL2, yB2, yH2 \t= tptSvf(in1, g2, r2, h2); // core generic SVF filter used for all evieve filters\nlowpass2\t\t= (yL2 * cL2); // make lowpass\nout4        = lowpass2;\r\n\r\n",
+                                                    "code": "\r\n// Most of our individual TPT Linear Filters live inside this .genexpr file:\r\n\r\nrequire(\"evi_svfs_tpt_filters.genexpr\");\r\n\r\nParam   HZ(500, min=10, max=10000);\r\nParam   DB(0, min=-30, max=30);\r\nParam   Q(sqrt1_2, min=0.05, max=20);\r\n\r\n// You can read all of the functions in the above \"require()\" file using the\r\n// \"evieve GenExpr Index\" accessible from the \"Extras\" menu in Max, or via it's ref page.\r\n\r\n// By using \"require()\" here we gain local access to all of the internal functions in this file.\r\n\r\n// The \"evi_filter_lowpass.gendsp\" abstraction uses this core function:\r\n\r\nout1    = eviFilterLowpass(in1, in2, in3, in4); // <<-- call the core function\r\n\r\n// Which is roughly the same as doing this...\r\n\r\nout2  = evi_filter_lowpass(in1, in2, in3, in4); // <<-- call the .gendsp abstraction\r\n\r\n// ...but \"out1\" is ever so slightly more efficient.\r\n\r\n// As we know from previous tabs, each high level filter object has an @smooth\r\n// attribute (parameter). This uses an if/else block (inside the 'eviFilterLowpass()' function),\r\n// which is expensive. Now that we have the core .genexpr code from our parent file\r\n// via \"require()\", we could bypass this if/else block if we know we do not need smoothing:\r\n\r\ngain1 \t\t= dbtoaApprox(in3); // dB to linear\ng1, r1, h1, cL1, cB1, cH1 = tptSvfCoeffLowpass(in2, gain1, in4); // lowpass coefficients\nyL1, yB1, yH1 \t= tptSvf(in1, g1, r1, h1); // core generic SVF filter used for all evieve filters\nlowpass1\t\t= (yL1 * cL1); // make lowpass\nout3        = lowpass1;\r\n\r\n// One further step, if we use \"Params\" (declared above), the coefficients will be computed at\r\n// param rate - much cheaper. The below is an alternate cheaper version of 'eviFilterLowpass()':\r\n\r\ngain2 \t\t= dbtoaApprox(DB); // dB to linear, param rate\ng2, r2, h2, cL2, cB2, cH2 = tptSvfCoeffLowpass(HZ, gain2, Q); // lowpass coefficients, param rate\nyL2, yB2, yH2 \t= tptSvf(in1, g2, r2, h2); // core generic SVF filter used for all evieve filters\nlowpass2\t\t= (yL2 * cL2); // make lowpass\nout4        = lowpass2;\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -4725,7 +4725,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -4808,7 +4808,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -4832,7 +4832,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -4856,7 +4856,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-29",
@@ -5356,7 +5356,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-136",
@@ -5996,7 +5996,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ -341.0, 100.0, 1035.0, 540.0 ],
+                                        "rect": [ 34.0, 100.0, 1035.0, 540.0 ],
                                         "gridonopen": 2,
                                         "subpatcher_template": "sub",
                                         "integercoordinates": 1,
@@ -6780,7 +6780,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-52",
@@ -7247,7 +7247,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-48",
@@ -7311,7 +7311,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -7463,7 +7463,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-4",
@@ -7487,7 +7487,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -7562,7 +7562,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -7853,7 +7853,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -8624,7 +8624,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-46",
@@ -8648,7 +8648,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -8672,7 +8672,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -8696,7 +8696,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -8720,7 +8720,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-31",
@@ -8744,7 +8744,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-22",
@@ -9338,7 +9338,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-39",

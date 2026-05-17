@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 134.0, 100.0, 840.0, 689.0 ],
+        "rect": [ 34.0, 100.0, 840.0, 689.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// Alternative to tanh(), it is not the same but does almost sound the same,\r\n// and is much easier to create the 2nd order antiderivative of. Adaa2 and above\r\n// are much cheaper than using tanh(). i would describe it as a \"buzzy\" tanh().\n\r\n\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n\r\nsqrtinput\t= in1 + 0;\r\nsqrtoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 2) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_4x_6POINT(sqrtinput);\r\n} else if (adaaxx == 3) {\t// default\r\n\tsqrtoutput = altTanhSqrtAdaa2(sqrtinput);\r\n} else if (adaaxx == 4) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 5) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_4x_6POINT(sqrtinput);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tsqrtoutput = altTanhSqrtAdaa1(sqrtinput);\r\n}\r\n\r\nif (hfcomp) {\r\n\tsqrtoutput = decorelate(sqrtoutput);\r\n}\r\n\r\nout1\t= sqrtoutput;\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// Alternative to tanh(), it is not the same but does almost sound the same,\r\n// and is much easier to create the 2nd order antiderivative of. Adaa2 and above\r\n// are much cheaper than using tanh(). i would describe it as a \"buzzy\" tanh().\n\r\n\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n\r\nsqrtinput\t= in1 + 0;\r\nsqrtoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 2) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_4x_6POINT(sqrtinput);\r\n} else if (adaaxx == 3) {\t// default\r\n\tsqrtoutput = altTanhSqrtAdaa2(sqrtinput);\r\n} else if (adaaxx == 4) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 5) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_4x_6POINT(sqrtinput);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tsqrtoutput = altTanhSqrtAdaa1(sqrtinput);\r\n}\r\n\r\nif (hfcomp) {\r\n\tsqrtoutput = decorelate(sqrtoutput);\r\n}\r\n\r\nout1\t= dcblock(sqrtoutput);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

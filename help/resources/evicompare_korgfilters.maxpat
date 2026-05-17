@@ -49,7 +49,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-4",
@@ -145,7 +145,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -465,7 +465,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -710,7 +710,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1087,8 +1087,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 216.0, 230.0, 432.0, 22.0 ],
-                                                    "text": "list.lookup korg filter nonlinear crossover msp oscillator reverb overdrive smooth"
+                                                    "patching_rect": [ 216.0, 230.0, 435.0, 22.0 ],
+                                                    "text": "list.lookup korg filter nonlinear crossover msp oscillator reverb saturation smooth"
                                                 }
                                             },
                                             {
@@ -1431,7 +1431,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -1455,7 +1455,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -1559,7 +1559,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -1679,12 +1679,12 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 176.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.094525624565048, 0.094525586030663, 0.09452559599708, 1.0 ]
+                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -1863,7 +1863,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-85",
@@ -2414,7 +2414,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -2948,7 +2948,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2963,12 +2963,12 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 173.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.094525624565048, 0.094525586030663, 0.09452559599708, 1.0 ]
+                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-85",
@@ -2992,7 +2992,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-84",
@@ -3016,7 +3016,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-83",
@@ -3042,7 +3042,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-82",
@@ -3066,7 +3066,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-81",
@@ -3090,7 +3090,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-80",
@@ -3114,7 +3114,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-79",
@@ -3204,7 +3204,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -3241,7 +3241,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-75",
@@ -3265,7 +3265,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -3289,7 +3289,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-72",
@@ -3315,7 +3315,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -3531,7 +3531,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -4281,7 +4281,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.594473705410263, 0.720560630419913, 0.928309050695498, 1.0 ],
+                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-43",
