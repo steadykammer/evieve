@@ -85,6 +85,10 @@
         {
             "name": "evi_biquad_filter",
             "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_butterworthlp6",
+            "display": "evi_butterworthlp6"
         }
     ]
 }

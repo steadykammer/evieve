@@ -31,5 +31,5 @@ if (hfcomp) {
 	sqrtoutput = decorelate(sqrtoutput);
 }
 
-out1	= sqrtoutput;
+out1	= dcblock(sqrtoutput);
 

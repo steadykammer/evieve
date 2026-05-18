@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
@@ -676,7 +677,7 @@
                                 "box": {
                                     "id": "obj-21",
                                     "maxclass": "newobj",
-                                    "numinlets": 2,
+                                    "numinlets": 3,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 830.0, 325.0, 46.0, 22.0 ],
@@ -690,8 +691,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 747.0, 379.0, 111.0, 22.0 ],
-                                    "text": "evi_butterworth6"
+                                    "patching_rect": [ 747.0, 379.0, 107.0, 22.0 ],
+                                    "text": "evi_butterworthlp6"
                                 }
                             },
                             {

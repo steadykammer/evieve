@@ -6,7 +6,7 @@
 		Variable order TPT Butterworth Lowpass filter
 	</digest>
 	<description>
-		<b>evi.butterworthlp8~</b> is a 'max define' for the <o>evi_butterworth8</o>.gendsp gen~ abstraction.
+		<b>evi.butterworthlp8~</b> is a 'max define' for the <o>evi_butterworthlp8</o>.gendsp gen~ abstraction.
 		Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
 		This is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. <br />

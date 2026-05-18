@@ -1,6 +1,6 @@
 {
     "object": {
-        "name": "evi_butterworth6",
+        "name": "evi_butterworthlp6",
         "child": "evi.butterworthlp6~",
         "category": "evieve",
         "digest": "Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette",
@@ -61,6 +61,10 @@
         {
             "name": "evi_biquad_filter",
             "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_butterworthlp8",
+            "display": "evi_butterworthlp8"
         }
     ]
 }

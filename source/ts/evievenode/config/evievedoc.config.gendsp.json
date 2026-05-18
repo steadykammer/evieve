@@ -711,7 +711,7 @@
                 "auto": true
             }
         },
-        "evi_butterworth6.gendsp": {
+        "evi_butterworthlp6.gendsp": {
             "define": {
                 "object": true,
                 "msp": "evi.butterworthlp6~",
@@ -736,7 +736,7 @@
                 "auto": true
             }
         },
-        "evi_butterworth8.gendsp": {
+        "evi_butterworthlp8.gendsp": {
             "define": {
                 "object": true,
                 "msp": "evi.butterworthlp8~",

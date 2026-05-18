@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 1049.0, 834.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -19,11 +19,49 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Nonlinear SVF Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-10",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 101.0, 419.0, 222.0, 21.0 ],
+                    "presentation_linecount": 2,
+                    "text": "For Linear SVF filters in evieve see:"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 39.0, 648.0, 184.0, 22.0 ],
+                    "text": "list.reg areas_help_filter.maxhelp"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 101.0, 442.0, 192.0, 21.0 ],
+                    "text": "Linear TPT (SVF) Filters in evieve",
+                    "texton": "Linear TPT (SVF) Filters in evieve"
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -43,7 +81,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 102.0, 442.0, 190.0, 21.0 ],
+                    "patching_rect": [ 102.0, 377.0, 190.0, 21.0 ],
                     "text": "Compare Nonlinear SVF filters",
                     "texton": "Compare Nonlinear SVF filters"
                 }
@@ -56,7 +94,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 130.0, 609.0, 202.0, 22.0 ],
+                    "patching_rect": [ 102.0, 609.0, 202.0, 22.0 ],
                     "text": "list.reg evicompare_svffilters.maxpat"
                 }
             },
@@ -68,7 +106,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 102.0, 403.0, 190.0, 36.0 ],
+                    "patching_rect": [ 102.0, 338.0, 190.0, 36.0 ],
                     "text": "For interactive comparison of Nonlinear SVF filters see:"
                 }
             },
@@ -461,6 +499,20 @@
                     "destination": [ "obj-29", 0 ],
                     "hidden": 1,
                     "source": [ "obj-57", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-9", 0 ]
                 }
             }
         ],

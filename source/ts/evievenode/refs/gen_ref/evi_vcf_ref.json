@@ -7,7 +7,7 @@
         "description": "A twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as <o>evi.bp~</o>."
     },
     "constructor": {
-        "inlets": "audio, cuttof"
+        "inlets": "audio, cuttof, q"
     },
     "includes": [],
     "inlets": [
@@ -26,6 +26,14 @@
             "optional": 1,
             "digestauto": "in Hz",
             "digest": "Center frequency of the resonant peak."
+        },
+        {
+            "id": 3,
+            "name": "q",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "@default sqrt2",
+            "digest": "Filter resonance. Can be increasingly high values (e.g. up to 10000)."
         }
     ],
     "outlets": [
@@ -79,6 +87,10 @@
         {
             "name": "evi_biquad_filter",
             "display": "evi_biquad_filter"
+        },
+        {
+            "name": "evi_butterworthlp6",
+            "display": "evi_butterworthlp6"
         }
     ]
 }

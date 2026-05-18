@@ -6,7 +6,7 @@
 		Unique 6th order Butterworth Lowpass filter created from <o>evi.bp~</o> sections after Miller Puckette
 	</digest>
 	<description>
-		<b>evi.butterworthlp6~</b> is a 'max define' for the <o>evi_butterworth6</o>.gendsp gen~ abstraction.
+		<b>evi.butterworthlp6~</b> is a 'max define' for the <o>evi_butterworthlp6</o>.gendsp gen~ abstraction.
 		Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
 		A smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections. <br />

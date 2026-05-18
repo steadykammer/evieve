@@ -656,7 +656,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 630.0, 429.0, 150.0, 21.0 ],
                                     "text": "Blue = abl.dsp",
-                                    "textcolor": [ 0.14901960784313725, 0.14901960784313725, 0.5764705882352941, 1.0 ],
+                                    "textcolor": [ 0.16470588235294117, 0.3215686274509804, 1.0, 1.0 ],
                                     "textjustification": 2
                                 }
                             },
@@ -669,14 +669,14 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 328.0, 429.0, 150.0, 21.0 ],
                                     "text": "Red = evieve",
-                                    "textcolor": [ 0.5764705882352941, 0.14901960784313725, 0.14901960784313725, 1.0 ],
+                                    "textcolor": [ 1.0, 0.1491314173, 0.0, 1.0 ],
                                     "textjustification": 2
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.15302081646527, 0.153020772941671, 0.153020784351525, 1.0 ],
-                                    "fgcolor": [ 0.0, 0.0, 0.5, 1.0 ],
+                                    "bgcolor": [ 0.1848562707242335, 0.18485622072834368, 0.18485623383845504, 1.0 ],
+                                    "fgcolor": [ 0.16470588235294117, 0.3215686274509804, 1.0, 1.0 ],
                                     "id": "obj-10",
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
@@ -692,8 +692,8 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.15302081646527, 0.153020772941671, 0.153020784351525, 1.0 ],
-                                    "fgcolor": [ 0.5019607843137255, 0.0, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.1848562707242335, 0.18485622072834368, 0.18485623383845504, 1.0 ],
+                                    "fgcolor": [ 1.0, 0.1491314173, 0.0, 1.0 ],
                                     "id": "obj-6",
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
@@ -777,7 +777,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 305.0, 305.0, 91.0, 23.0 ],
-                                    "text": "440."
+                                    "text": "932.327522"
                                 }
                             },
                             {
@@ -1331,6 +1331,43 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-30",
+                                    "maxclass": "flonum",
+                                    "maximum": 1.0,
+                                    "minimum": 0.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 656.0, 366.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 0.33 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[4]",
+                                            "parameter_mmax": 1.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[4]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-28",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 656.0, 409.0, 118.0, 23.0 ],
+                                    "text": "prepend noiselevel"
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -1909,6 +1946,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "midpoints": [ 665.5, 449.0, 149.5, 449.0 ],
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-7", 1 ],
                                     "order": 0,
                                     "source": [ "obj-3", 0 ]
@@ -1919,6 +1963,12 @@
                                     "destination": [ "obj-7", 0 ],
                                     "order": 1,
                                     "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-28", 0 ],
+                                    "source": [ "obj-30", 0 ]
                                 }
                             },
                             {
@@ -2098,6 +2148,7 @@
             "obj-2::obj-13": [ "live.dial[1]", "Resonance", 0 ],
             "obj-2::obj-17": [ "live.numbox", "Osc Pitch", 0 ],
             "obj-2::obj-19": [ "live.tab", "live.tab", 0 ],
+            "obj-2::obj-30": [ "number[4]", "number[4]", 0 ],
             "obj-2::obj-8": [ "radiogroup", "radiogroup", 0 ],
             "parameterbanks": {
                 "0": {

@@ -8,5 +8,5 @@ require("evi_biquads_extras.genexpr");
 
 out1    = eviButterworthLp6(in1, in2);
 
-// @see: "evi_butterworth8.gendsp" / [evi.butterworthlp8~] for
+// @see: "evi_butterworthlp8.gendsp" / [evi.butterworthlp8~] for
 // variable pole butterworth lowpass TPT filtering.

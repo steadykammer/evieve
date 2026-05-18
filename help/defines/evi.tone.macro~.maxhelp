@@ -145,7 +145,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 118.0, 220.0, 66.0, 25.0 ],
+                                    "patching_rect": [ 132.0, 221.0, 66.0, 25.0 ],
                                     "text": "Gain",
                                     "textjustification": 1
                                 }
@@ -163,26 +163,27 @@
                             },
                             {
                                 "box": {
-                                    "format": 6,
+                                    "appearance": 2,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-14",
-                                    "maxclass": "flonum",
-                                    "maximum": 12.0,
-                                    "minimum": -12.0,
+                                    "maxclass": "live.numbox",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "outlettype": [ "", "bang" ],
+                                    "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 65.0, 221.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 65.0, 224.0, 65.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[2]",
+                                            "parameter_longname": "live.numbox[2]",
                                             "parameter_mmax": 12.0,
                                             "parameter_mmin": -12.0,
                                             "parameter_modmode": 3,
-                                            "parameter_shortname": "number[2]",
-                                            "parameter_type": 0
+                                            "parameter_shortname": "Frequency",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 4
                                         }
                                     },
                                     "varname": "number"
@@ -1139,7 +1140,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 422.0, 297.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 429.0, 297.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1231,32 +1232,33 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 342.0, 253.0, 50.0, 40.0 ],
-                                    "text": "dB",
+                                    "text": "Gain",
                                     "textjustification": 1
                                 }
                             },
                             {
                                 "box": {
-                                    "format": 6,
+                                    "appearance": 2,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-14",
-                                    "maxclass": "flonum",
-                                    "maximum": 12.0,
-                                    "minimum": -12.0,
+                                    "maxclass": "live.numbox",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "outlettype": [ "", "bang" ],
+                                    "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 342.0, 295.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 342.0, 298.0, 65.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[3]",
+                                            "parameter_longname": "live.numbox[3]",
                                             "parameter_mmax": 12.0,
                                             "parameter_mmin": -12.0,
                                             "parameter_modmode": 3,
-                                            "parameter_shortname": "number[2]",
-                                            "parameter_type": 0
+                                            "parameter_shortname": "Frequency",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 4
                                         }
                                     },
                                     "varname": "number"
@@ -1470,7 +1472,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 150.0, 95.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 171.0, 150.0, 22.0, 22.0 ],
                                                     "text": "20"
                                                 }
                                             },
@@ -1492,8 +1494,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 83.0, 95.0, 39.0, 22.0 ],
-                                                    "text": "dbtoa"
+                                                    "patching_rect": [ 68.0, 95.0, 97.0, 22.0 ],
+                                                    "text": "evi_dbtoaapprox"
                                                 }
                                             },
                                             {
@@ -1503,7 +1505,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 83.0, 150.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 68.0, 150.0, 86.0, 22.0 ],
                                                     "text": "evi_logsmooth"
                                                 }
                                             },
@@ -1547,7 +1549,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 83.0, 38.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 68.0, 38.0, 28.0, 22.0 ],
                                                     "text": "in 2"
                                                 }
                                             },
@@ -1768,10 +1770,10 @@
         ],
         "parameters": {
             "obj-10::obj-10": [ "live.dial[2]", "Tone", 0 ],
-            "obj-10::obj-14": [ "number[3]", "number[2]", 0 ],
+            "obj-10::obj-14": [ "live.numbox[3]", "Frequency", 0 ],
             "obj-2::obj-10": [ "live.dial", "Tone", 0 ],
             "obj-5::obj-10": [ "live.dial[1]", "Tone", 0 ],
-            "obj-5::obj-14": [ "number[2]", "number[2]", 0 ],
+            "obj-5::obj-14": [ "live.numbox[2]", "Frequency", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,

@@ -922,7 +922,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 460.0, 339.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 399.0, 299.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -946,7 +946,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 374.0, 307.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 344.0, 267.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -989,7 +989,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 358.0, 329.0, 51.0, 40.0 ],
+                                    "patching_rect": [ 328.0, 289.0, 51.0, 40.0 ],
                                     "text": "sweep",
                                     "textjustification": 1
                                 }
@@ -1022,7 +1022,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "float" ],
-                                    "patching_rect": [ 441.0, 443.0, 42.0, 23.0 ],
+                                    "patching_rect": [ 380.0, 403.0, 42.0, 23.0 ],
                                     "text": "* 0.01"
                                 }
                             },
@@ -1046,7 +1046,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 441.0, 371.0, 57.0, 55.0 ],
+                                    "patching_rect": [ 380.0, 331.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 100.0 ],
@@ -1072,7 +1072,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 358.0, 371.0, 51.0, 55.0 ],
+                                    "patching_rect": [ 328.0, 331.0, 51.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -1108,7 +1108,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 276.0, 403.0, 67.0, 23.0 ],
+                                    "patching_rect": [ 241.0, 363.0, 67.0, 23.0 ],
                                     "text": "rect~ 220."
                                 }
                             },
@@ -1162,7 +1162,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 276.0, 443.0, 108.0, 23.0 ],
+                                    "patching_rect": [ 276.0, 443.0, 123.0, 23.0 ],
                                     "text": "evi.ladder.moog~",
                                     "varname": "evieveObject"
                                 }
@@ -2334,7 +2334,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

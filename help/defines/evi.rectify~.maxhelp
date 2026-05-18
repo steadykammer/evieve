@@ -117,7 +117,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 319.0, 161.0, 321.0, 25.0 ],
-                                    "text": "add gain to simulate clipping into the hard clipper",
+                                    "text": "add gain to engage clipping into the hard clipper",
                                     "textjustification": 1
                                 }
                             },
@@ -1221,7 +1221,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1270,7 +1270,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 417.0, 217.0, 321.0, 25.0 ],
-                                    "text": "add gain to simulate clipping into the hard clipper",
+                                    "text": "add gain to engage clipping into the hard clipper",
                                     "textjustification": 1
                                 }
                             },

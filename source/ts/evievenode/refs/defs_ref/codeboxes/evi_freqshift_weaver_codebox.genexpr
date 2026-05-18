@@ -96,7 +96,7 @@ G	= fWarp(filterShift);
 // linear Butterworths
 YU  = butterworthLowpass8(XU, G);
 YL  = butterworthLowpass8(XL, G);
-// ^^ @see: 'evi_butterworth8.gendsp' for alternatives
+// ^^ @see: 'evi_butterworthlp8.gendsp' for alternatives
 
 USB, LSB, yAMc, yAMs	= complexRing(YU, YL, rMod2, iMod2);
 // for zero reset

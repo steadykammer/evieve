@@ -34,7 +34,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
@@ -155,7 +155,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 259.0, 145.0, 194.0, 21.0 ],
+                                    "patching_rect": [ 259.0, 145.0, 212.0, 21.0 ],
                                     "text": "speed in Hz of random sound"
                                 }
                             },
@@ -275,8 +275,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 312.0, 185.0, 141.0, 21.0 ],
-                                    "text": "random sound source"
+                                    "patching_rect": [ 312.0, 185.0, 159.0, 21.0 ],
+                                    "text": "random sound source :-)"
                                 }
                             },
                             {

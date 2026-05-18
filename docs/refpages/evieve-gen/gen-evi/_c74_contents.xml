@@ -28,8 +28,8 @@
 <refpage name='evi_biquadcoeff_notilde.maxref.xml'/>
 <refpage name='evi_blitwaves.maxref.xml'/>
 <refpage name='evi_bp.maxref.xml'/>
-<refpage name='evi_butterworth6.maxref.xml'/>
-<refpage name='evi_butterworth8.maxref.xml'/>
+<refpage name='evi_butterworthlp6.maxref.xml'/>
+<refpage name='evi_butterworthlp8.maxref.xml'/>
 <refpage name='evi_cfsmooth.maxref.xml'/>
 <refpage name='evi_chorus_digital.maxref.xml'/>
 <refpage name='evi_classic_osc.maxref.xml'/>
@@ -51,7 +51,6 @@
 <refpage name='evi_dbtoaapprox.maxref.xml'/>
 <refpage name='evi_detune.maxref.xml'/>
 <refpage name='evi_detune_wrap.maxref.xml'/>
-<refpage name='evi_dfm.maxref.xml'/>
 <refpage name='evi_eq3.maxref.xml'/>
 <refpage name='evi_eq3_stereo.maxref.xml'/>
 <refpage name='evi_eq5.maxref.xml'/>
@@ -73,9 +72,6 @@
 <refpage name='evi_filter_shelving.maxref.xml'/>
 <refpage name='evi_filter_tilt.maxref.xml'/>
 <refpage name='evi_flanger_digital.maxref.xml'/>
-<refpage name='evi_formant_filter.maxref.xml'/>
-<refpage name='evi_formant_filter_morph.maxref.xml'/>
-<refpage name='evi_formant_osc.maxref.xml'/>
 <refpage name='evi_formlet.maxref.xml'/>
 <refpage name='evi_freezeverb.maxref.xml'/>
 <refpage name='evi_freezeverbtrigger.maxref.xml'/>
@@ -104,7 +100,6 @@
 <refpage name='evi_lores.maxref.xml'/>
 <refpage name='evi_lorez.maxref.xml'/>
 <refpage name='evi_lpg_buchla.maxref.xml'/>
-<refpage name='evi_majorverb.maxref.xml'/>
 <refpage name='evi_map.maxref.xml'/>
 <refpage name='evi_mattaverb.maxref.xml'/>
 <refpage name='evi_modalres.maxref.xml'/>

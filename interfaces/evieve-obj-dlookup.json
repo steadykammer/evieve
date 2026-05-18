@@ -72,12 +72,12 @@
     "evi.butterworthlp6~": {
         "type": "define",
         "digest": "Unique 6th order Butterworth Lowpass filter created from evi.bp~ sections after Miller Puckette",
-        "description": "evi.butterworthlp6~ is a 'max define' for the evi_butterworth6.gendsp gen~ abstraction. Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
+        "description": "evi.butterworthlp6~ is a 'max define' for the evi_butterworthlp6.gendsp gen~ abstraction. Because evi.butterworthlp6~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA smooth 6th order butterworth lowpass with very interesting properties being made up of three resonant filter sections."
     },
     "evi.butterworthlp8~": {
         "type": "define",
         "digest": "Variable order TPT Butterworth Lowpass filter",
-        "description": "evi.butterworthlp8~ is a 'max define' for the evi_butterworth8.gendsp gen~ abstraction. Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
+        "description": "evi.butterworthlp8~ is a 'max define' for the evi_butterworthlp8.gendsp gen~ abstraction. Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
     },
     "evi.cfsmooth~": {
         "type": "external",

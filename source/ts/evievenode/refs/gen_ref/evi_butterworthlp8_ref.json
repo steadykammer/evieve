@@ -1,272 +1,239 @@
 {
     "object": {
-        "name": "evi.butterworthlp8~",
-        "parent": "evi_butterworth8",
+        "name": "evi_butterworthlp8",
+        "child": "evi.butterworthlp8~",
         "category": "evieve",
-        "tilde": "~",
         "digest": "Variable order TPT Butterworth Lowpass filter",
-        "description": "This is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains.",
-        "discussion": "For the constants calculations @see: 'evi_butterworth8_coeffs.js'."
+        "description": "This is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
     },
-    "metadata": {
-        "author": "Pete Dowling",
-        "tags": [
-            "evieve Filter",
-            "evieve Filter Linear",
-            "evieve Filter TPT"
-        ]
+    "constructor": {
+        "inlets": "audio, cutoff"
     },
     "includes": [
-        "evi_approx.genexpr"
+        "evi_approx"
     ],
     "inlets": [
         {
             "id": 1,
-            "type": "signal",
-            "digest": "Audio Input",
-            "description": "Audio input to be filtered."
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Input",
+            "digest": "Audio input to be filtered."
         },
         {
             "id": 2,
-            "type": "signal/float",
-            "digest": "Cutoff in Hz @default samplerate*0.5-1800",
-            "description": "Cutoff frequency of the lowpass filter."
+            "name": "cutoff",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "in Hz @default samplerate*0.5-1800",
+            "digest": "Cutoff frequency of the lowpass filter."
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "type": "signal",
-            "digest": "Butterworth Lowpass",
-            "description": "Buttery smooth butterworth lowpass output."
+            "name": "butterworth",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Lowpass",
+            "digest": "Buttery smooth butterworth lowpass output."
         }
     ],
-    "messages": [],
     "attributes": [
         {
             "name": "butt_coeff_1",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.4142135623730951"
             }
         },
         {
             "name": "butt_coeff_10",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "0.4450418679126289"
             }
         },
         {
             "name": "butt_coeff_11",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.2469796037174672"
             }
         },
         {
             "name": "butt_coeff_12",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.8019377358048383"
             }
         },
         {
             "name": "butt_coeff_13",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "0.39018064403225666"
             }
         },
         {
             "name": "butt_coeff_14",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.1111404660392046"
             }
         },
         {
             "name": "butt_coeff_15",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.6629392246050905"
             }
         },
         {
             "name": "butt_coeff_16",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.9615705608064609"
             }
         },
         {
             "name": "butt_coeff_2",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.0000000000000002"
             }
         },
         {
             "name": "butt_coeff_3",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "0.7653668647301797"
             }
         },
         {
             "name": "butt_coeff_4",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.8477590650225735"
             }
         },
         {
             "name": "butt_coeff_5",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "0.6180339887498949"
             }
         },
         {
             "name": "butt_coeff_6",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.618033988749895"
             }
         },
         {
             "name": "butt_coeff_7",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "0.5176380902050419"
             }
         },
         {
             "name": "butt_coeff_8",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.4142135623730951"
             }
         },
         {
             "name": "butt_coeff_9",
-            "get": 1,
             "type": "float",
-            "digest": "Constant",
+            "digest": "@min -16, @max 16",
             "description": false,
             "default": {
-                "min": "-16",
-                "max": "16",
+                "type": "float",
                 "value": "1.9318516525781366"
             }
         },
         {
             "name": "order",
-            "get": 1,
             "type": "int",
-            "digest": "0..8",
+            "digest": "@min 0, @max 8",
             "description": "0 = bypass, 1..8 = filter order. 1 is a 1-pole filter, 8 is a steep 8-pole filter.",
             "default": {
-                "min": "0",
-                "max": "8",
+                "type": "int",
                 "value": "3"
             }
         },
         {
             "name": "smooth",
-            "get": 1,
             "type": "float",
-            "digest": "Time in ms",
+            "digest": "@min 0, @max 301.11",
             "description": "Smoothing time for the cutoff frequency (inlet 2). Turn off (0) if modulating inlet 2 at audio rate.",
             "default": {
-                "min": "0",
-                "max": "301.11",
+                "type": "float",
                 "value": "30.111"
             }
         }
     ],
-    "example": {
-        "caption": "",
-        "image": ""
-    },
     "seealso": [
-        "evi.butterworthlp6~",
-        "evi.filter~",
-        "evi.biquad.butterworth~"
+        {
+            "name": "evi_filter",
+            "display": "evi_filter"
+        },
+        {
+            "name": "evi_biquad_butterworth",
+            "display": "evi_biquad_butterworth"
+        },
+        {
+            "name": "evi_butterworthlp6",
+            "display": "evi_butterworthlp6"
+        }
     ]
 }

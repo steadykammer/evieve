@@ -67,11 +67,11 @@ max define mc.evi.blitwaves~ mc.gen~ @gen evi_blitwaves.gendsp @chans 2;
 max define evi.bp~ gen~ @gen evi_bp.gendsp;
 max define mc.evi.bp~ mc.gen~ @gen evi_bp.gendsp @chans 2;
 
-max define evi.butterworthlp6~ gen~ @gen evi_butterworth6.gendsp;
-max define mc.evi.butterworthlp6~ mc.gen~ @gen evi_butterworth6.gendsp @chans 2;
+max define evi.butterworthlp6~ gen~ @gen evi_butterworthlp6.gendsp;
+max define mc.evi.butterworthlp6~ mc.gen~ @gen evi_butterworthlp6.gendsp @chans 2;
 
-max define evi.butterworthlp8~ gen~ @gen evi_butterworth8.gendsp;
-max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworth8.gendsp @chans 2;
+max define evi.butterworthlp8~ gen~ @gen evi_butterworthlp8.gendsp;
+max define mc.evi.butterworthlp8~ mc.gen~ @gen evi_butterworthlp8.gendsp @chans 2;
 
 max define evi.chorus.digital~ gen~ @gen evi_chorus_digital.gendsp;
 max define mc.evi.chorus.digital~ mc.gen~ @gen evi_chorus_digital.gendsp @chans 2;

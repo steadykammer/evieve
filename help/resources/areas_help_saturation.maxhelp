@@ -582,7 +582,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 210.0, 203.0, 86.0, 20.0 ],
+                                    "patching_rect": [ 206.0, 203.0, 86.0, 20.0 ],
                                     "text": "evi.squeeze~"
                                 }
                             },
@@ -592,7 +592,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 234.0, 164.0, 118.0, 20.0 ],
+                                    "patching_rect": [ 207.0, 164.0, 118.0, 20.0 ],
                                     "text": "evi.softstatic~"
                                 }
                             },
@@ -673,7 +673,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 202.0, 80.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 202.0, 76.0, 22.0 ],
                                     "text": "evi_squeeze"
                                 }
                             },
@@ -684,7 +684,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 163.0, 104.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 163.0, 78.0, 22.0 ],
                                     "text": "evi_softstatic"
                                 }
                             },

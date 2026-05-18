@@ -279,7 +279,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 500.0, 165.0, 150.0, 33.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "evi.overdrive.atan~\nevi.overdrive.sqrt~",
                                     "textjustification": 2
                                 }
@@ -2426,7 +2425,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup[1]"
                                 }
                             },
@@ -2465,7 +2464,7 @@
                                         }
                                     },
                                     "size": 6,
-                                    "value": 5,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -3548,7 +3547,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "patching_rect": [ 10.0, 70.0, 662.0, 38.0 ],
                                     "text": "In GenExpr the core code lives in different places. Here we introduce some of the .genexpr files that evieve uses to make up the different saturation objects.",
                                     "varname": "digest_comment"
                                 }
@@ -3837,7 +3836,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -5292,7 +5291,8 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
+                        "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
@@ -5728,7 +5728,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 262.0, 666.0, 201.0, 20.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Saturating high gain input functions",
                                     "textjustification": 2
                                 }
@@ -5740,7 +5739,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 262.0, 650.0, 201.0, 20.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Static colourisation functions",
                                     "textjustification": 2
                                 }
@@ -5752,7 +5750,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 262.0, 682.0, 201.0, 20.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Dynamic tone shapers",
                                     "textjustification": 2
                                 }
@@ -5963,7 +5960,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 3,
+                                    "value": 0,
                                     "varname": "radiogroup[3]"
                                 }
                             },
@@ -5975,7 +5972,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 861.0, 330.0, 42.0, 60.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "Off\nsqrt\natan\ntanh",
                                     "textjustification": 2
                                 }
@@ -6004,7 +6000,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 2,
+                                    "value": 0,
                                     "varname": "radiogroup[2]"
                                 }
                             },
@@ -6016,7 +6012,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 551.0, 246.0, 59.0, 60.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "Off\nclipasym\nsinfold\nshaper",
                                     "textjustification": 2
                                 }
@@ -6045,7 +6040,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 3,
+                                    "value": 0,
                                     "varname": "radiogroup[1]"
                                 }
                             },
@@ -6057,7 +6052,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 198.0, 305.0, 55.0, 60.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "Off\nclipper\nhardclip\nsoftclip",
                                     "textjustification": 2
                                 }
@@ -6086,7 +6080,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 2,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -6415,7 +6409,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 53.0 ],
-                                    "text": "In this tab we present some of the different options for saturation in evieve, depending on different use cases, so you can make an informed decision about which objects to use when. The spectral display is showing a 100dB range from -90..+10.",
+                                    "text": "In this tab we present some of the different options for saturation in evieve, depending on different use cases, so you can make an informed decision about which objects to use when. These saturators are all just simple memoryless nonlinearities. The spectral display is showing a 100dB range from -90..+10.",
                                     "varname": "digest_comment"
                                 }
                             },

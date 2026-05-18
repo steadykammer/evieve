@@ -44,6 +44,16 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-21",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 78.0, 373.0, 58.0, 21.0 ],
+                                    "text": "LP/HP"
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -272,8 +282,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 343.0, 412.0, 136.0, 23.0 ],
-                                    "text": "evi.logsmooth~ 0.7 22"
+                                    "patching_rect": [ 343.0, 412.0, 129.0, 23.0 ],
+                                    "text": "evi.logsmooth~ 1. 22"
                                 }
                             },
                             {
@@ -2369,7 +2379,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

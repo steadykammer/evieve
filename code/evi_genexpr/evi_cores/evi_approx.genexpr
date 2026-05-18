@@ -346,11 +346,18 @@ atodbApprox(amplitude)
 }
 
 // 'exp(-1 / (seconds * samplerate))'
-tauA(t)									// t = seconds
+tauA(t)									// t = seconds, must be minimum 1ms
 {
 	y = expA(-1 / (t * samplerate));
 	return y + 0.000128;				// approximation has excellent accuracy above...
 }										// ...0.01 seconds input
+
+// for when we cannot control the minimum 1ms, absolutely horrid
+tauAm(t)								// t = seconds, must be minimum 1ms
+{
+	y = expA(-1 / (maximum(t, 0.001) * samplerate));
+	return y + 0.000128;
+}
 
 // 
 
