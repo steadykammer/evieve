@@ -79,11 +79,11 @@ max define mc.evi.chorus.digital~ mc.gen~ @gen evi_chorus_digital.gendsp @chans 
 max define evi.classic.osc~ gen~ @gen evi_classic_osc.gendsp;
 max define mc.evi.classic.osc~ mc.gen~ @gen evi_classic_osc.gendsp @chans 2;
 
-max define evi.clipper~ gen~ @gen evi_clipper.gendsp;
-max define mc.evi.clipper~ mc.gen~ @gen evi_clipper.gendsp @chans 2;
-
 max define evi.clipasym~ gen~ @gen evi_clipasym.gendsp;
 max define mc.evi.clipasym~ mc.gen~ @gen evi_clipasym.gendsp @chans 2;
+
+max define evi.clipper~ gen~ @gen evi_clipper.gendsp;
+max define mc.evi.clipper~ mc.gen~ @gen evi_clipper.gendsp @chans 2;
 
 max define evi.comb~ gen~ @gen evi_comb.gendsp;
 max define mc.evi.comb~ mc.gen~ @gen evi_comb.gendsp @chans 2;

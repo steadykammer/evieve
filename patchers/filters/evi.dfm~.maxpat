@@ -77,7 +77,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 405.0, 117.0, 30.0, 30.0 ],
                     "varname": "Cutoff"
                 }
@@ -100,7 +100,7 @@
                     "maxclass": "newobj",
                     "numinlets": 5,
                     "numoutlets": 4,
-                    "outlettype": [ "reset", "", "", "" ],
+                    "outlettype": [ "reset", "signal", "signal", "" ],
                     "patcher": {
                         "fileversion": 1,
                         "appversion": {
@@ -831,7 +831,7 @@
                                     "maxclass": "inlet",
                                     "numinlets": 0,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "signal" ],
                                     "patching_rect": [ 237.0, 40.0, 30.0, 30.0 ]
                                 }
                             },
@@ -843,7 +843,7 @@
                                     "maxclass": "inlet",
                                     "numinlets": 0,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "signal" ],
                                     "patching_rect": [ 175.0, 40.0, 30.0, 30.0 ]
                                 }
                             },
@@ -2170,7 +2170,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 468.0, 117.0, 30.0, 30.0 ],
                     "varname": "Resonance"
                 }
@@ -2207,7 +2207,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 137.0, 117.0, 30.0, 30.0 ],
                     "varname": "AudioL"
                 }

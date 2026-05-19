@@ -6,7 +6,7 @@
 		Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick <br />
 	</digest>
 	<description>
-		This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses. <br />
+		This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses. Note: internal smoothing of cutoff (@smooth, default on) is cheap but causes (interesting?) artifacts with fast sweeps downwards. For clean sweeping turn @smooth off (set to '0') and smooth cutoff externally. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -152,7 +152,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Coefficients smoothing in ms. Turn off (0) for audio rate modulation of the filter.
+				Coefficients smoothing in ms. Turn off (0) for audio rate modulation of the filter. Note: internal smoothing of cutoff (@smooth, default on) is cheap but causes (interesting?) artifacts with fast sweeps downwards. For clean sweeping turn @smooth off (set to &#x27;0&#x27;) and smooth cutoff externally.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="22.666" />

@@ -39,7 +39,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1438,6 +1438,18 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-3",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 234.0, 52.0, 35.0, 22.0 ],
+                                                    "text": "reset"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "comment": "",
                                                     "id": "obj-1",
                                                     "index": 1,
@@ -1541,6 +1553,13 @@
                                                     "destination": [ "obj-35", 0 ],
                                                     "order": 1,
                                                     "source": [ "obj-17", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-16", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-3", 0 ]
                                                 }
                                             },
                                             {
@@ -5291,7 +5310,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -11254,7 +11273,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 439.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 10.0,
+                                    "samples": 1000.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -11502,7 +11521,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 270.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 10.0,
+                                    "samples": 1000.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -11538,7 +11557,7 @@
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 627.0, 608.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
-                                    "samples": 10.0,
+                                    "samples": 1000.0,
                                     "vertical_divisions": 4
                                 }
                             },
@@ -11739,7 +11758,6 @@
                                     "fontsize": 12.0,
                                     "freqrange": [ 10.0, 24000.0 ],
                                     "id": "obj-1",
-                                    "linearmode": 1,
                                     "maxclass": "spectrumdraw~",
                                     "mode3": 0,
                                     "mousedatapos": 2,

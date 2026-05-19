@@ -791,7 +791,7 @@
         "seealso": [ "evi.tri.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.sinfold~": {
-        "digest": "An anti-aliased sine folding waveshaper",
+        "digest": "An antialiased sine folding waveshaper",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],

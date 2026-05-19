@@ -1168,7 +1168,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0", "1", "2", "3" ],
-                                            "parameter_initial": [ 2.0 ],
+                                            "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup",
                                             "parameter_mmax": 3,
@@ -1178,7 +1178,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1513,7 +1513,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2082,8 +2082,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 42.0, 208.0, 101.0, 22.0 ],
-                                                    "text": "param harmonics"
+                                                    "patching_rect": [ 42.0, 208.0, 111.0, 22.0 ],
+                                                    "text": "param harmonics 0"
                                                 }
                                             },
                                             {
@@ -2502,7 +2502,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

@@ -244,7 +244,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 46.0, 305.0, 70.0, 50.0 ],
-                                    "text": "Adaa2\nAdaa1 2x\nAdaa1 4x"
+                                    "text": "Adaa1\nAdaa1 2x\nAdaa1 4x"
                                 }
                             },
                             {
@@ -492,6 +492,16 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 162.0, 562.0, 45.0, 45.0 ],
                                     "varname": "basic_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-14",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 487.0, 277.0, 183.0, 21.0 ],
+                                    "text": "(0% is not 0 waveshaping)"
                                 }
                             },
                             {
@@ -899,7 +909,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 213.0, 214.0, 70.0, 50.0 ],
-                                    "text": "Adaa2\nAdaa1 2x\nAdaa1 4x"
+                                    "text": "Adaa1\nAdaa1 2x\nAdaa1 4x"
                                 }
                             },
                             {
@@ -2061,7 +2071,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// using the sinfold algorithm in GenExpr code is easy as it has its own require file:\r\nrequire(\"evi_sinfold_lib.genexpr\");\r\n\r\n\r\nParam\tsmooth(22.666, min=1, max=666);\t// ms\r\nsmoothsecs = smooth*0.001;\r\n\r\ndrive = in2;\r\n\r\n\r\n// a key part of the algorithm are the control parameters matched to the audio part.\r\n// we need to use the 'sinParam()' function first to get the control values:\r\npidrive, sindrive\t= sinParam(drive);\r\n\r\n\r\n// and lets smooth the parameters after their param rate computation:\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, smoothsecs);\r\n\r\n\r\n// there are many anti aliased versions of the sinfold algorithm in the require file.\r\n// here we just call the 2nd order antiderivative version ('sinFoldAdaa2()'):\r\nsinfold = sinFoldAdaa2(in1, drivepi, drivesin);\r\n\r\n\r\nout1 = sinfold;\r\n\r\n",
+                                                    "code": "\r\n// using the sinfold algorithm in GenExpr code is easy as it has its own require file:\r\nrequire(\"evi_sinfold_lib.genexpr\");\r\n\r\n\r\nParam\tsmooth(11, min=1, max=111);\t// ms\r\nsmoothsecs = smooth*0.001;\r\n\r\ndrive = in2;\r\n\r\n\r\n// a key part of the algorithm are the control parameters matched to the audio part.\r\n// we need to use the 'sinParam()' function first to get the control values:\r\npidrive, sindrive\t= sinParam(drive);\r\n\r\n\r\n// and lets smooth the parameters after their param rate computation:\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, smoothsecs);\r\n\r\n\r\n// there are many anti aliased versions of the sinfold algorithm in the require file.\r\n// here we just call the 1st order antiderivative version ('sinFoldAdaa1()'):\r\nsinfold = sinFoldAdaa1(in1, drivepi, drivesin);\r\n\r\n\r\nout1 = sinfold;\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2271,7 +2281,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 50.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,

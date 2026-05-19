@@ -23,8 +23,9 @@ require("evi_saturators.genexpr");
 // based on an idea by jhno & Trond Lossius
 sinParam(drive)						// for param rate
 {
-	pidrive		= drive*3.110176727054 + 0.031415926536;
-	sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
+	// pidrive	= drive*3.110176727054 + 0.031415926536; // sadly low bump issue
+	pidrive		= drive*2.827433388230814 + 0.314159265358979; // sadly 0 drive prominant low harmonic
+    sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
 	return	pidrive, sindrive;
 }
 
@@ -67,7 +68,7 @@ sinFoldAdaa1_4x(x, pidrive, sindrive)
 
 sinFoldAdaa2(x, pidrive, sindrive)
 {
-	return sinAdaa2(x * pidrive, 0) * sindrive;
+	return sinAdaa2(x * pidrive, 4) * sindrive; // '4' is an anomoly here, still does not work universally
 }
 
 sinFoldAdaa2_2x(x, pidrive, sindrive)

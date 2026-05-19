@@ -5110,6 +5110,118 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "tauAm",
+                "raw": "tauAm"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "t",
+                    "raw": "t"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "/",
+                                        "left": {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "prefix": true
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "t",
+                                                        "raw": "t"
+                                                    },
+                                                    {
+                                                        "type": "Literal",
+                                                        "value": 0.001,
+                                                        "raw": "0.001",
+                                                        "gen_kind": "float"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "maximum",
+                                                    "raw": "maximum"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "samplerate",
+                                                "raw": "samplerate"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "expA",
+                                    "raw": "expA"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.000128,
+                                "raw": "0.000128",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "hz2barkApprox",
                 "raw": "hz2barkApprox"
             },

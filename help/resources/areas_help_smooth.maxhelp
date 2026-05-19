@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
@@ -656,6 +657,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-2",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 686.0, 322.0, 89.0, 22.0 ],
+                                    "text": "evi_cubsmooth"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-30",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -948,6 +960,18 @@
                                     "patching_rect": [ 11.0, 310.0, 88.0, 154.0 ],
                                     "text": "|  \n|  \n|  \n|  \n|  \nenvelopes --   \n|  \n|  \n|  \n|  \n|",
                                     "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-26",
+                                    "linecount": 5,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 700.0, 254.0, 51.0, 74.0 ],
+                                    "text": "|\nlinear\n|\ncubic\n|",
+                                    "textjustification": 1
                                 }
                             }
                         ],

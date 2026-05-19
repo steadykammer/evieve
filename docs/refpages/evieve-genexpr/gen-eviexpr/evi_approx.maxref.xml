@@ -347,6 +347,14 @@
 
       </description>
     </entry>
+    <entry name="tauAm ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="hz2barkApprox ( )">
       <description>
         Approximation of Hz to Bark coefficients <br />

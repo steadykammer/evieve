@@ -3,7 +3,7 @@
         "name": "evi_sinfold",
         "child": "",
         "category": "evieve",
-        "digest": "An anti-aliased sine folding waveshaper",
+        "digest": "An antialiased sine folding waveshaper",
         "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation."
     },
     "constructor": {
@@ -37,7 +37,7 @@
             "name": "aa",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "'aa' stands for 'Anti-Aliasing'. Select the type of anti-aliasing with this attribute. 0=2nd order antiderivative, 1=1st order antiderivative 2x oversampled, 2=1st order antiderivative 4x oversampled (the default).",
+            "description": "'aa' stands for 'Anti-Aliasing'. Select the type of anti-aliasing with this attribute. 0=1st order antiderivative, 1=1st order antiderivative 2x oversampled, 2=1st order antiderivative 4x oversampled (the default).",
             "default": {
                 "type": "int",
                 "value": "2"
@@ -56,11 +56,11 @@
         {
             "name": "smooth",
             "type": "float",
-            "digest": "@min 1, @max 666",
-            "description": "Optionally smooth the internal coefficients over this time in ms. Smoothing is an exact algorithm.",
+            "digest": "@min 1, @max 111",
+            "description": "Optionally smooth the internal coefficients over this time in ms. Smoothing should be kept as low as possible to avoid low @drive bumps.",
             "default": {
                 "type": "float",
-                "value": "22.666"
+                "value": "11.222"
             }
         }
     ],

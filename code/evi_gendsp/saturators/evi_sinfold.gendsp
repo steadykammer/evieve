@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// sine shaping wavefolder by Pete for evieve. \"I think it sounds pretty good,\r\n// but watch out for those bumps in the fundamental\".\r\n\r\nrequire(\"evi_sinfold_lib.genexpr\");\r\n\r\n// param rate ...\r\n\r\nParam   aa(2, min=0, max=2);            // default Adaa1_4x\r\nParam\tdrive(0.5, min=0, max=4);\t\t// % 0..1.. up to 2 is pretty safe, up to 4 be careful\r\nParam\tsmooth(22.666, min=1, max=666);\t// ms\r\nsmoothsecs\t\t\t= smooth*0.001;\r\ncompensate\t\t\t= 0.984292036732;\t// because approxes, and general fudgyness\r\npidrive, sindrive\t= sinParam(drive);\r\naaxx                = int(aa);\r\n\r\n// audio rate ...\r\n\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, smoothsecs);\r\n\r\nx = in1*compensate;\r\nsinfold = 0;\r\nif (aaxx ==1) {\r\n    sinfold = sinFoldAdaa1_2x(x, drivepi, drivesin);\r\n} else if (aaxx == 2) {\r\n    sinfold = sinFoldAdaa1_4x(x, drivepi, drivesin);\r\n} else {    // aaxx == 0\r\n    sinfold = sinFoldAdaa2(x, drivepi, drivesin);\r\n}\r\n\r\nout1 = sinfold;\r\n\r\n",
+                    "code": "\r\n// sine shaping wavefolder by Pete for evieve. \"I think it sounds pretty good,\r\n// but watch out for those bumps in the fundamental\".\r\n\r\nrequire(\"evi_sinfold_lib.genexpr\");\r\n\r\n// param rate ...\r\n\r\nParam   aa(2, min=0, max=2);            // default Adaa1_4x\r\nParam\tdrive(0.5, min=0, max=4);\t\t// % 0..1.. up to 2 is pretty safe, up to 4 be careful\r\nParam\tsmooth(11.222, min=1, max=111);\t// smooth drive param by this amount in ms, not too high\r\nsmoothsecs\t\t\t= smooth*0.001;\r\ncompensate\t\t\t= 0.984292036732;\t// because approxes, and general fudgyness\r\npidrive, sindrive\t= sinParam(drive);\r\naaxx                = int(aa);\r\n\r\n// audio rate ...\r\n\r\ndrivepi, drivesin\t= expsmoothBank2(pidrive, sindrive, smoothsecs);\r\n\r\nx = in1*compensate;\r\nsinfold = 0;\r\nif (aaxx ==1) {\r\n    sinfold = sinFoldAdaa1_2x(x, drivepi, drivesin);\r\n} else if (aaxx == 2) {\r\n    sinfold = sinFoldAdaa1_4x(x, drivepi, drivesin);\r\n} else {    // aaxx == 0\r\n    sinfold = sinFoldAdaa1(x, drivepi, drivesin);\r\n}\r\n\r\nout1 = sinfold;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -63,6 +63,7 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

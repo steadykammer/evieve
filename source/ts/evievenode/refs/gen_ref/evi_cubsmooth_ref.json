@@ -1,10 +1,10 @@
 {
     "object": {
-        "name": "evi_cfsmooth",
+        "name": "evi_cubsmooth",
         "child": "",
         "category": "evieve",
-        "digest": "Linear signal smoother particularly well suited to smoothing filter cutoff frequencies",
-        "description": "Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
+        "digest": "Cubic signal smoother particularly well suited to smoothing filter cutoff frequencies",
+        "description": "Based on Andy Simper's smoother, evi_cubsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
     },
     "constructor": {
         "inlets": "destination, ramp"
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Time in milliseconds @min 0",
-            "digest": "Amount of time the value takes to reach it's destination. evi_cfsmooth is logarithmic and does not reach it's destination exactly."
+            "digest": "Amount of time the value takes to reach it's destination. evi_cubsmooth is logarithmic and does not reach it's destination exactly."
         }
     ],
     "outlets": [
@@ -43,7 +43,7 @@
             "name": "hz",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "evi_cfsmooth is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.",
+            "description": "evi_cubsmooth is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.",
             "default": {
                 "type": "float",
                 "value": "2."
@@ -52,8 +52,8 @@
     ],
     "seealso": [
         {
-            "name": "evi_cubsmooth",
-            "display": "evi_cubsmooth"
+            "name": "evi_cfsmooth",
+            "display": "evi_cfsmooth"
         },
         {
             "name": "evi_logsmooth",

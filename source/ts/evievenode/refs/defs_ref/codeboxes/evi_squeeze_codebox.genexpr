@@ -3,7 +3,7 @@ require("evi_adaa.genexpr");
 
 // antialiased signal squasher
 
-Param   harmonics(2, min=0, max=3);
+Param   harmonics(1, min=0, max=3);
 harms = selector((int(harmonics) + 1), 3, 7, 15, 31);
 
 out1 = powerAdaa2(in1, beta=harms);

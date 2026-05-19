@@ -248,8 +248,8 @@ powerF2(x, beta=2.345)
   return eviCopysign(output, x);
 }
 
-// this does not work when changing / modulating 'b', only works with static b
-powerAdaa1(x0, beta=2.345)
+// this does not work when changing / modulating 'b', only works with static b (odd and even different)
+powerAdaa1(x0, beta=7.)
 {
   History x1(0), s1(0);
   eps = 0.000001;  // 
@@ -268,8 +268,8 @@ powerAdaa1(x0, beta=2.345)
   return y1;
 }
 
-// this does not work when changing / modulating 'b', only works with static b
-powerAdaa2(x0, beta=2.345)
+// this does not work when changing / modulating 'b', only works with static b (odd and even different)
+powerAdaa2(x0, beta=7.)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.0000001;  // 

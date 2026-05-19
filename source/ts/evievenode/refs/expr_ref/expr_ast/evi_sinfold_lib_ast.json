@@ -104,15 +104,15 @@
                                     },
                                     "right": {
                                         "type": "Literal",
-                                        "value": 3.110176727054,
-                                        "raw": "3.110176727054",
+                                        "value": 2.827433388230814,
+                                        "raw": "2.827433388230814",
                                         "gen_kind": "float"
                                     }
                                 },
                                 "right": {
                                     "type": "Literal",
-                                    "value": 0.031415926536,
-                                    "raw": "0.031415926536",
+                                    "value": 0.314159265358979,
+                                    "raw": "0.314159265358979",
                                     "gen_kind": "float"
                                 }
                             }
@@ -578,8 +578,8 @@
                                     },
                                     {
                                         "type": "Literal",
-                                        "value": 0,
-                                        "raw": "0",
+                                        "value": 4,
+                                        "raw": "4",
                                         "gen_kind": "integer"
                                     }
                                 ],

@@ -297,7 +297,7 @@
                     "id": 2,
                     "kind": "param",
                     "name": "beta",
-                    "default": 2.345,
+                    "default": 7,
                     "type": "float",
                     "digest": ""
                 }
@@ -325,7 +325,7 @@
                     "id": 2,
                     "kind": "param",
                     "name": "beta",
-                    "default": 2.345,
+                    "default": 7,
                     "type": "float",
                     "digest": ""
                 }

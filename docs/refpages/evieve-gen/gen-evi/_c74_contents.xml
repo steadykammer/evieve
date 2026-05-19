@@ -44,6 +44,7 @@
 <refpage name='evi_crossover_3band.maxref.xml'/>
 <refpage name='evi_crossover_allpass.maxref.xml'/>
 <refpage name='evi_crossover_sum.maxref.xml'/>
+<refpage name='evi_cubsmooth.maxref.xml'/>
 <refpage name='evi_curve.maxref.xml'/>
 <refpage name='evi_damp.maxref.xml'/>
 <refpage name='evi_damp_coeffs.maxref.xml'/>

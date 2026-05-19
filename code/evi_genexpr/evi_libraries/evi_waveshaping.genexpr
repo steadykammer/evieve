@@ -22,7 +22,7 @@
 //	//	//	Note: this file is standalone and repeats some code from the evieve lib
 
 //	//	//	NOTE: all of these functions are naive and need anti-aliasing / resampling
-//	//	//	to be of any use. @see: "evi_adaa.genexpr" for anti-derivative anti-aliasing,
+//	//	//	to be of any use. @see: "evi_adaa.genexpr" for antiderivative anti-aliasing,
 //	//	//	@see: "evi_saturators.genexpr" for other oversampling wrapping code
 
 //	//	//	Note: if there is something missing here from the 2012 original, it is because it was rubbish :-)
@@ -131,7 +131,7 @@ jongShaper(x, a)	// a >= 1
 
 // ---------------------------------------- //
 
-// ("cnld()" in "stkr.waveshaping")
+// (was "cnld()" in "stkr.waveshaping")
 // suggested by JOS III
 cubicNL(x)
 {
@@ -231,17 +231,18 @@ cos32quad12p(x)
 // based on an idea by jhno & Trond Lossius
 sinParam(drive)
 {
-	pidrive		= drive*3.110176727054 + 0.031415926536;
-	sindrive	= 1 / cos32quad12p(halfpi - minimum(pidrive, halfpi));
+	// pidrive	= drive*3.110176727054 + 0.031415926536; // sadly low bump issue
+	pidrive		= drive*2.827433388230814 + 0.314159265358979; // sadly 0 drive prominant low harmonic
+    sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
 	return	pidrive, sindrive;
 }
 
 // you would use the above something like this:
-// (called "rSinDrive()" in "stkr.waveshaping")
+// (was called "rSinDrive()" in "stkr.waveshaping")
 sinSat(x, drive)
 {
 	pidrive, sindrive = sinParam(drive);
-	return 	sin(x * pidrive) * sindrive; // just anti-alias this line (evieve uses approx sin here)
+	return 	sin(x * pidrive) * sindrive; // just anti-alias this line (evieve uses approx sin here), @see: 'evi_sinfold.gendsp'
 }
 
 // ---------------------------------------- //

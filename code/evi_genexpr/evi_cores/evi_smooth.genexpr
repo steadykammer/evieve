@@ -259,7 +259,7 @@ cfSmoothCubic2(x1, x2, hz, s)
 smoothCoeff(smooth, q=0.54945)				// (q=0.54945 = 0.09 on normalised scale)
 {
 	w0		= TWOPI * smooth / SAMPLERATE;	// omega0
-	alpha	= sin73aparam(w0) / (q + q);		// r0
+	alpha	= sin73aparam(w0) / (q + q);	// r0
 	omega 	= cos73aparam(w0);
 	a0m		= 1 / (1 + alpha);				// convert to FF0, FF1, FF2, FB1, FB2
 	b1a0m	= (1 - omega) * a0m;
@@ -554,12 +554,12 @@ eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
 
 	// keep incrementing until stepcounter counts down to zero
 	if (stepcounter) {
-		stepcounter -= 1;
 		value += increment;
+		stepcounter -= 1;	// pete: i feel like this is actually the correct order
 		notify = 0;
 	} else {
 		value = input;
-		notify = 1;
+		notify = 1;			// this is lazy, should separate up/down
 	}
 
 	return value, notify;

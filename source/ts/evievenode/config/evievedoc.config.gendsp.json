@@ -828,30 +828,6 @@
                 "auto": true
             }
         },
-        "evi_clipper.gendsp": {
-            "define": {
-                "object": true,
-                "msp": "evi.clipper~",
-                "mcwrapper": true
-            },
-            "ref": {
-                "gen": true,
-                "msp": true
-            },
-            "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
-                "areaonly": false,
-                "areas": [
-                    "saturation"
-                ]
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "evi_clipasym.gendsp": {
             "define": {
                 "object": true,
@@ -866,6 +842,30 @@
                 "msp": true,
                 "gentab": true,
                 "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "saturation"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_clipper.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.clipper~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
                 "areaonly": false,
                 "areas": [
                     "saturation"
@@ -1062,6 +1062,30 @@
             "db": {
                 "browser": true,
                 "auto": true
+            }
+        },
+        "evi_cubsmooth.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "smooth"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
             }
         },
         "evi_curve.gendsp": {

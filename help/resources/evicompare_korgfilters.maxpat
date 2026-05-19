@@ -564,7 +564,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "All evieve Korg filters are available identically inside gen~",
+                                    "text": "All three evieve TPT Korg filters are available identically inside gen~",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -710,7 +710,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2948,13 +2948,36 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-90",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 579.0, 231.0, 87.0, 22.0 ],
+                                    "text": "prepend active"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-89",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 1167.0, 345.0, 39.0, 22.0 ],
+                                    "text": "ftom~"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-49",
@@ -3589,17 +3612,6 @@
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 634.0, 270.0, 59.0, 22.0 ],
                                     "text": "gate~ 1 1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-50",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 1059.0, 408.0, 225.0, 20.0 ],
-                                    "text": "[evi.dfm~ @smooth 0 @noiselevel 0]"
                                 }
                             },
                             {
@@ -4568,24 +4580,13 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-11",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 1167.0, 345.0, 39.0, 22.0 ],
-                                    "text": "ftom~"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-4",
                                     "maxclass": "newobj",
                                     "numinlets": 4,
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 1048.0, 384.0, 198.0, 22.0 ],
-                                    "text": "evi.dfm~"
+                                    "text": "evi.dfm~ @smooth 0 @noiselevel 0"
                                 }
                             },
                             {
@@ -4868,7 +4869,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 0,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -4889,12 +4890,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-37",
-                                    "linecount": 5,
+                                    "linecount": 4,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 84.0 ],
-                                    "text": "In this tab you can compare the sound of the four different Korg inspired Filters in the evieve Package. The Korg filters are special case of 'Sallen & Key' filters. The three 'evi.korg*' filters are TPT filters, whereas the 'dfm' is a traditional Z-1 filter. They all have different nonlinear characteristics, resonance behaviours and noise floors. Sometimes this is emulated, other times this is down to evieve riffing on the topic to produce as much variety of choice as possible.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 69.0 ],
+                                    "text": "In this tab you can compare the sound of the four different Korg inspired Filters in the evieve Package. The Korg filters are special cases of 'Sallen & Key' filters. The three 'evi.korg*' filters are TPT filters, whereas the 'dfm' is a traditional Z-1 filter. They all have different nonlinear characteristics, resonance behaviours and noise floors. This is because evieve foregoes strict emulations to produce as much variety of choice as possible.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -4971,13 +4972,6 @@
                                     "destination": [ "obj-115", 2 ],
                                     "hidden": 1,
                                     "source": [ "obj-109", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "color": [ 1.0, 0.502, 0.0, 1.0 ],
-                                    "destination": [ "obj-4", 2 ],
-                                    "source": [ "obj-11", 0 ]
                                 }
                             },
                             {
@@ -5077,15 +5071,6 @@
                             {
                                 "patchline": {
                                     "color": [ 1.0, 0.502, 0.0, 1.0 ],
-                                    "destination": [ "obj-11", 0 ],
-                                    "midpoints": [ 850.5, 336.1640625, 1176.5, 336.1640625 ],
-                                    "order": 0,
-                                    "source": [ "obj-3", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "color": [ 1.0, 0.502, 0.0, 1.0 ],
                                     "destination": [ "obj-2", 0 ],
                                     "midpoints": [ 850.5, 336.5, 264.5, 336.5 ],
                                     "order": 4,
@@ -5116,6 +5101,15 @@
                                     "destination": [ "obj-7", 1 ],
                                     "midpoints": [ 850.5, 336.5, 488.0, 336.5 ],
                                     "order": 3,
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "color": [ 1.0, 0.502, 0.0, 1.0 ],
+                                    "destination": [ "obj-89", 0 ],
+                                    "midpoints": [ 850.5, 336.40625, 1176.5, 336.40625 ],
+                                    "order": 0,
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
@@ -5259,6 +5253,15 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-54", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-56", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-90", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
                                     "source": [ "obj-56", 0 ]
                                 }
                             },
@@ -5290,8 +5293,15 @@
                             },
                             {
                                 "patchline": {
+                                    "color": [ 1.0, 0.502, 0.0, 1.0 ],
+                                    "destination": [ "obj-4", 2 ],
+                                    "source": [ "obj-89", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-4", 3 ],
-                                    "midpoints": [ 997.5, 317.0, 1236.5, 317.0 ],
+                                    "midpoints": [ 997.5, 317.0703125, 1236.5, 317.0703125 ],
                                     "order": 0,
                                     "source": [ "obj-9", 0 ]
                                 }
@@ -5317,6 +5327,13 @@
                                     "midpoints": [ 997.5, 317.0, 539.5, 317.0 ],
                                     "order": 3,
                                     "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-28", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-90", 0 ]
                                 }
                             }
                         ],

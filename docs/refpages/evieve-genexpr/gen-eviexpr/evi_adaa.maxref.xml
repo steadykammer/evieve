@@ -62,7 +62,7 @@
         First order anti-derivative anti-aliasing of a power function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>7</b>, <i></i> <br />
 
         <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 
@@ -73,7 +73,7 @@
         Second order anti-derivative anti-aliasing of a power function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to distort</i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>2.345</b>, <i></i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): beta, default: <b>7</b>, <i></i> <br />
 
         <b>Return 1</b>: Power output, <i>Anti-aliased power output</i> <br />
 

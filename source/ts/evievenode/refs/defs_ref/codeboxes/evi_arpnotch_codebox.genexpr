@@ -68,7 +68,7 @@ Param	morphsmooth(0., min=0, max=333);	    // in ms, default off
 // inputs (smooth || mod res & cutoff externally)
 morph   = clip(     in4, 0, 1);                 // 0=LP .. 0.5=Notch .. 1=HP
 res		= clip(		in3, 0, 1) * 1.1;		    // cheeky
-cutoff	= maximum(	in2, 0);		            // cutoff freq (default in pitch)
+cutoff	= maximum(	in2, 1);		            // cutoff freq (default in Hz)
 X		=	dcblock(in1);	                    // clean audio input, who knows why
 
 // freq warp
@@ -80,7 +80,8 @@ M       = morph + morph - 1;
 makeM   = 2 - abs(M);
 highM   = morph;
 if (morphsmooth > 0) {
-    makeM, highM    = expsmoothBank2(makeM, highM, morphsmooth*0.001);
+    smoothsecs      = maximum(morphsmooth, 1) * 0.001;
+    makeM, highM    = expsmoothBank2(makeM, highM, smoothsecs);
 }
 lowM    = 1 - highM;
 
@@ -92,6 +93,8 @@ R		= k + k;
 LP, HP	= eviArpSmoothCore(X * (k + sqrt2), W, R, 10);
 svfMix  = makeM * (lowM * LP + highM * HP);     // low + high = notch
 
-// outputs
-out1	= dcblock(svfMix * sqrt1_2);            // LP..Notch..HP via 'morph'
-
+// output
+// LP..Notch..HP via 'morph'
+out1	= svfMix * sqrt1_2;                     // do NOT 'dcblock()' this - bug with above 
+                                                // 'expsmoothBank2()' & initialising
+                                                // '@morphsmooth' > 0, pete needs to work out

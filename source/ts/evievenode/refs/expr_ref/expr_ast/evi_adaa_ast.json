@@ -3639,8 +3639,8 @@
                 null,
                 {
                     "type": "Literal",
-                    "value": 2.345,
-                    "raw": "2.345",
+                    "value": 7,
+                    "raw": "7.",
                     "gen_kind": "float"
                 }
             ],
@@ -4057,8 +4057,8 @@
                 null,
                 {
                     "type": "Literal",
-                    "value": 2.345,
-                    "raw": "2.345",
+                    "value": 7,
+                    "raw": "7.",
                     "gen_kind": "float"
                 }
             ],

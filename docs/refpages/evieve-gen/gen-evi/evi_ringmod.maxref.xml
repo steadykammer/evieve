@@ -85,7 +85,7 @@
                 @min 0, @max 4
             </digest>
             <description>
-                0&#x3D;1x/Adaa1, 1&#x3D;1x/Adaa2, 2&#x3D;4x/Adaa2, 3&#x3D;8x/Adaa2, 4&#x3D;8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about anti-aliasing or managing CPU usage but also a musical choice.
+                0&#x3D;1x/Adaa1, 1&#x3D;1x/Adaa2, 2&#x3D;4x/Adaa2, 3&#x3D;8x/Adaa2, 4&#x3D;8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about antialiasing or managing CPU usage but also a musical choice. In general, &#x27;4&#x3D;8x/Adaa2_4x&#x27; does not work well with maximum @drive.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />

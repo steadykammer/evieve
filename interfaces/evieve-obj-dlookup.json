@@ -162,7 +162,7 @@
     "evi.dfm~": {
         "type": "abstraction",
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
-        "description": "This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses."
+        "description": "This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses. Note: internal smoothing of cutoff (@smooth, default on) is cheap but causes (interesting?) artifacts with fast sweeps downwards. For clean sweeping turn @smooth off (set to '0') and smooth cutoff externally."
     },
     "evi.eq3~": {
         "type": "define",
@@ -566,7 +566,7 @@
     },
     "evi.sinfold~": {
         "type": "define",
-        "digest": "An anti-aliased sine folding waveshaper",
+        "digest": "An antialiased sine folding waveshaper",
         "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation."
     },
     "evi.skfinputmix~": {
@@ -587,7 +587,7 @@
     "evi.squeeze~": {
         "type": "define",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "evi.squeeze~ is a 'max define' for the evi_squeeze.gendsp gen~ abstraction. Because evi.squeeze~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.squeeze~ is a simple passive audio signal quadratic shaper. evi.squeeze~ is antialiased via anti derivative antialiasing, but is not designed for driving with high gain."
+        "description": "evi.squeeze~ is a 'max define' for the evi_squeeze.gendsp gen~ abstraction. Because evi.squeeze~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.squeeze~ is a simple passive audio signal quadratic shaper. evi.squeeze~ is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute."
     },
     "evi.squine.simple~": {
         "type": "define",

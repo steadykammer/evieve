@@ -723,6 +723,26 @@
         },
         {
             "document": true,
+            "digest": "",
+            "name": "tauAm",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "t",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Approximation of Hz to Bark coefficients",
             "name": "hz2barkApprox",
             "inputs": [

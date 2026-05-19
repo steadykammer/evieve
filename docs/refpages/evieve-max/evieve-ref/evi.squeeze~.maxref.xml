@@ -9,7 +9,7 @@
 		<b>evi.squeeze~</b> is a 'max define' for the <o>evi_squeeze</o>.gendsp gen~ abstraction.
 		Because evi.squeeze~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. <br />
+		<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -52,10 +52,10 @@
 				Select 0..3
 			</digest>
 			<description>
-				The shaper can be switched between soft..hard over 4 settings. 0 &#x3D; the least harmonics, 3 &#x3D; the most harmonics.
+				The shaper can be switched between soft..hard over 4 settings. 0 &#x3D; the least harmonics (least squeezed), 3 &#x3D; the most harmonics (most squeezed).
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="2" />
+				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
 	</attributelist>

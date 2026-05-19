@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain.",
+        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute.",
         "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
@@ -42,11 +42,11 @@
             "get": 1,
             "type": "int",
             "digest": "Select 0..3",
-            "description": "The shaper can be switched between soft..hard over 4 settings. 0 = the least harmonics, 3 = the most harmonics.",
+            "description": "The shaper can be switched between soft..hard over 4 settings. 0 = the least harmonics (least squeezed), 3 = the most harmonics (most squeezed).",
             "default": {
                 "min": "0",
                 "max": "3",
-                "value": "2"
+                "value": "1"
             }
         }
     ],
