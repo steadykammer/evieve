@@ -95,7 +95,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 102.0, 609.0, 202.0, 22.0 ],
-                    "text": "list.reg evicompare_svffilters.maxpat"
+                    "text": "list.reg evicompare_svffilters.maxhelp"
                 }
             },
             {

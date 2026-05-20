@@ -2646,6 +2646,13 @@ function createHelpconfigFile()
 
 		helpConfigArray.push(areaConfig);
 	}
+	// special at end, really bad of me
+	const smoothConfig: any = {};
+	smoothConfig.class = `evismooth`;
+	smoothConfig.classPatcher = `evicompare_smoothers`;
+	smoothConfig.classString = '\"Compare evieve Signal Smoothers\"';
+	helpConfigArray.push(smoothConfig);
+	//
 	helpConfig.areaConfigs = helpConfigArray;
 	renderFromTemplate('../templates/helpconfig.handlebars', helpConfig, `${config.initFiles.defines.output}/evieve-helpconfig.txt`);
 	// fs.writeFileSync(`${config.initFiles.defines.output}/_helpconfig_petetest.json`, JSON.stringify(helpConfig, null, 4));

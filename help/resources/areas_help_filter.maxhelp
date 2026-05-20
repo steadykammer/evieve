@@ -140,7 +140,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 63.0, 570.0, 210.0, 22.0 ],
-                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                    "text": "list.reg evicompare_biquadsvf.maxhelp"
                 }
             },
             {

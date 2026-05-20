@@ -21,6 +21,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Smoothers",
         "boxes": [
@@ -1963,7 +1964,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 971.0, 262.0, 207.0, 20.0 ],
+                                    "patching_rect": [ 956.0, 262.0, 207.0, 20.0 ],
                                     "text": "Reference Pages",
                                     "textjustification": 1
                                 }
@@ -2486,7 +2487,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 985.0, 454.0, 189.0, 59.0 ],
+                                    "patching_rect": [ 970.0, 454.0, 189.0, 59.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
@@ -2510,7 +2511,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 985.0, 312.0, 189.0, 39.0 ],
+                                    "patching_rect": [ 970.0, 312.0, 189.0, 39.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
@@ -2534,7 +2535,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 985.0, 383.0, 189.0, 39.0 ],
+                                    "patching_rect": [ 970.0, 383.0, 189.0, 39.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
@@ -3833,13 +3834,24 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-72",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 355.0, 746.0, 100.0, 20.0 ],
+                                    "text": "evi_sline",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-69",
@@ -4287,7 +4299,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// 'evi_logdecay()', 'evi_logattackdecay()' & 'evi_logahr()' are all available in:\r\n//require(\"evi_smooth.genexpr\");\r\n// ...as 'logdecay()', 'logattackdecay()' & 'logattackholdrelease()'\r\n// but if you want other envelope functions with them, equivalents are available in:\r\n\r\nrequire(\"evi_env.genexpr\");\r\n\r\n\r\n// in ms\r\nParam   attack(10, min=0, max=500);\r\nParam   hold(100, min=0, max=500);\r\nParam   decay(300, min=0, max=1000);\r\n\r\n// in SECONDs for core functions\r\nattacksecs = attack * 0.001; // SECONDs (not ms like the abstractions !)\r\nholdsecs = hold * 0.001;\r\ndecaysecs = decay * 0.001;\r\n\r\n\r\nout1 = envDecay(in1, decaysecs);\r\n\r\nout2 = envAttackDecay(in1, attacksecs, decaysecs);\r\n\r\nout3 = envAttackHoldRelease(in1, attacksecs, holdsecs, decaysecs);\r\n\r\n\r\n// other envelopes are available in the .genexpr file, such as:\r\n\r\nattack01 = attack / 500;\r\nrelease01 = decay / 1000;\r\n\r\nout4 = envFollSimple(in1, attack01, release01); // attack/release % 0..1\r\n\r\n\r\n// or you can build your own such as this quirky number:\r\n\r\natt = maximum(attack01, 0.001);\nrel = maximum(release01, 0.001);\nup = mstosamps(att * 10);\ndown = mstosamps(rel * 100);\ndetect = envRawDetect(in1, att, rel); // detection algorithm\nout5 = vactrol(detect, up, down); // like [evi.vactrol~] or 'evi_vactrol.gendsp'\n\r\n\r\n// see the reference page for 'evi_env.genexpr' or discover content via the\r\n// 'evieve GenExpr Index' accesible from the Max 'Extras' menu\r\n",
+                                                    "code": "\r\n// 'evi_logdecay()', 'evi_logattackdecay()' & 'evi_logahr()' are all available in:\r\n//require(\"evi_smooth.genexpr\");\r\n// ...as 'logdecay()', 'logattackdecay()' & 'logattackholdrelease()'\r\n// but if you want other envelope functions with them, equivalents are available in:\r\n\r\nrequire(\"evi_env.genexpr\");\r\n\r\n\r\n// in ms\r\nParam   attack(10, min=0, max=500);\r\nParam   hold(100, min=0, max=500);\r\nParam   decay(300, min=0, max=1000);\r\n\r\n// in SECONDs for core functions\r\nattacksecs = attack * 0.001; // SECONDs (not ms like the abstractions !)\r\nholdsecs = hold * 0.001;\r\ndecaysecs = decay * 0.001;\r\n\r\n\r\nout1 = envDecay(in1, decaysecs);\r\n\r\nout2 = envAttackDecay(in1, attacksecs, decaysecs); // viewing this outlet in parent patch\r\n\r\nout3 = envAttackHoldRelease(in1, attacksecs, holdsecs, decaysecs);\r\n\r\n\r\n// other envelopes are available in the .genexpr file, such as:\r\n\r\nattack01 = attack / 500;\r\nrelease01 = decay / 1000;\r\n\r\nout4 = envFollSimple(in1, attack01, release01); // attack/release % 0..1\r\n\r\n\r\n// or you can build your own such as this quirky number:\r\n\r\natt = maximum(attack01, 0.001);\nrel = maximum(release01, 0.001);\nup = mstosamps(att * 10);\ndown = mstosamps(rel * 100);\ndetect = envRawDetect(in1, att, rel); // detection algorithm\nout5 = vactrol(detect, up, down); // like [evi.vactrol~] or 'evi_vactrol.gendsp'\n\r\n\r\n// see the reference page for 'evi_env.genexpr' or discover content via the\r\n// 'evieve GenExpr Index' accesible from the Max 'Extras' menu\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -4706,7 +4718,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 497.0, 141.0, 92.0, 39.0 ],
+                                    "patching_rect": [ 507.0, 143.0, 92.0, 39.0 ],
                                     "text": "abstractions",
                                     "textjustification": 1
                                 }
@@ -4761,7 +4773,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// one of the reasons we need the exact target ramp destination smoothers sometimes\r\n// is to manage CPU smoothly.\r\n\r\n// we know that a target value will reach it's destination at a specified point exactly. therefore\r\n// we can test for exact values and be sure that they will give us exact comparators.\r\n\r\n// using an if/else block we can control CPU of each block, processing only what is requested:\r\n\r\nParam   choose(0, min=0, max=1);\r\nchoosy  = int(choose); // hard selects either 0 or 1\r\n\r\nmyFunc = 0;\r\nif (choosy == 1) {\r\n    // expensive function here\r\n    myFunc = tanh(tanh(tanh(in1)));\r\n}\r\nelse {  // 'choosy' == 0\r\n    // cheap function here\r\n    myFunc = dcblock(in1);\r\n}\r\n\r\nout1 = myFunc;\r\n\r\n// but what if we want to smoothly interpolate between blocks but still manage CPU?\r\n\r\n// for this we need an exact smoothing function so that we can reliably test it's condition\r\n\r\ncheese = evi_line(choosy, mstosamps(333)); // smoothly interpolate between 0 and 1 exactly\r\n\r\nmyInterp = 0;\r\nif (cheese > 0 && cheese < 1) {   // cheese is between 0 and 1\r\n    // compute both only for duration of ramp\r\n    myDc = dcblock(in1);\r\n    myTanh = tanh(tanh(tanh(in1)));\r\n    myInterp = mix(myDc, myTanh, cheese); // use cheese to also smoothly interpolate\r\n}\r\nelse if (cheese == 1) { // cheese == 1 exactly (would not work with 'evi_logsmooth()' for example)\r\n    // only compute this now\r\n    myInterp = tanh(tanh(tanh(in1)));\r\n}\r\nelse {  // cheese == 0 exactly (would not work with 'evi_logsmooth()' for example)\r\n    // only compute this now\r\n    myInterp = dcblock(in1);\r\n}\r\n\r\nout2 = myInterp;\r\n",
+                                                    "code": "\r\n// one of the reasons we need the exact target ramp destination smoothers sometimes\r\n// is to manage CPU smoothly.\r\n\r\n// we know that a target value will reach it's destination at a specified point exactly. therefore\r\n// we can test for exact values and be sure that they will give us exact comparators.\r\n\r\n// using an if/else block we can control CPU of each block, processing only what is requested:\r\n\r\nParam   choose(0, min=0, max=1);\r\nchoosy  = int(choose); // hard selects either 0 or 1\r\n\r\nmyFunc = 0;\r\nif (choosy == 1) {\r\n    // expensive function here\r\n    myFunc = tanh(tanh(tanh(in1)));\r\n}\r\nelse {  // 'choosy' == 0\r\n    // cheap function here\r\n    myFunc = dcblock(in1);\r\n}\r\n\r\nout1 = myFunc;\r\n\r\n// but what if we want to smoothly interpolate between blocks but still manage CPU?\r\n\r\n// for this we need an exact smoothing function so that we can reliably test it's condition\r\n\r\ncheese = evi_sline(choosy, mstosamps(333)); // smoothly interpolate between 0 and 1 exactly\r\n\r\nmyInterp = 0;\r\nif (cheese > 0 && cheese < 1) {   // cheese is between 0 and 1\r\n    // compute both only for duration of ramp\r\n    myDc = dcblock(in1);\r\n    myTanh = tanh(tanh(tanh(in1)));\r\n    myInterp = mix(myDc, myTanh, cheese); // use cheese to also smoothly interpolate\r\n}\r\nelse if (cheese == 1) { // cheese == 1 exactly (would not work with 'evi_logsmooth()' for example)\r\n    // only compute this now\r\n    myInterp = tanh(tanh(tanh(in1)));\r\n}\r\nelse {  // cheese == 0 exactly (would not work with 'evi_logsmooth()' for example)\r\n    // only compute this now\r\n    myInterp = dcblock(in1);\r\n}\r\n\r\nout2 = myInterp;\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -4989,7 +5001,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// in GenExpr you can just call the  abstractions directly, like any other evieve abstraction\r\n\r\n// however, this is not as performant as calling the core code\r\n\r\n\r\n// MSP equivalents:\r\n\r\nramptime = mstosamps(in2); // samples\r\n\r\nout1 = evi_line(in1, ramptime);\r\nout2 = evi_curve(in1, ramptime, -0.5); // third argument is curve factor\r\nout3 = evi_rampsmooth(in1, ramptime, ramptime);\r\n\r\n// there is also 'sline' which is a curved version of 'line' (still exact ramp):\r\nout4 = evi_sline(in1, ramptime);\r\n\r\n// all the above 'exact' ramp generators have an optional 2nd return value to notify ramp state:\r\n\r\ntarget, notify = evi_line(in1, ramptime); // notify = 0/1, a bit like the 'bang' outlet in MSP\r\n\r\n\r\n// evieve basic smoothers:\r\n\r\nmstime = in2; // milliseconds\r\n\r\nout5 = evi_logsmooth(in1, mstime);\r\nout6 = evi_expsmooth(in1, mstime);\r\nout7 = evi_lagsmooth(in1, mstime);\r\nout8 = evi_cfsmooth(in1, mstime);\r\nout9 = evi_cubsmooth(in1, mstime);\r\n\r\n\r\n\r\n\r\n",
+                                                    "code": "\r\n// in GenExpr you can just call the  abstractions directly, like any other evieve abstraction\r\n\r\n// however, this is not as performant as calling the core code\r\n\r\n\r\n// MSP equivalents:\r\n\r\nramptime = mstosamps(in2); // samples\r\n\r\nout1 = evi_line(in1, ramptime);\r\nout2 = evi_curve(in1, ramptime, -0.5); // third argument is curve factor\r\nout3 = evi_rampsmooth(in1, ramptime, ramptime);\r\n// @see also: 'evi_rampsmoothupdate()'\r\n\r\n// there is also 'sline' which is a curved version of 'line' (still exact ramp):\r\nout4 = evi_sline(in1, ramptime);\r\n\r\n// all the above 'exact' ramp generators have an optional 2nd return value to notify ramp state:\r\n\r\ntarget, notify = evi_line(in1, ramptime); // notify = 0/1, a bit like the 'bang' outlet in MSP\r\n\r\n\r\n// evieve basic smoothers:\r\n\r\nmstime = in2; // milliseconds\r\n\r\nout5 = evi_logsmooth(in1, mstime);\r\nout6 = evi_expsmooth(in1, mstime);\r\nout7 = evi_lagsmooth(in1, mstime);\r\nout8 = evi_cfsmooth(in1, mstime);\r\nout9 = evi_cubsmooth(in1, mstime);\r\n\r\n\r\n\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -5577,7 +5589,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all of the evieve smoothing algorithms we have encountered so far are available in GenExpr\r\n// code by requiring the following file:\r\n\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\n\r\n// the naming of core functions is slightly different than the abstractions\r\n\r\n\r\n// MSP equivalents: 'evi_line', 'evi_curve' & 'evi_rampsmooth' take SAMPLEs as ramp time and are:\r\n\r\nramptime = mstosamps(in2); // SAMPLEs\r\n\r\nout1 = eviLine(in1, ramptime);\r\nout2 = eviCurve(in1, ramptime, -0.5); // third argument is curve factor\r\nout3 = eviRampsmooth(in1, ramptime, ramptime);\r\n\r\n// there is also 'Sline' which is a curved version of 'Line' (still exact ramp):\r\nout4 = eviSline(in1, ramptime);\r\n\r\n// all the above 'exact' ramp generators have an optional 2nd return value to notify ramp state:\r\n\r\ntarget, notify = eviLine(in1, ramptime); // notify = 0/1, a bit like the 'bang' outlet in MSP\r\n\r\n\r\n// evieve basic smoothers: without the 'evi_' prefix, and take SECONDs as smooth time:\r\n\r\nsmoothtime = in2 * 0.001; // SECONDs (not ms like the abstractions !)\r\n\r\nout5 = logsmooth(in1, smoothtime);\r\nout6 = expsmooth(in1, smoothtime);\r\nout7 = lagsmooth(in1, smoothtime);\r\n\r\n// 'evi_cfsmooth' & 'evi_cubsmooth' are slightly different\r\n// as they cover multiple code areas in the source:\r\n\r\nout8 = cfSmoothLinear(in1, 2, smoothtime); // the second argument is 'hz', like the attribute\r\nout9 = cfSmoothCubic(in1, 2, smoothtime);\r\n\r\n\r\n// many more smoothing related functions are available in the 'evi_smooth.genexpr' file.\r\n// explore using the 'evieve GenExpr Index' accesesible via the Max 'Extras' menu.\r\n\r\n\r\n",
+                                                    "code": "\r\n// all of the evieve smoothing algorithms we have encountered so far are available in GenExpr\r\n// code by requiring the following file:\r\n\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\n\r\n// the naming of core functions is slightly different than the abstractions\r\n\r\n\r\n// MSP equivalents: 'evi_line', 'evi_curve' & 'evi_rampsmooth' take SAMPLEs as ramp time and are:\r\n\r\nramptime = mstosamps(in2); // SAMPLEs\r\n\r\nout1 = eviLine(in1, ramptime);\r\nout2 = eviCurve(in1, ramptime, -0.5); // third argument is curve factor\r\nout3 = eviRampsmooth(in1, ramptime, ramptime);\r\n// @see also: 'eviRampsmoothUpdate()'\r\n\r\n// there is also 'Sline' which is a curved version of 'Line' (still exact ramp):\r\nout4 = eviSline(in1, ramptime);\r\n\r\n// all the above 'exact' ramp generators have an optional 2nd return value to notify ramp state:\r\n\r\ntarget, notify = eviLine(in1, ramptime); // notify = 0/1, a bit like the 'bang' outlet in MSP\r\n\r\n\r\n// evieve basic smoothers: without the 'evi_' prefix, and take SECONDs as smooth time:\r\n\r\nsmoothtime = in2 * 0.001; // SECONDs (not ms like the abstractions !)\r\n\r\nout5 = logsmooth(in1, smoothtime);\r\nout6 = expsmooth(in1, smoothtime);\r\nout7 = lagsmooth(in1, smoothtime);\r\n\r\n// 'evi_cfsmooth' & 'evi_cubsmooth' are slightly different\r\n// as they cover multiple code areas in the source:\r\n\r\nout8 = cfSmoothLinear(in1, 2, smoothtime); // the second argument is 'hz', like the attribute\r\nout9 = cfSmoothCubic(in1, 2, smoothtime);\r\n\r\n\r\n// many more smoothing related functions are available in the 'evi_smooth.genexpr' file.\r\n// explore using the 'evieve GenExpr Index' accesesible via the Max 'Extras' menu.\r\n\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -6074,11 +6086,54 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 0,
+                                    "id": "obj-55",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 426.0, 734.0, 95.0, 39.0 ],
+                                    "text": "evieve",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-56",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 423.0, 712.0, 100.0, 20.0 ],
+                                    "text": "evi_sline",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
+                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "grid": 3,
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-57",
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 423.0, 610.0, 100.0, 100.0 ],
+                                    "rounded": 1.0,
+                                    "samples": 48000.0,
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-27",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1188.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 1113.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_cubsmooth",
                                     "textjustification": 1
                                 }
@@ -6096,7 +6151,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 1188.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 1113.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6111,7 +6166,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 826.0, 70.0, 158.0, 66.0 ],
+                                    "patching_rect": [ 846.0, 85.0, 158.0, 66.0 ],
                                     "text": "Overview of all evieve smoothing abstractions inside gen~",
                                     "textjustification": 1
                                 }
@@ -6129,7 +6184,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 550.0, 219.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 520.0, 234.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -6153,7 +6208,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 763.0, 139.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 783.0, 154.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -6177,7 +6232,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 5.0, 218.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 50.0, 233.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -6196,7 +6251,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1132.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 1056.0, 734.0, 95.0, 39.0 ],
                                     "text": "Andy Simper",
                                     "textjustification": 1
                                 }
@@ -6209,7 +6264,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 912.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 882.0, 734.0, 95.0, 39.0 ],
                                     "text": "SuperCollider",
                                     "textjustification": 1
                                 }
@@ -6222,7 +6277,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 691.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 706.0, 734.0, 95.0, 39.0 ],
                                     "text": "evieve",
                                     "textjustification": 1
                                 }
@@ -6236,7 +6291,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1172.0, 296.0, 134.0, 79.0 ],
+                                    "patching_rect": [ 1130.0, 317.0, 134.0, 79.0 ],
                                     "text": "evieve offers the same externals algorithms inside of the gen~ environment",
                                     "textjustification": 1
                                 }
@@ -6250,7 +6305,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 496.0, 648.0, 74.0, 24.0 ],
+                                    "patching_rect": [ 552.0, 648.0, 74.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "bubble_outlinecolor": {
                                             "expression": "themecolor.theme_syntax_objectcolor"
@@ -6268,7 +6323,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 482.0, 648.0, 74.0, 24.0 ],
+                                    "patching_rect": [ 538.0, 648.0, 74.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "bubble_outlinecolor": {
                                             "expression": "themecolor.theme_syntax_objectcolor"
@@ -6286,7 +6341,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 482.0, 501.0, 74.0, 24.0 ],
+                                    "patching_rect": [ 538.0, 501.0, 74.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "bubble_outlinecolor": {
                                             "expression": "themecolor.theme_syntax_objectcolor"
@@ -6303,7 +6358,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 1041.0, 387.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 996.0, 402.0, 83.0, 22.0 ],
                                     "text": "evi.cfsmooth~"
                                 }
                             },
@@ -6314,7 +6369,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 894.0, 387.0, 90.0, 22.0 ],
+                                    "patching_rect": [ 879.0, 402.0, 90.0, 22.0 ],
                                     "text": "evi.lagsmooth~"
                                 }
                             },
@@ -6325,7 +6380,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 600.0, 387.0, 90.0, 22.0 ],
+                                    "patching_rect": [ 645.0, 402.0, 90.0, 22.0 ],
                                     "text": "evi.logsmooth~"
                                 }
                             },
@@ -6336,7 +6391,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 747.0, 387.0, 93.0, 22.0 ],
+                                    "patching_rect": [ 762.0, 402.0, 93.0, 22.0 ],
                                     "text": "evi.expsmooth~"
                                 }
                             },
@@ -6346,7 +6401,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1041.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 996.0, 441.0, 100.0, 20.0 ],
                                     "text": "evi.cfsmooth~",
                                     "textjustification": 1
                                 }
@@ -6364,7 +6419,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 1041.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 996.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6376,7 +6431,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 894.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 879.0, 441.0, 100.0, 20.0 ],
                                     "text": "evi.lagsmooth~",
                                     "textjustification": 1
                                 }
@@ -6387,7 +6442,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 747.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 762.0, 441.0, 100.0, 20.0 ],
                                     "text": "evi.expsmooth~",
                                     "textjustification": 1
                                 }
@@ -6398,7 +6453,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 600.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 645.0, 441.0, 100.0, 20.0 ],
                                     "text": "evi.logsmooth~",
                                     "textjustification": 1
                                 }
@@ -6416,7 +6471,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 894.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 879.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6435,7 +6490,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 600.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 645.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6454,7 +6509,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 747.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 762.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6466,7 +6521,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1041.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 996.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_cfsmooth",
                                     "textjustification": 1
                                 }
@@ -6484,7 +6539,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 1041.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 996.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6496,7 +6551,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 894.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 879.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_lagsmooth",
                                     "textjustification": 1
                                 }
@@ -6507,7 +6562,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 747.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 762.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_expsmooth",
                                     "textjustification": 1
                                 }
@@ -6518,7 +6573,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 600.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 645.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_logsmooth",
                                     "textjustification": 1
                                 }
@@ -6536,7 +6591,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 894.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 879.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6555,7 +6610,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 600.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 645.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6574,7 +6629,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 747.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 762.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -6854,7 +6909,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 1173.0, 387.0, 130.0, 22.0 ],
+                                    "patching_rect": [ 1143.0, 402.0, 108.0, 22.0 ],
                                     "text": "gen~ @title evieve"
                                 }
                             },
@@ -6883,12 +6938,34 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-31",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 582.0, 43.0, 85.0, 20.0 ],
+                                                    "text": "alternate",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-19",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 3,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 557.0, 65.0, 134.0, 22.0 ],
+                                                    "text": "evi_rampsmoothupdate"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-2",
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 686.0, 322.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 686.0, 337.0, 89.0, 22.0 ],
                                                     "text": "evi_cubsmooth"
                                                 }
                                             },
@@ -6908,7 +6985,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 283.0, 142.0, 389.0, 20.0 ],
+                                                    "patching_rect": [ 283.0, 157.0, 389.0, 20.0 ],
                                                     "text": "|_________________ exact destination ramps _________________|",
                                                     "textjustification": 1
                                                 }
@@ -6919,7 +6996,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 116.0, 186.0, 216.0, 20.0 ],
+                                                    "patching_rect": [ 116.0, 201.0, 216.0, 20.0 ],
                                                     "text": "Additional smoothing in evieve:"
                                                 }
                                             },
@@ -6930,7 +7007,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 116.0, 514.0, 447.0, 20.0 ],
+                                                    "patching_rect": [ 116.0, 529.0, 447.0, 20.0 ],
                                                     "text": "There are many more smoothing options in the \"evi_smooth.genexpr\" require file"
                                                 }
                                             },
@@ -6940,7 +7017,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 518.0, 408.0, 66.0, 20.0 ],
+                                                    "patching_rect": [ 518.0, 423.0, 66.0, 20.0 ],
                                                     "text": "extra",
                                                     "textjustification": 1
                                                 }
@@ -6951,7 +7028,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 328.0, 408.0, 66.0, 20.0 ],
+                                                    "patching_rect": [ 328.0, 423.0, 66.0, 20.0 ],
                                                     "text": "extra",
                                                     "textjustification": 1
                                                 }
@@ -6962,7 +7039,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 116.0, 104.0, 150.0, 20.0 ],
+                                                    "patching_rect": [ 116.0, 119.0, 150.0, 20.0 ],
                                                     "text": "Max/MSP replacements:"
                                                 }
                                             },
@@ -6972,7 +7049,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 358.0, 81.0, 85.0, 20.0 ],
+                                                    "patching_rect": [ 358.0, 96.0, 85.0, 20.0 ],
                                                     "text": "evieve extra",
                                                     "textjustification": 1
                                                 }
@@ -6983,7 +7060,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 697.0, 81.0, 96.0, 20.0 ],
+                                                    "patching_rect": [ 697.0, 96.0, 96.0, 20.0 ],
                                                     "text": "gen~ native",
                                                     "textjustification": 1
                                                 }
@@ -6995,7 +7072,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 725.0, 103.0, 40.0, 22.0 ],
+                                                    "patching_rect": [ 725.0, 118.0, 40.0, 22.0 ],
                                                     "text": "slide"
                                                 }
                                             },
@@ -7006,7 +7083,7 @@
                                                     "numinlets": 4,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 116.0, 430.0, 64.0, 22.0 ],
+                                                    "patching_rect": [ 116.0, 445.0, 64.0, 22.0 ],
                                                     "text": "evi_logahr"
                                                 }
                                             },
@@ -7017,7 +7094,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 116.0, 376.0, 111.0, 22.0 ],
+                                                    "patching_rect": [ 116.0, 391.0, 111.0, 22.0 ],
                                                     "text": "evi_logattackdecay"
                                                 }
                                             },
@@ -7028,7 +7105,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 116.0, 238.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 116.0, 253.0, 86.0, 22.0 ],
                                                     "text": "evi_logsmooth"
                                                 }
                                             },
@@ -7039,7 +7116,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 471.0, 103.0, 60.0, 22.0 ],
+                                                    "patching_rect": [ 471.0, 118.0, 60.0, 22.0 ],
                                                     "text": "evi_curve"
                                                 }
                                             },
@@ -7050,7 +7127,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 328.0, 430.0, 66.0, 22.0 ],
+                                                    "patching_rect": [ 328.0, 445.0, 66.0, 22.0 ],
                                                     "text": "evi_vactrol"
                                                 }
                                             },
@@ -7061,7 +7138,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 499.0, 430.0, 105.0, 22.0 ],
+                                                    "patching_rect": [ 499.0, 445.0, 105.0, 22.0 ],
                                                     "text": "evi_vactrol_shape"
                                                 }
                                             },
@@ -7072,7 +7149,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 575.0, 103.0, 97.0, 22.0 ],
+                                                    "patching_rect": [ 575.0, 118.0, 97.0, 22.0 ],
                                                     "text": "evi_rampsmooth"
                                                 }
                                             },
@@ -7083,7 +7160,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 373.0, 103.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 373.0, 118.0, 55.0, 22.0 ],
                                                     "text": "evi_sline"
                                                 }
                                             },
@@ -7094,7 +7171,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 283.0, 103.0, 49.0, 22.0 ],
+                                                    "patching_rect": [ 283.0, 118.0, 49.0, 22.0 ],
                                                     "text": "evi_line"
                                                 }
                                             },
@@ -7105,7 +7182,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 497.0, 238.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 497.0, 253.0, 86.0, 22.0 ],
                                                     "text": "evi_lagsmooth"
                                                 }
                                             },
@@ -7116,7 +7193,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 686.0, 238.0, 79.0, 22.0 ],
+                                                    "patching_rect": [ 686.0, 253.0, 79.0, 22.0 ],
                                                     "text": "evi_cfsmooth"
                                                 }
                                             },
@@ -7127,7 +7204,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 305.0, 238.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 305.0, 253.0, 89.0, 22.0 ],
                                                     "text": "evi_expsmooth"
                                                 }
                                             },
@@ -7138,7 +7215,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 116.0, 322.0, 79.0, 22.0 ],
+                                                    "patching_rect": [ 116.0, 337.0, 79.0, 22.0 ],
                                                     "text": "evi_logdecay"
                                                 }
                                             },
@@ -7161,7 +7238,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 19.0, 103.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 19.0, 118.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             },
@@ -7171,7 +7248,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 197.0, 239.0, 113.0, 20.0 ],
+                                                    "patching_rect": [ 197.0, 254.0, 113.0, 20.0 ],
                                                     "text": "<- very similar ->",
                                                     "textjustification": 1
                                                 }
@@ -7183,7 +7260,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 11.0, 310.0, 88.0, 154.0 ],
+                                                    "patching_rect": [ 11.0, 325.0, 88.0, 154.0 ],
                                                     "text": "|  \n|  \n|  \n|  \n|  \nenvelopes --   \n|  \n|  \n|  \n|  \n|",
                                                     "textjustification": 2
                                                 }
@@ -7195,7 +7272,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 700.0, 254.0, 51.0, 74.0 ],
+                                                    "patching_rect": [ 700.0, 269.0, 51.0, 74.0 ],
                                                     "text": "|\nlinear\n|\ncubic\n|",
                                                     "textjustification": 1
                                                 }
@@ -7203,7 +7280,7 @@
                                         ],
                                         "lines": []
                                     },
-                                    "patching_rect": [ 785.0, 138.0, 239.0, 22.0 ],
+                                    "patching_rect": [ 805.0, 153.0, 239.0, 22.0 ],
                                     "text": "gen~ @title all_evieve_smoothers_in_gen~"
                                 }
                             },
@@ -7215,7 +7292,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 339.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 309.0, 734.0, 95.0, 39.0 ],
                                     "text": "Maurizio Giri",
                                     "textjustification": 1
                                 }
@@ -7228,7 +7305,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 192.0, 734.0, 95.0, 39.0 ],
                                     "text": "Cycling '74",
                                     "textjustification": 1
                                 }
@@ -7241,7 +7318,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 45.0, 749.0, 95.0, 39.0 ],
+                                    "patching_rect": [ 75.0, 734.0, 95.0, 39.0 ],
                                     "text": "evieve",
                                     "textjustification": 1
                                 }
@@ -7252,7 +7329,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 321.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 306.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_rampsmooth",
                                     "textjustification": 1
                                 }
@@ -7263,7 +7340,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 174.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 189.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_curve",
                                     "textjustification": 1
                                 }
@@ -7274,7 +7351,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 27.0, 727.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 72.0, 712.0, 100.0, 20.0 ],
                                     "text": "evi_line",
                                     "textjustification": 1
                                 }
@@ -7285,7 +7362,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 321.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 306.0, 441.0, 100.0, 20.0 ],
                                     "text": "rampsmooth~",
                                     "textjustification": 1
                                 }
@@ -7296,7 +7373,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 174.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 189.0, 441.0, 100.0, 20.0 ],
                                     "text": "curve~",
                                     "textjustification": 1
                                 }
@@ -7307,7 +7384,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 27.0, 426.0, 130.0, 20.0 ],
+                                    "patching_rect": [ 72.0, 441.0, 100.0, 20.0 ],
                                     "text": "line~",
                                     "textjustification": 1
                                 }
@@ -7321,7 +7398,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 453.0, 302.0, 134.0, 79.0 ],
+                                    "patching_rect": [ 437.0, 317.0, 134.0, 79.0 ],
                                     "text": "evieve offers the same MSP algorithms inside of the gen~ environment",
                                     "textjustification": 1
                                 }
@@ -7339,7 +7416,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 321.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 306.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7358,7 +7435,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 27.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 72.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7377,7 +7454,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 174.0, 595.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 189.0, 610.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7396,7 +7473,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 321.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 306.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7415,7 +7492,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 27.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 72.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7434,7 +7511,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 174.0, 448.0, 130.0, 130.0 ],
+                                    "patching_rect": [ 189.0, 463.0, 100.0, 100.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -7447,7 +7524,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 321.0, 359.0, 44.0, 22.0 ],
+                                    "patching_rect": [ 306.0, 374.0, 44.0, 22.0 ],
                                     "text": "sig~ 0."
                                 }
                             },
@@ -7464,7 +7541,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 5.0, 138.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 50.0, 153.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -7482,7 +7559,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 27.0, 124.0, 48.0, 48.0 ]
+                                    "patching_rect": [ 72.0, 139.0, 48.0, 48.0 ]
                                 }
                             },
                             {
@@ -7491,7 +7568,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 325.0, 37.0, 20.0 ],
+                                    "patching_rect": [ 142.0, 340.0, 37.0, 20.0 ],
                                     "text": "ms"
                                 }
                             },
@@ -7502,7 +7579,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "bang" ],
-                                    "patching_rect": [ 27.0, 269.0, 48.0, 22.0 ],
+                                    "patching_rect": [ 72.0, 284.0, 48.0, 22.0 ],
                                     "text": "t f b"
                                 }
                             },
@@ -7514,7 +7591,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 27.0, 204.0, 48.0, 48.0 ]
+                                    "patching_rect": [ 72.0, 219.0, 48.0, 48.0 ]
                                 }
                             },
                             {
@@ -7524,7 +7601,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "float" ],
-                                    "patching_rect": [ 56.0, 324.0, 39.0, 22.0 ],
+                                    "patching_rect": [ 101.0, 339.0, 39.0, 22.0 ],
                                     "text": "f 333."
                                 }
                             },
@@ -7538,7 +7615,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 564.0, 201.0, 58.0, 55.0 ],
+                                    "patching_rect": [ 534.0, 216.0, 58.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 333.0 ],
@@ -7561,7 +7638,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "float" ],
-                                    "patching_rect": [ 326.0, 324.0, 77.0, 22.0 ],
+                                    "patching_rect": [ 311.0, 339.0, 77.0, 22.0 ],
                                     "text": "mstosamps~"
                                 }
                             },
@@ -7572,7 +7649,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 321.0, 387.0, 82.0, 22.0 ],
+                                    "patching_rect": [ 306.0, 402.0, 82.0, 22.0 ],
                                     "text": "rampsmooth~"
                                 }
                             },
@@ -7583,7 +7660,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "bang" ],
-                                    "patching_rect": [ 174.0, 387.0, 82.0, 22.0 ],
+                                    "patching_rect": [ 189.0, 402.0, 82.0, 22.0 ],
                                     "text": "curve~ 0. -0.5"
                                 }
                             },
@@ -7594,7 +7671,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "bang" ],
-                                    "patching_rect": [ 27.0, 387.0, 48.0, 22.0 ],
+                                    "patching_rect": [ 72.0, 402.0, 48.0, 22.0 ],
                                     "text": "line~ 0."
                                 }
                             },
@@ -7603,8 +7680,8 @@
                                     "id": "obj-1",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "signal", "signal", "signal" ],
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {
@@ -7615,11 +7692,43 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 34.0, 100.0, 868.0, 579.0 ],
+                                        "rect": [ 34.0, 100.0, 959.0, 579.0 ],
                                         "gridonopen": 2,
                                         "subpatcher_template": "sub",
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-13",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 115.0, 431.0, 35.0, 22.0 ],
+                                                    "text": "out 4"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-15",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 640.0, 283.0, 134.0, 20.0 ],
+                                                    "text": "alternate behaviour",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 3,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 640.0, 305.0, 134.0, 22.0 ],
+                                                    "text": "evi_rampsmoothupdate"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-20",
@@ -7659,7 +7768,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 644.0, 283.0, 93.0, 20.0 ],
+                                                    "patching_rect": [ 810.0, 283.0, 93.0, 20.0 ],
                                                     "text": "native to gen~",
                                                     "textjustification": 1
                                                 }
@@ -7671,7 +7780,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 670.0, 305.0, 40.0, 22.0 ],
+                                                    "patching_rect": [ 836.0, 305.0, 40.0, 22.0 ],
                                                     "text": "slide"
                                                 }
                                             },
@@ -7757,7 +7866,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 144.0, 165.0, 60.0, 22.0 ],
+                                                    "patching_rect": [ 115.0, 165.0, 60.0, 22.0 ],
                                                     "text": "in 1 value"
                                                 }
                                             },
@@ -7801,6 +7910,13 @@
                                         "lines": [
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-19", 0 ],
+                                                    "order": 3,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-5", 0 ],
                                                     "order": 2,
                                                     "source": [ "obj-1", 0 ]
@@ -7818,6 +7934,12 @@
                                                     "destination": [ "obj-7", 0 ],
                                                     "order": 0,
                                                     "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-13", 0 ],
+                                                    "source": [ "obj-19", 0 ]
                                                 }
                                             },
                                             {
@@ -7842,6 +7964,13 @@
                                                 "patchline": {
                                                     "destination": [ "obj-11", 0 ],
                                                     "source": [ "obj-7", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-19", 1 ],
+                                                    "order": 4,
+                                                    "source": [ "obj-8", 0 ]
                                                 }
                                             },
                                             {
@@ -7880,7 +8009,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 453.0, 387.0, 130.0, 22.0 ],
+                                    "patching_rect": [ 454.0, 402.0, 99.0, 22.0 ],
                                     "text": "gen~ @title MSP"
                                 }
                             },
@@ -7893,7 +8022,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 496.0, 501.0, 74.0, 24.0 ],
+                                    "patching_rect": [ 552.0, 501.0, 74.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "bubble_outlinecolor": {
                                             "expression": "themecolor.theme_syntax_objectcolor"
@@ -7916,7 +8045,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 431.0, 388.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 432.0, 403.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -7940,7 +8069,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 1151.0, 388.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 1121.0, 403.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -7998,7 +8127,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 74.0, 136.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 119.0, 151.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -8022,6 +8151,12 @@
                                 "patchline": {
                                     "destination": [ "obj-16", 0 ],
                                     "source": [ "obj-1", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-57", 0 ],
+                                    "source": [ "obj-1", 3 ]
                                 }
                             },
                             {
@@ -8151,7 +8286,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-1", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 462.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 463.5, 366.5 ],
                                     "order": 5,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8159,7 +8294,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 183.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 198.5, 366.5 ],
                                     "order": 7,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8167,7 +8302,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-17", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 1050.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 1005.5, 366.5 ],
                                     "order": 1,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8175,7 +8310,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 1182.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 1152.5, 366.5 ],
                                     "order": 0,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8189,7 +8324,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-4", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 756.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 771.5, 366.5 ],
                                     "order": 3,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8197,7 +8332,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 609.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 654.5, 366.5 ],
                                     "order": 4,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8205,7 +8340,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-52", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 903.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 888.5, 366.5 ],
                                     "order": 2,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8213,7 +8348,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "midpoints": [ 36.5, 351.5, 330.5, 351.5 ],
+                                    "midpoints": [ 81.5, 366.5, 315.5, 366.5 ],
                                     "order": 6,
                                     "source": [ "obj-44", 0 ]
                                 }
@@ -8292,7 +8427,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

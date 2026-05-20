@@ -681,6 +681,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-19",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 307.0, 379.0, 76.0, 22.0 ],
+                                    "text": "evi_quadosc"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-11",
                                     "maxclass": "newobj",
                                     "numinlets": 5,
@@ -697,7 +708,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 253.0, 311.0, 130.0, 60.0 ],
+                                    "patching_rect": [ 253.0, 291.0, 130.0, 60.0 ],
                                     "text": "[evi_formant_osc] does not work in gen~ alone as it requires an external LUT"
                                 }
                             },

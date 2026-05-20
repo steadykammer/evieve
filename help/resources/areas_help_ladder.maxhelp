@@ -57,7 +57,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 148.0, 609.0, 221.0, 22.0 ],
-                    "text": "list.reg evicompare_ladderfilters.maxpat"
+                    "text": "list.reg evicompare_ladderfilters.maxhelp"
                 }
             },
             {

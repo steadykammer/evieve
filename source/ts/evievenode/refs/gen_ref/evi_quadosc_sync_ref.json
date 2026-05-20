@@ -1,0 +1,90 @@
+{
+    "object": {
+        "name": "evi_quadosc_sync",
+        "child": "",
+        "category": "evieve",
+        "digest": "Phase locked quadrature oscillator",
+        "description": "A quadrature oscillator which outputs phase synchronous cosine and sine waves, including sync outlets."
+    },
+    "constructor": {
+        "inlets": "frequency, reset"
+    },
+    "includes": [
+        "evi_cossin"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "frequency",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "in Hz",
+            "digest": "The frequency of the oscillators in Hz"
+        },
+        {
+            "id": 2,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Naive",
+            "digest": "Reset the phase of the oscillators. This is a naive reset and will click."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "cosine",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Cosine Oscillator Output"
+        },
+        {
+            "id": 2,
+            "name": "sine",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Sine Oscillator Output"
+        },
+        {
+            "id": 3,
+            "name": "cosine",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Sync",
+            "digest": "Cosine Sync Output"
+        },
+        {
+            "id": 4,
+            "name": "sine",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Sync",
+            "digest": "Sine Sync Output"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_quadosc",
+            "display": "evi_quadosc"
+        },
+        {
+            "name": "evi_4wave",
+            "display": "evi_4wave"
+        },
+        {
+            "name": "evi_blitwaves",
+            "display": "evi_blitwaves"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_cossin",
+            "display": "evi_cossin.genexpr"
+        }
+    ]
+}

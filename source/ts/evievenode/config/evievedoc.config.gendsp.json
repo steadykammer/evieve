@@ -3012,6 +3012,50 @@
                 "auto": true
             }
         },
+        "evi_pan_dual.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi_pan_mono.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_phaser_analog.gendsp": {
             "define": {
                 "object": true,
@@ -3220,6 +3264,54 @@
                 "auto": false
             }
         },
+        "evi_quadosc_sync.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "oscillator"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi_quadosc.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "oscillator"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_ramp0.gendsp": {
             "define": {
                 "object": true,
@@ -3243,6 +3335,30 @@
             }
         },
         "evi_rampsmooth.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "smooth"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi_rampsmoothupdate.gendsp": {
             "define": {
                 "object": false,
                 "msp": "",
@@ -4427,6 +4543,50 @@
             },
             "ref": {
                 "gen": false,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi_xfade_mono.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi_xfade_stereo.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
                 "msp": false
             },
             "helpfile": {

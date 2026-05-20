@@ -1,0 +1,82 @@
+{
+    "object": {
+        "name": "evi_pan_dual",
+        "child": "",
+        "category": "evieve",
+        "digest": "Pan audio signals, dual",
+        "description": "Pan inputs to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+    },
+    "constructor": {
+        "inlets": "left, right, panning1, panning2"
+    },
+    "includes": [
+        "evi_utilities"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Input",
+            "digest": "Left audio input to be panned"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Input",
+            "digest": "Right audio input to be panned"
+        },
+        {
+            "id": 3,
+            "name": "panning1",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "0..1 @min 0 @max 1 @default 0.",
+            "digest": "Pan 1 Amount 0..1, Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+        },
+        {
+            "id": 4,
+            "name": "panning2",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "0..1 @min 0 @max 1 @default 1.",
+            "digest": "Pan 2 Amount 0..1, Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Panned Output Left"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Panned Output Right"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_pan_mono",
+            "display": "evi_pan_mono"
+        },
+        {
+            "name": "evi_xfade_mono",
+            "display": "evi_xfade_mono"
+        },
+        {
+            "name": "evi_xfade_stereo",
+            "display": "evi_xfade_stereo"
+        }
+    ]
+}

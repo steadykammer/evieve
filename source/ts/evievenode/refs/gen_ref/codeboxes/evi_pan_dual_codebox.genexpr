@@ -1,0 +1,9 @@
+
+require("evi_utilities.genexpr");
+
+
+// This 'panQuartApproxDual()' function is the equivalent of [evi.pan~ @mode 1]
+out1, out2 = panQuartApproxDual(in1, in2, in3, in4);
+
+
+// @see also: 'panQuartApproxMono()', 'evi_pan_mono', 'evi.pan~'

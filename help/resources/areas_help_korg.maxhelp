@@ -57,7 +57,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 151.0, 609.0, 211.0, 22.0 ],
-                    "text": "list.reg evicompare_korgfilters.maxpat"
+                    "text": "list.reg evicompare_korgfilters.maxhelp"
                 }
             },
             {

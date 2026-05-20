@@ -21,6 +21,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Linear TPT Filters",
         "boxes": [
@@ -333,7 +334,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1705,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2000,12 +2001,13 @@
                                                             {
                                                                 "box": {
                                                                     "id": "obj-57",
+                                                                    "linecount": 2,
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 2,
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 50.0, 100.0, 210.0, 22.0 ],
-                                                                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                                                                    "text": "list.reg evicompare_biquadsvf.maxhelp"
                                                                 }
                                                             },
                                                             {
@@ -8394,7 +8396,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -9231,12 +9233,13 @@
                                             {
                                                 "box": {
                                                     "id": "obj-57",
+                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 50.0, 100.0, 210.0, 22.0 ],
-                                                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                                                    "text": "list.reg evicompare_biquadsvf.maxhelp"
                                                 }
                                             },
                                             {

@@ -64,7 +64,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 111.0, 123.0, 202.0, 22.0 ],
-                                    "text": "list.reg evicompare_svffilters.maxpat"
+                                    "text": "list.reg evicompare_svffilters.maxhelp"
                                 }
                             },
                             {
@@ -75,7 +75,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 146.0, 176.0, 221.0, 22.0 ],
-                                    "text": "list.reg evicompare_ladderfilters.maxpat"
+                                    "text": "list.reg evicompare_ladderfilters.maxhelp"
                                 }
                             },
                             {
@@ -86,7 +86,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 181.0, 214.0, 211.0, 22.0 ],
-                                    "text": "list.reg evicompare_korgfilters.maxpat"
+                                    "text": "list.reg evicompare_korgfilters.maxhelp"
                                 }
                             },
                             {

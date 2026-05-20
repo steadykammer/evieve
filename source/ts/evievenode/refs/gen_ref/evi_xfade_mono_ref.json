@@ -1,0 +1,66 @@
+{
+    "object": {
+        "name": "evi_xfade_mono",
+        "child": "",
+        "category": "evieve",
+        "digest": "Crossfade audio signals, mono",
+        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'."
+    },
+    "constructor": {
+        "inlets": "input, input, xfade"
+    },
+    "includes": [
+        "evi_utilities"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "input",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "1",
+            "digest": "Audio input 1"
+        },
+        {
+            "id": 2,
+            "name": "input",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "2",
+            "digest": "Audio input 2"
+        },
+        {
+            "id": 3,
+            "name": "xfade",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "0..1 @min 0 @max 1 @default 0.5",
+            "digest": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "crossfaded",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Mono Crossfaded Output"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_xfade_stereo",
+            "display": "evi_xfade_stereo"
+        },
+        {
+            "name": "evi_pan_mono",
+            "display": "evi_pan_mono"
+        },
+        {
+            "name": "evi_pan_dual",
+            "display": "evi_pan_dual"
+        }
+    ]
+}

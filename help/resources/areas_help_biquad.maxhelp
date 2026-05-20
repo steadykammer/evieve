@@ -19,11 +19,27 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Legacy Biquad Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "bubble": 1,
+                    "bubblepoint": 0.2,
+                    "bubbleside": 2,
+                    "id": "obj-18",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 513.0, 202.0, 85.0, 52.0 ],
+                    "text": "no helpfiles for these",
+                    "textjustification": 1
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,
@@ -58,7 +74,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 208.0, 570.0, 210.0, 22.0 ],
-                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                    "text": "list.reg evicompare_biquadsvf.maxhelp"
                 }
             },
             {

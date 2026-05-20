@@ -384,7 +384,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 162.0, 536.0, 338.0, 22.0 ],
+                    "patching_rect": [ 162.0, 536.0, 338.0, 24.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"

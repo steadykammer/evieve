@@ -14,7 +14,7 @@
     evi_utilities.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    A large collection of param rate and audio rate smoothing functions used all over evieve. Many are very efficient inexact destination smoothers, others are more expensive exact destination smoothers. There is enough variety here to suit all the situations evieve needs from a technical and also creative (sound design) point of view. This .genexpr file also inherits 'evi_utilities.genexpr' and 'evi_approx.genexpr', so it gets required in many evieve abstractions and is a very useful all-in-one require for a lot of what we need to do in gen~. <br />
+    A large collection of param rate and audio rate smoothing functions used all over evieve. Many are efficient inexact destination smoothers, others are more expensive exact destination smoothers. There is enough variety here to suit all the situations evieve needs from a technical and also creative (sound design) point of view. This .genexpr file also inherits 'evi_utilities.genexpr' and therefore 'evi_approx.genexpr' as well, so it gets required in many evieve abstractions and is a very useful all-in-one require for a lot of what we need to do in GenExpr. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="stepsmooth ( )">
@@ -516,11 +516,24 @@
     </entry>
     <entry name="eviRampsmooth ( )">
       <description>
-        Reimplementation of MSP [rampsmooth~] algorithm. Exact destination ramps. <br />
+        Reimplementation of MSP [rampsmooth~] algorithm, ramp times only update if input value changes. Exact destination ramps. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: input, <i>Value to filter</i> <br />
-        <b>In 2</b>: type=<i>input</i>: rampup, <i>Ramp up time in SAMPLES</i> <br />
-        <b>In 3</b>: type=<i>input</i>: rampdown, <i>Ramp down time in SAMPLES</i> <br />
+        <b>In 2</b>: type=<i>input</i>: frampup, <i>Ramp up time in SAMPLES</i> <br />
+        <b>In 3</b>: type=<i>input</i>: frampdown, <i>Ramp down time in SAMPLES</i> <br />
+
+        <b>Return 1</b>: Smooth, <i>Smoothed output, or target value if ramps are complete</i> <br />
+        <b>Return 2</b>: Notify, <i>1 When Ramp Reaches Destination (0 During Ramp)</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eviRampsmoothUpdate ( )">
+      <description>
+        Reimplementation of MSP [rampsmooth~] algorithm, ramp times continuously update regardless of if input value changes. Exact destination ramps. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: input, <i>Value to filter</i> <br />
+        <b>In 2</b>: type=<i>input</i>: frampup, <i>Ramp up time in SAMPLES</i> <br />
+        <b>In 3</b>: type=<i>input</i>: frampdown, <i>Ramp down time in SAMPLES</i> <br />
 
         <b>Return 1</b>: Smooth, <i>Smoothed output, or target value if ramps are complete</i> <br />
         <b>Return 2</b>: Notify, <i>1 When Ramp Reaches Destination (0 During Ramp)</i> <br />

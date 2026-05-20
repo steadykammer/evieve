@@ -1,10 +1,10 @@
 {
     "object": {
-        "name": "evi_rampsmooth",
+        "name": "evi_rampsmoothupdate",
         "child": "",
         "category": "evieve",
         "digest": "Reimplementation of MSP <o>rampsmooth~</o> in gen abstraction form",
-        "description": "evi_rampsmooth is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by signals (ramp times only update if input value changes), providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well."
+        "description": "evi_rampsmoothupdate is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by integers (ramp times continuously update regardless of if input value changes) providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the gen~ example by Maurizio Giri and Graham Wakefield."
     },
     "constructor": {
         "inlets": "input, ramp, ramp"
@@ -25,7 +25,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Up in SAMPLES @min 0",
-            "digest": "Amount of time the value takes to reach it's up destination. Only updates if input value (inlet 1) changes. evi_rampsmooth reaches it's up destination exactly in this time."
+            "digest": "Amount of time the value takes to reach it's up destination. Input continuously updates whenever changed. evi_rampsmoothupdate reaches it's up destination exactly in this time."
         },
         {
             "id": 3,
@@ -33,7 +33,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Down in SAMPLES @min 0",
-            "digest": "Amount of time the value takes to reach it's down destination. Only updates if input value (inlet 1) changes. evi_rampsmooth reaches it's down destination exactly in this time."
+            "digest": "Amount of time the value takes to reach it's down destination. Input continuously updates whenever changed. evi_rampsmoothupdate reaches it's down destination exactly in this time."
         }
     ],
     "outlets": [
@@ -57,8 +57,8 @@
     "attributes": [],
     "seealso": [
         {
-            "name": "evi_rampsmoothupdate",
-            "display": "evi_rampsmoothupdate"
+            "name": "evi_rampsmooth",
+            "display": "evi_rampsmooth"
         },
         {
             "name": "evi_logsmooth",

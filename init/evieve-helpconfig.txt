@@ -138,3 +138,4 @@ max categoryhelp evireverb areas_help_reverb "Reverbs in evieve";
 max categoryhelp evioverdrive areas_help_overdrive "Nonlinear Overdrive in evieve";
 max categoryhelp evisaturation areas_help_saturation "Nonlinear Saturation in evieve";
 max categoryhelp evismooth areas_help_smooth "Signal Smoothers in evieve";
+max categoryhelp evismooth evicompare_smoothers "Compare evieve Signal Smoothers";

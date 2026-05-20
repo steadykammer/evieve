@@ -260,7 +260,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 457.0, 570.0, 211.0, 22.0 ],
-                    "text": "list.reg evicompare_saturation.maxpat"
+                    "text": "list.reg evicompare_saturation.maxhelp"
                 }
             },
             {

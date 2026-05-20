@@ -153,7 +153,7 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
+                "gentab": true,
                 "genexprtab": true,
                 "areas": []
             },
@@ -171,7 +171,7 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
+                "gentab": true,
                 "genexprtab": true,
                 "areas": ["oscillator"]
             },
@@ -207,7 +207,7 @@
                 "mctab": true,
                 "mcstab": false,
                 "mcseparate": false,
-                "gentab": false,
+                "gentab": true,
                 "genexprtab": true,
                 "areas": []
             },

@@ -21,6 +21,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Nonlinear Korg Filters",
         "boxes": [
@@ -4869,7 +4870,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 1,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -4894,7 +4895,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 69.0 ],
+                                    "patching_rect": [ 10.0, 70.0, 664.0, 69.0 ],
                                     "text": "In this tab you can compare the sound of the four different Korg inspired Filters in the evieve Package. The Korg filters are special cases of 'Sallen & Key' filters. The three 'evi.korg*' filters are TPT filters, whereas the 'dfm' is a traditional Z-1 filter. They all have different nonlinear characteristics, resonance behaviours and noise floors. This is because evieve foregoes strict emulations to produce as much variety of choice as possible.",
                                     "varname": "digest_comment"
                                 }

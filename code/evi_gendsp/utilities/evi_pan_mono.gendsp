@@ -1,0 +1,103 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 34.0, 100.0, 748.0, 330.0 ],
+        "gridonopen": 2,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 548.0, 277.0, 149.0, 22.0 ],
+                    "text": "out 2 (signal) Right Output"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 48.0, 34.0, 134.0, 22.0 ],
+                    "text": "in 1 (signal) Mono Input"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 365.0, 34.0, 332.0, 22.0 ],
+                    "text": "in 2 (signal/float) Panning 0..1 @min 0 @max 1 @default 0.5"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n\r\n// This 'panQuartApproxMono()' function is the equivalent of [evi.pan~ @mode 0]\r\nout1, out2 = panQuartApproxMono(in1, in2);\r\n\r\n\r\n// @see also: 'panQuartApproxDual()', 'evi_pan_dual', 'evi.pan~'",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 48.0, 73.0, 649.0, 187.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 48.0, 277.0, 141.0, 22.0 ],
+                    "text": "out 1 (signal) Left Output"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 374.5, 64.5, 687.5, 64.5 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 687.5, 268.5, 557.5, 268.5 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            }
+        ]
+    }
+}

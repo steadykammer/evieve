@@ -21,6 +21,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Nonlinear Ladder Filters",
         "boxes": [
@@ -6917,7 +6918,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -12732,7 +12733,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

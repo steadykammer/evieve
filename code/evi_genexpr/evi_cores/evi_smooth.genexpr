@@ -532,15 +532,16 @@ toggleLine(toggle, rampsamples)			// toggle == flag 0/1, time in samples
 }
 */
 
-// like MSP [rampsmooth~], exact destination
-// original port by Maurizio Giri, Graham Wakefield
-eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
+// like MSP [rampsmooth~] if fed by signals at ramp inlets, exact destination
+eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in samples
 {
 	History value(0), prev(0), stepcounter(0), increment(1);
+	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
+	rampdown = trunc(frampdown);
 	notify = 1;
 
-	// reset ramp if input has changed, or if ramp parameters change
-	if (input != prev || delta(rampup) || delta(rampdown)) {
+	// reset ramp if input has changed, NOT if ramp parameters change
+	if (input != prev) {
 		direction = (input - value);
 		if (direction > 0) {
 			stepcounter = rampup;
@@ -555,18 +556,53 @@ eviRampsmooth(input, rampup, rampdown)		// input, up in samples, down in samples
 	// keep incrementing until stepcounter counts down to zero
 	if (stepcounter) {
 		value += increment;
-		stepcounter -= 1;	// pete: i feel like this is actually the correct order
+		stepcounter -= 1;		// pete: i feel like this is actually the correct ordering
 		notify = 0;
 	} else {
 		value = input;
-		notify = 1;			// this is lazy, should separate up/down
+		notify = 1;				// pete: this is lazy, should separate up/down
+	}
+
+	return value, notify;
+}
+
+// like MSP [rampsmooth~] if fed by ints at ramp inlets, exact destination
+// original port by Maurizio Giri, Graham Wakefield
+eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in samples
+{
+	History value(0), prev(0), stepcounter(0), increment(1);
+	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
+	rampdown = trunc(frampdown);
+	notify = 1;
+
+	// reset ramp if input has changed, OR if ramp parameters change
+	if (input != prev || delta(rampup) || delta(rampdown)) {
+		direction = (input - value);
+		if (direction > 0) {
+			stepcounter = rampup;
+			increment = direction / rampup;
+		} else {
+			stepcounter = rampdown;
+			increment = direction / rampdown;
+		}
+		prev = input;	
+	}
+
+	// keep incrementing until stepcounter counts down to zero
+	if (stepcounter) {
+		stepcounter -= 1;
+		value += increment;
+		notify = 0;
+	} else {
+		value = input;
+		notify = 1;				// pete: this is lazy, should separate up/down
 	}
 
 	return value, notify;
 }
 
 // like MSP [curve~], exact destination
-// Miller Puckette, David Zicarelli, Graham Wakefield, me
+// based on Miller Puckette, David Zicarelli, Graham Wakefield
 // the only side effect of using 'expA()' approximation (with no compensation offsets)...
 // ...is that 'curvature' values < -0.95 && > 0.95 produce curves not quite as steep as the original...
 // ...this is totally fine by me, and probably worth it

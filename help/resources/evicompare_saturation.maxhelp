@@ -20,6 +20,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Saturation",
         "boxes": [
@@ -39,7 +40,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -10280,7 +10281,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 128.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

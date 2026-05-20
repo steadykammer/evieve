@@ -1,0 +1,66 @@
+{
+    "object": {
+        "name": "evi_pan_mono",
+        "child": "",
+        "category": "evieve",
+        "digest": "Pan audio signals, mono",
+        "description": "Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+    },
+    "constructor": {
+        "inlets": "mono, panning"
+    },
+    "includes": [
+        "evi_utilities"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "mono",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Input",
+            "digest": "Audio input to be panned"
+        },
+        {
+            "id": 2,
+            "name": "panning",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "0..1 @min 0 @max 1 @default 0.5",
+            "digest": "Pan Amount 0..1, Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'. 0.5 = center."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Panned Output Left"
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Panned Output Right"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_pan_dual",
+            "display": "evi_pan_dual"
+        },
+        {
+            "name": "evi_xfade_mono",
+            "display": "evi_xfade_mono"
+        },
+        {
+            "name": "evi_xfade_stereo",
+            "display": "evi_xfade_stereo"
+        }
+    ]
+}

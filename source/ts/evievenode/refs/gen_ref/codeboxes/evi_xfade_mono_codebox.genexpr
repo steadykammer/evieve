@@ -1,0 +1,9 @@
+
+require("evi_utilities.genexpr");
+
+
+// This 'xfadeQuartApproxMono()' function is the equivalent of [evi.xfade~ @mode 0]
+out1 = xfadeQuartApproxMono(in1, in2, in3);
+
+
+// @see also: 'xfadeQuartApproxSwap()', 'xfadeQuartApproxStereo()', 'evi_xfade_stereo', 'evi.xfade~'

@@ -81,7 +81,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 50.0, 88.33333333333333, 227.0, 22.0 ],
-                                                    "text": "list.reg evicompare_biquadsvf.maxpat"
+                                                    "text": "list.reg evicompare_biquadsvf.maxhelp"
                                                 }
                                             },
                                             {

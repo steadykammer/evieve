@@ -47,7 +47,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "These are the evieve object examples available in Max, many are also available in gen~. For more evieve code explore the <link href=\"; max openhelp loadevieveGenExprIndex\">evieve GenExpr Index</link>.",
+                    "text": "These are the evieve object examples available in Max, most are also available in gen~. For more evieve code explore the <link href=\"; max openhelp loadevieveGenExprIndex\">evieve GenExpr Index</link>.",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -238,7 +238,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 929, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 928, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -3938,7 +3938,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
+                    "bgcolor": [ 0.11777248871826379, 0.11777244632528377, 0.11777245732203342, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-2",
                     "maxclass": "panel",
@@ -3961,7 +3961,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
+                    "bgcolor": [ 0.11777248871826379, 0.11777244632528377, 0.11777245732203342, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-3",
                     "maxclass": "panel",
@@ -3984,7 +3984,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.117772488718264, 0.117772446325284, 0.117772457322033, 1.0 ],
+                    "bgcolor": [ 0.11777248871826379, 0.11777244632528377, 0.11777245732203342, 1.0 ],
                     "bordercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "id": "obj-5",
                     "maxclass": "panel",

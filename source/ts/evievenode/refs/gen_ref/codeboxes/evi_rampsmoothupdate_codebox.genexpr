@@ -1,15 +1,15 @@
 
-// like MSP [rampsmooth~] if fed by signals at ramp inlets, exact destination
+// like MSP [rampsmooth~] if fed by ints at ramp inlets, exact destination
 // original port by Maurizio Giri, Graham Wakefield
-eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in samples
+eviRampsmoothUpdate(input, frampup, frampdown)	// input, up in samples, down in samples
 {
 	History value(0), prev(0), stepcounter(0), increment(1);
 	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
 	rampdown = trunc(frampdown);
 	notify = 1;
 
-	// reset ramp if input has changed, NOT if ramp parameters change
-	if (input != prev) {
+	// reset ramp if input has changed, OR if ramp parameters change
+	if (input != prev || delta(rampup) || delta(rampdown)) {
 		direction = (input - value);
 		if (direction > 0) {
 			stepcounter = rampup;
@@ -23,8 +23,8 @@ eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in sampl
 
 	// keep incrementing until stepcounter counts down to zero
 	if (stepcounter) {
+		stepcounter -= 1;
 		value += increment;
-		stepcounter -= 1;		// pete: i feel like this is actually the correct ordering
 		notify = 0;
 	} else {
 		value = input;
@@ -34,6 +34,6 @@ eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in sampl
 	return value, notify;
 }
 
-out1, out2 = eviRampsmooth(in1, in2, in3);
+out1, out2 = eviRampsmoothUpdate(in1, in2, in3);
 
-// @see also: eviRampsmoothUpdate()
+// @see also: eviRampsmooth()

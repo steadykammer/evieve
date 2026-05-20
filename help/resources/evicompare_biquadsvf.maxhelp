@@ -19,6 +19,7 @@
         "subpatcher_template": "sub",
         "showrootpatcherontab": 0,
         "showontab": 0,
+        "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "evieve Compare: Biquads / SVFs",
         "boxes": [
@@ -38,7 +39,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -7657,7 +7658,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 127.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,
