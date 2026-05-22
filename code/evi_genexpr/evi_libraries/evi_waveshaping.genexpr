@@ -229,11 +229,11 @@ cos32quad12p(x)
 
 // gain wrapping for 'sinSat()'
 // based on an idea by jhno & Trond Lossius
-sinParam(drive)
+localSinParam(drive)
 {
 	// pidrive	= drive*3.110176727054 + 0.031415926536; // sadly low bump issue
 	pidrive		= drive*2.827433388230814 + 0.314159265358979; // sadly 0 drive prominant low harmonic
-    sindrive	= 1 / cos32quad12(HALFPI - minimum(pidrive, HALFPI));
+    sindrive	= 1 / cos32quad12p(HALFPI - minimum(pidrive, HALFPI));
 	return	pidrive, sindrive;
 }
 
@@ -241,7 +241,7 @@ sinParam(drive)
 // (was called "rSinDrive()" in "stkr.waveshaping")
 sinSat(x, drive)
 {
-	pidrive, sindrive = sinParam(drive);
+	pidrive, sindrive = localSinParam(drive);
 	return 	sin(x * pidrive) * sindrive; // just anti-alias this line (evieve uses approx sin here), @see: 'evi_sinfold.gendsp'
 }
 

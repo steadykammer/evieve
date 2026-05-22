@@ -418,6 +418,130 @@
 
       </description>
     </entry>
+    <entry name="foldPolyAdaa1_2x_6POINT ( )">
+      <description>
+        Adaa1, 2x oversampling, 6-point interpolator, folding polynomial function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Fold, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="foldPolyAdaa1_4x_6POINT ( )">
+      <description>
+        Adaa1, 4x oversampling, 6-point interpolator, folding polynomial function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Fold, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="foldPolyAdaa2_2x_6POINT ( )">
+      <description>
+        Adaa2, 2x oversampling, 6-point interpolator, folding polynomial function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Fold, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="foldPolyAdaa2_4x_6POINT ( )">
+      <description>
+        Adaa2, 4x oversampling, 6-point interpolator, folding polynomial function <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Fold, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eCubicAdaa1_2x_6POINT ( )">
+      <description>
+        Adaa1, 2x oversampling, 6-point interpolator, cubic nonlinear distortion <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eCubicAdaa1_4x_6POINT ( )">
+      <description>
+        Adaa1, 4x oversampling, 6-point interpolator, cubic nonlinear distortion <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eCubicAdaa2_2x_6POINT ( )">
+      <description>
+        Adaa2, 2x oversampling, 6-point interpolator, cubic nonlinear distortion <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eCubicAdaa2_4x_6POINT ( )">
+      <description>
+        Adaa2, 4x oversampling, 6-point interpolator, cubic nonlinear distortion <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+
+        <b>Return 1</b>: Cubic, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="tarrabiaAdaa1_2x_6POINT ( )">
+      <description>
+        Adaa1, 2x oversampling, 6-point interpolator, Tarrabia shaper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Soft..Hard, should clip 0.01..0.99</i> <br />
+
+        <b>Return 1</b>: Shaper, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="tarrabiaAdaa1_4x_6POINT ( )">
+      <description>
+        Adaa1, 4x oversampling, 6-point interpolator, Tarrabia shaper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Soft..Hard, should clip 0.01..0.99</i> <br />
+
+        <b>Return 1</b>: Shaper, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="tarrabiaAdaa2_2x_6POINT ( )">
+      <description>
+        Adaa2, 2x oversampling, 6-point interpolator, Tarrabia shaper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Soft..Hard, should clip 0.5..0.99</i> <br />
+
+        <b>Return 1</b>: Shaper, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="tarrabiaAdaa2_4x_6POINT ( )">
+      <description>
+        Adaa2, 4x oversampling, 6-point interpolator, Tarrabia shaper <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Soft..Hard, should clip 0.5..0.99</i> <br />
+
+        <b>Return 1</b>: Shaper, <i>Anti-aliased audio output</i> <br />
+
+      </description>
+    </entry>
     <entry name="sinAdaa1_2x_6POINT ( )">
       <description>
         Adaa1, 2x oversampling, 6-point interpolator, sine folder <br />

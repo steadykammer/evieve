@@ -193,7 +193,7 @@
 
       </description>
     </entry>
-    <entry name="sinParam ( )">
+    <entry name="localSinParam ( )">
       <description>
         Create gain wrapping parameters for 'sinSat()' <br />
         <br />

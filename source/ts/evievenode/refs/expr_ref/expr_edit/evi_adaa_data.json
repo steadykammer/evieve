@@ -1269,7 +1269,59 @@
         {
             "document": false,
             "digest": "",
+            "name": "tarrabiaF11",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
             "name": "tarrabiaF2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "a",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "tarrabiaF22",
             "inputs": [
                 {
                     "id": 1,
@@ -1307,7 +1359,7 @@
                     "id": 2,
                     "kind": "param",
                     "name": "a",
-                    "default": 0.5,
+                    "default": 0.75,
                     "type": "float",
                     "digest": "Amount of saturation (linear)"
                 }
@@ -1335,7 +1387,7 @@
                     "id": 2,
                     "kind": "param",
                     "name": "a",
-                    "default": 0.5,
+                    "default": 0.75,
                     "type": "float",
                     "digest": "Amount of saturation (linear)"
                 }

@@ -224,7 +224,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 64.0, 323.0, 79.0, 22.0 ],
-                                    "text": "prepend load"
+                                    "text": "prepend help"
                                 }
                             },
                             {
@@ -327,7 +327,7 @@
                     "patching_rect": [ 317.0, 101.0, 219.0, 141.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 317.0, 101.0, 219.0, 141.0 ],
-                    "tabs": [ "Biquads/SVFs", "Linear Filters", "Nonlinear Korg Filters", "Nonlinear Ladder Filters", "Nonlinear SVFs", "Saturation", "Smoothers" ]
+                    "tabs": [ "Biquads/SVFs", "Linear Filters", "Nonlinear Korg Filters", "Nonlinear Ladder Filters", "Nonlinear SVFs", "Saturation and Aliasing", "Smoothers" ]
                 }
             },
             {
@@ -833,9 +833,9 @@
                                                         "maxclass": "newobj",
                                                         "text": "out 2 Reset (Param has changed)",
                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
-                                                        "numoutlets": 0,
+                                                        "numinlets": 1,
                                                         "id": "obj-7",
-                                                        "numinlets": 1
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
@@ -843,10 +843,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-5",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-5",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -854,23 +854,23 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 1 (signal) Input Signal",
                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-1",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-1",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                        "numoutlets": 2,
-                                                        "id": "obj-3",
                                                         "outlettype": [ "", "" ],
-                                                        "fontsize": 12.0,
-                                                        "fontname": "<Monospaced>",
-                                                        "numinlets": 2,
                                                         "fontface": 0,
+                                                        "fontsize": 12.0,
+                                                        "numinlets": 2,
+                                                        "id": "obj-3",
+                                                        "fontname": "<Monospaced>",
+                                                        "numoutlets": 2,
                                                         "code": "\r\n// this is an anti-aliased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no anti-aliasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are anti-aliased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);\r\nataninput = in1 * ingain;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                     }
                                                 },
@@ -879,9 +879,9 @@
                                                         "maxclass": "newobj",
                                                         "text": "out 1 (signal) Atan(x) Output - anti-aliased for your audio not for Maths",
                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
-                                                        "numoutlets": 0,
+                                                        "numinlets": 1,
                                                         "id": "obj-4",
-                                                        "numinlets": 1
+                                                        "numoutlets": 0
                                                     }
                                                 }
                                             ],
@@ -1513,10 +1513,10 @@
                                                         "text": "in 4 (signal/float) Q @default 0.707107",
                                                         "linecount": 2,
                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-6",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-6",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1525,10 +1525,10 @@
                                                         "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0",
                                                         "linecount": 2,
                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-5",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-5",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1536,10 +1536,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 1 (signal) Input",
                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-1",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-1",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1548,10 +1548,10 @@
                                                         "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5",
                                                         "linecount": 2,
                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-2",
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "numinlets": 0,
+                                                        "id": "obj-2",
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1559,22 +1559,22 @@
                                                         "maxclass": "newobj",
                                                         "text": "out 1 (signal) Filter Output",
                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
-                                                        "numoutlets": 0,
+                                                        "numinlets": 1,
                                                         "id": "obj-4",
-                                                        "numinlets": 1
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                        "numoutlets": 1,
-                                                        "id": "obj-3",
                                                         "outlettype": [ "" ],
-                                                        "fontsize": 12.0,
-                                                        "fontname": "<Monospaced>",
-                                                        "numinlets": 4,
                                                         "fontface": 0,
+                                                        "fontsize": 12.0,
+                                                        "numinlets": 4,
+                                                        "id": "obj-3",
+                                                        "fontname": "<Monospaced>",
+                                                        "numoutlets": 1,
                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                     }
                                                 }
@@ -1824,14 +1824,14 @@
                     "presentation": 1,
                     "presentation_rect": [ 1142.0, 424.0, 104.0, 26.0 ],
                     "rnboattrcache": {
-                        "gen~_obj-1/filter": {
-                            "label": "filter",
+                        "gen~_obj-1/smooth": {
+                            "label": "smooth",
                             "isEnum": 0,
                             "parsestring": "",
                             "type": 0
                         },
-                        "gen~_obj-1/smooth": {
-                            "label": "smooth",
+                        "gen~_obj-1/filter": {
+                            "label": "filter",
                             "isEnum": 0,
                             "parsestring": "",
                             "type": 0
@@ -2479,7 +2479,7 @@
                     "patching_rect": [ 832.0, 305.0, 184.0, 60.0 ],
                     "presentation": 1,
                     "presentation_linecount": 4,
-                    "presentation_rect": [ 833.0, 305.0, 184.0, 60.0 ],
+                    "presentation_rect": [ 832.0, 305.0, 184.0, 60.0 ],
                     "text": "Creating your own processing chains inside GenExpr is always the most efficient as there is no other wrapping going on",
                     "textjustification": 1
                 }

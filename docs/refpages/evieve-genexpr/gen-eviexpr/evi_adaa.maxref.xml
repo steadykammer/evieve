@@ -250,7 +250,7 @@
         First order anti-derivative anti-aliasing of a novel waveshaper function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.5</b>, <i>Amount of saturation (linear)</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Amount of saturation (linear)</i> <br />
 
         <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 
@@ -261,7 +261,7 @@
         Second order anti-derivative anti-aliasing of a novel waveshaper function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.5</b>, <i>Amount of saturation (linear)</i> <br />
+        <b>In 2</b>: type=<i>param</i> (optional): a, default: <b>0.75</b>, <i>Amount of saturation (linear)</i> <br />
 
         <b>Return 1</b>: Saturated, <i>Saturated audio output</i> <br />
 

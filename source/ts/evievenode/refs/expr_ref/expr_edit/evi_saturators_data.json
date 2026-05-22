@@ -807,6 +807,278 @@
         },
         {
             "document": true,
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, folding polynomial function",
+            "name": "foldPolyAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fold",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, folding polynomial function",
+            "name": "foldPolyAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fold",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, folding polynomial function",
+            "name": "foldPolyAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fold",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, folding polynomial function",
+            "name": "foldPolyAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fold",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, cubic nonlinear distortion",
+            "name": "eCubicAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, cubic nonlinear distortion",
+            "name": "eCubicAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, cubic nonlinear distortion",
+            "name": "eCubicAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, cubic nonlinear distortion",
+            "name": "eCubicAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Cubic",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa1, 2x oversampling, 6-point interpolator, Tarrabia shaper",
+            "name": "tarrabiaAdaa1_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "a",
+                    "default": 0.75,
+                    "type": "float",
+                    "digest": "Soft..Hard, should clip 0.01..0.99"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Shaper",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa1, 4x oversampling, 6-point interpolator, Tarrabia shaper",
+            "name": "tarrabiaAdaa1_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "a",
+                    "default": 0.75,
+                    "type": "float",
+                    "digest": "Soft..Hard, should clip 0.01..0.99"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Shaper",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 2x oversampling, 6-point interpolator, Tarrabia shaper",
+            "name": "tarrabiaAdaa2_2x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "a",
+                    "default": 0.75,
+                    "type": "float",
+                    "digest": "Soft..Hard, should clip 0.5..0.99"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Shaper",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Adaa2, 4x oversampling, 6-point interpolator, Tarrabia shaper",
+            "name": "tarrabiaAdaa2_4x_6POINT",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "param",
+                    "name": "a",
+                    "default": 0.75,
+                    "type": "float",
+                    "digest": "Soft..Hard, should clip 0.5..0.99"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Shaper",
+                    "digest": "Anti-aliased audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Adaa1, 2x oversampling, 6-point interpolator, sine folder",
             "name": "sinAdaa1_2x_6POINT",
             "inputs": [

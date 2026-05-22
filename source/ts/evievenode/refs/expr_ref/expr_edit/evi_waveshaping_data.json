@@ -458,7 +458,7 @@
         {
             "document": true,
             "digest": "Create gain wrapping parameters for 'sinSat()'",
-            "name": "sinParam",
+            "name": "localSinParam",
             "inputs": [
                 {
                     "id": 1,

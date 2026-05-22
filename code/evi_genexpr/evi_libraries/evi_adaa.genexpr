@@ -44,6 +44,8 @@ require("evi_utilities.genexpr"); // includes "evi_approx.genexpr"
 // Adaa1 convolves F0 & F1,
 // Adaa2 convolves F0, F1 & F2
 
+// Adaa1 adds 0.5 samples delay, Adaa2 adds 1.5 samples delay
+
 
 //  //  //  Antialiased Hard Clipper, does nothing unless you clip
 
@@ -883,6 +885,11 @@ eCubicF0(x)
   return x * (1 - 0.333333333333 * x * x);
 }
 
+// eCubicF0(x)
+// {
+//   return x - x*x*x/3;
+// }
+
 eCubicF1(x)
 {
 //  x = clip(x, -1, 1);
@@ -957,7 +964,7 @@ eCubicAdaa2(x)
   return y1;
 }
 
-//  //  //  PASSIVE, 'a' must be fixed and in range 0.01..0.99
+//  //  //  PASSIVE, 'a' must be fixed and in range 0.01..0.99 (don't believe the hype about negative 'a')
 
 tarrabiaF0(x, a)
 {
@@ -971,6 +978,11 @@ tarrabiaF1(x, a)
     return ((a + 1) * ((a - 1) * logApprox(abs(a * (ax + ax - 1) + 1)) + (a + a) * ax)) / (4 * a*a);
 }
 
+tarrabiaF11(x, a)
+{
+    return ((a + 1) * ((a - 1) * log(abs(a * (abs(x) + abs(x) - 1) + 1)) + (a + a) * abs(x))) / (4 * a*a);
+}
+
 tarrabiaF2(x, a)
 {
     ax = abs(x);
@@ -980,8 +992,14 @@ tarrabiaF2(x, a)
     return (sign(x) * ((a + 1) * ((am1 + am1) * a * ax * logApprox(abs(a * (ax + ax - 1) + 1)) - am1 * (am1 * logApprox(abs(apa * ax - a + 1)) + apa * ax) + 2 * a*a * x*x) + loma * a*a*a - loma * a*a - loma * a + loma)) / (8 * a*a*a);
 }
 
+tarrabiaF22(x, a)
+{
+    return (sign(x) * ((a + 1) * (((a - 1) + (a - 1)) * a * abs(x) * log(abs(a * (abs(x) + abs(x) - 1) + 1)) - (a - 1) * ((a - 1) * log(abs((a + a) * abs(x) - a + 1)) + (a + a) * abs(x)) + 2 * a*a * x*x) + log(1 - a) * a*a*a - log(1 - a) * a*a - log(1 - a) * a + log(1 - a))) / (8 * a*a*a);
+}
+
 // this does not work when changing / modulating 'a', only works with static a
-tarrabiaAdaa1(x0, a=0.5)
+// a full range 0.01..0.99 is soft..hard, works well
+tarrabiaAdaa1(x0, a=0.75)
 {
   History x1(0), s1(0);
   eps = 0.00001;  // 
@@ -997,22 +1015,23 @@ tarrabiaAdaa1(x0, a=0.5)
 
   s1 = s0;
   x1 = x0;
-  return y1;
+  return y1 * 0.636619772367581; // div by HALFPI
 }
 
-// sadly the Adaa2 is sometimes unstable, maybe limit the bounds of 'a' ?
-tarrabiaAdaa2(x0, a=0.5)
+// sadly the Adaa2 is sometimes unstable, minimum 'a' should be 0.5 really
+// almost pointless because of the huge costs of ...F11() & ...F22()
+tarrabiaAdaa2(x0, a=0.75)
 {
   History x1(0), x2(0), s1(0);
   eps = 0.001;  // really ?
 
   s0 = 0;
   d0 = x0 - x1;
-  f2_x1 = tarrabiaF2(x1, a); // func2
+  f2_x1 = tarrabiaF22(x1, a); // func2
   if (abs(d0) < eps) {  // ill condition
-    s0 = tarrabiaF1(0.5 * (x0 + x1), a); // func1
+    s0 = tarrabiaF11(0.5 * (x0 + x1), a); // func1
   } else {
-    s0 = (tarrabiaF2(x0, a) - f2_x1) / d0; // func2
+    s0 = (tarrabiaF22(x0, a) - f2_x1) / d0; // func2
   }
 
   y1 = 0;
@@ -1025,7 +1044,7 @@ tarrabiaAdaa2(x0, a=0.5)
     if (x_delta < eps) {  // ill condition
       y1 = tarrabiaF0((x_bar + x1) * 0.5, a);  // func0
     } else {
-      y1 = (2 / x_delta) * (tarrabiaF1(x_bar, a) + (f2_x1 - tarrabiaF2(x_bar, a)) / x_delta); // func1, func2
+      y1 = (2 / x_delta) * (tarrabiaF11(x_bar, a) + (f2_x1 - tarrabiaF22(x_bar, a)) / x_delta); // func1, func2
     }
   } else {
     s0s1 = s0 - s1;
@@ -1035,7 +1054,7 @@ tarrabiaAdaa2(x0, a=0.5)
   s1 = s0;
   x2 = x1;
   x1 = x0;
-  return y1;
+  return y1 * 0.636619772367581; // div by HALFPI
 }
 
 
