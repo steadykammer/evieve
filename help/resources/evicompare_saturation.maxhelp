@@ -1122,7 +1122,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "Naive", "Adaa1", "Adaa1 x2", "Adaa1 x4", "Adaa2", "Adaa2 x2", "Adaa2 x4" ],
-                                            "parameter_initial": [ 6.0 ],
+                                            "parameter_initial": [ 3.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "tab[10]",
                                             "parameter_mmax": 6,
@@ -6504,6 +6504,7 @@
                             },
                             {
                                 "box": {
+                                    "clipheight": 24.5,
                                     "data": {
                                         "clips": [
                                             {
@@ -6511,6 +6512,16 @@
                                                 "filename": "evicheeseslice.wav",
                                                 "filekind": "audiofile",
                                                 "id": "u469001787",
+                                                "loop": 1,
+                                                "content_state": {
+                                                    "loop": 1
+                                                }
+                                            },
+                                            {
+                                                "absolutepath": "evidistortedcrooner.wav",
+                                                "filename": "evidistortedcrooner.wav",
+                                                "filekind": "audiofile",
+                                                "id": "u857013347",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -6525,7 +6536,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 285.0, 269.0, 150.0, 30.0 ],
+                                    "patching_rect": [ 285.0, 259.0, 207.0, 51.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -6766,7 +6777,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "offset": [ 0.0, 0.0 ],
+                                    "offset": [ 0.0, -74.0 ],
                                     "outlettype": [ "float", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -7415,7 +7426,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[1]"
                                 }
@@ -8865,6 +8876,18 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-47",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 841.0, 363.0, 75.0, 24.0 ],
+                                    "text": "MSP",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-40",
@@ -17236,7 +17259,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "bordercolor": [ 1.0, 0.502, 0.0, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-74",
@@ -17255,7 +17278,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "bordercolor": [ 0.0, 0.0, 0.502, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-73",
@@ -17274,7 +17297,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "bordercolor": [ 0.0, 0.502, 0.0, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-72",
@@ -17293,7 +17316,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "bordercolor": [ 0.502, 0.0, 0.0, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-71",
@@ -18293,6 +18316,18 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-93",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 926.0, 123.0, 70.0, 22.0 ],
+                                    "text": "loadmess 1"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-27",
                                     "maxclass": "live.meter~",
                                     "numinlets": 1,
@@ -18885,7 +18920,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup[2]"
                                 }
                             },
@@ -19092,10 +19127,10 @@
                                                 }
                                             },
                                             {
-                                                "absolutepath": "drumLoop.aif",
-                                                "filename": "drumLoop.aif",
+                                                "absolutepath": "evimonofactoriesfade.wav",
+                                                "filename": "evimonofactoriesfade.wav",
                                                 "filekind": "audiofile",
-                                                "id": "u812007035",
+                                                "id": "u461013273",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -22046,6 +22081,22 @@
                                     "destination": [ "obj-89", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-92", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
+                                    "source": [ "obj-93", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-73", 0 ],
+                                    "hidden": 1,
+                                    "order": 0,
+                                    "source": [ "obj-93", 0 ]
                                 }
                             }
                         ],

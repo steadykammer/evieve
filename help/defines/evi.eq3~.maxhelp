@@ -44,6 +44,27 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "args": [ "@module", 3, "@vol", -12, "@loop", 1, "@file", "sho0630.aif", "@wave", 2, "@freq", 220, "@noise", 0, "@filter", 0 ],
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-7",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "name": "demosound.maxpat",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "offset": [ -4.0, -3.0 ],
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 15.0, 363.0, 219.0, 89.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -537,28 +558,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-15",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 60.0, 497.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-13",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 60.0, 442.0, 47.0, 23.0 ],
-                                    "text": "noise~"
-                                }
-                            },
-                            {
-                                "box": {
                                     "format": 6,
                                     "id": "obj-12",
                                     "maxclass": "flonum",
@@ -822,18 +821,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-15", 0 ],
-                                    "source": [ "obj-13", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-15", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-14", 0 ],
                                     "source": [ "obj-20", 0 ]
                                 }
@@ -929,6 +916,12 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
                                     "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-7", 0 ]
                                 }
                             }
                         ],
@@ -1549,7 +1542,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 298.0, 482.0, 300.0, 54.0 ],
+                                    "patching_rect": [ 298.0, 467.0, 300.0, 54.0 ],
                                     "text": "The main feature of this EQ is that all of these floats inlets can be audio rate modulated inlets. See the 'signals' tab for more info"
                                 }
                             },
@@ -3227,6 +3220,27 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "args": [ "@module", 3, "@vol", -12, "@loop", 1, "@file", "sho0630.aif", "@wave", 2, "@freq", 220, "@noise", 0, "@filter", 0 ],
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-1",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "name": "demosound.maxpat",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "offset": [ -4.0, -3.0 ],
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 153.0, 219.0, 89.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -3336,28 +3350,6 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 487.0, 272.0, 65.0, 21.0 ],
                                     "text": "High dB"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 271.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-3",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 210.0, 47.0, 23.0 ],
-                                    "text": "noise~"
                                 }
                             },
                             {
@@ -3697,14 +3689,14 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-14", 0 ],
-                                    "source": [ "obj-20", 0 ]
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-1", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-6", 0 ],
-                                    "source": [ "obj-3", 0 ]
+                                    "destination": [ "obj-14", 0 ],
+                                    "source": [ "obj-20", 0 ]
                                 }
                             },
                             {
@@ -3732,12 +3724,6 @@
                                     "destination": [ "obj-9", 0 ],
                                     "order": 2,
                                     "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-6", 0 ]
                                 }
                             }
                         ],
@@ -3871,6 +3857,8 @@
             "obj-10::obj-31": [ "number[16]", "number[8]", 0 ],
             "obj-10::obj-32": [ "number[15]", "number[13]", 0 ],
             "obj-10::obj-36": [ "number[14]", "number[11]", 0 ],
+            "obj-11::obj-1::obj-21::obj-6": [ "live.tab[1]", "live.tab[1]", 0 ],
+            "obj-11::obj-1::obj-35": [ "[1]", "Level", 0 ],
             "obj-11::obj-31": [ "number[8]", "live.numbox", 0 ],
             "obj-2::obj-11": [ "umenu[1]", "umenu[1]", 0 ],
             "obj-2::obj-119": [ "Q5", "live.numbox", 0 ],
@@ -3890,12 +3878,22 @@
             "obj-5::obj-31": [ "number[10]", "number[8]", 0 ],
             "obj-5::obj-32": [ "number[13]", "number[13]", 0 ],
             "obj-5::obj-36": [ "number[11]", "number[11]", 0 ],
+            "obj-5::obj-7::obj-21::obj-6": [ "live.tab[3]", "live.tab[1]", 0 ],
+            "obj-5::obj-7::obj-35": [ "[5]", "Level", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,
                     "name": "",
                     "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
                     "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
+            "parameter_overrides": {
+                "obj-11::obj-1::obj-21::obj-6": {
+                    "parameter_longname": "live.tab[1]"
+                },
+                "obj-11::obj-1::obj-35": {
+                    "parameter_longname": "[1]"
                 }
             },
             "inherited_shortname": 1

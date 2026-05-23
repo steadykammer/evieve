@@ -16,6 +16,22 @@
         "boxes": [
             {
                 "box": {
+                    "bubble": 1,
+                    "bubblepoint": 0.75,
+                    "bubbleside": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-16",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 458.0, 381.0, 182.0, 39.0 ],
+                    "text": "THIS IS NOT WORKING :-(",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-21",
                     "maxclass": "button",
@@ -137,7 +153,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 241.0, 29.0, 304.0, 33.0 ],
-                    "text": "this is a copy of \"adsr-synth.maxpat\" from the [adsr~] helpfile to show that [evi.adsr~] works similarly"
+                    "text": "this is a copy of \"adsr-synth.maxpat\" from the [adsr~] helpfile to show that [evi.adsr~] works (almost) similarly"
                 }
             },
             {
@@ -591,6 +607,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
+                    "disabled": 1,
                     "midpoints": [ 525.1666666666666, 374.78515625, 661.5, 374.78515625 ],
                     "source": [ "obj-9", 2 ]
                 }
@@ -612,6 +629,7 @@
                 }
             }
         ],
+        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

@@ -279,10 +279,10 @@
                                     "data": {
                                         "clips": [
                                             {
-                                                "absolutepath": "anton.aif",
-                                                "filename": "anton.aif",
+                                                "absolutepath": "evidistortedcrooner.wav",
+                                                "filename": "evidistortedcrooner.wav",
                                                 "filekind": "audiofile",
-                                                "id": "u982005328",
+                                                "id": "u499006261",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -327,7 +327,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 332.0, 282.0, 98.0 ],
+                                    "patching_rect": [ 140.0, 332.0, 280.0, 98.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -766,10 +766,10 @@
                                     "data": {
                                         "clips": [
                                             {
-                                                "absolutepath": "anton.aif",
-                                                "filename": "anton.aif",
+                                                "absolutepath": "evidistortedcrooner.wav",
+                                                "filename": "evidistortedcrooner.wav",
                                                 "filekind": "audiofile",
-                                                "id": "u982005328",
+                                                "id": "u499006261",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -814,7 +814,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 223.0, 299.0, 282.0, 98.0 ],
+                                    "patching_rect": [ 223.0, 299.0, 280.0, 98.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -2256,10 +2256,10 @@
                                     "data": {
                                         "clips": [
                                             {
-                                                "absolutepath": "anton.aif",
-                                                "filename": "anton.aif",
+                                                "absolutepath": "evidistortedcrooner.wav",
+                                                "filename": "evidistortedcrooner.wav",
                                                 "filekind": "audiofile",
-                                                "id": "u982005328",
+                                                "id": "u499006261",
                                                 "loop": 1,
                                                 "content_state": {
                                                     "loop": 1
@@ -2304,7 +2304,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 294.0, 284.0, 282.0, 98.0 ],
+                                    "patching_rect": [ 294.0, 284.0, 280.0, 98.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
