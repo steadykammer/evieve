@@ -215,9 +215,9 @@
 		<seealso name="evi.rectify~"> </seealso>
 		<seealso name="evi.softstatic~"> </seealso>
 		<seealso name="evi.squeeze~"> </seealso>
-		<seealso name="evi.overdrive.tanh~"> </seealso>
-		<seealso name="evi.overdrive.atan~"> </seealso>
-		<seealso name="evi.overdrive.sqrt~"> </seealso>
+		<seealso name="evi.overdrive.fold~"> </seealso>
+		<seealso name="evi.overdrive.wrap~"> </seealso>
+		<seealso name="evi.overdrive.env~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

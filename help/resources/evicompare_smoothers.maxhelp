@@ -85,7 +85,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -626,7 +626,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 289.0, 280.0, 65.0, 24.0 ],
+                                                    "patching_rect": [ 292.0, 281.0, 65.0, 24.0 ],
                                                     "text": "gain",
                                                     "textjustification": 1
                                                 }
@@ -638,7 +638,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 276.0, 128.0, 65.0, 22.0 ],
+                                                    "patching_rect": [ 279.0, 129.0, 65.0, 22.0 ],
                                                     "text": "clamp -1 1"
                                                 }
                                             },
@@ -659,8 +659,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 185.0, 292.0, 110.0, 22.0 ],
-                                                    "text": "evi_overdrive_atan"
+                                                    "patching_rect": [ 185.0, 292.0, 113.0, 22.0 ],
+                                                    "text": "evi_overdrive_wrap"
                                                 }
                                             },
                                             {
@@ -670,7 +670,7 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 276.0, 205.0, 137.0, 22.0 ],
+                                                    "patching_rect": [ 279.0, 206.0, 137.0, 22.0 ],
                                                     "text": "evi_vactrol @scalar 100"
                                                 }
                                             },
@@ -716,8 +716,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 178.0, 315.0, 125.0, 33.0 ],
-                                                    "text": "[evi.overdrive.atan~] in MSP",
+                                                    "patching_rect": [ 179.0, 315.0, 125.0, 33.0 ],
+                                                    "text": "[evi.overdrive.wrap~] in MSP",
                                                     "textjustification": 1
                                                 }
                                             },
@@ -727,7 +727,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 276.0, 183.0, 137.0, 20.0 ],
+                                                    "patching_rect": [ 279.0, 184.0, 137.0, 20.0 ],
                                                     "text": "[evi.vactrol~] in MSP",
                                                     "textjustification": 1
                                                 }
@@ -746,12 +746,12 @@
                                             {
                                                 "box": {
                                                     "id": "obj-12",
-                                                    "linecount": 2,
+                                                    "linecount": 5,
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 453.0, 257.0, 150.0, 33.0 ],
-                                                    "text": "(this is an extremely simplified example !)"
+                                                    "patching_rect": [ 456.0, 258.0, 150.0, 74.0 ],
+                                                    "text": "This is an extremely simplified example !\n@see: [evi.valve~] in MSP or [evi_valve] in gen~ for a more advanced example"
                                                 }
                                             },
                                             {
@@ -762,7 +762,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 430.0, 191.0, 173.0, 51.0 ],
+                                                    "patching_rect": [ 433.0, 192.0, 173.0, 51.0 ],
                                                     "text": "use a vactorl envelope to control the amount of gain into a saturation stage",
                                                     "textjustification": 1
                                                 }
@@ -773,7 +773,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 343.0, 129.0, 70.0, 20.0 ],
+                                                    "patching_rect": [ 346.0, 130.0, 70.0, 20.0 ],
                                                     "text": "important"
                                                 }
                                             }
@@ -8427,7 +8427,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

@@ -107,7 +107,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.tanh~\">evi.overdrive.tanh~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
+                    "text": "<link href=\"; max openhelp evi.overdrive.fold~\">evi.overdrive.fold~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -131,7 +131,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.atan~\">evi.overdrive.atan~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
+                    "text": "<link href=\"; max openhelp evi.overdrive.wrap~\">evi.overdrive.wrap~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -155,7 +155,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.sqrt~\">evi.overdrive.sqrt~</link> passive overdrive, tanh-like input/output (cheapest)",
+                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output (cheapest)",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -274,7 +274,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 101.0, 241.0, 110.0, 22.0 ],
-                                    "text": "evi_overdrive_tanh"
+                                    "text": "evi_overdrive_fold"
                                 }
                             },
                             {
@@ -285,7 +285,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 101.0, 172.0, 250.0, 22.0 ],
-                                    "text": "evi_overdrive_atan @aa 1 @hfcompensate 0"
+                                    "text": "evi_overdrive_wrap @aa 1 @hfcompensate 0"
                                 }
                             },
                             {
@@ -296,7 +296,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 101.0, 103.0, 145.0, 22.0 ],
-                                    "text": "evi_overdrive_sqrt @aa 5"
+                                    "text": "evi_overdrive_env @aa 5"
                                 }
                             },
                             {

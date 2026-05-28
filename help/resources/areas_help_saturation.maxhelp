@@ -367,7 +367,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.tanh~\">evi.overdrive.tanh~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
+                    "text": "<link href=\"; max openhelp evi.overdrive.fold~\">evi.overdrive.fold~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -391,7 +391,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.atan~\">evi.overdrive.atan~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
+                    "text": "<link href=\"; max openhelp evi.overdrive.wrap~\">evi.overdrive.wrap~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -415,7 +415,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.sqrt~\">evi.overdrive.sqrt~</link> passive overdrive, tanh-like input/output (cheapest)",
+                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output (cheapest)",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -623,7 +623,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 128.0, 691.0, 358.0, 20.0 ],
-                                    "text": "[evi_overdrive_sqrt], [evi_overdrive_atan], [evi_overdrive_tanh]"
+                                    "text": "[evi_overdrive_env], [evi_overdrive_wrap], [evi_overdrive_fold]"
                                 }
                             },
                             {

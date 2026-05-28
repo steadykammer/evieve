@@ -138,16 +138,16 @@
             "display": "evi_clipasym"
         },
         {
-            "name": "evi_overdrive_sqrt",
-            "display": "evi_overdrive_sqrt"
+            "name": "evi_overdrive_env",
+            "display": "evi_overdrive_env"
         },
         {
-            "name": "evi_overdrive_atan",
-            "display": "evi_overdrive_atan"
+            "name": "evi_overdrive_wrap",
+            "display": "evi_overdrive_wrap"
         },
         {
-            "name": "evi_overdrive_tanh",
-            "display": "evi_overdrive_tanh"
+            "name": "evi_overdrive_fold",
+            "display": "evi_overdrive_fold"
         },
         {
             "name": "evi_rcfilter",

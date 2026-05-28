@@ -72,9 +72,9 @@
 		<seealso name="evi.shaper~"> </seealso>
 		<seealso name="evi.sinfold~"> </seealso>
 		<seealso name="evi.clipasym~"> </seealso>
-		<seealso name="evi.overdrive.sqrt~"> </seealso>
-		<seealso name="evi.overdrive.atan~"> </seealso>
-		<seealso name="evi.overdrive.tanh~"> </seealso>
+		<seealso name="evi.overdrive.env~"> </seealso>
+		<seealso name="evi.overdrive.wrap~"> </seealso>
+		<seealso name="evi.overdrive.fold~"> </seealso>
 		<seealso name="evi.rcfilter~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->

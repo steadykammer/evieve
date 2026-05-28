@@ -82,6 +82,7 @@
         <b>In 1</b>: type=<i>input</i>: x, <i>Value to follow</i> <br />
         <b>In 2</b>: type=<i>input</i>: a, <i>Attack time in SECONDS (to drop 6dB)</i> <br />
         <b>In 3</b>: type=<i>input</i>: d, <i>Decay time in SECONDS (to drop 6dB)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: r, <i></i> <br />
 
         <b>Return 1</b>: Env, <i>Output Envelope</i> <br />
 
@@ -107,6 +108,7 @@
         <b>In 1</b>: type=<i>input</i>: impulse, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: rise, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: fall, <i>Fall time in SAMPLES</i> <br />
+        <b>In 4</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to a Buchla vactrol</i> <br />
 

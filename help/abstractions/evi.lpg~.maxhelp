@@ -35,13 +35,56 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.1,
+                                    "bubbleside": 2,
+                                    "id": "obj-98",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 562.0, 149.0, 137.0, 40.0 ],
+                                    "text": "Lowpass or LPG ?",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.7,
+                                    "bubbleside": 2,
+                                    "id": "obj-97",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 406.0, 134.0, 137.0, 55.0 ],
+                                    "text": "morph LP..VCA behaviour, 'dampens'",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 3,
+                                    "id": "obj-95",
+                                    "linecount": 6,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 244.0, 150.0, 150.0, 98.0 ],
+                                    "text": "add resistors, effect is low boom and accentauted Res, depending on Offset/Scale/Sweep, only if @lpg is on",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "bubble": 1,
@@ -64,49 +107,6 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 569.0, 588.0, 54.0, 23.0 ],
                                     "text": "unjoin 3"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "bubblepoint": 0.1,
-                                    "bubbleside": 2,
-                                    "id": "obj-98",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 562.0, 147.0, 137.0, 40.0 ],
-                                    "text": "Lowpass or LPG ?",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "bubblepoint": 0.7,
-                                    "bubbleside": 2,
-                                    "id": "obj-97",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 406.0, 132.0, 137.0, 55.0 ],
-                                    "text": "morph LP..VCA behaviour, 'dampens'",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "id": "obj-95",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 244.0, 150.0, 150.0, 98.0 ],
-                                    "text": "add resistors, effect is low boom and accentauted Res, depending on Offset/Scale/Sweep, only if @lpg is on",
-                                    "textjustification": 1
                                 }
                             },
                             {

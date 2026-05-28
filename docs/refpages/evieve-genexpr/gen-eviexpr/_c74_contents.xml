@@ -52,6 +52,7 @@
 <refpage name='evi_tanh.maxref.xml'/>
 <refpage name='evi_trig.maxref.xml'/>
 <refpage name='evi_utilities.maxref.xml'/>
+<refpage name='evi_valves.maxref.xml'/>
 <refpage name='evi_warmer_lib.maxref.xml'/>
 <refpage name='evi_waveshaping.maxref.xml'/>
 </root>

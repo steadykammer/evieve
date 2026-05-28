@@ -16,7 +16,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ input } }
+                { arguments={}, inlets={ input, reset } }
             </digest>
         </constructor>
     </constructorlist>
@@ -24,6 +24,11 @@
         <geninlet name='input' type='float' optional='1'>
             <digest>
                 The audio input to be analysed for zero crossings.
+            </digest>
+        </geninlet>
+        <geninlet name='reset' type='float' optional='1'>
+            <digest>
+                Reset internal state, useful in some situaations.
             </digest>
         </geninlet>
     </geninletlist>

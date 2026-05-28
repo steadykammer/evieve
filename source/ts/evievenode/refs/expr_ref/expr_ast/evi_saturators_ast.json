@@ -17173,9 +17173,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -17648,6 +17654,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -17675,6 +17686,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18029,9 +18045,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -18504,6 +18526,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18531,6 +18558,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18885,9 +18917,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -19360,6 +19398,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -19387,6 +19430,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -19741,9 +19789,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -20216,6 +20270,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -20243,6 +20302,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {

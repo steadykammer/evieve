@@ -223,6 +223,7 @@
         Adaa1, 2x oversampling, 6-point interpolator, atan function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
@@ -233,6 +234,7 @@
         Adaa1, 4x oversampling, 6-point interpolator, atan function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
@@ -243,6 +245,7 @@
         Adaa2, 2x oversampling, 6-point interpolator, atan function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 
@@ -253,6 +256,7 @@
         Adaa2, 4x oversampling, 6-point interpolator, atan function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Atan Saturation, <i>Anti-aliased audio output</i> <br />
 

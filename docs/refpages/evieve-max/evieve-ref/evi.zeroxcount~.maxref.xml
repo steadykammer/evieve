@@ -31,6 +31,14 @@
 				The audio input to be analysed for zero crossings.
 			</description>
 		</inlet>
+		<inlet id="2" type="signal">
+			<digest>
+				Inlet #2: Reset
+			</digest>
+			<description>
+				Reset internal state, useful in some situaations.
+			</description>
+		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>

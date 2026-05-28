@@ -24,7 +24,7 @@
             "name": "rise",
             "type": "float",
             "optional": 1,
-            "digestauto": "@min 0 @default 20.",
+            "digestauto": "@min 1 @default 20.",
             "digest": "Envelope Rise Time in Samples. evi_vactrol does not reach it's value in this time exactly."
         },
         {
@@ -32,7 +32,7 @@
             "name": "fall",
             "type": "float",
             "optional": 1,
-            "digestauto": "@min 0 @default 3000.",
+            "digestauto": "@min 1 @default 3000.",
             "digest": "Envelope Fall Time in Samples. evi_vactrol does not reach it's value in this time exactly. Retriggering the envelope keeps the output above zero."
         }
     ],

@@ -41,7 +41,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1564,7 +1564,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1843,7 +1843,7 @@
                                         }
                                     },
                                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness3": 2.0
+                                    "thickness": 2.0
                                 }
                             },
                             {
@@ -1852,11 +1852,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-37",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 860.0, 22.0 ],
-                                    "text": "For completeness sake, here we compare a nonlinear TPT SVF with a linear TPT SVF. Both are excellent filters but have very different use cases.",
+                                    "patching_rect": [ 10.0, 70.0, 860.0, 38.0 ],
+                                    "text": "For completeness sake, here we compare a nonlinear TPT SVF with a linear TPT SVF. Both are excellent filters but have very different use cases. Note that by default, when you start this patch, the large white toggle at #2 is automatically switching between linear and nonlinear every 2 seconds.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -7717,7 +7718,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

@@ -24,6 +24,12 @@
             "type": "signal",
             "digest": "Input",
             "description": "The audio input to be analysed for zero crossings."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Reset",
+            "description": "Reset internal state, useful in some situaations."
         }
     ],
     "outlets": [

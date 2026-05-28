@@ -479,8 +479,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 1000,
-                                            "raw": "1000",
+                                            "value": 100,
+                                            "raw": "100",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -2066,9 +2066,15 @@
                     "type": "Identifier",
                     "name": "d",
                     "raw": "d"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "r",
+                    "raw": "r"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null
@@ -2110,6 +2116,38 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "r",
+                            "raw": "r"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "z",
+                                            "raw": "z"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -2784,9 +2822,15 @@
                     "type": "Identifier",
                     "name": "fall",
                     "raw": "fall"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null
@@ -2822,12 +2866,140 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "a_up",
+                                    "raw": "a_up"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "a_down",
+                                    "raw": "a_down"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ]
             ],
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "s1",
+                                            "raw": "s1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a_up",
+                                            "raw": "a_up"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a_down",
+                                            "raw": "a_down"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -2856,168 +3028,220 @@
                         }
                     },
                     {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "||",
                             "left": {
-                                "type": "Identifier",
-                                "name": "t_down",
-                                "raw": "t_down"
-                            },
-                            "right": {
                                 "type": "BinaryExpression",
-                                "operator": "+",
+                                "operator": "||",
                                 "left": {
-                                    "type": "Literal",
-                                    "value": 10,
-                                    "raw": "10",
-                                    "gen_kind": "integer"
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "rise",
+                                            "raw": "rise"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
                                 },
                                 "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "fall",
+                                            "raw": "fall"
+                                        }
+                                    ],
+                                    "callee": {
                                         "type": "Identifier",
-                                        "name": "fall",
-                                        "raw": "fall"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "reset",
+                                "raw": "reset"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
                                         "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
+                                            "type": "Identifier",
+                                            "name": "t_down",
+                                            "raw": "t_down"
                                         },
                                         "right": {
                                             "type": "BinaryExpression",
-                                            "operator": "*",
+                                            "operator": "+",
                                             "left": {
                                                 "type": "Literal",
-                                                "value": 0.9,
-                                                "raw": "0.9",
-                                                "gen_kind": "float"
+                                                "value": 10,
+                                                "raw": "10",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "fall",
+                                                    "raw": "fall"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "-",
+                                                    "left": {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Literal",
+                                                            "value": 0.9,
+                                                            "raw": "0.9",
+                                                            "gen_kind": "float"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "s1",
+                                                            "raw": "s1"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a_down",
+                                            "raw": "a_down"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "/",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "a_base",
+                                                "raw": "a_base"
                                             },
                                             "right": {
                                                 "type": "Identifier",
-                                                "name": "s1",
-                                                "raw": "s1"
+                                                "name": "t_down",
+                                                "raw": "t_down"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "t_up",
+                                            "raw": "t_up"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "rise",
+                                                    "raw": "rise"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "-",
+                                                    "left": {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    },
+                                                    "right": {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "*",
+                                                        "left": {
+                                                            "type": "Literal",
+                                                            "value": 0.999,
+                                                            "raw": "0.999",
+                                                            "gen_kind": "float"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "s1",
+                                                            "raw": "s1"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a_up",
+                                            "raw": "a_up"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "/",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "a_base",
+                                                "raw": "a_base"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "t_up",
+                                                "raw": "t_up"
                                             }
                                         }
                                     }
                                 }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "a_down",
-                                "raw": "a_down"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "/",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "a_base",
-                                    "raw": "a_base"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "t_down",
-                                    "raw": "t_down"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "t_up",
-                                "raw": "t_up"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "rise",
-                                        "raw": "rise"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "BinaryExpression",
-                                            "operator": "*",
-                                            "left": {
-                                                "type": "Literal",
-                                                "value": 0.999,
-                                                "raw": "0.999",
-                                                "gen_kind": "float"
-                                            },
-                                            "right": {
-                                                "type": "Identifier",
-                                                "name": "s1",
-                                                "raw": "s1"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "a_up",
-                                "raw": "a_up"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "/",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "a_base",
-                                    "raw": "a_base"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "t_up",
-                                    "raw": "t_up"
-                                }
-                            }
-                        }
+                            ]
+                        },
+                        "alternate": null
                     },
                     {
                         "type": "ExpressionStatement",

@@ -46,6 +46,8 @@ Param	stereo(0, min=0, max=1);    // 0/1
 DBLIN	= 0.11512925464970228;
 INVSR   = 1 / samplerate;
 smsecs  = 0.015111;                 // seconds
+tMul    = samplerate * 0.1;         // 4800
+bMul    = tMul + tMul;
 
 smoothOp        = int(smooth);
 stereoOp		= int(stereo);
@@ -53,12 +55,12 @@ stereoOp		= int(stereo);
 // controls
 
 trebleGain	= expA(DBLIN * treble);		// smooth here
-trebleFreq	= minimum((4800 * trebleGain) * INVSR, 0.45);
+trebleFreq	= minimum((tMul * trebleGain) * INVSR, 0.45);
 
 gainBass	= bass;						// smooth here
 bassGain	= expA(DBLIN * gainBass);
 bassFreq	= expA(DBLIN * -gainBass);
-bassFreq	= minimum((9600 * bassFreq) * INVSR, 0.45);
+bassFreq	= minimum((bMul * bassFreq) * INVSR, 0.45);
 
 // smooth
 

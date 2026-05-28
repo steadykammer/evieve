@@ -415,6 +415,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -435,6 +441,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -455,6 +467,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -475,6 +493,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [

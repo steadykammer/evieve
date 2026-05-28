@@ -214,6 +214,12 @@
                     "kind": "input",
                     "name": "d",
                     "digest": "Decay time in SECONDS (to drop 6dB)"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "r",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -310,6 +316,12 @@
                     "kind": "input",
                     "name": "fall",
                     "digest": "Fall time in SAMPLES"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [

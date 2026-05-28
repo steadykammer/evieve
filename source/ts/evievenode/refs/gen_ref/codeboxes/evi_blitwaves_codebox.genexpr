@@ -37,8 +37,9 @@ eviBlit(Ph, Mt, Mf)
 
 //	//	//
 
-History	thisReset(1);//, Ff(0);
-//History	prevSR(0);
+History	thisReset(1), prevSR(0);//, Ff(0);
+History sr05, sr01, srWN, omWN, MaxFreq;//, filterRolloff;
+
 Param	smooth(22., min=0, max=333);			// ms
 Param	addsync(1, min=0, max=2);				// out6: 0 = off, 1 = main phase output, 2 = pwm phase output
 Param	addtrain(0, min=0, max=2);				// out5: 0 = off, 1 = train based on main phase, 2 = train based on pwm phase
@@ -51,32 +52,16 @@ CPS_LIMIT	= 0.0001;
 Hz			= in1;
 Width		= in2;
 naiveReset	= in3;								// <<-- do not use (does not work properly if freq really high anyway)
-/*
-// why doesn't this work ?!
-sr05 = 0;
-sr01 = 0;
-srWN = 0;
-omWN = 0;
-MaxFreq = 0;
-filterRolloff = 0;
 // we only need to update these values if SR changes (& on init)
 if (prevSR != SAMPLERATE) {
 	sr05 = SAMPLERATE * 0.5;
 	sr01 = SAMPLERATE * 0.01;
-	MaxFreq	= sr05 - sr01;
+	MaxFreq	= sr05 - sr01;                      // we want it to kick in a bit below nyquist
 	srWN = sr01 / SAMPLERATE;
 	omWN = 1 - (srWN + srWN);
 //	filterRolloff = rcPreWarp2(MaxFreq);
 	prevSR = SAMPLERATE;
 }
-*/
-sr05 = SAMPLERATE * 0.5;
-sr01 = SAMPLERATE * 0.01;
-MaxFreq	= sr05 - sr01;							// we want it to kick in a bit below nyquist
-srWN = sr01 / SAMPLERATE;
-omWN = 1 - (srWN + srWN);
-
-//filterRolloff = rcPreWarp2(MaxFreq);
 
 // unlike pure DSF BLIT, we do not have to latch changes as rolloff/etc takes care of this for us
 // but if no latching option, we should exact-smooth "F" (because trunc/fract) and exact-smooth "P" (because center)

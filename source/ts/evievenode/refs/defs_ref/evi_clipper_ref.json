@@ -79,9 +79,9 @@
         "evi.rectify~",
         "evi.softstatic~",
         "evi.squeeze~",
-        "evi.overdrive.sqrt~",
-        "evi.overdrive.atan~",
-        "evi.overdrive.tanh~",
+        "evi.overdrive.env~",
+        "evi.overdrive.wrap~",
+        "evi.overdrive.fold~",
         "evi.tone.macro~",
         "evi.rcfilter~",
         "evi.baxandall~"

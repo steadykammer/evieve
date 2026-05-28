@@ -1,11 +1,11 @@
 {
     "object": {
-        "name": "evi.overdrive.tanh~",
-        "parent": "evi_overdrive_tanh",
+        "name": "evi.overdrive.fold~",
+        "parent": "evi_overdrive_fold",
         "category": "evieve",
         "tilde": "~",
         "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
-        "description": "The most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. <o>evi.overdrive.tanh~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive.",
+        "description": "The most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. <o>evi.overdrive.fold~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive.",
         "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
     },
     "metadata": {
@@ -34,7 +34,7 @@
             "id": 2,
             "type": "signal/float",
             "digest": "Drive (linear gain 1..100) @default 1 @min 1 @max 100",
-            "description": "Linear gain 1..100. This actually controls a gain staging around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the 'evi.overdrive.atan~' object."
+            "description": "Linear gain 1..100. This actually controls a gain staging around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the 'evi.overdrive.wrap~' object."
         }
     ],
     "outlets": [
@@ -163,8 +163,8 @@
         "image": ""
     },
     "seealso": [
-        "evi.overdrive.sqrt~",
-        "evi.overdrive.atan~",
+        "evi.overdrive.env~",
+        "evi.overdrive.wrap~",
         "evi.shaper~",
         "evi.sinfold~",
         "evi.clipper~",

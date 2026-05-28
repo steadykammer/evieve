@@ -444,20 +444,20 @@
         "digest": "Linear trapezoidal integrated onepole filter with simultaneous outputs for lowpass, allpass and highpass",
         "description": "evi.onepole~ is a 'max define' for the evi_onepole.gendsp gen~ abstraction. Because evi.onepole~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThree matched onepole filters in Lowpass, Allpass and Highpass types at three independent outputs. An efficient workhorse onepole for all generic patching needs."
     },
-    "evi.overdrive.atan~": {
-        "type": "define",
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "evi.overdrive.atan~ is a 'max define' for the evi_overdrive_atan.gendsp gen~ abstraction. Because evi.overdrive.atan~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
-    },
-    "evi.overdrive.sqrt~": {
+    "evi.overdrive.env~": {
         "type": "define",
         "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "evi.overdrive.sqrt~ is a 'max define' for the evi_overdrive_sqrt.gendsp gen~ abstraction. Because evi.overdrive.sqrt~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
+        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
     },
-    "evi.overdrive.tanh~": {
+    "evi.overdrive.fold~": {
         "type": "define",
         "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
-        "description": "evi.overdrive.tanh~ is a 'max define' for the evi_overdrive_tanh.gendsp gen~ abstraction. Because evi.overdrive.tanh~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. evi.overdrive.tanh~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+    },
+    "evi.overdrive.wrap~": {
+        "type": "define",
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
     },
     "evi.paf~": {
         "type": "define",
@@ -627,7 +627,7 @@
     "evi.tone.macro~": {
         "type": "define",
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
-        "description": "evi.tone.macro~ is a 'max define' for the evi_tone_macro.gendsp gen~ abstraction. Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimilar to evi.damp.macro~ but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation."
+        "description": "evi.tone.macro~ is a 'max define' for the evi_tone_macro.gendsp gen~ abstraction. Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimilar to evi.damp.macro~ but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. Forms the output stage of evi.valve~."
     },
     "evi.tpqm": {
         "type": "abstraction",
@@ -658,6 +658,11 @@
         "type": "external",
         "digest": "Vactrol response time domain filter envelope",
         "description": "Analog modelled vactrol opto isolator envelope emulation."
+    },
+    "evi.valve~": {
+        "type": "define",
+        "digest": "Dynamic valve distortion unit",
+        "description": ""
     },
     "evi.vcf~": {
         "type": "define",

@@ -28,8 +28,8 @@ resetaa	= delta(change(adaaxx)) < 0;
 resethf	= delta(change(hfcomp)) < 0;
 reset	= resetaa + resethf;
 
-ingain, outgain = atanDrive(in2);
-ataninput = in1 * ingain;
+ingain, outgain = atanDrive(in2);           // must smooth in2 externally
+ataninput = in1 * ingain;// + bias;
 atanoutput	= 0;
 if (adaaxx == 1) {
 	atanoutput = atanAdaa1_2x_6POINT(ataninput, reset);
@@ -49,6 +49,6 @@ if (hfcomp) {
 	atanoutput = decorelate(atanoutput);
 }
 
-out1	= atanoutput * outgain * HALFPI;
+out1	= atanoutput * outgain;// * HALFPI;
 out2	= reset;
 

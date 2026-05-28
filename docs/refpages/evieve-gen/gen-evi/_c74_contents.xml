@@ -111,9 +111,9 @@
 <refpage name='evi_multimode.maxref.xml'/>
 <refpage name='evi_onepole.maxref.xml'/>
 <refpage name='evi_onepole_shelving.maxref.xml'/>
-<refpage name='evi_overdrive_atan.maxref.xml'/>
-<refpage name='evi_overdrive_sqrt.maxref.xml'/>
-<refpage name='evi_overdrive_tanh.maxref.xml'/>
+<refpage name='evi_overdrive_env.maxref.xml'/>
+<refpage name='evi_overdrive_fold.maxref.xml'/>
+<refpage name='evi_overdrive_wrap.maxref.xml'/>
 <refpage name='evi_paf.maxref.xml'/>
 <refpage name='evi_pan_dual.maxref.xml'/>
 <refpage name='evi_pan_mono.maxref.xml'/>
@@ -166,6 +166,7 @@
 <refpage name='evi_tri_select.maxref.xml'/>
 <refpage name='evi_vactrol.maxref.xml'/>
 <refpage name='evi_vactrol_shape.maxref.xml'/>
+<refpage name='evi_valve.maxref.xml'/>
 <refpage name='evi_vcf.maxref.xml'/>
 <refpage name='evi_velvetnoise.maxref.xml'/>
 <refpage name='evi_vosim_basic.maxref.xml'/>

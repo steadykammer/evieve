@@ -893,7 +893,7 @@ softclipNAdaa2_4x_6POINT(XIN)
 // atanAdaa1 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
-atanAdaa1_2x_6POINT(XIN)
+atanAdaa1_2x_6POINT(XIN, reset)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -907,8 +907,8 @@ atanAdaa1_2x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 2x
-  y1_0  = atanAdaa1(x1_0);
-  y2_0  = atanAdaa1(x2_0);
+  y1_0  = atanAdaa1(x1_0, reset);
+  y2_0  = atanAdaa1(x2_0, reset);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -935,7 +935,7 @@ atanAdaa1_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-atanAdaa1_4x_6POINT(XIN)
+atanAdaa1_4x_6POINT(XIN, reset)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -949,8 +949,8 @@ atanAdaa1_4x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 4x
-  y1_0  = atanAdaa1_2x_6POINT(x1_0);
-  y2_0  = atanAdaa1_2x_6POINT(x2_0);
+  y1_0  = atanAdaa1_2x_6POINT(x1_0, reset);
+  y2_0  = atanAdaa1_2x_6POINT(x2_0, reset);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -979,7 +979,7 @@ atanAdaa1_4x_6POINT(XIN)
 // atanAdaa2 oversampling...
 
 // fixed 2x quasi oversampling (hermite6)
-atanAdaa2_2x_6POINT(XIN)
+atanAdaa2_2x_6POINT(XIN, reset)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -993,8 +993,8 @@ atanAdaa2_2x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 2x
-  y1_0  = atanAdaa2(x1_0);
-  y2_0  = atanAdaa2(x2_0);
+  y1_0  = atanAdaa2(x1_0, reset);
+  y2_0  = atanAdaa2(x2_0, reset);
 
   // down 2x
   y2_0_a  = y2_0 + 0;
@@ -1021,7 +1021,7 @@ atanAdaa2_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-atanAdaa2_4x_6POINT(XIN)
+atanAdaa2_4x_6POINT(XIN, reset)
 { // up 2
   History umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
   // down 2
@@ -1035,8 +1035,8 @@ atanAdaa2_4x_6POINT(XIN)
   x2_0  = umT2_0 + 0;
 
   // process 4x
-  y1_0  = atanAdaa2_2x_6POINT(x1_0);
-  y2_0  = atanAdaa2_2x_6POINT(x2_0);
+  y1_0  = atanAdaa2_2x_6POINT(x1_0, reset);
+  y2_0  = atanAdaa2_2x_6POINT(x2_0, reset);
 
   // down 2x
   y2_0_a  = y2_0 + 0;

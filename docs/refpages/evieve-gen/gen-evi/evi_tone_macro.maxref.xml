@@ -13,7 +13,7 @@
          <br />
         evi_tone_macro is also available in MSP as: <o>evi.tone.macro~</o>. <br />
          <br />
-	    Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. <br />
+	    Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. Forms the output stage of <o>evi.valve~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

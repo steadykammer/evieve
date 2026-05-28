@@ -26,12 +26,12 @@
         </geninlet>
         <geninlet name='rise' type='float' optional='1'>
             <digest>
-                @min 0 @default 20.. Envelope Rise Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly.
+                @min 1 @default 20.. Envelope Rise Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly.
             </digest>
         </geninlet>
         <geninlet name='fall' type='float' optional='1'>
             <digest>
-                @min 0 @default 3000.. Envelope Fall Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly. Retriggering the envelope keeps the output above zero.
+                @min 1 @default 3000.. Envelope Fall Time in Samples. evi_vactrol does not reach it&#x27;s value in this time exactly. Retriggering the envelope keeps the output above zero.
             </digest>
         </geninlet>
     </geninletlist>

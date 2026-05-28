@@ -239,14 +239,14 @@ max define mc.evi.onepole.shelving~ mc.gen~ @gen evi_onepole_shelving.gendsp @ch
 max define evi.onepole~ gen~ @gen evi_onepole.gendsp;
 max define mc.evi.onepole~ mc.gen~ @gen evi_onepole.gendsp @chans 2;
 
-max define evi.overdrive.atan~ gen~ @gen evi_overdrive_atan.gendsp;
-max define mc.evi.overdrive.atan~ mc.gen~ @gen evi_overdrive_atan.gendsp @chans 2;
+max define evi.overdrive.wrap~ gen~ @gen evi_overdrive_wrap.gendsp;
+max define mc.evi.overdrive.wrap~ mc.gen~ @gen evi_overdrive_wrap.gendsp @chans 2;
 
-max define evi.overdrive.sqrt~ gen~ @gen evi_overdrive_sqrt.gendsp;
-max define mc.evi.overdrive.sqrt~ mc.gen~ @gen evi_overdrive_sqrt.gendsp @chans 2;
+max define evi.overdrive.env~ gen~ @gen evi_overdrive_env.gendsp;
+max define mc.evi.overdrive.env~ mc.gen~ @gen evi_overdrive_env.gendsp @chans 2;
 
-max define evi.overdrive.tanh~ gen~ @gen evi_overdrive_tanh.gendsp;
-max define mc.evi.overdrive.tanh~ mc.gen~ @gen evi_overdrive_tanh.gendsp @chans 2;
+max define evi.overdrive.fold~ gen~ @gen evi_overdrive_fold.gendsp;
+max define mc.evi.overdrive.fold~ mc.gen~ @gen evi_overdrive_fold.gendsp @chans 2;
 
 max define evi.paf~ gen~ @gen evi_paf.gendsp;
 max define mc.evi.paf~ mc.gen~ @gen evi_paf.gendsp @chans 2;
@@ -342,6 +342,9 @@ max define evi.tri~ gen~ @gen evi_tri.gendsp;
 max define mc.evi.tri~ mc.gen~ @gen evi_tri.gendsp @chans 2;
 
 max define evi.vactrol.shape~ gen~ @gen evi_vactrol_shape.gendsp;
+max define evi.valve~ gen~ @gen evi_valve.gendsp;
+max define mc.evi.valve~ mc.gen~ @gen evi_valve.gendsp @chans 2;
+
 max define evi.vcf~ gen~ @gen evi_vcf.gendsp;
 max define mc.evi.vcf~ mc.gen~ @gen evi_vcf.gendsp @chans 2;
 

@@ -7,7 +7,7 @@
         "description": "This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings."
     },
     "constructor": {
-        "inlets": "input"
+        "inlets": "input, reset"
     },
     "includes": [],
     "inlets": [
@@ -17,6 +17,14 @@
             "type": "float",
             "optional": 1,
             "digest": "The audio input to be analysed for zero crossings."
+        },
+        {
+            "id": 2,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Reset internal state, useful in some situaations."
         }
     ],
     "outlets": [

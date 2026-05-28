@@ -40,7 +40,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -85,26 +85,46 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "bubbleside": 2,
                                     "id": "obj-84",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 1034.0, 432.0, 56.0, 39.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
                                     "text": "Right",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "textjustification": 1
                                 }
                             },
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "bubbleside": 2,
                                     "id": "obj-83",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 285.0, 432.0, 56.0, 39.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
                                     "text": "Left",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "textjustification": 1
                                 }
                             },
@@ -3065,7 +3085,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 654.0, 521.0, 113.0, 20.0 ],
-                                    "text": "evi.overdrive.atan~"
+                                    "text": "evi.overdrive.wrap~"
                                 }
                             },
                             {
@@ -3085,7 +3105,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 654.0, 537.0, 113.0, 20.0 ],
-                                    "text": "evi.overdrive.sqrt~"
+                                    "text": "evi.overdrive.env~"
                                 }
                             },
                             {
@@ -3321,7 +3341,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 500.0, 165.0, 150.0, 33.0 ],
-                                    "text": "evi.overdrive.atan~\nevi.overdrive.sqrt~",
+                                    "text": "evi.overdrive.wrap~\nevi.overdrive.sqrt~",
                                     "textjustification": 2
                                 }
                             },
@@ -4359,7 +4379,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 774.0, 426.0, 111.0, 20.0 ],
-                                    "text": "evi.overdrive.sqrt~",
+                                    "text": "evi.overdrive.env~",
                                     "textcolor": [ 0.5019607843137255, 0.0, 0.0, 1.0 ],
                                     "textjustification": 1
                                 }
@@ -4394,7 +4414,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 774.0, 371.0, 107.0, 22.0 ],
-                                    "text": "evi.overdrive.sqrt~"
+                                    "text": "evi.overdrive.env~"
                                 }
                             },
                             {
@@ -5105,7 +5125,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 279.0, 426.0, 116.0, 20.0 ],
-                                    "text": "evi.overdrive.atan~",
+                                    "text": "evi.overdrive.wrap~",
                                     "textcolor": [ 0.0, 0.662, 0.0, 1.0 ],
                                     "textjustification": 1
                                 }
@@ -5368,7 +5388,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 82.0, 641.0, 422.0, 47.0 ],
-                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.atan~]."
+                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
                                                 }
                                             },
                                             {
@@ -5582,7 +5602,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 200.0, 371.0, 110.0, 22.0 ],
-                                    "text": "evi.overdrive.atan~"
+                                    "text": "evi.overdrive.wrap~"
                                 }
                             },
                             {
@@ -6777,7 +6797,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "offset": [ 0.0, -74.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "float", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -7426,7 +7446,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[1]"
                                 }
@@ -8670,7 +8690,7 @@
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 441.0, 164.0, 138.0, 435.0 ],
-                                    "tabs": [ "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.overdrive.sqrt~", "evi.overdrive.atan~", "evi.overdrive.tanh~", "evi.warmer~" ]
+                                    "tabs": [ "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.warmer~" ]
                                 }
                             },
                             {
@@ -17082,7 +17102,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 1204.0, 298.0, 110.0, 22.0 ],
-                                    "text": "evi.overdrive.tanh~"
+                                    "text": "evi.overdrive.fold~"
                                 }
                             },
                             {
@@ -17093,7 +17113,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 1089.0, 298.0, 110.0, 22.0 ],
-                                    "text": "evi.overdrive.atan~"
+                                    "text": "evi.overdrive.wrap~"
                                 }
                             },
                             {
@@ -17104,7 +17124,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 977.0, 298.0, 107.0, 22.0 ],
-                                    "text": "evi.overdrive.sqrt~"
+                                    "text": "evi.overdrive.env~"
                                 }
                             },
                             {
@@ -18858,7 +18878,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 949.0, 395.0, 206.0, 20.0 ],
-                                    "text": "Green = evi.overdrive.atan~",
+                                    "text": "Green = evi.overdrive.wrap~",
                                     "textcolor": [ 0.0, 0.502, 0.0, 1.0 ]
                                 }
                             },
@@ -18920,7 +18940,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 0,
                                     "varname": "radiogroup[2]"
                                 }
                             },
@@ -18966,7 +18986,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 1180.0, 243.0, 146.0, 60.0 ],
-                                    "text": "evi.overdrive.atan~ is by default a 2nd order adaa of an approximated atan function"
+                                    "text": "evi.overdrive.wrap~ is by default a 2nd order adaa of an approximated atan function"
                                 }
                             },
                             {
@@ -19481,7 +19501,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 1180.0, 341.0, 110.0, 20.0 ],
-                                    "text": "evi.overdrive.atan~",
+                                    "text": "evi.overdrive.wrap~",
                                     "textcolor": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
                                     "textjustification": 1
                                 }
@@ -19529,7 +19549,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 82.0, 641.0, 422.0, 47.0 ],
-                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.atan~]."
+                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
                                                 }
                                             },
                                             {
@@ -19616,7 +19636,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 1180.0, 302.0, 110.0, 22.0 ],
-                                    "text": "evi.overdrive.atan~"
+                                    "text": "evi.overdrive.wrap~"
                                 }
                             },
                             {
@@ -22122,7 +22142,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

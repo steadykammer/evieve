@@ -247,6 +247,7 @@
                             {
                                 "box": {
                                     "id": "obj-11",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -840,7 +841,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 679.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -850,8 +851,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 449.0, 123.0, 71.0, 22.0 ],
-                                                    "text": "param bass"
+                                                    "patching_rect": [ 449.0, 83.0, 182.0, 22.0 ],
+                                                    "text": "param bass @min -24 @max 24"
                                                 }
                                             },
                                             {
@@ -861,8 +862,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 340.0, 123.0, 76.0, 22.0 ],
-                                                    "text": "param treble"
+                                                    "patching_rect": [ 340.0, 44.0, 186.0, 22.0 ],
+                                                    "text": "param treble @min -24 @max 24"
                                                 }
                                             },
                                             {
@@ -927,7 +928,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 76.0, 285.0, 212.0, 22.0 ],
-                                                    "text": "evi_baxandall @smooth 33 @stereo 1"
+                                                    "text": "evi_baxandall @smooth 1 @stereo 1"
                                                 }
                                             },
                                             {

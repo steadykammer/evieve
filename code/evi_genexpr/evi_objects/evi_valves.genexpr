@@ -1,0 +1,312 @@
+/*!
+    This file is part of the 'evieve' Package for Max.
+    evieve is a library of GenExpr audio code by Pete Dowling.
+
+    evieve is released under the GPLv3 license, copyright © Peter Dowling 2026.
+    This means that it is licensed for non-commercial use only.
+    For license details @see: 'license.txt' in the root of the Package, or access it via
+    the Max 'Package Manager'. Otherwise see <https://www.gnu.org/licenses/>.
+
+    evieve is free software: you can redistribute it and/or modify it under the terms
+    of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+*/
+
+// includes 'evi_interp.genexpr', 'evi_adaa.genexpr', adaa includes 'evi_utilities.genexpr', utilities includes 'evi_approx.genexpr'
+require("evi_saturators.genexpr");
+require("evi_env.genexpr");
+require("evi_fastskew.genexpr");
+require("evi_rcfilters.genexpr");
+
+
+//	//	//	utilities	//	//	//
+
+safe20dB(x)
+{
+    return hardclipAdaa1(x * 0.1) * 10;
+}
+
+safe40dB(x)
+{
+    return hardclipAdaa1(x * 0.01) * 100;
+}
+
+// main data for main env(s)
+averageData(xin, reset, interval=100, mode=1) // defaults 100 samps & 'absolute'
+{
+	History addummy(0);
+    avgMedium = averageWrap(xin, reset, interval=interval, mode=mode);
+    avgFast = fastpow(avgMedium, 1.398323);
+    avgSlow = sqrt(avgMedium);
+    return avgFast, avgMedium, avgSlow;
+}
+
+// for pre delay
+immediateEnv(iX, iAttack, iDecay, iR) // time in secs !
+{
+	History iedummy(0);
+    iMax = abs(iX);
+    return envAttackDecay(iMax, iAttack, iDecay, iR);
+}
+/*
+immediateEnv(xL, xR, iAttack, iDecay) // time in secs !
+{
+	History iedummy(0);
+    iMax = getMax(xL, xR);
+    return envAttackDecay(iMax, iAttack, iDecay);
+}
+*/
+
+// fast data, slow envs
+zeroxEnvs(X, smooth, reset, countDiv=10) // smooth in ms !
+{
+	History zedummy(0);
+    xnum, xthresh, xings = evi_zeroxcount(X, reset);
+    num = maximum(xnum, 1);
+    // threshEnv averages lower if melodic / sustained input, spikes
+    // to higher floor if percussive / constantly changing input
+    threshEnv = evi_logsmooth(xthresh, smooth*4); // ms should be some sufficiently slow value
+    countIn = clip(num / countDiv, 0, 1);
+    countEnv = evi_logsmooth(countIn, (smooth+smooth));
+    return threshEnv, countEnv, xings;
+    
+}
+
+// this idea is butchered from Peter McCulloch's legendary thread post
+clipEnv(x, skew) // skew = 0.5..2 around '1'
+{
+    ac = clip(x, -0.2, 0.3) + 0.2;
+    ac2 = ac + ac;
+    env1 = fastskew052ar(ac2, skew);
+    env2 = 1 - env1;
+    return ac, env1, env2;
+}
+
+// asymmetry set by @low (pos) & @high (neg) multiplied by skew (±6dB)
+asymExecute(x, skew, hyst1, hyst2, heat, softhard=1, low=2.1, high=3.9)
+{
+    slow = skew * low;
+    shigh = skew * high;
+    ac, env1, env2 = clipEnv(x, skew); // using a fast 'slide()' on these envs can be interesting (boomy)
+	age = heat * 0.995262; // pete stuff
+    pos = x * slow * env1 * hyst1 * (1 - age);
+    neg = x * shigh * env2 * hyst2 * (1 + age);
+	// dcblock pre mix so our taps have round edges
+    dcpos = dcblock(pos);
+    dcneg = dcblock(neg);
+    beides = softhard ? (pos + neg) : (dcpos + dcneg); // high gain
+    return beides, dcpos, dcneg;
+}
+
+
+//  //  //  Atan Clip   //  //  //
+// the rest of the atan functions are in 'evi_saturators.genexpr' etc
+
+
+// gain compensation wrapper around the atan() function
+atanDriveV(drive)
+{
+	pre = maximum(drive, 1);
+	post = maximum((1 / atanA(drive)), 0.1); // naive approx for control rate
+	return pre, post;
+}
+
+
+//	//	//	Diode Clip	//	//	//
+// here we remake what we already have in the 'evi_clipping.genexpr' to expose gain and bias as inlets
+
+// Copyright (C) 2022-2024 Orastron Srl unipersonale
+// Stefano D'Angelo, GPL v3
+
+
+w3v(x)
+{
+	x1 = -3.341459552768620;
+	x2 =  8;
+	a  = -1.314293149877800e-3;
+	b  =  4.775931364975583e-2;
+	c  =  3.631952663804445e-1;
+	d  =  6.313183464296682e-1;
+	return (x < x1) ? 0 : ((x < x2) ? d + x * (c + x * (b + x * a)) : x - logApprox(x));
+}
+
+w4v(x) // Wright's omega
+{
+	y = w3v(x);
+	return y - (y - expApprox(x - y)) / (y + 1);
+}
+
+diodeCoeffsV(SR) // param rate, in fact this only ever needs updating if the samplerate changes
+{
+	// component values
+	// Is	= 0.0000000000000001;
+	// R	= 2200;
+	// C	= 0.00000001;
+	Param	CR(0.000022); 			// C * R
+	Param	IR(0.00000000000022);	// Is * R
+	Param	VT(0.026);
+
+	// absolute constants
+	k1 = 45454.545454545454545;		// 1 / (C * R)
+	k4 = 38.461538461538462;		// 1 / VT
+
+	// samplerate dependent constants
+	B0 =  SR + SR;
+	B1 = -B0;
+	B2 =  B0 * CR + 1;
+	A1 =  1;
+
+	// k
+	k2 = CR / B2;
+	k3 = IR / B2;
+	k5 = logApprox(IR / (B2 * VT));	// this must be logApprox()
+	k6 = B1 - A1 * B0;
+
+	return k1, k2, k3, k4, k5, k6, VT, A1;
+}
+
+diodeV(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset) // audio rate
+{
+	History	p1(0);
+	if (reset) {
+		p1 = 0;
+	}
+
+	q = k1 * Vin - p1;
+	r = xSgn(q);
+	w = k2 * q + k3 * r;
+
+	Vout = w - VT * r * w4v(k4 * r * w + k5);
+	p1 = k6 * Vout - A1 * p1;
+  
+	return Vout;
+}
+
+// for gain & bias as params, @see: 'evi_clipping.genexpr'
+
+diodeWrapGB(Vin, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset)
+{
+	History didu(0);
+	d0 = gain * Vin + bias;
+	d1 = diodeV(d0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	return dcblock(d1 - w4v(bias));
+}
+
+// fixed 2x quasi oversampling (cubic4)
+diodeGB_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset)
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0	= diodeWrapGB(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+	y2_0	= diodeWrapGB(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return (y0_0);
+}
+
+// fixed 4x quasi oversampling (cubic4)
+diodeGB_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset)
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 2x
+	y1_0	= diodeGB_2x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+	y2_0	= diodeGB_2x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return (y0_0);
+}
+
+// fixed 8x quasi oversampling (cubic4)
+diodeGB_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset)
+{	// up 2
+	History	umTm1_0(0), umT0_0(0), umT1_0(0);
+	// down 2
+	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
+	// align
+	History	doX0(0);
+
+	// up 2x
+	x0_0_a	= XIN + 0;
+	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
+	x2_0	= umT1_0 + 0;
+
+	// process 8x
+	y1_0	= diodeGB_4x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+	y2_0	= diodeGB_4x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, gain, bias, reset);
+
+	// down 2x
+	y2_0_a	= y2_0 + 0;
+	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
+
+	y0_0	= (doX0 + y2_1) * 0.5;
+
+	// update
+	umTm1_0	= umT0_0;
+	umT0_0	= umT1_0;
+	umT1_0	= x0_0_a;
+
+	doX0	= y1_0;
+
+	dmT2_1	= dmT1_1;
+	dmT1_1	= dmT0_1;
+	dmT0_1	= y2_0;
+
+	return (y0_0);
+}
+

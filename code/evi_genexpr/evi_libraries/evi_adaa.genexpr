@@ -386,7 +386,7 @@ log1pAdaa2(x0)
 }
 
 
-//  //  //  atan, used in evi.overdrive.atan~ etc, works great
+//  //  //  atan, used in evi.overdrive.wrap~ etc, works great
 
 atanF00(x)
 {   // 2/PI

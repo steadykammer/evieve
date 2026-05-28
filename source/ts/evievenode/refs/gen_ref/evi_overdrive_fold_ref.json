@@ -1,10 +1,10 @@
 {
     "object": {
-        "name": "evi_overdrive_tanh",
-        "child": "evi.overdrive.tanh~",
+        "name": "evi_overdrive_fold",
+        "child": "evi.overdrive.fold~",
         "category": "evieve",
         "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
-        "description": "The most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. <o>evi.overdrive.tanh~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+        "description": "The most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. <o>evi.overdrive.fold~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
     },
     "constructor": {
         "inlets": "input, drive"
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(linear gain 1..100) @default 1 @min 1 @max 100",
-            "digest": "Linear gain 1..100. This actually controls a gain staging around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the 'evi.overdrive.atan~' object."
+            "digest": "Linear gain 1..100. This actually controls a gain staging around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the 'evi.overdrive.wrap~' object."
         }
     ],
     "outlets": [
@@ -126,12 +126,12 @@
     ],
     "seealso": [
         {
-            "name": "evi_overdrive_sqrt",
-            "display": "evi_overdrive_sqrt"
+            "name": "evi_overdrive_env",
+            "display": "evi_overdrive_env"
         },
         {
-            "name": "evi_overdrive_atan",
-            "display": "evi_overdrive_atan"
+            "name": "evi_overdrive_wrap",
+            "display": "evi_overdrive_wrap"
         },
         {
             "name": "evi_shaper",

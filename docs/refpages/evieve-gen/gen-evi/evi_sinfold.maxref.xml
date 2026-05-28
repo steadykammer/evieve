@@ -74,9 +74,9 @@
         <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
         <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
         <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
-        <seealso name='evi_overdrive_sqrt' display='evi_overdrive_sqrt' type='genrefpage' />
-        <seealso name='evi_overdrive_atan' display='evi_overdrive_atan' type='genrefpage' />
-        <seealso name='evi_overdrive_tanh' display='evi_overdrive_tanh' type='genrefpage' />
+        <seealso name='evi_overdrive_env' display='evi_overdrive_env' type='genrefpage' />
+        <seealso name='evi_overdrive_wrap' display='evi_overdrive_wrap' type='genrefpage' />
+        <seealso name='evi_overdrive_fold' display='evi_overdrive_fold' type='genrefpage' />
         <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
         <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
         <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />

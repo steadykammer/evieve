@@ -1,13 +1,13 @@
 {
     "object": {
-        "name": "evi_overdrive_sqrt",
-        "child": "evi.overdrive.sqrt~",
+        "name": "evi_overdrive_wrap",
+        "child": "evi.overdrive.wrap~",
         "category": "evieve",
-        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
+        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
     },
     "constructor": {
-        "inlets": "input"
+        "inlets": "input, shape"
     },
     "includes": [
         "evi_saturators"
@@ -20,16 +20,32 @@
             "optional": 1,
             "digestauto": "Signal",
             "digest": "Audio input to be overdriven."
+        },
+        {
+            "id": 2,
+            "name": "shape",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "(linear gain 1..100) @default 1 @min 1 @max 100",
+            "digest": "Linear gain 1..100. This actually controls a reciprocal gain wrapping around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the MSP 'overdrive~' object."
         }
     ],
     "outlets": [
         {
             "id": 1,
-            "name": "buzzy-tanh(x)",
+            "name": "atan(x)",
             "type": "float",
             "optional": 1,
-            "digestauto": "Out - anti-aliased for your audio not for Maths",
+            "digestauto": "Output - anti-aliased for your audio not for Maths",
             "digest": "Overdriven audio output."
+        },
+        {
+            "id": 2,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "(Param has changed)",
+            "digest": "A sample accurate reset 'click' whenever the 'aa' or 'hfcompensate' attributes are changed. Might be useful."
         }
     ],
     "attributes": [
@@ -56,12 +72,12 @@
     ],
     "seealso": [
         {
-            "name": "evi_overdrive_atan",
-            "display": "evi_overdrive_atan"
+            "name": "evi_overdrive_env",
+            "display": "evi_overdrive_env"
         },
         {
-            "name": "evi_overdrive_tanh",
-            "display": "evi_overdrive_tanh"
+            "name": "evi_overdrive_fold",
+            "display": "evi_overdrive_fold"
         },
         {
             "name": "evi_shaper",

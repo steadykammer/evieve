@@ -134,9 +134,9 @@
         "evi.shaper~",
         "evi.sinfold~",
         "evi.clipasym~",
-        "evi.overdrive.sqrt~",
-        "evi.overdrive.atan~",
-        "evi.overdrive.tanh~",
+        "evi.overdrive.env~",
+        "evi.overdrive.wrap~",
+        "evi.overdrive.fold~",
         "evi.rcfilter~"
     ]
 }

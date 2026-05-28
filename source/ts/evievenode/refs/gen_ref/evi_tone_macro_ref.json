@@ -4,7 +4,7 @@
         "child": "evi.tone.macro~",
         "category": "evieve",
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
-        "description": "Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation."
+        "description": "Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. Forms the output stage of <o>evi.valve~</o>."
     },
     "constructor": {
         "inlets": "audio"

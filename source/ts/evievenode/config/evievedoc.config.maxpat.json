@@ -286,7 +286,9 @@
                 "mcchild": "",
                 "gentab": false,
                 "genexprtab": false,
-                "areas": ["oscillator"]
+                "areas": [
+                    "oscillator"
+                ]
             },
             "db": {
                 "browser": true,
@@ -394,10 +396,10 @@
                 "auto": false
             }
         },
-        "evi.list.xfade": {
+        "evi.list.product": {
             "object": true,
             "ref": false,
-            "qlookup": true,
+            "qlookup": false,
             "helpfile": {
                 "generate": false,
                 "mctab": false,
@@ -413,10 +415,10 @@
                 "auto": false
             }
         },
-        "evi.list.product": {
+        "evi.list.xfade": {
             "object": true,
             "ref": false,
-            "qlookup": false,
+            "qlookup": true,
             "helpfile": {
                 "generate": false,
                 "mctab": false,
@@ -683,6 +685,25 @@
             "db": {
                 "browser": true,
                 "auto": true
+            }
+        },
+        "evi.scope~": {
+            "object": false,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
             }
         },
         "evi.sustainfdn.core~": {

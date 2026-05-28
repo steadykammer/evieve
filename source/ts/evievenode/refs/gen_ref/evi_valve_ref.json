@@ -1,0 +1,219 @@
+{
+    "object": {
+        "name": "evi_valve",
+        "child": "evi.valve~",
+        "category": "evieve",
+        "digest": "Dynamic valve distortion unit",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "audio"
+    },
+    "includes": [
+        "evi_valves"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "audio",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "to be Destroyed",
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "valve",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Goodness",
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "dynamic",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Linear Gain Envelope",
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "current",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Latency in Samples",
+            "digest": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "asymmetry",
+            "type": "int",
+            "digest": "@min -6, @max 6",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "attack",
+            "type": "int",
+            "digest": "@min 10, @max 1000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        },
+        {
+            "name": "bass",
+            "type": "int",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "compensate",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "decay",
+            "type": "int",
+            "digest": "@min 100, @max 10000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "2000"
+            }
+        },
+        {
+            "name": "diode",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "envasym",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "envinterval",
+            "type": "int",
+            "digest": "@min 100, @max 2000",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "200"
+            }
+        },
+        {
+            "name": "envmode",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "envscale",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.24"
+            }
+        },
+        {
+            "name": "envtype",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "envvalve",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "highpass",
+            "type": "int",
+            "digest": "@min 10, @max 400",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "40"
+            }
+        },
+        {
+            "name": "hysterisis",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "makeup",
+            "type": "float",
+            "digest": "@min 0, @max 10",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "treble",
+            "type": "int",
+            "digest": "@min -10, @max 10",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

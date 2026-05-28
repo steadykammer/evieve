@@ -51,5 +51,6 @@
     "evi_ringmod_enhanced.genexpr": "Object",
     "evi_sinfold_lib.genexpr": "Object",
     "evi_ssb.genexpr": "Object",
+    "evi_valves.genexpr": "Object",
     "evi_warmer_lib.genexpr": "Object"
 }

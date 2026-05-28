@@ -200,8 +200,8 @@
         "evi.rectify~",
         "evi.softstatic~",
         "evi.squeeze~",
-        "evi.overdrive.tanh~",
-        "evi.overdrive.atan~",
-        "evi.overdrive.sqrt~"
+        "evi.overdrive.fold~",
+        "evi.overdrive.wrap~",
+        "evi.overdrive.env~"
     ]
 }

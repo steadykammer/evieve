@@ -1,0 +1,59 @@
+{
+    "object": {
+        "name": "evi.valve~",
+        "parent": "evi_valve",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "Dynamic valve distortion unit",
+        "description": "TEXT_HERE",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve Nonlinear",
+            "evieve Filter Nonlinear",
+            "evieve Antialiased",
+            "evieve Effect",
+            "evieve Dynamics",
+            "evieve Modulation",
+            "evieve Saturation"
+        ]
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Audio to be Destroyed",
+            "description": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Valve Goodness",
+            "description": ""
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Dynamic Linear Gain Envelope",
+            "description": ""
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Current Latency in Samples",
+            "description": ""
+        }
+    ],
+    "messages": [],
+    "attributes": [],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": []
+}
