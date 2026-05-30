@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 0.0, 66.0, 660.0, 568.0 ],
+        "rect": [ 0.0, 66.0, 824.0, 756.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -27,6 +27,41 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 13.0,
+                    "id": "obj-23",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 47.0, 439.0, 494.0, 21.0 ],
+                    "text": "Emulation - dynamic virtual analog processing"
+                }
+            },
+            {
+                "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-24",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 47.0, 462.0, 591.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "<link href=\"; max openhelp evi.valve~\">evi.valve~</link> dynamic analog emulated valve distortion (diode) with asymmetry and envelope following",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "border": 1,
                     "evaluatehref": 1,
                     "fontface": 0,
@@ -39,7 +74,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 362.0, 333.0, 18.0 ],
+                    "patching_rect": [ 47.0, 322.0, 333.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -63,7 +98,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 342.0, 333.0, 18.0 ],
+                    "patching_rect": [ 47.0, 302.0, 333.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -87,7 +122,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 322.0, 333.0, 18.0 ],
+                    "patching_rect": [ 47.0, 282.0, 333.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -111,7 +146,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 169.0, 333.0, 18.0 ],
+                    "patching_rect": [ 47.0, 151.0, 333.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -135,7 +170,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 152.0, 332.0, 17.0 ],
+                    "patching_rect": [ 47.0, 134.0, 332.0, 17.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -159,7 +194,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 132.0, 255.0, 17.0 ],
+                    "patching_rect": [ 47.0, 114.0, 255.0, 17.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -176,7 +211,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 397.0, 494.0, 21.0 ],
+                    "patching_rect": [ 47.0, 346.0, 494.0, 21.0 ],
                     "text": "Overdrive - can deal with any input, antialiased alternatives to MSP [overdrive~]"
                 }
             },
@@ -187,7 +222,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 299.0, 414.0, 21.0 ],
+                    "patching_rect": [ 47.0, 259.0, 414.0, 21.0 ],
                     "text": "High Gain - can deal with any input and can heavily distort your signal"
                 }
             },
@@ -198,7 +233,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 201.0, 414.0, 21.0 ],
+                    "patching_rect": [ 47.0, 172.0, 414.0, 21.0 ],
                     "text": "Dynamic - modify tone and waveshape in real time"
                 }
             },
@@ -209,7 +244,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 109.0, 414.0, 21.0 ],
+                    "patching_rect": [ 47.0, 91.0, 414.0, 21.0 ],
                     "text": "Passive - expect input in range -1..1 and colourise your audio signal"
                 }
             },
@@ -259,7 +294,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 457.0, 570.0, 211.0, 22.0 ],
+                    "patching_rect": [ 457.0, 570.0, 217.0, 22.0 ],
                     "text": "list.reg evicompare_saturation.maxhelp"
                 }
             },
@@ -270,7 +305,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 509.0, 116.0, 52.0, 21.0 ],
+                    "patching_rect": [ 510.0, 172.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -289,7 +324,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 264.0, 244.0, 18.0 ],
+                    "patching_rect": [ 47.0, 235.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -313,7 +348,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 244.0, 244.0, 18.0 ],
+                    "patching_rect": [ 47.0, 215.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -337,7 +372,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 224.0, 244.0, 18.0 ],
+                    "patching_rect": [ 47.0, 195.0, 244.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -361,7 +396,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 462.0, 608.0, 22.0 ],
+                    "patching_rect": [ 47.0, 411.0, 608.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -385,7 +420,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 441.0, 585.0, 19.0 ],
+                    "patching_rect": [ 47.0, 390.0, 585.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -409,13 +444,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 47.0, 420.0, 428.0, 19.0 ],
+                    "patching_rect": [ 47.0, 369.0, 552.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output (cheapest)",
+                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output, optional envelope following",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -488,7 +523,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 56.0, 529.0, 36.0 ],
+                    "patching_rect": [ 47.0, 45.0, 529.0, 36.0 ],
                     "text": "All evieve saturators are built using 'anti-derivative antialiasing' techniques, offering excellent and sometimes-cheap antialiasing. Some also include oversampling options."
                 }
             },
@@ -521,19 +556,31 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 695.0, 100.0, 503.0, 749.0 ],
+                        "rect": [ 695.0, 100.0, 503.0, 732.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-7",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 128.0, 616.0, 358.0, 47.0 ],
+                                    "presentation_linecount": 3,
+                                    "text": "evi_overdrive_env = evi.overdrive.env~\nevi_overdrive_wrap = evi.overdrive.wrap~\nevi_overdrive_fold = evi.overdrive.fold~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-33",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 198.0, 571.0, 92.0, 20.0 ],
-                                    "text": "evi.softclip~"
+                                    "patching_rect": [ 128.0, 526.0, 162.0, 20.0 ],
+                                    "text": "evi_softclip = evi.softclip~"
                                 }
                             },
                             {
@@ -542,8 +589,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 204.0, 532.0, 86.0, 20.0 ],
-                                    "text": "evi.hardclip~"
+                                    "patching_rect": [ 128.0, 487.0, 162.0, 20.0 ],
+                                    "text": "evi_hardclip = evi.hardclip~"
                                 }
                             },
                             {
@@ -552,8 +599,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 195.0, 387.0, 86.0, 20.0 ],
-                                    "text": "evi.sinfold~"
+                                    "patching_rect": [ 128.0, 357.0, 154.0, 20.0 ],
+                                    "text": "evi_sinfold = evi.sinfold~"
                                 }
                             },
                             {
@@ -562,8 +609,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 197.0, 348.0, 86.0, 20.0 ],
-                                    "text": "evi.shaper~"
+                                    "patching_rect": [ 128.0, 318.0, 155.0, 20.0 ],
+                                    "text": "evi_shaper = evi.shaper~"
                                 }
                             },
                             {
@@ -572,8 +619,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 207.0, 309.0, 86.0, 20.0 ],
-                                    "text": "evi.clipasym~"
+                                    "patching_rect": [ 207.0, 279.0, 100.0, 20.0 ],
+                                    "text": "= evi.clipasym~"
                                 }
                             },
                             {
@@ -582,8 +629,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 206.0, 203.0, 86.0, 20.0 ],
-                                    "text": "evi.squeeze~"
+                                    "patching_rect": [ 128.0, 188.0, 164.0, 20.0 ],
+                                    "text": "evi_squeeze = evi.squeeze~"
                                 }
                             },
                             {
@@ -592,8 +639,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 207.0, 164.0, 118.0, 20.0 ],
-                                    "text": "evi.softstatic~"
+                                    "patching_rect": [ 128.0, 149.0, 197.0, 20.0 ],
+                                    "text": "evi_softstatic = evi.softstatic~"
                                 }
                             },
                             {
@@ -602,8 +649,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 125.0, 86.0, 20.0 ],
-                                    "text": "evi.rectify~"
+                                    "patching_rect": [ 192.0, 110.0, 86.0, 20.0 ],
+                                    "text": "= evi.rectify~"
                                 }
                             },
                             {
@@ -612,8 +659,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 195.0, 493.0, 95.0, 20.0 ],
-                                    "text": "evi.clipper~"
+                                    "patching_rect": [ 195.0, 448.0, 95.0, 20.0 ],
+                                    "text": "= evi.clipper~"
                                 }
                             },
                             {
@@ -622,8 +669,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 691.0, 358.0, 20.0 ],
-                                    "text": "[evi_overdrive_env], [evi_overdrive_wrap], [evi_overdrive_fold]"
+                                    "patching_rect": [ 128.0, 680.0, 358.0, 20.0 ],
+                                    "text": "evi_valve = evi.valve~"
                                 }
                             },
                             {
@@ -632,7 +679,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 639.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 579.0, 150.0, 20.0 ],
                                     "text": "See Also"
                                 }
                             },
@@ -642,7 +689,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 455.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 410.0, 150.0, 20.0 ],
                                     "text": "High Gain"
                                 }
                             },
@@ -652,7 +699,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 271.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 241.0, 150.0, 20.0 ],
                                     "text": "Dynamic"
                                 }
                             },
@@ -662,63 +709,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 87.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 72.0, 150.0, 20.0 ],
                                     "text": "Passive"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-11",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 202.0, 76.0, 22.0 ],
-                                    "text": "evi_squeeze"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-10",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 163.0, 78.0, 22.0 ],
-                                    "text": "evi_softstatic"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-9",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 570.0, 68.0, 22.0 ],
-                                    "text": "evi_softclip"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-8",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 386.0, 65.0, 22.0 ],
-                                    "text": "evi_sinfold"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-7",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 347.0, 67.0, 22.0 ],
-                                    "text": "evi_shaper"
                                 }
                             },
                             {
@@ -728,19 +720,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 124.0, 63.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 109.0, 63.0, 22.0 ],
                                     "text": "evi_rectify"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 531.0, 73.0, 22.0 ],
-                                    "text": "evi_hardclip"
                                 }
                             },
                             {
@@ -750,7 +731,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 492.0, 66.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 447.0, 66.0, 22.0 ],
                                     "text": "evi_clipper"
                                 }
                             },
@@ -761,7 +742,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 308.0, 77.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 278.0, 77.0, 22.0 ],
                                     "text": "evi_clipasym"
                                 }
                             },
@@ -794,14 +775,14 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 19.0, 86.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 19.0, 71.0, 35.0, 22.0 ],
                                     "text": "out 1"
                                 }
                             }
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 437.0, 242.0, 195.0, 22.0 ],
+                    "patching_rect": [ 438.0, 298.0, 195.0, 22.0 ],
                     "text": "gen~ @t evieve_saturators_in_gen"
                 }
             },
@@ -815,7 +796,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 512.0, 139.0, 46.0, 101.0 ]
+                    "patching_rect": [ 513.0, 195.0, 46.0, 101.0 ]
                 }
             },
             {

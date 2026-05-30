@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 754.0, 687.0 ],
+        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -71,7 +71,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 429.0, 570.0, 211.0, 22.0 ],
+                    "patching_rect": [ 429.0, 570.0, 217.0, 22.0 ],
                     "text": "list.reg evicompare_saturation.maxhelp"
                 }
             },
@@ -149,13 +149,13 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 55.0, 154.0, 245.0, 36.0 ],
+                    "patching_rect": [ 55.0, 154.0, 300.0, 37.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output (cheapest)",
+                    "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output, optional envelope following",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -273,8 +273,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 101.0, 241.0, 110.0, 22.0 ],
-                                    "text": "evi_overdrive_fold"
+                                    "patching_rect": [ 101.0, 241.0, 145.0, 22.0 ],
+                                    "text": "evi_overdrive_fold @aa 5"
                                 }
                             },
                             {
@@ -284,7 +284,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 101.0, 172.0, 250.0, 22.0 ],
+                                    "patching_rect": [ 101.0, 172.0, 252.0, 22.0 ],
                                     "text": "evi_overdrive_wrap @aa 1 @hfcompensate 0"
                                 }
                             },
@@ -293,10 +293,10 @@
                                     "id": "obj-2",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 101.0, 103.0, 145.0, 22.0 ],
-                                    "text": "evi_overdrive_env @aa 5"
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 101.0, 103.0, 162.0, 22.0 ],
+                                    "text": "evi_overdrive_env @follow 1"
                                 }
                             },
                             {
