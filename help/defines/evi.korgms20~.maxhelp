@@ -34,7 +34,8 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
@@ -2164,6 +2165,20 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.75,
+                                    "id": "obj-3",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 461.0, 263.0, 286.0, 69.0 ],
+                                    "text": "Notice that for the 6dB Highpass, filter level is resonance-dependent when resonance is less than 0.5 (50% in this example). This is left as a quirky feature, not a bug :-)",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -2260,6 +2275,7 @@
                             {
                                 "box": {
                                     "id": "obj-20",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -3096,6 +3112,19 @@
                                         "rect": [ 59.0, 119.0, 754.0, 453.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.1,
+                                                    "id": "obj-23",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 180.0, 316.0, 50.0, 24.0 ],
+                                                    "text": "LP",
+                                                    "textjustification": 1
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-17",

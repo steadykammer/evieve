@@ -52,7 +52,7 @@ SandKone(X, hz, res, load)
     hp1vn	= (Y - state0) * alphas;
     bp1		= hp1vn + state0;
     state0	= hp1vn + bp1;
-    hp1		= Y - bp1;		// 6 dB HP
+    hp1		= Y - bp1;		// 6 dB HP (!! level res dependent - left in as a feature !!)
 
     LP		= Y * k2;		// 12 dB LP
 
@@ -101,7 +101,7 @@ SandKtwo(X0, X1, hz, res, load)
     hp1vn0	= (Y0 - state0) * alphas;
     bp10	= hp1vn0 + state0;
     state0	= hp1vn0 + bp10;
-    hp10	= Y0 - bp10;	// 6 dB HP
+    hp10	= Y0 - bp10;	// 6 dB HP (!! level res dependent - left in as a feature !!)
 
     LP0		= Y0 * k2;		// 12 dB LP
 
@@ -132,7 +132,7 @@ SandKtwo(X0, X1, hz, res, load)
     hp1vn1	= (Y1 - state0) * alphas;
     bp11    = hp1vn1 + state0;
     state0	= hp1vn1 + bp11;
-    hp11	= Y1 - bp11;	// 6 dB HP
+    hp11	= Y1 - bp11;	// 6 dB HP (!! level res dependent - left in as a feature !!)
 
     LP1		= Y1 * k2;		// 12 dB LP
 

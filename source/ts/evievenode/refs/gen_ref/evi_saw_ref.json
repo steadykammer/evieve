@@ -3,7 +3,7 @@
         "name": "evi_saw",
         "child": "evi.saw~",
         "category": "evieve",
-        "digest": "High quality anti-aliased saw wave oscillator",
+        "digest": "Anti-aliased saw wave oscillator",
         "description": "Simple anti-aliased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "constructor": {

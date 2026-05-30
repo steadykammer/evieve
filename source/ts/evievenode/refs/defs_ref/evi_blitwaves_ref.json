@@ -84,9 +84,33 @@
             "name": "history",
             "arg": [
                 {
-                    "name": "thisReset",
+                    "name": "MaxFreq",
                     "type": "int",
-                    "units": "default: 1",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "omWN",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "sr01",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "sr05",
+                    "type": "int",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "srWN",
+                    "type": "int",
+                    "units": "default: 0",
                     "optional": 1
                 }
             ],

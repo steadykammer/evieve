@@ -4,7 +4,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "Like MSP [average~ 250 absolute]",
+            "digest": "Like MSP [average~ absolute]",
             "name": "averageAbsolute",
             "inputs": [
                 {
@@ -269,6 +269,146 @@
             ]
         },
         {
+            "document": true,
+            "digest": "Averaging audio detection wrapper for envelope following",
+            "name": "averageData",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xin",
+                    "digest": "Audio input to be analysed"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the averaging filter (buffer)"
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "interval",
+                    "default": 100,
+                    "type": "integer",
+                    "digest": "Interval (window size) in samples of internal averager algorithm"
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "mode",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": "Mode of averager operation, 0=bipolar, 1=absolute, 2=RMS"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fast",
+                    "digest": "Fast response data (exp)"
+                },
+                {
+                    "id": 2,
+                    "name": "Medium",
+                    "digest": "Medium response data (lin)"
+                },
+                {
+                    "id": 3,
+                    "name": "Slow",
+                    "digest": "Slow response data (sqrt)"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Absolute audio envelope peak followed by logarithmic envelope follower",
+            "name": "immediateEnv",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "iX",
+                    "digest": "Audio input to be followed"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "iAttack",
+                    "digest": "Envelope follower attack time in seconds"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "iDecay",
+                    "digest": "Envelope follower release time in seconds"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "iR",
+                    "digest": "Sample accurate reset of internal envelope following filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Immediate Env",
+                    "digest": "Envelope output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Fast data, slow envelopes (output envelope averages lower if melodic / sustained input, spikes to higher floor if transient / constantly changing input)",
+            "name": "zeroxEnvs",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "X",
+                    "digest": "Audio input to be analysed"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "smooth",
+                    "digest": "Smoothing time of the logarithmic smoothers in milliseconds"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of internal zero crossing detector"
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "countDiv",
+                    "default": 10,
+                    "type": "integer",
+                    "digest": "Divisor for number of zero crossings per period, higher values will result in less busy envelopes (effects 'Env 2' middle outlet)"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Env 1",
+                    "digest": "Based on zero crossing threshold"
+                },
+                {
+                    "id": 2,
+                    "name": "Env 2",
+                    "digest": "Based on number of zero crossings per period"
+                },
+                {
+                    "id": 3,
+                    "name": "Xings",
+                    "digest": "Continuously updated number of zero crossings"
+                }
+            ]
+        },
+        {
             "document": false,
             "digest": "",
             "name": "vactrolSad",
@@ -321,7 +461,7 @@
                     "id": 4,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset the state of the vactrol filter"
                 }
             ],
             "returns": [

@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Korg OTA dual-amplifier modified Sallen-Key topology nonlinear filter emulation with simultaneous outputs",
         "description": "The 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series. This Korg filter sits inbetween the more broken <o>evi.korgms10~</o> and the more stable <o>evi.korgms20.select~</o>. It is aggressive but predictable.",
-        "discussion": ""
+        "discussion": "Notice that for the 6dB Highpass, filter level is resonance-dependent when resonance is less than 0.5. This is left as a quirky feature, not a bug :-)"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -39,7 +39,7 @@
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1 @min 0.01 @max 1.476 @default 0.94",
-            "description": "Filter resonance 0..1 (0.01..1.476)."
+            "description": "Filter resonance 0..1 (0.01..1.476). As in the original analog circuit, highpass output level is resonance dependent!"
         }
     ],
     "outlets": [
@@ -53,7 +53,7 @@
             "id": 2,
             "type": "signal",
             "digest": "Korg OTA S&K Highpass",
-            "description": "6dB highpass output."
+            "description": "6dB highpass output. As in the original analog circuit, highpass output level is resonance dependent!"
         }
     ],
     "messages": [
@@ -80,7 +80,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": false
         }
     ],
     "attributes": [

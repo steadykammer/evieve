@@ -5167,6 +5167,272 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "sel4",
+                "raw": "sel4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "w",
+                    "raw": "w"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y",
+                    "raw": "y"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "z",
+                    "raw": "z"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "sel",
+                    "raw": "sel"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "sel",
+                                    "raw": "sel"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "w",
+                                    "raw": "w"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "y",
+                                    "raw": "y"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "selector",
+                                "raw": "selector"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "scan4",
+                "raw": "scan4"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x0",
+                    "raw": "x0"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x1",
+                    "raw": "x1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x2",
+                    "raw": "x2"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "x3",
+                    "raw": "x3"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "scan",
+                    "raw": "scan"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x0",
+                                            "raw": "x0"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x3",
+                                            "raw": "x3"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "scan",
+                                            "raw": "scan"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "sel4",
+                                        "raw": "sel4"
+                                    }
+                                },
+                                {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x0",
+                                            "raw": "x0"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "x3",
+                                            "raw": "x3"
+                                        },
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "scan",
+                                                "raw": "scan"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "sel4",
+                                        "raw": "sel4"
+                                    }
+                                },
+                                {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "scan",
+                                            "raw": "scan"
+                                        },
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "wrap",
+                                        "raw": "wrap"
+                                    }
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "mix",
+                                "raw": "mix"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "butterfly8",
                 "raw": "butterfly8"
             },

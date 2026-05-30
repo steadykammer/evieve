@@ -185,6 +185,47 @@ envAttackHoldRelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB
 	return	y;
 }
 
+// main data for main env(s)
+averageData(xin, reset, interval=100, mode=1) // defaults 100 samps & 'absolute'
+{
+	History addummy(0);
+    avgMedium = averageWrap(xin, reset, interval=interval, mode=mode);
+    avgFast = fastpow(avgMedium, 1.398323);
+    avgSlow = sqrt(avgMedium);
+    return avgFast, avgMedium, avgSlow;
+}
+
+// for pre delay
+immediateEnv(iX, iAttack, iDecay, iR) // time in secs !
+{
+	History iedummy(0);
+    iMax = abs(iX);
+    return envAttackDecay(iMax, iAttack, iDecay, iR);
+}
+/*
+immediateEnv(xL, xR, iAttack, iDecay) // time in secs !
+{
+	History iedummy(0);
+    iMax = getMax(xL, xR);
+    return envAttackDecay(iMax, iAttack, iDecay);
+}
+*/
+
+// fast data, slow envs
+zeroxEnvs(X, smooth, reset, countDiv=10) // smooth in ms !
+{
+	History zedummy(0);
+    xnum, xthresh, xings = evi_zeroxcount(X, reset); // should expose threshold ?
+    num = maximum(xnum, 1);
+    // threshEnv averages lower if melodic / sustained input, spikes
+    // to higher floor if percussive / constantly changing input
+    threshEnv = evi_logsmooth(xthresh, smooth*4); // ms should be some sufficiently slow value
+    countIn = clip(num / countDiv, 0, 1);
+    countEnv = evi_logsmooth(countIn, (smooth+smooth));
+    return threshEnv, countEnv, xings;
+    
+}
+
 vactrolSad(x, a)								// trigger, time
 {
 	return x * a / (1 + a);

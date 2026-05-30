@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="ptr3_saw ( )">
       <description>
-        High quality classic Saw Oascillator <br />
+        Classic Saw Oascillator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: p, <i>Phase 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: T0, <i>Hz / samplerate</i> <br />
@@ -28,7 +28,7 @@
     </entry>
     <entry name="ptr3_rect ( )">
       <description>
-        High quality classic Rect Oascillator with PWM <br />
+        Classic Rect Oascillator with PWM <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: p, <i>Phase 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: T0, <i>Hz / samplerate</i> <br />

@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "'Korg 35' single-amplifier unbuffered modified Sallen-Key topology nonlinear filter emulation",
         "description": "The 'Korg 35' chip was found in the MS-10 and early MS-20 synthesisers - different to the later dual-amplifier Korg OTA chip found in the later MS-20s and other Korg synthesisers.",
-        "discussion": "Unofficially: an erratic, out-of-control and out-of-tune aggressive filter for experiments and fun times."
+        "discussion": "Unofficially: an erratic, out-of-control and out-of-tune aggressive filter for experiments and fun times. Notice that for the 12dB Lowpass, filter level is resonance-dependent when resonance is less than 0.5. This is left as a quirky feature, not a bug :-)"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -93,7 +93,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": false
         }
     ],
     "attributes": [

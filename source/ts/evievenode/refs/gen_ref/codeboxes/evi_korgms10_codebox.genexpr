@@ -95,10 +95,12 @@ SandKone(x0, hz, k0, load, noiz)
 	state2	= lp2vn + lp2;					//
 	hp2		=  u - lp2;
 
+    // could clip k1 here (to maximum 1) so that LP level not res dependent,
+    // but that would be less fun
 	YL		= k1 * lp2;									// Korg 12 dB LP (!! level res dependent)
 	YH		= u * ik1;								    // Korg 6 dB HP
 	YF		= hp2 * ik1;							    // sort of made up 12 dB HP
-	YB      = bp2 * ik1;                                // sort of made up 12 dB BP ?
+	YB      = bp2 * minimum(ik1, 10);                   // sort of made up 12 dB BP ?
 
 	// feedback loop (loaded bpf)
 	bp2vn	= (hp2 - state0) * a2;	        // !! 'a2'
@@ -183,10 +185,12 @@ SandKtwo(x0, x1, hz, k0, load, noiz)
 	state2	= lp2vn0 + lp20;				//
 	hp20	=  u0 - lp20;
 
+    // could clip k1 here (to maximum 1) so that LP level not res dependent,
+    // but that would be less fun
 	YL0		= k1 * lp20;								// Korg 12 dB LP (!! level res dependent)
 	YH0		= u0 * ik1;								    // Korg 6 dB HP
 	YF0		= hp20 * ik1;							    // sort of made up 12 dB HP
-	YB0     = bp20 * ik1;                               // sort of made up 12 dB BP ?
+	YB0     = bp20 * minimum(ik1, 10);                  // sort of made up 12 dB BP ?
 
 	// feedback loop (loaded bpf)
 	bp2vn0	= (hp20 - state0) * a2;	        // !! 'a2'
@@ -219,10 +223,12 @@ SandKtwo(x0, x1, hz, k0, load, noiz)
 	state2	= lp2vn1 + lp21;				//
 	hp21	=  u1 - lp21;
 
+    // could clip k1 here (to maximum 1) so that LP level not res dependent,
+    // but that would be less fun
 	YL1		= k1 * lp21;								// Korg 12 dB LP (!! level res dependent)
 	YH1		= u1 * ik1;								    // Korg 6 dB HP
 	YF1		= hp21 * ik1;							    // sort of made up 12 dB HP
-	YB1     = bp21 * ik1;                               // sort of made up 12 dB BP ?
+	YB1     = bp21 * minimum(ik1, 10);                  // sort of made up 12 dB BP ?
 
 	// feedback loop (loaded bpf)
 	bp2vn1	= (hp21 - state0) * a2;	        // !! 'a2'

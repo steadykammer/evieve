@@ -24,7 +24,7 @@
         },
         {
             "document": true,
-            "digest": "High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often.",
+            "digest": "Tanh Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often.",
             "name": "tanhLApprox",
             "inputs": [
                 {
@@ -110,7 +110,7 @@
         },
         {
             "document": true,
-            "digest": "High quality atan() approximation, excellent sonic and mathematical closeness to library atan()",
+            "digest": "Atan() approximation, excellent sonic and mathematical closeness to library atan()",
             "name": "atanApprox",
             "inputs": [
                 {

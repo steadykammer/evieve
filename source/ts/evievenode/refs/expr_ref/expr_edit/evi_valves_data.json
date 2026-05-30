@@ -9,254 +9,114 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Safe audio output as input up to +20dB, after which it is antialiased hard clipped",
             "name": "safe20dB",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Any audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Out",
+                    "digest": "Safe audio output as input up to +20dB, after which it is antialiased hard clipped"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Safe audio output as input up to +40dB, after which it is antialiased hard clipped",
             "name": "safe40dB",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Any audio input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Out",
+                    "digest": "Safe audio output as input up to +40dB, after which it is antialiased hard clipped"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
-            "name": "averageData",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "xin",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "reset",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "interval",
-                    "default": 100,
-                    "type": "integer",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "mode",
-                    "default": 1,
-                    "type": "integer",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "immediateEnv",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "iX",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "iAttack",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "iDecay",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "input",
-                    "name": "iR",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
-            "name": "zeroxEnvs",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "X",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "smooth",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "kind": "input",
-                    "name": "reset",
-                    "digest": ""
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "countDiv",
-                    "default": 10,
-                    "type": "integer",
-                    "digest": ""
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 2,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 3,
-                    "name": "",
-                    "digest": ""
-                }
-            ]
-        },
-        {
-            "document": true,
-            "digest": "",
+            "digest": "A very strange envelope maker based on asymmetrically clipping the input audio and using this data to create positive and negative gain envelopes",
             "name": "clipEnv",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Skew the asymmetric envelope with an approximated power 0.5..2 around 1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "ac",
+                    "digest": "Clipped raw absolute audio 0..0.5++"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "env1",
+                    "digest": "Envelope 0..1"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "env2",
+                    "digest": "Envelope 1..0"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Asymmetric audio processor favours negative waveform, output linear beyond -1..1",
             "name": "asymExecute",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Skew the asymmetric envelope with an approximated power 0.5..2 around 1"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hyst1",
-                    "digest": ""
+                    "digest": "Hysterisis envelope 1, leave at '1' to ignore"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "hyst2",
-                    "digest": ""
+                    "digest": "Hysterisis envelope 2, leave at '1' to ignore"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "heat",
-                    "digest": ""
+                    "digest": "This is a Pete secret and should be left at '1' for normal operation"
                 },
                 {
                     "id": 6,
@@ -264,7 +124,7 @@
                     "name": "softhard",
                     "default": 1,
                     "type": "integer",
-                    "digest": ""
+                    "digest": "1 = raw output to outlet 1, 0 = dcblocked output to outlet 1"
                 },
                 {
                     "id": 7,
@@ -272,7 +132,7 @@
                     "name": "low",
                     "default": 2.1,
                     "type": "float",
-                    "digest": ""
+                    "digest": "The low value (positive waveform) linear gain multiplier"
                 },
                 {
                     "id": 8,
@@ -280,49 +140,49 @@
                     "name": "high",
                     "default": 3.9,
                     "type": "float",
-                    "digest": ""
+                    "digest": "The high value (negative waveform) linear gain multiplier"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Mix",
+                    "digest": "The mixed asymmetric audio. If @softhard = 0 it is dcblocked."
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Positive Waveform",
+                    "digest": "Positive only audio tap, dcblocked"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "Negative Waveform",
+                    "digest": "Negative only audio tap, dcblocked"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Reciprocal audio wrapper for atan() saturation curve",
             "name": "atanDriveV",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "drive",
-                    "digest": ""
+                    "digest": "Linear gain >= 1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Pre Gain",
+                    "digest": "The gain to apply to the input of an atan() saturator"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Post Gain",
+                    "digest": "The gain to apply to the output of an atan() saturator"
                 }
             ]
         },
@@ -368,14 +228,14 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Circuit modelled coefficients calculator for the evieve Diode emulation, for use in 'diodeV()'",
             "name": "diodeCoeffsV",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "SR",
-                    "digest": ""
+                    "digest": "SAMPLERATE"
                 },
                 {
                     "id": 2,
@@ -385,7 +245,7 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 },
                 {
                     "id": 3,
@@ -395,7 +255,7 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 },
                 {
                     "id": 4,
@@ -405,470 +265,442 @@
                     "min": 0,
                     "max": 0,
                     "type": "float",
-                    "digest": ""
+                    "digest": "Constant, do not change"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "k1",
+                    "digest": "k1"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "k2",
+                    "digest": "k2"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "k3",
+                    "digest": "k3"
                 },
                 {
                     "id": 4,
-                    "name": "",
-                    "digest": ""
+                    "name": "k4",
+                    "digest": "k4"
                 },
                 {
                     "id": 5,
-                    "name": "",
-                    "digest": ""
+                    "name": "k5",
+                    "digest": "k5"
                 },
                 {
                     "id": 6,
-                    "name": "",
-                    "digest": ""
+                    "name": "k6",
+                    "digest": "k6"
                 },
                 {
                     "id": 7,
-                    "name": "",
-                    "digest": ""
-                },
-                {
-                    "id": 8,
-                    "name": "",
-                    "digest": ""
+                    "name": "VT",
+                    "digest": "VT"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The core evieve diode processing function",
             "name": "diodeV",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
-                    "name": "A1",
-                    "digest": ""
-                },
-                {
-                    "id": 10,
-                    "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Gain, bias and DC wrapper for the evieve 'diodeV()' filter",
             "name": "diodeWrapGB",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "Vin",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
-                    "name": "A1",
-                    "digest": ""
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
                 },
                 {
                     "id": 10,
                     "kind": "input",
-                    "name": "gain",
-                    "digest": ""
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
                 },
                 {
                     "id": 11,
                     "kind": "input",
-                    "name": "bias",
-                    "digest": ""
-                },
-                {
-                    "id": 12,
-                    "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Wrapped audio output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2x 4-point oversampling of 'diodeWrapGB()'",
             "name": "diodeGB_2x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
-                    "name": "A1",
-                    "digest": ""
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
                 },
                 {
                     "id": 10,
                     "kind": "input",
-                    "name": "gain",
-                    "digest": ""
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
                 },
                 {
                     "id": 11,
                     "kind": "input",
-                    "name": "bias",
-                    "digest": ""
-                },
-                {
-                    "id": 12,
-                    "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4x 4-point oversampling of 'diodeWrapGB()'",
             "name": "diodeGB_4x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
-                    "name": "A1",
-                    "digest": ""
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
                 },
                 {
                     "id": 10,
                     "kind": "input",
-                    "name": "gain",
-                    "digest": ""
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
                 },
                 {
                     "id": 11,
                     "kind": "input",
-                    "name": "bias",
-                    "digest": ""
-                },
-                {
-                    "id": 12,
-                    "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8x 4-point oversampling of 'diodeWrapGB()'",
             "name": "diodeGB_8x_4POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "k1",
-                    "digest": ""
+                    "digest": "k1 coefficient"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "k2",
-                    "digest": ""
+                    "digest": "k2 coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "k3",
-                    "digest": ""
+                    "digest": "k3 coefficient"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "k4",
-                    "digest": ""
+                    "digest": "k4 coefficient"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "k5",
-                    "digest": ""
+                    "digest": "k5 coefficient"
                 },
                 {
                     "id": 7,
                     "kind": "input",
                     "name": "k6",
-                    "digest": ""
+                    "digest": "k6 coefficient"
                 },
                 {
                     "id": 8,
                     "kind": "input",
                     "name": "VT",
-                    "digest": ""
+                    "digest": "VT coefficient"
                 },
                 {
                     "id": 9,
                     "kind": "input",
-                    "name": "A1",
-                    "digest": ""
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
                 },
                 {
                     "id": 10,
                     "kind": "input",
-                    "name": "gain",
-                    "digest": ""
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
                 },
                 {
                     "id": 11,
                     "kind": "input",
-                    "name": "bias",
-                    "digest": ""
-                },
-                {
-                    "id": 12,
-                    "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_adaa",
+        "evi_saturators",
+        "evi_env",
+        "evi_fastskew",
+        "evi_rcfilters",
+        "evi_dynamics"
+    ]
 }

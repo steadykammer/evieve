@@ -26,11 +26,165 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                to be Destroyed. 
+                to be Destroyed. Input audio will be followed and saturated.
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
+        <attribute name='asymmetry' type='float' get='0' set='1'>
+            <digest>
+                @min -6, @max 6
+            </digest>
+            <description>
+                This is actually &#x27;fake&#x27; dB but has a similar effect. Asymmetry always favours negative over positive waveform, but this control changes the relationship between them. It also ultimately adds gain to the signal before the saturation stage, so could be seen as an addition to @bass and @treble.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
+        <attribute name='bass' type='float' get='0' set='1'>
+            <digest>
+                @min -10, @max 10
+            </digest>
+            <description>
+                Input gain to the saturator, bass focussed, part of the &#x27;Baxandall&#x27; EQ on the pre-amp along with the @treble attribute.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
+        <attribute name='compensate' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Compensate high frequency content. Marketing people would call this control &#x27;air&#x27;. It basically high-shelf-boosts the high frequencies above 6kHz. This is mainly useful in restoring high details lost in the antiderivative antialiasing and oversampling algorithms.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.5' />
+            </attributelist>
+        </attribute>
+        <attribute name='diode' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Effectively diode &#x27;type&#x27; used in the valve distortion. &#x27;1&#x27; (&#x27;hard&#x27;, default) is an agressive and faithful emulation of an analog diode. &#x27;0&#x27; (&#x27;soft&#x27;) is a &#x27;diode-like&#x27; nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='1' />
+            </attributelist>
+        </attribute>
+        <attribute name='envasym' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit. This @envasym attribute turns the envelope at the asymmetry stage on or off.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='1' />
+            </attributelist>
+        </attribute>
+        <attribute name='envinterval' type='int' get='0' set='1'>
+            <digest>
+                @min 100, @max 2000
+            </digest>
+            <description>
+                The averaging period in samples of the internal envelope follower, and therefore also the entire object latency (reported out the far right outloet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='200' />
+            </attributelist>
+        </attribute>
+        <attribute name='envmode' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 2
+            </digest>
+            <description>
+                Mode of the envelope follower averager, &#x27;1&#x27; &#x3D; &#x27;absolute&#x27;, &#x27;2&#x27; &#x3D; &#x27;RMS&#x27;. It is almost always best to lease on &#x27;absolute&#x27;, but &#x27;RMS&#x27; can be useful for more sustained input material.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='1' />
+            </attributelist>
+        </attribute>
+        <attribute name='envscale' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Scales the main gain envelope. At &#x27;0.&#x27; the envelope is at it&#x27;s most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.24' />
+            </attributelist>
+        </attribute>
+        <attribute name='envtype' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 2
+            </digest>
+            <description>
+                Select the envelope follower detection setting, 0&#x3D;fast, 1&#x3D;medium, 2&#x3D;slow.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='0' />
+            </attributelist>
+        </attribute>
+        <attribute name='envvalve' type='int' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit. This @envvalve attribute turns the envelope at the core saturation stage on or off.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='0' />
+            </attributelist>
+        </attribute>
+        <attribute name='highpass' type='float' get='0' set='1'>
+            <digest>
+                @min 10, @max 400
+            </digest>
+            <description>
+                Final highpass on the output to help tame the bass.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='40.' />
+            </attributelist>
+        </attribute>
+        <attribute name='hysterisis' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Amount of hysterisis present in the pre (asymmetry) / post (nonlinear lowpass) saturation stages. If &#x27;0.&#x27; there are no hysterisis envelopes, at &#x27;1.&#x27; there is the most interference from the hysterisis envelopes.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.5' />
+            </attributelist>
+        </attribute>
+        <attribute name='makeup' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 10
+            </digest>
+            <description>
+                Makeup gain is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
+        <attribute name='treble' type='float' get='0' set='1'>
+            <digest>
+                @min -10, @max 10
+            </digest>
+            <description>
+                Input gain to the saturator, treble focussed, part of the &#x27;Baxandall&#x27; EQ on the pre-amp along with the @bass attribute.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>
@@ -39,5 +193,21 @@
     </metadatalist>
     <seealsolist>
         <seealso name='' display='' type='genrefpage' />
+        <seealso name='evi_overdrive_env' display='evi_overdrive_env' type='genrefpage' />
+        <seealso name='evi_overdrive_wrap' display='evi_overdrive_wrap' type='genrefpage' />
+        <seealso name='evi_overdrive_fold' display='evi_overdrive_fold' type='genrefpage' />
+        <seealso name='evi_clipper' display='evi_clipper' type='genrefpage' />
+        <seealso name='evi_hardclip' display='evi_hardclip' type='genrefpage' />
+        <seealso name='evi_softclip' display='evi_softclip' type='genrefpage' />
+        <seealso name='evi_clipasym' display='evi_clipasym' type='genrefpage' />
+        <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_shaper' display='evi_shaper' type='genrefpage' />
+        <seealso name='evi_warmer' display='evi_warmer' type='genrefpage' />
+        <seealso name='evi_rectify' display='evi_rectify' type='genrefpage' />
+        <seealso name='evi_softstatic' display='evi_softstatic' type='genrefpage' />
+        <seealso name='evi_squeeze' display='evi_squeeze' type='genrefpage' />
+        <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
+        <seealso name='evi_tone_macro' display='evi_tone_macro' type='genrefpage' />
+        <seealso name='evi_rcfilter' display='evi_rcfilter' type='genrefpage' />
     </seealsolist>
 </c74object>

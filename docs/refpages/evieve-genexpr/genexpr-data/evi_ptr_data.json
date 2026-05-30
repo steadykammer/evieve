@@ -4,7 +4,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "High quality classic Saw Oascillator",
+            "digest": "Classic Saw Oascillator",
             "name": "ptr3_saw",
             "inputs": [
                 {
@@ -36,7 +36,7 @@
         },
         {
             "document": true,
-            "digest": "High quality classic Rect Oascillator with PWM",
+            "digest": "Classic Rect Oascillator with PWM",
             "name": "ptr3_rect",
             "inputs": [
                 {

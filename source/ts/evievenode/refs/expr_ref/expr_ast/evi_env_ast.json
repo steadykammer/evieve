@@ -2735,6 +2735,694 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "averageData",
+                "raw": "averageData"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xin",
+                    "raw": "xin"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "interval",
+                    "raw": "interval"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 100,
+                    "raw": "100",
+                    "gen_kind": "integer"
+                },
+                {
+                    "type": "Literal",
+                    "value": 1,
+                    "raw": "1",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "addummy",
+                                    "raw": "addummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "avgMedium",
+                                "raw": "avgMedium"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xin",
+                                        "raw": "xin"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "interval",
+                                            "raw": "interval"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "interval",
+                                            "raw": "interval"
+                                        },
+                                        "gen_kind": "attribute"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "gen_kind": "attribute"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "averageWrap",
+                                    "raw": "averageWrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "avgFast",
+                                "raw": "avgFast"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1.398323,
+                                        "raw": "1.398323",
+                                        "gen_kind": "float"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastpow",
+                                    "raw": "fastpow"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "avgSlow",
+                                "raw": "avgSlow"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgFast",
+                                    "raw": "avgFast"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgMedium",
+                                    "raw": "avgMedium"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgSlow",
+                                    "raw": "avgSlow"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "immediateEnv",
+                "raw": "immediateEnv"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "iX",
+                    "raw": "iX"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "iAttack",
+                    "raw": "iAttack"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "iDecay",
+                    "raw": "iDecay"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "iR",
+                    "raw": "iR"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "iedummy",
+                                    "raw": "iedummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "iMax",
+                                "raw": "iMax"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "iX",
+                                        "raw": "iX"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "abs",
+                                    "raw": "abs"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "CallExpression",
+                            "arguments": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "iMax",
+                                    "raw": "iMax"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "iAttack",
+                                    "raw": "iAttack"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "iDecay",
+                                    "raw": "iDecay"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "iR",
+                                    "raw": "iR"
+                                }
+                            ],
+                            "callee": {
+                                "type": "Identifier",
+                                "name": "envAttackDecay",
+                                "raw": "envAttackDecay"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "zeroxEnvs",
+                "raw": "zeroxEnvs"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "X",
+                    "raw": "X"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "smooth",
+                    "raw": "smooth"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "countDiv",
+                    "raw": "countDiv"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 10,
+                    "raw": "10",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "zedummy",
+                                    "raw": "zedummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xnum",
+                                        "raw": "xnum"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xthresh",
+                                        "raw": "xthresh"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xings",
+                                        "raw": "xings"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "X",
+                                        "raw": "X"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "evi_zeroxcount",
+                                    "raw": "evi_zeroxcount"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "num",
+                                "raw": "num"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xnum",
+                                        "raw": "xnum"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "maximum",
+                                    "raw": "maximum"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "threshEnv",
+                                "raw": "threshEnv"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xthresh",
+                                        "raw": "xthresh"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "smooth",
+                                            "raw": "smooth"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 4,
+                                            "raw": "4",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "evi_logsmooth",
+                                    "raw": "evi_logsmooth"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "countIn",
+                                "raw": "countIn"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "/",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "num",
+                                            "raw": "num"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "countDiv",
+                                            "raw": "countDiv"
+                                        }
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "clip",
+                                    "raw": "clip"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "countEnv",
+                                "raw": "countEnv"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "countIn",
+                                        "raw": "countIn"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "smooth",
+                                            "raw": "smooth"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "smooth",
+                                            "raw": "smooth"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "evi_logsmooth",
+                                    "raw": "evi_logsmooth"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "threshEnv",
+                                    "raw": "threshEnv"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "countEnv",
+                                    "raw": "countEnv"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "xings",
+                                    "raw": "xings"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "vactrolSad",
                 "raw": "vactrolSad"
             },

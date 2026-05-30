@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0.01 @max 1.476 @default 0.94",
-            "digest": "Filter resonance 0..1 (0.01..1.476)."
+            "digest": "Filter resonance 0..1 (0.01..1.476). As in the original analog circuit, highpass output level is resonance dependent!"
         }
     ],
     "outlets": [
@@ -54,7 +54,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "OTA S&K Highpass",
-            "digest": "6dB highpass output."
+            "digest": "6dB highpass output. As in the original analog circuit, highpass output level is resonance dependent!"
         }
     ],
     "attributes": [

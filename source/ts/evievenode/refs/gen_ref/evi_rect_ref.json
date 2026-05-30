@@ -3,7 +3,7 @@
         "name": "evi_rect",
         "child": "evi.rect~",
         "category": "evieve",
-        "digest": "High quality anti-aliased square wave oscillator with PWM",
+        "digest": "Anti-aliased square wave oscillator with PWM",
         "description": "Simple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "constructor": {

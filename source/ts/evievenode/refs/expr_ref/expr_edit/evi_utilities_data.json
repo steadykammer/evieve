@@ -952,6 +952,94 @@
             ]
         },
         {
+            "document": false,
+            "digest": "",
+            "name": "sel4",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "w",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "y",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "z",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "sel",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Smoothly scan through 4 inputs",
+            "name": "scan4",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x0",
+                    "digest": "Audio input 1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "x1",
+                    "digest": "Audio input 2"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "x2",
+                    "digest": "Audio input 3"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "x3",
+                    "digest": "Audio input 4"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "scan",
+                    "digest": "A float from 0..5 will scan through all four inlputs from zero-gain..1..2..3..4..zero-gain"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Mix",
+                    "digest": "Mixed scanned audio output as a result of four audio inputs"
+                }
+            ]
+        },
+        {
             "document": true,
             "digest": "8-way butterfly audio matrix",
             "name": "butterfly8",

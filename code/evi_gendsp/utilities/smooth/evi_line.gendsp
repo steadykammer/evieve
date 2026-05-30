@@ -48,7 +48,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// exact ramp smoothing, like MSP [line~]\n// @see also: evi_sline, evi_curve, evi_rampsmooth, etc\r\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\neviLine(target, duration)\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= eviMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\n\r\nout1, out2 = eviLine(in1, in2);\r\n\r\n",
+                    "code": "\r\n// exact ramp smoothing, like MSP [line~]\n// @see also: evi_sline, evi_curve, evi_rampsmooth, etc\r\n\n// basic linear scaling like linear part of [scale]\nlineMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\neviLineAbs(target, duration)\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tline\t= lineMap(ramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= line;\n\treturn\tline, (ramp == 1);\n}\n\r\nout1, out2 = eviLineAbs(in1, in2);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="tanhLApprox ( )">
       <description>
-        High quality Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often. <br />
+        Tanh Lambert approx, 2x faster than library tanh(). Excellent mathematical and sonic closeness to library tanh(). In general we use this one most often. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
@@ -57,7 +57,7 @@
     </entry>
     <entry name="atanApprox ( )">
       <description>
-        High quality atan() approximation, excellent sonic and mathematical closeness to library atan() <br />
+        Atan() approximation, excellent sonic and mathematical closeness to library atan() <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 

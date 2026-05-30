@@ -314,6 +314,58 @@ panQuartApproxDual(xL, xR, pL, pR)									// p's are controls, must be clipped 
 
 //
 
+// ultimately the next three mix functions are really ropey,
+// sometimes does not clear one output unit, or
+// mixes in an additional input, no idea why
+/*
+mixUnit(x, val, idx, comp, ramp)
+{
+    History mudummy(0);
+    vallatch = latch(val, idx==comp);
+    // return x * evi_line(vallatch, ramp); // this is broken, gen~ will not tell me why
+    return x * evi_curve(vallatch, ramp, 0); // this is needlessly expensive
+    // return x * evi_lagsmooth(vallatch, ramp); // not ideal, should be exact smoother
+}
+
+mixSection(w, x, y, z, val, idx, offset, ramp)
+{
+    History msdummy(0);
+    unit1 = mixUnit(w, val, idx, (offset + 0), ramp);
+    unit2 = mixUnit(x, val, idx, (offset + 1), ramp);
+    unit3 = mixUnit(y, val, idx, (offset + 2), ramp);
+    unit4 = mixUnit(z, val, idx, (offset + 3), ramp);
+
+    return unit1 + unit2 + unit3 + unit4;
+}
+
+// x/y = (integer) location, interp = 0..1, ramp time in ms
+mix4x4(x0, x1, x2, x3, x=0, y=0, interp=0, ramp=20)
+{
+    History m4dummy(0);
+    idx = int(y*4 + x);
+    rmp = mstosamps(ramp); // if using 'evi_line()' || 'evi_curve()' in 'mixUnit()'
+    // rmp = ramp; // if using 'evi_lagsmooth()' in 'mixUnit()'
+    mix1 = mixSection(x0, x1, x2, x3, interp, idx, 0, rmp);
+    mix2 = mixSection(x0, x1, x2, x3, interp, idx, 4, rmp);
+    mix3 = mixSection(x0, x1, x2, x3, interp, idx, 8, rmp);
+    mix4 = mixSection(x0, x1, x2, x3, interp, idx, 12, rmp);
+
+    return mix1, mix2, mix3, mix4;
+}
+*/
+sel4(w, x, y, z, sel)
+{
+    return selector(sel, w, x, y, z, 0);
+}
+
+scan4(x0, x1, x2, x3, scan) // scan should be exactly smoothed, 0..1..2..3..4..5, going from 0..0
+{
+    // would 'fract()' be cheaper than 'wrap()' ?
+    return mix(sel4(x0, x1, x2, x3, scan), sel4(x0, x1, x2, x3, (scan+1)), wrap(scan, 0, 1));
+}
+
+//
+
 butterfly8(i1, i2, i3, i4, i5, i6, i7, i8)
 {
 	b1	= i1 + i5;

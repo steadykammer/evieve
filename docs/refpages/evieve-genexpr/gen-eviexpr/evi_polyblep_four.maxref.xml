@@ -11,7 +11,7 @@
     By declaring <m>require("evi_polyblep_four.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-    High quality four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself. <br />
+    Four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="polyblep4 ( )">

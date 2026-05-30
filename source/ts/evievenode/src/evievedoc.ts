@@ -1528,7 +1528,6 @@ async function parseDefinesCodeboxes()
 							}
 
 							thisConfigObject.includes.push(requireDecl);
-
 							// void max.post(`found a require in ${chichiForPrinting}: ${requireDecl}`);
 
 						} else if (line_candidate.startsWith('History')) {
@@ -1539,6 +1538,10 @@ async function parseDefinesCodeboxes()
 							let objIndex: number = 0;
 							let thisMessage: any;
 							const isHistory = Object.values(thisConfigObject.messages).includes('history');
+
+							// NOTE: pete's shitty typescript cannot cope with 'History' declarations with no default,
+							// e.g., cannot do: History myGreatHist, myOtherGreatHist; MUST do:
+							// History myGreatHist(0), myOtherGreatHist(0); <<-- SORRY to myself
 
 							if (isHistory) {
 								// is edit of already present 'history' entry
@@ -1591,13 +1594,17 @@ async function parseDefinesCodeboxes()
 
 								const line_sliced = line_candidate.replace('History', '').trimStart();
 								const line_tokens = line_sliced.split(',');
+								// void max.post(`current (history) line tokens in ${chichiForPrinting}: ${JSON.stringify(line_tokens)}`);
 								for (let i = 0; i < line_tokens.length; i++) {
 									let thisArg: any = JSON.parse(JSON.stringify(msgArgsConfig));
 
 									const historyDecl = line_tokens[i];
 									const history_split = historyDecl.split('(');
+									// void max.post(`current (history) for loop split in ${chichiForPrinting}: ${JSON.stringify(history_split)}`);
 									const histName = history_split[0].trim();
+									// void max.post(`current (history) name in for loop split in ${chichiForPrinting}: ${JSON.stringify(histName)}`);
 									const hist_token_val = history_split[1].trim();
+									// void max.post(`current (history) tokens in for loop split in ${chichiForPrinting} (DO I EVER GET HERE): ${JSON.stringify(hist_token_val)}`);
 									let histVal = "";
 									if (hist_token_val.includes(')')) {
 										histVal = hist_token_val.split(')')[0].replace(',', '').replace(';', '').trim();
@@ -1631,7 +1638,6 @@ async function parseDefinesCodeboxes()
 							}
 							FOUND_HIST = true;
 							// void max.post(`filled a message in ${chichiForPrinting}: ${JSON.stringify(thisMessage)}`);
-
 						} else if (line_candidate.startsWith('Param')) {
 							if (!FOUND_PARAM) {
 								thisConfigObject.attributes = thisConfigObject.attributes.filter((entry: { name: string; }) => entry.name !== "");

@@ -509,12 +509,12 @@
             {
                 "box": {
                     "id": "obj-17",
-                    "linecount": 4,
+                    "linecount": 5,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 252.0, 316.0, 60.0 ],
-                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
+                    "patching_rect": [ 49.0, 252.0, 316.0, 74.0 ],
+                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013, but heavily modified, any bugs are evieve bugs."
                 }
             },
             {

@@ -37,7 +37,63 @@
             "description": "Hopefully cleanly clipped output."
         }
     ],
-    "messages": [],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "A1",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "VT",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k1",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k2",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k3",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k4",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k5",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                },
+                {
+                    "name": "k6",
+                    "type": "float",
+                    "units": "default: 0",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": ""
+        }
+    ],
     "attributes": [
         {
             "name": "clip",
@@ -69,6 +125,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.valve~",
         "evi.limiterfast~",
         "evi.hardclip~",
         "evi.softclip~",

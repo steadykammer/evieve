@@ -363,6 +363,20 @@
 
       </description>
     </entry>
+    <entry name="scan4 ( )">
+      <description>
+        Smoothly scan through 4 inputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x1, <i>Audio input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: x2, <i>Audio input 3</i> <br />
+        <b>In 4</b>: type=<i>input</i>: x3, <i>Audio input 4</i> <br />
+        <b>In 5</b>: type=<i>input</i>: scan, <i>A float from 0..5 will scan through all four inlputs from zero-gain..1..2..3..4..zero-gain</i> <br />
+
+        <b>Return 1</b>: Mix, <i>Mixed scanned audio output as a result of four audio inputs</i> <br />
+
+      </description>
+    </entry>
     <entry name="butterfly8 ( )">
       <description>
         8-way butterfly audio matrix <br />

@@ -4,8 +4,8 @@
         "parent": "evi_overdrive_wrap",
         "category": "evieve",
         "tilde": "~",
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound.",
+        "digest": "Anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound.",
         "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
     },
     "metadata": {
@@ -32,7 +32,7 @@
             "id": 2,
             "type": "signal/float",
             "digest": "Shape (linear gain 1..100) @default 1 @min 1 @max 100",
-            "description": "Linear gain 1..100. This actually controls a reciprocal gain wrapping around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the MSP 'overdrive~' object."
+            "description": "Linear gain 1..100 (0..40 dB). This actually controls a reciprocal gain wrapping around the internal saturator. The object handles high gain very well with minimal aliasing. This inlet corresponds to the equivalent inlet of the MSP 'overdrive~' object."
         }
     ],
     "outlets": [
@@ -95,6 +95,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.valve~",
         "evi.overdrive.env~",
         "evi.overdrive.fold~",
         "evi.shaper~",

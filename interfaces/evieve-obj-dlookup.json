@@ -446,18 +446,18 @@
     },
     "evi.overdrive.env~": {
         "type": "define",
-        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
+        "digest": "Anti-aliased passive tanh-like input/output saturation with optional envelope follower",
+        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. An optional envelope follower allows for dynamic saturation."
     },
     "evi.overdrive.fold~": {
         "type": "define",
-        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
-        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most luxurious of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation with antiderivative anti-aliasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+        "digest": "Anti-aliased tanh-based saturation, but folds it's input at high gain. Includes drive, input/output gain wrapping and filter shaping",
+        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative anti-aliasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
     },
     "evi.overdrive.wrap~": {
         "type": "define",
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan gain shaping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
+        "digest": "Anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
     },
     "evi.paf~": {
         "type": "define",
@@ -521,7 +521,7 @@
     },
     "evi.rect~": {
         "type": "define",
-        "digest": "High quality anti-aliased square wave oscillator with PWM",
+        "digest": "Anti-aliased square wave oscillator with PWM",
         "description": "evi.rect~ is a 'max define' for the evi_rect.gendsp gen~ abstraction. Because evi.rect~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.rectify~": {
@@ -551,7 +551,7 @@
     },
     "evi.saw~": {
         "type": "define",
-        "digest": "High quality anti-aliased saw wave oscillator",
+        "digest": "Anti-aliased saw wave oscillator",
         "description": "evi.saw~ is a 'max define' for the evi_saw.gendsp gen~ abstraction. Because evi.saw~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.shaper~": {
@@ -651,7 +651,7 @@
     },
     "evi.tri~": {
         "type": "define",
-        "digest": "High quality anti-aliased triangle wave oscillator",
+        "digest": "Anti-aliased triangle wave oscillator",
         "description": "evi.tri~ is a 'max define' for the evi_tri.gendsp gen~ abstraction. Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.vactrol~": {

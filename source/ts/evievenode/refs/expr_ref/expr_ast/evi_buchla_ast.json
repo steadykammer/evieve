@@ -291,8 +291,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "cubicClip",
-                "raw": "cubicClip"
+                "name": "cubicApprox",
+                "raw": "cubicApprox"
             },
             "params": [
                 {
@@ -315,159 +315,18 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "x05",
-                                "raw": "x05"
+                                "name": "x",
+                                "raw": "x"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                },
-                                "right": {
-                                    "type": "Literal",
-                                    "value": 0.5,
-                                    "raw": "0.5",
-                                    "gen_kind": "float"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "x03",
-                                "raw": "x03"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                },
-                                "right": {
-                                    "type": "Literal",
-                                    "value": 0.333333333333,
-                                    "raw": "0.333333333333",
-                                    "gen_kind": "float"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "w",
-                                "raw": "w"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
                                         "type": "Identifier",
                                         "name": "x",
                                         "raw": "x"
                                     },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "x",
-                                        "raw": "x"
-                                    }
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "x03",
-                                    "raw": "x03"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "v",
-                                "raw": "v"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "x",
-                                        "raw": "x"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "x05",
-                                        "raw": "x05"
-                                    }
-                                },
-                                "right": {
-                                    "type": "Literal",
-                                    "value": 0.166666666666,
-                                    "raw": "0.166666666666",
-                                    "gen_kind": "float"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ReturnStatement",
-                        "argument": {
-                            "type": "ConditionalExpression",
-                            "test": {
-                                "type": "BinaryExpression",
-                                "operator": ">",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                },
-                                "right": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                }
-                            },
-                            "consequent": {
-                                "type": "Identifier",
-                                "name": "v",
-                                "raw": "v"
-                            },
-                            "alternate": {
-                                "type": "ConditionalExpression",
-                                "test": {
-                                    "type": "BinaryExpression",
-                                    "operator": "<",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "x",
-                                        "raw": "x"
-                                    },
-                                    "right": {
+                                    {
                                         "type": "UnaryExpression",
                                         "operator": "-",
                                         "argument": {
@@ -477,22 +336,64 @@
                                             "gen_kind": "integer"
                                         },
                                         "prefix": true
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "clip",
+                                    "raw": "clip"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "x",
+                                "raw": "x"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 0.333333333333,
+                                            "raw": "0.333333333333",
+                                            "gen_kind": "float"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        }
                                     }
                                 },
-                                "consequent": {
-                                    "type": "UnaryExpression",
-                                    "operator": "-",
-                                    "argument": {
-                                        "type": "Identifier",
-                                        "name": "v",
-                                        "raw": "v"
-                                    },
-                                    "prefix": true
-                                },
-                                "alternate": {
+                                "right": {
                                     "type": "Identifier",
-                                    "name": "w",
-                                    "raw": "w"
+                                    "name": "x",
+                                    "raw": "x"
                                 }
                             }
                         },
@@ -579,8 +480,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "cubicClip",
-                                                "raw": "cubicClip"
+                                                "name": "cubicApprox",
+                                                "raw": "cubicApprox"
                                             }
                                         }
                                     }
@@ -893,38 +794,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -939,28 +812,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },
@@ -4165,38 +4019,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -4211,28 +4037,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },
@@ -8728,38 +8535,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -8774,28 +8553,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },
@@ -13031,38 +12791,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -13077,28 +12809,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },
@@ -18247,38 +17960,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -18293,28 +17978,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },
@@ -25217,38 +24883,10 @@
                                 "raw": "thing"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 1,
-                                    "raw": "1",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    },
-                                    "right": {
-                                        "type": "BinaryExpression",
-                                        "operator": "-",
-                                        "left": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "sqrt1_2",
-                                            "raw": "sqrt1_2"
-                                        }
-                                    }
-                                }
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -25263,28 +24901,9 @@
                                 "raw": "thong"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "*",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "resist",
-                                    "raw": "resist"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "-",
-                                    "left": {
-                                        "type": "Literal",
-                                        "value": 1,
-                                        "raw": "1",
-                                        "gen_kind": "integer"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "nls",
-                                        "raw": "nls"
-                                    }
-                                }
+                                "type": "Identifier",
+                                "name": "resist",
+                                "raw": "resist"
                             }
                         }
                     },

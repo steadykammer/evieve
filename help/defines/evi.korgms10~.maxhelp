@@ -35,13 +35,27 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.75,
+                                    "id": "obj-26",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 498.0, 159.0, 286.0, 69.0 ],
+                                    "text": "Notice that for the 12dB Lowpass, filter level is resonance-dependent when resonance is less than 0.5 (50% in this example). This is left as a quirky feature, not a bug :-)",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -640,6 +654,30 @@
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-28",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "int" ],
+                                    "patching_rect": [ 173.0, 482.0, 31.0, 23.0 ],
+                                    "text": "!= 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-27",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 105.0, 537.0, 99.0, 23.0 ],
+                                    "text": "prepend hidden"
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "bubble": 1,
                                     "fontname": "Arial",
@@ -752,7 +790,31 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "hidden": 1,
+                                    "midpoints": [ 114.5, 570.0, 22.33984375, 570.0, 22.33984375, 149.0, 507.5, 149.0 ],
+                                    "source": [ "obj-27", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-27", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-28", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
@@ -939,6 +1001,20 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.75,
+                                    "id": "obj-3",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 419.0, 262.0, 286.0, 69.0 ],
+                                    "text": "Notice that for the 12dB Lowpass, filter level is resonance-dependent when resonance is less than 0.5 (50% in this example). This is left as a quirky feature, not a bug :-)",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -1607,8 +1683,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 97.0, 156.0, 150.0, 21.0 ],
-                                    "text": "like the 'more' tab"
+                                    "patching_rect": [ 97.0, 156.0, 176.0, 21.0 ],
+                                    "text": "a bit like the 'more' tab"
                                 }
                             },
                             {
@@ -1720,7 +1796,8 @@
                                     "patching_rect": [ 475.0, 227.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 62.0 ],
+                                            "parameter_exponent": 2.0,
+                                            "parameter_initial": [ 24.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[5]",
                                             "parameter_mmax": 100.0,
@@ -1787,9 +1864,47 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 370.0, 229.0, 755.0, 705.0 ],
+                                        "rect": [ 370.0, 229.0, 925.0, 705.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.75,
+                                                    "id": "obj-21",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 676.0, 209.0, 219.0, 51.0 ],
+                                                    "text": "Here we account for the LP filter level resonance-dependence when resonance is less than 0.5.",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.1,
+                                                    "id": "obj-23",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.0, 571.0, 50.0, 24.0 ],
+                                                    "text": "LP",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-20",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 564.0, 244.0, 110.0, 22.0 ],
+                                                    "text": "expr in1 * 0.5 + 0.5"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-18",
@@ -1816,8 +1931,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 25.0, 21.0, 150.0, 20.0 ],
-                                                    "text": "like the 'more' tab"
+                                                    "patching_rect": [ 25.0, 21.0, 181.0, 20.0 ],
+                                                    "text": "a bit like the 'more' tab"
                                                 }
                                             },
                                             {
@@ -1994,6 +2109,37 @@
                                                     "patching_rect": [ 171.0, 643.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-29",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 692.0, 262.0, 203.0, 20.0 ],
+                                                    "text": "(see 'basic' and 'more' tabs)",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-27",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 566.0, 268.0, 108.0, 20.0 ],
+                                                    "text": "0.5..1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-26",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 564.0, 173.0, 106.0, 20.0 ],
+                                                    "text": "0..1"
+                                                }
                                             }
                                         ],
                                         "lines": [
@@ -2029,7 +2175,7 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-16", 0 ],
+                                                    "destination": [ "obj-20", 0 ],
                                                     "source": [ "obj-14", 0 ]
                                                 }
                                             },
@@ -2049,6 +2195,12 @@
                                                 "patchline": {
                                                     "destination": [ "obj-9", 0 ],
                                                     "source": [ "obj-2", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-16", 0 ],
+                                                    "source": [ "obj-20", 0 ]
                                                 }
                                             },
                                             {
@@ -2220,7 +2372,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

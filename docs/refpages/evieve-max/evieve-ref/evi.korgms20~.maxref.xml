@@ -45,7 +45,7 @@
 				Inlet #3: Resonance 0..1 @min 0.01 @max 1.476 @default 0.94
 			</digest>
 			<description>
-				Filter resonance 0..1 (0.01..1.476).
+				Filter resonance 0..1 (0.01..1.476). As in the original analog circuit, highpass output level is resonance dependent!
 			</description>
 		</inlet>
 	</inletlist>
@@ -64,7 +64,7 @@
 				Outlet #2: Korg OTA S&amp;K Highpass
 			</digest>
 			<description>
-				6dB highpass output.
+				6dB highpass output. As in the original analog circuit, highpass output level is resonance dependent!
 			</description>
 		</outlet>
 	</outletlist>
@@ -98,6 +98,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Notice that for the 6dB Highpass, filter level is resonance-dependent when resonance is less than 0.5. This is left as a quirky feature, not a bug :-) <br />
 	</discussion>
 </c74object>

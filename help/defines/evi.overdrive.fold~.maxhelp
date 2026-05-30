@@ -1686,11 +1686,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-4",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "Compare the naive function with the oversampled anti aliased evieve abstraction.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "text": "evi.overdrive.fold~ uses a tanh()-like transfer function internally. Compare the naive function with the oversampled anti aliased evieve abstraction.",
                                     "varname": "digest_comment"
                                 }
                             }
@@ -4417,7 +4418,7 @@
                                     "patching_rect": [ 472.0, 322.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 6.0 ],
+                                            "parameter_initial": [ 10.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number",
                                             "parameter_mmax": 40.0,
@@ -5292,7 +5293,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -5511,7 +5512,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n\r\npwm = evi_modosc(0, scale=0.5, offset=0.5);\r\n\r\nosc = evi_rect(in1, pwm);\r\n\r\ngain = evi_modosc(0.7, scale=45, offset=55);\r\n\r\n\r\n// there are many different saturators available, the default\r\n// altTanhAdaa2 (2nd order antiderivative) is just one of them:\r\nout1 = altTanhAdaa2(osc * gain);\r\n\r\nout2 = gain;\r\n\r\n",
+                                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n\r\npwm = evi_modosc(0, scale=0.5, offset=0.5);\r\n\r\nosc = evi_rect(in1, pwm);\r\n\r\ngain = evi_modosc(0.7, scale=45, offset=55);\r\n\r\n\r\n// there are many different saturators available, the default\r\n// altTanhAdaa2 (2nd order antiderivative) is just one of them,\r\n// and represents the equivalent of [evi.overdrive.fold~ @aa 3]:\r\nout1 = altTanhAdaa2(osc * gain);\r\n\r\nout2 = gain;\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

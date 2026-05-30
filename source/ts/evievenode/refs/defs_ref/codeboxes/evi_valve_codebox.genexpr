@@ -6,16 +6,16 @@
 require("evi_valves.genexpr");
 
 History init(1), od(4147200000), prevSR(0);
-History k1, k2, k3, k4, k5, k6, VT, A1;
+History k1(0.), k2(0.), k3(0.), k4(0.), k5(0.), k6(0.), VT(0.);
 Delay   align(samplerate*0.0625, 1, feedback=0);
 
 // param rate from here
 
-Param   bass(0, min=-10, max=10); // input bass in dB
-Param   treble(0, min=-10, max=10); // input treble in dB
+Param   bass(0., min=-10, max=10); // input bass in dB
+Param   treble(0., min=-10, max=10); // input treble in dB
 Param   compensate(0.5, min=0, max=1); // % 0..1, post-sat positive high shelf
 Param   makeup(0., min=0, max=10); // makeup gain in dB
-Param   highpass(40, min=10, max=400); // final highpass in Hz
+Param   highpass(40., min=10, max=400); // final highpass in Hz
 
 Param   envtype(0, min=0, max=2); // fast, medium, slow
 Param   envscale(0.24, min=0, max=1); // compress gain env (& the more compressed, the higher the gain)
@@ -24,15 +24,15 @@ Param   envinterval(200, min=100, max=2000); // average samples
 Param   envmode(1, min=0, max=2); // bipolar, absolute, rms (do not use bipolar)
 
 // in samples
-Param   attack(20, min=10, max=1000);
-Param   decay(2000, min=100, max=10000);
+Param   attack(20, min=10, max=1000); // TEMP
+Param   decay(2000, min=100, max=10000); // TEMP
 
 // if one of these is on we have single gain env (normal), if both are on we have double
 // enveloping (crazy), if both are off we have no dynamic gain and we are quasi 'static' distortion
 Param   envasym(1, min=0, max=1);
 Param   envvalve(0, min=0, max=1);
 
-Param   asymmetry(0, min=-6, max=6); // fake dB (favours negative regardless, but does 'add gain')
+Param   asymmetry(0., min=-6, max=6); // fake dB (favours negative regardless, but does 'add gain')
 Param   hysterisis(0.5, min=0, max=1); // amount of hysterisis envelopes 0..1, shifts in your audio
 
 Param   diode(1, min=0, max=1); // select diode algo, 0='soft', 1='hard'
@@ -61,7 +61,7 @@ downhalf = int(down * 0.5);
 
 if ( (init) || (prevSR != SAMPLERATE) ) {
     od   = mstosamps(86400000);
-    k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffsV(SAMPLERATE);
+    k1, k2, k3, k4, k5, k6, VT = diodeCoeffsV(SAMPLERATE);
     prevSR = SAMPLERATE;
     init = 0;
 }
@@ -121,8 +121,7 @@ valveInput = asymOutput * 0.25; // approx -4..4 .. -1..1
 valve = 0;
 // do not additionally dcblock anything in this block
 if (dio) {  // 'hard'
-//  k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffsV(SAMPLERATE);
-    valve = diodeGB_8x_4POINT(valveInput, k1, k2, k3, k4, k5, k6, VT, A1, gainEnvPost, biasEnv, reset) * 1.995262;
+    valve = diodeGB_8x_4POINT(valveInput, k1, k2, k3, k4, k5, k6, VT, gainEnvPost, biasEnv, reset) * 1.995262;
 }
 else {      // 'soft'
     ingain, outgain = atanDriveV(gainEnvPost);

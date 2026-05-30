@@ -144,7 +144,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.limiterfast~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
+        "seealso": [ "evi.valve~", "evi.limiterfast~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.comb~": {
         "digest": "Reimplementation of MSP comb~ filter delay",
@@ -623,25 +623,25 @@
         "seealso": [ "evi.rcfilter~", "evi.damp~", "evi.damp.macro~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.crossover.allpass~", "evi.filter~" ]
     },
     "evi.overdrive.env~": {
-        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
+        "digest": "Anti-aliased passive tanh-like input/output saturation with optional envelope follower",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
+        "seealso": [ "evi.valve~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.fold~": {
-        "digest": "High quality anti-aliased tanh-based saturation with drive, input/output gain wrapping and filter shaping",
+        "digest": "Anti-aliased tanh-based saturation, but folds it's input at high gain. Includes drive, input/output gain wrapping and filter shaping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
+        "seealso": [ "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.valve~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.overdrive.wrap~": {
-        "digest": "High quality anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "digest": "Anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.overdrive.env~", "evi.overdrive.fold~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
+        "seealso": [ "evi.valve~", "evi.overdrive.env~", "evi.overdrive.fold~", "evi.shaper~", "evi.sinfold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.warmer~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.paf~": {
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
@@ -735,7 +735,7 @@
         "seealso": [ "evi.squeeze~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.rcfilter~" ]
     },
     "evi.rect~": {
-        "digest": "High quality anti-aliased square wave oscillator with PWM",
+        "digest": "Anti-aliased square wave oscillator with PWM",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
@@ -770,7 +770,7 @@
         "seealso": [ "evi.sine.select~", "evi.tri.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.saw~": {
-        "digest": "High quality anti-aliased saw wave oscillator",
+        "digest": "Anti-aliased saw wave oscillator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
@@ -910,7 +910,7 @@
         "seealso": [ "evi.sine.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
     "evi.tri~": {
-        "digest": "High quality anti-aliased triangle wave oscillator",
+        "digest": "Anti-aliased triangle wave oscillator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
@@ -928,7 +928,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Filter Nonlinear", "evieve Antialiased", "evieve Effect", "evieve Dynamics", "evieve Modulation", "evieve Saturation" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.clipper~", "evi.hardclip~", "evi.softclip~", "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.warmer~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.baxandall~", "evi.tone.macro~", "evi.rcfilter~" ]
     },
     "evi.vcf~": {
         "digest": "Reimplementation of Pd 'vcf~' filter",

@@ -16,7 +16,7 @@
   <misc name="GenExpr Functions">
     <entry name="averageAbsolute ( )">
       <description>
-        Like MSP [average~ 250 absolute] <br />
+        Like MSP [average~ absolute] <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: inputSample, <i>Audio input to follow</i> <br />
         <b>In 2</b>: type=<i>input</i>: windowSizeInSamples, <i>Averaging window size in samples</i> <br />
@@ -101,6 +101,49 @@
 
       </description>
     </entry>
+    <entry name="averageData ( )">
+      <description>
+        Averaging audio detection wrapper for envelope following <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input to be analysed</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the averaging filter (buffer)</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>100</b>, <i>Interval (window size) in samples of internal averager algorithm</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i>Mode of averager operation, 0&#x3D;bipolar, 1&#x3D;absolute, 2&#x3D;RMS</i> <br />
+
+        <b>Return 1</b>: Fast, <i>Fast response data (exp)</i> <br />
+        <b>Return 2</b>: Medium, <i>Medium response data (lin)</i> <br />
+        <b>Return 3</b>: Slow, <i>Slow response data (sqrt)</i> <br />
+
+      </description>
+    </entry>
+    <entry name="immediateEnv ( )">
+      <description>
+        Absolute audio envelope peak followed by logarithmic envelope follower <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: iX, <i>Audio input to be followed</i> <br />
+        <b>In 2</b>: type=<i>input</i>: iAttack, <i>Envelope follower attack time in seconds</i> <br />
+        <b>In 3</b>: type=<i>input</i>: iDecay, <i>Envelope follower release time in seconds</i> <br />
+        <b>In 4</b>: type=<i>input</i>: iR, <i>Sample accurate reset of internal envelope following filter</i> <br />
+
+        <b>Return 1</b>: Immediate Env, <i>Envelope output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="zeroxEnvs ( )">
+      <description>
+        Fast data, slow envelopes (output envelope averages lower if melodic / sustained input, spikes to higher floor if transient / constantly changing input) <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: X, <i>Audio input to be analysed</i> <br />
+        <b>In 2</b>: type=<i>input</i>: smooth, <i>Smoothing time of the logarithmic smoothers in milliseconds</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal zero crossing detector</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): countDiv, default: <b>10</b>, <i>Divisor for number of zero crossings per period, higher values will result in less busy envelopes (effects &#x27;Env 2&#x27; middle outlet)</i> <br />
+
+        <b>Return 1</b>: Env 1, <i>Based on zero crossing threshold</i> <br />
+        <b>Return 2</b>: Env 2, <i>Based on number of zero crossings per period</i> <br />
+        <b>Return 3</b>: Xings, <i>Continuously updated number of zero crossings</i> <br />
+
+      </description>
+    </entry>
     <entry name="vactrol ( )">
       <description>
         Vactrol time-domain behaviour filter, the resistive part of a photoresistive opto-isolator <br />
@@ -108,7 +151,7 @@
         <b>In 1</b>: type=<i>input</i>: impulse, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: rise, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: fall, <i>Fall time in SAMPLES</i> <br />
-        <b>In 4</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: reset, <i>Sample accurate reset the state of the vactrol filter</i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to a Buchla vactrol</i> <br />
 

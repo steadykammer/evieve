@@ -3,7 +3,7 @@
 // "Diode" aliases far sooner than "Hard" or "Soft", sorry
 require("evi_clipping.genexpr");
 History prevSR(0);
-History k1, k2, k3, k4, k5, k6, VT, A1;
+History k1(0.), k2(0.), k3(0.), k4(0.), k5(0.), k6(0.), VT(0.), A1(0.);
 Param	oversampling(2, min=0, max=2);	// 0 = 1x, 1 = 2x, 2 = 4x
 Param	clip(0, min=0, max=3);			// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym
 cp		= int(clip);

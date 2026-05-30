@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -458,11 +458,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-4",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "Try out the sound of the saturator with some real audio.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "text": "Try out the sound of the saturator with some real audio. For this saturator type but with envelope following, see: [evi.valve~ @diode 0]",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -4468,7 +4469,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// utility wrapper:\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\r\n\r\ngain = dbtoaApprox(in2);\r\ndrive = evi_expsmooth(gain, 22);\r\ningain, outgain = atanDrive(drive);\r\n\r\n// there are many different saturators available, the default\r\n// atanAdaa2 (2nd order antiderivative) is just one of them:\r\nout1 = atanAdaa2(in1*ingain) * outgain;\r\n\r\n",
+                                                    "code": "\r\n// adaa functions live here:\r\n//require(\"evi_adaa.genexpr\");\n\r\n// ...which in turn is included in here (with quasi oversampling wrappers):\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// utility wrapper:\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\r\n\r\ngain = dbtoaApprox(in2);\r\ndrive = evi_expsmooth(gain, 22);\r\ningain, outgain = atanDrive(drive);\r\n\r\n// there are many different saturators available, the default\r\n// atanAdaa2 (2nd order antiderivative) is just one of them,\r\n// and represents the equivalent of [evi.overdrive.wrap~ @aa 3]:\r\nout1 = atanAdaa2(in1*ingain) * outgain;\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

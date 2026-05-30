@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "to be Destroyed",
-            "digest": ""
+            "digest": "Input audio will be followed and saturated."
         }
     ],
     "outlets": [
@@ -29,7 +29,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Goodness",
-            "digest": ""
+            "digest": "The valve distortion output."
         },
         {
             "id": 2,
@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Linear Gain Envelope",
-            "digest": ""
+            "digest": "The gain envelope used in the dynamic gain control into the core saturation unit. Is time aligned with the output (is delayed)."
         },
         {
             "id": 3,
@@ -45,25 +45,25 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Latency in Samples",
-            "digest": ""
+            "digest": "The output of evi.valve~ is delayed by this amount of samples. Use this value to delay your dry audio chain if in a mix situation."
         }
     ],
     "attributes": [
         {
             "name": "asymmetry",
-            "type": "int",
+            "type": "float",
             "digest": "@min -6, @max 6",
-            "description": "",
+            "description": "This is actually 'fake' dB but has a similar effect. Asymmetry always favours negative over positive waveform, but this control changes the relationship between them. It also ultimately adds gain to the signal before the saturation stage, so could be seen as an addition to @bass and @treble.",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "attack",
             "type": "int",
             "digest": "@min 10, @max 1000",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "20"
@@ -71,19 +71,19 @@
         },
         {
             "name": "bass",
-            "type": "int",
+            "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Input gain to the saturator, bass focussed, part of the 'Baxandall' EQ on the pre-amp along with the @treble attribute.",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         },
         {
             "name": "compensate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Compensate high frequency content. Marketing people would call this control 'air'. It basically high-shelf-boosts the high frequencies above 6kHz. This is mainly useful in restoring high details lost in the antiderivative antialiasing and oversampling algorithms.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -93,7 +93,7 @@
             "name": "decay",
             "type": "int",
             "digest": "@min 100, @max 10000",
-            "description": "",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "2000"
@@ -103,7 +103,7 @@
             "name": "diode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Effectively diode 'type' used in the valve distortion. '1' ('hard', default) is an agressive and faithful emulation of an analog diode. '0' ('soft') is a 'diode-like' nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -113,7 +113,7 @@
             "name": "envasym",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit. This @envasym attribute turns the envelope at the asymmetry stage on or off.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -123,7 +123,7 @@
             "name": "envinterval",
             "type": "int",
             "digest": "@min 100, @max 2000",
-            "description": "",
+            "description": "The averaging period in samples of the internal envelope follower, and therefore also the entire object latency (reported out the far right outloet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.",
             "default": {
                 "type": "int",
                 "value": "200"
@@ -133,7 +133,7 @@
             "name": "envmode",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Mode of the envelope follower averager, '1' = 'absolute', '2' = 'RMS'. It is almost always best to lease on 'absolute', but 'RMS' can be useful for more sustained input material.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -143,7 +143,7 @@
             "name": "envscale",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Scales the main gain envelope. At '0.' the envelope is at it's most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.",
             "default": {
                 "type": "float",
                 "value": "0.24"
@@ -153,7 +153,7 @@
             "name": "envtype",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "",
+            "description": "Select the envelope follower detection setting, 0=fast, 1=medium, 2=slow.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -163,7 +163,7 @@
             "name": "envvalve",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit. This @envvalve attribute turns the envelope at the core saturation stage on or off.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -171,19 +171,19 @@
         },
         {
             "name": "highpass",
-            "type": "int",
+            "type": "float",
             "digest": "@min 10, @max 400",
-            "description": "",
+            "description": "Final highpass on the output to help tame the bass.",
             "default": {
-                "type": "int",
-                "value": "40"
+                "type": "float",
+                "value": "40."
             }
         },
         {
             "name": "hysterisis",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Amount of hysterisis present in the pre (asymmetry) / post (nonlinear lowpass) saturation stages. If '0.' there are no hysterisis envelopes, at '1.' there is the most interference from the hysterisis envelopes.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -193,7 +193,7 @@
             "name": "makeup",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "",
+            "description": "Makeup gain is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -201,12 +201,12 @@
         },
         {
             "name": "treble",
-            "type": "int",
+            "type": "float",
             "digest": "@min -10, @max 10",
-            "description": "",
+            "description": "Input gain to the saturator, treble focussed, part of the 'Baxandall' EQ on the pre-amp along with the @bass attribute.",
             "default": {
-                "type": "int",
-                "value": "0"
+                "type": "float",
+                "value": "0."
             }
         }
     ],
@@ -214,6 +214,70 @@
         {
             "name": "",
             "display": ""
+        },
+        {
+            "name": "evi_overdrive_env",
+            "display": "evi_overdrive_env"
+        },
+        {
+            "name": "evi_overdrive_wrap",
+            "display": "evi_overdrive_wrap"
+        },
+        {
+            "name": "evi_overdrive_fold",
+            "display": "evi_overdrive_fold"
+        },
+        {
+            "name": "evi_clipper",
+            "display": "evi_clipper"
+        },
+        {
+            "name": "evi_hardclip",
+            "display": "evi_hardclip"
+        },
+        {
+            "name": "evi_softclip",
+            "display": "evi_softclip"
+        },
+        {
+            "name": "evi_clipasym",
+            "display": "evi_clipasym"
+        },
+        {
+            "name": "evi_sinfold",
+            "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_shaper",
+            "display": "evi_shaper"
+        },
+        {
+            "name": "evi_warmer",
+            "display": "evi_warmer"
+        },
+        {
+            "name": "evi_rectify",
+            "display": "evi_rectify"
+        },
+        {
+            "name": "evi_softstatic",
+            "display": "evi_softstatic"
+        },
+        {
+            "name": "evi_squeeze",
+            "display": "evi_squeeze"
+        },
+        {
+            "name": "evi_baxandall",
+            "display": "evi_baxandall"
+        },
+        {
+            "name": "evi_tone_macro",
+            "display": "evi_tone_macro"
+        },
+        {
+            "name": "evi_rcfilter",
+            "display": "evi_rcfilter"
         }
     ]
 }

@@ -3,14 +3,15 @@
         "name": "evi_overdrive_env",
         "child": "evi.overdrive.env~",
         "category": "evieve",
-        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased."
+        "digest": "Anti-aliased passive tanh-like input/output saturation with optional envelope follower",
+        "description": "A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. An optional envelope follower allows for dynamic saturation."
     },
     "constructor": {
         "inlets": "input"
     },
     "includes": [
-        "evi_saturators"
+        "evi_saturators",
+        "evi_env"
     ],
     "inlets": [
         {
@@ -30,6 +31,14 @@
             "optional": 1,
             "digestauto": "Out - anti-aliased for your audio not for Maths",
             "digest": "Overdriven audio output."
+        },
+        {
+            "id": 2,
+            "name": "linear",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Gain Envelope (if 'follow' attribute on)",
+            "digest": "If the @follow attribute is on, this outlet will output the automatic gain envelope used on the input to the saturation stage."
         }
     ],
     "attributes": [
@@ -41,6 +50,16 @@
             "default": {
                 "type": "int",
                 "value": "3"
+            }
+        },
+        {
+            "name": "follow",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "Engage an envelope follower on the input which dynamically controls gain into the saturation stage.",
+            "default": {
+                "type": "int",
+                "value": "0"
             }
         },
         {
@@ -98,6 +117,10 @@
         {
             "name": "evi_clipper",
             "display": "evi_clipper"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "description": "High quality four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself.",
+    "description": "Four-point PolyBLEP bandlimited oscillators, classic waveform shapes. When calling any of these functions you must deal with dc yourself.",
     "requires": [],
     "functions": [
         {

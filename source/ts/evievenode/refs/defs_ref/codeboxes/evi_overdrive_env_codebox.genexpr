@@ -1,17 +1,66 @@
 
 require("evi_saturators.genexpr");
+require("evi_env.genexpr");
 
 // Alternative to tanh(), it is not the same but does almost sound the same,
 // and is much easier to create the 2nd order antiderivative of. Adaa2 and above
 // are much cheaper than using tanh(). i would describe it as a "buzzy" tanh().
 
+// The 'extra' feature in this object is optional envelope following on the input
+// to accentuate saturation of transient meterial, although the envelope
+// should adjust to any material.
 
+Delay   align(samplerate*0.01, 1, feedback=0);
+
+// param rate...
+
+// if env on, default latency is always 256 samples in this evi_overdrive_env object
+Param   follow(0, min=0, max=1);            // envelope following off/on, default off
 Param	hfcompensate(1, min=0, max=1);		// default on
 Param	aa(3, min=0, max=5);				// default Adaa2
 adaaxx	= int(aa);
 hfcomp	= int(hfcompensate);
+ef      = int(follow);
 
-sqrtinput	= in1 + 0;
+eint    = 256;
+emode   = 1;
+envcomp = 0.12;
+downms  = 41.666667;
+down    = mstosamps(downms);
+up      = int(down * 0.01);
+down    = int(down);
+
+// audio rate...
+
+X = in1;
+align.write(X);
+xAlign = align.read(eint, interp="none");
+reset = delta(change(ef)) < 0;
+
+// optional envelope following
+
+gainEnv = 1;
+makeup = 1;
+sqrtinput = 0;
+if (ef) {
+    // use X
+    avgFast, avgMedium, avgSlow = averageData(X * e, reset, interval=eint, mode=emode);
+    // use xAlign, align with 'averageData()'
+    threshEnv, countEnv, xings = zeroxEnvs(xAlign, (downms+downms), reset, countDiv=10);
+    envMain = vactrol(avgMedium, up, down, reset); // main for gainEnv
+    // goes above and below 1 so we get a compression expansion effect, depends on 'envcomp'
+    gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++
+    sqrtinput = xAlign * gainEnv;
+    makeup = 1;
+}
+else {
+    sqrtinput = X;
+    makeup = 1;
+    gainEnv = 1;
+}
+
+// saturation
+
 sqrtoutput	= 0;
 if (adaaxx == 1) {
 	sqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);
@@ -31,5 +80,6 @@ if (hfcomp) {
 	sqrtoutput = decorelate(sqrtoutput);
 }
 
-out1	= dcblock(sqrtoutput);
+out1	= dcblock(sqrtoutput) * makeup;
+out2    = gainEnv;
 

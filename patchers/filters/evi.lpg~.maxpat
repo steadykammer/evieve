@@ -52,12 +52,12 @@
             {
                 "box": {
                     "id": "obj-15",
-                    "linecount": 4,
+                    "linecount": 5,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 494.0, 472.0, 316.0, 60.0 ],
-                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013"
+                    "patching_rect": [ 494.0, 472.0, 316.0, 74.0 ],
+                    "text": "Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen & Key filter, based on \"A Digital Model of the Buchla Lowpass-Gate\" by Julian Parker and Stefano D’Angelo, 2013, but heavily modified, any bugs are evieve bugs."
                 }
             },
             {
@@ -457,7 +457,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "float" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 780.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -480,7 +480,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "float" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 718.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -503,7 +503,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "float" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 656.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -526,7 +526,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 564.0, 133.0, 30.0, 30.0 ]
                 }
             },
@@ -549,7 +549,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 502.0, 133.0, 30.0, 30.0 ]
                 }
             },

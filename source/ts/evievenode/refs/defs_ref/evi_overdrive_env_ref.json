@@ -4,9 +4,9 @@
         "parent": "evi_overdrive_env",
         "category": "evieve",
         "tilde": "~",
-        "digest": "High quality anti-aliased passive tanh-like input/output saturation",
-        "description": "The simplest of the evieve 'overdrive' objects, a memoryless nonlinear approximation with high quality antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased.",
-        "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
+        "digest": "Anti-aliased passive tanh-like input/output saturation with optional envelope follower",
+        "description": "A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. An optional envelope follower allows for dynamic saturation.",
+        "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile. For more envelope following based saturation see <o>evi.valve~</o>."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -19,7 +19,8 @@
         ]
     },
     "includes": [
-        "evi_saturators.genexpr"
+        "evi_saturators.genexpr",
+        "evi_env.genexpr"
     ],
     "inlets": [
         {
@@ -35,6 +36,12 @@
             "type": "signal",
             "digest": "Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths",
             "description": "Overdriven audio output."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Linear Gain Envelope (if 'follow' attribute on)",
+            "description": "If the @follow attribute is on, this outlet will output the automatic gain envelope used on the input to the saturation stage."
         }
     ],
     "messages": [],
@@ -49,6 +56,18 @@
                 "min": "0",
                 "max": "5",
                 "value": "3"
+            }
+        },
+        {
+            "name": "follow",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Engage an envelope follower on the input which dynamically controls gain into the saturation stage.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
             }
         },
         {
@@ -69,6 +88,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.valve~",
         "evi.overdrive.wrap~",
         "evi.overdrive.fold~",
         "evi.shaper~",

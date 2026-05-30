@@ -78,6 +78,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.valve~"> </seealso>
 		<seealso name="evi.limiterfast~"> </seealso>
 		<seealso name="evi.hardclip~"> </seealso>
 		<seealso name="evi.softclip~"> </seealso>
