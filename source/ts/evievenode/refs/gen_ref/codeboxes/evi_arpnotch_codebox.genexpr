@@ -6,7 +6,7 @@
 // @see also: "evi_svfsynth.gendsp" for a beefy nonlinear 12 & 24 dB svf (with morphing).
 
 require("evi_tanh.genexpr");
-require("evi_smooth.genexpr");
+require("evi_smooth_bank.genexpr");
 
 // core
 

@@ -19,7 +19,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ input } }
+                { arguments={}, inlets={ input, gain } }
             </digest>
         </constructor>
     </constructorlist>
@@ -27,6 +27,11 @@
         <geninlet name='input' type='float' optional='1'>
             <digest>
                 Signal. Audio input to be overdriven.
+            </digest>
+        </geninlet>
+        <geninlet name='gain' type='float' optional='1'>
+            <digest>
+                (linear gain 1..100 post env foll) @default 1 @min 1 @max 100. Apply gain to engage nonlinearity, applied post envelope detection and pre saturator.
             </digest>
         </geninlet>
     </geninletlist>

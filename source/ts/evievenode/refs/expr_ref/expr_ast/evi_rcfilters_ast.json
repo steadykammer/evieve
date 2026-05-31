@@ -4346,8 +4346,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "tanhLApprox",
-                "raw": "tanhLApprox"
+                "name": "tanhLApprox0",
+                "raw": "tanhLApprox0"
             },
             "params": [
                 {
@@ -4813,8 +4813,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }
@@ -4929,8 +4929,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }
@@ -5090,8 +5090,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }
@@ -5628,8 +5628,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }
@@ -5744,8 +5744,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }
@@ -5905,8 +5905,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "tanhLApprox",
-                                    "raw": "tanhLApprox"
+                                    "name": "tanhLApprox0",
+                                    "raw": "tanhLApprox0"
                                 }
                             }
                         }

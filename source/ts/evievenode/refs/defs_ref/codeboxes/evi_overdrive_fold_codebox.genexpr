@@ -50,8 +50,7 @@ if (lowdamp > 0 || highdamp > 0) {
 	lp, hipath	= rcFilterDampLpHp(hp, g2, k2);
 }
 
-// +6 dB (needed for this approx, this is not extra gain !), followed by drive gain, followed by io wrapper
-tanhinput	= lp * 1.995262 * drive * io_in;
+tanhinput	= lp * drive * io_in;
 tanhoutput	= 0;
 if (adaaxx == 1) {
 	tanhoutput = altTanhAdaa1_2x_6POINT(tanhinput, reset);

@@ -194,8 +194,8 @@ Param   oversample(0, min=0, max=1);                    // default 1x
 os      = int(oversample);
 
 X	    = in1;
-hz	    = in2;	        // hz
-res	    = in3;          // 0..1
+hz	    = clamp(in2, 1, samplerate*0.5);    // hz, i do not like this clamp, but rod asked
+res	    = clamp(in3, 0.01, 1.476);          // 0..1
 
 // TPT Korg OTA filter
 if (os) {

@@ -173,7 +173,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF0",
+            "name": "tanhF0",
             "inputs": [
                 {
                     "id": 1,
@@ -193,7 +193,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF00",
+            "name": "tanhF00",
             "inputs": [
                 {
                     "id": 1,
@@ -213,7 +213,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF1",
+            "name": "tanhF1",
             "inputs": [
                 {
                     "id": 1,
@@ -233,7 +233,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF11",
+            "name": "tanhF11",
             "inputs": [
                 {
                     "id": 1,
@@ -253,7 +253,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF2",
+            "name": "tanhF2",
             "inputs": [
                 {
                     "id": 1,
@@ -273,7 +273,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "altTanhF22",
+            "name": "tanhF22",
             "inputs": [
                 {
                     "id": 1,
@@ -292,53 +292,53 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of an accurate tanh-like function",
-            "name": "altTanhAdaa1",
+            "digest": "First order anti-derivative antialiasing of a tanh-like function",
+            "name": "tanhAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to saturate"
+                    "name": "x",
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": "(Optional) reset state"
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Tanh saturation",
-                    "digest": "Anti-aliased tanh-like saturated output"
+                    "name": "Tanh",
+                    "digest": "Antialiased tanh-like output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of an accurate tanh-like function",
-            "name": "altTanhAdaa2",
+            "digest": "Second order anti-derivative antialiasing of a tanh-like function",
+            "name": "tanhAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
-                    "name": "x0",
-                    "digest": "Audio input to saturate"
+                    "name": "x",
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "reset",
-                    "digest": "(Optional) reset state"
+                    "digest": "(Optional) reset state (on switching)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "Tanh saturation",
-                    "digest": "Anti-aliased tanh-like saturated output"
+                    "name": "Tanh",
+                    "digest": "Antialiased tanh-like output"
                 }
             ]
         }

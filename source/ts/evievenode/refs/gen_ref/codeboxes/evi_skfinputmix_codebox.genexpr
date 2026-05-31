@@ -66,6 +66,6 @@ else {
 
 // SKF loop
 t1	= vlow * g1m0 + vband * g1m1 + (vhigh * g1m2) + g1m1 * ic1eq + g2 * ic2eq;
-t2	= altTanhAdaa1(vlow * g3m0) + (vband * g3m1) + vhigh * g3m2 + g3m1 * ic1eq + g4 * ic2eq;vc2	= t2 + ic2eq;
+t2	= tanhAdaa1(vlow * g3m0) + (vband * g3m1) + vhigh * g3m2 + g3m1 * ic1eq + g4 * ic2eq;vc2	= t2 + ic2eq;
 ic1eq  += 1.9796 * t1;ic2eq  += 1.9796 * t2;
 out1	= vhigh + vc2;

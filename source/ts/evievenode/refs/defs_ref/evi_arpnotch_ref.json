@@ -20,7 +20,7 @@
     },
     "includes": [
         "evi_tanh.genexpr",
-        "evi_smooth.genexpr"
+        "evi_smooth_bank.genexpr"
     ],
     "inlets": [
         {

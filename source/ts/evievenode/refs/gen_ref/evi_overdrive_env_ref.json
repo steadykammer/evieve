@@ -7,7 +7,7 @@
         "description": "A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. An optional envelope follower allows for dynamic saturation."
     },
     "constructor": {
-        "inlets": "input"
+        "inlets": "input, gain"
     },
     "includes": [
         "evi_saturators",
@@ -21,6 +21,14 @@
             "optional": 1,
             "digestauto": "Signal",
             "digest": "Audio input to be overdriven."
+        },
+        {
+            "id": 2,
+            "name": "gain",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "(linear gain 1..100 post env foll) @default 1 @min 1 @max 100",
+            "digest": "Apply gain to engage nonlinearity, applied post envelope detection and pre saturator."
         }
     ],
     "outlets": [

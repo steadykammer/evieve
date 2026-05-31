@@ -4,7 +4,7 @@
         "child": "evi.valve~",
         "category": "evieve",
         "digest": "Dynamic valve distortion unit",
-        "description": "TEXT_HERE"
+        "description": "Antialiased valve (diode) distortion with dynamic envelope following network based around vactrol emulation as well as asymmetric processing. The object is like a guitar pre-amp with Baxandall EQ and high gain (scream/sustain) capabilities, but has been tuned with options to work on all sorts of input material. It is of course very expensive to compute."
     },
     "constructor": {
         "inlets": "audio"
@@ -103,7 +103,7 @@
             "name": "diode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Effectively diode 'type' used in the valve distortion. '1' ('hard', default) is an agressive and faithful emulation of an analog diode. '0' ('soft') is a 'diode-like' nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.",
+            "description": "Effectively diode 'type' used in the valve distortion. '1' ('hard', default, most expensive to compute) is an agressive and faithful emulation of an analog diode. '0' ('soft', cheaper to compute) is a 'diode-like' nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -211,10 +211,6 @@
         }
     ],
     "seealso": [
-        {
-            "name": "",
-            "display": ""
-        },
         {
             "name": "evi_overdrive_env",
             "display": "evi_overdrive_env"

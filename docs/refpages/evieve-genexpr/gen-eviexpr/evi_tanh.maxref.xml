@@ -98,25 +98,25 @@
 
       </description>
     </entry>
-    <entry name="altTanhAdaa1 ( )">
+    <entry name="tanhAdaa1 ( )">
       <description>
-        First order anti-derivative anti-aliasing of an accurate tanh-like function <br />
+        First order anti-derivative antialiasing of a tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: Tanh saturation, <i>Anti-aliased tanh-like saturated output</i> <br />
+        <b>Return 1</b>: Tanh, <i>Antialiased tanh-like output</i> <br />
 
       </description>
     </entry>
-    <entry name="altTanhAdaa2 ( )">
+    <entry name="tanhAdaa2 ( )">
       <description>
-        Second order anti-derivative anti-aliasing of an accurate tanh-like function <br />
+        Second order anti-derivative antialiasing of a tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state</i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
-        <b>Return 1</b>: Tanh saturation, <i>Anti-aliased tanh-like saturated output</i> <br />
+        <b>Return 1</b>: Tanh, <i>Antialiased tanh-like output</i> <br />
 
       </description>
     </entry>

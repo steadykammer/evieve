@@ -33,7 +33,7 @@
         {
             "id": 2,
             "type": "signal/float",
-            "digest": "Cutoff Frequency in Hz @min 1",
+            "digest": "Cutoff Frequency in Hz",
             "description": "Filter cutoff frequency in Hz."
         },
         {

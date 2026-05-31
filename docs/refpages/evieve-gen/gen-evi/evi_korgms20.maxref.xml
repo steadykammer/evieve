@@ -31,12 +31,12 @@
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Frequency in Hz @min 1. Filter cutoff frequency in Hz.
+                Frequency in Hz. Filter cutoff frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..1 @min 0.01 @max 1.476 @default 0.94. Filter resonance 0..1 (0.01..1.476). As in the original analog circuit, highpass output level is resonance dependent!
+                0..1 @default 0.94. Filter resonance 0..1 (0.01..1.476). As in the original analog circuit, highpass output level is resonance dependent!
             </digest>
         </geninlet>
     </geninletlist>

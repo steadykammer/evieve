@@ -121,7 +121,7 @@ valveInput = asymOutput * 0.25; // approx -4..4 .. -1..1
 valve = 0;
 // do not additionally dcblock anything in this block
 if (dio) {  // 'hard'
-    valve = diodeGB_8x_4POINT(valveInput, k1, k2, k3, k4, k5, k6, VT, gainEnvPost, biasEnv, reset) * 1.995262;
+    valve = diodeWrapGB_8x(valveInput, k1, k2, k3, k4, k5, k6, VT, gainEnvPost, biasEnv, reset) * 1.995262;
 }
 else {      // 'soft'
     ingain, outgain = atanDriveV(gainEnvPost);

@@ -16,6 +16,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 329.0, 19.0, 464.0, 22.0 ],
+                    "text": "in 2 (signal/float) Gain (linear gain 1..100 post env foll) @default 1 @min 1 @max 100"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-2",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -37,13 +48,13 @@
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_saturators.genexpr\");\nrequire(\"evi_env.genexpr\");\n\r\n// Alternative to tanh(), it is not the same but does almost sound the same,\r\n// and is much easier to create the 2nd order antiderivative of. Adaa2 and above\r\n// are much cheaper than using tanh(). i would describe it as a \"buzzy\" tanh().\r\n\r\n// The 'extra' feature in this object is optional envelope following on the input\r\n// to accentuate saturation of transient meterial, although the envelope\r\n// should adjust to any material.\n\r\nDelay   align(samplerate*0.01, 1, feedback=0);\r\n\r\n// param rate...\r\n\r\n// if env on, default latency is always 256 samples in this evi_overdrive_env object\r\nParam   follow(0, min=0, max=1);            // envelope following off/on, default off\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\nef      = int(follow);\r\n\r\neint    = 256;\r\nemode   = 1;\r\nenvcomp = 0.12;\r\ndownms  = 41.666667;\r\ndown    = mstosamps(downms);\r\nup      = int(down * 0.01);\r\ndown    = int(down);\r\n\r\n// audio rate...\r\n\r\nX = in1;\r\nalign.write(X);\r\nxAlign = align.read(eint, interp=\"none\");\r\nreset = delta(change(ef)) < 0;\r\n\r\n// optional envelope following\r\n\r\ngainEnv = 1;\r\nmakeup = 1;\r\nsqrtinput = 0;\r\nif (ef) {\r\n    // use X\r\n    avgFast, avgMedium, avgSlow = averageData(X * e, reset, interval=eint, mode=emode);\r\n    // use xAlign, align with 'averageData()'\r\n    threshEnv, countEnv, xings = zeroxEnvs(xAlign, (downms+downms), reset, countDiv=10);\r\n    envMain = vactrol(avgMedium, up, down, reset); // main for gainEnv\r\n    // goes above and below 1 so we get a compression expansion effect, depends on 'envcomp'\r\n    gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++\r\n    sqrtinput = xAlign * gainEnv;\r\n    makeup = 1;\r\n}\r\nelse {\r\n    sqrtinput = X;\r\n    makeup = 1;\r\n    gainEnv = 1;\r\n}\r\n\r\n// saturation\r\n\r\nsqrtoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 2) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_4x_6POINT(sqrtinput);\r\n} else if (adaaxx == 3) {\t// default\r\n\tsqrtoutput = altTanhSqrtAdaa2(sqrtinput);\r\n} else if (adaaxx == 4) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 5) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_4x_6POINT(sqrtinput);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tsqrtoutput = altTanhSqrtAdaa1(sqrtinput);\r\n}\r\n\r\nif (hfcomp) {\r\n\tsqrtoutput = decorelate(sqrtoutput);\r\n}\r\n\r\nout1\t= dcblock(sqrtoutput) * makeup;\r\nout2    = gainEnv;\r\n\r\n",
+                    "code": "\r\n// this is an anti-aliased function(x) for saturating your audio, not for Maths\r\n\r\nrequire(\"evi_saturators.genexpr\");\nrequire(\"evi_env.genexpr\");\n\r\n// Alternative to tanh(), it is not the same but does almost sound the same,\r\n// and is much easier to create the 2nd order antiderivative of. Adaa2 and above\r\n// are much cheaper than using tanh(). i would describe it as a \"buzzy\" tanh().\r\n\r\n// The 'extra' feature in this object is optional envelope following on the input\r\n// to accentuate saturation of transient meterial, although the envelope\r\n// should adjust to any material.\n\r\nDelay   align(samplerate*0.01, 1, feedback=0);\r\n\r\n// param rate...\r\n\r\n// if env on, default latency is always 256 samples in this evi_overdrive_env object\r\nParam   follow(0, min=0, max=1);            // envelope following off/on, default off\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\nef      = int(follow);\r\n\r\neint    = 256;\r\nemode   = 1;\r\nenvcomp = 0.12;\r\ndownms  = 41.666667;\r\ndown    = mstosamps(downms);\r\nup      = int(down * 0.01);\r\ndown    = int(down);\r\n\r\n// audio rate...\r\n\r\nX = in1;\r\nalign.write(X);\r\nxAlign = align.read(eint, interp=\"none\");\r\nreset = delta(change(ef)) < 0;\r\ndrive = in2;\r\n\r\n// optional envelope following\r\n\r\ngainEnv = 1;\r\nmakeup = 1;\r\nsqrtinput = 0;\r\nif (ef) {\r\n    // use X\r\n    avgFast, avgMedium, avgSlow = averageData(X * e, reset, interval=eint, mode=emode);\r\n    // use xAlign, align with 'averageData()'\r\n    threshEnv, countEnv, xings = zeroxEnvs(xAlign, (downms+downms), reset, countDiv=10);\r\n    envMain = vactrol(avgMedium, up, down, reset); // main for gainEnv\r\n    // goes above and below 1 so we get a compression expansion effect, depends on 'envcomp'\r\n    gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++\r\n    sqrtinput = xAlign * gainEnv * drive;\r\n    makeup = 1;\r\n}\r\nelse {\r\n    sqrtinput = X * drive;\r\n    makeup = 1;\r\n    gainEnv = 1;\r\n}\r\n\r\n// saturation\r\n\r\nsqrtoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 2) {\r\n\tsqrtoutput = altTanhSqrtAdaa1_4x_6POINT(sqrtinput);\r\n} else if (adaaxx == 3) {\t// default\r\n\tsqrtoutput = altTanhSqrtAdaa2(sqrtinput);\r\n} else if (adaaxx == 4) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_2x_6POINT(sqrtinput);\r\n} else if (adaaxx == 5) {\r\n\tsqrtoutput = altTanhSqrtAdaa2_4x_6POINT(sqrtinput);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tsqrtoutput = altTanhSqrtAdaa1(sqrtinput);\r\n}\r\n\r\nif (hfcomp) {\r\n\tsqrtoutput = decorelate(sqrtoutput);\r\n}\r\n\r\nout1\t= dcblock(sqrtoutput) * makeup;\r\nout2    = gainEnv;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
-                    "numinlets": 1,
+                    "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 49.0, 58.0, 744.0, 568.0 ]
@@ -57,17 +68,6 @@
                     "numoutlets": 0,
                     "patching_rect": [ 49.0, 643.0, 357.0, 22.0 ],
                     "text": "out 1 Buzzy-tanh(x) Out - anti-aliased for your audio not for Maths"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-6",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 214.0, 20.0, 415.0, 20.0 ],
-                    "text": "this is an anti-aliased function(x) for saturating your audio, not for Maths",
-                    "textjustification": 1
                 }
             }
         ],
@@ -89,6 +89,13 @@
                 "patchline": {
                     "destination": [ "obj-4", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 338.5, 49.5, 783.5, 49.5 ],
+                    "source": [ "obj-5", 0 ]
                 }
             }
         ],

@@ -581,7 +581,7 @@
         {
             "document": false,
             "digest": "",
-            "name": "tanhLApprox",
+            "name": "tanhLApprox0",
             "inputs": [
                 {
                     "id": 1,

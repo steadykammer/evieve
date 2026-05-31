@@ -22,6 +22,8 @@
   <misc name="GenExpr Functions">
     <entry name="safe20dB ( )">
       <description>
+        Safe audio output as input up to +20dB, after which it is antialiased hard clipped <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Any audio input</i> <br />
 
         <b>Return 1</b>: Out, <i>Safe audio output as input up to +20dB, after which it is antialiased hard clipped</i> <br />
@@ -30,6 +32,8 @@
     </entry>
     <entry name="safe40dB ( )">
       <description>
+        Safe audio output as input up to +40dB, after which it is antialiased hard clipped <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Any audio input</i> <br />
 
         <b>Return 1</b>: Out, <i>Safe audio output as input up to +40dB, after which it is antialiased hard clipped</i> <br />
@@ -38,7 +42,7 @@
     </entry>
     <entry name="clipEnv ( )">
       <description>
-        A very strange envelope based on asymmetrically clipping the input audio and using this data to create positive and negative gain envelopes <br />
+        A very strange envelope maker based on asymmetrically clipping the input audio and using this data to create positive and negative gain envelopes <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: skew, <i>Skew the asymmetric envelope with an approximated power 0.5..2 around 1</i> <br />
@@ -51,6 +55,8 @@
     </entry>
     <entry name="asymExecute ( )">
       <description>
+        Asymmetric audio processor favours negative waveform, output linear beyond -1..1 <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: skew, <i>Skew the asymmetric envelope with an approximated power 0.5..2 around 1</i> <br />
         <b>In 3</b>: type=<i>input</i>: hyst1, <i>Hysterisis envelope 1, leave at &#x27;1&#x27; to ignore</i> <br />
@@ -98,6 +104,8 @@
     </entry>
     <entry name="diodeV ( )">
       <description>
+        The core evieve diode function, naive 1x processing <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
         <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
@@ -114,7 +122,7 @@
     </entry>
     <entry name="diodeWrapGB ( )">
       <description>
-        Gain, bias and DC wrapper for the evieve 'diodeV()' filter <br />
+        Gain, bias and DC wrapper for the evieve naive 'diodeV()' filter <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -134,7 +142,7 @@
     </entry>
     <entry name="diodeGB_2x_4POINT ( )">
       <description>
-        2x 4-point oversampling of 'diodeWrapGB()' <br />
+        Naive 2x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV2_2x()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -154,7 +162,7 @@
     </entry>
     <entry name="diodeGB_4x_4POINT ( )">
       <description>
-        4x 4-point oversampling of 'diodeWrapGB()' <br />
+        Naive 4x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV4_4x()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -174,7 +182,7 @@
     </entry>
     <entry name="diodeGB_8x_4POINT ( )">
       <description>
-        8x 4-point oversampling of 'diodeWrapGB()' <br />
+        Naive 8x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV8_8x()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -189,6 +197,120 @@
         <b>In 11</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
 
         <b>Return 1</b>: Diode, <i>Antialiased Diode output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeV2_2x ( )">
+      <description>
+        Higher quality 2x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased Diode output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeV4_4x ( )">
+      <description>
+        Higher quality 4x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased Diode output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeV8_8x ( )">
+      <description>
+        Higher quality 8x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased Diode output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeWrapGB_2x ( )">
+      <description>
+        Gain and bias wrapping of the higher quality 2x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: gain, <i>Gain (linear) into the diode saturator</i> <br />
+        <b>In 10</b>: type=<i>input</i>: bias, <i>Bias offset into the diode saturator</i> <br />
+        <b>In 11</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased wrapped audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeWrapGB_4x ( )">
+      <description>
+        Gain and bias wrapping of the higher quality 4x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: gain, <i>Gain (linear) into the diode saturator</i> <br />
+        <b>In 10</b>: type=<i>input</i>: bias, <i>Bias offset into the diode saturator</i> <br />
+        <b>In 11</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased wrapped audio output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="diodeWrapGB_8x ( )">
+      <description>
+        Gain and bias wrapping of the higher quality 8x 4-point resampling of the 'diodeV()' filter <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
+        <b>In 3</b>: type=<i>input</i>: k2, <i>k2 coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: k3, <i>k3 coefficient</i> <br />
+        <b>In 5</b>: type=<i>input</i>: k4, <i>k4 coefficient</i> <br />
+        <b>In 6</b>: type=<i>input</i>: k5, <i>k5 coefficient</i> <br />
+        <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
+        <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
+        <b>In 9</b>: type=<i>input</i>: gain, <i>Gain (linear) into the diode saturator</i> <br />
+        <b>In 10</b>: type=<i>input</i>: bias, <i>Bias offset into the diode saturator</i> <br />
+        <b>In 11</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the internal state of the diode filter</i> <br />
+
+        <b>Return 1</b>: Diode, <i>Antialiased wrapped audio output</i> <br />
 
       </description>
     </entry>

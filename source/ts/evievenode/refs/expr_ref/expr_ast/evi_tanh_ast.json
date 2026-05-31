@@ -1874,8 +1874,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF0",
-                "raw": "altTanhF0"
+                "name": "tanhF0",
+                "raw": "tanhF0"
             },
             "params": [
                 {
@@ -1891,32 +1891,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "xx",
-                                "raw": "xx"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -1949,8 +1923,8 @@
                                         "arguments": [
                                             {
                                                 "type": "Identifier",
-                                                "name": "xx",
-                                                "raw": "xx"
+                                                "name": "x",
+                                                "raw": "x"
                                             }
                                         ],
                                         "callee": {
@@ -2006,8 +1980,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF00",
-                "raw": "altTanhF00"
+                "name": "tanhF00",
+                "raw": "tanhF00"
             },
             "params": [
                 {
@@ -2023,32 +1997,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "xx",
-                                "raw": "xx"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -2081,8 +2029,8 @@
                                         "arguments": [
                                             {
                                                 "type": "Identifier",
-                                                "name": "xx",
-                                                "raw": "xx"
+                                                "name": "x",
+                                                "raw": "x"
                                             }
                                         ],
                                         "callee": {
@@ -2138,8 +2086,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF1",
-                "raw": "altTanhF1"
+                "name": "tanhF1",
+                "raw": "tanhF1"
             },
             "params": [
                 {
@@ -2238,8 +2186,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF11",
-                "raw": "altTanhF11"
+                "name": "tanhF11",
+                "raw": "tanhF11"
             },
             "params": [
                 {
@@ -2338,8 +2286,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF2",
-                "raw": "altTanhF2"
+                "name": "tanhF2",
+                "raw": "tanhF2"
             },
             "params": [
                 {
@@ -2475,8 +2423,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhF22",
-                "raw": "altTanhF22"
+                "name": "tanhF22",
+                "raw": "tanhF22"
             },
             "params": [
                 {
@@ -2612,14 +2560,14 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhAdaa1",
-                "raw": "altTanhAdaa1"
+                "name": "tanhAdaa1",
+                "raw": "tanhAdaa1"
             },
             "params": [
                 {
                     "type": "Identifier",
-                    "name": "x0",
-                    "raw": "x0"
+                    "name": "x",
+                    "raw": "x"
                 },
                 {
                     "type": "Identifier",
@@ -2773,6 +2721,33 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1.995262,
+                                    "raw": "1.995262",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
                                 "name": "y1",
                                 "raw": "y1"
                             },
@@ -2830,8 +2805,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "altTanhF1",
-                                    "raw": "altTanhF1"
+                                    "name": "tanhF1",
+                                    "raw": "tanhF1"
                                 }
                             }
                         }
@@ -2943,8 +2918,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "altTanhF00",
-                                                "raw": "altTanhF00"
+                                                "name": "tanhF00",
+                                                "raw": "tanhF00"
                                             }
                                         }
                                     }
@@ -3044,14 +3019,14 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "altTanhAdaa2",
-                "raw": "altTanhAdaa2"
+                "name": "tanhAdaa2",
+                "raw": "tanhAdaa2"
             },
             "params": [
                 {
                     "type": "Identifier",
-                    "name": "x0",
-                    "raw": "x0"
+                    "name": "x",
+                    "raw": "x"
                 },
                 {
                     "type": "Identifier",
@@ -3172,8 +3147,8 @@
                             },
                             "right": {
                                 "type": "Literal",
-                                "value": 1e-7,
-                                "raw": "0.0000001",
+                                "value": 1e-8,
+                                "raw": "0.00000001",
                                 "gen_kind": "float"
                             }
                         }
@@ -3253,6 +3228,33 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1.995262,
+                                    "raw": "1.995262",
+                                    "gen_kind": "float"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
                                 "name": "s0",
                                 "raw": "s0"
                             },
@@ -3310,8 +3312,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "altTanhF2",
-                                    "raw": "altTanhF2"
+                                    "name": "tanhF2",
+                                    "raw": "tanhF2"
                                 }
                             }
                         }
@@ -3385,8 +3387,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "altTanhF1",
-                                                "raw": "altTanhF1"
+                                                "name": "tanhF1",
+                                                "raw": "tanhF1"
                                             }
                                         }
                                     }
@@ -3423,8 +3425,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "altTanhF2",
-                                                        "raw": "altTanhF2"
+                                                        "name": "tanhF2",
+                                                        "raw": "tanhF2"
                                                     }
                                                 },
                                                 "right": {
@@ -3577,8 +3579,8 @@
                                                 ],
                                                 "callee": {
                                                     "type": "Identifier",
-                                                    "name": "altTanhF0",
-                                                    "raw": "altTanhF0"
+                                                    "name": "tanhF00",
+                                                    "raw": "tanhF00"
                                                 }
                                             },
                                             "right": {
@@ -3742,8 +3744,8 @@
                                                             ],
                                                             "callee": {
                                                                 "type": "Identifier",
-                                                                "name": "altTanhF0",
-                                                                "raw": "altTanhF0"
+                                                                "name": "tanhF00",
+                                                                "raw": "tanhF00"
                                                             }
                                                         }
                                                     }
@@ -3795,8 +3797,8 @@
                                                                     ],
                                                                     "callee": {
                                                                         "type": "Identifier",
-                                                                        "name": "altTanhF1",
-                                                                        "raw": "altTanhF1"
+                                                                        "name": "tanhF1",
+                                                                        "raw": "tanhF1"
                                                                     }
                                                                 },
                                                                 "right": {
@@ -3821,8 +3823,8 @@
                                                                             ],
                                                                             "callee": {
                                                                                 "type": "Identifier",
-                                                                                "name": "altTanhF2",
-                                                                                "raw": "altTanhF2"
+                                                                                "name": "tanhF2",
+                                                                                "raw": "tanhF2"
                                                                             }
                                                                         }
                                                                     },

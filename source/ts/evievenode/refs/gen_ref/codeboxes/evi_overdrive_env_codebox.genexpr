@@ -1,4 +1,6 @@
 
+// this is an anti-aliased function(x) for saturating your audio, not for Maths
+
 require("evi_saturators.genexpr");
 require("evi_env.genexpr");
 
@@ -36,6 +38,7 @@ X = in1;
 align.write(X);
 xAlign = align.read(eint, interp="none");
 reset = delta(change(ef)) < 0;
+drive = in2;
 
 // optional envelope following
 
@@ -50,11 +53,11 @@ if (ef) {
     envMain = vactrol(avgMedium, up, down, reset); // main for gainEnv
     // goes above and below 1 so we get a compression expansion effect, depends on 'envcomp'
     gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++
-    sqrtinput = xAlign * gainEnv;
+    sqrtinput = xAlign * gainEnv * drive;
     makeup = 1;
 }
 else {
-    sqrtinput = X;
+    sqrtinput = X * drive;
     makeup = 1;
     gainEnv = 1;
 }

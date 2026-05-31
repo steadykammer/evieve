@@ -849,7 +849,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\nrequire(\"evi_saturators.genexpr\"); // includes 'evi_adaa.genexpr'\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\natanDrive(drive) // wrap in/out gain\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);\n\treturn pre, post;\r\n}\n\r\n\r\nParam   tar(0.75, min=0.01, max=0.99);\r\nParam   db(10, min=0, max=40);\r\nParam   selectfunction(0, min=0, max=8);\r\nParam   selectadaa(6, min=0, max=6);\r\nselaa   = int(selectadaa);\r\nselfunc = int(selectfunction);\r\n\r\ng       = rcPreWarp1(80);   // 80 Hz\r\n\r\ngain    = dbtoaApprox(db);\r\ngains   = evi_lagsmooth(gain, 33);\r\n\r\nx = in1;\r\nX = x * gains;\r\nY = 0;\r\n\r\n\r\nif (selfunc == 1) {         // atan\r\n    // gain wrap just for atan\r\n    drive, outdrive = atanDrive(gains);\r\n\r\n    if (selaa == 1) {\r\n        Y = atanAdaa1(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = atanAdaa1_2x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = atanAdaa1_4x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = atanAdaa2(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = atanAdaa2_2x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = atanAdaa2_4x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else {\r\n        Y = atanF00(x * drive) * outdrive;\r\n    }\r\n}\r\nelse if (selfunc == 2) {    // algebraic tanh\r\n    if (selaa == 1) {\r\n        Y = algebraicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = algebraicAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = algebraicAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = algebraicAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = algebraicAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = algebraicAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = algebraicF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 3) {    // tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = altTanhAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = altTanhAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = altTanhAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = altTanhAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = altTanhF0(X * 1.995262);\r\n    }\r\n}\r\nelse if (selfunc == 4) {    // sqrt tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhSqrtAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhSqrtAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = altTanhSqrtAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = altTanhSqrtAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = altTanhSqrtAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = altTanhSqrtAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = altTanhSqrtF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 5) {    // poly tanh\r\n    if (selaa == 1) {\r\n        Y = foldPolyAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = foldPolyAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = foldPolyAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = foldPolyAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = foldPolyAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = foldPolyAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = foldPolyF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 6) {    // sine\r\n    if (selaa == 1) {\r\n        Y = sinAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = sinAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = sinAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = sinAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = sinAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = sinAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = sinF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 7) {    // cubic\r\n    if (selaa == 1) {\r\n        Y = eCubicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = eCubicAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = eCubicAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = eCubicAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = eCubicAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = eCubicAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = eCubicF0(clip(X, -1, 1));\r\n    }\r\n}\r\nelse if (selfunc == 8) {    // tarrabia\r\n    if (selaa == 1) {\r\n        Y = tarrabiaAdaa1(X, a=tar);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = tarrabiaAdaa1_2x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = tarrabiaAdaa1_4x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = tarrabiaAdaa2(X, a=tar);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = tarrabiaAdaa2_2x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = tarrabiaAdaa2_4x_6POINT(X, a=tar);\r\n    }\r\n    else {\r\n        Y = tarrabiaF0(X, tar) * 0.636619772367581;\r\n    }\r\n}\r\nelse { // selfunc == 0      // hard clip\r\n    if (selaa == 1) {\r\n        Y = hardclipAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = hardclipAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = hardclipAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = hardclipAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = hardclipAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = hardclipAdaa2_4x_6POINT(X);\r\n    }\r\n    else { // selaa == 0\r\n        Y = hardclipF0(X);\r\n    }\r\n}\r\n\r\n\r\nout1    = rcFilterHp(Y, g);\r\n\r\n",
+                                                    "code": "\r\nrequire(\"evi_saturators.genexpr\"); // includes 'evi_adaa.genexpr'\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\natanDrive(drive) // wrap in/out gain\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);\n\treturn pre, post;\r\n}\n\r\n\r\nParam   tar(0.75, min=0.01, max=0.99);\r\nParam   db(10, min=0, max=40);\r\nParam   selectfunction(0, min=0, max=8);\r\nParam   selectadaa(6, min=0, max=6);\r\nselaa   = int(selectadaa);\r\nselfunc = int(selectfunction);\r\n\r\ng       = rcPreWarp1(80);   // 80 Hz\r\n\r\ngain    = dbtoaApprox(db);\r\ngains   = evi_lagsmooth(gain, 33);\r\n\r\nx = in1;\r\nX = x * gains;\r\nY = 0;\r\n\r\n\r\nif (selfunc == 1) {         // atan\r\n    // gain wrap just for atan\r\n    drive, outdrive = atanDrive(gains);\r\n\r\n    if (selaa == 1) {\r\n        Y = atanAdaa1(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = atanAdaa1_2x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = atanAdaa1_4x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = atanAdaa2(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = atanAdaa2_2x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = atanAdaa2_4x_6POINT(x * drive) * outdrive;\r\n    }\r\n    else {\r\n        Y = atanF00(x * drive) * outdrive;\r\n    }\r\n}\r\nelse if (selfunc == 2) {    // algebraic tanh\r\n    if (selaa == 1) {\r\n        Y = algebraicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = algebraicAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = algebraicAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = algebraicAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = algebraicAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = algebraicAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = algebraicF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 3) {    // tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = altTanhAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = altTanhAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = altTanhAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = altTanhAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        // (approx is down -6dB and not accounted for in naive version)\r\n        Y = altTanhF0(X * 1.995262);\r\n    }\r\n}\r\nelse if (selfunc == 4) {    // sqrt tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhSqrtAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhSqrtAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = altTanhSqrtAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = altTanhSqrtAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = altTanhSqrtAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = altTanhSqrtAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = altTanhSqrtF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 5) {    // poly tanh\r\n    if (selaa == 1) {\r\n        Y = foldPolyAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = foldPolyAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = foldPolyAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = foldPolyAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = foldPolyAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = foldPolyAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = foldPolyF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 6) {    // sine\r\n    if (selaa == 1) {\r\n        Y = sinAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = sinAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = sinAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = sinAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = sinAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = sinAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = sinF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 7) {    // cubic\r\n    if (selaa == 1) {\r\n        Y = eCubicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = eCubicAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = eCubicAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = eCubicAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = eCubicAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = eCubicAdaa2_4x_6POINT(X);\r\n    }\r\n    else {\r\n        Y = eCubicF0(clip(X, -1, 1));\r\n    }\r\n}\r\nelse if (selfunc == 8) {    // tarrabia\r\n    if (selaa == 1) {\r\n        Y = tarrabiaAdaa1(X, a=tar);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = tarrabiaAdaa1_2x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = tarrabiaAdaa1_4x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = tarrabiaAdaa2(X, a=tar);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = tarrabiaAdaa2_2x_6POINT(X, a=tar);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = tarrabiaAdaa2_4x_6POINT(X, a=tar);\r\n    }\r\n    else {\r\n        // (gain staging from Adaa versions)\r\n        Y = tarrabiaF0(X, tar) * 0.636619772367581;\r\n    }\r\n}\r\nelse { // selfunc == 0      // hard clip\r\n    if (selaa == 1) {\r\n        Y = hardclipAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = hardclipAdaa1_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 3) {\r\n        Y = hardclipAdaa1_4x_6POINT(X);\r\n    }\r\n    else if (selaa == 4) {\r\n        Y = hardclipAdaa2(X);\r\n    }\r\n    else if (selaa == 5) {\r\n        Y = hardclipAdaa2_2x_6POINT(X);\r\n    }\r\n    else if (selaa == 6) {\r\n        Y = hardclipAdaa2_4x_6POINT(X);\r\n    }\r\n    else { // selaa == 0\r\n        Y = hardclipF0(X);\r\n    }\r\n}\r\n\r\n\r\nout1    = rcFilterHp(Y, g);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1211,7 +1211,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\nrequire(\"evi_adaa.genexpr\"); // most evieve adaa functions are in this file\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\natanDrive(drive) // wrap in/out gain\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);\n\treturn pre, post;\r\n}\n\r\n\r\nParam   tar(0.75, min=0.01, max=0.99);\r\nParam   db(10, min=0, max=40);\r\nParam   selectfunction(0, min=0, max=8);\r\nParam   selectadaa(0, min=0, max=2);\r\nselaa   = int(selectadaa);\r\nselfunc = int(selectfunction);\r\n\r\ng       = rcPreWarp1(80);   // 80 Hz\r\n\r\ngain    = dbtoaApprox(db);\r\ngains   = evi_lagsmooth(gain, 33);\r\n\r\nx = in1;\r\nX = x * gains;\r\nY = 0;\r\n\r\n\r\nif (selfunc == 1) {         // atan\r\n    // gain wrap just for atan\r\n    drive, outdrive = atanDrive(gains);\r\n\r\n    if (selaa == 1) {\r\n        Y = atanAdaa1(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = atanAdaa2(x * drive) * outdrive;\r\n    }\r\n    else {\r\n        Y = atanF00(x * drive) * outdrive;\r\n    }\r\n}\r\nelse if (selfunc == 2) {    // algebraic tanh\r\n    if (selaa == 1) {\r\n        Y = algebraicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = algebraicAdaa2(X);\r\n    }\r\n    else {\r\n        Y = algebraicF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 3) {    // tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhAdaa2(X);\r\n    }\r\n    else {\r\n        Y = altTanhF0(X * 1.995262);\r\n    }\r\n}\r\nelse if (selfunc == 4) {    // sqrt tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhSqrtAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhSqrtAdaa2(X);\r\n    }\r\n    else {\r\n        Y = altTanhSqrtF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 5) {    // poly tanh\r\n    if (selaa == 1) {\r\n        Y = foldPolyAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = foldPolyAdaa2(X);\r\n    }\r\n    else {\r\n        Y = foldPolyF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 6) {    // sine\r\n    if (selaa == 1) {\r\n        Y = sinAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = sinAdaa2(X);\r\n    }\r\n    else {\r\n        Y = sinF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 7) {    // cubic\r\n    if (selaa == 1) {\r\n        Y = eCubicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = eCubicAdaa2(X);\r\n    }\r\n    else {\r\n        Y = eCubicF0(clip(X, -1, 1));\r\n    }\r\n}\r\nelse if (selfunc == 8) {    // tarrabia\r\n    if (selaa == 1) {\r\n        Y = tarrabiaAdaa1(X, a=tar);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = tarrabiaAdaa2(X, a=tar);\r\n    }\r\n    else {\r\n        Y = tarrabiaF0(X, tar) * 0.636619772367581;\r\n    }\r\n}\r\nelse { // selfunc == 0      // hard clip\r\n    if (selaa == 1) {\r\n        Y = hardclipAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = hardclipAdaa2(X);\r\n    }\r\n    else { // selaa == 0\r\n        Y = hardclipF0(X);\r\n    }\r\n}\r\n\r\n\r\nout1    = rcFilterHp(Y, g);\r\n\r\n",
+                                                    "code": "\r\nrequire(\"evi_adaa.genexpr\"); // most evieve adaa functions are in this file\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\natanDrive(drive) // wrap in/out gain\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);\n\treturn pre, post;\r\n}\n\r\n\r\nParam   tar(0.75, min=0.01, max=0.99);\r\nParam   db(10, min=0, max=40);\r\nParam   selectfunction(0, min=0, max=8);\r\nParam   selectadaa(0, min=0, max=2);\r\nselaa   = int(selectadaa);\r\nselfunc = int(selectfunction);\r\n\r\ng       = rcPreWarp1(80);   // 80 Hz\r\n\r\ngain    = dbtoaApprox(db);\r\ngains   = evi_lagsmooth(gain, 33);\r\n\r\nx = in1;\r\nX = x * gains;\r\nY = 0;\r\n\r\n\r\nif (selfunc == 1) {         // atan\r\n    // gain wrap just for atan\r\n    drive, outdrive = atanDrive(gains);\r\n\r\n    if (selaa == 1) {\r\n        Y = atanAdaa1(x * drive) * outdrive;\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = atanAdaa2(x * drive) * outdrive;\r\n    }\r\n    else {\r\n        Y = atanF00(x * drive) * outdrive;\r\n    }\r\n}\r\nelse if (selfunc == 2) {    // algebraic tanh\r\n    if (selaa == 1) {\r\n        Y = algebraicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = algebraicAdaa2(X);\r\n    }\r\n    else {\r\n        Y = algebraicF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 3) {    // tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhAdaa2(X);\r\n    }\r\n    else {\r\n        // (approx is down -6dB and not accounted for in naive version)\r\n        Y = altTanhF0(X * 1.995262);\r\n    }\r\n}\r\nelse if (selfunc == 4) {    // sqrt tanh\r\n    if (selaa == 1) {\r\n        Y = altTanhSqrtAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = altTanhSqrtAdaa2(X);\r\n    }\r\n    else {\r\n        Y = altTanhSqrtF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 5) {    // poly tanh\r\n    if (selaa == 1) {\r\n        Y = foldPolyAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = foldPolyAdaa2(X);\r\n    }\r\n    else {\r\n        Y = foldPolyF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 6) {    // sine\r\n    if (selaa == 1) {\r\n        Y = sinAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = sinAdaa2(X);\r\n    }\r\n    else {\r\n        Y = sinF0(X);\r\n    }\r\n}\r\nelse if (selfunc == 7) {    // cubic\r\n    if (selaa == 1) {\r\n        Y = eCubicAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = eCubicAdaa2(X);\r\n    }\r\n    else {\r\n        Y = eCubicF0(clip(X, -1, 1));\r\n    }\r\n}\r\nelse if (selfunc == 8) {    // tarrabia\r\n    if (selaa == 1) {\r\n        Y = tarrabiaAdaa1(X, a=tar);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = tarrabiaAdaa2(X, a=tar);\r\n    }\r\n    else {\r\n        // (gain staging from Adaa versions)\r\n        Y = tarrabiaF0(X, tar) * 0.636619772367581;\r\n    }\r\n}\r\nelse { // selfunc == 0      // hard clip\r\n    if (selaa == 1) {\r\n        Y = hardclipAdaa1(X);\r\n    }\r\n    else if (selaa == 2) {\r\n        Y = hardclipAdaa2(X);\r\n    }\r\n    else { // selaa == 0\r\n        Y = hardclipF0(X);\r\n    }\r\n}\r\n\r\n\r\nout1    = rcFilterHp(Y, g);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -4410,9 +4410,9 @@
                                 "box": {
                                     "id": "obj-45",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 774.0, 371.0, 107.0, 22.0 ],
                                     "text": "evi.overdrive.env~"
                                 }
@@ -8143,6 +8143,19 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "button": 1,
+                                    "id": "obj-13",
+                                    "maxclass": "tab",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 183.0, 229.0, 160.0, 36.0 ],
+                                    "tabs": "evi.valve~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-17",
                                     "maxclass": "newobj",
@@ -8822,6 +8835,13 @@
                                     "destination": [ "obj-17", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-12", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-13", 1 ]
                                 }
                             },
                             {
@@ -12574,7 +12594,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 3,
-                                    "offset": [ 0.0, -74.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "", "", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -13457,7 +13477,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 4,
-                                    "offset": [ 0.0, -222.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "float", "", "", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -14117,7 +14137,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 3,
-                                    "offset": [ 0.0, -225.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "", "", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -14548,7 +14568,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "offset": [ 0.0, -148.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -16872,7 +16892,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 4,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[4]"
@@ -16903,7 +16923,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[3]"
@@ -16946,7 +16966,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 3,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[2]"
@@ -16989,7 +17009,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 3,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[1]"
@@ -17032,7 +17052,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 2,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup"
@@ -17120,9 +17140,9 @@
                                 "box": {
                                     "id": "obj-14",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 977.0, 298.0, 107.0, 22.0 ],
                                     "text": "evi.overdrive.env~"
                                 }
@@ -17355,7 +17375,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 2,
-                                    "bordercolor": [ 1.0, 0.502, 0.0, 1.0 ],
+                                    "bordercolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-64",
@@ -17526,8 +17546,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness4": 2.0
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -23230,7 +23249,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 2,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },

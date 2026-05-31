@@ -71,7 +71,7 @@ tanhA(x)
 	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x) * x) * x;
 	x *= x; x *= x; x *= x; x *= x; x *= x;		// exp
 	y = -1 / (x + 1);
-	return (y + y) + 1;												// tanh
+	return (y + y) + 1;							// tanh
 }
 
 // 'dark', cheapest
@@ -120,52 +120,49 @@ tanhXdX(x)
 // these are the antiderivatives of the approximation, not of a real tanh - that is crucial !
 // sadly we still end up with a bloody Li2 in the 2nd order :-(
 
-// note: this tanh approx becomes not-tanh-like above about +22dB input gain (wave folds)
 // note: the entire approx is -6dB down, but we boost it on input before adaa to match tanh()
 
-altTanhF0(x)
+tanhF0(x)
 {
 	// not one of the better tanh() approxes, but the antiderivatives are more
 	// manageable than many of the others, swings and roundabouts
-  xx = x + x;
-	ex = (-1 / (exp(xx) + 1));
+
+	// about 'x + x': would be a real tanh approx, but no good for Adaas; this
+	// causes the '-6dB' down issue, but we account for this on inputs to Adaas
+	// and then magically the precisions and stability work
+
+	// xx = x + x;
+	// ex = (-1 / (exp(xx) + 1)); // this actually gives us less +dB range anyway (no good above +24 dB)
+	ex = (-1 / (exp(x) + 1));
 	return ex + ex + 1;
 }
 
-altTanhF00(x)
+// also works
+tanhF00(x)
 {
-  xx = x + x;
-	ex = (-1 / (expApprox(xx) + 1));
+	ex = (-1 / (expApprox(x) + 1));
 	return ex + ex + 1;
 }
 
-altTanhF1(x)
+tanhF1(x)
 {
-//  xx = x + x;
 	lex = log(exp(x) + 1); // not exp- or log- Approx() !
 	return lex + lex - x;
 }
 
-// broken
-altTanhF11(x)
+tanhF11(x)
 {
-	lex = logApprox(expApprox(x) + 1); // ok for just Adaa1 ? no
+	lex = logApprox(expApprox(x) + 1);
 	return lex + lex - x;
 }
-/*
-altTanhF20(x)
-{
-	li2ex = Li2(-exp(x)); // not approxes !
-	return -(li2ex + li2ex + li2ex + li2ex + x*x) * 0.5;
-}
-*/
-altTanhF2(x)
+
+tanhF2(x)
 {
 	li2ex = Li2Approx(-exp(x)); // not expApprox() !
 	return -(li2ex + li2ex + li2ex + li2ex + x*x) * 0.5;
 }
 
-altTanhF22(x)
+tanhF22(x)
 {
 	li2ex = Li2Approx(-expApprox(x));
 	return -(li2ex + li2ex + li2ex + li2ex + x*x) * 0.5;
@@ -173,21 +170,21 @@ altTanhF22(x)
 
 // first order antiderivative method
 
-// this is slightly broken - gain staging is wrong (requires more gain to reach same as adaa2)
-// but apart from that it works!
-altTanhAdaa1(x0, reset)
+// this works perfectly, blows up above +50dB input
+tanhAdaa1(x, reset)
 {
 	History x1(0), s1(0);
-	eps = 0.00000001;	// precision
+	eps = 0.00000001;	// precision checked √
 	if (reset) {
 		x1 = 0; s1 = 0;
 	}
 
+	x0 = x * 1.995262;	// (approx is -6dB down)
 	y1 = x0;
 	d0 = x0 - x1;
-	s0 = altTanhF1(x0);	// func1    // does not work with F11
+	s0 = tanhF1(x0);	// func1    // does not work with F11
 	if ((x1 == 0 && s1 == 0) || (abs(d0) < eps)) {	// ill condition
-		y1 = altTanhF00(0.5 * (x0 + x1));	// func0
+		y1 = tanhF00(0.5 * (x0 + x1));	// func0
 	} else {
 		y1 = (s0 - s1) / d0;
 	}
@@ -199,37 +196,42 @@ altTanhAdaa1(x0, reset)
 
 // second order antiderivative method
 
-// this just about works, but does not
-// requires different eps for different gain staging
-altTanhAdaa2(x0, reset)
+// this works near perfectly for input audio above -90dB & less than +40dB
+// but the lower the input below -90dB the noise floor rises.
+// this is acceptable to about -100dB input where the noise floor is at about -900dB
+// but is affected by frequency content of the input material anyway
+// like the Adaa1, blows up above +50dB input
+// the short version: it works fine
+tanhAdaa2(x, reset)
 {
 	History x1(0), x2(0), s1(0);
-	//eps = 0.001;		// precision    // only works to +11 dB if using F00 etc
-	eps = 0.0000001;	// precision    // does not work low gain
+	// 0.00000000001
+	eps = 0.00000001; // precision exact, best across largest frequency ranges
 	if (reset) {
 		x1 = 0; x2 = 0; s1 = 0;
 	}
 
+	x0 = x * 1.995262;	// (approx is -6dB down)
 	s0 = x0;
 	d0 = x0 - x1;
-	f2_x1 = altTanhF2(x1);	// func2
+	f2_x1 = tanhF2(x1);	// func2
 	if (abs(d0) < eps) {	// ill condition
-		s0 = altTanhF1(0.5 * (x0 + x1));	// func1
+		s0 = tanhF1(0.5 * (x0 + x1));	// func1, bizarrely works with F11, but not with very very low gain input
 	} else {
-		s0 = (altTanhF2(x0) - f2_x1) / d0;	// func2
+		s0 = (tanhF2(x0) - f2_x1) / d0;	// func2
 	}
 
 	y1 = x0;
 	d1 = x0 - x2;
 	if (x1 == 0 && x2 == 0) {	// ill condition
-		y1 = altTanhF0(x0 + (x1 + x1) + x2) * 0.25;	// func0
+		y1 = tanhF00(x0 + (x1 + x1) + x2) * 0.25;	// func0
 	} else if (abs(d1) < eps) {	// ill condition
 		x_bar = 0.5 * (x0 + x2);
 		x_delta = x_bar - x1;
 		if (x_delta < eps) {	// ill condition
-			y1 = altTanhF0((x_bar + x1) * 0.5);	// func0
-		} else {
-			y1 = (2 / x_delta) * (altTanhF1(x_bar) + (f2_x1 - altTanhF2(x_bar)) / x_delta);	// func1, func2
+			y1 = tanhF00((x_bar + x1) * 0.5);	// func0
+		} else { // this non ill condition works with F11 & F22, but only up to about +24dB input gain
+			y1 = (2 / x_delta) * (tanhF1(x_bar) + (f2_x1 - tanhF2(x_bar)) / x_delta);	// func1, func2
 		}
 	} else {
 		s0s1 = s0 - s1;

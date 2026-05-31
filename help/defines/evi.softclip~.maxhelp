@@ -749,7 +749,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 559.0, 427.0, 208.0, 23.0 ],
+                                    "patching_rect": [ 559.0, 427.0, 227.0, 23.0 ],
                                     "text": "evi.clipper~ @clip 1 @oversampling 0"
                                 }
                             },
@@ -1063,7 +1063,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1346,8 +1346,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 296.0, 83.0, 39.0, 22.0 ],
-                                                    "text": "dbtoa"
+                                                    "patching_rect": [ 296.0, 53.0, 97.0, 22.0 ],
+                                                    "text": "evi_dbtoaapprox"
                                                 }
                                             },
                                             {
@@ -1368,7 +1368,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 363.0, 83.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 363.0, 92.0, 22.0, 22.0 ],
                                                     "text": "30"
                                                 }
                                             },
@@ -1379,7 +1379,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 296.0, 127.0, 86.0, 22.0 ],
+                                                    "patching_rect": [ 296.0, 136.0, 86.0, 22.0 ],
                                                     "text": "evi_lagsmooth"
                                                 }
                                             },
@@ -1438,7 +1438,7 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-8", 1 ],
-                                                    "midpoints": [ 305.5, 170.5, 196.5, 170.5 ],
+                                                    "midpoints": [ 305.5, 175.0, 196.5, 175.0 ],
                                                     "source": [ "obj-6", 0 ]
                                                 }
                                             },

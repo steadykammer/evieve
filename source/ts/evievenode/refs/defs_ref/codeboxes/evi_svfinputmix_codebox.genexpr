@@ -30,8 +30,7 @@ inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
     History	ic1eq(0), ic2eq(0);
 
     t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
-    // extra gain is not extra gain but a factor of the Adaa
-    t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+    t2  = tanhAdaa1(vlow) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
     vc2	= (t2 + ic2eq);
 
     ic1eq  += (t1 + t1);

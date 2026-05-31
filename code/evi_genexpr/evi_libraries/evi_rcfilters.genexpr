@@ -262,7 +262,7 @@ rcFilterDampBandpass(Vin, glp, ghp, lk, hk)
 */
 
 // tanh Lambert approx
-tanhLApprox( x )
+tanhLApprox0( x )
 {
 	x2	= x * x;
 	a	= (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;
@@ -273,13 +273,13 @@ tanhLApprox( x )
 // 1st order antiderivative from "evi_tanh.genexpr"
 tanhLApprox1(x)
 {
-	return altTanhAdaa1( x );
+	return tanhAdaa1( x );
 }
 
 // 2nd order antiderivative from "evi_tanh.genexpr"
 tanhLApprox2(x)
 {
-	return altTanhAdaa2( x );
+	return tanhAdaa2( x );
 }
 */
 sech2_with_tanh( tanh_value )
@@ -289,7 +289,7 @@ sech2_with_tanh( tanh_value )
 /*
 tanh_derivative( x )
 {
-	return sech2_with_tanh( tanhLApprox( x ) );
+	return sech2_with_tanh( tanhLApprox0( x ) );
 }
 */
 /*
@@ -316,18 +316,18 @@ rcOnePole ( Vin, g )
 	b			= 0;
 	a			= 1;
 
-	tanh_input	= tanhLApprox( Vin );
+	tanh_input	= tanhLApprox0( Vin );
 	// "Linear State Prediction"
 	Vout		= (g * (tanh_input - b) + s) / (a * g + 1);
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
-	tBase		= tanhLApprox( base );
+	tBase		= tanhLApprox0( base );
 	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
 	estimate	= (g * (tanh_input - b) + s) / (a * g + 1);
-	tanh_result = tanhLApprox( estimate );
+	tanh_result = tanhLApprox0( estimate );
 	residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative
@@ -361,18 +361,18 @@ rcOnePoleLpHp ( Vin, g )
 	b			= 0;
 	a			= 1;
 
-	tanh_input	= tanhLApprox( Vin );
+	tanh_input	= tanhLApprox0( Vin );
 	// "Linear State Prediction"
 	Vout		= (g * (tanh_input - b) + s) / (a * g + 1);
 	// "Tangential" (Newton-like linearisation)
 	base		= Vout;								// base variable for tangent/angle
-	tBase		= tanhLApprox( base );
+	tBase		= tanhLApprox0( base );
 	a			= sech2_with_tanh( tBase );			// tanh'(x) = 1 - tanh^2(x)
 	b			= tBase - base * a;
 
 	// "Linear State Estimate"
 	estimate	= (g * (tanh_input - b) + s) / (a * g + 1);
-	tanh_result = tanhLApprox( estimate );
+	tanh_result = tanhLApprox0( estimate );
 	residue 	= (g * (tanh_input - tanh_result) + s) - estimate;
 
 	// new_estimate	= old_estimate - residue/derivative

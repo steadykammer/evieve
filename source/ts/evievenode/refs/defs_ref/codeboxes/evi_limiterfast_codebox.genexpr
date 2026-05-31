@@ -3,7 +3,7 @@
 // based on some old amxd~ code i had lying around.
 
 require("evi_smooth.genexpr");  // incl. _utilities & _approx
-require("evi_clipping.genexpr");    // incl. _interp
+require("evi_clipping.genexpr");// incl. _interp
 require("evi_biquads_filters.genexpr");
 
 // release is in ms, knee is % 0..1

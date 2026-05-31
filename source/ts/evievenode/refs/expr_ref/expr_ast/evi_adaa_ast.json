@@ -10015,6 +10015,112 @@
                                         ],
                                         "callee": {
                                             "type": "Identifier",
+                                            "name": "exp",
+                                            "raw": "exp"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "ex",
+                                    "raw": "ex"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "ex",
+                                    "raw": "ex"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 1,
+                                "raw": "1",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "altTanhF00",
+                "raw": "altTanhF00"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ex",
+                                "raw": "ex"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "UnaryExpression",
+                                    "operator": "-",
+                                    "argument": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "prefix": true
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "x",
+                                                "raw": "x"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
                                             "name": "expApprox",
                                             "raw": "expApprox"
                                         }
@@ -10166,6 +10272,106 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "altTanhF11",
+                "raw": "altTanhF11"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lex",
+                                "raw": "lex"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "expApprox",
+                                                "raw": "expApprox"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logApprox",
+                                    "raw": "logApprox"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "-",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "lex",
+                                    "raw": "lex"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "lex",
+                                    "raw": "lex"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "x",
+                                "raw": "x"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "altTanhF2",
                 "raw": "altTanhF2"
             },
@@ -10212,6 +10418,143 @@
                                                 "type": "Identifier",
                                                 "name": "exp",
                                                 "raw": "exp"
+                                            }
+                                        },
+                                        "prefix": true
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "Li2Approx",
+                                    "raw": "Li2Approx"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "li2ex",
+                                                    "raw": "li2ex"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "li2ex",
+                                                    "raw": "li2ex"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "li2ex",
+                                                "raw": "li2ex"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "li2ex",
+                                            "raw": "li2ex"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "x",
+                                            "raw": "x"
+                                        }
+                                    }
+                                },
+                                "prefix": true
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0.5,
+                                "raw": "0.5",
+                                "gen_kind": "float"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "altTanhF22",
+                "raw": "altTanhF22"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "x",
+                    "raw": "x"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "li2ex",
+                                "raw": "li2ex"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "UnaryExpression",
+                                        "operator": "-",
+                                        "argument": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "x",
+                                                    "raw": "x"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "expApprox",
+                                                "raw": "expApprox"
                                             }
                                         },
                                         "prefix": true
@@ -10401,8 +10744,8 @@
                             },
                             "right": {
                                 "type": "Literal",
-                                "value": 0.000001,
-                                "raw": "0.000001",
+                                "value": 1e-8,
+                                "raw": "0.00000001",
                                 "gen_kind": "float"
                             }
                         }
@@ -10661,8 +11004,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "altTanhF0",
-                                                "raw": "altTanhF0"
+                                                "name": "altTanhF00",
+                                                "raw": "altTanhF00"
                                             }
                                         }
                                     }
@@ -10890,8 +11233,8 @@
                             },
                             "right": {
                                 "type": "Literal",
-                                "value": 0.000001,
-                                "raw": "0.000001",
+                                "value": 1e-8,
+                                "raw": "0.00000001",
                                 "gen_kind": "float"
                             }
                         }
@@ -11322,8 +11665,8 @@
                                                 ],
                                                 "callee": {
                                                     "type": "Identifier",
-                                                    "name": "altTanhF0",
-                                                    "raw": "altTanhF0"
+                                                    "name": "altTanhF00",
+                                                    "raw": "altTanhF00"
                                                 }
                                             },
                                             "right": {
@@ -11487,8 +11830,8 @@
                                                             ],
                                                             "callee": {
                                                                 "type": "Identifier",
-                                                                "name": "altTanhF0",
-                                                                "raw": "altTanhF0"
+                                                                "name": "altTanhF00",
+                                                                "raw": "altTanhF00"
                                                             }
                                                         }
                                                     }

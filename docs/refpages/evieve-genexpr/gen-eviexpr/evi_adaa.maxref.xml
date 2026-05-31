@@ -14,7 +14,7 @@
     evi_utilities.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    'Adaa' stands for 'Anti-derivative anti-aliasing', which is an important technique for anti-aliasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour. <br />
+    'Adaa' stands for 'Anti-derivative antialiasing', which is an important technique for antialiasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="hardclipAdaa1 ( )">
@@ -143,9 +143,9 @@
     </entry>
     <entry name="altTanhAdaa1 ( )">
       <description>
-        First order anti-derivative anti-aliasing of an alternative tanh-like function <br />
+        First order anti-derivative antialiasing of an alternative tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
         <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
@@ -156,7 +156,7 @@
       <description>
         Second order anti-derivative anti-aliasing of an alternative tanh-like function <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
 
         <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />

@@ -34,7 +34,7 @@
 		</inlet>
 		<inlet id="2" type="signal/float">
 			<digest>
-				Inlet #2: Cutoff Frequency in Hz @min 1
+				Inlet #2: Cutoff Frequency in Hz
 			</digest>
 			<description>
 				Filter cutoff frequency in Hz.

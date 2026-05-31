@@ -3,7 +3,6 @@
     "requires": [
         "evi_smooth.genexpr",
         "evi_clipping.genexpr",
-        "evi_tanh.genexpr",
         "evi_biquads_filters.genexpr"
     ],
     "functions": [

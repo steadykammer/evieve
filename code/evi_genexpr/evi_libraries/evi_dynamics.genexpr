@@ -17,8 +17,7 @@
 */
 
 require("evi_smooth.genexpr");  // incl. _utilities & _approx
-require("evi_clipping.genexpr");    // incl. _interp
-require("evi_tanh.genexpr");	// adSc2()
+require("evi_clipping.genexpr");// incl. _interp
 require("evi_biquads_filters.genexpr");
 
 

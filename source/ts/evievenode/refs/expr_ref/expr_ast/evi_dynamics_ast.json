@@ -50,25 +50,6 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_tanh.genexpr",
-                        "raw": "\"evi_tanh.genexpr\"",
-                        "gen_kind": "string"
-                    }
-                ]
-            },
-            "gen_kind": "compiler_command"
-        },
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "require"
-                },
-                "arguments": [
-                    {
-                        "type": "Literal",
                         "value": "evi_biquads_filters.genexpr",
                         "raw": "\"evi_biquads_filters.genexpr\"",
                         "gen_kind": "string"

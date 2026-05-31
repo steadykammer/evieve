@@ -233,7 +233,7 @@ inputMixingSvfLoop(vlow, vband, vhigh, g0, g1, g2, g3)
 
     t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
     // this works, it's just optional
-	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+	//t2  = altTanhAdaa1(vlow) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
     t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
     vc2	= (t2 + ic2eq);
 
@@ -268,7 +268,7 @@ inputMixingSvf(vlow, vband, vhigh, cutoff, res)
 
     t1  = vlow * g0 + vband * -g1 + vhigh * -g2 + ic1eq * -g1 + ic2eq * -g2;
     // this works, it's just optional
-	//t2  = altTanhAdaa1(vlow * 1.995262) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
+	//t2  = tanhAdaa1(vlow) * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
     t2  = vlow * g1 + vband * g2 + vhigh * g3 + ic1eq * g2 + ic2eq * g3;
     vc2	= (t2 + ic2eq);
 

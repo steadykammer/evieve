@@ -28,7 +28,7 @@
             "name": "cutoff",
             "type": "float",
             "optional": 1,
-            "digestauto": "Frequency in Hz @min 1",
+            "digestauto": "Frequency in Hz",
             "digest": "Filter cutoff frequency in Hz."
         },
         {

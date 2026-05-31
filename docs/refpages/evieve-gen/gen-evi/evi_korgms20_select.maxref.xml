@@ -31,7 +31,7 @@
         </geninlet>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                Frequency in Hz @min 1. Filter cutoff frequency in Hz.
+                Frequency in Hz. Filter cutoff frequency in Hz.
             </digest>
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>

@@ -9,7 +9,7 @@
         <b>evi_arpnotch</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_arpnotch.gendsp requires the GenExpr file(s): <br />
-        <o>evi_tanh</o>.genexpr, <o>evi_smooth</o>.genexpr <br />
+        <o>evi_tanh</o>.genexpr, <o>evi_smooth_bank</o>.genexpr <br />
          <br />
         evi_arpnotch is also available in MSP as: <o>evi.arpnotch~</o>. <br />
          <br />

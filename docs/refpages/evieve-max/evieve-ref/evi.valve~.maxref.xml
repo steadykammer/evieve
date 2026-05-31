@@ -9,7 +9,7 @@
 		<b>evi.valve~</b> is a 'max define' for the <o>evi_valve</o>.gendsp gen~ abstraction.
 		Because evi.valve~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		TEXT_HERE <br />
+		Antialiased valve (diode) distortion with dynamic envelope following network based around vactrol emulation as well as asymmetric processing. The object is like a guitar pre-amp with Baxandall EQ and high gain (scream/sustain) capabilities, but has been tuned with options to work on all sorts of input material. It is of course very expensive to compute. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -105,7 +105,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Effectively diode &#x27;type&#x27; used in the valve distortion. &#x27;1&#x27; (&#x27;hard&#x27;, default) is an agressive and faithful emulation of an analog diode. &#x27;0&#x27; (&#x27;soft&#x27;) is a &#x27;diode-like&#x27; nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.
+				Effectively diode &#x27;type&#x27; used in the valve distortion. &#x27;1&#x27; (&#x27;hard&#x27;, default, most expensive to compute) is an agressive and faithful emulation of an analog diode. &#x27;0&#x27; (&#x27;soft&#x27;, cheaper to compute) is a &#x27;diode-like&#x27; nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -247,6 +247,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        It started on this thread in 2012: https://cycling74.com/forums/valve-distortion . Thanks to Rodrigo Constanzo and Peter McCulloch. <br />
 	</discussion>
 </c74object>

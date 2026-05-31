@@ -13,7 +13,7 @@
          <br />
         evi_valve is also available in MSP as: <o>evi.valve~</o>. <br />
          <br />
-	    TEXT_HERE <br />
+	    Antialiased valve (diode) distortion with dynamic envelope following network based around vactrol emulation as well as asymmetric processing. The object is like a guitar pre-amp with Baxandall EQ and high gain (scream/sustain) capabilities, but has been tuned with options to work on all sorts of input material. It is of course very expensive to compute. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -69,7 +69,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Effectively diode &#x27;type&#x27; used in the valve distortion. &#x27;1&#x27; (&#x27;hard&#x27;, default) is an agressive and faithful emulation of an analog diode. &#x27;0&#x27; (&#x27;soft&#x27;) is a &#x27;diode-like&#x27; nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.
+                Effectively diode &#x27;type&#x27; used in the valve distortion. &#x27;1&#x27; (&#x27;hard&#x27;, default, most expensive to compute) is an agressive and faithful emulation of an analog diode. &#x27;0&#x27; (&#x27;soft&#x27;, cheaper to compute) is a &#x27;diode-like&#x27; nonlinearity which when pushed hard is diode-like in shape, but with less gain rolls off more smoothly.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -192,7 +192,6 @@
         <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
-        <seealso name='' display='' type='genrefpage' />
         <seealso name='evi_overdrive_env' display='evi_overdrive_env' type='genrefpage' />
         <seealso name='evi_overdrive_wrap' display='evi_overdrive_wrap' type='genrefpage' />
         <seealso name='evi_overdrive_fold' display='evi_overdrive_fold' type='genrefpage' />

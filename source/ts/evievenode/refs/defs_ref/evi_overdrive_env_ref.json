@@ -28,6 +28,12 @@
             "type": "signal",
             "digest": "Input Signal",
             "description": "Audio input to be overdriven."
+        },
+        {
+            "id": 2,
+            "type": "signal/float",
+            "digest": "Gain (linear gain 1..100 post env foll) @default 1 @min 1 @max 100",
+            "description": "Apply gain to engage nonlinearity, applied post envelope detection and pre saturator."
         }
     ],
     "outlets": [

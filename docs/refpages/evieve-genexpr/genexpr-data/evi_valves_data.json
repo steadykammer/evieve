@@ -9,7 +9,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Safe audio output as input up to +20dB, after which it is antialiased hard clipped",
             "name": "safe20dB",
             "inputs": [
                 {
@@ -29,7 +29,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Safe audio output as input up to +40dB, after which it is antialiased hard clipped",
             "name": "safe40dB",
             "inputs": [
                 {
@@ -49,7 +49,7 @@
         },
         {
             "document": true,
-            "digest": "A very strange envelope based on asymmetrically clipping the input audio and using this data to create positive and negative gain envelopes",
+            "digest": "A very strange envelope maker based on asymmetrically clipping the input audio and using this data to create positive and negative gain envelopes",
             "name": "clipEnv",
             "inputs": [
                 {
@@ -85,7 +85,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Asymmetric audio processor favours negative waveform, output linear beyond -1..1",
             "name": "asymExecute",
             "inputs": [
                 {
@@ -308,7 +308,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "The core evieve diode function, naive 1x processing",
             "name": "diodeV",
             "inputs": [
                 {
@@ -376,7 +376,7 @@
         },
         {
             "document": true,
-            "digest": "Gain, bias and DC wrapper for the evieve 'diodeV()' filter",
+            "digest": "Gain, bias and DC wrapper for the evieve naive 'diodeV()' filter",
             "name": "diodeWrapGB",
             "inputs": [
                 {
@@ -456,7 +456,7 @@
         },
         {
             "document": true,
-            "digest": "2x 4-point oversampling of 'diodeWrapGB()'",
+            "digest": "Naive 2x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV2_2x()'",
             "name": "diodeGB_2x_4POINT",
             "inputs": [
                 {
@@ -536,7 +536,7 @@
         },
         {
             "document": true,
-            "digest": "4x 4-point oversampling of 'diodeWrapGB()'",
+            "digest": "Naive 4x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV4_4x()'",
             "name": "diodeGB_4x_4POINT",
             "inputs": [
                 {
@@ -616,7 +616,7 @@
         },
         {
             "document": true,
-            "digest": "8x 4-point oversampling of 'diodeWrapGB()'",
+            "digest": "Naive 8x 4-point oversampling of 'diodeWrapGB()', not as high quality as 'diodeV8_8x()'",
             "name": "diodeGB_8x_4POINT",
             "inputs": [
                 {
@@ -691,6 +691,775 @@
                     "id": 1,
                     "name": "Diode",
                     "digest": "Antialiased Diode output"
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "diodeV2",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Vin1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "diodeV4",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Vin1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Vin2",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Vin3",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "diodeV8",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin0",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "Vin1",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "Vin2",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "Vin3",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "Vin4",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "Vin5",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "Vin6",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "Vin7",
+                    "digest": ""
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": ""
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": ""
+                },
+                {
+                    "id": 12,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": ""
+                },
+                {
+                    "id": 13,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": ""
+                },
+                {
+                    "id": 14,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": ""
+                },
+                {
+                    "id": 15,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": ""
+                },
+                {
+                    "id": 16,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Higher quality 2x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeV2_2x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Higher quality 4x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeV4_4x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Higher quality 8x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeV8_8x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "XIN",
+                    "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased Diode output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Gain and bias wrapping of the higher quality 2x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeWrapGB_2x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased wrapped audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Gain and bias wrapping of the higher quality 4x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeWrapGB_4x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased wrapped audio output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Gain and bias wrapping of the higher quality 8x 4-point resampling of the 'diodeV()' filter",
+            "name": "diodeWrapGB_8x",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "Vin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "k1",
+                    "digest": "k1 coefficient"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "k2",
+                    "digest": "k2 coefficient"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "k3",
+                    "digest": "k3 coefficient"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "k4",
+                    "digest": "k4 coefficient"
+                },
+                {
+                    "id": 6,
+                    "kind": "input",
+                    "name": "k5",
+                    "digest": "k5 coefficient"
+                },
+                {
+                    "id": 7,
+                    "kind": "input",
+                    "name": "k6",
+                    "digest": "k6 coefficient"
+                },
+                {
+                    "id": 8,
+                    "kind": "input",
+                    "name": "VT",
+                    "digest": "VT coefficient"
+                },
+                {
+                    "id": 9,
+                    "kind": "input",
+                    "name": "gain",
+                    "digest": "Gain (linear) into the diode saturator"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "bias",
+                    "digest": "Bias offset into the diode saturator"
+                },
+                {
+                    "id": 11,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the internal state of the diode filter"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Diode",
+                    "digest": "Antialiased wrapped audio output"
                 }
             ]
         }

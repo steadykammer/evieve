@@ -1,5 +1,5 @@
 {
-    "description": "'Adaa' stands for 'Anti-derivative anti-aliasing', which is an important technique for anti-aliasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour.",
+    "description": "'Adaa' stands for 'Anti-derivative antialiasing', which is an important technique for antialiasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour.",
     "requires": [
         "evi_utilities.genexpr"
     ],
@@ -713,7 +713,47 @@
         {
             "document": false,
             "digest": "",
+            "name": "altTanhF00",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
             "name": "altTanhF1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "altTanhF11",
             "inputs": [
                 {
                     "id": 1,
@@ -751,15 +791,35 @@
             ]
         },
         {
-            "document": true,
-            "digest": "First order anti-derivative anti-aliasing of an alternative tanh-like function",
-            "name": "altTanhAdaa1",
+            "document": false,
+            "digest": "",
+            "name": "altTanhF22",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x",
                     "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "First order anti-derivative antialiasing of an alternative tanh-like function",
+            "name": "altTanhAdaa1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
@@ -785,7 +845,7 @@
                     "id": 1,
                     "kind": "input",
                     "name": "x",
-                    "digest": ""
+                    "digest": "Audio input"
                 },
                 {
                     "id": 2,
