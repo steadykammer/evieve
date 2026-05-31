@@ -1721,7 +1721,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 220.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 230.0 ],
                                     "textfile": {
                                         "filename": "evi.helpdetails.js",
                                         "flags": 0,

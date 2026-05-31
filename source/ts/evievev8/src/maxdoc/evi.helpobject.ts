@@ -77,7 +77,8 @@ function getcategories() {
 	}
 
 	// select the first item (so it's checked properly && it fills the menu with the objects from the first category
-	outlet(0, 1); // do we need index 1 ?
+	// outlet(0, 1); // do we need index 1 ?
+	outlet(0, 'done');
 }
 
 function addToCategoryArray(d: Dict, objectNames: string[]) {

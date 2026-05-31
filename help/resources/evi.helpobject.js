@@ -50,7 +50,7 @@ function getcategories() {
   for (let i = 0; i < thinned.length; i++) {
     outlet(0, "append", thinned[i]);
   }
-  outlet(0, 1);
+  outlet(0, "done");
 }
 function addToCategoryArray(d, objectNames) {
   for (let i = 0; i < objectNames.length; i++) {
