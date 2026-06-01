@@ -77,6 +77,7 @@ averageCore(X, reset, windowSize=0)			// windowSize in samples
 }
 
 // wrap generalised, expensive
+// Note, there may be a problem with RMS mode - still trying to work it out
 averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipolar, 1=absolute, 2=rms
 {
 	type	= int(mode);
@@ -116,6 +117,26 @@ averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipol
 
 	return 	average, index;
 */
+}
+
+/*
+// main data for main env(s)
+averageData(xin, reset, interval=100, mode=1) // defaults 100 samps & 'absolute'
+{
+	History addummy(0);
+    avgMedium, avgIndex = averageWrap(xin, reset, interval=interval, mode=mode);
+	// these sound great, but are impossible to get stable
+    avgFast = fastpow(avgMedium, 1.398323);
+    avgSlow = sqrt(avgMedium);
+    return avgFast, avgMedium, avgSlow;
+}
+*/
+// main data for main env(s)
+averageData(xin, reset, interval=100) // defaults 100 samps & 'absolute'
+{
+	History addummy(0);
+    avgMedium, avgIndex = averageCore(abs(xin), reset, windowSize=interval);
+    return avgMedium;
 }
 
 // this is raw, requires post smoothing (such as 'envAttackDecay()' or 'vactrol()')
@@ -183,16 +204,6 @@ envAttackHoldRelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB
 	g		= hh;
 	z		= y;
 	return	y;
-}
-
-// main data for main env(s)
-averageData(xin, reset, interval=100, mode=1) // defaults 100 samps & 'absolute'
-{
-	History addummy(0);
-    avgMedium = averageWrap(xin, reset, interval=interval, mode=mode);
-    avgFast = fastpow(avgMedium, 1.398323);
-    avgSlow = sqrt(avgMedium);
-    return avgFast, avgMedium, avgSlow;
 }
 
 // for pre delay

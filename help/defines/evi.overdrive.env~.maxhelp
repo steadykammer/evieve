@@ -108,7 +108,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 467.0, 629.0, 130.0, 21.0 ],
-                                    "text": "/",
+                                    "text": "|",
                                     "textjustification": 1
                                 }
                             },
@@ -1039,7 +1039,7 @@
                                         }
                                     },
                                     "size": 6,
-                                    "value": 5,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -2701,7 +2701,7 @@
                             {
                                 "box": {
                                     "bgcolor": [ 0.125, 0.125, 0.125, 0.0 ],
-                                    "fgcolor": [ 1.0, 0.0, 0.0, 0.0 ],
+                                    "fgcolor": [ 1.0, 0.0, 0.0, 1.0 ],
                                     "id": "obj-23",
                                     "markercolor": [ 0.221327066888467, 0.221327006361825, 0.221327022178404, 0.0 ],
                                     "maxclass": "spectroscope~",
@@ -5477,7 +5477,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
