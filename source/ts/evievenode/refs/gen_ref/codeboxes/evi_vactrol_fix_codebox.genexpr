@@ -1,0 +1,48 @@
+
+// Vactrol time-domain behaviour filter.
+// A fixed vactrol shape with no rise/fall times to specify and input limited to 0..1,
+// a cheap drop-in vactrol-like envelope.
+// For more fully featured vactrol-like behaviour @see:
+// evi_vactrol.gendsp & evi_vactrol_shape.gendsp
+
+// A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive
+// part of a photoresistive opto-isolator.
+// Based on "A Digital Model of the Buchla Lowpass-Gate"
+// by Julian Parker and Stefano D’Angelo, 2013
+// "...an ad-hoc nonlinear filter structure that will behave similarly
+// to the [Buchla] vactrol with correct setting of parameter values".
+
+vactrolUD(x, a)						// trigger, time
+{
+	return x * a / (1 + a);
+}
+
+vactrolFixed(impulse)				// trigger (internally clamped 0..1)
+{
+	History s1(0);
+	a_base	= 3141.592653589793238 / SAMPLERATE;// 1000*PI/samplerate fixed
+
+    // "...values are chosen from the datasheet for the VTL5C3/2 as being approx 12ms
+    // in the positive (rise) direction and 250ms in the negative (fall) direction.
+    // This chosen value is then modulated further by the current output value of
+    // the vactrol model, so that it responds quicker when at high values,
+    // as also indicated on the datasheet".
+
+	t_down	= 10 + 3000*(1 - 0.9*s1);		    // fall time
+	a_down	= a_base / t_down;
+	t_up	= 1 + 20*(1 - 0.999*s1);		    // rise time
+	a_up	= a_base / t_up;
+
+    i       = clip(impulse, 0, 1);              // this cheap vactrol will only work if clamped
+	x		= i - s1;
+	x 		= (x < 0) ? vactrolUD(x, a_down) : vactrolUD(x, a_up);
+	y		= x + s1;
+	s1		= fixdenorm(y + x);
+
+	return	  y;
+}
+
+Param	scalar(1., min=1, max=10000);           // input clipped, but we can scale the output
+
+out1    = (vactrolFixed(in1*0.5) * 2) * scalar; // should abs(in1) ?
+

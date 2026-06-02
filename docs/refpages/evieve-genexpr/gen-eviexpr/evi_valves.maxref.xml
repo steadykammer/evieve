@@ -256,7 +256,7 @@
     </entry>
     <entry name="diodeWrapGB_2x ( )">
       <description>
-        Gain and bias wrapping of the higher quality 2x 4-point resampling of the 'diodeV()' filter <br />
+        Gain, bias and DC wrapper of the higher quality 2x 4-point resampling of the 'diodeV()' filter <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -276,7 +276,7 @@
     </entry>
     <entry name="diodeWrapGB_4x ( )">
       <description>
-        Gain and bias wrapping of the higher quality 4x 4-point resampling of the 'diodeV()' filter <br />
+        Gain, bias and DC wrapper of the higher quality 4x 4-point resampling of the 'diodeV()' filter <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />
@@ -296,7 +296,7 @@
     </entry>
     <entry name="diodeWrapGB_8x ( )">
       <description>
-        Gain and bias wrapping of the higher quality 8x 4-point resampling of the 'diodeV()' filter <br />
+        Gain, bias and DC wrapper of the higher quality 8x 4-point resampling of the 'diodeV()' filter <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: k1, <i>k1 coefficient</i> <br />

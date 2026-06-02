@@ -62,7 +62,7 @@
         {
             "name": "attack",
             "type": "int",
-            "digest": "@min 10, @max 1000",
+            "digest": "@min 1, @max 1000",
             "description": false,
             "default": {
                 "type": "int",
@@ -92,7 +92,7 @@
         {
             "name": "decay",
             "type": "int",
-            "digest": "@min 100, @max 10000",
+            "digest": "@min 100, @max samplerate",
             "description": false,
             "default": {
                 "type": "int",
@@ -147,6 +147,16 @@
             "default": {
                 "type": "float",
                 "value": "0.24"
+            }
+        },
+        {
+            "name": "envshape",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "Transform the envelope shape between flat ('0') and sharp('1'). Controls frequency response of internal vactrol filter.",
+            "default": {
+                "type": "float",
+                "value": "0.5"
             }
         },
         {

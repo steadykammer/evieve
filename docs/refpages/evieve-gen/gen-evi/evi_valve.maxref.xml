@@ -119,6 +119,17 @@
                 <attribute name='default' type='float' value='0.24' />
             </attributelist>
         </attribute>
+        <attribute name='envshape' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Transform the envelope shape between flat (&#x27;0&#x27;) and sharp(&#x27;1&#x27;). Controls frequency response of internal vactrol filter.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.5' />
+            </attributelist>
+        </attribute>
         <attribute name='envtype' type='int' get='0' set='1'>
             <digest>
                 @min 0, @max 2

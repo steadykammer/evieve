@@ -122,7 +122,7 @@
             "digest": "TEMP",
             "description": false,
             "default": {
-                "min": "10",
+                "min": "1",
                 "max": "1000",
                 "value": "20"
             }
@@ -159,7 +159,7 @@
             "description": false,
             "default": {
                 "min": "100",
-                "max": "10000",
+                "max": "samplerate",
                 "value": "2000"
             }
         },
@@ -221,6 +221,18 @@
                 "min": "0",
                 "max": "1",
                 "value": "0.24"
+            }
+        },
+        {
+            "name": "envshape",
+            "get": 1,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Transform the envelope shape between flat ('0') and sharp('1'). Controls frequency response of internal vactrol filter.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0.5"
             }
         },
         {

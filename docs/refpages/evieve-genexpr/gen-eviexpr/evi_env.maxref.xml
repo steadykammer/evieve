@@ -52,6 +52,18 @@
 
       </description>
     </entry>
+    <entry name="averageData ( )">
+      <description>
+        Averaging audio detection wrapper for envelope following <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input to be analysed</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the averaging filter (buffer)</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>100</b>, <i>Interval (window size) in samples of internal averager algorithm</i> <br />
+
+        <b>Return 1</b>: Fast, <i>Fast response data (exp)</i> <br />
+
+      </description>
+    </entry>
     <entry name="envRawDetect ( )">
       <description>
         Simple, cheap and raw envelope following, intended to be used with post envelope smoothers such as in 'envFollSimple()' <br />
@@ -101,21 +113,6 @@
 
       </description>
     </entry>
-    <entry name="averageData ( )">
-      <description>
-        Averaging audio detection wrapper for envelope following <br />
-        <br />
-        <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input to be analysed</i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the averaging filter (buffer)</i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>100</b>, <i>Interval (window size) in samples of internal averager algorithm</i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i>Mode of averager operation, 0&#x3D;bipolar, 1&#x3D;absolute, 2&#x3D;RMS</i> <br />
-
-        <b>Return 1</b>: Fast, <i>Fast response data (exp)</i> <br />
-        <b>Return 2</b>: Medium, <i>Medium response data (lin)</i> <br />
-        <b>Return 3</b>: Slow, <i>Slow response data (sqrt)</i> <br />
-
-      </description>
-    </entry>
     <entry name="immediateEnv ( )">
       <description>
         Absolute audio envelope peak followed by logarithmic envelope follower <br />
@@ -151,7 +148,8 @@
         <b>In 1</b>: type=<i>input</i>: impulse, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: rise, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: fall, <i>Fall time in SAMPLES</i> <br />
-        <b>In 4</b>: type=<i>input</i>: reset, <i>Sample accurate reset the state of the vactrol filter</i> <br />
+        <b>In 4</b>: type=<i>input</i>: base, <i></i> <br />
+        <b>In 5</b>: type=<i>input</i>: reset, <i></i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to a Buchla vactrol</i> <br />
 

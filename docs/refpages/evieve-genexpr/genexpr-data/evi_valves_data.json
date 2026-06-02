@@ -1225,7 +1225,7 @@
         },
         {
             "document": true,
-            "digest": "Gain and bias wrapping of the higher quality 2x 4-point resampling of the 'diodeV()' filter",
+            "digest": "Gain, bias and DC wrapper of the higher quality 2x 4-point resampling of the 'diodeV()' filter",
             "name": "diodeWrapGB_2x",
             "inputs": [
                 {
@@ -1305,7 +1305,7 @@
         },
         {
             "document": true,
-            "digest": "Gain and bias wrapping of the higher quality 4x 4-point resampling of the 'diodeV()' filter",
+            "digest": "Gain, bias and DC wrapper of the higher quality 4x 4-point resampling of the 'diodeV()' filter",
             "name": "diodeWrapGB_4x",
             "inputs": [
                 {
@@ -1385,7 +1385,7 @@
         },
         {
             "document": true,
-            "digest": "Gain and bias wrapping of the higher quality 8x 4-point resampling of the 'diodeV()' filter",
+            "digest": "Gain, bias and DC wrapper of the higher quality 8x 4-point resampling of the 'diodeV()' filter",
             "name": "diodeWrapGB_8x",
             "inputs": [
                 {

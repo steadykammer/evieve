@@ -1,0 +1,55 @@
+{
+    "object": {
+        "name": "evi_vactrol_fix",
+        "child": "",
+        "category": "evieve",
+        "digest": "A cheap vactrol-like envelope",
+        "description": "A cheaper fixed coefficients version of [evi_vactrol] providing a basic vactrol-like response."
+    },
+    "constructor": {
+        "inlets": "trigger"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "trigger",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Impulse",
+            "digest": "Trigger impulse, clipped internally."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "fixed",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Vactrol Envelope",
+            "digest": "Fixed vactrol envelope response."
+        }
+    ],
+    "attributes": [
+        {
+            "name": "scalar",
+            "type": "float",
+            "digest": "@min 1, @max 10000",
+            "description": "Sometimes it is useful to have an envelope output multiplier as an attribute :-)",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_vactrol_shape",
+            "display": "evi_vactrol_shape"
+        }
+    ]
+}

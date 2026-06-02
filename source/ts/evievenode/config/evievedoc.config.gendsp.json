@@ -2913,31 +2913,6 @@
                 "auto": true
             }
         },
-        "evi_overdrive_wrap.gendsp": {
-            "define": {
-                "object": true,
-                "msp": "evi.overdrive.wrap~",
-                "mcwrapper": true
-            },
-            "ref": {
-                "gen": true,
-                "msp": true
-            },
-            "helpfile": {
-                "msp": true,
-                "gentab": true,
-                "genexprtab": true,
-                "areaonly": false,
-                "areas": [
-                    "overdrive",
-                    "saturation"
-                ]
-            },
-            "db": {
-                "browser": true,
-                "auto": true
-            }
-        },
         "evi_overdrive_env.gendsp": {
             "define": {
                 "object": true,
@@ -2967,6 +2942,31 @@
             "define": {
                 "object": true,
                 "msp": "evi.overdrive.fold~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": [
+                    "overdrive",
+                    "saturation"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
+        "evi_overdrive_wrap.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.overdrive.wrap~",
                 "mcwrapper": true
             },
             "ref": {
@@ -4343,6 +4343,30 @@
             "db": {
                 "browser": true,
                 "auto": true
+            }
+        },
+        "evi_vactrol_fix.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "smooth"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
             }
         },
         "evi_vactrol_shape.gendsp": {

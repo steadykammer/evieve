@@ -116,6 +116,40 @@
         },
         {
             "document": true,
+            "digest": "Averaging audio detection wrapper for envelope following",
+            "name": "averageData",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xin",
+                    "digest": "Audio input to be analysed"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset of the averaging filter (buffer)"
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "interval",
+                    "default": 100,
+                    "type": "integer",
+                    "digest": "Interval (window size) in samples of internal averager algorithm"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Fast",
+                    "digest": "Fast response data (exp)"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Simple, cheap and raw envelope following, intended to be used with post envelope smoothers such as in 'envFollSimple()'",
             "name": "envRawDetect",
             "inputs": [
@@ -270,58 +304,6 @@
         },
         {
             "document": true,
-            "digest": "Averaging audio detection wrapper for envelope following",
-            "name": "averageData",
-            "inputs": [
-                {
-                    "id": 1,
-                    "kind": "input",
-                    "name": "xin",
-                    "digest": "Audio input to be analysed"
-                },
-                {
-                    "id": 2,
-                    "kind": "input",
-                    "name": "reset",
-                    "digest": "Sample accurate reset of the averaging filter (buffer)"
-                },
-                {
-                    "id": 3,
-                    "kind": "param",
-                    "name": "interval",
-                    "default": 100,
-                    "type": "integer",
-                    "digest": "Interval (window size) in samples of internal averager algorithm"
-                },
-                {
-                    "id": 4,
-                    "kind": "param",
-                    "name": "mode",
-                    "default": 1,
-                    "type": "integer",
-                    "digest": "Mode of averager operation, 0=bipolar, 1=absolute, 2=RMS"
-                }
-            ],
-            "returns": [
-                {
-                    "id": 1,
-                    "name": "Fast",
-                    "digest": "Fast response data (exp)"
-                },
-                {
-                    "id": 2,
-                    "name": "Medium",
-                    "digest": "Medium response data (lin)"
-                },
-                {
-                    "id": 3,
-                    "name": "Slow",
-                    "digest": "Slow response data (sqrt)"
-                }
-            ]
-        },
-        {
-            "document": true,
             "digest": "Absolute audio envelope peak followed by logarithmic envelope follower",
             "name": "immediateEnv",
             "inputs": [
@@ -460,8 +442,14 @@
                 {
                     "id": 4,
                     "kind": "input",
+                    "name": "base",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
                     "name": "reset",
-                    "digest": "Sample accurate reset the state of the vactrol filter"
+                    "digest": ""
                 }
             ],
             "returns": [

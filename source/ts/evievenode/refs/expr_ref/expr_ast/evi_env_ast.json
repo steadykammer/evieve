@@ -1595,6 +1595,158 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "averageData",
+                "raw": "averageData"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xin",
+                    "raw": "xin"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "interval",
+                    "raw": "interval"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 100,
+                    "raw": "100",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "addummy",
+                                    "raw": "addummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgIndex",
+                                        "raw": "avgIndex"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "xin",
+                                                "raw": "xin"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "abs",
+                                            "raw": "abs"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "windowSize",
+                                            "raw": "windowSize"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "interval",
+                                            "raw": "interval"
+                                        },
+                                        "gen_kind": "attribute"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "averageCore",
+                                    "raw": "averageCore"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "avgMedium",
+                            "raw": "avgMedium"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "envRawDetect",
                 "raw": "envRawDetect"
             },
@@ -2735,239 +2887,6 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "averageData",
-                "raw": "averageData"
-            },
-            "params": [
-                {
-                    "type": "Identifier",
-                    "name": "xin",
-                    "raw": "xin"
-                },
-                {
-                    "type": "Identifier",
-                    "name": "reset",
-                    "raw": "reset"
-                },
-                {
-                    "type": "Identifier",
-                    "name": "interval",
-                    "raw": "interval"
-                },
-                {
-                    "type": "Identifier",
-                    "name": "mode",
-                    "raw": "mode"
-                }
-            ],
-            "defaults": [
-                null,
-                null,
-                {
-                    "type": "Literal",
-                    "value": 100,
-                    "raw": "100",
-                    "gen_kind": "integer"
-                },
-                {
-                    "type": "Literal",
-                    "value": 1,
-                    "raw": "1",
-                    "gen_kind": "integer"
-                }
-            ],
-            "decls": [
-                [
-                    {
-                        "type": "VariableDeclaration",
-                        "kind": "let",
-                        "declarations": [
-                            {
-                                "type": "VariableDeclarator",
-                                "id": {
-                                    "type": "Identifier",
-                                    "name": "addummy",
-                                    "raw": "addummy"
-                                },
-                                "init": {
-                                    "type": "NewExpression",
-                                    "callee": {
-                                        "type": "Identifier",
-                                        "name": "History",
-                                        "raw": "History"
-                                    },
-                                    "arguments": [
-                                        {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            ],
-            "body": {
-                "type": "BlockStatement",
-                "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "avgMedium",
-                                "raw": "avgMedium"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "xin",
-                                        "raw": "xin"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "reset",
-                                        "raw": "reset"
-                                    },
-                                    {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "interval",
-                                            "raw": "interval"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "interval",
-                                            "raw": "interval"
-                                        },
-                                        "gen_kind": "attribute"
-                                    },
-                                    {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "mode",
-                                            "raw": "mode"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "mode",
-                                            "raw": "mode"
-                                        },
-                                        "gen_kind": "attribute"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "averageWrap",
-                                    "raw": "averageWrap"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "avgFast",
-                                "raw": "avgFast"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "avgMedium",
-                                        "raw": "avgMedium"
-                                    },
-                                    {
-                                        "type": "Literal",
-                                        "value": 1.398323,
-                                        "raw": "1.398323",
-                                        "gen_kind": "float"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "fastpow",
-                                    "raw": "fastpow"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "avgSlow",
-                                "raw": "avgSlow"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "avgMedium",
-                                        "raw": "avgMedium"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "sqrt",
-                                    "raw": "sqrt"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ReturnStatement",
-                        "argument": {
-                            "type": "ArrayExpression",
-                            "elements": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "avgFast",
-                                    "raw": "avgFast"
-                                },
-                                {
-                                    "type": "Identifier",
-                                    "name": "avgMedium",
-                                    "raw": "avgMedium"
-                                },
-                                {
-                                    "type": "Identifier",
-                                    "name": "avgSlow",
-                                    "raw": "avgSlow"
-                                }
-                            ]
-                        },
-                        "isjump": true
-                    }
-                ]
-            },
-            "generator": false,
-            "expression": false
-        },
-        {
-            "type": "FunctionDeclaration",
-            "id": {
-                "type": "Identifier",
                 "name": "immediateEnv",
                 "raw": "immediateEnv"
             },
@@ -3513,11 +3432,17 @@
                 },
                 {
                     "type": "Identifier",
+                    "name": "base",
+                    "raw": "base"
+                },
+                {
+                    "type": "Identifier",
                     "name": "reset",
                     "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -3689,33 +3614,6 @@
                         "alternate": null
                     },
                     {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "a_base",
-                                "raw": "a_base"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "/",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 3141.5926535897934,
-                                    "raw": "3141.592653589793238",
-                                    "gen_kind": "float"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "SAMPLERATE",
-                                    "raw": "SAMPLERATE"
-                                }
-                            }
-                        }
-                    },
-                    {
                         "type": "IfStatement",
                         "test": {
                             "type": "BinaryExpression",
@@ -3724,18 +3622,37 @@
                                 "type": "BinaryExpression",
                                 "operator": "||",
                                 "left": {
-                                    "type": "CallExpression",
-                                    "arguments": [
-                                        {
+                                    "type": "BinaryExpression",
+                                    "operator": "||",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "rise",
+                                                "raw": "rise"
+                                            }
+                                        ],
+                                        "callee": {
                                             "type": "Identifier",
-                                            "name": "rise",
-                                            "raw": "rise"
+                                            "name": "delta",
+                                            "raw": "delta"
                                         }
-                                    ],
-                                    "callee": {
-                                        "type": "Identifier",
-                                        "name": "delta",
-                                        "raw": "delta"
+                                    },
+                                    "right": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "fall",
+                                                "raw": "fall"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "delta",
+                                            "raw": "delta"
+                                        }
                                     }
                                 },
                                 "right": {
@@ -3743,8 +3660,8 @@
                                     "arguments": [
                                         {
                                             "type": "Identifier",
-                                            "name": "fall",
-                                            "raw": "fall"
+                                            "name": "base",
+                                            "raw": "base"
                                         }
                                     ],
                                     "callee": {
@@ -3763,6 +3680,41 @@
                         "consequent": {
                             "type": "BlockStatement",
                             "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "a_base",
+                                            "raw": "a_base"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "/",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "base",
+                                                    "raw": "base"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "PI",
+                                                    "raw": "PI"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "SAMPLERATE",
+                                                "raw": "SAMPLERATE"
+                                            }
+                                        }
+                                    }
+                                },
                                 {
                                     "type": "ExpressionStatement",
                                     "expression": {
@@ -3945,9 +3897,36 @@
                                 "type": "BinaryExpression",
                                 "operator": "-",
                                 "left": {
-                                    "type": "Identifier",
-                                    "name": "impulse",
-                                    "raw": "impulse"
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "impulse",
+                                            "raw": "impulse"
+                                        },
+                                        {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "prefix": true
+                                        },
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "clip",
+                                        "raw": "clip"
+                                    }
                                 },
                                 "right": {
                                     "type": "Identifier",
@@ -3964,8 +3943,8 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "x",
-                                "raw": "x"
+                                "name": "z",
+                                "raw": "z"
                             },
                             "right": {
                                 "type": "ConditionalExpression",
@@ -4042,8 +4021,8 @@
                                 "operator": "+",
                                 "left": {
                                     "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
+                                    "name": "z",
+                                    "raw": "z"
                                 },
                                 "right": {
                                     "type": "Identifier",
@@ -4064,17 +4043,27 @@
                                 "raw": "s1"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "y",
+                                            "raw": "y"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "z",
+                                            "raw": "z"
+                                        }
+                                    }
+                                ],
+                                "callee": {
                                     "type": "Identifier",
-                                    "name": "y",
-                                    "raw": "y"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "x",
-                                    "raw": "x"
+                                    "name": "fixdenorm",
+                                    "raw": "fixdenorm"
                                 }
                             }
                         }

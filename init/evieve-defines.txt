@@ -239,14 +239,14 @@ max define mc.evi.onepole.shelving~ mc.gen~ @gen evi_onepole_shelving.gendsp @ch
 max define evi.onepole~ gen~ @gen evi_onepole.gendsp;
 max define mc.evi.onepole~ mc.gen~ @gen evi_onepole.gendsp @chans 2;
 
-max define evi.overdrive.wrap~ gen~ @gen evi_overdrive_wrap.gendsp;
-max define mc.evi.overdrive.wrap~ mc.gen~ @gen evi_overdrive_wrap.gendsp @chans 2;
-
 max define evi.overdrive.env~ gen~ @gen evi_overdrive_env.gendsp;
 max define mc.evi.overdrive.env~ mc.gen~ @gen evi_overdrive_env.gendsp @chans 2;
 
 max define evi.overdrive.fold~ gen~ @gen evi_overdrive_fold.gendsp;
 max define mc.evi.overdrive.fold~ mc.gen~ @gen evi_overdrive_fold.gendsp @chans 2;
+
+max define evi.overdrive.wrap~ gen~ @gen evi_overdrive_wrap.gendsp;
+max define mc.evi.overdrive.wrap~ mc.gen~ @gen evi_overdrive_wrap.gendsp @chans 2;
 
 max define evi.paf~ gen~ @gen evi_paf.gendsp;
 max define mc.evi.paf~ mc.gen~ @gen evi_paf.gendsp @chans 2;

@@ -17,20 +17,21 @@ Param   compensate(0.5, min=0, max=1); // % 0..1, post-sat positive high shelf
 Param   makeup(0., min=0, max=10); // makeup gain in dB
 Param   highpass(40., min=10, max=400); // final highpass in Hz
 
+Param   envshape(0.5, min=0, max=1); // vactrol shape (filter cutoff), flat..sharp
 Param   envtype(0, min=0, max=2); // fast, medium, slow
 Param   envscale(0.24, min=0, max=1); // compress gain env (& the more compressed, the higher the gain)
 // any less than 100 you will have problems with fast transient material
 Param   envinterval(200, min=100, max=2000); // average samples
-Param   envmode(1, min=0, max=2); // bipolar, absolute, rms (do not use bipolar)
+//Param   envmode(1, min=0, max=2); // bipolar, absolute, rms (do not use bipolar)
 
 // in samples
-Param   attack(20, min=10, max=1000); // TEMP
-Param   decay(2000, min=100, max=10000); // TEMP
+Param   attack(20, min=1, max=1000); // TEMP
+Param   decay(2000, min=100, max=samplerate); // TEMP
 
 // if one of these is on we have single gain env (normal), if both are on we have double
 // enveloping (crazy), if both are off we have no dynamic gain and we are quasi 'static' distortion
-Param   envasym(1, min=0, max=1);
-Param   envvalve(0, min=0, max=1);
+Param   envasym(1, min=0, max=1); // place gain envelope before asymmetric processing stage
+Param   envvalve(0, min=0, max=1); // place gain envelope on input to distortion stages
 
 Param   asymmetry(0., min=-6, max=6); // fake dB (favours negative regardless, but does 'add gain')
 Param   hysterisis(0.5, min=0, max=1); // amount of hysterisis envelopes 0..1, shifts in your audio
@@ -40,8 +41,9 @@ dio     = int(diode);
 
 etype   = int(envtype);
 eint    = int(envinterval);
-emode   = int(envmode);
-envcomp = envscale * 0.5; // 0..0.5, default 0.12
+//emode   = int(envmode);
+ecomp   = envscale * 0.5; // 0..0.5, default 0.12
+ebase   = evi_mtofapprox(envshape * 81 + 43); // 100..10000 Hz
 
 valveenv = int(envvalve);
 asymenv  = int(envasym);
@@ -67,34 +69,36 @@ if ( (init) || (prevSR != SAMPLERATE) ) {
 }
 heat = clip((elapsed / od), 0, 1);
 
-resetavg = (delta(change(etype)) < 0) + (delta(change(eint)) < 0) + (delta(change(emode)) < 0);
+resetavg = (delta(change(etype)) < 0) + (delta(change(eint)) < 0);// + (delta(change(emode)) < 0);
 resetdio = delta(change(dio)) < 0;
 reset = resetavg + resetdio;
 
+latency = eint + uphalf;
 X = safe20dB(in1); // if user input > 20dB above FS will antialias hardclip, otherwise totally linear
+Xenv = clip(X, -1, 1); // :-(
 align.write(X);
-xAlign = align.read(eint, interp="none");
+xAlign = align.read(latency, interp="none"); // "none" is tenous because of uphalf
+xAenv = clip(xAlign, -1, 1); // :-(
 
-// pete says, "e works"
-avgFast, avgMedium, avgSlow = averageData(X * e, reset, interval=eint, mode=emode);
-envData = selector((etype + 1), avgFast, avgMedium, avgSlow);
+avgMedium, avgIndex = averageCore(abs(Xenv + Xenv), reset, windowSize=eint);
+envData = avgMedium;//selector((etype + 1), avgFast, avgMedium, avgSlow);
 
 zeroxSmooth = sampstoms(down + down);
 // increasing 'countDiv' makes bias env smaller for noisey input audio
-threshEnv, countEnv, xings = zeroxEnvs(xAlign, zeroxSmooth, resetavg, countDiv=10); // align with 'averageData()'
+threshEnv, countEnv, xings = zeroxEnvs(xAenv, zeroxSmooth, resetavg, countDiv=10); // align with 'averageData()'
 
-envMain = vactrol(envData, up, down, resetavg); // main for gainEnv: avgFast, avgMedium or avgSlow
-envSub = vactrol(avgMedium, uphalf, downhalf, resetavg); // always 'avgMedium'
+envMain = vactrol(envData*0.5, up, down, ebase, resetavg)*2; // main for gainEnv
+envSub = vactrol(avgMedium*0.5, uphalf, downhalf, ebase, resetavg)*2;
 //invSub = 1 - (envSub * hysterisis); // not used
 
 // 'immediate' based on 'X', not xAlign
-envImm = immediateEnv(X, 0.000001, zeroxSmooth*0.001, resetavg); // secs
+envImm = immediateEnv(Xenv, 0.000001, zeroxSmooth*0.001, resetavg); // secs
 // dcblock is for shape, not for dc
 envHyst1 = dcblock(clip((envSub - slide(envData, uphalf, downhalf)), -1, 1)) * hysterisis;
 envHyst2 = 1 - ((envSub - envImm) * hysterisis * countEnv);
 
 // goes above and below 1 so we get a compression expansion effect, depends on 'envscale'
-gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++
+gainEnv = (envMain + threshEnv) * (1 - ecomp) + ecomp + ecomp;// + ecomp; // 0..2++
 biasEnv = clip((envMain - envSub) * countEnv, -0.333333333333, 0.333333333333);
 
 // if one of these is on we have single gain env (normal), if both are on we have double
@@ -109,13 +113,13 @@ if (treble != 0 || bass != 0) { // only compute if engaged
 }
 
 asymInput = XIN * gainEnvPre;
-asymHist1 = abs(envHyst1) + 1;//envHyst1 + 1; // pos env, boost smaller
+asymHist1 = abs(envHyst1) + 1; // pos env, boost smaller
 asymHist2 = (0 - (envHyst1 * envHyst1)) + 1; // neg env, attenuate bigger
 asymOutput, asymPos, asymNeg = asymExecute(asymInput, asymskew, asymHist1, asymHist2, heat, softhard=dio, low=2.1, high=3.9);
 
 valveInput = asymOutput * 0.25; // approx -4..4 .. -1..1
 
-// ^^ until this point everything has been linear (high gain)
+// ^^ until this point everything has been high gain linear
 
 // nonlinear, "asymmetrical double sided"
 valve = 0;
@@ -130,12 +134,12 @@ else {      // 'soft'
 }
 
 // marketing people call this "air"
-valveOutput = rcFilterDamp(valve * envHyst2, mug, muk); // * hysterisis, through hf compensation
+valveOutput = rcFilterDamp(valve * envHyst2, mug, muk); // * hysterisis, through high frequency compensation
 
 // similar arrangement to 'evi_tone_macro.gendsp':
 eviValve = rcOnePole(valveOutput * makeUpGain, toneG); // NR nonlinear onepole
 out1 = rcFilterHp(eviValve, highG); // main
 
 out2 = gainEnv; // main env, linear, 0..2++
-out3 = eint; // latency in samples
+out3 = latency; // latency in samples
 

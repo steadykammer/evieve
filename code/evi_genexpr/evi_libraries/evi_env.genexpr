@@ -237,13 +237,13 @@ zeroxEnvs(X, smooth, reset, countDiv=10) // smooth in ms !
     
 }
 
-vactrolSad(x, a)								// trigger, time
+vactrolSad(x, a)							// trigger, coefficient
 {
 	return x * a / (1 + a);
 }
 
 // "vactrolBuchla()" elsewhere in evieve
-vactrol(impulse, rise, fall, reset)				// trigger, rise (samps), fall (samps), reset
+vactrol(impulse, rise, fall, base, reset)	// trigger, rise (samps), fall (samps), base (Hz), reset
 {
 	History s1(0), a_up(0), a_down(0);
 	if (reset) {
@@ -251,18 +251,19 @@ vactrol(impulse, rise, fall, reset)				// trigger, rise (samps), fall (samps), r
 		a_up = 0;
 		a_down = 0;
 	}
-	a_base	= 3141.592653589793238/SAMPLERATE;  // 1000*PI/samplerate
-    if (delta(rise) || delta(fall) || reset) {
-	    t_down	= 10 + fall*(1 - 0.9*s1);		// fall time
-	    a_down	= a_base/t_down;
-	    t_up	= 1 + rise*(1 - 0.999*s1);		// rise time
-	    a_up	= a_base/t_up;
+    // this is dubious because of sampling of 's1'
+    if (delta(rise) || delta(fall) || delta(base) || reset) {
+	    a_base	= base*PI/SAMPLERATE;		// base frequency (default 1016.898263)
+	    t_down	= 10 + fall*(1 - 0.9*s1);
+	    a_down	= a_base/t_down;            // fall coefficient
+	    t_up	= 1 + rise*(1 - 0.999*s1);
+	    a_up	= a_base/t_up;              // rise coefficient
     }
-	x		= impulse - s1;
-	x 		= (x < 0) ? vactrolSad(x, a_down) : vactrolSad(x, a_up);
-	y		= x + s1;
-	s1		= y + x;
-	return	  y;								// & scale externally
+	x		= clip(impulse, -1, 1) - s1;	// is it dangerous not to clip 'i' -1..1 ?? (yes)
+	z 		= (x < 0) ? vactrolSad(x, a_down) : vactrolSad(x, a_up);
+	y		= z + s1;
+	s1		= fixdenorm(y + z);
+	return	  y;						    // & scale externally
 }
 
 // quick, simple, cheap
