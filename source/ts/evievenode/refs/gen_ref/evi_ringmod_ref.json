@@ -84,8 +84,8 @@
         {
             "name": "quality",
             "type": "int",
-            "digest": "@min 0, @max 4",
-            "description": "0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2, 4=8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about antialiasing or managing CPU usage but also a musical choice. In general, '4=8x/Adaa2_4x' does not work well with maximum @drive.",
+            "digest": "@min 0, @max 3",
+            "description": "0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2. Because of the fake oversampling used here, higher and higher orders very slightly change the tonal effect of the audio output, so experimenting with different settings is not just about antialiasing or managing CPU usage but also a musical choice.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -95,7 +95,7 @@
             "name": "topology",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is replaced into the middle of the ring modulator. Option 1 gives a strongly clipped and 'squeezed' guitar-like output. Option 0 gives a more usual soft saturated output.",
+            "description": "The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is placed into the middle of the ring modulator. Option 1 gives a strongly clipped and 'squeezed' guitar-like output. Option 0 gives a more usual soft saturated output.",
             "default": {
                 "type": "int",
                 "value": "0"

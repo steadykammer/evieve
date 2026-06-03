@@ -23,6 +23,7 @@
         First order anti-derivative hard clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -33,6 +34,7 @@
         Second order anti-derivative hard clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -43,6 +45,7 @@
         Second order anti-derivative 2x oversampled hard clip function, 6-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -53,6 +56,7 @@
         Second order anti-derivative 4x oversampled hard clip function, 6-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -63,6 +67,7 @@
         Second order anti-derivative 2x oversampled hard clip function, 4-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -73,6 +78,7 @@
         Second order anti-derivative 4x oversampled hard clip function, 4-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Hardclip, <i>Antialiased hardclip</i> <br />
 
@@ -111,6 +117,7 @@
         <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
         <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
+        <b>In 10</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Diode clip, <i>Antialiased diode clipper</i> <br />
 
@@ -129,6 +136,7 @@
         <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
         <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
+        <b>In 10</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Diode clip, <i>Antialiased diode clipper</i> <br />
 
@@ -147,6 +155,7 @@
         <b>In 7</b>: type=<i>input</i>: k6, <i>k6 coefficient</i> <br />
         <b>In 8</b>: type=<i>input</i>: VT, <i>VT coefficient</i> <br />
         <b>In 9</b>: type=<i>input</i>: A1, <i>A1 coefficient</i> <br />
+        <b>In 10</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Diode clip, <i>Antialiased diode clipper</i> <br />
 
@@ -177,6 +186,7 @@
         First order anti-derivative soft clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -188,6 +198,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: OS, <i>External oversampling factor</i> <br />
+        <b>In 3</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -198,6 +209,7 @@
         First order anti-derivative soft clip function, 2x oversampling, 6-point ionterpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -208,6 +220,7 @@
         Second order anti-derivative soft clip function, 2x oversampling, 6-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -218,6 +231,7 @@
         Second order anti-derivative soft clip function, 4x oversampling, 6-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -228,6 +242,7 @@
         Second order anti-derivative soft clip function, 2x oversampling, 4-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 
@@ -238,6 +253,7 @@
         Second order anti-derivative soft clip function, 4x oversampling, 4-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
 
         <b>Return 1</b>: Soft clip, <i>Antialiased soft clip</i> <br />
 

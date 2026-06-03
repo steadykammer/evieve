@@ -13280,9 +13280,19 @@
                                 "raw": "current"
                             },
                             "right": {
-                                "type": "Identifier",
-                                "name": "y",
-                                "raw": "y"
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "y",
+                                        "raw": "y"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fixdenorm",
+                                    "raw": "fixdenorm"
+                                }
                             }
                         }
                     },
@@ -13373,6 +13383,33 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
+                                "name": "aV",
+                                "raw": "aV"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "V",
+                                        "raw": "V"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "abs",
+                                    "raw": "abs"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
                                 "name": "F",
                                 "raw": "F"
                             },
@@ -13395,20 +13432,20 @@
                                                 },
                                                 "right": {
                                                     "type": "Identifier",
-                                                    "name": "V",
-                                                    "raw": "V"
+                                                    "name": "aV",
+                                                    "raw": "aV"
                                                 }
                                             },
                                             "right": {
                                                 "type": "Identifier",
-                                                "name": "up",
-                                                "raw": "up"
+                                                "name": "down",
+                                                "raw": "down"
                                             }
                                         },
                                         "right": {
                                             "type": "Identifier",
-                                            "name": "down",
-                                            "raw": "down"
+                                            "name": "up",
+                                            "raw": "up"
                                         }
                                     },
                                     {
@@ -13530,8 +13567,8 @@
                                     "operator": "-",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "V",
-                                        "raw": "V"
+                                        "name": "aV",
+                                        "raw": "aV"
                                     },
                                     "right": {
                                         "type": "Identifier",
@@ -13584,17 +13621,27 @@
                                 "raw": "s0"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "G",
+                                            "raw": "G"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Y",
+                                            "raw": "Y"
+                                        }
+                                    }
+                                ],
+                                "callee": {
                                     "type": "Identifier",
-                                    "name": "G",
-                                    "raw": "G"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "Y",
-                                    "raw": "Y"
+                                    "name": "fixdenorm",
+                                    "raw": "fixdenorm"
                                 }
                             }
                         }

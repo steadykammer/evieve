@@ -40,7 +40,7 @@ zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
     env = 0;
     resp = latch(int(response), xings);
     if (resp == 1) {        // linear
-        env = eviRampsmooth(xgate, envattack, envdecay);
+        env = eviRampsmooth(xgate, envattack, envdecay); // eviRampsmoothUpdate() ?
     }
     else if (resp == 2) {   // log, default
         env = slide(xgate, envattack, envdecay);
@@ -50,11 +50,12 @@ zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
     }
     else if (resp == 4) {   // vactrol slow
         // don't ask...
-        rise = envattack / vectorsize;
-        fall = envdecay / (vectorsize + vectorsize);
+        rise = clip(xslope / vectorsize, 0, 1);
+        fall = clip(envdecay / (vectorsize + vectorsize), 0, 1);
         up = rise*rise*rise*7800 + 200;
         down = (fall*0.9999 + 0.0001) * 0.1;
-        env = likeAvactrol(xgate * 6, up, down) * 3;
+        env = likeAvactrol(xgate, up, down);
+        env = minimum(env + env, 1);
     }
     else {
         env = 0;            // allowed to be zero

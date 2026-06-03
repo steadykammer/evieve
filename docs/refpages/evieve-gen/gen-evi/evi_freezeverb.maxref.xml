@@ -281,7 +281,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                Engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only).
+                Engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only). (For an audio rate synchronous triggering version of this effect see the &#x27;evi_freezeverbtrigger&#x27; abstraction).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -393,6 +393,7 @@
         <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
+        <seealso name='evi_freezeverbtrigger' display='evi_freezeverbtrigger' type='genrefpage' />
         <seealso name='evi_algoverb' display='evi_algoverb' type='genrefpage' />
         <seealso name='evi_backverb' display='evi_backverb' type='genrefpage' />
         <seealso name='evi_gigaverb' display='evi_gigaverb' type='genrefpage' />

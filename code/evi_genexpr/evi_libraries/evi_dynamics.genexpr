@@ -31,6 +31,7 @@ limiterHardSoft(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 	History		lfdummy(0);
 	soft		= choochoo != 0;
 	compress	= choochoo == 2;
+	reset		= delta(change(choochoo)) < 0;
 
 	inPeak		= getMax(xL, xR);
 	envAttack	= 0.000001;			// secs, looks like bullshit to me
@@ -50,12 +51,12 @@ limiterHardSoft(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 		// tanh option (2nd order antiderivative)
 		headroom = compress ? 0.794328 : 1;
 		expand = compress ? 1.258926 : 1;
-		yL	= adSc2(yL * headroom) * expand;
-		yR	= adSc2(yR * headroom) * expand;
+		yL	= adSc2(yL * headroom, 1, reset) * expand;
+		yR	= adSc2(yR * headroom, 1, reset) * expand;
 	} else {
 		// hard clip (@ -0.3dB, 2nd order antiderivative + oversampling)
-		yL	= adHc2_4x_6POINT(yL);
-		yR	= adHc2_4x_6POINT(yR);
+		yL	= adHc2_2x_6POINT(yL, reset);
+		yR	= adHc2_2x_6POINT(yR, reset);
 	}
 
 	return	yL, yR, env;

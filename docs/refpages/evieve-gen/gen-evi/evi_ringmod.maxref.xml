@@ -82,10 +82,10 @@
         </attribute>
         <attribute name='quality' type='int' get='0' set='1'>
             <digest>
-                @min 0, @max 4
+                @min 0, @max 3
             </digest>
             <description>
-                0&#x3D;1x/Adaa1, 1&#x3D;1x/Adaa2, 2&#x3D;4x/Adaa2, 3&#x3D;8x/Adaa2, 4&#x3D;8x/Adaa2_4x. Because of the fake oversampling used here, higher and higher orders actually change the tonal effect of the audio output, so experimenting with different settings is not just about antialiasing or managing CPU usage but also a musical choice. In general, &#x27;4&#x3D;8x/Adaa2_4x&#x27; does not work well with maximum @drive.
+                0&#x3D;1x/Adaa1, 1&#x3D;1x/Adaa2, 2&#x3D;4x/Adaa2, 3&#x3D;8x/Adaa2. Because of the fake oversampling used here, higher and higher orders very slightly change the tonal effect of the audio output, so experimenting with different settings is not just about antialiasing or managing CPU usage but also a musical choice.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -96,7 +96,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is replaced into the middle of the ring modulator. Option 1 gives a strongly clipped and &#x27;squeezed&#x27; guitar-like output. Option 0 gives a more usual soft saturated output.
+                The placement of the waveshaper in the ring modulator audio chain. If 0 (the default), the waveshaper sits after the ring modulator stage, if 1, the waveshaper is placed into the middle of the ring modulator. Option 1 gives a strongly clipped and &#x27;squeezed&#x27; guitar-like output. Option 0 gives a more usual soft saturated output.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

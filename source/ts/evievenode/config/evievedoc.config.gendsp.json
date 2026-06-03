@@ -3927,11 +3927,11 @@
         "evi_sustainfdn.gendsp": {
             "define": {
                 "object": false,
-                "msp": "evi.sustainfdn~",
+                "msp": "",
                 "mcwrapper": false
             },
             "ref": {
-                "gen": true,
+                "gen": false,
                 "msp": false
             },
             "helpfile": {
@@ -3951,11 +3951,11 @@
         "evi_sustainfdnclear.gendsp": {
             "define": {
                 "object": false,
-                "msp": "evi.sustainfdnclear~",
+                "msp": "",
                 "mcwrapper": false
             },
             "ref": {
-                "gen": true,
+                "gen": false,
                 "msp": false
             },
             "helpfile": {

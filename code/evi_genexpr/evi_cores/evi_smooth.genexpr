@@ -671,7 +671,7 @@ eviSlide(x, u, d)							// input, samples up, samples down
 	us = s * (1 / (maximum(abs(u), 1)));
 	ds = s * (1 / (maximum(abs(d), 1)));
 	y  = current + ((x > current) ? us : ds);
-	current = y;
+	current = fixdenorm(y);
 	return y;
 }
 
@@ -682,16 +682,17 @@ eviSlide(x, u, d)							// input, samples up, samples down
 likeAvactrol(V, up, down)
 {
 	History	s0(0);
+    aV = abs(V);                        // in case bipolar plugged in
 
-	F  = clip(((s0 > V) * up) + down, 0.01, HALFPI);
+	F  = clip(((s0 > aV) * down) + up, 0.01, HALFPI); // evieve fix
 	w2 = tanA2(F * PI / SAMPLERATE);
 	g0 = w2 / (w2 + 1);
 
-	G  = (V - s0) * g0;
+	G  = (aV - s0) * g0;
 	Y  =  G + s0;
 
-	s0 =  G + Y;
-	return	Y;
+	s0 = fixdenorm(G + Y);
+	return Y;
 }
 
 // Vactrol time-domain behaviour filter.

@@ -75,6 +75,12 @@
                     "kind": "input",
                     "name": "x",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -95,6 +101,12 @@
                     "kind": "input",
                     "name": "x",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -115,6 +127,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -135,6 +153,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -155,6 +179,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -175,6 +205,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -368,6 +404,12 @@
                     "kind": "input",
                     "name": "A1",
                     "digest": "A1 coefficient"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
                 }
             ],
             "returns": [
@@ -439,6 +481,12 @@
                 },
                 {
                     "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
+                },
+                {
+                    "id": 11,
                     "kind": "param",
                     "name": "gain",
                     "default": 0.999999,
@@ -446,7 +494,7 @@
                     "digest": "Gain linear"
                 },
                 {
-                    "id": 11,
+                    "id": 12,
                     "kind": "param",
                     "name": "bias",
                     "default": 0.000001,
@@ -520,6 +568,12 @@
                     "kind": "input",
                     "name": "A1",
                     "digest": "A1 coefficient"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -588,6 +642,12 @@
                     "kind": "input",
                     "name": "A1",
                     "digest": "A1 coefficient"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -656,6 +716,12 @@
                     "kind": "input",
                     "name": "A1",
                     "digest": "A1 coefficient"
+                },
+                {
+                    "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -842,6 +908,12 @@
                     "kind": "input",
                     "name": "x",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -868,6 +940,12 @@
                     "kind": "input",
                     "name": "OS",
                     "digest": "External oversampling factor"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -888,6 +966,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -908,6 +992,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -928,6 +1018,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -948,6 +1044,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -968,6 +1070,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [
@@ -988,6 +1096,12 @@
                     "kind": "input",
                     "name": "XIN",
                     "digest": "Audio input"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": "Sample accurate reset state"
                 }
             ],
             "returns": [

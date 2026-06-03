@@ -229,6 +229,53 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
+                                "name": "reset",
+                                "raw": "reset"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "choochoo",
+                                                    "raw": "choochoo"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "change",
+                                                "raw": "change"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
                                 "name": "inPeak",
                                 "raw": "inPeak"
                             },
@@ -794,6 +841,17 @@
                                                             "name": "headroom",
                                                             "raw": "headroom"
                                                         }
+                                                    },
+                                                    {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    },
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "reset",
+                                                        "raw": "reset"
                                                     }
                                                 ],
                                                 "callee": {
@@ -839,6 +897,17 @@
                                                             "name": "headroom",
                                                             "raw": "headroom"
                                                         }
+                                                    },
+                                                    {
+                                                        "type": "Literal",
+                                                        "value": 1,
+                                                        "raw": "1",
+                                                        "gen_kind": "integer"
+                                                    },
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "reset",
+                                                        "raw": "reset"
                                                     }
                                                 ],
                                                 "callee": {
@@ -877,12 +946,17 @@
                                                     "type": "Identifier",
                                                     "name": "yL",
                                                     "raw": "yL"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "reset",
+                                                    "raw": "reset"
                                                 }
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "adHc2_4x_6POINT",
-                                                "raw": "adHc2_4x_6POINT"
+                                                "name": "adHc2_2x_6POINT",
+                                                "raw": "adHc2_2x_6POINT"
                                             }
                                         }
                                     }
@@ -904,12 +978,17 @@
                                                     "type": "Identifier",
                                                     "name": "yR",
                                                     "raw": "yR"
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "reset",
+                                                    "raw": "reset"
                                                 }
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "adHc2_4x_6POINT",
-                                                "raw": "adHc2_4x_6POINT"
+                                                "name": "adHc2_2x_6POINT",
+                                                "raw": "adHc2_2x_6POINT"
                                             }
                                         }
                                     }

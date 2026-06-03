@@ -543,9 +543,15 @@
                     "type": "Identifier",
                     "name": "x",
                     "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -615,6 +621,56 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "ad1_x1",
+                                            "raw": "ad1_x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -899,9 +955,15 @@
                     "type": "Identifier",
                     "name": "x",
                     "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -1031,6 +1093,92 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "ad2_x1",
+                                            "raw": "ad2_x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "d2",
+                                            "raw": "d2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -1769,9 +1917,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -2244,6 +2398,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -2271,6 +2430,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -2625,9 +2789,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -3100,6 +3270,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -3127,6 +3302,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -3481,9 +3661,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -3826,6 +4012,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -3853,6 +4044,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -4129,9 +4325,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -4727,6 +4929,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -4754,6 +4961,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -4781,6 +4993,11 @@
                                         "type": "Identifier",
                                         "name": "x3_0",
                                         "raw": "x3_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -4818,6 +5035,11 @@
                                             "raw": "0",
                                             "gen_kind": "integer"
                                         }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -6235,9 +6457,15 @@
                     "type": "Identifier",
                     "name": "A1",
                     "raw": "A1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -6285,6 +6513,38 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "p1",
+                                            "raw": "p1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -6585,6 +6845,11 @@
                 },
                 {
                     "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
                     "name": "gain",
                     "raw": "gain"
                 },
@@ -6595,6 +6860,7 @@
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -6746,6 +7012,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -6851,9 +7122,15 @@
                     "type": "Identifier",
                     "name": "A1",
                     "raw": "A1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -7244,6 +7521,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -7311,6 +7593,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -7617,9 +7904,15 @@
                     "type": "Identifier",
                     "name": "A1",
                     "raw": "A1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -8010,6 +8303,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -8077,6 +8375,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -8383,9 +8686,15 @@
                     "type": "Identifier",
                     "name": "A1",
                     "raw": "A1"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -8776,6 +9085,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -8843,6 +9157,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -12151,9 +12470,15 @@
                     "type": "Identifier",
                     "name": "x",
                     "raw": "x"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -12223,6 +12548,56 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "ad1_x1",
+                                            "raw": "ad1_x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -12512,9 +12887,15 @@
                     "type": "Identifier",
                     "name": "OS",
                     "raw": "OS"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null
             ],
@@ -12645,6 +13026,92 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "reset",
+                            "raw": "reset"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x1",
+                                            "raw": "x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "x2",
+                                            "raw": "x2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "ad2_x1",
+                                            "raw": "ad2_x1"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "d2",
+                                            "raw": "d2"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -13461,9 +13928,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -13936,6 +14409,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -13963,6 +14441,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -14317,9 +14800,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -14798,6 +15287,11 @@
                                         "value": 2,
                                         "raw": "2",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -14831,6 +15325,11 @@
                                         "value": 2,
                                         "raw": "2",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -15185,9 +15684,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -15666,6 +16171,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -15699,6 +16209,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -16053,9 +16568,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -16528,6 +17049,11 @@
                                         "type": "Identifier",
                                         "name": "x1_0",
                                         "raw": "x1_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -16555,6 +17081,11 @@
                                         "type": "Identifier",
                                         "name": "x2_0",
                                         "raw": "x2_0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -16909,9 +17440,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -17260,6 +17797,11 @@
                                         "value": 2,
                                         "raw": "2",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -17293,6 +17835,11 @@
                                         "value": 2,
                                         "raw": "2",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -17569,9 +18116,15 @@
                     "type": "Identifier",
                     "name": "XIN",
                     "raw": "XIN"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
                 }
             ],
             "defaults": [
+                null,
                 null
             ],
             "decls": [
@@ -18173,6 +18726,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18206,6 +18764,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18239,6 +18802,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {
@@ -18282,6 +18850,11 @@
                                         "value": 4,
                                         "raw": "4",
                                         "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {

@@ -53,9 +53,13 @@ funcHc2(x) // second antiderivative
 	return ad2;
 }
 
-adHc1(x)
+adHc1(x, reset)
 {
 	History x1(0), ad1_x1(0);
+	if (reset) {
+		x1 = 0;
+		ad1_x1 = 0;
+	}
 	TOL = 0.00001;
 	xmx1 = x - x1;
 	illCondition = abs(xmx1) < TOL;
@@ -74,9 +78,15 @@ adHc1(x)
 	return y;
 }
 
-adHc2(x)
+adHc2(x, reset)
 {
 	History x1(0), x2(0), ad2_x1(0), d2(0);
+	if (reset) {
+		x1 = 0;
+		x2 = 0;
+		ad2_x1 = 0;
+		d2 = 0;
+	}
 	TOL = 0.00001;
 	xmx2 = x - x2;
 	illCondition = abs(xmx2) < TOL;
@@ -117,7 +127,7 @@ adHc2(x)
 }
 
 // fixed 2x quasi oversampling (hermite6)
-adHc2_2x_6POINT(XIN)
+adHc2_2x_6POINT(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -131,8 +141,8 @@ adHc2_2x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
-	y1_0	= adHc2(x1_0);
-	y2_0	= adHc2(x2_0);
+	y1_0	= adHc2(x1_0, reset);
+	y2_0	= adHc2(x2_0, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -159,7 +169,7 @@ adHc2_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-adHc2_4x_6POINT(XIN)
+adHc2_4x_6POINT(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -173,8 +183,8 @@ adHc2_4x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 4x
-	y1_0	= adHc2_2x_6POINT(x1_0);
-	y2_0	= adHc2_2x_6POINT(x2_0);
+	y1_0	= adHc2_2x_6POINT(x1_0, reset);
+	y2_0	= adHc2_2x_6POINT(x2_0, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -201,7 +211,7 @@ adHc2_4x_6POINT(XIN)
 }
 
 // fixed 2x quasi oversampling (cubic4)
-adHc2_2x_4POINT(XIN)
+adHc2_2x_4POINT(XIN, reset)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -215,8 +225,8 @@ adHc2_2x_4POINT(XIN)
 	x2_0	= umT1_0 + 0;
 
 	// process 2x
-	y1_0	= adHc2(x1_0);
-	y2_0	= adHc2(x2_0);
+	y1_0	= adHc2(x1_0, reset);
+	y2_0	= adHc2(x2_0, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -239,7 +249,7 @@ adHc2_2x_4POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (cubic4)
-adHc2_4x_4POINT(XIN)
+adHc2_4x_4POINT(XIN, reset)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 4
@@ -256,10 +266,10 @@ adHc2_4x_4POINT(XIN)
 	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
 
 	// process 4x
-	y1_0	= adHc2(x1_0);
-	y2_0	= adHc2(x2_0);
-	y3_0	= adHc2(x3_0);
-	y4_0	= adHc2(umT1_0 + 0);
+	y1_0	= adHc2(x1_0, reset);
+	y2_0	= adHc2(x2_0, reset);
+	y3_0	= adHc2(x3_0, reset);
+	y4_0	= adHc2(umT1_0 + 0, reset);
 
 	// down 4x
 	y2_0_a	= y2_0 + 0;
@@ -347,9 +357,12 @@ diodeCoeffs(SR) // param rate, in fact this only ever needs updating if the samp
 	return k1, k2, k3, k4, k5, k6, VT, A1;
 }
 
-diode(Vin, k1, k2, k3, k4, k5, k6, VT, A1) // audio rate
+diode(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset) // audio rate
 {
 	History	p1(0);
+	if (reset) {
+		p1 = 0;
+	}
 
 	q = k1 * Vin - p1;
 	r = xSgn(q);
@@ -362,16 +375,16 @@ diode(Vin, k1, k2, k3, k4, k5, k6, VT, A1) // audio rate
 }
 
 // todo: expose gain & bias
-diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, gain=0.999999, bias=0.000001)
+diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset, gain=0.999999, bias=0.000001)
 {
 	History didu(0);
 	d0 = gain * Vin + bias;
-	d1 = diode(d0, k1, k2, k3, k4, k5, k6, VT, A1);
+	d1 = diode(d0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 	return dcblock(d1 - w4(bias));
 }
 
 // fixed 2x quasi oversampling (cubic4)
-diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
+diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, reset)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -385,8 +398,8 @@ diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	x2_0	= umT1_0 + 0;
 
 	// process 2x
-	y1_0	= diodeWrap(x1_0, k1, k2, k3, k4, k5, k6, VT, A1);
-	y2_0	= diodeWrap(x2_0, k1, k2, k3, k4, k5, k6, VT, A1);
+	y1_0	= diodeWrap(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y2_0	= diodeWrap(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -409,7 +422,7 @@ diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 }
 /*
 // fixed 4x quasi oversampling (cubic4)
-diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
+diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, reset)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 4
@@ -426,10 +439,10 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
 
 	// process 4x
-	y1_0	= diodeWrap(x1_0,		k1, k2, k3, k4, k5, k6, VT, A1);
-	y2_0	= diodeWrap(x2_0,		k1, k2, k3, k4, k5, k6, VT, A1);
-	y3_0	= diodeWrap(x3_0,		k1, k2, k3, k4, k5, k6, VT, A1);
-	y4_0	= diodeWrap(umT1_0 + 0,	k1, k2, k3, k4, k5, k6, VT, A1);
+	y1_0	= diodeWrap(x1_0,		k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y2_0	= diodeWrap(x2_0,		k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y3_0	= diodeWrap(x3_0,		k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y4_0	= diodeWrap(umT1_0 + 0,	k1, k2, k3, k4, k5, k6, VT, A1, reset);
 
 	// down 4x
 	y2_0_a	= y2_0 + 0;
@@ -467,7 +480,7 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 */
 
 // fixed 4x quasi oversampling (cubic4)
-diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
+diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, reset)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -481,8 +494,8 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	x2_0	= umT1_0 + 0;
 
 	// process 2x
-	y1_0	= diode_2x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1);
-	y2_0	= diode_2x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1);
+	y1_0	= diode_2x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y2_0	= diode_2x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -505,7 +518,7 @@ diode_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 }
 
 // fixed 8x quasi oversampling (cubic4)
-diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
+diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, reset)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -519,8 +532,8 @@ diode_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1)
 	x2_0	= umT1_0 + 0;
 
 	// process 8x
-	y1_0	= diode_4x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1);
-	y2_0	= diode_4x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1);
+	y1_0	= diode_4x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
+	y2_0	= diode_4x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -699,9 +712,13 @@ funcSc2(x) // second antiderivative
 //	OR?: F1(x) = F1(x0 * sgn(x)) + ((x*x - x0*x0) / 2) * sgn(x); // need to work out this approx
 }
 
-adSc1(x)
+adSc1(x, reset)
 {
 	History x1(0), ad1_x1(0);
+	if (reset) {
+		x1 = 0;
+		ad1_x1 = 0;
+	}
 	TOL = 0.00001; // i've seen this in some sources as 0.018
 	xmx1 = x - x1;
 	illCondition = abs(xmx1) < TOL;
@@ -720,11 +737,17 @@ adSc1(x)
 	return y;
 }
 
-adSc2(x, OS)
+adSc2(x, OS, reset)
 {
 	History x1(0), x2(0), ad2_x1(0), d2(0);
+	if (reset) {
+		x1 = 0;
+		x2 = 0;
+		ad2_x1 = 0;
+		d2 = 0;
+	}
 	TOL = 0.00001;
-//	TOLfb = 0.00000001; // because of 2x-fake-oversampling we need much smaller o-precision ?
+//	TOL = 0.00000001; // because of 2x-fake-oversampling we need much smaller o-precision ?
 	xmx2 = x - x2;
 	illCondition = abs(xmx2) < TOL;
 
@@ -744,7 +767,7 @@ adSc2(x, OS)
 	fallbackCondition = abs(delta) < TOL;
 	if (fallbackCondition && OS == 2) {
 		// 2x oversampling destroys the precision of our tanh() Approx, so...
-		fb = tanh(0.5 * (xBar + x1)); // :-( :-( :-(
+		fb = tanh(0.5 * (xBar + x1)); // :-(
 	} else if (fallbackCondition) {
 		fb = funcSc0(0.5 * (xBar + x1));
 	} else {
@@ -767,7 +790,7 @@ adSc2(x, OS)
 }
 
 // fixed 2x quasi oversampling (hermite6)
-adSc1_2x_6POINT(XIN)
+adSc1_2x_6POINT(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -781,8 +804,8 @@ adSc1_2x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
-	y1_0	= adSc1(x1_0);
-	y2_0	= adSc1(x2_0);
+	y1_0	= adSc1(x1_0, reset);
+	y2_0	= adSc1(x2_0, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -809,7 +832,7 @@ adSc1_2x_6POINT(XIN)
 }
 
 // fixed 2x quasi oversampling (hermite6) fixed 2x
-adSc2_2x_6POINT_fix2(XIN)
+adSc2_2x_6POINT_fix2(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -823,8 +846,8 @@ adSc2_2x_6POINT_fix2(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
-	y1_0	= adSc2(x1_0, 2);
-	y2_0	= adSc2(x2_0, 2);
+	y1_0	= adSc2(x1_0, 2, reset);
+	y2_0	= adSc2(x2_0, 2, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -851,7 +874,7 @@ adSc2_2x_6POINT_fix2(XIN)
 }
 
 // fixed 2x quasi oversampling (hermite6)
-adSc2_2x_6POINT(XIN)
+adSc2_2x_6POINT(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -865,8 +888,8 @@ adSc2_2x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 2x
-	y1_0	= adSc2(x1_0, 4);
-	y2_0	= adSc2(x2_0, 4);
+	y1_0	= adSc2(x1_0, 4, reset);
+	y2_0	= adSc2(x2_0, 4, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -893,7 +916,7 @@ adSc2_2x_6POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (hermite6)
-adSc2_4x_6POINT(XIN)
+adSc2_4x_6POINT(XIN, reset)
 {	// up 2
 	History	umTm2_0(0), umTm1_0(0), umT0_0(0), umT1_0(0), umT2_0(0);
 	// down 2
@@ -907,8 +930,8 @@ adSc2_4x_6POINT(XIN)
 	x2_0	= umT2_0 + 0;
 
 	// process 4x
-	y1_0	= adSc2_2x_6POINT(x1_0);
-	y2_0	= adSc2_2x_6POINT(x2_0);
+	y1_0	= adSc2_2x_6POINT(x1_0, reset);
+	y2_0	= adSc2_2x_6POINT(x2_0, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -935,7 +958,7 @@ adSc2_4x_6POINT(XIN)
 }
 
 // fixed 2x quasi oversampling (cubic4) fixed 2x
-adSc2_2x_4POINT(XIN)
+adSc2_2x_4POINT(XIN, reset)
 {	// up 2
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 2
@@ -949,8 +972,8 @@ adSc2_2x_4POINT(XIN)
 	x2_0	= umT1_0 + 0;
 
 	// process 2x
-	y1_0	= adSc2(x1_0, 2);
-	y2_0	= adSc2(x2_0, 2);
+	y1_0	= adSc2(x1_0, 2, reset);
+	y2_0	= adSc2(x2_0, 2, reset);
 
 	// down 2x
 	y2_0_a	= y2_0 + 0;
@@ -973,7 +996,7 @@ adSc2_2x_4POINT(XIN)
 }
 
 // fixed 4x quasi oversampling (cubic4)
-adSc2_4x_4POINT(XIN)
+adSc2_4x_4POINT(XIN, reset)
 {	// up 4
 	History	umTm1_0(0), umT0_0(0), umT1_0(0);
 	// down 4
@@ -990,10 +1013,10 @@ adSc2_4x_4POINT(XIN)
 	x3_0	= cubic_hermite_interp(0.75,	umTm1_0, umT0_0, umT1_0, x0_0_a);
 
 	// process 4x
-	y1_0	= adSc2(x1_0, 4);
-	y2_0	= adSc2(x2_0, 4);
-	y3_0	= adSc2(x3_0, 4);
-	y4_0	= adSc2(umT1_0 + 0, 4);
+	y1_0	= adSc2(x1_0, 4, reset);
+	y2_0	= adSc2(x2_0, 4, reset);
+	y3_0	= adSc2(x3_0, 4, reset);
+	y4_0	= adSc2(umT1_0 + 0, 4, reset);
 
 	// down 4x
 	y2_0_a	= y2_0 + 0;

@@ -1,8 +1,6 @@
 
 // over complex ring modulator, evieve stylee
 
-// lib
-
 require("evi_ringmod_enhanced.genexpr");
 
 // param rate ...
@@ -12,8 +10,8 @@ Param	cutoff(samplerate*0.25, min=1000, max=samplerate*0.5);	// butterworth hz
 Param	order(0, min=0, max=8);							// butterworth LP slope, default bypassed
 Param	drive(0.5, min=0, max=4);						// % 0..1..
 Param	topology(0, min=0, max=1);						// waveshape placement, quirky
-Param	quality(1, min=0, max=4);		// 0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2
-ord		= int(order);									// 4=8x/Adaa2_4x
+Param	quality(1, min=0, max=3);		// 0=1x/Adaa1, 1=1x/Adaa2, 2=4x/Adaa2, 3=8x/Adaa2
+ord		= int(order);
 top		= int(topology);
 os		= int(quality);
 pidrive, sindrive	= sinParam(drive);
@@ -24,14 +22,12 @@ nf		= rcPreWarp1(highpass);			// fixed highpass ?, not smoothed for now !
 X		= 0;
 drivepi, drivesin	= expsmoothBank2(pidrive, sindrive, 0.022666);
 
-if (os == 1) {					// os 1 = 1x/Adaa2
+if (os == 1) {					// os 1 = 1x/Adaa2, default
 	X	= evieveRingmodAdaa2(			in1, in2, nf, drivepi, drivesin, top);
-} else if (os == 2) {			// os 2 = 4x/Adaa2, default
+} else if (os == 2) {			// os 2 = 4x/Adaa2
 	X	= evieveRingmodAdaa2__4x_6POINT(in1, in2, nf, drivepi, drivesin, top);
 } else if (os == 3) {			// os 3 = 8x/Adaa2
 	X	= evieveRingmodAdaa2__8x_6POINT(in1, in2, nf, drivepi, drivesin, top);
-} else if (os == 4) {			// os 5 = 8x/Adaa2_4x
-	X	= evieveRingmodAdaa2_4x__8x_6POINT(in1, in2, nf, drivepi, drivesin, top);
 } else {						// os 0 = 1x/Adaa1
 	X	= evieveRingmodAdaa1(			in1, in2, nf, drivepi, drivesin, top);
 }

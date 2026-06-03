@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 1114.0, 790.0 ],
+        "rect": [ 63.0, 100.0, 1114.0, 790.0 ],
         "bglocked": 1,
         "gridonopen": 2,
         "toolbarvisible": 0,
@@ -8396,7 +8396,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 157.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -9590,6 +9590,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 1 ],
+                                    "midpoints": [ 390.5, 497.73046875, 210.0, 497.73046875 ],
                                     "order": 1,
                                     "source": [ "obj-6", 0 ]
                                 }
@@ -9604,6 +9605,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 2 ],
+                                    "midpoints": [ 644.5, 505.546875, 239.5, 505.546875 ],
                                     "order": 1,
                                     "source": [ "obj-7", 0 ]
                                 }

@@ -29,8 +29,8 @@ limiterFastStereo(xL, xR, release, knee, a0, a1, a2, b1, b2)
 	yR		= dcblock(xR * env) * 1.033949;
 
     // clipping
-	yL	= adHc2(yL);                        // just 2nd order adaa, this is fine for most needs
-	yR	= adHc2(yR);
+	yL	= adHc2(yL, 0);                     // just 2nd order adaa, this is fine for most needs
+	yR	= adHc2(yR, 0);
 
 	return	yL, yR, env;
 }

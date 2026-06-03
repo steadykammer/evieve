@@ -363,7 +363,7 @@
             "name": "freeze",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "Engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only).",
+            "description": "Engages the special freeze effect in different ways. 0=freeze off, 1=freeze on with dry/wet mix, 2=freeze on solo (wet only). (For an audio rate synchronous triggering version of this effect see the 'evi_freezeverbtrigger' abstraction).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -461,6 +461,10 @@
         }
     ],
     "seealso": [
+        {
+            "name": "evi_freezeverbtrigger",
+            "display": "evi_freezeverbtrigger"
+        },
         {
             "name": "evi_algoverb",
             "display": "evi_algoverb"

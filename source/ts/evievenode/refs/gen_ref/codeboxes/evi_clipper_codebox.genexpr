@@ -8,28 +8,29 @@ Param	oversampling(2, min=0, max=2);	// 0 = 1x, 1 = 2x, 2 = 4x
 Param	clip(0, min=0, max=3);			// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym
 cp		= int(clip);
 os		= int(oversampling);
-if (prevSR != SAMPLERATE) {
-    k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE);
-    prevSR = SAMPLERATE;
-}
-X		= xMega(in1, xCONST=0.1);       // ..+40dB
+X		= xMega(dcblock(in1), xCONST=0.1);       // ..+40dB
+reset   = (delta(change(cp)) < 0) + (delta(change(os)) < 0);
 Y		= 0;
 // Y gains for fake oversampling are tuned to take up to +40dB input
 if (cp == 1) { // soft clip
 	if (os == 1) {
-		Y = adSc2_2x_6POINT_fix2(X) * 0.955101; // not perfect
+		Y = adSc2_2x_6POINT_fix2(X, reset) * 0.955101;
 	} else if (os == 2) {
-		Y = adSc2_4x_6POINT(X) * 0.93656;
+		Y = adSc2_4x_6POINT(X, reset) * 0.93656;
 	} else {
-		Y = adSc2(X, 1) * 0.998008;
+		Y = adSc2(X, 1, reset) * 0.998008;
 	}
 } else if (cp == 2) { // diode clip
+    if (prevSR != SAMPLERATE) {
+        k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE);
+        prevSR = SAMPLERATE;
+    }
 	if (os == 1) {
-		Y = diode_4x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);
+		Y = diode_4x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 	} else if (os == 2) {
-		Y = diode_8x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1);
+		Y = diode_8x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 	} else {
-		Y = diode_2x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1); // not great
+		Y = diode_2x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1, reset); // not great
 	}
 	Y = Y * 3.162278; // not wrong
 } else if (cp == 3) { // asymmetric clip
@@ -42,11 +43,11 @@ if (cp == 1) { // soft clip
 	}
 } else { // cp == 0 // hard clip
 	if (os == 1) {
-		Y = adHc2_2x_6POINT(X) * 0.953396;
+		Y = adHc2_2x_6POINT(X, reset) * 0.953396;
 	} else if (os == 2) {
-		Y = adHc2_4x_6POINT(X) * 0.92928;	// // // default
+		Y = adHc2_4x_6POINT(X, reset) * 0.92928;	// // // default
 	} else {
-		Y = adHc2(X) * 0.996263;
+		Y = adHc2(X, reset) * 0.996263;
 	}
 }
 out1 = dcblock(Y * 0.999999);

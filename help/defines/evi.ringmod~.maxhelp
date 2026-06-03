@@ -165,21 +165,11 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-45",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 58.0, 288.0, 94.0, 21.0 ],
-                                    "text": "8x Adaa2 4x"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-44",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 58.0, 272.0, 94.0, 21.0 ],
+                                    "patching_rect": [ 58.0, 279.0, 94.0, 21.0 ],
                                     "text": "Adaa2 8x"
                                 }
                             },
@@ -189,7 +179,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 58.0, 256.0, 94.0, 21.0 ],
+                                    "patching_rect": [ 58.0, 263.0, 94.0, 21.0 ],
                                     "text": "Adaa2 4x"
                                 }
                             },
@@ -199,7 +189,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 58.0, 240.0, 94.0, 21.0 ],
+                                    "patching_rect": [ 58.0, 247.0, 94.0, 21.0 ],
                                     "text": "Adaa2"
                                 }
                             },
@@ -209,7 +199,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 58.0, 224.0, 94.0, 21.0 ],
+                                    "patching_rect": [ 58.0, 231.0, 94.0, 21.0 ],
                                     "text": "Adaa1"
                                 }
                             },
@@ -348,7 +338,7 @@
                             },
                             {
                                 "box": {
-                                    "disabled": [ 0, 0, 0, 0, 0 ],
+                                    "disabled": [ 0, 0, 0, 0 ],
                                     "id": "obj-30",
                                     "itemtype": 0,
                                     "maxclass": "radiogroup",
@@ -356,21 +346,21 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 38.0, 225.0, 18.0, 82.0 ],
+                                    "patching_rect": [ 38.0, 232.0, 18.0, 66.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0", "1", "2", "3", "4" ],
+                                            "parameter_enum": [ "0", "1", "2", "3" ],
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup",
-                                            "parameter_mmax": 4,
+                                            "parameter_mmax": 3,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "radiogroup",
                                             "parameter_type": 2
                                         }
                                     },
-                                    "size": 5,
-                                    "value": 4,
+                                    "size": 4,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -532,38 +522,21 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-19",
-                                    "maxclass": "number",
-                                    "maximum": 512,
-                                    "minimum": 2,
-                                    "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 38.0, 426.0, 50.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 2.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[2]",
-                                            "parameter_mmax": 512.0,
-                                            "parameter_mmin": 2.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "number[5]",
-                                            "parameter_type": 0
-                                        }
-                                    },
-                                    "varname": "number[5]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "calccount": 2,
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
+                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "grid": 3,
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
                                     "id": "obj-17",
-                                    "maxclass": "scope~",
+                                    "maxclass": "live.scope~",
                                     "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 38.0, 466.0, 130.0, 130.0 ]
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 38.0, 466.0, 130.0, 130.0 ],
+                                    "rounded": 1.0,
+                                    "samples": 500.0,
+                                    "vertical_divisions": 4
                                 }
                             },
                             {
@@ -719,12 +692,6 @@
                                 "patchline": {
                                     "destination": [ "obj-34", 0 ],
                                     "source": [ "obj-15", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "source": [ "obj-19", 0 ]
                                 }
                             },
                             {
@@ -963,6 +930,7 @@
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
+                                    "hidden": 1,
                                     "hint": "",
                                     "id": "obj-16",
                                     "ignoreclick": 1,
@@ -1270,6 +1238,7 @@
                             {
                                 "box": {
                                     "attr": "drive",
+                                    "hidden": 1,
                                     "id": "obj-10",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1286,6 +1255,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
+                                    "hidden": 1,
                                     "source": [ "obj-10", 0 ]
                                 }
                             },
@@ -2155,7 +2125,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2764,7 +2734,6 @@
             "obj-11::obj-19": [ "number[9]", "number[5]", 0 ],
             "obj-11::obj-28": [ "live.dial[2]", "Drive", 0 ],
             "obj-12::obj-15": [ "number[3]", "number", 0 ],
-            "obj-12::obj-19": [ "number[2]", "number[5]", 0 ],
             "obj-12::obj-28": [ "live.dial", "Drive", 0 ],
             "obj-12::obj-30": [ "radiogroup", "radiogroup", 0 ],
             "obj-12::obj-37": [ "toggle", "toggle", 0 ],

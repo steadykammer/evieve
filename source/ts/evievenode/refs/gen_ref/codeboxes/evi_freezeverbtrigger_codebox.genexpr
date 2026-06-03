@@ -1,5 +1,5 @@
 
-// -- -- -- -- -- -- -- -- -- --	evi_freezeverb.gendsp	-- -- -- -- -- -- -- -- -- -- -- \\
+// -- -- -- -- -- -- -- -- -- --	evi_freezeverbtrigger.gendsp    -- -- -- -- -- -- -- -- -- \\
 
 // Basic Schroeder / Moorer reverb model
 // Based on the famous 'freeverb' tuning by Jezar at Dreampoint (http://www.dreampoint.co.uk)
@@ -8,6 +8,9 @@
 // This version by Pete for evieve, with various modifications, filter improvements
 // and parameter smoothing etc, as well as new predelay and eq sections (2018)...
 // ...and of course a buttery smooth freeze effect
+
+// !! this is an expensive version with sample accurate retriggering of freeze functionality
+// for rod, @see: 'evi_freezeverb.gendsp' for the more normal and cheaper version !!
 
 
 // -- -- -- -- -- -- -- -- -- --		library			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
@@ -92,11 +95,12 @@ Param		SCALEROOM	( 0.28,		min=0, max=1		 );
 Param		OFFSETROOM	( 0.7,		min=0, max=1		 );
 Param		ALLPASSFB	( 0.5,		min=0, max=1		 );	// ?
 
-Param		smoothtime	( 49.,		min=1, max=500		 );	// ms
+Param		smoothtime	( 10.,		min=1, max=100		 );	// ms
 smoothsecs	= smoothtime * 0.001;					// secs
 smsecslong	= smoothsecs * 2.666667;				// secs * 3
 smoothsamps	= smoothsecs * samplerate;				// samps
 smsampslong	= smoothsamps * 3.333333;				// samps * 3
+latency     = maximum(int(smsampslong + 0.5), vectorsize);
 iBypass		= int(bypass);
 
 SRATE		= samplerate + 0;
@@ -148,7 +152,7 @@ if (PASS < 1) {			// start BYPASS
 // freeze behaviour, smoothed by parameter changes downstream
 // unlike original(s), 'freeze' is click-free and silky smooth in this implementation :-)
 
-// @ audio rate - much more expensive than "evi_freezeverb.gendsp"
+// @ audio rate - much more expensive than "evi_freezeverb.gendsp":
 
 freeze      =  trunc(in3);                      // 0/1/2
 retrig      =  delta(in4) < 0;
@@ -326,6 +330,14 @@ passH	= latch(iBypass, pN);
 
 // -- -- -- -- -- -- -- -- -- --		output			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
 
-out1	= interp(PASS, (rvrbL + xLdry), xL, mode="cosine");	// & smooth bypass
-out2	= interp(PASS, (rvrbR + xRdry), xR, mode="cosine");
+rvrbOutL = (rvrbL + xLdry);
+rvrbOutR = (rvrbR + xRdry);
+
+out1	= interp(PASS, rvrbOutL, xL, mode="cosine");	// & smooth bypass
+out2	= interp(PASS, rvrbOutR, xR, mode="cosine");
+
+out3    = rvrbL;
+out4    = rvrbR;
+
+out5    = latency;
 

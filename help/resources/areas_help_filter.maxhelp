@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 817.0, 726.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
@@ -28,12 +29,37 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-31",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 481.0, 479.0, 169.0, 20.0 ],
+                    "text": "Compare Linear TPT Filters",
+                    "texton": "Compare Linear TPT Filters"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-32",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 577.0, 609.0, 207.0, 22.0 ],
+                    "text": "list.reg evicompare_lineartpt.maxhelp"
+                }
+            },
+            {
+                "box": {
                     "fontsize": 13.0,
                     "id": "obj-28",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 482.0, 471.0, 123.0, 21.0 ],
+                    "patching_rect": [ 480.0, 456.0, 123.0, 21.0 ],
                     "text": "See Also:"
                 }
             },
@@ -139,7 +165,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 63.0, 570.0, 210.0, 22.0 ],
+                    "patching_rect": [ 63.0, 570.0, 216.0, 22.0 ],
                     "text": "list.reg evicompare_biquadsvf.maxhelp"
                 }
             },
@@ -788,6 +814,20 @@
                     "destination": [ "obj-4", 0 ],
                     "hidden": 1,
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-32", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-31", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-32", 0 ]
                 }
             },
             {
