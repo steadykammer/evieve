@@ -16,6 +16,96 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-116",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 0,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 34.0, 100.0, 496.0, 286.0 ],
+                        "gridonopen": 2,
+                        "subpatcher_template": "sub",
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 50.0, 48.0, 397.0, 20.0 ],
+                                    "text": "only click this if you are really sure - it will overwrite the \"_ref.xml\" files"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 199.0, 124.0, 174.0, 20.0 ],
+                                    "presentation_linecount": 2,
+                                    "text": "<<-- bullshit, does not work !"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-12",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 50.0, 124.0, 147.0, 20.0 ],
+                                    "text": "safe as check if exists"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-15",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 50.0, 100.0, 147.0, 22.0 ],
+                                    "text": "make_externals_refpages"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-115",
+                                    "index": 1,
+                                    "maxclass": "outlet",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 50.0, 204.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-115", 0 ],
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 125.0, 281.0, 103.0, 22.0 ],
+                    "text": "p make_exts_refs"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-114",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -1033,16 +1123,6 @@
             },
             {
                 "box": {
-                    "id": "obj-12",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 125.0, 305.0, 147.0, 20.0 ],
-                    "text": "safe as check if exists"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-11",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -1376,17 +1456,6 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 278.0, 486.0, 143.0, 22.0 ],
                     "text": "make_refpages_contents"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-15",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 125.0, 281.0, 147.0, 22.0 ],
-                    "text": "make_externals_refpages"
                 }
             },
             {
@@ -2075,8 +2144,6 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
-                        "node_bin_path": "",
-                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script Patcher:../dist/evievedoc.js",
@@ -2100,17 +2167,6 @@
             },
             {
                 "box": {
-                    "id": "obj-45",
-                    "linecount": 11,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 109.0, 186.0, 147.0, 154.0 ],
-                    "text": "|\n|\n|\n|\n|\ncreate _ref.xml\n|\n|\n|\n|\n|"
-                }
-            },
-            {
-                "box": {
                     "hidden": 1,
                     "id": "obj-51",
                     "maxclass": "comment",
@@ -2118,6 +2174,17 @@
                     "numoutlets": 0,
                     "patching_rect": [ 44.0, 722.0, 150.0, 20.0 ],
                     "text": "must be top level"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-45",
+                    "linecount": 11,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 109.0, 186.0, 147.0, 154.0 ],
+                    "text": "|\n|\n|\n|\n|\ncreate _ref.xml\n|\n|\n|\n|\n|"
                 }
             }
         ],
@@ -2172,6 +2239,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-28", 0 ],
+                    "source": [ "obj-116", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-48", 1 ],
                     "source": [ "obj-13", 1 ]
                 }
@@ -2186,12 +2259,6 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-14", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-28", 0 ],
-                    "source": [ "obj-15", 0 ]
                 }
             },
             {

@@ -3,7 +3,7 @@
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
-<c74object name="evi.cfsmooth~" module="evieve-ref" category="evieve">
+<c74object name="evi.cfsmooth~" module="" category="">
 	<digest>
 		Signal smoother particularly well suited to smoothing filter cutoff frequencies
 	</digest>
@@ -37,7 +37,7 @@
 				Ramp Time in milliseconds
 			</digest>
 			<description>
-				Amount of time the value takes to reach it's destination. evi.cfsmooth~ is logarithmic and does not reach it's destination exactly.
+				Amount of time the value takes to reach it's destination. evi.cfsmooth~ is logarithmic and does not reach it's destination exactly. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 		</inlet>
 	</inletlist>
@@ -144,7 +144,7 @@
 				Smoothing Time in ms
 			</digest>
 			<description>
-				The ramp time in ms. Because evi.cfsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.
+				The ramp time in ms. Because evi.cfsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />

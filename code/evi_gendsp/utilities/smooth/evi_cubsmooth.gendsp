@@ -33,12 +33,12 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 422.0, 19.0, 287.0, 22.0 ],
-                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 0"
+                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 1"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\ncfSmoothCubicCoeff(hz, s)\t\t// freq, seconds\n{\n\twc\t\t= hz / samplerate;\n\ts0\t\t= (1 - tauA(s));\t// this is a bit stupid\n\treturn\t  wc, s0;\n}\n\ncfSmoothCubicFilter(x0, wc, s0)\n{\n\tHistory\tlow1(0), low2(0), inz(0);\n\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\n\tbandz\t= low1z - low2z;\n\twd\t\t= wc + s0 * abs(bandz);\n\tg\t\t= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);\n\n\tlow1\t= low1z + g * (0.5 * (x0 + inz) - low1z);\n\tlow2\t= low2z + g * (0.5 * (low1 + low1z) - low2z);\n\tinz\t\t= x0;\n\n\treturn\t  low2;\n}\n\ncfSmoothCubic(x1, hz, s)\n{\n\tHistory\t  cfsc1dummy(0);\n\twc, s0\t= cfSmoothCubicCoeff(hz, s);\n\ty1\t\t= cfSmoothCubicFilter(x1, wc, s0);\n\treturn\t  y1;\n}\n\r\nParam   hz(2., min=0, max=10);\r\nout1    = cfSmoothCubic(in1, hz, in2*0.001);\r\n\r\n",
+                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\ncfSmoothCubicCoeff(hz, s)\t\t// freq, seconds\n{\n\twc\t\t= hz / samplerate;\n\ts0\t\t= (1 - tauA(s));\t// this is a bit stupid\n\treturn\t  wc, s0;\n}\n\ncfSmoothCubicFilter(x0, wc, s0)\n{\n\tHistory\tlow1(0), low2(0), inz(0);\n\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\n\tbandz\t= low1z - low2z;\n\twd\t\t= wc + s0 * abs(bandz);\n\tg\t\t= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);\n\n\tlow1\t= low1z + g * (0.5 * (x0 + inz) - low1z);\n\tlow2\t= low2z + g * (0.5 * (low1 + low1z) - low2z);\n\tinz\t\t= x0;\n\n\treturn\t  low2;\n}\n\ncfSmoothCubic(x1, hz, s)\n{\n\tHistory\t  cfsc1dummy(0);\n\twc, s0\t= cfSmoothCubicCoeff(hz, s);\n\ty1\t\t= cfSmoothCubicFilter(x1, wc, s0);\n\treturn\t  y1;\n}\n\r\nParam   hz(2., min=0.01, max=10);\r\nout1    = cfSmoothCubic(in1, hz, in2*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -92,6 +92,7 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

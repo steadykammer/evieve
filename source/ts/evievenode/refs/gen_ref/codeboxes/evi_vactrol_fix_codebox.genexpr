@@ -44,5 +44,6 @@ vactrolFixed(impulse)				// trigger (internally clamped 0..1)
 
 Param	scalar(1., min=1, max=10000);           // input clipped, but we can scale the output
 
-out1    = (vactrolFixed(in1*0.5) * 2) * scalar; // should abs(in1) ?
+vF      = vactrolFixed(in1*0.5, rise, fall, base);
+out1 	= (vF+vF) * scalar;
 

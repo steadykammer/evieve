@@ -30,7 +30,7 @@ typedef struct _evi_cfsmooth
     double s_initial; // init arg
     double s_dest; // float dest val
     double s_hz; // smooth hz
-    double s_ms; // ramp time
+    double s_ms; // ramp time, minimum 1ms
 
     double s_sr; // cache samplerate
     double s_eviivsr; // cache PI / samplerate
@@ -382,8 +382,8 @@ void evi_cfsmooth_float(t_evi_cfsmooth* x, double f)
     }
     else if (inlet == x->s_banks) { // far right inlet
         val = f;
-        if (val < 0.0) {
-            val = 0.0;
+        if (val < 1.0) {
+            val = 1.0; // we have to clip to 1.0 because of exp approx
         }
         x->s_ms = val;
         object_attr_touch((t_object*)x, gensym("time"));
@@ -420,8 +420,8 @@ t_max_err evi_cfsmooth_attr_setms(t_evi_cfsmooth* x, void* attr, long argc, t_at
 {
     double ms = atom_getfloat(argv);
     // should we also have a maximum ?
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0; // we have to clip to 1.0 because of exp approx
     }
     x->s_ms = ms;
     evi_cfsmooth_coefficients(x);
@@ -557,8 +557,8 @@ void* evi_cfsmooth_new(t_symbol* s, long argc, t_atom* argv)
         initial = atom_getfloat(argv);
         if (offset > 1) {
             ms = atom_getfloat(argv + 1);
-            if (ms < 0.0) {
-                ms = 0.0;
+            if (ms < 1.0) {
+                ms = 1.0;
             }
             if (offset > 2) {
                 hz = atom_getfloat(argv + 2);
@@ -573,7 +573,7 @@ void* evi_cfsmooth_new(t_symbol* s, long argc, t_atom* argv)
     }
     x->s_dest = x->s_initial = initial;
     x->s_ms = ms;
-    x->s_hz = hz; // TODO: proper defaults
+    x->s_hz = hz;
 
     if (sys_getsr() <= 0) {
         x->s_sr = 48000.0;

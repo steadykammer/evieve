@@ -24,7 +24,7 @@
             "name": "ramp",
             "type": "float",
             "optional": 1,
-            "digestauto": "Time in milliseconds @min 0",
+            "digestauto": "Time in milliseconds @min 1",
             "digest": "Amount of time the value takes to reach it's destination. evi_cubsmooth is logarithmic and does not reach it's destination exactly."
         }
     ],
@@ -42,7 +42,7 @@
         {
             "name": "hz",
             "type": "float",
-            "digest": "@min 0, @max 10",
+            "digest": "@min 0.01, @max 10",
             "description": "evi_cubsmooth is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.",
             "default": {
                 "type": "float",

@@ -3,7 +3,7 @@
 <?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
 
 <!--Data marked TEXT_HERE, INLET_TYPE, OUTLET_TYPE, ARG_NAME and ARG_TYPE need to be filled in-->
-<c74object name="evi.vactrol~" module="evieve-ref" category="evieve">
+<c74object name="evi.vactrol~" module="" category="">
 	<digest>
 		Vactrol response time domain filter envelope
 	</digest>
@@ -89,6 +89,22 @@
 				Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.
 			</description>
 		</objarg>
+		<objarg id="3" name="shape" type="float" optional="1">
+			<digest>
+				Initial Shape, normalised 0..1
+			</digest>
+			<description>
+				Shape changes the curvature of the filter, which also affects the peak and trough of the envelope. Lower values flatten the envelope, higher values sharpen the envelope.
+			</description>
+		</objarg>
+		<objarg id="4" name="fix" type="int" optional="1">
+			<digest>
+				Fix mode of the object, 0/1
+			</digest>
+			<description>
+				Fix changes between two objects and is instantiation only. If fix = 0 (the default) the object has three inlets and can be controlled by rise, fall, shape and scalar. If fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (scalar can still be used).
+			</description>
+		</objarg>
 	</objarglist>
 	<!--MESSAGES-->
 	<methodlist>
@@ -172,7 +188,18 @@
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
-				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Env Output Multiplier" />
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Envelope Output Multiplier" />
+			</attributelist>
+		</attribute>		<attribute name="shape" get="1" set="1" type="float" size="1" alias="curve">
+			<digest>
+				Curvature of Envelope
+			</digest>
+			<description>
+				Shape changes the curvature of the filter, which also affects the peak and trough of the envelope. Lower values flatten the envelope, higher values sharpen the envelope.
+			</description>
+			<attributelist>
+				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Curvature of Envelope" />
 			</attributelist>
 		</attribute>
 	</attributelist>

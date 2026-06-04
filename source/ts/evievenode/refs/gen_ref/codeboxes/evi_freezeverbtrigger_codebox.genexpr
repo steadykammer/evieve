@@ -321,23 +321,23 @@ if (eqHighK != 0) {
 
 // dry gain
 
-xLdry	= xL * drygain2;
-xRdry	= xR * drygain2;
+xLdry	 = xL * drygain2;
+xRdry	 = xR * drygain2;
 
 }	// end BYPASS
 
-passH	= latch(iBypass, pN);
+passH	 = latch(iBypass, pN);
 
 // -- -- -- -- -- -- -- -- -- --		output			-- -- -- -- -- -- -- -- -- -- -- -- -- \\
 
 rvrbOutL = (rvrbL + xLdry);
 rvrbOutR = (rvrbR + xRdry);
 
-out1	= interp(PASS, rvrbOutL, xL, mode="cosine");	// & smooth bypass
-out2	= interp(PASS, rvrbOutR, xR, mode="cosine");
+out1	 = interp(PASS, rvrbOutL, xL, mode="cosine");	// & smooth bypass
+out2	 = interp(PASS, rvrbOutR, xR, mode="cosine");
 
-out3    = rvrbL;
-out4    = rvrbR;
+out3     = rvrbL;
+out4     = rvrbR;
 
-out5    = latency;
+out5     = latency;
 

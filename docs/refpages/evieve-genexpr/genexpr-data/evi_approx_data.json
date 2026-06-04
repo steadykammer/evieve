@@ -703,7 +703,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations",
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum must be 0.001 seconds (1ms)",
             "name": "tauA",
             "inputs": [
                 {
@@ -723,21 +723,21 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping.",
             "name": "tauAm",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "seconds, > 0.01 for best accuracy"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "exp",
+                    "digest": "exp(-1/samples)"
                 }
             ]
         },

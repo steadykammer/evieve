@@ -49,7 +49,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// A digital model of a vactrol filter, quasi 'analog' in behaviour.\r\n// The behaviour is similar to [slide~] in MSP/RNBO or [slide] in gen~\r\n// @see also: evi_vactrol.gendsp\r\n\r\ntanA2v(x)\t\t\t\t\t\t\t\t// approx tan(0..halfpi)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\r\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\r\n\treturn\ta / b;\r\n}\r\n\r\nlikeAvactrol(V, up, down)\r\n{\r\n\tHistory\ts0(0);\r\n    aV = abs(V);                        // in case bipolar plugged in\r\n\r\n\tF  = clip(((s0 > aV) * down) + up, 0.01, HALFPI); // evieve fix\r\n\tw2 = tanA2v(F * PI / SAMPLERATE);\r\n\tg0 = w2 / (w2 + 1);\r\n\r\n\tG  = (aV - s0) * g0;\r\n\tY  =  G + s0;\r\n\r\n\ts0 = fixdenorm(G + Y);\r\n\treturn Y;\r\n}\r\n\r\nParam   invert(0, min=0, max=1);            // not as stupid as it seems\r\nParam\tscalein(1., min=0.1, max=10000);    // static\r\nParam\tscaleout(1., min=0.1, max=10000);   // ...\r\nParam\tmode(0, min=0, max=3);              // 0 = rise/fall inputs, 1..3 = fixed 'models'\r\nmd\t\t= int(mode);\r\niv      = int(invert);\r\n// specified in % 0..1, if used\r\nrise\t= in2;\r\nfall\t= in3;\r\n// specified in frequencies\r\nup = (md > 0) ? ((md > 1) ? ((md > 2) ? 6000 : 1000) : 600) : rise*rise*rise*7800 + 200;\r\ndown = (md > 0) ? ((md > 1) ? ((md > 2) ? 0.08 : 0.04) : 0.02) : (fall*0.9999 + 0.0001) * 0.1;\r\nud0 = iv ? down : up;\r\nud1 = iv ? up : down;\r\nvoltage\t = in1 * scalein;\r\nout1\t = likeAvactrol(voltage, ud0, ud1) * scaleout;\r\n",
+                    "code": "// A digital model of a vactrol filter, quasi 'analog' in behaviour.\r\n// The behaviour is similar to [slide~] in MSP/RNBO or [slide] in gen~\r\n// @see also: evi_vactrol.gendsp\r\n\r\ntanA2v(x)\t\t\t\t\t\t\t\t// approx tan(0..halfpi)\n{\n\ta\t= ((((x * -0.0896638) + 0.0388452) * x) + 1.00005) * x;\r\n\tb\t= (((x * -0.430871) + 0.0404318) * x) + 1;\r\n\treturn\ta / b;\r\n}\r\n\r\n// it is just a onepole rcfilter\r\nlikeAvactrol(V, up, down)\r\n{\r\n\tHistory\ts0(0);\r\n    aV = abs(V);                        // in case bipolar plugged in\r\n\r\n\tF  = clip(((s0 > aV) * down) + up, 0.01, HALFPI); // evieve fix\r\n\tw2 = tanA2v(F * PI / SAMPLERATE);\r\n\tg0 = w2 / (w2 + 1);\r\n\r\n\tG  = (aV - s0) * g0;\r\n\tY  =  G + s0;\r\n\r\n\ts0 = fixdenorm(G + Y);\r\n\treturn Y;\r\n}\r\n\r\nParam   invert(0, min=0, max=1);            // not as stupid as it seems\r\nParam\tscalein(1., min=0.1, max=10000);    // static\r\nParam\tscaleout(1., min=0.1, max=10000);   // ...\r\nParam\tmode(0, min=0, max=3);              // 0 = rise/fall inputs, 1..3 = fixed 'models'\r\nmd\t\t= int(mode);\r\niv      = int(invert);\r\n// specified in % 0..1, if used\r\nrise\t= in2;\r\nfall\t= in3;\r\n// specified in frequencies\r\nup = (md > 0) ? ((md > 1) ? ((md > 2) ? 6000 : 1000) : 600) : rise*rise*rise*7800 + 200;\r\ndown = (md > 0) ? ((md > 1) ? ((md > 2) ? 0.08 : 0.04) : 0.02) : (fall*0.9999 + 0.0001) * 0.1;\r\nud0 = iv ? down : up;\r\nud1 = iv ? up : down;\r\nvoltage\t = in1 * scalein;\r\nout1\t = likeAvactrol(voltage, ud0, ud1) * scaleout;\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -99,6 +99,7 @@
                     "source": [ "obj-5", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

@@ -572,6 +572,7 @@
         <b>In 1</b>: type=<i>input</i>: i, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: r, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: f, <i>Fall time in SAMPLES</i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): base, default: <b>1000</b>, <i></i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to the Buchla vactrol with correct settings of parameter values</i> <br />
 

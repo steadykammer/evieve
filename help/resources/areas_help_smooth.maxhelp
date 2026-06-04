@@ -57,7 +57,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 222.0, 570.0, 215.0, 22.0 ],
+                    "patching_rect": [ 222.0, 570.0, 221.0, 22.0 ],
                     "text": "list.reg evicompare_smoothers.maxhelp"
                 }
             },
@@ -657,6 +657,28 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-32",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 692.0, 423.0, 66.0, 20.0 ],
+                                    "text": "extra",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-33",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 673.0, 445.0, 105.0, 22.0 ],
+                                    "text": "evi_vactrol_shape"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-31",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -736,7 +758,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 518.0, 423.0, 66.0, 20.0 ],
+                                    "patching_rect": [ 507.0, 423.0, 66.0, 20.0 ],
                                     "text": "extra",
                                     "textjustification": 1
                                 }
@@ -854,11 +876,11 @@
                                 "box": {
                                     "id": "obj-12",
                                     "maxclass": "newobj",
-                                    "numinlets": 3,
+                                    "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 499.0, 445.0, 105.0, 22.0 ],
-                                    "text": "evi_vactrol_shape"
+                                    "patching_rect": [ 498.0, 445.0, 85.0, 22.0 ],
+                                    "text": "evi_vactrol_fix"
                                 }
                             },
                             {

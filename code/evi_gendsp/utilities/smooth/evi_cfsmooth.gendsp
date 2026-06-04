@@ -33,12 +33,12 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 422.0, 19.0, 287.0, 22.0 ],
-                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 0"
+                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 1"
                 }
             },
             {
                 "box": {
-                    "code": "\r\ntanA(x)\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\r\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\ncfSmoothLinearCoeff(hz, s)\t\t// freq, seconds\n{\n\tw0\t\t= tanA(pi * hz / samplerate);\n\tg0\t\t= (w0 + w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(s)) * 4;// this is a bit stupid\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinearFilter(x0, g0, s0)\n{\n\tHistory\tlow1(0), low2(0);\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, s)\n{\n\tHistory\t  cfsl1dummy(0);\n\tg0, s0\t= cfSmoothLinearCoeff(hz, s);\n\ty1\t\t= cfSmoothLinearFilter(x1, g0, s0);\n\treturn\t  y1;\n}\n\r\nParam   hz(2., min=0, max=10);\r\nout1    = cfSmoothLinear(in1, hz, in2*0.001);\r\n\r\n",
+                    "code": "\r\ntanA(x)\n{\n\tx2 = (x * x);\n\tx3 = (x2 * x);\n\tx5 = (x2 * x3);\n\treturn ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;\n}\r\n\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\ntauA(t)\n{\n\ty = expA(-1 / (t * samplerate));\n\treturn y + 0.000128;\n}\r\n\ncfSmoothLinearCoeff(hz, s)\t\t// freq, seconds\n{\n\tw0\t\t= tanA(pi * hz / samplerate);\n\tg0\t\t= (w0 + w0) / (1 + w0);\n\ts0\t\t= (1 - tauA(s)) * 4;// this is a bit stupid\n\treturn\t  g0, s0;\n}\n\ncfSmoothLinearFilter(x0, g0, s0)\n{\n\tHistory\tlow1(0), low2(0);\n\tlow1z\t= low1;\n\tlow2z\t= low2;\n\tbandz\t= low1z - low2z;\n\tg\t\t= minimum(g0 + s0 * abs(bandz), 1);\n\tlow1\t= low1z + g * (x0 - low1z);\n\tlow2\t= low2z + g * (low1 - low2z);\n\treturn\t  low2;\n}\n\ncfSmoothLinear(x1, hz, s)\n{\n\tHistory\t  cfsl1dummy(0);\n\tg0, s0\t= cfSmoothLinearCoeff(hz, s);\n\ty1\t\t= cfSmoothLinearFilter(x1, g0, s0);\n\treturn\t  y1;\n}\n\r\nParam   hz(2., min=0.01, max=10);\r\nout1    = cfSmoothLinear(in1, hz, in2*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -92,6 +92,7 @@
                     "source": [ "obj-3", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

@@ -1,4 +1,3 @@
-
 // A digital model of a vactrol filter, quasi 'analog' in behaviour.
 // The behaviour is similar to [slide~] in MSP/RNBO or [slide] in gen~
 // @see also: evi_vactrol.gendsp
@@ -10,6 +9,7 @@ tanA2v(x)								// approx tan(0..halfpi)
 	return	a / b;
 }
 
+// it is just a onepole rcfilter
 likeAvactrol(V, up, down)
 {
 	History	s0(0);

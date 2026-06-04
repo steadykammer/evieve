@@ -165,7 +165,7 @@ expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 }
 
 // for cfSmoothLinear()
-cfSmoothLinearCoeff(hz, s)		// freq, seconds
+cfSmoothLinearCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 {
 	w0		= tanA(pi * hz / samplerate);
 	g0		= (w0 + w0) / (1 + w0);
@@ -210,7 +210,7 @@ cfSmoothLinear2(x1, x2, hz, s)
 // the cubic version is much more expensive and very rarely worth it
 
 // for cfSmoothCubic()
-cfSmoothCubicCoeff(hz, s)		// freq, seconds
+cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 {
 	wc		= hz / samplerate;
 	s0		= (1 - tauA(s));	// this is a bit stupid
@@ -678,7 +678,9 @@ eviSlide(x, u, d)							// input, samples up, samples down
 // vactrols
 
 // A digital model of a vactrol filter, quasi 'analog' in behaviour.
-// This needs quite a lot of massaging to work well
+// This needs quite a lot of massaging to work well as 'V' is voltage,
+// not impulse as in the other vactrols, @see also:
+// evi_vactrol.gendsp & evi_vactrol_fix.gendsp & evi_vactrol_shape.gendsp
 likeAvactrol(V, up, down)
 {
 	History	s0(0);
@@ -696,25 +698,30 @@ likeAvactrol(V, up, down)
 }
 
 // Vactrol time-domain behaviour filter.
+// @see also: evi_vactrol.gendsp & evi_vactrol_fix.gendsp & evi_vactrol_shape.gendsp
+
 // A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive
 // part of a photoresistive opto-isolator.
-// As it turns out, the shape is similar to [slide~] in MSP/RNBO
-// or [slide] in gen~, but not the behaviour in terms of fall or retrigger
+// As it turns out, the shape (not the behaviour) can be similar to [slide~]
+// in MSP/RNBO or [slide] in gen~, achievable via the @base (Hz) parameter here.
+
 // Based on "A Digital Model of the Buchla Lowpass-Gate"
 // by Julian Parker and Stefano D’Angelo, 2013
 // "...an ad-hoc nonlinear filter structure that will behave similarly
-// to the [Buchla] vactrol with correct setting of parameter values".
+// to the [Buchla] vactrol with correct setting of parameter values"
+
+// but here in evieve quite different, with setable rise, fall & base
 
 vactrolSection(x, a)					// trigger, time
 {
 	return x * a / (1 + a);
 }
 
-vactrolBuchla(i, r, f)					// impulse, rise (samps), fall (samps)
+vactrolBuchla(i, r, f, base=1000)		// impulse, rise (samps), fall (samps), base (Hz)
 {
 	History s1(0);
 
-	a_base	= 3141.592653589793238/SAMPLERATE;	// 1000*PI/samplerate
+	a_base	= base*PI/SAMPLERATE;		// Hz*PI/samplerate
 	t_down	= 10 + f*(1 - 0.9*s1);		// fall time
 	a_down	= a_base/t_down;
 	t_up	= 1 + r*(1 - 0.999*s1);		// rise time
@@ -723,7 +730,7 @@ vactrolBuchla(i, r, f)					// impulse, rise (samps), fall (samps)
 	x		= i - s1;
 	x 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
 	y		= x + s1;
-	s1		= y + x;
+	s1		= fixdenorm(y + x);
 	return	  y;						// & scale externally
 }
 

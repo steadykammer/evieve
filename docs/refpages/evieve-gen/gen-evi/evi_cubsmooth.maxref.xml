@@ -26,14 +26,14 @@
         </geninlet>
         <geninlet name='ramp' type='float' optional='1'>
             <digest>
-                Time in milliseconds @min 0. Amount of time the value takes to reach it&#x27;s destination. evi_cubsmooth is logarithmic and does not reach it&#x27;s destination exactly.
+                Time in milliseconds @min 1. Amount of time the value takes to reach it&#x27;s destination. evi_cubsmooth is logarithmic and does not reach it&#x27;s destination exactly.
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
         <attribute name='hz' type='float' get='0' set='1'>
             <digest>
-                @min 0, @max 10
+                @min 0.01, @max 10
             </digest>
             <description>
                 evi_cubsmooth is a two-pole filter. The Hz value sets the filter cutoff. This is typically between 1..10 Hz. The lower this value, the more agressively the curve shape is flattened out.

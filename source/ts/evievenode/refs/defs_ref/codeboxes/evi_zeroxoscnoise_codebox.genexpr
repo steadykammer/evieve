@@ -46,7 +46,7 @@ zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
         env = slide(xgate, envattack, envdecay);
     }
     else if (resp == 3) {   // vactrol fast
-        env = vactrolBuchla(xgate, envattack, envdecay);
+        env = vactrolBuchla(xgate, envattack, envdecay); // should expose @base ?
     }
     else if (resp == 4) {   // vactrol slow
         // don't ask...

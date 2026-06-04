@@ -1,4 +1,3 @@
-
 // Vactrol time-domain behaviour filter.
 // @see also: evi_vactrol_fix.gendsp & evi_vactrol_shape.gendsp
 
@@ -15,15 +14,16 @@ vactrolSection(x, a)                        // trigger, coefficient
 vactrolBuchla(i, r, f, b)       // impulse, rise (samps), fall (samps), base (Hz)
 {
 	History s1(0), a_up(0), a_down(0);
-    // this is dubious because of sampling of 's1'
+    // this caching is dubious because of sampling of 's1'
     if (delta(r) || delta(f) || delta(b)) {
-	    a_base	= b*PI/SAMPLERATE;          // base frequency (default 1016.898263)
+	    a_base	= b*PI/SAMPLERATE;          // b = frequency (default 1016.898263)
 	    t_down	= 10 + f*(1 - 0.9*s1);
 	    a_down	= a_base/t_down;            // fall coefficient
 	    t_up	= 1 + r*(1 - 0.999*s1);
 	    a_up	= a_base/t_up;              // rise coefficient
     }
-	x		= i - s1;           // is it dangerous not to clip 'i' -1..1 ?? (yes)
+    // is it dangerous not to clip 'i' -1..1 ?? (yes)
+	x		= clamp(i, -1, 1) - s1;
 	z 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
 	y		= z + s1;
 	s1		= fixdenorm(y + z);
@@ -39,5 +39,5 @@ rise	= in2;							    // in samples...
 fall	= in3;							    // ...
 
 //mult	= slide(scalar, rise, rise);
-
-out1 	= (vactrolBuchla(in1* 0.5, rise, fall, base) * 2) * scalar;//mult;
+vB      = vactrolBuchla(in1*0.5, rise, fall, base);
+out1 	= (vB+vB) * scalar;//mult;

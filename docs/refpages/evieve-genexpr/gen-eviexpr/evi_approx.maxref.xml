@@ -339,7 +339,7 @@
     </entry>
     <entry name="tauA ( )">
       <description>
-        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations <br />
+        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum must be 0.001 seconds (1ms) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
@@ -349,9 +349,11 @@
     </entry>
     <entry name="tauAm ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: t, <i></i> <br />
+        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: exp, <i>exp(-1/samples)</i> <br />
 
       </description>
     </entry>

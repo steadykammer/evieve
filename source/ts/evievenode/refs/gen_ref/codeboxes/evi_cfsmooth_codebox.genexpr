@@ -48,6 +48,6 @@ cfSmoothLinear(x1, hz, s)
 	return	  y1;
 }
 
-Param   hz(2., min=0, max=10);
+Param   hz(2., min=0.01, max=10);
 out1    = cfSmoothLinear(in1, hz, in2*0.001);
 

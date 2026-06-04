@@ -2089,6 +2089,14 @@
                     "kind": "input",
                     "name": "f",
                     "digest": "Fall time in SAMPLES"
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "base",
+                    "default": 1000,
+                    "type": "integer",
+                    "digest": ""
                 }
             ],
             "returns": [

@@ -242,7 +242,7 @@ vactrolSad(x, a)							// trigger, coefficient
 	return x * a / (1 + a);
 }
 
-// "vactrolBuchla()" elsewhere in evieve
+// "vactrolBuchla()" elsewhere in evieve, or evi_vactrol.gendsp
 vactrol(impulse, rise, fall, base, reset)	// trigger, rise (samps), fall (samps), base (Hz), reset
 {
 	History s1(0), a_up(0), a_down(0);
