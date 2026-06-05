@@ -73,6 +73,17 @@
                 <attribute name='default' type='float' value='94.' />
             </attributelist>
         </attribute>
+        <attribute name='envrelease' type='float' get='0' set='1'>
+            <digest>
+                @min 1, @max 10
+            </digest>
+            <description>
+                Extend the length of the automatic envelope decay by this multiplier.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='2.' />
+            </attributelist>
+        </attribute>
         <attribute name='envresponse' type='int' get='0' set='1'>
             <digest>
                 @min 0, @max 4

@@ -443,13 +443,13 @@
                     "id": 4,
                     "kind": "input",
                     "name": "base",
-                    "digest": ""
+                    "digest": "Base frequency in Hz, should be in range 100..10000; very powerful in changing shape of envelope curve and peak/trough of envelope."
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "reset",
-                    "digest": ""
+                    "digest": "Sample accurate reset of internal envelope following filter"
                 }
             ],
             "returns": [

@@ -33,7 +33,7 @@
 				Audio Input nothing/Right
 			</digest>
 			<description>
-				
+				Audio Input nothing/Right
 			</description>
 		</inlet>
 		<inlet id="3" type="signal/float">
@@ -41,7 +41,7 @@
 				Cutoff (in Pitch)
 			</digest>
 			<description>
-				
+				Cutoff (in Pitch)
 			</description>
 		</inlet>
 		<inlet id="4" type="signal/float">
@@ -49,7 +49,7 @@
 				Resonance 0..1++
 			</digest>
 			<description>
-				
+				Resonance 0..1++
 			</description>
 		</inlet>
 	</inletlist>
@@ -60,7 +60,7 @@
 				Dirty MS20 Output Mono/Left
 			</digest>
 			<description>
-				
+				Dirty MS20 Output Mono/Left
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -68,7 +68,7 @@
 				Dirty MS20 Output Mono/Right
 			</digest>
 			<description>
-				
+				Dirty MS20 Output Mono/Right
 			</description>
 		</outlet>
 	</outletlist>

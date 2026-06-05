@@ -24,7 +24,7 @@
 				# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method
 			</digest>
 			<description>
-				
+				# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method
 			</description>
 		</inlet>
 	</inletlist>
@@ -35,7 +35,7 @@
 				generated list output
 			</digest>
 			<description>
-				
+				generated list output
 			</description>
 		</outlet>
 	</outletlist>

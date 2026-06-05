@@ -557,22 +557,22 @@
       <description>
         A digital model of a vactrol filter, quasi 'analog' in behaviour <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: V, <i>Value</i> <br />
+        <b>In 1</b>: type=<i>input</i>: V, <i>Voltage</i> <br />
         <b>In 2</b>: type=<i>input</i>: up, <i>Up time in normalised values</i> <br />
         <b>In 3</b>: type=<i>input</i>: down, <i>Down time in normalised values</i> <br />
 
-        <b>Return 1</b>: Vactrol Envelope, <i>This needs quite a lot of massaging to work well</i> <br />
+        <b>Return 1</b>: Vactrol Envelope, <i>This needs quite a lot of massaging to work well, see the &#x27;evi_vactrol_shape.gendsp&#x27; reference page for details</i> <br />
 
       </description>
     </entry>
     <entry name="vactrolBuchla ( )">
       <description>
-        Vactrol time-domain behaviour filter. A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive part of a photoresistive opto-isolator. <br />
+        Vactrol time-domain behaviour filter. A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive part of a photoresistive opto-isolator. See the 'evi_vactrol.gendsp' reference page for more details <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: i, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: r, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: f, <i>Fall time in SAMPLES</i> <br />
-        <b>In 4</b>: type=<i>param</i> (optional): base, default: <b>1000</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): base, default: <b>1000</b>, <i>Base frequency in Hz, should be in range 100..10000; default 1000 is the same as &#x27;evi_vactrol_fix.gendsp&#x27;. Very powerful in changing shape of envelope curve and peak/trough of envelope.</i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to the Buchla vactrol with correct settings of parameter values</i> <br />
 

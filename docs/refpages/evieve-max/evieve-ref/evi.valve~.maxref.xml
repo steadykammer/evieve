@@ -122,6 +122,17 @@
 				<attribute name="default" get="0" set="0" size="1" value="1" />
 			</attributelist>
 		</attribute>
+		<attribute name="envattack" get="1" set="1" type="int" min="1" max="1000">
+			<digest>
+				In Samples
+			</digest>
+			<description>
+				Envelope detection attack time in samples. Not a plain &#x27;attack&#x27; as this is affected by other attributes such as @envinterval and @envshape.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="20" />
+			</attributelist>
+		</attribute>
 		<attribute name="envinterval" get="1" set="1" type="int" min="100" max="2000">
 			<digest>
 				In Samples
@@ -133,15 +144,15 @@
 				<attribute name="default" get="0" set="0" size="1" value="200" />
 			</attributelist>
 		</attribute>
-		<attribute name="envmode" get="1" set="1" type="int" min="0" max="2">
+		<attribute name="envrelease" get="1" set="1" type="int" min="100" max="samplerate">
 			<digest>
-				Select 0, 1, 2
+				In Samples
 			</digest>
 			<description>
-				Mode of the envelope follower averager, &#x27;1&#x27; &#x3D; &#x27;absolute&#x27;, &#x27;2&#x27; &#x3D; &#x27;RMS&#x27;. It is almost always best to lease on &#x27;absolute&#x27;, but &#x27;RMS&#x27; can be useful for more sustained input material.
+				Envelope detection release time in samples. Not a plain &#x27;release&#x27; as this is affected by other attributes such as @envinterval and @envshape.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="2000" />
 			</attributelist>
 		</attribute>
 		<attribute name="envscale" get="1" set="1" type="float" min="0" max="1">
@@ -152,7 +163,7 @@
 				Scales the main gain envelope. At &#x27;0.&#x27; the envelope is at it&#x27;s most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.24" />
+				<attribute name="default" get="0" set="0" size="1" value="0.25" />
 			</attributelist>
 		</attribute>
 		<attribute name="envshape" get="1" set="1" type="float" min="0" max="1">
@@ -164,17 +175,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
-			</attributelist>
-		</attribute>
-		<attribute name="envtype" get="1" set="1" type="int" min="0" max="2">
-			<digest>
-				Select 0, 1, 2
-			</digest>
-			<description>
-				Select the envelope follower detection setting, 0&#x3D;fast, 1&#x3D;medium, 2&#x3D;slow.
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="envvalve" get="1" set="1" type="int" min="0" max="1">

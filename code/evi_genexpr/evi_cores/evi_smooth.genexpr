@@ -717,7 +717,7 @@ vactrolSection(x, a)					// trigger, time
 	return x * a / (1 + a);
 }
 
-vactrolBuchla(i, r, f, base=1000)		// impulse, rise (samps), fall (samps), base (Hz)
+vactrolBuchla(i, r, f, base=1000.)		// impulse, rise (samps), fall (samps), base (Hz)
 {
 	History s1(0);
 

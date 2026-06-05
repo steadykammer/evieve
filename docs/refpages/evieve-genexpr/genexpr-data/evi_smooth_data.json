@@ -2018,7 +2018,7 @@
                     "id": 1,
                     "kind": "input",
                     "name": "V",
-                    "digest": "Value"
+                    "digest": "Voltage"
                 },
                 {
                     "id": 2,
@@ -2037,7 +2037,7 @@
                 {
                     "id": 1,
                     "name": "Vactrol Envelope",
-                    "digest": "This needs quite a lot of massaging to work well"
+                    "digest": "This needs quite a lot of massaging to work well, see the 'evi_vactrol_shape.gendsp' reference page for details"
                 }
             ]
         },
@@ -2069,7 +2069,7 @@
         },
         {
             "document": true,
-            "digest": "Vactrol time-domain behaviour filter. A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive part of a photoresistive opto-isolator.",
+            "digest": "Vactrol time-domain behaviour filter. A basic not-really-a-model of the Perkin Elmer VTL5C3, the resistive part of a photoresistive opto-isolator. See the 'evi_vactrol.gendsp' reference page for more details",
             "name": "vactrolBuchla",
             "inputs": [
                 {
@@ -2095,8 +2095,8 @@
                     "kind": "param",
                     "name": "base",
                     "default": 1000,
-                    "type": "integer",
-                    "digest": ""
+                    "type": "float",
+                    "digest": "Base frequency in Hz, should be in range 100..10000; default 1000 is the same as 'evi_vactrol_fix.gendsp'. Very powerful in changing shape of envelope curve and peak/trough of envelope."
                 }
             ],
             "returns": [

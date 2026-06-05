@@ -139,7 +139,7 @@
 				Attack time in ms
 			</digest>
 			<description>
-				
+				Attack time in ms
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
@@ -150,7 +150,7 @@
 				Decay time in ms
 			</digest>
 			<description>
-				
+				Decay time in ms
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
@@ -282,7 +282,7 @@
 				Release time in ms
 			</digest>
 			<description>
-				
+				Release time in ms
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="200." />

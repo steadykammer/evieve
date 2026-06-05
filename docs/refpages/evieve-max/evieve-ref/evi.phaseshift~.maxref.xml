@@ -57,7 +57,7 @@
 				Outlet #1: Output
 			</digest>
 			<description>
-				
+				Output
 			</description>
 		</outlet>
 	</outletlist>
@@ -66,6 +66,17 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="smooth" get="1" set="1" type="float" min="0" max="333">
+			<digest>
+				Time in ms
+			</digest>
+			<description>
+				Smooth internal gain coefficients by this amount in ms
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0." />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>

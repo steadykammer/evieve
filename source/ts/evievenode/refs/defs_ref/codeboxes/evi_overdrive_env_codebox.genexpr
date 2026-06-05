@@ -24,13 +24,14 @@ adaaxx	= int(aa);
 hfcomp	= int(hfcompensate);
 ef      = int(follow);
 
-eint    = 256;
+eint    = 256; // samples
 emode   = 1;
 envcomp = 0.12;
 downms  = 41.666667;
 down    = mstosamps(downms);
-up      = int(down * 0.01);
-down    = int(down);
+up      = int(down * 0.01 + 0.5); // samples
+down    = int(down + 0.5); // samples
+base    = 3275; // Hz
 
 // audio rate...
 
@@ -47,19 +48,19 @@ makeup = 1;
 sqrtinput = 0;
 if (ef) {
     // use X
-    avgFast, avgMedium, avgSlow = averageData(X * e, reset, interval=eint, mode=emode);
+    avgMedium, avgIndex = averageCore(abs(X + X), reset, windowSize=eint);
     // use xAlign, align with 'averageData()'
     threshEnv, countEnv, xings = zeroxEnvs(xAlign, (downms+downms), reset, countDiv=10);
-    envMain = vactrol(avgMedium, up, down, reset); // main for gainEnv
+    envMain = vactrol(avgMedium, up, down, base, reset); // main for gainEnv
     // goes above and below 1 so we get a compression expansion effect, depends on 'envcomp'
     gainEnv = (envMain + threshEnv) * (1 - envcomp) + envcomp + envcomp + envcomp; // 0..2++
     sqrtinput = xAlign * gainEnv * drive;
     makeup = 1;
 }
 else {
+    gainEnv = 1;
     sqrtinput = X * drive;
     makeup = 1;
-    gainEnv = 1;
 }
 
 // saturation

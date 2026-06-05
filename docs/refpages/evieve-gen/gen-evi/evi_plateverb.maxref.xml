@@ -45,6 +45,17 @@
                 <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
+        <attribute name='damp' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                pre-warped frequency (a 0..1) (default 6593Hz @48kHz)
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.67682' />
+            </attributelist>
+        </attribute>
         <attribute name='decay' type='float' get='0' set='1'>
             <digest>
                 @min 0, @max 1

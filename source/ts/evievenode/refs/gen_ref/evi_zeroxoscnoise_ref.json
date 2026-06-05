@@ -130,7 +130,7 @@
             "name": "envrelease",
             "type": "float",
             "digest": "@min 1, @max 10",
-            "description": "",
+            "description": "Extend the length of the automatic envelope decay by this multiplier.",
             "default": {
                 "type": "float",
                 "value": "2."

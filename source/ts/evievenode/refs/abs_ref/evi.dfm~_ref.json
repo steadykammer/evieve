@@ -26,19 +26,19 @@
             "id": 2,
             "type": "signal",
             "digest": "Audio Input nothing/Right",
-            "description": ""
+            "description": "Audio Input nothing/Right"
         },
         {
             "id": 3,
             "type": "signal/float",
             "digest": "Cutoff (in Pitch)",
-            "description": ""
+            "description": "Cutoff (in Pitch)"
         },
         {
             "id": 4,
             "type": "signal/float",
             "digest": "Resonance 0..1++",
-            "description": ""
+            "description": "Resonance 0..1++"
         }
     ],
     "outlets": [
@@ -46,13 +46,13 @@
             "id": 1,
             "type": "signal",
             "digest": "Dirty MS20 Output Mono/Left",
-            "description": ""
+            "description": "Dirty MS20 Output Mono/Left"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "Dirty MS20 Output Mono/Right",
-            "description": ""
+            "description": "Dirty MS20 Output Mono/Right"
         }
     ],
     "arguments": [],

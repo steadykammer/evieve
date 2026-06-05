@@ -108,16 +108,6 @@
             }
         },
         {
-            "name": "resonancesmooth",
-            "type": "float",
-            "digest": "@min 0, @max 100",
-            "description": "",
-            "default": {
-                "type": "float",
-                "value": "10."
-            }
-        },
-        {
             "name": "ressmooth",
             "type": "float",
             "digest": "@min 0, @max 100",

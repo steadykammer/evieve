@@ -86,6 +86,17 @@
                 <attribute name='default' type='int' value='1' />
             </attributelist>
         </attribute>
+        <attribute name='envattack' type='int' get='0' set='1'>
+            <digest>
+                @min 1, @max 1000
+            </digest>
+            <description>
+                Envelope detection attack time in samples. Not a plain &#x27;attack&#x27; as this is affected by other attributes such as @envinterval and @envshape.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='20' />
+            </attributelist>
+        </attribute>
         <attribute name='envinterval' type='int' get='0' set='1'>
             <digest>
                 @min 100, @max 2000
@@ -97,15 +108,15 @@
                 <attribute name='default' type='int' value='200' />
             </attributelist>
         </attribute>
-        <attribute name='envmode' type='int' get='0' set='1'>
+        <attribute name='envrelease' type='int' get='0' set='1'>
             <digest>
-                @min 0, @max 2
+                @min 100, @max samplerate
             </digest>
             <description>
-                Mode of the envelope follower averager, &#x27;1&#x27; &#x3D; &#x27;absolute&#x27;, &#x27;2&#x27; &#x3D; &#x27;RMS&#x27;. It is almost always best to lease on &#x27;absolute&#x27;, but &#x27;RMS&#x27; can be useful for more sustained input material.
+                Envelope detection release time in samples. Not a plain &#x27;release&#x27; as this is affected by other attributes such as @envinterval and @envshape.
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='int' value='2000' />
             </attributelist>
         </attribute>
         <attribute name='envscale' type='float' get='0' set='1'>
@@ -116,7 +127,7 @@
                 Scales the main gain envelope. At &#x27;0.&#x27; the envelope is at it&#x27;s most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.24' />
+                <attribute name='default' type='float' value='0.25' />
             </attributelist>
         </attribute>
         <attribute name='envshape' type='float' get='0' set='1'>
@@ -128,17 +139,6 @@
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />
-            </attributelist>
-        </attribute>
-        <attribute name='envtype' type='int' get='0' set='1'>
-            <digest>
-                @min 0, @max 2
-            </digest>
-            <description>
-                Select the envelope follower detection setting, 0&#x3D;fast, 1&#x3D;medium, 2&#x3D;slow.
-            </description>
-            <attributelist>
-                <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
         <attribute name='envvalve' type='int' get='0' set='1'>

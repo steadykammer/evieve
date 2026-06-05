@@ -16,6 +16,30 @@
         "boxes": [
             {
                 "box": {
+                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-12",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 386.0, 224.0, 21.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.lesson_step_circle"
+                        }
+                    },
+                    "text": "2",
+                    "textcolor": [ 0.2, 0.2, 0.2, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-116",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -53,7 +77,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 199.0, 124.0, 174.0, 20.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "<<-- bullshit, does not work !"
                                 }
                             },
@@ -882,7 +905,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 125.0, 224.0, 148.0, 20.0 ],
+                    "patching_rect": [ 125.0, 224.0, 138.0, 20.0 ],
                     "text": "stays in Dev",
                     "textcolor": [ 1.0, 0.5763723254, 0.0, 1.0 ]
                 }
@@ -2144,6 +2167,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script Patcher:../dist/evievedoc.js",

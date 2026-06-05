@@ -52,7 +52,7 @@
             "get": 1,
             "type": "float",
             "digest": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
-            "description": "",
+            "description": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
             "default": {
                 "min": "0",
                 "max": "1",

@@ -28,7 +28,7 @@
 				Inlet #1: Audio In
 			</digest>
 			<description>
-				
+				Audio In
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">

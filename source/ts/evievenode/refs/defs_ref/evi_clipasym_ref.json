@@ -26,7 +26,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Audio In",
-            "description": ""
+            "description": "Audio In"
         },
         {
             "id": 2,

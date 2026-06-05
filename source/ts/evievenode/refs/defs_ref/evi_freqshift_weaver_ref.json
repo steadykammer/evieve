@@ -77,7 +77,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": false
         }
     ],
     "attributes": [

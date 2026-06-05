@@ -148,8 +148,8 @@
         <b>In 1</b>: type=<i>input</i>: impulse, <i>Impulse</i> <br />
         <b>In 2</b>: type=<i>input</i>: rise, <i>Rise time in SAMPLES</i> <br />
         <b>In 3</b>: type=<i>input</i>: fall, <i>Fall time in SAMPLES</i> <br />
-        <b>In 4</b>: type=<i>input</i>: base, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: base, <i>Base frequency in Hz, should be in range 100..10000; very powerful in changing shape of envelope curve and peak/trough of envelope.</i> <br />
+        <b>In 5</b>: type=<i>input</i>: reset, <i>Sample accurate reset of internal envelope following filter</i> <br />
 
         <b>Return 1</b>: Vactrol Envelope, <i>Output will behave similarly to a Buchla vactrol</i> <br />
 

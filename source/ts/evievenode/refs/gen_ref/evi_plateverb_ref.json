@@ -103,7 +103,7 @@
             "name": "damp",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "pre-warped frequency (a 0..1) (default 6593Hz @48kHz)",
             "default": {
                 "type": "float",
                 "value": "0.67682"

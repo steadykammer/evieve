@@ -60,16 +60,6 @@
             }
         },
         {
-            "name": "attack",
-            "type": "int",
-            "digest": "@min 1, @max 1000",
-            "description": false,
-            "default": {
-                "type": "int",
-                "value": "20"
-            }
-        },
-        {
             "name": "bass",
             "type": "float",
             "digest": "@min -10, @max 10",
@@ -87,16 +77,6 @@
             "default": {
                 "type": "float",
                 "value": "0.5"
-            }
-        },
-        {
-            "name": "decay",
-            "type": "int",
-            "digest": "@min 100, @max samplerate",
-            "description": false,
-            "default": {
-                "type": "int",
-                "value": "2000"
             }
         },
         {
@@ -120,6 +100,16 @@
             }
         },
         {
+            "name": "envattack",
+            "type": "int",
+            "digest": "@min 1, @max 1000",
+            "description": "Envelope detection attack time in samples. Not a plain 'attack' as this is affected by other attributes such as @envinterval and @envshape.",
+            "default": {
+                "type": "int",
+                "value": "20"
+            }
+        },
+        {
             "name": "envinterval",
             "type": "int",
             "digest": "@min 100, @max 2000",
@@ -130,13 +120,13 @@
             }
         },
         {
-            "name": "envmode",
+            "name": "envrelease",
             "type": "int",
-            "digest": "@min 0, @max 2",
-            "description": "Mode of the envelope follower averager, '1' = 'absolute', '2' = 'RMS'. It is almost always best to lease on 'absolute', but 'RMS' can be useful for more sustained input material.",
+            "digest": "@min 100, @max samplerate",
+            "description": "Envelope detection release time in samples. Not a plain 'release' as this is affected by other attributes such as @envinterval and @envshape.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "2000"
             }
         },
         {
@@ -146,7 +136,7 @@
             "description": "Scales the main gain envelope. At '0.' the envelope is at it's most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.",
             "default": {
                 "type": "float",
-                "value": "0.24"
+                "value": "0.25"
             }
         },
         {
@@ -157,16 +147,6 @@
             "default": {
                 "type": "float",
                 "value": "0.5"
-            }
-        },
-        {
-            "name": "envtype",
-            "type": "int",
-            "digest": "@min 0, @max 2",
-            "description": "Select the envelope follower detection setting, 0=fast, 1=medium, 2=slow.",
-            "default": {
-                "type": "int",
-                "value": "0"
             }
         },
         {

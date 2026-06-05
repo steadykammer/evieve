@@ -19,7 +19,7 @@
             "id": 1,
             "type": "int",
             "digest": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method",
-            "description": ""
+            "description": "# chans (same as @chans) / (bang) output previous list / (anything) any mcwrapper method"
         }
     ],
     "outlets": [
@@ -27,7 +27,7 @@
             "id": 1,
             "type": "list",
             "digest": "generated list output",
-            "description": ""
+            "description": "generated list output"
         }
     ],
     "arguments": [],

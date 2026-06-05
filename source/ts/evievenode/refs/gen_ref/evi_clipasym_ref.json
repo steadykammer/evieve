@@ -20,7 +20,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "In",
-            "digest": ""
+            "digest": "Audio In"
         },
         {
             "id": 2,

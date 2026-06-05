@@ -28,6 +28,17 @@
         </geninlet>
     </geninletlist>
     <attributelist>
+        <attribute name='amplitude' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.6403882032022076' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>

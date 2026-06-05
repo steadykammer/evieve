@@ -44,7 +44,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digest": ""
+            "digest": "Output"
         }
     ],
     "attributes": [
@@ -52,7 +52,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "",
+            "description": "Smooth internal gain coefficients by this amount in ms",
             "default": {
                 "type": "float",
                 "value": "0."

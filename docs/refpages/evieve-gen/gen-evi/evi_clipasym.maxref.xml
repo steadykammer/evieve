@@ -24,7 +24,7 @@
     <geninletlist>
         <geninlet name='audio' type='float' optional='1'>
             <digest>
-                In. 
+                In. Audio In
             </digest>
         </geninlet>
         <geninlet name='asymmetry' type='float' optional='1'>

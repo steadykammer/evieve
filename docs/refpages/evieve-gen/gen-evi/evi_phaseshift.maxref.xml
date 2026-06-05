@@ -41,6 +41,17 @@
         </geninlet>
     </geninletlist>
     <attributelist>
+        <attribute name='smooth' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 333
+            </digest>
+            <description>
+                Smooth internal gain coefficients by this amount in ms
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>

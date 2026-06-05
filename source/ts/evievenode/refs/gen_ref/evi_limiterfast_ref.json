@@ -60,16 +60,6 @@
     ],
     "attributes": [
         {
-            "name": "clip",
-            "type": "int",
-            "digest": "@min 0, @max 2",
-            "description": "",
-            "default": {
-                "type": "int",
-                "value": "0"
-            }
-        },
-        {
             "name": "ingain",
             "type": "float",
             "digest": "@min -20, @max 40",

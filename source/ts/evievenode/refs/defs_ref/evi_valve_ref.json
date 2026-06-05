@@ -99,7 +99,7 @@
                 }
             ],
             "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
-            "description": ""
+            "description": false
         }
     ],
     "attributes": [
@@ -113,18 +113,6 @@
                 "min": "-6",
                 "max": "6",
                 "value": "0."
-            }
-        },
-        {
-            "name": "attack",
-            "get": 1,
-            "type": "int",
-            "digest": "TEMP",
-            "description": false,
-            "default": {
-                "min": "1",
-                "max": "1000",
-                "value": "20"
             }
         },
         {
@@ -152,18 +140,6 @@
             }
         },
         {
-            "name": "decay",
-            "get": 1,
-            "type": "int",
-            "digest": "TEMP",
-            "description": false,
-            "default": {
-                "min": "100",
-                "max": "samplerate",
-                "value": "2000"
-            }
-        },
-        {
             "name": "diode",
             "get": 1,
             "type": "int",
@@ -188,6 +164,18 @@
             }
         },
         {
+            "name": "envattack",
+            "get": 1,
+            "type": "int",
+            "digest": "In Samples",
+            "description": "Envelope detection attack time in samples. Not a plain 'attack' as this is affected by other attributes such as @envinterval and @envshape.",
+            "default": {
+                "min": "1",
+                "max": "1000",
+                "value": "20"
+            }
+        },
+        {
             "name": "envinterval",
             "get": 1,
             "type": "int",
@@ -200,15 +188,15 @@
             }
         },
         {
-            "name": "envmode",
+            "name": "envrelease",
             "get": 1,
             "type": "int",
-            "digest": "Select 0, 1, 2",
-            "description": "Mode of the envelope follower averager, '1' = 'absolute', '2' = 'RMS'. It is almost always best to lease on 'absolute', but 'RMS' can be useful for more sustained input material.",
+            "digest": "In Samples",
+            "description": "Envelope detection release time in samples. Not a plain 'release' as this is affected by other attributes such as @envinterval and @envshape.",
             "default": {
-                "min": "0",
-                "max": "2",
-                "value": "1"
+                "min": "100",
+                "max": "samplerate",
+                "value": "2000"
             }
         },
         {
@@ -220,7 +208,7 @@
             "default": {
                 "min": "0",
                 "max": "1",
-                "value": "0.24"
+                "value": "0.25"
             }
         },
         {
@@ -233,18 +221,6 @@
                 "min": "0",
                 "max": "1",
                 "value": "0.5"
-            }
-        },
-        {
-            "name": "envtype",
-            "get": 1,
-            "type": "int",
-            "digest": "Select 0, 1, 2",
-            "description": "Select the envelope follower detection setting, 0=fast, 1=medium, 2=slow.",
-            "default": {
-                "min": "0",
-                "max": "2",
-                "value": "0"
             }
         },
         {

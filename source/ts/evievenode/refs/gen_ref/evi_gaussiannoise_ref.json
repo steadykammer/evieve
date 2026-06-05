@@ -50,7 +50,7 @@
             "name": "amplitude",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
             "default": {
                 "type": "float",
                 "value": "0.6403882032022076"

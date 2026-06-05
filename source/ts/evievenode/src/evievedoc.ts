@@ -69,7 +69,7 @@ interface attributesConfig {
 	get?: number,
 	type: string,
 	digest: string,
-	description: string,
+	description: string | boolean,
 	default: {
 		type?: string,
 		get?: number,
@@ -90,7 +90,7 @@ interface messagesConfig {
 		}
 	],
 	digest: string,
-	description: string
+	description: string | boolean
 }
 
 interface msgArgsConfig {
@@ -106,7 +106,7 @@ interface argumentsConfig {
 	default: string,
 	optional: number,
 	digest: string,
-	description: string
+	description: string | boolean
 }
 
 interface gendspConfigTemplate {
@@ -1481,7 +1481,7 @@ async function parseDefinesCodeboxes()
 			}
 		],
 		"digest": "",
-		"description": ""
+		"description": false
 	};
 	const msgArgsConfig: any = {
 		"name": "",
@@ -1537,6 +1537,7 @@ async function parseDefinesCodeboxes()
 							}
 							let objIndex: number = 0;
 							let thisMessage: any;
+							let cacheDescription: string | boolean;
 							const isHistory = Object.values(thisConfigObject.messages).includes('history');
 
 							// NOTE: pete's shitty typescript cannot cope with 'History' declarations with no default,
@@ -1546,6 +1547,7 @@ async function parseDefinesCodeboxes()
 							if (isHistory) {
 								// is edit of already present 'history' entry
 								thisMessage = thisConfigObject.messages.find((obj: { name: string; }) => obj.name === 'history');
+								cacheDescription = thisMessage.description;
 								objIndex = thisConfigObject.messages.indexOf(thisMessage);
 
 								const line_sliced = line_candidate.replace('History', '').trimStart();
@@ -1583,12 +1585,14 @@ async function parseDefinesCodeboxes()
 									});
 									// void max.post(`found a PRE history in ${chichiForPrinting}: ${JSON.stringify(thisArg)}`);
 								}
+								thisMessage.description = cacheDescription;
 								thisConfigObject.messages.fill(thisMessage, objIndex, objIndex);
 
 							} else {
 								// is new 'history' message type entry
 								thisMessage = JSON.parse(JSON.stringify(messagesConfig));
 								thisMessage.name = "history";
+								cacheDescription = false; // let's default to off for edit as this is what we use most
 								// if new args template
 								thisMessage.arg = thisMessage.arg.filter((entry: { name: string; }) => entry.name !== "");
 
@@ -1633,6 +1637,7 @@ async function parseDefinesCodeboxes()
 								}
 
 								thisMessage.digest = messageHistoryDigest;
+								thisMessage.description = cacheDescription;
 								thisConfigObject.messages.push(thisMessage);
 
 							}
