@@ -1,6 +1,6 @@
 {
     "object": {
-        "name": "evi_formlet",
+        "name": "evi_formletfilter",
         "child": "evi.formletfilter~",
         "category": "evieve",
         "digest": "A ringing formlet filter model",

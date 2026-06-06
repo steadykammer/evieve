@@ -48,7 +48,7 @@ max oblist "evieve Gen Abstractions" evi.damp.macro~;
 max oblist "evieve Gen Abstractions" evi.damp~;
 max oblist "evieve Gen Abstractions" evi.detune.wrap~;
 max oblist "evieve Gen Abstractions" evi.detune~;
-max oblist "evieve Gen Abstractions" evi.eq3stereo~;
+max oblist "evieve Gen Abstractions" evi.eq3.stereo~;
 max oblist "evieve Gen Abstractions" evi.eq3~;
 max oblist "evieve Gen Abstractions" evi.eq5~;
 max oblist "evieve Gen Abstractions" evi.eq8~;

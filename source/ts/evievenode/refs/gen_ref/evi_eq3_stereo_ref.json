@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi_eq3_stereo",
-        "child": "evi.eq3stereo~",
+        "child": "evi.eq3.stereo~",
         "category": "evieve",
         "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
         "description": "A stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."

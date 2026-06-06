@@ -1,7 +1,7 @@
 {
     "object": {
         "name": "evi.formletfilter~",
-        "parent": "evi_formlet",
+        "parent": "evi_formletfilter",
         "category": "evieve",
         "tilde": "~",
         "digest": "A ringing formlet filter model",

@@ -119,7 +119,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.eq3stereo~\">evi.eq3stereo~</link>",
+                    "text": "<link href=\"; max openhelp evi.eq3.stereo~\">evi.eq3.stereo~</link>",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },

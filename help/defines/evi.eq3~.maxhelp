@@ -1431,7 +1431,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "2",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -1455,7 +1455,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "2",
+                                    "text": "3",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -1504,7 +1504,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 636.0, 482.0, 124.0, 23.0 ],
-                                    "text": "evi.eq3stereo~"
+                                    "text": "evi.eq3.stereo~"
                                 }
                             },
                             {
@@ -3753,7 +3753,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

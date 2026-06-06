@@ -1125,7 +1125,7 @@ async function parseGendspsCodeboxes()
 
 	for await (const refJson of fullRefsNames) {
 		const refJsonFullRWpath = `${gendspsRefsPath}/${refJson}`;
-		const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
+		// const chichiForPrinting = refJson.replace('_ref.json', '.gendsp');
 		const derivedCodeboxName = refJson.replace('_ref.json', '_codebox.genexpr');
 		if (fullCodeboxesNames.includes(derivedCodeboxName)) {
 			const thisConfigJson = fs.readFileSync(refJsonFullRWpath, 'utf8');

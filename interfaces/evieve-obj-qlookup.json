@@ -230,7 +230,7 @@
         "keywords": [],
         "seealso": [ "evi.korgms10~", "evi.korgms20~", "evi.korgms20.select~" ]
     },
-    "evi.eq3stereo~": {
+    "evi.eq3.stereo~": {
         "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
@@ -242,21 +242,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.eq3stereo~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
+        "seealso": [ "evi.eq3.stereo~", "evi.eq5~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq5~": {
         "digest": "5-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq8~", "evi.filter.eq~" ]
+        "seealso": [ "evi.eq3~", "evi.eq3.stereo~", "evi.eq8~", "evi.filter.eq~" ]
     },
     "evi.eq8~": {
         "digest": "8-band TPT EQ with message rate control of all parameters",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.eq3~", "evi.eq3stereo~", "evi.eq5~", "evi.filter.eq~" ]
+        "seealso": [ "evi.eq3~", "evi.eq3.stereo~", "evi.eq5~", "evi.filter.eq~" ]
     },
     "evi.expsmooth~": {
         "digest": "Exponential signal smoother",

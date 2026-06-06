@@ -46,7 +46,7 @@ max classnamehelpcategory evi.ladder.antti~ eviladder;
 max classnamehelpcategory evi.arpnotch~ evisvf;
 max classnamehelpcategory evi.svfsmooth~ evisvf;
 max classnamehelpcategory evi.svfsynth~ evisvf;
-max classnamehelpcategory evi.eq3stereo~ evifilter;
+max classnamehelpcategory evi.eq3.stereo~ evifilter;
 max classnamehelpcategory evi.eq3~ evifilter;
 max classnamehelpcategory evi.eq5~ evifilter;
 max classnamehelpcategory evi.eq8~ evifilter;

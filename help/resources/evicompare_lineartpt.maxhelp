@@ -1297,7 +1297,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "text": "<link href=\"; max openhelp evi.eq3~\">evi.eq3~</link> and <link href=\"; max openhelp evi.eq3stereo~\">evi.eq3stereo~</link> are three band EQs where every parameter can be controlled at audio rate, including modulation",
+                                    "text": "<link href=\"; max openhelp evi.eq3~\">evi.eq3~</link> and <link href=\"; max openhelp evi.eq3.stereo~\">evi.eq3.stereo~</link> are three band EQs where every parameter can be controlled at audio rate, including modulation",
                                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
@@ -1502,7 +1502,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 201.0, 317.0, 124.0, 22.0 ],
-                                    "text": "evi.eq3stereo~"
+                                    "text": "evi.eq3.stereo~"
                                 }
                             },
                             {

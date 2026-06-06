@@ -441,7 +441,7 @@
     },
     "seealso": [
         "evi.eq3~",
-        "evi.eq3stereo~",
+        "evi.eq3.stereo~",
         "evi.eq5~",
         "evi.filter.eq~"
     ]

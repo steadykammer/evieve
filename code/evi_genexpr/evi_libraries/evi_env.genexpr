@@ -119,20 +119,19 @@ averageWrap(X, reset, interval=500, mode=0)	// interval in samples, mode 0=bipol
 */
 }
 
-/*
-// main data for main env(s)
-averageData(xin, reset, interval=100, mode=1) // defaults 100 samps & 'absolute'
+// for evi.valve~ helpfile 'algorithm' tab only
+averageDataV(xin, reset, interval=200, mode=1) // defaults 200 samps & 'absolute'
 {
 	History addummy(0);
     avgMedium, avgIndex = averageWrap(xin, reset, interval=interval, mode=mode);
-	// these sound great, but are impossible to get stable
+	// these choices sound great, but are impossible to get stable
     avgFast = fastpow(avgMedium, 1.398323);
     avgSlow = sqrt(avgMedium);
     return avgFast, avgMedium, avgSlow;
 }
-*/
+
 // main data for main env(s)
-averageData(xin, reset, interval=100) // defaults 100 samps & 'absolute'
+averageData(xin, reset, interval=200) // defaults 200 samps & 'absolute'
 {
 	History addummy(0);
     avgMedium, avgIndex = averageCore(abs(xin), reset, windowSize=interval);

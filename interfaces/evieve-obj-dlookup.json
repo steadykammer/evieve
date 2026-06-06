@@ -169,10 +169,10 @@
         "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
         "description": "evi.eq3~ is a 'max define' for the evi_eq3.gendsp gen~ abstraction. Because evi.eq3~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 3-band EQ made up of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
-    "evi.eq3stereo~": {
+    "evi.eq3.stereo~": {
         "type": "define",
         "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
-        "description": "evi.eq3stereo~ is a 'max define' for the evi_eq3_stereo.gendsp gen~ abstraction. Because evi.eq3stereo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
+        "description": "evi.eq3.stereo~ is a 'max define' for the evi_eq3_stereo.gendsp gen~ abstraction. Because evi.eq3.stereo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
     "evi.eq5~": {
         "type": "define",
@@ -287,7 +287,7 @@
     "evi.formletfilter~": {
         "type": "define",
         "digest": "A ringing formlet filter model",
-        "description": "evi.formletfilter~ is a 'max define' for the evi_formlet.gendsp gen~ abstraction. Because evi.formletfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited."
+        "description": "evi.formletfilter~ is a 'max define' for the evi_formletfilter.gendsp gen~ abstraction. Because evi.formletfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited."
     },
     "evi.freezeverb~": {
         "type": "abstraction",

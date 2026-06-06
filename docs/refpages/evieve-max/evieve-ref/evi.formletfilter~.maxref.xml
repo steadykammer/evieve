@@ -6,7 +6,7 @@
 		A ringing formlet filter model
 	</digest>
 	<description>
-		<b>evi.formletfilter~</b> is a 'max define' for the <o>evi_formlet</o>.gendsp gen~ abstraction.
+		<b>evi.formletfilter~</b> is a 'max define' for the <o>evi_formletfilter</o>.gendsp gen~ abstraction.
 		Because evi.formletfilter~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
 		A physical modelling ringing formlet filter loosely based on SuperCollider 'Formlet()' with added modulation and control features. Created by adding two resonant filters together around a center frequency. Can create ringing tones out of any input material. This is a direct form filter, so modulation is limited. <br />

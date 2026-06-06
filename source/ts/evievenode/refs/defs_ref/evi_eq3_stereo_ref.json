@@ -1,6 +1,6 @@
 {
     "object": {
-        "name": "evi.eq3stereo~",
+        "name": "evi.eq3.stereo~",
         "parent": "evi_eq3_stereo",
         "category": "evieve",
         "tilde": "~",

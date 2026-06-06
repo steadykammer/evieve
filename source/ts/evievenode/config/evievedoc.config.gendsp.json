@@ -1296,7 +1296,7 @@
         "evi_eq3_stereo.gendsp": {
             "define": {
                 "object": true,
-                "msp": "evi.eq3stereo~",
+                "msp": "evi.eq3.stereo~",
                 "mcwrapper": true
             },
             "ref": {
@@ -1863,7 +1863,7 @@
                 "auto": true
             }
         },
-        "evi_formlet.gendsp": {
+        "evi_formletfilter.gendsp": {
             "define": {
                 "object": true,
                 "msp": "evi.formletfilter~",

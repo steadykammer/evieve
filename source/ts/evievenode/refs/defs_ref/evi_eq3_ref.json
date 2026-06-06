@@ -146,7 +146,7 @@
         "image": ""
     },
     "seealso": [
-        "evi.eq3stereo~",
+        "evi.eq3.stereo~",
         "evi.eq5~",
         "evi.eq8~",
         "evi.filter.eq~"

@@ -11,7 +11,7 @@
         evi_eq3_stereo.gendsp requires the GenExpr file(s): <br />
         <o>evi_svfs_lto</o>.genexpr <br />
          <br />
-        evi_eq3_stereo is also available in MSP as: <o>evi.eq3stereo~</o>. <br />
+        evi_eq3_stereo is also available in MSP as: <o>evi.eq3.stereo~</o>. <br />
          <br />
 	    A stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads. <br />
     </description>

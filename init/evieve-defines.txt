@@ -115,8 +115,8 @@ max define mc.evi.detune.wrap~ mc.gen~ @gen evi_detune_wrap.gendsp @chans 2;
 max define evi.detune~ gen~ @gen evi_detune.gendsp;
 max define mc.evi.detune~ mc.gen~ @gen evi_detune.gendsp @chans 2;
 
-max define evi.eq3stereo~ gen~ @gen evi_eq3_stereo.gendsp;
-max define mc.evi.eq3stereo~ mc.gen~ @gen evi_eq3_stereo.gendsp @chans 2;
+max define evi.eq3.stereo~ gen~ @gen evi_eq3_stereo.gendsp;
+max define mc.evi.eq3.stereo~ mc.gen~ @gen evi_eq3_stereo.gendsp @chans 2;
 
 max define evi.eq3~ gen~ @gen evi_eq3.gendsp;
 max define mc.evi.eq3~ mc.gen~ @gen evi_eq3.gendsp @chans 2;
@@ -175,8 +175,8 @@ max define mc.evi.filter~ mc.gen~ @gen evi_filter.gendsp @chans 2;
 max define evi.flanger.digital~ gen~ @gen evi_flanger_digital.gendsp;
 max define mc.evi.flanger.digital~ mc.gen~ @gen evi_flanger_digital.gendsp @chans 2;
 
-max define evi.formletfilter~ gen~ @gen evi_formlet.gendsp;
-max define mc.evi.formletfilter~ mc.gen~ @gen evi_formlet.gendsp @chans 2;
+max define evi.formletfilter~ gen~ @gen evi_formletfilter.gendsp;
+max define mc.evi.formletfilter~ mc.gen~ @gen evi_formletfilter.gendsp @chans 2;
 
 max define evi.freqshift.weaver~ gen~ @gen evi_freqshift_weaver.gendsp;
 max define mc.evi.freqshift.weaver~ mc.gen~ @gen evi_freqshift_weaver.gendsp @chans 2;
