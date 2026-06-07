@@ -158,6 +158,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): f, default: <b>1</b>, <i></i> <br />
 
         <b>Return 1</b>: Tanh, <i>Tanh-like output</i> <br />
 

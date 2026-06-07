@@ -101,6 +101,10 @@
         {
             "name": "evi_rectify",
             "display": "evi_rectify"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

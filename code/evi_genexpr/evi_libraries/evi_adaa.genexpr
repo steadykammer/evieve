@@ -638,12 +638,14 @@ altTanhAdaa1(x, reset)
 // this is acceptable to about -100dB input where the noise floor is at about -900dB
 // but is affected by frequency content of the input material anyway
 // like the Adaa1, blows up above +50dB input
-// the short version: it works fine
-altTanhAdaa2(x, reset)
+// the short version: it works ok
+altTanhAdaa2(x, reset, f=1)
 {
 	History x1(0), x2(0), s1(0);
 	// 0.00000000001
-	eps = 0.00000001; // precision exact, best across largest frequency ranges
+  // 0.00000001 // best across largest frequency ranges
+  // 0.000001 // ok across largest frequency ranges, favour low frequency / transient input
+	eps = (f) ? 0.00000001 : 0.000001; // precision
 	if (reset) {
 		x1 = 0; x2 = 0; s1 = 0;
 	}

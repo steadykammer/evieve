@@ -1595,6 +1595,249 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "averageDataV",
+                "raw": "averageDataV"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "xin",
+                    "raw": "xin"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "interval",
+                    "raw": "interval"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "mode",
+                    "raw": "mode"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                {
+                    "type": "Literal",
+                    "value": 200,
+                    "raw": "200",
+                    "gen_kind": "integer"
+                },
+                {
+                    "type": "Literal",
+                    "value": 1,
+                    "raw": "1",
+                    "gen_kind": "integer"
+                }
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "addummy",
+                                    "raw": "addummy"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgIndex",
+                                        "raw": "avgIndex"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "xin",
+                                        "raw": "xin"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "interval",
+                                            "raw": "interval"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "interval",
+                                            "raw": "interval"
+                                        },
+                                        "gen_kind": "attribute"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "gen_kind": "attribute"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "averageWrap",
+                                    "raw": "averageWrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "avgFast",
+                                "raw": "avgFast"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1.398323,
+                                        "raw": "1.398323",
+                                        "gen_kind": "float"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "fastpow",
+                                    "raw": "fastpow"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "avgSlow",
+                                "raw": "avgSlow"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "avgMedium",
+                                        "raw": "avgMedium"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgFast",
+                                    "raw": "avgFast"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgMedium",
+                                    "raw": "avgMedium"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "avgSlow",
+                                    "raw": "avgSlow"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "averageData",
                 "raw": "averageData"
             },
@@ -1620,8 +1863,8 @@
                 null,
                 {
                     "type": "Literal",
-                    "value": 100,
-                    "raw": "100",
+                    "value": 200,
+                    "raw": "200",
                     "gen_kind": "integer"
                 }
             ],

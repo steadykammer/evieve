@@ -9,7 +9,7 @@
         <b>evi_softclip</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_softclip.gendsp requires the GenExpr file(s): <br />
-        <o>evi_adaa</o>.genexpr <br />
+        <o>evi_adaa</o>.genexpr, <o>evi_clipping</o>.genexpr <br />
          <br />
         evi_softclip is also available in MSP as: <o>evi.softclip~</o>. <br />
          <br />
@@ -53,5 +53,6 @@
         <seealso name='evi_softstatic' display='evi_softstatic' type='genrefpage' />
         <seealso name='evi_squeeze' display='evi_squeeze' type='genrefpage' />
         <seealso name='evi_clipper' display='evi_clipper' type='genrefpage' />
+        <seealso name='evi_valve' display='evi_valve' type='genrefpage' />
     </seealsolist>
 </c74object>

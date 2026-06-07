@@ -584,7 +584,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 365.0, 448.0, 431.0, 25.0 ],
+                                    "patching_rect": [ 218.0, 448.0, 431.0, 25.0 ],
                                     "text": "it is a good idea to softclip the output in noise source setups like this",
                                     "textjustification": 1
                                 }
@@ -607,8 +607,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 136.0, 449.0, 227.0, 23.0 ],
-                                    "text": "evi.clipper~ @clip 1 @oversampling 1"
+                                    "patching_rect": [ 136.0, 449.0, 80.0, 23.0 ],
+                                    "text": "evi.softclip~"
                                 }
                             },
                             {
@@ -2375,8 +2375,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 467.0, 300.0, 114.0, 36.0 ],
-                                    "text": "like the 'basic' tab of this helpfile"
+                                    "patching_rect": [ 467.0, 300.0, 122.0, 36.0 ],
+                                    "text": "a bit like the 'basic' tab of the helpfile"
                                 }
                             },
                             {
@@ -2439,6 +2439,19 @@
                                             {
                                                 "box": {
                                                     "bubble": 1,
+                                                    "id": "obj-32",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 285.0, 406.0, 225.0, 37.0 ],
+                                                    "text": "it is a good idea to softclip the output in noise source setups like this",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
                                                     "bubbleside": 3,
                                                     "id": "obj-50",
                                                     "maxclass": "comment",
@@ -2469,7 +2482,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 33.0, 33.0, 112.0, 33.0 ],
-                                                    "text": "like the 'basic' tab of the helpfile"
+                                                    "text": "a bit like the 'basic' tab of the helpfile"
                                                 }
                                             },
                                             {
@@ -2578,8 +2591,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 215.0, 413.0, 206.0, 22.0 ],
-                                                    "text": "evi_clipper @clip 1 @oversampling 1"
+                                                    "patching_rect": [ 215.0, 413.0, 68.0, 22.0 ],
+                                                    "text": "evi_softclip"
                                                 }
                                             },
                                             {

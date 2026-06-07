@@ -209,6 +209,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.valve~"> </seealso>
 		<seealso name="evi.clipasym~"> </seealso>
 		<seealso name="evi.sinfold~"> </seealso>
 		<seealso name="evi.shaper~"> </seealso>

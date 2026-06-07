@@ -84,6 +84,10 @@
         {
             "name": "evi_lorez",
             "display": "evi_lorez"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

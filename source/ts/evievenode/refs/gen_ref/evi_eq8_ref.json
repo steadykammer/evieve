@@ -375,6 +375,10 @@
         {
             "name": "evi_filter_eq",
             "display": "evi_filter_eq"
+        },
+        {
+            "name": "evi_eq3_stereo",
+            "display": "evi_eq3_stereo"
         }
     ]
 }

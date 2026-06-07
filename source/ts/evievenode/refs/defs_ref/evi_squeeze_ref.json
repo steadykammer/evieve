@@ -65,6 +65,7 @@
         "evi.overdrive.env~",
         "evi.overdrive.wrap~",
         "evi.overdrive.fold~",
+        "evi.valve~",
         "evi.rcfilter~"
     ]
 }

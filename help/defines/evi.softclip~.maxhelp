@@ -1777,7 +1777,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// soft clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\n// ^^ this is not exactly the same as evi_softclip but contains equivalent functions\r\n\r\n\r\n// the default setting in evi_softclip is simply this 'adSc2()' function:\r\nout1 = adSc2(in1);\r\n\r\n\r\n// other options are simply different functions, such as this highest quality setting:\r\nout2 = adSc2_4x_6POINT(in1);\r\n\r\n",
+                                                    "code": "\r\n// some soft clipping functionality in evieve GenExpr can be accessed via this file:\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\n// see also: 'evi_adaa.genexpr' for many more soft clippers\r\n\r\n\r\n// the default setting in evi_softclip is simply this 'adSc2()' function:\r\nout1 = adSc2(in1);\r\n\r\n\r\n// other options are simply different functions, such as this highest quality setting:\r\nout2 = adSc2_4x_6POINT(in1);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

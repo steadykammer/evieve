@@ -120,6 +120,10 @@
         {
             "name": "evi_squeeze",
             "display": "evi_squeeze"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

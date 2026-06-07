@@ -81,6 +81,10 @@
         {
             "name": "evi_rcfilter",
             "display": "evi_rcfilter"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

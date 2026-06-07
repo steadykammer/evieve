@@ -93,6 +93,7 @@
         "evi.shaper~",
         "evi.softclip~",
         "evi.hardclip~",
-        "evi.rectify~"
+        "evi.rectify~",
+        "evi.valve~"
     ]
 }

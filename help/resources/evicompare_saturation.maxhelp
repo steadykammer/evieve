@@ -3854,7 +3854,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "varname": "radiogroup[2]"
                                 }
                             },
@@ -4452,6 +4452,17 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 271.0, 52.0, 35.0, 22.0 ],
+                                                    "text": "reset"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-9",
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
@@ -4607,6 +4618,12 @@
                                                     "destination": [ "obj-35", 0 ],
                                                     "order": 1,
                                                     "source": [ "obj-17", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-16", 0 ],
+                                                    "source": [ "obj-3", 0 ]
                                                 }
                                             },
                                             {
@@ -8909,7 +8926,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -18960,7 +18977,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup[2]"
                                 }
                             },
@@ -22162,7 +22179,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -23249,7 +23266,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -23681,7 +23698,7 @@
                                     "freqrange": [ 10.0, 24000.0 ],
                                     "id": "obj-1",
                                     "maxclass": "spectrumdraw~",
-                                    "mode3": 0,
+                                    "mode": 0,
                                     "mousedatapos": 2,
                                     "numinlets": 4,
                                     "numoutlets": 1,

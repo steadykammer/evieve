@@ -4,7 +4,7 @@
         "child": "evi.freqshift.weaver~",
         "category": "evieve",
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
-        "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters."
+        "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
     },
     "constructor": {
         "inlets": "audio, (use, frequency, reset"
@@ -190,6 +190,10 @@
         {
             "name": "evi_sinfold",
             "display": "evi_sinfold"
+        },
+        {
+            "name": "evi_quadosc",
+            "display": "evi_quadosc"
         }
     ]
 }

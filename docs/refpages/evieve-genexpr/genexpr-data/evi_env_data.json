@@ -116,6 +116,58 @@
         },
         {
             "document": true,
+            "digest": "",
+            "name": "averageDataV",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "xin",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "interval",
+                    "default": 200,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "param",
+                    "name": "mode",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Averaging audio detection wrapper for envelope following",
             "name": "averageData",
             "inputs": [
@@ -135,7 +187,7 @@
                     "id": 3,
                     "kind": "param",
                     "name": "interval",
-                    "default": 100,
+                    "default": 200,
                     "type": "integer",
                     "digest": "Interval (window size) in samples of internal averager algorithm"
                 }

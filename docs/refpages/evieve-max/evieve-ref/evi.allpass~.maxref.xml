@@ -9,7 +9,7 @@
 		<b>evi.allpass~</b> is a 'max define' for the <o>evi_allpass</o>.gendsp gen~ abstraction.
 		Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off). <br />
+		Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. A bit different to the MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -40,7 +40,7 @@
 		</inlet>
 		<inlet id="3" type="signal/float">
 			<digest>
-				Inlet #3: Gain Coefficient @min -1 @max 1
+				Inlet #3: Linear Gain Coefficient @min -1 @max 1
 			</digest>
 			<description>
 				Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths.
@@ -68,7 +68,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				If &gt; 0, applies saturating gain stage to the internal feedback path.
+				If &gt; 0, applies saturating gain stage to the internal feedback path. The strength of the effect still relies on the level of the Gain coefficient (inlet 3).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />

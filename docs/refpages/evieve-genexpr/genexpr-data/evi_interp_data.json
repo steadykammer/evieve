@@ -48,7 +48,7 @@
         },
         {
             "document": true,
-            "digest": "Hermite 6-point 5th-order, Olli Niemitalo, 23 muls, 24 ±. Not gen~ [interp mode='spline6']. This is what Niemitalo calls '6-point, 5th-order 2nd-order-osculating z-form implementation' and is actually different to the gen~ 'spline6' which uses the slightly cheaper '6-point, 5th-order B-spline x-form implementation', but which I think is not as useful (the B-spline is not as useful for audio samples representation).",
+            "digest": "Hermite 6-point 5th-order, Olli Niemitalo, 23 muls, 24 ±. Not gen~ [interp mode='spline6']. The evieve is what Niemitalo calls '6-point, 5th-order 2nd-order-osculating z-form implementation' and is actually different to the gen~ 'spline6' which uses the slightly cheaper (2 fewer muls) '6-point, 5th-order B-spline x-form implementation', but which is not as effective (the B-spline loses more high end and does not produce as effective antialiasing).",
             "name": "hermite_sixpoint_interp",
             "inputs": [
                 {

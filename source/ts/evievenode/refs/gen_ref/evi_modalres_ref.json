@@ -60,6 +60,10 @@
         {
             "name": "evi_sustainverb",
             "display": "evi_sustainverb"
+        },
+        {
+            "name": "evi_formletfilter",
+            "display": "evi_formletfilter"
         }
     ]
 }

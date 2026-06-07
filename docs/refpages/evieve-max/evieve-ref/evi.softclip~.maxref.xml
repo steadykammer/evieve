@@ -67,12 +67,13 @@
 		<seealso name="evi.overdrive.env~"> </seealso>
 		<seealso name="evi.overdrive.wrap~"> </seealso>
 		<seealso name="evi.overdrive.fold~"> </seealso>
+		<seealso name="evi.valve~"> </seealso>
 		<seealso name="evi.tone.macro~"> </seealso>
 		<seealso name="evi.rcfilter~"> </seealso>
 		<seealso name="evi.baxandall~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        This object is for all those MSP users who use [<o>tanh~</o>] in their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.softclip~</o> or <o>evi.clipper~</o> instead. It can anti-alias large gain inputs whilst retaining the soft clipping functionality you seek. <br />
+        This object is for all those MSP users who use [<o>tanh~</o>] in their audio chains. You should avoid this - it can destroy your audio and aliases. Use <o>evi.softclip~</o> or <o>evi.clipper~</o> instead. It can anti-alias large gain inputs whilst retaining the soft clipping functionality you seek. <br />
 	</discussion>
 </c74object>

@@ -103,6 +103,7 @@
 		<seealso name="evi.softclip~"> </seealso>
 		<seealso name="evi.hardclip~"> </seealso>
 		<seealso name="evi.rectify~"> </seealso>
+		<seealso name="evi.valve~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

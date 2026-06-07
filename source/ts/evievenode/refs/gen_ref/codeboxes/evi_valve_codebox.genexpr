@@ -36,7 +36,6 @@ Param   hysterisis(0.5, min=0, max=1); // amount of hysterisis envelopes 0..1, u
 Param   diode(1, min=0, max=1); // select diode algo, 0='soft', 1='hard'
 dio     = int(diode);
 
-//etype   = int(envtype);
 eint    = int(envinterval + 0.5);
 ecomp   = envscale * 0.5; // 0..0.5, default 0.125
 ebase   = evi_mtofapprox(envshape * 81 + 43); // 100..10000 Hz around envshape=0.5 is 1000 Hz
@@ -65,7 +64,7 @@ if ( (init) || (prevSR != SAMPLERATE) ) {
 }
 heat = clip((elapsed / od), 0, 1);
 
-resetavg = (delta(change(eint)) < 0);
+resetavg = delta(change(eint)) < 0;
 resetdio = delta(change(dio)) < 0;
 reset = resetavg + resetdio;
 

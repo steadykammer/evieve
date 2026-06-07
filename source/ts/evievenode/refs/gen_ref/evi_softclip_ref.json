@@ -10,7 +10,8 @@
         "inlets": "audio"
     },
     "includes": [
-        "evi_adaa"
+        "evi_adaa",
+        "evi_clipping"
     ],
     "inlets": [
         {
@@ -93,6 +94,10 @@
         {
             "name": "evi_clipper",
             "display": "evi_clipper"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

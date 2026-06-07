@@ -11118,11 +11118,22 @@
                     "type": "Identifier",
                     "name": "reset",
                     "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "f",
+                    "raw": "f"
                 }
             ],
             "defaults": [
                 null,
-                null
+                null,
+                {
+                    "type": "Literal",
+                    "value": 1,
+                    "raw": "1",
+                    "gen_kind": "integer"
+                }
             ],
             "decls": [
                 [
@@ -11232,10 +11243,24 @@
                                 "raw": "eps"
                             },
                             "right": {
-                                "type": "Literal",
-                                "value": 1e-8,
-                                "raw": "0.00000001",
-                                "gen_kind": "float"
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "f",
+                                    "raw": "f"
+                                },
+                                "consequent": {
+                                    "type": "Literal",
+                                    "value": 1e-8,
+                                    "raw": "0.00000001",
+                                    "gen_kind": "float"
+                                },
+                                "alternate": {
+                                    "type": "Literal",
+                                    "value": 0.000001,
+                                    "raw": "0.000001",
+                                    "gen_kind": "float"
+                                }
                             }
                         }
                     },

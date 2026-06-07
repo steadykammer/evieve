@@ -41,7 +41,7 @@ delayMax = max(delayMin, delayMax);
 
 freqIn, minMs, maxMs, spreadIn = logsmoothBank4(rate*maxhz, delayMin, delayMax, spread*spread, smoothsecs);
 dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
-fbGain, ffMix, crossMix, inJect = logsmoothBank4(feedback*0.4, feedforward, cross, inject, smoothsecs*sqrt2);
+fbGain, ffMix, crossMix, inJect = logsmoothBank4(feedback*0.5, feedforward, cross, inject, smoothsecs*sqrt2);
 postGain = logsmooth((dbtoaApprox(gain) * invSign), smoothsecs);
 dryWet = eviLine(drywet, smoothsamps);
 

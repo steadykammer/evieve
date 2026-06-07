@@ -106,6 +106,7 @@
         "evi.damp.macro~",
         "evi.onepole.shelving~",
         "evi.tone.macro~",
-        "evi.filter.tilt~"
+        "evi.filter.tilt~",
+        "evi.valve~"
     ]
 }

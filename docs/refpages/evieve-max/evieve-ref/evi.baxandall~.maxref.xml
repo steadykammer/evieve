@@ -118,6 +118,7 @@
 		<seealso name="evi.onepole.shelving~"> </seealso>
 		<seealso name="evi.tone.macro~"> </seealso>
 		<seealso name="evi.filter.tilt~"> </seealso>
+		<seealso name="evi.valve~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

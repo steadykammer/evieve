@@ -139,6 +139,52 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-13",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 315.0, 288.0, 50.0, 21.0 ],
+                                    "text": "Gain",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 219.0, 312.0, 42.0, 21.0 ],
+                                    "text": "ms",
+                                    "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-6",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 118.0, 429.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -157,7 +203,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "4",
+                                    "text": "5",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -181,7 +227,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "4",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -205,7 +251,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "2",
+                                    "text": "3",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -236,6 +282,7 @@
                             {
                                 "box": {
                                     "format": 6,
+                                    "hint": "Effect depends on Gain coefficient",
                                     "id": "obj-29",
                                     "maxclass": "flonum",
                                     "maximum": 1.0,
@@ -256,6 +303,8 @@
                                             "parameter_type": 0
                                         }
                                     },
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
                                     "varname": "number[2]"
                                 }
                             },
@@ -277,8 +326,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 367.0, 312.0, 150.0, 21.0 ],
-                                    "text": "Gain -1..1"
+                                    "patching_rect": [ 367.0, 312.0, 44.0, 21.0 ],
+                                    "text": "-1..1"
                                 }
                             },
                             {
@@ -287,8 +336,9 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 261.0, 288.0, 150.0, 21.0 ],
-                                    "text": "Delay in ms"
+                                    "patching_rect": [ 261.0, 288.0, 50.0, 21.0 ],
+                                    "text": "Delay",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -546,14 +596,16 @@
                             },
                             {
                                 "box": {
+                                    "bubble": 1,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-23",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 167.0, 256.0, 144.0, 21.0 ],
-                                    "text": "• generate a transient"
+                                    "patching_rect": [ 167.0, 254.0, 147.0, 25.0 ],
+                                    "text": "generate a transient",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -845,6 +897,54 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 118.0, 438.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-3",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 118.0, 550.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-14",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -1043,6 +1143,54 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 201.0, 399.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-3",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 201.0, 550.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-27",

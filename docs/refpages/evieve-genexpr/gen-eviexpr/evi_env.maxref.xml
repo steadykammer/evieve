@@ -52,13 +52,26 @@
 
       </description>
     </entry>
+    <entry name="averageDataV ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: xin, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>200</b>, <i></i> <br />
+        <b>In 4</b>: type=<i>param</i> (optional): mode, default: <b>1</b>, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="averageData ( )">
       <description>
         Averaging audio detection wrapper for envelope following <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input to be analysed</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset of the averaging filter (buffer)</i> <br />
-        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>100</b>, <i>Interval (window size) in samples of internal averager algorithm</i> <br />
+        <b>In 3</b>: type=<i>param</i> (optional): interval, default: <b>200</b>, <i>Interval (window size) in samples of internal averager algorithm</i> <br />
 
         <b>Return 1</b>: Fast, <i>Fast response data (exp)</i> <br />
 

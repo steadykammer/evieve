@@ -17,7 +17,7 @@
     "evi.allpass~": {
         "type": "define",
         "digest": "Reimplementation of MSP allpass~ filter delay",
-        "description": "evi.allpass~ is a 'max define' for the evi_allpass.gendsp gen~ abstraction. Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCubic interpolated allpass filter delay unit. The same structure as MSP allpass~, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional feedbackmix attribute which does ridiculous nonlinear comb effects (default off)."
+        "description": "evi.allpass~ is a 'max define' for the evi_allpass.gendsp gen~ abstraction. Because evi.allpass~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nCubic interpolated allpass filter delay unit. The same structure as MSP allpass~, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. A bit different to the MSP. This abstraction also includes an optional feedbackmix attribute which does ridiculous nonlinear comb effects (default off)."
     },
     "evi.am~": {
         "type": "define",
@@ -164,15 +164,15 @@
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
         "description": "This is a well known open source MS20 filter emulation of the old school. The agressive character of the MS20 is captured as a defining feature. The scaling of frequency and Q is a feature of the original filter and is maintained here, measured against an actual MS20 filter control response. Like the MS20 filter, the filter is switchable here between the 12dB Lowpass and 6dB (special) Highpass responses. Note: internal smoothing of cutoff (@smooth, default on) is cheap but causes (interesting?) artifacts with fast sweeps downwards. For clean sweeping turn @smooth off (set to '0') and smooth cutoff externally."
     },
-    "evi.eq3~": {
-        "type": "define",
-        "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
-        "description": "evi.eq3~ is a 'max define' for the evi_eq3.gendsp gen~ abstraction. Because evi.eq3~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 3-band EQ made up of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
-    },
     "evi.eq3.stereo~": {
         "type": "define",
         "digest": "Stereo TPT 3-band EQ with audio rate modulation of all parameters",
         "description": "evi.eq3.stereo~ is a 'max define' for the evi_eq3_stereo.gendsp gen~ abstraction. Because evi.eq3.stereo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA stereo 3-band EQ made up of left and right sets of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
+    },
+    "evi.eq3~": {
+        "type": "define",
+        "digest": "Mono TPT 3-band EQ with audio rate modulation of all parameters",
+        "description": "evi.eq3~ is a 'max define' for the evi_eq3.gendsp gen~ abstraction. Because evi.eq3~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA 3-band EQ made up of 3 TPT SVF EQ filters, each with selectable filter type. The feature of this EQ is that all filter parameters are available on inlets, so the whole EQ can optionally be audio rate modulated. Because this is based on TPT filters, modulation will remain clean and stable at audio rate, unlike biquads."
     },
     "evi.eq5~": {
         "type": "define",
@@ -297,12 +297,12 @@
     "evi.freqshift.hilbert~": {
         "type": "abstraction",
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs \n",
-        "description": "Like MSP freqshift~ but with a different hilbert filter and additional features, such as anti-aliased saturation."
+        "description": "It sounds like MSP freqshift~ but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset."
     },
     "evi.freqshift.weaver~": {
         "type": "define",
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
-        "description": "evi.freqshift.weaver~ is a 'max define' for the evi_freqshift_weaver.gendsp gen~ abstraction. Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTime domain frequency shifter. Not like MSP freqshift~. An implementation of D. K. Weaver's famous 'third method' (unlike freqshift~, fbinshift~ and evi.freqshift.hilbert~ which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters."
+        "description": "evi.freqshift.weaver~ is a 'max define' for the evi_freqshift_weaver.gendsp gen~ abstraction. Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTime domain frequency shifter. Not like MSP freqshift~. An implementation of D. K. Weaver's famous 'third method' (unlike freqshift~, fbinshift~ and evi.freqshift.hilbert~ which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
     },
     "evi.gaussiannoise~": {
         "type": "define",

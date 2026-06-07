@@ -90,6 +90,7 @@
         "evi.onepole~",
         "evi.tone.macro~",
         "evi.korgms20.select~",
-        "evi.ladder.moog~"
+        "evi.ladder.moog~",
+        "evi.valve~"
     ]
 }

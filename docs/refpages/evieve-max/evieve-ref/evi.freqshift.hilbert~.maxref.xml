@@ -6,7 +6,7 @@
 		Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs <br />
 	</digest>
 	<description>
-		Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation. <br />
+		It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -43,7 +43,7 @@
 				Sidebands Mixed (use @bandsmix)
 			</digest>
 			<description>
-				Sidebands mixed and optionally saturated (use &#x27;bandsmix&#x27; attribute and &#x27;drive&#x27; attribute).
+				Sidebands mixed and optionally saturated (use the &#x27;bandsmix&#x27; attribute and the &#x27;drive&#x27; attribute).
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -178,6 +178,7 @@
 		<seealso name="evi.hilbert~"> </seealso>
 		<seealso name="evi.polyphaseiirhilbertcoeffs"> </seealso>
 		<seealso name="evi.sinfold~"> </seealso>
+		<seealso name="evi.quadosc~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

@@ -4,10 +4,10 @@
         "child": "evi.allpass~",
         "category": "evieve",
         "digest": "Reimplementation of MSP <o>allpass~</o> filter delay",
-        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off)."
+        "description": "Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. A bit different to the MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off)."
     },
     "constructor": {
-        "inlets": "input, delay, gain"
+        "inlets": "input, delay, linear"
     },
     "includes": [
         "evi_smooth"
@@ -30,10 +30,10 @@
         },
         {
             "id": 3,
-            "name": "gain",
+            "name": "linear",
             "type": "float",
             "optional": 1,
-            "digestauto": "Coefficient @min -1 @max 1",
+            "digestauto": "Gain Coefficient @min -1 @max 1",
             "digest": "Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths."
         }
     ],
@@ -52,7 +52,7 @@
             "name": "feedbackmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "If > 0, applies saturating gain stage to the internal feedback path.",
+            "description": "If > 0, applies saturating gain stage to the internal feedback path. The strength of the effect still relies on the level of the Gain coefficient (inlet 3).",
             "default": {
                 "type": "float",
                 "value": "0."

@@ -86,6 +86,7 @@
 		<seealso name="evi.filter.shelving~"> </seealso>
 		<seealso name="evi.filter.tilt~"> </seealso>
 		<seealso name="evi.baxandall~"> </seealso>
+		<seealso name="evi.valve~"> </seealso>
 		<seealso name="evi.lorez~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->

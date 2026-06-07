@@ -13,13 +13,13 @@
          <br />
         evi_allpass is also available in MSP as: <o>evi.allpass~</o>. <br />
          <br />
-	    Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. Quite different than MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off). <br />
+	    Cubic interpolated allpass filter delay unit. The same structure as MSP <o>allpass~</o>, but with cubic interpolation for smoother high end decays, and a tamed gain coefficient so no digital clipping or aliasing. A bit different to the MSP. This abstraction also includes an optional <m>feedbackmix</m> attribute which does ridiculous nonlinear comb effects (default off). <br />
     </description>
     <methodlist />
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ input, delay, gain } }
+                { arguments={}, inlets={ input, delay, linear } }
             </digest>
         </constructor>
     </constructorlist>
@@ -34,9 +34,9 @@
                 in ms @min 0.1 @max 1000. Delay time in ms.
             </digest>
         </geninlet>
-        <geninlet name='gain' type='float' optional='1'>
+        <geninlet name='linear' type='float' optional='1'>
             <digest>
-                Coefficient @min -1 @max 1. Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths.
+                Gain Coefficient @min -1 @max 1. Not smoothed internally. Applies negative or positive gain to the feedforward and feedback paths.
             </digest>
         </geninlet>
     </geninletlist>
@@ -46,7 +46,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                If &gt; 0, applies saturating gain stage to the internal feedback path.
+                If &gt; 0, applies saturating gain stage to the internal feedback path. The strength of the effect still relies on the level of the Gain coefficient (inlet 3).
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

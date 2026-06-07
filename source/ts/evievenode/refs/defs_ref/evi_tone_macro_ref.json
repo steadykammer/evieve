@@ -78,6 +78,7 @@
         "evi.filter.shelving~",
         "evi.filter.tilt~",
         "evi.baxandall~",
+        "evi.valve~",
         "evi.lorez~"
     ]
 }

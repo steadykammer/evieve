@@ -51,5 +51,6 @@
         <seealso name='evi_reson' display='evi_reson' type='genrefpage' />
         <seealso name='evi_hilbert' display='evi_hilbert' type='genrefpage' />
         <seealso name='evi_sustainverb' display='evi_sustainverb' type='genrefpage' />
+        <seealso name='evi_formletfilter' display='evi_formletfilter' type='genrefpage' />
     </seealsolist>
 </c74object>

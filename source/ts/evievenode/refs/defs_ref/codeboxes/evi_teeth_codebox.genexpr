@@ -13,9 +13,10 @@ Delay   FBdelay(samplerate, 1, feedback=1);
 FFtime  = mstosamps(in2);
 FBtime  = mstosamps(in3);  // for [teeth~], not for [comb~]
 
+// FFtime, FBtime, Dgain, FFgain & FBgain need to be smoothed externally
 Dgain   = in4;  // direct
 FFgain  = in5;  // feed forward
-FBgain  = in6;  // feed back
+FBgain  = in6 * 0.5;  // feed back, * 0.5 for evieve because saturation
 
 X = in1;
 

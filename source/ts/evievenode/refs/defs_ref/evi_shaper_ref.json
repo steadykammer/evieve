@@ -96,6 +96,7 @@
         "evi.clipasym~",
         "evi.rectify~",
         "evi.softstatic~",
-        "evi.squeeze~"
+        "evi.squeeze~",
+        "evi.valve~"
     ]
 }

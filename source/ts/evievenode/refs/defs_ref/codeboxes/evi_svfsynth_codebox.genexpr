@@ -298,7 +298,7 @@ Param	shapesmooth(0., min=0, max=100);// in ms (22.666)
 Param	filtinterp(0., min=0, max=1);   // 0=LP, 0.5=BP, 1=HP
 Param	filtinterpsmooth(30.222, min=0, max=100);// in ms
 Param	tunesmooth(15.111, min=0, max=100);// in ms
-Param   oversample(1, min=0, max=2);    // 1x, 2x 4point, 2x 6point (6point not useful here)
+Param   oversample(1, min=0, max=2);    // 1x, 2x 4point, 2x 6point (6point not so useful here)
 os      = int(oversample);
 tfdb    = int(slope);
 oso     = os > 0;
@@ -317,6 +317,7 @@ type	= int(cutoffmode);		        // 0 = in Hz, 1 = (default) in pitch
 w1		= preWarp(cutoff, type, o=oso); // warp for both
 
 // tune (TODO: make nice polynomials for this crap)
+// this almost works, small bump between approx 1.7..2
 
 rtune   = 1;
 wres    = res;
@@ -324,10 +325,11 @@ wshape  = shape;
 if (res > 1) {
     wmodH	= 1 - (sqrt(maximum(((w1 - 0.217027) / 1.661039), 0)) * 0.5);
     wmodL	= sqrt((minimum(w1, 0.007836) * 63) + 0.506332);
-    wshape	= shape * wmodH * wmodL;
-    wres	= res * wmodH * wmodL;
-    resqrt	= sqrt(clip(wres, 1, 2) - 1);
-    rtune	= ((((wshape * wshape) * resqrt) * resqrt) * 0.828428) + 1;
+    wshape	= shape * wmodH * wmodH * wmodL;
+    wres	= res * wmodH * wmodL * wmodL;
+    cres    = clip(wres, 1, 2) - 1;
+    resqrt	= sqrt(cres) * (1 + cres*cres*cres*cres*cres*cres * 0.15); // almost works
+    rtune	= (((((wshape * wshape) * resqrt) * resqrt) * resqrt) * 0.828428) + 1;
 }
 
 // parse

@@ -13,7 +13,7 @@
          <br />
         evi_freqshift_weaver is also available in MSP as: <o>evi.freqshift.weaver~</o>. <br />
          <br />
-	    Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. <br />
+	    Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -167,5 +167,6 @@
         <seealso name='evi_hilbert' display='evi_hilbert' type='genrefpage' />
         <seealso name='evi_ringmod' display='evi_ringmod' type='genrefpage' />
         <seealso name='evi_sinfold' display='evi_sinfold' type='genrefpage' />
+        <seealso name='evi_quadosc' display='evi_quadosc' type='genrefpage' />
     </seealsolist>
 </c74object>

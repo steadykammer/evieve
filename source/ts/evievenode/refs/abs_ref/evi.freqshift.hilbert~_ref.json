@@ -3,7 +3,7 @@
         "name": "evi.freqshift.hilbert~",
         "category": "evieve",
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs",
-        "description": "Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation.",
+        "description": "It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset.",
         "discussion": ""
     },
     "metadata": {
@@ -33,7 +33,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Sidebands Mixed (use @bandsmix)",
-            "description": "Sidebands mixed and optionally saturated (use 'bandsmix' attribute and 'drive' attribute)."
+            "description": "Sidebands mixed and optionally saturated (use the 'bandsmix' attribute and the 'drive' attribute)."
         },
         {
             "id": 2,
@@ -159,6 +159,7 @@
         "evi.freqshift.weaver~",
         "evi.hilbert~",
         "evi.polyphaseiirhilbertcoeffs",
-        "evi.sinfold~"
+        "evi.sinfold~",
+        "evi.quadosc~"
     ]
 }

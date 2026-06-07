@@ -60,7 +60,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear" ],
         "keywords": [],
-        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.tilt~" ]
+        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.tilt~", "evi.valve~" ]
     },
     "evi.biquad.filter~": {
         "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
@@ -137,7 +137,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.korgms10~", "evi.warmer~", "evi.sinfold~", "evi.shaper~", "evi.softclip~", "evi.hardclip~", "evi.rectify~" ]
+        "seealso": [ "evi.korgms10~", "evi.warmer~", "evi.sinfold~", "evi.shaper~", "evi.softclip~", "evi.hardclip~", "evi.rectify~", "evi.valve~" ]
     },
     "evi.clipper~": {
         "digest": "Anti-aliased clipping algorithms for your audio",
@@ -417,14 +417,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Modulation", "evieve Effect", "evieve Nonlinear" ],
         "keywords": [],
-        "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs", "evi.sinfold~" ]
+        "seealso": [ "evi.freqshift.weaver~", "evi.hilbert~", "evi.polyphaseiirhilbertcoeffs", "evi.sinfold~", "evi.quadosc~" ]
     },
     "evi.freqshift.weaver~": {
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Modulation", "evieve Effect", "evieve Nonlinear" ],
         "keywords": [],
-        "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~", "evi.sinfold~" ]
+        "seealso": [ "evi.freqshift.hilbert~", "evi.hilbert~", "evi.ringmod~", "evi.ringmod.diode~", "evi.sinfold~", "evi.quadosc~" ]
     },
     "evi.gaussiannoise~": {
         "digest": "Gaussian distributed noise approximation",
@@ -445,7 +445,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.clipper~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
+        "seealso": [ "evi.clipper~", "evi.softclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.hilbert~": {
         "digest": "Hilbert quadrature (phase shift) filter \n",
@@ -718,7 +718,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve Nonlinear", "evieve Onepole" ],
         "keywords": [],
-        "seealso": [ "evi.onepole~", "evi.tone.macro~", "evi.korgms20.select~", "evi.ladder.moog~" ]
+        "seealso": [ "evi.onepole~", "evi.tone.macro~", "evi.korgms20.select~", "evi.ladder.moog~", "evi.valve~" ]
     },
     "evi.rect.select~": {
         "digest": "Selection of anti-aliased square-like oscillators",
@@ -732,7 +732,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.squeeze~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.rcfilter~" ]
+        "seealso": [ "evi.squeeze~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.rcfilter~" ]
     },
     "evi.rect~": {
         "digest": "Anti-aliased square wave oscillator with PWM",
@@ -781,7 +781,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.softclip~", "evi.sinfold~", "evi.warmer~", "evi.clipasym~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~" ]
+        "seealso": [ "evi.softclip~", "evi.sinfold~", "evi.warmer~", "evi.clipasym~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.valve~" ]
     },
     "evi.sine.select~": {
         "digest": "Selection of anti-aliased sine-like oscillators",
@@ -795,7 +795,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.softclip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
+        "seealso": [ "evi.softclip~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.skfinputmix~": {
         "digest": "Sallen-Key input mixing multimode filter",
@@ -809,21 +809,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.clipper~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
+        "seealso": [ "evi.clipper~", "evi.hardclip~", "evi.clipasym~", "evi.shaper~", "evi.warmer~", "evi.sinfold~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.tone.macro~", "evi.rcfilter~", "evi.baxandall~" ]
     },
     "evi.softstatic~": {
         "digest": "Static antialiased soft clipping harmonics generator",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.squeeze~", "evi.rectify~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.rcfilter~" ]
+        "seealso": [ "evi.squeeze~", "evi.rectify~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.rcfilter~" ]
     },
     "evi.squeeze~": {
         "digest": "Antialiased quadratic signal shaper",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.rectify~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.rcfilter~" ]
+        "seealso": [ "evi.rectify~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.rcfilter~" ]
     },
     "evi.squine.simple~": {
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
@@ -879,7 +879,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Filter", "evieve Filter TPT", "evieve Filter Nonlinear", "evieve Antialiased", "evieve Effect", "evieve Onepole" ],
         "keywords": [],
-        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~", "evi.lorez~" ]
+        "seealso": [ "evi.damp~", "evi.damp.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~", "evi.valve~", "evi.lorez~" ]
     },
     "evi.tpqm": {
         "digest": "Three point quadratic map \n",
@@ -956,7 +956,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Nonlinear", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.fold~", "evi.overdrive.wrap~", "evi.overdrive.env~" ]
+        "seealso": [ "evi.valve~", "evi.clipasym~", "evi.sinfold~", "evi.shaper~", "evi.rectify~", "evi.softstatic~", "evi.squeeze~", "evi.overdrive.fold~", "evi.overdrive.wrap~", "evi.overdrive.env~" ]
     },
     "evi.wavefolder.cascade~": {
         "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",

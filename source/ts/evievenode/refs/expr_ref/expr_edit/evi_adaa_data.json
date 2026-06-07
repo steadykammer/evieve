@@ -852,6 +852,14 @@
                     "kind": "input",
                     "name": "reset",
                     "digest": "(Optional) reset state (on switching)"
+                },
+                {
+                    "id": 3,
+                    "kind": "param",
+                    "name": "f",
+                    "default": 1,
+                    "type": "integer",
+                    "digest": ""
                 }
             ],
             "returns": [

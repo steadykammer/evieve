@@ -110,6 +110,10 @@
         {
             "name": "evi_filter_tilt",
             "display": "evi_filter_tilt"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }

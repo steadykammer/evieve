@@ -1,7 +1,7 @@
 
 // "evi_allpass.gendsp" is an allpass delay like MSP [allpass~] and has the same structure,
 // but we use cubic interpolation for smoother high end decays, and we tame the gain
-// coefficient so no digital clipping or aliasing. Quite different (worse?!) than MSP.
+// coefficient so no digital clipping or aliasing. A bit different to the MSP.
 // This abstraction also includes an optional 'feedbackmix' param which does ridiculous
 // nonlinear comb effects - you should probably not use this at all (default off).
 // @see also: evi_teeth / [evi.teeth~] and evi_comb / [evi.comb~] for similar delays.
@@ -14,12 +14,13 @@ Delay   FBdelay(samplerate, 1, feedback=1);
 Param   smooth(0., min=0, max=333);
 Param   feedbackmix(0., min=0, max=1);
 
-fbmix  = feedbackmix;
+fbmix  = feedbackmix*sqrt1_2;
 if (smooth > 0) {
-    fbmix = eviLine(feedbackmix, mstosamps(smooth));
+    fbmix = eviSline(feedbackmix*sqrt1_2, mstosamps(smooth));
 }
 
-Fgain   = in3 * 0.9997;                     // direct+feedback gain
+// Fgain & Ftime need to be smoothed externally
+Fgain   = in3 * 0.9997;                     // direct+feedback
 Ftime   = mstosamps(in2);
 X       = in1;
 
@@ -36,8 +37,8 @@ if (fbmix > 0) {
 }
 
 Y = fixdenorm(FFdelayOut + FFFB);
+// it is a strange effect which does not work great all the time, but...
 Ewrite  = xfadeQuartApproxMono(Y, fixdenorm(FFdelayOut - internalSat), fbmix);
 FBdelay.write(Ewrite);
 
 out1 = dcblock(Y);                          // allpass ish
-

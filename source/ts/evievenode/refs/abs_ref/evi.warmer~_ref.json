@@ -194,6 +194,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.valve~",
         "evi.clipasym~",
         "evi.sinfold~",
         "evi.shaper~",

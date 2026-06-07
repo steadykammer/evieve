@@ -844,6 +844,41 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-25",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 148.0, 272.0, 172.0, 23.0 ],
+                                    "text": "evi.lagsmooth~ 3.162278 33"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-24",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 586.0, 192.0, 72.0, 25.0 ],
+                                    "text": "clicks",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-22",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 586.0, 318.0, 72.0, 25.0 ],
+                                    "text": "clicks",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -903,7 +938,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 159.0, 211.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 159.0, 172.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1018,7 +1053,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 200.0, 233.0, 65.0, 21.0 ],
+                                    "patching_rect": [ 200.0, 194.0, 65.0, 21.0 ],
                                     "text": "add gain"
                                 }
                             },
@@ -1033,7 +1068,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 148.0, 232.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 148.0, 193.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 10.0 ],
@@ -1055,7 +1090,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 148.0, 272.0, 41.0, 23.0 ],
+                                    "patching_rect": [ 148.0, 233.0, 41.0, 23.0 ],
                                     "text": "dbtoa"
                                 }
                             },
@@ -1305,7 +1340,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-18", 0 ],
+                                    "destination": [ "obj-25", 0 ],
                                     "source": [ "obj-19", 0 ]
                                 }
                             },
@@ -1319,6 +1354,12 @@
                                 "patchline": {
                                     "destination": [ "obj-19", 0 ],
                                     "source": [ "obj-21", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-18", 0 ],
+                                    "source": [ "obj-25", 0 ]
                                 }
                             },
                             {

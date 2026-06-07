@@ -87,6 +87,10 @@
         {
             "name": "evi_ladder_moog",
             "display": "evi_ladder_moog"
+        },
+        {
+            "name": "evi_valve",
+            "display": "evi_valve"
         }
     ]
 }
