@@ -3,8 +3,8 @@
         "name": "evi.freqshift.hilbert~",
         "category": "evieve",
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs",
-        "description": "It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset.",
-        "discussion": ""
+        "description": "It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as antialiased saturation and automatic clickless phase reset.",
+        "discussion": "For a frequency shifter that does not require external coefficients see <o>evi.freqshift.weaver~</o>."
     },
     "metadata": {
         "author": "Pete Dowling",

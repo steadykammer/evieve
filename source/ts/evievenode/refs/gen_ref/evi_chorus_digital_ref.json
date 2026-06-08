@@ -40,7 +40,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Naive",
-            "digest": "Reset of internal LFO phases is naive and not anti-aliased."
+            "digest": "Reset of internal LFO phases is naive and not antialiased."
         }
     ],
     "outlets": [

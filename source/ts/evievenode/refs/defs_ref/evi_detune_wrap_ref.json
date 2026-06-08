@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A quirky digital Detune effect with filtering and saturation",
-        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm.",
+        "description": "Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm.",
         "discussion": ""
     },
     "metadata": {
@@ -39,7 +39,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": "Reset of internal detune phase is naive and not anti-aliased."
+            "description": "Reset of internal detune phase is naive and not antialiased."
         }
     ],
     "outlets": [

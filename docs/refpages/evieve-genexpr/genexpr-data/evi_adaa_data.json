@@ -1,5 +1,5 @@
 {
-    "description": "'Adaa' stands for 'Anti-derivative antialiasing', which is an important technique for antialiasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's anti-derivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour.",
+    "description": "'Adaa' stands for 'Antiderivative antialiasing', which is an important technique for antialiasing memoryless nonlinearities without resorting to oversampling, or as a precursor to oversampling (thus reducing the amount of oversampling required). The technique involves time domain convolution of a function with it's antiderivatives. You should always use this technique instead of naive waveshapers to minimise aliasing distortion in your audio signal chains. evieve uses these Adaa functions all over the Package to apply nonlinear behaviour.",
     "requires": [
         "evi_utilities.genexpr"
     ],
@@ -60,7 +60,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a hard clip function",
+            "digest": "First order antiderivative antialiasing of a hard clip function",
             "name": "hardclipAdaa1",
             "inputs": [
                 {
@@ -74,13 +74,13 @@
                 {
                     "id": 1,
                     "name": "Hard Clip",
-                    "digest": "Anti-aliased hard clipping output"
+                    "digest": "Antialiased hard clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a hard clip function",
+            "digest": "Second order antiderivative antialiasing of a hard clip function",
             "name": "hardclipAdaa2",
             "inputs": [
                 {
@@ -94,7 +94,7 @@
                 {
                     "id": 1,
                     "name": "Hard Clip",
-                    "digest": "Anti-aliased hard clipping output"
+                    "digest": "Antialiased hard clipping output"
                 }
             ]
         },
@@ -160,7 +160,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a half rectified sine function",
+            "digest": "First order antiderivative antialiasing of a half rectified sine function",
             "name": "halfrectAdaa1",
             "inputs": [
                 {
@@ -174,13 +174,13 @@
                 {
                     "id": 1,
                     "name": "Rectified",
-                    "digest": "Anti-aliased rectified output"
+                    "digest": "Antialiased rectified output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a half rectified sine function",
+            "digest": "Second order antiderivative antialiasing of a half rectified sine function",
             "name": "halfrectAdaa2",
             "inputs": [
                 {
@@ -194,7 +194,7 @@
                 {
                     "id": 1,
                     "name": "Rectified",
-                    "digest": "Anti-aliased rectified output"
+                    "digest": "Antialiased rectified output"
                 }
             ]
         },
@@ -284,7 +284,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a power function",
+            "digest": "First order antiderivative antialiasing of a power function",
             "name": "powerAdaa1",
             "inputs": [
                 {
@@ -306,13 +306,13 @@
                 {
                     "id": 1,
                     "name": "Power output",
-                    "digest": "Anti-aliased power output"
+                    "digest": "Antialiased power output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a power function",
+            "digest": "Second order antiderivative antialiasing of a power function",
             "name": "powerAdaa2",
             "inputs": [
                 {
@@ -334,7 +334,7 @@
                 {
                     "id": 1,
                     "name": "Power output",
-                    "digest": "Anti-aliased power output"
+                    "digest": "Antialiased power output"
                 }
             ]
         },
@@ -400,7 +400,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a log1p() function",
+            "digest": "First order antiderivative antialiasing of a log1p() function",
             "name": "log1pAdaa1",
             "inputs": [
                 {
@@ -420,7 +420,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a log1p() function",
+            "digest": "Second order antiderivative antialiasing of a log1p() function",
             "name": "log1pAdaa2",
             "inputs": [
                 {
@@ -540,7 +540,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of an atan function",
+            "digest": "First order antiderivative antialiasing of an atan function",
             "name": "atanAdaa1",
             "inputs": [
                 {
@@ -566,7 +566,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of an atan function",
+            "digest": "Second order antiderivative antialiasing of an atan function",
             "name": "atanAdaa2",
             "inputs": [
                 {
@@ -652,7 +652,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of an algebraic tanh-like function",
+            "digest": "First order antiderivative antialiasing of an algebraic tanh-like function",
             "name": "algebraicAdaa1",
             "inputs": [
                 {
@@ -672,7 +672,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of an algebraic tanh-like function",
+            "digest": "Second order antiderivative antialiasing of an algebraic tanh-like function",
             "name": "algebraicAdaa2",
             "inputs": [
                 {
@@ -812,7 +812,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative antialiasing of an alternative tanh-like function",
+            "digest": "First order antiderivative antialiasing of an alternative tanh-like function",
             "name": "altTanhAdaa1",
             "inputs": [
                 {
@@ -838,7 +838,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of an alternative tanh-like function",
+            "digest": "Second order antiderivative antialiasing of an alternative tanh-like function",
             "name": "altTanhAdaa2",
             "inputs": [
                 {
@@ -932,7 +932,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a buzzy tanh-like function",
+            "digest": "First order antiderivative antialiasing of a buzzy tanh-like function",
             "name": "altTanhSqrtAdaa1",
             "inputs": [
                 {
@@ -952,7 +952,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a buzzy tanh-like function",
+            "digest": "Second order antiderivative antialiasing of a buzzy tanh-like function",
             "name": "altTanhSqrtAdaa2",
             "inputs": [
                 {
@@ -1032,7 +1032,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a polynomial tanh-like function",
+            "digest": "First order antiderivative antialiasing of a polynomial tanh-like function",
             "name": "foldPolyAdaa1",
             "inputs": [
                 {
@@ -1052,7 +1052,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a polynomial tanh-like function",
+            "digest": "Second order antiderivative antialiasing of a polynomial tanh-like function",
             "name": "foldPolyAdaa2",
             "inputs": [
                 {
@@ -1132,7 +1132,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a sine shaping function",
+            "digest": "First order antiderivative antialiasing of a sine shaping function",
             "name": "sinAdaa1",
             "inputs": [
                 {
@@ -1158,7 +1158,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a sine shaping function",
+            "digest": "Second order antiderivative antialiasing of a sine shaping function",
             "name": "sinAdaa2",
             "inputs": [
                 {
@@ -1244,7 +1244,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a classic nonlinear cubic function",
+            "digest": "First order antiderivative antialiasing of a classic nonlinear cubic function",
             "name": "eCubicAdaa1",
             "inputs": [
                 {
@@ -1264,7 +1264,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a classic nonlinear cubic function",
+            "digest": "Second order antiderivative antialiasing of a classic nonlinear cubic function",
             "name": "eCubicAdaa2",
             "inputs": [
                 {
@@ -1414,7 +1414,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a novel waveshaper function",
+            "digest": "First order antiderivative antialiasing of a novel waveshaper function",
             "name": "tarrabiaAdaa1",
             "inputs": [
                 {
@@ -1442,7 +1442,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a novel waveshaper function",
+            "digest": "Second order antiderivative antialiasing of a novel waveshaper function",
             "name": "tarrabiaAdaa2",
             "inputs": [
                 {
@@ -1544,7 +1544,7 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": "Anti-aliased clipping output"
+                    "digest": "Antialiased clipping output"
                 }
             ]
         },
@@ -1564,7 +1564,7 @@
                 {
                     "id": 1,
                     "name": "",
-                    "digest": "Anti-aliased clipping output"
+                    "digest": "Antialiased clipping output"
                 }
             ]
         },
@@ -1678,7 +1678,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
+            "digest": "First order antiderivative antialiasing of a variable soft clipping function",
             "name": "softclip2Adaa1",
             "inputs": [
                 {
@@ -1708,13 +1708,13 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "digest": "Antialiased soft clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
+            "digest": "Second order antiderivative antialiasing of a variable soft clipping function",
             "name": "softclip2Adaa2",
             "inputs": [
                 {
@@ -1744,7 +1744,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "digest": "Antialiased soft clipping output"
                 }
             ]
         },
@@ -1906,7 +1906,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of a variable soft clipping function",
+            "digest": "First order antiderivative antialiasing of a variable soft clipping function",
             "name": "softclipNAdaa1",
             "inputs": [
                 {
@@ -1952,13 +1952,13 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "digest": "Antialiased soft clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative anti-aliasing of a variable soft clipping function",
+            "digest": "Second order antiderivative antialiasing of a variable soft clipping function",
             "name": "softclipNAdaa2",
             "inputs": [
                 {
@@ -2004,7 +2004,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased soft clipping output"
+                    "digest": "Antialiased soft clipping output"
                 }
             ]
         },
@@ -2041,14 +2041,14 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "Anti-aliased form",
-                    "digest": "Computed anti-derivative"
+                    "name": "Antialiased form",
+                    "digest": "Computed antiderivative"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "First order anti-derivative anti-aliasing of the Lockhart wavefolder function",
+            "digest": "First order antiderivative antialiasing of the Lockhart wavefolder function",
             "name": "lockhartAA",
             "inputs": [
                 {
@@ -2070,7 +2070,7 @@
                 {
                     "id": 1,
                     "name": "Wavefolded output",
-                    "digest": "Anti-aliased wavefolded audio out"
+                    "digest": "Antialiased wavefolded audio out"
                 }
             ]
         }

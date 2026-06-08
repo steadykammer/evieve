@@ -38,7 +38,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Naive Reset",
-            "description": "Naive phase reset, not anti-aliased."
+            "description": "Naive phase reset, not antialiased."
         }
     ],
     "outlets": [
@@ -46,19 +46,19 @@
             "id": 1,
             "type": "signal",
             "digest": "SAW",
-            "description": "Anti-aliased Saw wave oscillator."
+            "description": "Antialiased Saw wave oscillator."
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "RECT",
-            "description": "Anti-aliased Rect wave oscillator."
+            "description": "Antialiased Rect wave oscillator."
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "TRI",
-            "description": "Anti-aliased Tri wave oscillator."
+            "description": "Antialiased Tri wave oscillator."
         },
         {
             "id": 4,

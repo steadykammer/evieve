@@ -123,7 +123,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 402.0, 325.0, 161.0, 40.0 ],
-                                    "text": "even very high pitches are anti-aliased",
+                                    "text": "even very high pitches are antialiased",
                                     "textjustification": 1
                                 }
                             },

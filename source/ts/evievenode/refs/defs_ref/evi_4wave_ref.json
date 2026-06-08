@@ -4,8 +4,8 @@
         "parent": "evi_4wave",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
-        "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Anti-aliasing method is 4-point polyblep.",
+        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Antialiasing method is 4-point polyblep.",
         "discussion": ""
     },
     "metadata": {
@@ -30,7 +30,7 @@
             "id": 2,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": "Reset is naive and not anti-aliased."
+            "description": "Reset is naive and not antialiased."
         }
     ],
     "outlets": [
@@ -38,25 +38,25 @@
             "id": 1,
             "type": "signal",
             "digest": "SAW",
-            "description": "Anti-aliased Saw oscillator in sync with other outputs"
+            "description": "Antialiased Saw oscillator in sync with other outputs"
         },
         {
             "id": 2,
             "type": "signal",
             "digest": "RECT",
-            "description": "Anti-aliased Rect oscillator in sync with other outputs"
+            "description": "Antialiased Rect oscillator in sync with other outputs"
         },
         {
             "id": 3,
             "type": "signal",
             "digest": "TRI",
-            "description": "Anti-aliased Tri oscillator in sync with other outputs"
+            "description": "Antialiased Tri oscillator in sync with other outputs"
         },
         {
             "id": 4,
             "type": "signal",
             "digest": "SINE",
-            "description": "Anti-aliased Sine oscillator in sync with other outputs, the sine is not pure and has an additional harmonic."
+            "description": "Antialiased Sine oscillator in sync with other outputs, the sine is not pure and has an additional harmonic."
         },
         {
             "id": 5,

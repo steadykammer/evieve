@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "An antialiased sine folding waveshaper",
-        "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation."
+        "description": "Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean antialiased saturation."
     },
     "constructor": {
         "inlets": "audio"
@@ -37,7 +37,7 @@
             "name": "aa",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "'aa' stands for 'Anti-Aliasing'. Select the type of anti-aliasing with this attribute. 0=1st order antiderivative, 1=1st order antiderivative 2x oversampled, 2=1st order antiderivative 4x oversampled (the default).",
+            "description": "'aa' stands for 'Anti Aliasing'. Select the type of antialiasing with this attribute. 0=1st order antiderivative, 1=1st order antiderivative 2x oversampled, 2=1st order antiderivative 4x oversampled (the default).",
             "default": {
                 "type": "int",
                 "value": "2"

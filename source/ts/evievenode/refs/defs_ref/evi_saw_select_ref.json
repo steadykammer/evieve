@@ -4,7 +4,7 @@
         "parent": "evi_saw_select",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Selection of anti-aliased saw-like oscillators",
+        "digest": "Selection of antialiased saw-like oscillators",
         "description": "A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators.",
         "discussion": ""
     },
@@ -36,7 +36,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Sync Phasor @default 0 @min 0 @max 1",
-            "description": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased."
+            "description": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be antialiased."
         }
     ],
     "outlets": [
@@ -66,7 +66,7 @@
             "get": 1,
             "type": "int",
             "digest": "Select 0, 1, 2",
-            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.",
+            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to antialiasing, e.g. restore brightness to the top end.",
             "default": {
                 "min": "0",
                 "max": "2",

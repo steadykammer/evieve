@@ -270,7 +270,7 @@
             "name": "feedbacknonlinear",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "The nonlinearity in the feedback path of the reverb. 0=Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
+            "description": "The nonlinearity in the feedback path of the reverb. 0=Adaa2 (2nd order antiderivative antialiasing) tanh-like saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "type": "int",
                 "value": "1"

@@ -292,7 +292,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative antialiasing of a tanh-like function",
+            "digest": "First order antiderivative antialiasing of a tanh-like function",
             "name": "tanhAdaa1",
             "inputs": [
                 {
@@ -318,7 +318,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative antialiasing of a tanh-like function",
+            "digest": "Second order antiderivative antialiasing of a tanh-like function",
             "name": "tanhAdaa2",
             "inputs": [
                 {

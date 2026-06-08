@@ -3,7 +3,7 @@
         "name": "evi.ringmod.diode~",
         "category": "evieve",
         "digest": "Analog-modelled diode-based ring modulator effect",
-        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound and is very different to <o>evi.ringmod~</o>.",
+        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean antialiasing, so not very efficient. But it has it's own interesting sound and is very different to <o>evi.ringmod~</o>.",
         "discussion": "@see: 'A Simple Digital Model of the Diode-based Ring-Modulator', DAFx-11, 2011, by Julian Parker."
     },
     "metadata": {

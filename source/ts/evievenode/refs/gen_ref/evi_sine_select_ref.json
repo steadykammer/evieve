@@ -3,7 +3,7 @@
         "name": "evi_sine_select",
         "child": "evi.sine.select~",
         "category": "evieve",
-        "digest": "Selection of anti-aliased sine-like oscillators",
+        "digest": "Selection of antialiased sine-like oscillators",
         "description": "A collection of sine-like oscillator shapes using a 2-point polyblep algorithm. Offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "constructor": {
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Phasor @default 0 @min 0 @max 1",
-            "digest": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased."
+            "digest": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be antialiased."
         }
     ],
     "outlets": [
@@ -59,7 +59,7 @@
             "name": "compensate",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.",
+            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to antialiasing, e.g. restore brightness to the top end.",
             "default": {
                 "type": "int",
                 "value": "1"

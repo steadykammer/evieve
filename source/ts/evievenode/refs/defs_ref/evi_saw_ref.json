@@ -4,8 +4,8 @@
         "parent": "evi_saw",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased saw wave oscillator",
-        "description": "Simple anti-aliased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation.",
+        "digest": "Antialiased saw wave oscillator",
+        "description": "Simple antialiased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation.",
         "discussion": "See <o>evi.4wave~</o> for a multi wave version which includes this oscillator and other shapes."
     },
     "metadata": {
@@ -31,7 +31,7 @@
             "id": 2,
             "type": "signal",
             "digest": "Reset (Naive)",
-            "description": "Oscillator phase reset, naive and not anti-aliased."
+            "description": "Oscillator phase reset, naive and not antialiased."
         }
     ],
     "outlets": [

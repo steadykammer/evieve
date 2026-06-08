@@ -13,7 +13,7 @@
          <br />
         evi_detune is also available in MSP as: <o>evi.detune~</o>. <br />
          <br />
-	    Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm. <br />
+	    Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Naive. Reset of internal detune phase is naive and not anti-aliased.
+                Naive. Reset of internal detune phase is naive and not antialiased.
             </digest>
         </geninlet>
     </geninletlist>

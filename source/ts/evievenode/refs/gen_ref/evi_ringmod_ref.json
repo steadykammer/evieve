@@ -3,7 +3,7 @@
         "name": "evi_ringmod",
         "child": "evi.ringmod~",
         "category": "evieve",
-        "digest": "Anti-aliased nonlinear ring modulator",
+        "digest": "Antialiased nonlinear ring modulator",
         "description": "A clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options."
     },
     "constructor": {

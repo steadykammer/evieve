@@ -6,7 +6,7 @@
 		Analog-modelled diode-based ring modulator effect <br />
 	</digest>
 	<description>
-		Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound and is very different to <o>evi.ringmod~</o>. <br />
+		Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean antialiasing, so not very efficient. But it has it's own interesting sound and is very different to <o>evi.ringmod~</o>. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

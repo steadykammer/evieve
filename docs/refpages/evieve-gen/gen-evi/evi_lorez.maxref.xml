@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='resonance' type='float' optional='1'>
             <digest>
-                0..1 @min 0 @max 2. Self oscillates at resonance&#x3D;&#x3D;1 but can take higher resonance with a little loss in anti-aliasing.
+                0..1 @min 0 @max 2. Self oscillates at resonance&#x3D;&#x3D;1 but can take higher resonance with a little loss in antialiasing.
             </digest>
         </geninlet>
     </geninletlist>

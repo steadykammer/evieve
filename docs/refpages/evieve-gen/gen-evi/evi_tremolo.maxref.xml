@@ -13,7 +13,7 @@
          <br />
         evi_tremolo is also available in MSP as: <o>evi.tremolo~</o>. <br />
          <br />
-	    An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage. <br />
+	    An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an antialiased saturation stage. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Naive. Reset of internal LFO phases is naive and not anti-aliased.
+                Naive. Reset of internal LFO phases is naive and not antialiased.
             </digest>
         </geninlet>
     </geninletlist>
@@ -68,7 +68,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.
+                0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain antialiased on output.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />

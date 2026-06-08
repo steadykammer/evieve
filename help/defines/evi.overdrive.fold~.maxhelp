@@ -1641,7 +1641,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 145.0, 327.0, 98.0 ],
-                                    "text": "All of these options are 'better' than the real tanh(), but they do not 'get better' the higher the option you choose. They are different. If you care most about the phase/delay, choose 0 or 3, if you care most about anti-aliasing, any of the other options are good.",
+                                    "text": "All of these options are 'better' than the real tanh(), but they do not 'get better' the higher the option you choose. They are different. If you care most about the phase/delay, choose 0 or 3, if you care most about antialiasing, any of the other options are good.",
                                     "textjustification": 1
                                 }
                             },

@@ -45,7 +45,7 @@
 				Inlet #3: Resonance 0..1 @min 0 @max 2
 			</digest>
 			<description>
-				Self oscillates at resonance&#x3D;&#x3D;1 but can take higher resonance with a little loss in anti-aliasing.
+				Self oscillates at resonance&#x3D;&#x3D;1 but can take higher resonance with a little loss in antialiasing.
 			</description>
 		</inlet>
 	</inletlist>

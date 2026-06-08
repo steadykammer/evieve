@@ -1,5 +1,5 @@
 {
-    "description": "A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for quasi oversampling.",
+    "description": "A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need antialiasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for antiderivative antialiasing and 'evi_saturators.genexpr' for quasi oversampling.",
     "requires": [],
     "functions": [
         {

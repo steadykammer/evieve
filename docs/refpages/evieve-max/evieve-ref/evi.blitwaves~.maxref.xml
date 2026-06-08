@@ -43,7 +43,7 @@
 				Inlet #3: Naive Reset
 			</digest>
 			<description>
-				Naive phase reset, not anti-aliased.
+				Naive phase reset, not antialiased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -54,7 +54,7 @@
 				Outlet #1: SAW
 			</digest>
 			<description>
-				Anti-aliased Saw wave oscillator.
+				Antialiased Saw wave oscillator.
 			</description>
 		</outlet>
 		<outlet id="2" type="signal">
@@ -62,7 +62,7 @@
 				Outlet #2: RECT
 			</digest>
 			<description>
-				Anti-aliased Rect wave oscillator.
+				Antialiased Rect wave oscillator.
 			</description>
 		</outlet>
 		<outlet id="3" type="signal">
@@ -70,7 +70,7 @@
 				Outlet #3: TRI
 			</digest>
 			<description>
-				Anti-aliased Tri wave oscillator.
+				Antialiased Tri wave oscillator.
 			</description>
 		</outlet>
 		<outlet id="4" type="signal">

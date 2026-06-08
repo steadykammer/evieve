@@ -1,5 +1,5 @@
 {
-    "description": "This file performs quasi resampling on all of the antiderivitive anti-aliasing saturators contained in 'evi_adaa.genexpr'. Usually adaa is enough for anti-aliasing, but sometimes it is useful to also resample the adaa for extreme use cases.",
+    "description": "This file performs quasi resampling on all of the antiderivitive antialiasing saturators contained in 'evi_adaa.genexpr'. Usually adaa is enough for antialiasing, but sometimes it is useful to also resample the adaa for extreme use cases.",
     "requires": [
         "evi_adaa.genexpr",
         "evi_interp.genexpr"
@@ -21,7 +21,7 @@
                 {
                     "id": 1,
                     "name": "Hard clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -41,7 +41,7 @@
                 {
                     "id": 1,
                     "name": "Hard clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -61,7 +61,7 @@
                 {
                     "id": 1,
                     "name": "Hard clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -81,7 +81,7 @@
                 {
                     "id": 1,
                     "name": "Hard clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -101,7 +101,7 @@
                 {
                     "id": 1,
                     "name": "Half Rectified Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -121,7 +121,7 @@
                 {
                     "id": 1,
                     "name": "Half Rectified Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -141,7 +141,7 @@
                 {
                     "id": 1,
                     "name": "Half Rectified Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -161,7 +161,7 @@
                 {
                     "id": 1,
                     "name": "Half Rectified Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -181,7 +181,7 @@
                 {
                     "id": 1,
                     "name": "Power",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -201,7 +201,7 @@
                 {
                     "id": 1,
                     "name": "Power",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -221,7 +221,7 @@
                 {
                     "id": 1,
                     "name": "Power",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -241,7 +241,7 @@
                 {
                     "id": 1,
                     "name": "Power",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -261,7 +261,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -281,7 +281,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -301,7 +301,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -321,7 +321,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -341,7 +341,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -361,7 +361,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -381,7 +381,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -401,7 +401,7 @@
                 {
                     "id": 1,
                     "name": "Soft Clip",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -427,7 +427,7 @@
                 {
                     "id": 1,
                     "name": "Atan Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -453,7 +453,7 @@
                 {
                     "id": 1,
                     "name": "Atan Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -479,7 +479,7 @@
                 {
                     "id": 1,
                     "name": "Atan Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -505,7 +505,7 @@
                 {
                     "id": 1,
                     "name": "Atan Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -525,7 +525,7 @@
                 {
                     "id": 1,
                     "name": "Algebraic Clipping",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -545,7 +545,7 @@
                 {
                     "id": 1,
                     "name": "Algebraic Clipping",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -565,7 +565,7 @@
                 {
                     "id": 1,
                     "name": "Algebraic Clipping",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -585,7 +585,7 @@
                 {
                     "id": 1,
                     "name": "Algebraic Clipping",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -605,7 +605,7 @@
                 {
                     "id": 1,
                     "name": "Log Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -625,7 +625,7 @@
                 {
                     "id": 1,
                     "name": "Log Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -645,7 +645,7 @@
                 {
                     "id": 1,
                     "name": "Log Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -665,7 +665,7 @@
                 {
                     "id": 1,
                     "name": "Log Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -685,7 +685,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -705,7 +705,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -725,7 +725,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -745,7 +745,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -765,7 +765,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -785,7 +785,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -805,7 +805,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -825,7 +825,7 @@
                 {
                     "id": 1,
                     "name": "Tanh-like",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -845,7 +845,7 @@
                 {
                     "id": 1,
                     "name": "Fold",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -865,7 +865,7 @@
                 {
                     "id": 1,
                     "name": "Fold",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -885,7 +885,7 @@
                 {
                     "id": 1,
                     "name": "Fold",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -905,7 +905,7 @@
                 {
                     "id": 1,
                     "name": "Fold",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -925,7 +925,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -945,7 +945,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -965,7 +965,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -985,7 +985,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1013,7 +1013,7 @@
                 {
                     "id": 1,
                     "name": "Shaper",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1041,7 +1041,7 @@
                 {
                     "id": 1,
                     "name": "Shaper",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1069,7 +1069,7 @@
                 {
                     "id": 1,
                     "name": "Shaper",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1097,7 +1097,7 @@
                 {
                     "id": 1,
                     "name": "Shaper",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1123,7 +1123,7 @@
                 {
                     "id": 1,
                     "name": "Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1149,7 +1149,7 @@
                 {
                     "id": 1,
                     "name": "Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1175,7 +1175,7 @@
                 {
                     "id": 1,
                     "name": "Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1201,7 +1201,7 @@
                 {
                     "id": 1,
                     "name": "Sine",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1233,7 +1233,7 @@
                 {
                     "id": 1,
                     "name": "Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1265,7 +1265,7 @@
                 {
                     "id": 1,
                     "name": "Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1297,7 +1297,7 @@
                 {
                     "id": 1,
                     "name": "Saturation",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1361,7 +1361,7 @@
                 {
                     "id": 1,
                     "name": "Parabolic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1393,7 +1393,7 @@
                 {
                     "id": 1,
                     "name": "Parabolic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1433,7 +1433,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         },
@@ -1453,7 +1453,7 @@
                 {
                     "id": 1,
                     "name": "Cubic",
-                    "digest": "Anti-aliased audio output"
+                    "digest": "Antialiased audio output"
                 }
             ]
         }

@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "0..1 @min 0 @max 2",
-            "digest": "Self oscillates at resonance==1 but can take higher resonance with a little loss in anti-aliasing."
+            "digest": "Self oscillates at resonance==1 but can take higher resonance with a little loss in antialiasing."
         }
     ],
     "outlets": [

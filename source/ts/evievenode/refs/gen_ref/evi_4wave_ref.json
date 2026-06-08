@@ -3,8 +3,8 @@
         "name": "evi_4wave",
         "child": "evi.4wave~",
         "category": "evieve",
-        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
-        "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Anti-aliasing method is 4-point polyblep."
+        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Antialiasing method is 4-point polyblep."
     },
     "constructor": {
         "inlets": "frequency, reset"
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Naive",
-            "digest": "Reset is naive and not anti-aliased."
+            "digest": "Reset is naive and not antialiased."
         }
     ],
     "outlets": [
@@ -37,28 +37,28 @@
             "name": "saw",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Saw oscillator in sync with other outputs"
+            "digest": "Antialiased Saw oscillator in sync with other outputs"
         },
         {
             "id": 2,
             "name": "rect",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Rect oscillator in sync with other outputs"
+            "digest": "Antialiased Rect oscillator in sync with other outputs"
         },
         {
             "id": 3,
             "name": "tri",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Tri oscillator in sync with other outputs"
+            "digest": "Antialiased Tri oscillator in sync with other outputs"
         },
         {
             "id": 4,
             "name": "sine",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Sine oscillator in sync with other outputs, the sine is not pure and has an additional harmonic."
+            "digest": "Antialiased Sine oscillator in sync with other outputs, the sine is not pure and has an additional harmonic."
         },
         {
             "id": 5,

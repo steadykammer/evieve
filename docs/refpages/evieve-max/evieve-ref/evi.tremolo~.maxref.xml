@@ -9,7 +9,7 @@
 		<b>evi.tremolo~</b> is a 'max define' for the <o>evi_tremolo</o>.gendsp gen~ abstraction.
 		Because evi.tremolo~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage. <br />
+		An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an antialiased saturation stage. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -45,7 +45,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				Reset of internal LFO phases is naive and not anti-aliased.
+				Reset of internal LFO phases is naive and not antialiased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -124,7 +124,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.
+				0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain antialiased on output.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />

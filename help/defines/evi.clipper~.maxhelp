@@ -169,7 +169,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 87.0, 433.0, 300.0, 21.0 ],
-                                    "text": "^^ anti-aliased, saturated (and clipped) ^^",
+                                    "text": "^^ antialiased, saturated (and clipped) ^^",
                                     "textjustification": 1
                                 }
                             },
@@ -301,7 +301,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
+                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an antialiased way.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -569,7 +569,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 87.0, 433.0, 300.0, 21.0 ],
-                                    "text": "^^ anti-aliased, saturated (and clipped) ^^",
+                                    "text": "^^ antialiased, saturated (and clipped) ^^",
                                     "textjustification": 1
                                 }
                             },
@@ -701,7 +701,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an anti-aliased way.",
+                                    "text": "The point of evi.clipper~ is to cleanly clip your audio chain when you need it, but in an antialiased way.",
                                     "varname": "digest_comment"
                                 }
                             },

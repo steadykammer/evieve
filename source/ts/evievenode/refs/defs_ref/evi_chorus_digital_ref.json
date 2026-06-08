@@ -42,7 +42,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": "Reset of internal LFO phases is naive and not anti-aliased."
+            "description": "Reset of internal LFO phases is naive and not antialiased."
         }
     ],
     "outlets": [

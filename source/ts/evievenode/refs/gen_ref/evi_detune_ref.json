@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Naive",
-            "digest": "Reset of internal detune phase is naive and not anti-aliased."
+            "digest": "Reset of internal detune phase is naive and not antialiased."
         }
     ],
     "outlets": [

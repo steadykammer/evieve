@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
-        "description": "A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow.",
+        "description": "A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow.",
         "discussion": ""
     },
     "metadata": {
@@ -41,7 +41,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": "Reset of internal LFO phases is naive and not anti-aliased."
+            "description": "Reset of internal LFO phases is naive and not antialiased."
         }
     ],
     "outlets": [
@@ -101,7 +101,7 @@
             "get": 1,
             "type": "float",
             "digest": "In dB, -40..40",
-            "description": "Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an anti-aliased way.",
+            "description": "Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an antialiased way.",
             "default": {
                 "min": "-40",
                 "max": "40",

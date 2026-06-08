@@ -11,7 +11,7 @@
     By declaring <m>require("evi_waveshaping.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
         <br />
     <b>About this File</b>: <br />
-    A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need anti-aliasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for anti-derivative anti-aliasing and 'evi_saturators.genexpr' for quasi oversampling. <br />
+    A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need antialiasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for antiderivative antialiasing and 'evi_saturators.genexpr' for quasi oversampling. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="tanhLApprox ( )">

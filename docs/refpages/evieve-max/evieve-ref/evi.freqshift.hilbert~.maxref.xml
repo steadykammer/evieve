@@ -6,7 +6,7 @@
 		Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs <br />
 	</digest>
 	<description>
-		It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset. <br />
+		It sounds like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as antialiased saturation and automatic clickless phase reset. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -182,6 +182,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For a frequency shifter that does not require external coefficients see <o>evi.freqshift.weaver~</o>. <br />
 	</discussion>
 </c74object>

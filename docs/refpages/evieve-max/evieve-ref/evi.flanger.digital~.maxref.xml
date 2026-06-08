@@ -43,7 +43,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				Reset of internal LFO phases is naive and not anti-aliased.
+				Reset of internal LFO phases is naive and not antialiased.
 			</description>
 		</inlet>
 	</inletlist>
@@ -136,7 +136,7 @@
 				Linear gain -1..1
 			</digest>
 			<description>
-				The global feedback gain. The feedback path is safely saturated and anti-aliased.
+				The global feedback gain. The feedback path is safely saturated and antialiased.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="-0.5" />

@@ -4,8 +4,8 @@
         "parent": "evi_overdrive_wrap",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound.",
+        "digest": "Antialiased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven very hard and maintains stability and clean/dirty sound.",
         "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile."
     },
     "metadata": {
@@ -39,7 +39,7 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Atan(x) Output - anti-aliased for your audio not for Maths",
+            "digest": "Atan(x) Output - antialiased for your audio not for Maths",
             "description": "Overdriven audio output."
         },
         {
@@ -70,7 +70,7 @@
             "get": 1,
             "type": "int",
             "digest": "Select 0, 1, 2, 3, 4, 5",
-            "description": "The 'aa' ('Anti-Aliasing) method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
+            "description": "The 'aa' ('Anti Aliasing') method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
             "default": {
                 "min": "0",
                 "max": "5",
@@ -82,7 +82,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "The object provides a high frequency compensation 'decorelation' filter on its output for restoring the reduced high frequency response that can occur with this type of anti-aliasing, especially when utilising the oversampling options (as opposed to just using pure 'adaa'). Experiment with turning this on to improve high frequencies (default on).",
+            "description": "The object provides a high frequency compensation 'decorelation' filter on its output for restoring the reduced high frequency response that can occur with this type of antialiasing, especially when utilising the oversampling options (as opposed to just using pure 'adaa'). Experiment with turning this on to improve high frequencies (default on).",
             "default": {
                 "min": "0",
                 "max": "1",

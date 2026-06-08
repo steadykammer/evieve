@@ -2591,7 +2591,7 @@ function createMaxKeyCommands()
 			"genCodebox": {
 				"letterKey": "G",
 				"insertText": "gen.codebox~",
-				"instructText": "\"gen~ codebox object\""
+				"instructText": "\"gen~ codebox\""
 			},
 			"eviObject": {
 				"letterKey": "v",

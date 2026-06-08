@@ -37,7 +37,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Reset",
-            "digest": "Naive phase reset, not anti-aliased."
+            "digest": "Naive phase reset, not antialiased."
         }
     ],
     "outlets": [
@@ -46,21 +46,21 @@
             "name": "saw",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Saw wave oscillator."
+            "digest": "Antialiased Saw wave oscillator."
         },
         {
             "id": 2,
             "name": "rect",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Rect wave oscillator."
+            "digest": "Antialiased Rect wave oscillator."
         },
         {
             "id": 3,
             "name": "tri",
             "type": "float",
             "optional": 1,
-            "digest": "Anti-aliased Tri wave oscillator."
+            "digest": "Antialiased Tri wave oscillator."
         },
         {
             "id": 4,

@@ -524,7 +524,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 47.0, 45.0, 529.0, 36.0 ],
-                    "text": "All evieve saturators are built using 'anti-derivative antialiasing' techniques, offering excellent and sometimes-cheap antialiasing. Some also include oversampling options."
+                    "text": "All evieve saturators are built using 'antiderivative antialiasing' techniques, offering excellent and sometimes-cheap antialiasing. Some also include oversampling options."
                 }
             },
             {

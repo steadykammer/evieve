@@ -44,7 +44,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				Reset of internal LFO phases is naive and not anti-aliased.
+				Reset of internal LFO phases is naive and not antialiased.
 			</description>
 		</inlet>
 	</inletlist>

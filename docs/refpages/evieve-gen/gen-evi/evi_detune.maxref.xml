@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Naive. Reset of internal detune phase is naive and not anti-aliased.
+                Naive. Reset of internal detune phase is naive and not antialiased.
             </digest>
         </geninlet>
     </geninletlist>

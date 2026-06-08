@@ -1,8 +1,8 @@
 {
     "evi.4wave~": {
         "type": "define",
-        "digest": "Anti-aliased Saw, Rect, Tri and Sine simultaneous oscillators",
-        "description": "evi.4wave~ is a 'max define' for the evi_4wave.gendsp gen~ abstraction. Because evi.4wave~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nPhase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Anti-aliasing method is 4-point polyblep."
+        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "description": "evi.4wave~ is a 'max define' for the evi_4wave.gendsp gen~ abstraction. Because evi.4wave~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nPhase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Antialiasing method is 4-point polyblep."
     },
     "evi.adsr~": {
         "type": "abstraction",
@@ -22,7 +22,7 @@
     "evi.am~": {
         "type": "define",
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
-        "description": "evi.am~ is a 'max define' for the evi_am.gendsp gen~ abstraction. Because evi.am~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
+        "description": "evi.am~ is a 'max define' for the evi_am.gendsp gen~ abstraction. Because evi.am~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
     },
     "evi.arpnotch~": {
         "type": "define",
@@ -97,12 +97,12 @@
     "evi.clipasym~": {
         "type": "define",
         "digest": "Variable asymmetric clipping",
-        "description": "evi.clipasym~ is a 'max define' for the evi_clipasym.gendsp gen~ abstraction. Because evi.clipasym~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nVaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The anti-aliasing here is not as successful as in other evieve objects, so be careful not to drive it too hard."
+        "description": "evi.clipasym~ is a 'max define' for the evi_clipasym.gendsp gen~ abstraction. Because evi.clipasym~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nVaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The antialiasing here is not as successful as in other evieve objects, so be careful not to drive it too hard."
     },
     "evi.clipper~": {
         "type": "define",
-        "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": "evi.clipper~ is a 'max define' for the evi_clipper.gendsp gen~ abstraction. Because evi.clipper~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, evi.clipper~ should do a good job of protecting your precious audio."
+        "digest": "Antialiased clipping algorithms for your audio",
+        "description": "evi.clipper~ is a 'max define' for the evi_clipper.gendsp gen~ abstraction. Because evi.clipper~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of four antialiased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better antialiased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, evi.clipper~ should do a good job of protecting your precious audio."
     },
     "evi.comb~": {
         "type": "define",
@@ -152,7 +152,7 @@
     "evi.detune.wrap~": {
         "type": "define",
         "digest": "A quirky digital Detune effect with filtering and saturation",
-        "description": "evi.detune.wrap~ is a 'max define' for the evi_detune_wrap.gendsp gen~ abstraction. Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune.wrap~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See evi.detune~ for a much simpler and efficient version of this algorithm."
+        "description": "evi.detune.wrap~ is a 'max define' for the evi_detune_wrap.gendsp gen~ abstraction. Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune.wrap~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See evi.detune~ for a much simpler and efficient version of this algorithm."
     },
     "evi.detune~": {
         "type": "define",
@@ -297,7 +297,7 @@
     "evi.freqshift.hilbert~": {
         "type": "abstraction",
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs \n",
-        "description": "It sounds like MSP freqshift~ but with a different hilbert filter and additional features, such as anti-aliased saturation and automatic clickless phase reset."
+        "description": "It sounds like MSP freqshift~ but with a different hilbert filter and additional features, such as antialiased saturation and automatic clickless phase reset."
     },
     "evi.freqshift.weaver~": {
         "type": "define",
@@ -316,7 +316,7 @@
     },
     "evi.hardclip~": {
         "type": "define",
-        "digest": "Anti-aliased hard clipping function",
+        "digest": "Antialiased hard clipping function",
         "description": "evi.hardclip~ is a 'max define' for the evi_hardclip.gendsp gen~ abstraction. Because evi.hardclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTo be used whenever clamping of audio is required, evi.hardclip~ should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. evi.hardclip~ is the hard clipping section from the evi.clipper~ object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material."
     },
     "evi.hilbert~": {
@@ -366,8 +366,8 @@
     },
     "evi.limiterfast~": {
         "type": "define",
-        "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
-        "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
+        "digest": "A fast no-lookahead limiter with antialiased nonlinear clipping",
+        "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an antialiased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
     "evi.logahr~": {
         "type": "external",
@@ -421,12 +421,12 @@
     },
     "evi.morph.trap~": {
         "type": "define",
-        "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
+        "digest": "A selection of morphing trapezoidal antialiased oscillators",
         "description": "evi.morph.trap~ is a 'max define' for the evi_morph_trap.gendsp gen~ abstraction. Because evi.morph.trap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn oscillator with multiple optional shapes, each based around the same trapezoid wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.morph.tri~": {
         "type": "define",
-        "digest": "A selection of morphing triangular anti-aliased oscillators",
+        "digest": "A selection of morphing triangular antialiased oscillators",
         "description": "evi.morph.tri~ is a 'max define' for the evi_morph_tri.gendsp gen~ abstraction. Because evi.morph.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn oscillator with multiple optional shapes, each based around the same triangle wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.multimode~": {
@@ -446,18 +446,18 @@
     },
     "evi.overdrive.env~": {
         "type": "define",
-        "digest": "Anti-aliased passive tanh-like input/output saturation with optional envelope follower",
-        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well anti-aliased. An optional envelope follower allows for dynamic saturation."
+        "digest": "Antialiased passive tanh-like input/output saturation with optional envelope follower",
+        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation."
     },
     "evi.overdrive.fold~": {
         "type": "define",
-        "digest": "Anti-aliased tanh-based saturation, but folds it's input at high gain. Includes drive, input/output gain wrapping and filter shaping",
-        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative anti-aliasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+        "digest": "Antialiased tanh-based saturation, but folds it's input at high gain. Includes drive, input/output gain wrapping and filter shaping",
+        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative antialiasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
     },
     "evi.overdrive.wrap~": {
         "type": "define",
-        "digest": "Anti-aliased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various anti-aliasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
+        "digest": "Antialiased atan-based saturation with shape input to control overdrive and gain wrapping",
+        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
     },
     "evi.paf~": {
         "type": "define",
@@ -516,13 +516,13 @@
     },
     "evi.rect.select~": {
         "type": "define",
-        "digest": "Selection of anti-aliased square-like oscillators",
+        "digest": "Selection of antialiased square-like oscillators",
         "description": "evi.rect.select~ is a 'max define' for the evi_rect_select.gendsp gen~ abstraction. Because evi.rect.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of square-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.rect~": {
         "type": "define",
-        "digest": "Anti-aliased square wave oscillator with PWM",
-        "description": "evi.rect~ is a 'max define' for the evi_rect.gendsp gen~ abstraction. Because evi.rect~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
+        "digest": "Antialiased square wave oscillator with PWM",
+        "description": "evi.rect~ is a 'max define' for the evi_rect.gendsp gen~ abstraction. Because evi.rect~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple antialiased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.rectify~": {
         "type": "define",
@@ -537,22 +537,22 @@
     "evi.ringmod.diode~": {
         "type": "abstraction",
         "digest": "Analog-modelled diode-based ring modulator effect \n",
-        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean anti-aliasing, so not very efficient. But it has it's own interesting sound and is very different to evi.ringmod~."
+        "description": "Piece-wise approximation of a 4-diode ring modulator, naive implementation heavily oversampled for clean antialiasing, so not very efficient. But it has it's own interesting sound and is very different to evi.ringmod~."
     },
     "evi.ringmod~": {
         "type": "define",
-        "digest": "Anti-aliased nonlinear ring modulator",
+        "digest": "Antialiased nonlinear ring modulator",
         "description": "evi.ringmod~ is a 'max define' for the evi_ringmod.gendsp gen~ abstraction. Because evi.ringmod~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options."
     },
     "evi.saw.select~": {
         "type": "define",
-        "digest": "Selection of anti-aliased saw-like oscillators",
+        "digest": "Selection of antialiased saw-like oscillators",
         "description": "evi.saw.select~ is a 'max define' for the evi_saw_select.gendsp gen~ abstraction. Because evi.saw.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.saw~": {
         "type": "define",
-        "digest": "Anti-aliased saw wave oscillator",
-        "description": "evi.saw~ is a 'max define' for the evi_saw.gendsp gen~ abstraction. Because evi.saw~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
+        "digest": "Antialiased saw wave oscillator",
+        "description": "evi.saw~ is a 'max define' for the evi_saw.gendsp gen~ abstraction. Because evi.saw~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple antialiased saw wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.shaper~": {
         "type": "define",
@@ -561,13 +561,13 @@
     },
     "evi.sine.select~": {
         "type": "define",
-        "digest": "Selection of anti-aliased sine-like oscillators",
+        "digest": "Selection of antialiased sine-like oscillators",
         "description": "evi.sine.select~ is a 'max define' for the evi_sine_select.gendsp gen~ abstraction. Because evi.sine.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of sine-like oscillator shapes using a 2-point polyblep algorithm. Offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.sinfold~": {
         "type": "define",
         "digest": "An antialiased sine folding waveshaper",
-        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation."
+        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean antialiased saturation."
     },
     "evi.skfinputmix~": {
         "type": "define",
@@ -576,7 +576,7 @@
     },
     "evi.softclip~": {
         "type": "define",
-        "digest": "Anti-aliased soft clipping function",
+        "digest": "Antialiased soft clipping function",
         "description": "evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction. Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick all purpose and efficient soft clipper. evi.softclip~ does not have all the options of evi.hardclip~ or evi.clipper~. It aims to be an easy tanh~ replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function."
     },
     "evi.softstatic~": {
@@ -642,17 +642,17 @@
     "evi.tremolo~": {
         "type": "define",
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
-        "description": "evi.tremolo~ is a 'max define' for the evi_tremolo.gendsp gen~ abstraction. Because evi.tremolo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage."
+        "description": "evi.tremolo~ is a 'max define' for the evi_tremolo.gendsp gen~ abstraction. Because evi.tremolo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an antialiased saturation stage."
     },
     "evi.tri.select~": {
         "type": "define",
-        "digest": "Selection of anti-aliased triangle-like oscillators",
+        "digest": "Selection of antialiased triangle-like oscillators",
         "description": "evi.tri.select~ is a 'max define' for the evi_tri_select.gendsp gen~ abstraction. Because evi.tri.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of tri-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.tri~": {
         "type": "define",
-        "digest": "Anti-aliased triangle wave oscillator",
-        "description": "evi.tri~ is a 'max define' for the evi_tri.gendsp gen~ abstraction. Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple anti-aliased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
+        "digest": "Antialiased triangle wave oscillator",
+        "description": "evi.tri~ is a 'max define' for the evi_tri.gendsp gen~ abstraction. Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple antialiased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "evi.vactrol~": {
         "type": "external",
@@ -686,13 +686,13 @@
     },
     "evi.wavefolder.cascade~": {
         "type": "define",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": "evi.wavefolder.cascade~ is a 'max define' for the evi_wavefolder_cascade.gendsp gen~ abstraction. Because evi.wavefolder.cascade~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See evi.wavefolder~ for a fixed version with less options."
+        "digest": "Antialiased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
+        "description": "evi.wavefolder.cascade~ is a 'max define' for the evi_wavefolder_cascade.gendsp gen~ abstraction. Because evi.wavefolder.cascade~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See evi.wavefolder~ for a fixed version with less options."
     },
     "evi.wavefolder~": {
         "type": "define",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
-        "description": "evi.wavefolder~ is a 'max define' for the evi_wavefolder.gendsp gen~ abstraction. Because evi.wavefolder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.wavefolder.cascade~ for a version with more options."
+        "digest": "Antialiased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
+        "description": "evi.wavefolder~ is a 'max define' for the evi_wavefolder.gendsp gen~ abstraction. Because evi.wavefolder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.wavefolder.cascade~ for a version with more options."
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",

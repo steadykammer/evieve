@@ -281,7 +281,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                The nonlinearity in the feedback path of the reverb. 0&#x3D;Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
+                The nonlinearity in the feedback path of the reverb. 0&#x3D;Adaa2 (2nd order antiderivative antialiasing) tanh-like saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />

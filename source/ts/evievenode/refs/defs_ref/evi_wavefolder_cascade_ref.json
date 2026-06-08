@@ -4,8 +4,8 @@
         "parent": "evi_wavefolder_cascade",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
-        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative anti-aliasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.wavefolder~</o> for a fixed version with less options.",
+        "digest": "Antialiased wavefolder device for shaping oscillators, selectable up to a cascade of 16 folding sections",
+        "description": "An analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'cascade' version has a variable order cascade of up to 16 stages, with CPU management depending on stages requested. See <o>evi.wavefolder~</o> for a fixed version with less options.",
         "discussion": "Based on the paper: 'Virtual Analog Model of the Lockhart Wavefolder' by Fabian Esqueda, Henri Pontynen, Julian D. Parker, Stefan Bilbao, SMC, 2017."
     },
     "metadata": {

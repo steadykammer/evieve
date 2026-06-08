@@ -4,8 +4,8 @@
         "parent": "evi_limiterfast",
         "category": "evieve",
         "tilde": "~",
-        "digest": "A fast no-lookahead limiter with anti-aliased nonlinear clipping",
-        "description": "A very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an anti-aliased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet.",
+        "digest": "A fast no-lookahead limiter with antialiased nonlinear clipping",
+        "description": "A very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. <o>evi.limiterfast~</o> features an antialiased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet.",
         "discussion": ""
     },
     "metadata": {

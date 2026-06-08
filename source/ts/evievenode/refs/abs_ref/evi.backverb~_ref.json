@@ -135,7 +135,7 @@
             "get": 0,
             "type": "int",
             "digest": "Select 0, 1, 2",
-            "description": "The nonlinearity in the feedback path of the reverb. 0=Adaa2 (2nd order antiderivative anti-aliasing) tanh-like saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
+            "description": "The nonlinearity in the feedback path of the reverb. 0=Adaa2 (2nd order antiderivative antialiasing) tanh-like saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -223,7 +223,7 @@
             "get": 0,
             "type": "int",
             "digest": "Select 0, 1",
-            "description": "The cubic nonlinear shape at the end of the reverb chain. 0=Adaa1 (1st order antiderivative anti-aliasing), 1=Adaa2 (2nd order antiderivative anti-aliasing).",
+            "description": "The cubic nonlinear shape at the end of the reverb chain. 0=Adaa1 (1st order antiderivative antialiasing), 1=Adaa2 (2nd order antiderivative antialiasing).",
             "default": {
                 "get": 0,
                 "value": "1"

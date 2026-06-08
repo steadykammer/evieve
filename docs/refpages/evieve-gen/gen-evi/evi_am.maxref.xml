@@ -13,7 +13,7 @@
          <br />
         evi_am is also available in MSP as: <o>evi.am~</o>. <br />
          <br />
-	    A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is anti-aliased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow. <br />
+	    A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
             <digest>
-                Naive. Reset of internal LFO phases is naive and not anti-aliased.
+                Naive. Reset of internal LFO phases is naive and not antialiased.
             </digest>
         </geninlet>
     </geninletlist>
@@ -68,7 +68,7 @@
                 @min -40, @max 40
             </digest>
             <description>
-                Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an anti-aliased way.
+                Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an antialiased way.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

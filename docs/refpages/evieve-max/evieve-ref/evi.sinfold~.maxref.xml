@@ -9,7 +9,7 @@
 		<b>evi.sinfold~</b> is a 'max define' for the <o>evi_sinfold</o>.gendsp gen~ abstraction.
 		Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean anti-aliased saturation. <br />
+		Unlike other evieve waveshapers, <o>evi.sinfold~</o> focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean antialiased saturation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -53,7 +53,7 @@
 				Select 0, 1, 2
 			</digest>
 			<description>
-				&#x27;aa&#x27; stands for &#x27;Anti-Aliasing&#x27;. Select the type of anti-aliasing with this attribute. 0&#x3D;1st order antiderivative, 1&#x3D;1st order antiderivative 2x oversampled, 2&#x3D;1st order antiderivative 4x oversampled (the default).
+				&#x27;aa&#x27; stands for &#x27;Anti Aliasing&#x27;. Select the type of antialiasing with this attribute. 0&#x3D;1st order antiderivative, 1&#x3D;1st order antiderivative 2x oversampled, 2&#x3D;1st order antiderivative 4x oversampled (the default).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="2" />

@@ -20,7 +20,7 @@
   <misc name="GenExpr Functions">
     <entry name="adHc1 ( )">
       <description>
-        First order anti-derivative hard clip function <br />
+        First order antiderivative hard clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -31,7 +31,7 @@
     </entry>
     <entry name="adHc2 ( )">
       <description>
-        Second order anti-derivative hard clip function <br />
+        Second order antiderivative hard clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -42,7 +42,7 @@
     </entry>
     <entry name="adHc2_2x_6POINT ( )">
       <description>
-        Second order anti-derivative 2x oversampled hard clip function, 6-point interpolation <br />
+        Second order antiderivative 2x oversampled hard clip function, 6-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -53,7 +53,7 @@
     </entry>
     <entry name="adHc2_4x_6POINT ( )">
       <description>
-        Second order anti-derivative 4x oversampled hard clip function, 6-point interpolation <br />
+        Second order antiderivative 4x oversampled hard clip function, 6-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -64,7 +64,7 @@
     </entry>
     <entry name="adHc2_2x_4POINT ( )">
       <description>
-        Second order anti-derivative 2x oversampled hard clip function, 4-point interpolation <br />
+        Second order antiderivative 2x oversampled hard clip function, 4-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -75,7 +75,7 @@
     </entry>
     <entry name="adHc2_4x_4POINT ( )">
       <description>
-        Second order anti-derivative 4x oversampled hard clip function, 4-point interpolation <br />
+        Second order antiderivative 4x oversampled hard clip function, 4-point interpolation <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -183,7 +183,7 @@
     </entry>
     <entry name="adSc1 ( )">
       <description>
-        First order anti-derivative soft clip function <br />
+        First order antiderivative soft clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -194,7 +194,7 @@
     </entry>
     <entry name="adSc2 ( )">
       <description>
-        Second order anti-derivative soft clip function <br />
+        Second order antiderivative soft clip function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: OS, <i>External oversampling factor</i> <br />
@@ -206,7 +206,7 @@
     </entry>
     <entry name="adSc1_2x_6POINT ( )">
       <description>
-        First order anti-derivative soft clip function, 2x oversampling, 6-point ionterpolator <br />
+        First order antiderivative soft clip function, 2x oversampling, 6-point ionterpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -217,7 +217,7 @@
     </entry>
     <entry name="adSc2_2x_6POINT ( )">
       <description>
-        Second order anti-derivative soft clip function, 2x oversampling, 6-point interpolator <br />
+        Second order antiderivative soft clip function, 2x oversampling, 6-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -228,7 +228,7 @@
     </entry>
     <entry name="adSc2_4x_6POINT ( )">
       <description>
-        Second order anti-derivative soft clip function, 4x oversampling, 6-point interpolator <br />
+        Second order antiderivative soft clip function, 4x oversampling, 6-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -239,7 +239,7 @@
     </entry>
     <entry name="adSc2_2x_4POINT ( )">
       <description>
-        Second order anti-derivative soft clip function, 2x oversampling, 4-point interpolator <br />
+        Second order antiderivative soft clip function, 2x oversampling, 4-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />
@@ -250,7 +250,7 @@
     </entry>
     <entry name="adSc2_4x_4POINT ( )">
       <description>
-        Second order anti-derivative soft clip function, 4x oversampling, 4-point interpolator <br />
+        Second order antiderivative soft clip function, 4x oversampling, 4-point interpolator <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: XIN, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>Sample accurate reset state</i> <br />

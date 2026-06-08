@@ -4,8 +4,8 @@
         "parent": "evi_clipper",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": "A collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clipper~</o> should do a good job of protecting your precious audio.",
+        "digest": "Antialiased clipping algorithms for your audio",
+        "description": "A collection of four antialiased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better antialiased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clipper~</o> should do a good job of protecting your precious audio.",
         "discussion": "This object is for all those MSP users who use [<o>clip~</o>  -1. 1.] or [<o>tanh~</o>] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.clipper~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek."
     },
     "metadata": {

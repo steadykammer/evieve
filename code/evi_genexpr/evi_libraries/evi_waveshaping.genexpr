@@ -21,8 +21,8 @@
 //	//	//	a collection of memoryless nonlinearities for waveshaping etc.
 //	//	//	Note: this file is standalone and repeats some code from the evieve lib
 
-//	//	//	NOTE: all of these functions are naive and need anti-aliasing / resampling
-//	//	//	to be of any use. @see: "evi_adaa.genexpr" for antiderivative anti-aliasing,
+//	//	//	NOTE: all of these functions are naive and need antialiasing / resampling
+//	//	//	to be of any use. @see: "evi_adaa.genexpr" for antiderivative antialiasing,
 //	//	//	@see: "evi_saturators.genexpr" for other oversampling wrapping code
 
 //	//	//	Note: if there is something missing here from the 2012 original, it is because it was rubbish :-)

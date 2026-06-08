@@ -1,5 +1,5 @@
 
-// this is an anti-aliased function(x) for saturating your audio, not for Maths
+// this is an antialiased function(x) for saturating your audio, not for Maths
 
 require("evi_saturators.genexpr");
 require("evi_env.genexpr");

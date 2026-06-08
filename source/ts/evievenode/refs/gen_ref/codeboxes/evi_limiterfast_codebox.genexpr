@@ -8,7 +8,7 @@ require("evi_biquads_filters.genexpr");
 
 // release is in ms, knee is % 0..1
 // N.B. - there is no lookahead in this limiter, so we engage the crunch quite a lot,
-// the anti-aliased clipping system makes the crunch sound good
+// the antialiased clipping system makes the crunch sound good
 
 limiterFastStereo(xL, xR, release, knee, a0, a1, a2, b1, b2)
 {

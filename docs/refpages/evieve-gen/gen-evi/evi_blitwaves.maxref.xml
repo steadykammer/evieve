@@ -36,7 +36,7 @@
         </geninlet>
         <geninlet name='naive' type='float' optional='1'>
             <digest>
-                Reset. Naive phase reset, not anti-aliased.
+                Reset. Naive phase reset, not antialiased.
             </digest>
         </geninlet>
     </geninletlist>

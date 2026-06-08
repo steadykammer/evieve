@@ -67,7 +67,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative hard clip function",
+            "digest": "First order antiderivative hard clip function",
             "name": "adHc1",
             "inputs": [
                 {
@@ -93,7 +93,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative hard clip function",
+            "digest": "Second order antiderivative hard clip function",
             "name": "adHc2",
             "inputs": [
                 {
@@ -119,7 +119,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative 2x oversampled hard clip function, 6-point interpolation",
+            "digest": "Second order antiderivative 2x oversampled hard clip function, 6-point interpolation",
             "name": "adHc2_2x_6POINT",
             "inputs": [
                 {
@@ -145,7 +145,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative 4x oversampled hard clip function, 6-point interpolation",
+            "digest": "Second order antiderivative 4x oversampled hard clip function, 6-point interpolation",
             "name": "adHc2_4x_6POINT",
             "inputs": [
                 {
@@ -171,7 +171,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative 2x oversampled hard clip function, 4-point interpolation",
+            "digest": "Second order antiderivative 2x oversampled hard clip function, 4-point interpolation",
             "name": "adHc2_2x_4POINT",
             "inputs": [
                 {
@@ -197,7 +197,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative 4x oversampled hard clip function, 4-point interpolation",
+            "digest": "Second order antiderivative 4x oversampled hard clip function, 4-point interpolation",
             "name": "adHc2_4x_4POINT",
             "inputs": [
                 {
@@ -900,7 +900,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative soft clip function",
+            "digest": "First order antiderivative soft clip function",
             "name": "adSc1",
             "inputs": [
                 {
@@ -926,7 +926,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative soft clip function",
+            "digest": "Second order antiderivative soft clip function",
             "name": "adSc2",
             "inputs": [
                 {
@@ -958,7 +958,7 @@
         },
         {
             "document": true,
-            "digest": "First order anti-derivative soft clip function, 2x oversampling, 6-point ionterpolator",
+            "digest": "First order antiderivative soft clip function, 2x oversampling, 6-point ionterpolator",
             "name": "adSc1_2x_6POINT",
             "inputs": [
                 {
@@ -1010,7 +1010,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative soft clip function, 2x oversampling, 6-point interpolator",
+            "digest": "Second order antiderivative soft clip function, 2x oversampling, 6-point interpolator",
             "name": "adSc2_2x_6POINT",
             "inputs": [
                 {
@@ -1036,7 +1036,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative soft clip function, 4x oversampling, 6-point interpolator",
+            "digest": "Second order antiderivative soft clip function, 4x oversampling, 6-point interpolator",
             "name": "adSc2_4x_6POINT",
             "inputs": [
                 {
@@ -1062,7 +1062,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative soft clip function, 2x oversampling, 4-point interpolator",
+            "digest": "Second order antiderivative soft clip function, 2x oversampling, 4-point interpolator",
             "name": "adSc2_2x_4POINT",
             "inputs": [
                 {
@@ -1088,7 +1088,7 @@
         },
         {
             "document": true,
-            "digest": "Second order anti-derivative soft clip function, 4x oversampling, 4-point interpolator",
+            "digest": "Second order antiderivative soft clip function, 4x oversampling, 4-point interpolator",
             "name": "adSc2_4x_4POINT",
             "inputs": [
                 {

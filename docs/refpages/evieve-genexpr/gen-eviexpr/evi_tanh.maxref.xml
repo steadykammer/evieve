@@ -100,7 +100,7 @@
     </entry>
     <entry name="tanhAdaa1 ( )">
       <description>
-        First order anti-derivative antialiasing of a tanh-like function <br />
+        First order antiderivative antialiasing of a tanh-like function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />
@@ -111,7 +111,7 @@
     </entry>
     <entry name="tanhAdaa2 ( )">
       <description>
-        Second order anti-derivative antialiasing of a tanh-like function <br />
+        Second order antiderivative antialiasing of a tanh-like function <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: reset, <i>(Optional) reset state (on switching)</i> <br />

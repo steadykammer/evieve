@@ -8,7 +8,7 @@
 	that in Max is [poly~]. The best way to achieve the pure whistling resonance sound is
 	oversampling by 8 times when using the specific resampling filters of [poly~]. However,
     one can use this "evi_lpg_buchla.gendsp" without [poly~] oversampling in gen~ or GenExpr
-    alone and with reasonable quality anti-aliased sound using the "localResampling()" function
+    alone and with reasonable quality antialiased sound using the "localResampling()" function
     in this .gendsp code - it gets us very close to that VA Buchla resonance sound.
 */
 

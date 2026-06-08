@@ -9,7 +9,7 @@
 		<b>evi.detune.wrap~</b> is a 'max define' for the <o>evi_detune_wrap</o>.gendsp gen~ abstraction.
 		Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and anti-aliased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm. <br />
+		Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -43,7 +43,7 @@
 				Inlet #3: Reset Naive
 			</digest>
 			<description>
-				Reset of internal detune phase is naive and not anti-aliased.
+				Reset of internal detune phase is naive and not antialiased.
 			</description>
 		</inlet>
 	</inletlist>

@@ -57,7 +57,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 49.0, 807.0, 418.0, 22.0 ],
-                    "text": "out 1 Tanh(x)-based Saturation Out - anti-aliased for your audio not for Maths"
+                    "text": "out 1 Tanh(x)-based Saturation Out - antialiased for your audio not for Maths"
                 }
             },
             {
@@ -68,7 +68,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 161.0, 14.0, 365.0, 33.0 ],
-                    "text": "this is an anti-aliased tanh(x) approximation for saturating your audio, not for Maths, including pre / post gain & filtering stages",
+                    "text": "this is an antialiased tanh(x) approximation for saturating your audio, not for Maths, including pre / post gain & filtering stages",
                     "textjustification": 1
                 }
             }

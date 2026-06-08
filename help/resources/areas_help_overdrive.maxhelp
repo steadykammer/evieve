@@ -229,7 +229,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 55.0, 87.0, 463.0, 50.0 ],
-                    "text": "All evieve overdrives are built using 'anti-derivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
+                    "text": "All evieve overdrives are built using 'antiderivative antialiasing' techniques, offering excellent and cheap antialiasing, as well as optional oversampling and high frequency compensation. All are antialiased better than MSP [overdrive~]."
                 }
             },
             {

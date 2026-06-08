@@ -3,8 +3,8 @@
         "name": "evi_tri",
         "child": "evi.tri~",
         "category": "evieve",
-        "digest": "Anti-aliased triangle wave oscillator",
-        "description": "Simple anti-aliased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
+        "digest": "Antialiased triangle wave oscillator",
+        "description": "Simple antialiased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
     "constructor": {
         "inlets": "frequency, reset"
@@ -28,7 +28,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "(Naive)",
-            "digest": "Oscillator phase reset, naive and not anti-aliased."
+            "digest": "Oscillator phase reset, naive and not antialiased."
         }
     ],
     "outlets": [

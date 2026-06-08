@@ -27,7 +27,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// evi_softclip.gendsp by pete for evieve, cheap tanh()-like soft clipping, anti-aliased with a simple second-order Adaa\r\n\r\n// For more options, greater bandwidth and high-gain anti-aliasing, @see: \"evi_clipper.gendsp\" / [evi.clipper~] (more expensive).\r\n// For hard clipping only @see: \"evi_hardclip.gendsp\" / [evi.hardclip~].\r\n\r\n// see also: 'evi_adaa.genexpr'\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\nout1 = adSc2(in1, 1, 0);\r\n\r\n\r\n",
+                    "code": "\r\n// evi_softclip.gendsp by pete for evieve, cheap tanh()-like soft clipping, antialiased with a simple second-order Adaa\r\n\r\n// For more options, greater bandwidth and high-gain antialiasing, @see: \"evi_clipper.gendsp\" / [evi.clipper~] (more expensive).\r\n// For hard clipping only @see: \"evi_hardclip.gendsp\" / [evi.hardclip~].\r\n\r\n// see also: 'evi_adaa.genexpr'\r\nrequire(\"evi_clipping.genexpr\");\r\n\r\nout1 = adSc2(in1, 1, 0);\r\n\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

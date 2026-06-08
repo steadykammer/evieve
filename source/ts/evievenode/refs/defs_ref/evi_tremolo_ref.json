@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",
-        "description": "An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an anti-aliased saturation stage.",
+        "description": "An example of a tremolo using evieve primitives. Variable control of LFOs for interesting modulation. The tremolo amplitude can be driven well above unity gain into an antialiased saturation stage.",
         "discussion": ""
     },
     "metadata": {
@@ -42,7 +42,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Reset Naive",
-            "description": "Reset of internal LFO phases is naive and not anti-aliased."
+            "description": "Reset of internal LFO phases is naive and not antialiased."
         }
     ],
     "outlets": [
@@ -108,7 +108,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain anti-aliased on output.",
+            "description": "0..1 equates to about 0..+10 dB drive gain into the saturation stage. evi.tremolo~ can be safely overdriven to modulation well above unity gain and remain antialiased on output.",
             "default": {
                 "min": "0",
                 "max": "1",

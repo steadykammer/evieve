@@ -39,7 +39,7 @@
             "id": 3,
             "type": "signal/float",
             "digest": "Resonance 0..1 @min 0 @max 2",
-            "description": "Self oscillates at resonance==1 but can take higher resonance with a little loss in anti-aliasing."
+            "description": "Self oscillates at resonance==1 but can take higher resonance with a little loss in antialiasing."
         }
     ],
     "outlets": [

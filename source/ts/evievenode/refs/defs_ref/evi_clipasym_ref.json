@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Variable asymmetric clipping",
-        "description": "Vaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The anti-aliasing here is not as successful as in other evieve objects, so be careful not to drive it too hard.",
+        "description": "Vaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The antialiasing here is not as successful as in other evieve objects, so be careful not to drive it too hard.",
         "discussion": ""
     },
     "metadata": {

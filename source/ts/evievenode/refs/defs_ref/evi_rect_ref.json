@@ -4,8 +4,8 @@
         "parent": "evi_rect",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased square wave oscillator with PWM",
-        "description": "Simple anti-aliased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation.",
+        "digest": "Antialiased square wave oscillator with PWM",
+        "description": "Simple antialiased square wave oscillator with PWM, based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation.",
         "discussion": "See <o>evi.4wave~</o> for a multi wave version which includes this oscillator and other shapes."
     },
     "metadata": {
@@ -37,7 +37,7 @@
             "id": 3,
             "type": "signal",
             "digest": "Reset (Naive)",
-            "description": "Oscillator phase reset, naive and not anti-aliased."
+            "description": "Oscillator phase reset, naive and not antialiased."
         }
     ],
     "outlets": [

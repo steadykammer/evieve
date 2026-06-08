@@ -4,7 +4,7 @@
         "parent": "evi_ringmod",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Anti-aliased nonlinear ring modulator",
+        "digest": "Antialiased nonlinear ring modulator",
         "description": "A clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options.",
         "discussion": "The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in 'evi_ringmod_enhanced.genexpr' for more info."
     },

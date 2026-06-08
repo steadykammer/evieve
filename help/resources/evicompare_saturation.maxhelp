@@ -1060,7 +1060,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 232.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - First Order - 4x quasi Oversampled",
+                                    "text": "Antiderivative antialiasing - First Order - 4x quasi Oversampled",
                                     "textjustification": 2
                                 }
                             },
@@ -1071,7 +1071,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 207.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - First Order - 2x quasi Oversampled",
+                                    "text": "Antiderivative antialiasing - First Order - 2x quasi Oversampled",
                                     "textjustification": 2
                                 }
                             },
@@ -1082,7 +1082,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 307.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - Second Order - 4x quasi Oversampled",
+                                    "text": "Antiderivative antialiasing - Second Order - 4x quasi Oversampled",
                                     "textjustification": 2
                                 }
                             },
@@ -1093,7 +1093,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 257.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - Second Order",
+                                    "text": "Antiderivative antialiasing - Second Order",
                                     "textjustification": 2
                                 }
                             },
@@ -1104,7 +1104,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 157.0, 375.0, 20.0 ],
-                                    "text": "No anti-aliasing - just the naive function",
+                                    "text": "No antialiasing - just the naive function",
                                     "textjustification": 2
                                 }
                             },
@@ -1115,7 +1115,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 282.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - Second Order - 2x quasi Oversampled",
+                                    "text": "Antiderivative antialiasing - Second Order - 2x quasi Oversampled",
                                     "textjustification": 2
                                 }
                             },
@@ -1126,7 +1126,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 752.0, 182.0, 375.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - First Order",
+                                    "text": "Antiderivative antialiasing - First Order",
                                     "textjustification": 2
                                 }
                             },
@@ -1173,7 +1173,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 282.0, 257.0, 239.0, 20.0 ],
-                                    "text": "No anti-aliasing - just the naive function"
+                                    "text": "No antialiasing - just the naive function"
                                 }
                             },
                             {
@@ -1261,7 +1261,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 282.0, 307.0, 239.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - Second Order"
+                                    "text": "Antiderivative antialiasing - Second Order"
                                 }
                             },
                             {
@@ -1271,7 +1271,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 282.0, 282.0, 239.0, 20.0 ],
-                                    "text": "Antiderivative anti-aliasing - First Order"
+                                    "text": "Antiderivative antialiasing - First Order"
                                 }
                             },
                             {
@@ -5405,7 +5405,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 82.0, 641.0, 422.0, 47.0 ],
-                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
+                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no antialiasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
                                                 }
                                             },
                                             {
@@ -9841,7 +9841,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 1139.0, 235.0, 165.0, 114.0 ],
-                                    "text": "The [overdrive~] algorithm is a piece-wise curve and does not respond to antiderivative anti-aliasing, so the only sane way to make use of the native [overdrive~] object is to naively upsample the hell out of it..."
+                                    "text": "The [overdrive~] algorithm is a piece-wise curve and does not respond to antiderivative antialiasing, so the only sane way to make use of the native [overdrive~] object is to naively upsample the hell out of it..."
                                 }
                             },
                             {
@@ -19586,7 +19586,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 82.0, 641.0, 422.0, 47.0 ],
-                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no anti-aliasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
+                                                    "text": "This gain compensation wrapper around the atan() function makes a great non-linear shaper. Many thanks to Volker Böhm. But with no antialiasing it sounds like crap, which is why we have the [evi.overdrive.wrap~]."
                                                 }
                                             },
                                             {
@@ -21583,7 +21583,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 84.0 ],
-                                    "text": "'adaa' = 'anti-derivative anti-aliasing', which is a standard technique for antialiasing memoryless nonlinearities without having to oversample. In this tab we compare three different 2nd order adaa implementations against some naive versions. Listen and view back and forth between the naive and the adaa versions. Note that the adaa versions are much better, but do not get rid of the aliasing completely. The effectiveness of the antialiasing is variable between the different functions. evi.hardclip~ is particularly successful.",
+                                    "text": "'adaa' = 'antiderivative antialiasing', which is a standard technique for antialiasing memoryless nonlinearities without having to oversample. In this tab we compare three different 2nd order adaa implementations against some naive versions. Listen and view back and forth between the naive and the adaa versions. Note that the adaa versions are much better, but do not get rid of the aliasing completely. The effectiveness of the antialiasing is variable between the different functions. evi.hardclip~ is particularly successful.",
                                     "varname": "digest_comment"
                                 }
                             },

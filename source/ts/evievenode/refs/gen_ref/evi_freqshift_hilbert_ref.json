@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Time-domain Hilbert frequency shifter effect with three simultaneous sidebands outputs",
-        "description": "Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.freqshift.hilbert~</o> abstraction for an example. For a frequency shifter that does not require external coefficients see <o>evi_freqshift_weaver</o>.gendsp."
+        "description": "Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as antialiased saturation and automatic clickless phase reset. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.freqshift.hilbert~</o> abstraction for an example. For a frequency shifter that does not require external coefficients see <o>evi_freqshift_weaver</o>.gendsp."
     },
     "constructor": {
         "inlets": "audio, frequency, frequency, signal"

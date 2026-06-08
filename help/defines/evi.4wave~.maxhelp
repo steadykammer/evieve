@@ -451,7 +451,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "Bandlimited anti-aliased four point polyblep oscillators",
+                                    "text": "Bandlimited antialiased four point polyblep oscillators",
                                     "varname": "digest_comment"
                                 }
                             },

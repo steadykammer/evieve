@@ -3,8 +3,8 @@
         "name": "evi_clipper",
         "child": "evi.clipper~",
         "category": "evieve",
-        "digest": "Anti-aliased clipping algorithms for your audio",
-        "description": "A collection of four anti-aliased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better anti-aliased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clipper~</o> should do a good job of protecting your precious audio."
+        "digest": "Antialiased clipping algorithms for your audio",
+        "description": "A collection of four antialiased clipping algorithms: hard clip, soft clip, diode clip, asymmetric clip. Hard and soft are better antialiased and can take higher input gain before aliasing than the diode and asymmetric clippers. To be used whenever clamping of audio is required, <o>evi.clipper~</o> should do a good job of protecting your precious audio."
     },
     "constructor": {
         "inlets": "audio"

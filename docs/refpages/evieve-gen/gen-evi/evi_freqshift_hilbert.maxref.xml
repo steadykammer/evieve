@@ -11,7 +11,7 @@
         evi_freqshift_hilbert.gendsp requires the GenExpr file(s): <br />
         <o>evi_ssb</o>.genexpr <br />
          <br />
-	    Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as anti-aliased saturation. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.freqshift.hilbert~</o> abstraction for an example. For a frequency shifter that does not require external coefficients see <o>evi_freqshift_weaver</o>.gendsp. <br />
+	    Like MSP <o>freqshift~</o> but with a different hilbert filter and additional features, such as antialiased saturation and automatic clickless phase reset. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.freqshift.hilbert~</o> abstraction for an example. For a frequency shifter that does not require external coefficients see <o>evi_freqshift_weaver</o>.gendsp. <br />
     </description>
     <methodlist />
     <constructorlist>

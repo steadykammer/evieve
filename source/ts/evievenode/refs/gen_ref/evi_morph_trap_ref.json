@@ -3,7 +3,7 @@
         "name": "evi_morph_trap",
         "child": "evi.morph.trap~",
         "category": "evieve",
-        "digest": "A selection of morphing trapezoidal anti-aliased oscillators",
+        "digest": "A selection of morphing trapezoidal antialiased oscillators",
         "description": "An oscillator with multiple optional shapes, each based around the same trapezoid wave but each with different morphing capabilities. Each shape option is phase synchronous and can be sample accurately switched at 'Morph' == 0.5. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "constructor": {
@@ -36,7 +36,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Phasor @default 0 @min 0 @max 1",
-            "digest": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be anti-aliased."
+            "digest": "External sync for internal oscillator sync. Note this is not fully implemented yet and might not be antialiased."
         }
     ],
     "outlets": [
@@ -67,7 +67,7 @@
             "name": "compensate",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to anti-aliasing, e.g. restore brightness to the top end.",
+            "description": "High frequency (decorrelation) compensation filters, 0=off, 1=1st order, 2=2nd order. This can account for high frequency loss due to antialiasing, e.g. restore brightness to the top end.",
             "default": {
                 "type": "int",
                 "value": "1"
