@@ -888,7 +888,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -947,22 +947,22 @@
                                 "box": {
                                     "id": "obj-14",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 456.0, 281.0, 163.0, 23.0 ],
-                                    "text": "mc.sig~ @values 0.12 -0.7"
+                                    "patching_rect": [ 423.0, 281.0, 115.0, 23.0 ],
+                                    "text": "mcs.sig~ 0.12 -0.7"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-13",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 280.0, 281.0, 159.0, 23.0 ],
-                                    "text": "mc.sig~ @values 266. 59."
+                                    "patching_rect": [ 295.0, 281.0, 111.0, 23.0 ],
+                                    "text": "mcs.sig~ 266. 59."
                                 }
                             },
                             {

@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 146.0, 80.0, 392.0, 404.0 ],
+        "rect": [ 146.0, 80.0, 466.0, 404.0 ],
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
@@ -18,6 +18,17 @@
         "toolbars_unpinned_last_save": 7,
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 321.0, 116.0, 97.0, 22.0 ],
+                    "text": "routepass chans"
+                }
+            },
             {
                 "box": {
                     "fontname": "Arial",
@@ -35,7 +46,7 @@
                 "box": {
                     "comment": "(multichannelsignal) Audio Input",
                     "id": "obj-23",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -47,7 +58,7 @@
                 "box": {
                     "comment": "(multichannelsignal) DC-blocked Audio Output",
                     "id": "obj-29",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -69,12 +80,12 @@
                 "box": {
                     "comment": "(float) pole, 0.99..1, default 0.9997",
                     "id": "obj-14",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 309.0, 34.0, 30.0, 30.0 ]
+                    "patching_rect": [ 388.0, 34.0, 30.0, 30.0 ]
                 }
             },
             {
@@ -117,8 +128,8 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 171.0, 38.0, 112.0, 22.0 ],
-                    "text": "patcherargs 0.9997"
+                    "patching_rect": [ 171.0, 38.0, 169.0, 22.0 ],
+                    "text": "patcherargs 0.9997 @chans 2"
                 }
             },
             {
@@ -204,8 +215,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-10", 0 ],
-                    "midpoints": [ 318.5, 70.5, 180.5, 70.5 ],
+                    "destination": [ "obj-12", 0 ],
+                    "midpoints": [ 397.5, 105.8359375, 180.5, 105.8359375 ],
                     "source": [ "obj-14", 0 ]
                 }
             },
@@ -213,6 +224,13 @@
                 "patchline": {
                     "destination": [ "obj-50", 4 ],
                     "source": [ "obj-16", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-50", 0 ],
+                    "midpoints": [ 330.5, 151.41796875, 58.5, 151.41796875 ],
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
@@ -235,9 +253,14 @@
                     "destination": [ "obj-10", 0 ],
                     "source": [ "obj-9", 0 ]
                 }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "source": [ "obj-9", 1 ]
+                }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

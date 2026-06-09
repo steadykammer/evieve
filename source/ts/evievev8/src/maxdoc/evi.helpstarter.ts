@@ -204,7 +204,7 @@ function init() {
 				'@patching_position', 140.0, 336.0);
 
 			if (createDacForHelpfile) {
-				const ezdacObj = mctab.subpatcher().newdefault(140.0, 537.0, 'ezdac~');
+				const ezdacObj = mctab.subpatcher().newdefault(140.0, 537.0, 'mc.ezdac~');
 				ezdacObj.varname = 'mc_dac';
 				const ezdac = mctab.subpatcher().getnamed('mc_dac');
 				ezdac.message('local', 1);
@@ -278,7 +278,7 @@ function init() {
 				'@patching_position', 140.0, 336.0);
 
 			if (createDacForHelpfile) {
-				const ezdacObj = mcstab.subpatcher().newdefault(140.0, 537.0, 'ezdac~');
+				const ezdacObj = mcstab.subpatcher().newdefault(140.0, 537.0, 'mc.ezdac~');
 				ezdacObj.varname = 'mcs_dac';
 				const ezdac = mcstab.subpatcher().getnamed('mcs_dac');
 				ezdac.message('local', 1);
