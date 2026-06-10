@@ -91,7 +91,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// VOSIM-like oscillator (basic, mode 1)\r\n// jvkr / Gregory Taylor / Oli Larkin / stkr\r\n// @see also: \"evi_paf.gendsp\"\r\n\r\nsCtrl(p, x)\r\n{\r\n\tHistory swch(0);\r\n\tctrld = p ? x : swch;\r\n\tswch = ctrld;\r\n\treturn ctrld;\r\n}\r\n\r\nmCtrl(pf, x)\r\n{\r\n\tHistory mixd(0);\r\n\tctrld = mix(x, mixd, pf);\r\n\tmixd = ctrld;\r\n\treturn ctrld;\r\n}\r\n\r\ntanhA(x)\n{\n\tx2 = x * x;\n\ta = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1);\n}\r\n\r\nvoSim1(T, M, N, A, aA)  // todo: get rid of the pow()\r\n{\r\n    History vsdummy(0);\r\n\r\n\tfreq  = abs(maximum((1000 / ((T * N) + M)), 0));\r\n\tpf    = phasor(freq);\r\n\tp     = delta(pf) < 0;\r\n\tfcoef = clip((pf * (sCtrl(p, (M / T + N)))), 0, (sCtrl(p, (maximum(N, 0)))));\r\n\r\n\tvsosc = cycle(fract(fcoef), index=\"phase\");\r\n\tvsout = (0.5 - (vsosc * 0.5)) * ((pow(tanhA(mCtrl(pf, aA)), trunc(fcoef)) * mCtrl(pf, A)));\r\n\r\n\treturn dcblock(vsout), freq;\r\n}\r\n\r\n                //  T     M    N    A    ∂A\r\nout1, out2 = voSim1(in1, in2, in3, in4, in5);\r\n",
+                    "code": "\r\n// VOSIM-like oscillator (basic, mode 1)\r\n// jvkr / Gregory Taylor / Oli Larkin / stkr\r\n// This has since been put into the gen~ examples folder as 'gen~.vosim'\r\n// @see also: \"evi_paf.gendsp\"\r\n\r\nsCtrl(p, x)\r\n{\r\n\tHistory swch(0);\r\n\tctrld = p ? x : swch;\r\n\tswch = ctrld;\r\n\treturn ctrld;\r\n}\r\n\r\nmCtrl(pf, x)\r\n{\r\n\tHistory mixd(0);\r\n\tctrld = mix(x, mixd, pf);\r\n\tmixd = ctrld;\r\n\treturn ctrld;\r\n}\r\n\r\ntanhA(x)\n{\n\tx2 = x * x;\n\ta = (((x2 + 378) * x2 + 17325) * x2 + 135135) * x;\n\tb = ((28 * x2 + 3150) * x2 + 62370) * x2 + 135135;\n\treturn clamp((a / b), -1, 1);\n}\r\n\r\nvoSim1(T, M, N, A, aA)  // todo: get rid of the pow()\r\n{\r\n    History vsdummy(0);\r\n\r\n\tfreq  = abs(maximum((1000 / ((T * N) + M)), 0));\r\n\tpf    = phasor(freq);\r\n\tp     = delta(pf) < 0;\r\n\tfcoef = clip((pf * (sCtrl(p, (M / T + N)))), 0, (sCtrl(p, (maximum(N, 0)))));\r\n\r\n\tvsosc = cycle(fract(fcoef), index=\"phase\");\r\n\tvsout = (0.5 - (vsosc * 0.5)) * ((pow(tanhA(mCtrl(pf, aA)), trunc(fcoef)) * mCtrl(pf, A)));\r\n\r\n\treturn dcblock(vsout), freq;\r\n}\r\n\r\n                //  T     M    N    A    ∂A\r\nout1, out2 = voSim1(in1, in2, in3, in4, in5);\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -160,6 +160,7 @@
                     "source": [ "obj-6", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }

@@ -269,7 +269,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-30",
@@ -777,7 +777,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-18",
@@ -2213,6 +2213,21 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.25,
+                                    "bubbleside": 2,
+                                    "id": "obj-3",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 619.0, 509.0, 138.0, 69.0 ],
+                                    "text": "Compares the current filter with similar evieve filters",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "background": 1,
