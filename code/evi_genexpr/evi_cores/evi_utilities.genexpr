@@ -87,6 +87,14 @@ eviCopysign(y, x) // <<-- HA HA !!
   return (x >= 0) ? y : -y;
 }
 
+runningMax(current, reset)
+{
+    History prev(0);
+    thisMax = (current >= prev) ? current : prev;
+    prev = thisMax * (1 - reset);
+    return thisMax;
+}
+
 getMax(xL, xR)
 {
 	return maximum(abs(xL), abs(xR));

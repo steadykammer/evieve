@@ -2122,7 +2122,7 @@
                                     "format": 6,
                                     "id": "obj-17",
                                     "maxclass": "flonum",
-                                    "maximum": 7.0,
+                                    "maximum": 1.66,
                                     "minimum": 0.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
@@ -2131,10 +2131,10 @@
                                     "patching_rect": [ 155.0, 179.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1.47 ],
+                                            "parameter_initial": [ 0.47 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[5]",
-                                            "parameter_mmax": 7.0,
+                                            "parameter_mmax": 1.66,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "number[5]",
                                             "parameter_type": 0

@@ -21,6 +21,42 @@
         "boxes": [
             {
                 "box": {
+                    "hidden": 1,
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "mc" ],
+                    "patching_rect": [ 543.0, 165.0, 33.0, 23.0 ],
+                    "text": "t mc"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-15",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 543.0, 205.0, 129.0, 23.0 ],
+                    "text": "prepend setactivetab"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-34",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 543.0, 125.0, 127.0, 23.0 ],
+                    "text": "r from_mceviwarmer"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -3001,8 +3037,29 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-15", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-15", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-8", 0 ],
                     "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-34", 0 ]
                 }
             },
             {

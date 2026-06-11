@@ -5,3 +5,9 @@ max objectfile mc.{{{@key}}} mc.wrapper~ {{@key}} mc;
 {{/if}}
 {{/if}}
 {{/each}}
+
+{{#each evi_gendsp}}
+{{#if define.mcwrapper}}
+max objectfile mc.{{{define.msp}}} mc.wrapper~ {{define.msp}} mc;
+{{/if}}
+{{/each}}

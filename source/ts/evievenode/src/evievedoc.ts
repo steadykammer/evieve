@@ -264,8 +264,8 @@ max.addHandler('make_gendsp_defines', () => {
 	// manuallyCreateGendspDefines();
 })
 
-max.addHandler('make_object_mappings', () => {
-	createMxoObjectmappings();
+max.addHandler('make_object_mappings', (gendsp = true) => {
+	createMxoObjectmappings(gendsp);
 	// manuallyCreateMxoObjectmappings();
 })
 
@@ -2544,11 +2544,21 @@ function manuallyCreateGendspDefines() {
 	writer.end();
 }
 */
-function createMxoObjectmappings() {
+
+function createMxoObjectmappings(includeDefines = true) {
 	let refDir = `${cwd()}/${config.initFiles.defines.output}`;
 
-	renderFromTemplate('../templates/objectmappings.handlebars', mxo, `${refDir}/evieve-objectmappings.txt`);
+	if (includeDefines) {
+		// gendsp is for mc tab route to the helpfile, not for the mc.wrapper
+		// mxo actually does the mappings to the mc.wrapper for the externals (as well as helpfiles)
+		const mappingsInputMerge = Object.assign(mxo, gendsp);
+		renderFromTemplate('../templates/objectmappings.handlebars', mappingsInputMerge, `${refDir}/evieve-objectmappings.txt`);
+	}
+	else {
+		renderFromTemplate('../templates/objectmappings.handlebars', mxo, `${refDir}/evieve-objectmappings.txt`);
+	}
 }
+
 /*
 // because pete is shit at handlebars
 function manuallyCreateMxoObjectmappings() {
