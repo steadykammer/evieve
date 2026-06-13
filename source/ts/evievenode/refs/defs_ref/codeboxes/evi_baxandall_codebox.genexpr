@@ -2,7 +2,9 @@
 // cheap Df2-based classic "Baxandall" (treble/bass 'tone') EQ with optional smoothing.
 // mono or stereo.
 
-// a bit like the airwindows Baxandall, MIT licensed.
+// a bit like the airwindows Baxandall, MIT licensed. Note, in the original code there
+// is a problem at nyquist with high bass gain, this code mitigates that at the expense
+// of slightly different high frequency response.
 
 require("evi_smooth.genexpr");
 
@@ -46,18 +48,18 @@ Param	stereo(0, min=0, max=1);    // 0/1
 DBLIN	= 0.11512925464970228;
 INVSR   = 1 / samplerate;
 smsecs  = 0.015111;                 // seconds
-tMul    = samplerate * 0.1;         // 4800
-bMul    = tMul + tMul;
+tMul    = 4800;//samplerate * 0.1;
+bMul    = 9600;//tMul + tMul;
 
 smoothOp        = int(smooth);
 stereoOp		= int(stereo);
 
 // controls
 
-trebleGain	= expA(DBLIN * treble);		// smooth here
+trebleGain	= expA(DBLIN * treble);
 trebleFreq	= minimum((tMul * trebleGain) * INVSR, 0.45);
 
-gainBass	= bass;						// smooth here
+gainBass	= bass;
 bassGain	= expA(DBLIN * gainBass);
 bassFreq	= expA(DBLIN * -gainBass);
 bassFreq	= minimum((bMul * bassFreq) * INVSR, 0.45);

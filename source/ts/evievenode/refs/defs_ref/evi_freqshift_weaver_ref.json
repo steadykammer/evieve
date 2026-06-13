@@ -29,7 +29,7 @@
         {
             "id": 2,
             "type": "signal/float/int",
-            "digest": "(use freqsmooth attr) Frequency Shift in ± Hz",
+            "digest": "Frequency Shift in ± Hz (use freqsmooth attr)",
             "description": "The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute."
         },
         {

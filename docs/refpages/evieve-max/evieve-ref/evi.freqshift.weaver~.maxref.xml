@@ -32,7 +32,7 @@
 		</inlet>
 		<inlet id="2" type="signal/float/int">
 			<digest>
-				Inlet #2: (use freqsmooth attr) Frequency Shift in ± Hz
+				Inlet #2: Frequency Shift in ± Hz (use freqsmooth attr)
 			</digest>
 			<description>
 				The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute.

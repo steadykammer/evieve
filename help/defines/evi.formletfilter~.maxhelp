@@ -2097,6 +2097,30 @@
                             {
                                 "box": {
                                     "hidden": 1,
+                                    "id": "obj-5",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 561.0, 422.0, 116.0, 23.0 ],
+                                    "text": "mc.sig~ @chans 5"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-16",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 561.0, 382.0, 190.0, 23.0 ],
+                                    "text": "loadmess spreadexclusive 0. 1."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
                                     "id": "obj-20",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -2828,6 +2852,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-15", 0 ],
                                     "source": [ "obj-17", 0 ]
                                 }
@@ -2922,6 +2953,14 @@
                                 "patchline": {
                                     "destination": [ "obj-19", 0 ],
                                     "source": [ "obj-49", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 1 ],
+                                    "hidden": 1,
+                                    "midpoints": [ 570.5, 449.796875, 296.5, 449.796875 ],
+                                    "source": [ "obj-5", 0 ]
                                 }
                             },
                             {

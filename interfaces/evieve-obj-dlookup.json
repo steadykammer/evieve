@@ -677,7 +677,7 @@
     "evi.vosim.basic~": {
         "type": "define",
         "digest": "A basic implementation of a 'vosim' formant oscillator",
-        "description": "evi.vosim.basic~ is a 'max define' for the evi_vosim_basic.gendsp gen~ abstraction. Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single evi.vosim.basic~ instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited."
+        "description": "evi.vosim.basic~ is a 'max define' for the evi_vosim_basic.gendsp gen~ abstraction. Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single evi.vosim.basic~ instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. This has since been put into the gen~ examples folder as 'gen~.vosim'."
     },
     "evi.warmer~": {
         "type": "abstraction",

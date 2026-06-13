@@ -10,7 +10,7 @@
                  <br />
         evi_vosim_basic is also available in MSP as: <o>evi.vosim.basic~</o>. <br />
          <br />
-	    This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single <o>evi.vosim.basic~</o> instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. <br />
+	    This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single <o>evi.vosim.basic~</o> instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. This has since been put into the gen~ examples folder as 'gen~.vosim'. <br />
     </description>
     <methodlist />
     <constructorlist>

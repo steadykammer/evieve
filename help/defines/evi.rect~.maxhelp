@@ -682,7 +682,7 @@
                                             "parameter_initial": [ 1000.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[5]",
-                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmax": 10000.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Frequency",
@@ -762,7 +762,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 49.0, 346.0, 84.0, 55.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Raw Osc / Filtered",
                                     "textjustification": 1
                                 }
@@ -848,7 +847,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 307.0, 128.0, 63.0, 25.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "Pitch",
                                     "textjustification": 1
                                 }

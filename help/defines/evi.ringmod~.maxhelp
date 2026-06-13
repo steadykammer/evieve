@@ -1396,6 +1396,30 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-11",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 376.0, 225.0, 116.0, 23.0 ],
+                                    "text": "mc.sig~ @chans 8"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-18",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 376.0, 185.0, 190.0, 23.0 ],
+                                    "text": "loadmess spreadexclusive 0. 1."
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-44",
                                     "maxclass": "meter~",
                                     "numinlets": 1,
@@ -1991,6 +2015,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-20", 1 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-33", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-12", 0 ]
@@ -2020,6 +2051,13 @@
                                     "destination": [ "obj-5", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-18", 0 ]
                                 }
                             },
                             {

@@ -70,6 +70,15 @@
 
       </description>
     </entry>
+    <entry name="runningMax ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: current, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="getMax ( )">
       <description>
         Return absolute maximum of left and right audio inputs <br />

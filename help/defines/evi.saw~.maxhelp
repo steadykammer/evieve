@@ -616,7 +616,7 @@
                                             "parameter_initial": [ 1000.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[5]",
-                                            "parameter_mmax": 20000.0,
+                                            "parameter_mmax": 10000.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Frequency",

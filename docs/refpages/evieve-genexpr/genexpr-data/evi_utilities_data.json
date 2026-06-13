@@ -164,6 +164,32 @@
         },
         {
             "document": true,
+            "digest": "",
+            "name": "runningMax",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "current",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Return absolute maximum of left and right audio inputs",
             "name": "getMax",
             "inputs": [

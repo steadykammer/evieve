@@ -1,6 +1,7 @@
 
 // VOSIM-like oscillator (basic, mode 1)
 // jvkr / Gregory Taylor / Oli Larkin / stkr
+// This has since been put into the gen~ examples folder as 'gen~.vosim'
 // @see also: "evi_paf.gendsp"
 
 sCtrl(p, x)
@@ -11,7 +12,7 @@ sCtrl(p, x)
 	return ctrld;
 }
 
-mCtrl(pf, x)
+mCtrl(pf, x) // todo: get rid of this silly function
 {
 	History mixd(0);
 	ctrld = mix(x, mixd, pf);

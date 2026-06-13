@@ -7,7 +7,7 @@
         "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
     },
     "constructor": {
-        "inlets": "audio, (use, frequency, reset"
+        "inlets": "audio, frequency, frequency, reset"
     },
     "includes": [
         "evi_ssb"
@@ -23,10 +23,10 @@
         },
         {
             "id": 2,
-            "name": "(use",
+            "name": "frequency",
             "type": "float",
             "optional": 1,
-            "digestauto": "freqsmooth attr) Frequency Shift in ± Hz",
+            "digestauto": "Shift in ± Hz (use freqsmooth attr)",
             "digest": "The main control, frequency shift in Hz +/- 0. Can be optionally smoothed with the @freqsmooth attribute."
         },
         {

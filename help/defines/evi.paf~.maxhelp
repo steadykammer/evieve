@@ -2950,7 +2950,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 570.0, 436.0, 207.0, 25.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "View the 5 different harmonics",
                                     "textjustification": 1
                                 }
@@ -5751,6 +5750,30 @@
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 496.0, 198.0, 116.0, 23.0 ],
+                                    "text": "mc.sig~ @chans 8"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-13",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 496.0, 158.0, 190.0, 23.0 ],
+                                    "text": "loadmess spreadexclusive 0. 1."
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 4,
@@ -5792,6 +5815,13 @@
                         "lines": [
                             {
                                 "patchline": {
+                                    "destination": [ "obj-3", 1 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-58", 0 ],
                                     "source": [ "obj-10", 0 ]
                                 }
@@ -5826,6 +5856,13 @@
                                     "destination": [ "obj-3", 0 ],
                                     "order": 2,
                                     "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-13", 0 ]
                                 }
                             },
                             {
