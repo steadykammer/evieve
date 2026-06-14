@@ -1208,6 +1208,44 @@
                             {
                                 "box": {
                                     "hidden": 1,
+                                    "id": "obj-31",
+                                    "maxclass": "number",
+                                    "maximum": 512,
+                                    "minimum": 2,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 63.0, 365.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 512.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[13]",
+                                            "parameter_mmax": 512.0,
+                                            "parameter_mmin": 2.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[13]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[3]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "calccount": 512,
+                                    "id": "obj-9",
+                                    "maxclass": "scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 63.0, 420.0, 53.0, 210.0 ],
+                                    "range": [ 110.0, 440.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -1630,6 +1668,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-12", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-20", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-20", 0 ]
                                 }
                             },
@@ -1655,6 +1701,13 @@
                                 "patchline": {
                                     "destination": [ "obj-8", 0 ],
                                     "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-31", 0 ]
                                 }
                             },
                             {
@@ -3073,6 +3126,7 @@
             "obj-2::obj-17": [ "number[1]", "number[1]", 0 ],
             "obj-2::obj-28": [ "radiogroup", "radiogroup", 0 ],
             "obj-9::obj-24": [ "number[11]", "number[4]", 0 ],
+            "obj-9::obj-31": [ "number[13]", "number[13]", 0 ],
             "obj-9::obj-45": [ "number[10]", "number[5]", 0 ],
             "parameterbanks": {
                 "0": {

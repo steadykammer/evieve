@@ -72,7 +72,7 @@ if (cfunits) {
 } else {
     cutoff  = in1;
 }
-cutoff  = maximum(cutoff, 1);
+cutoff  = maximum(cutoff, 10);
 
 out1, out2, out3, out4, out5    = eviBiquadCoeff(filt, cutoff, gain, Q);
 

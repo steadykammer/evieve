@@ -133,6 +133,7 @@ rectOscSelectOversample(phase, norm, width, gain, wave, over)
     return osc;
 }
 
+
 // rect osc types:
 // 0=rect, 1=trapezoid, 2=squared, 3=rectpulse, 4=squarepulse, 5=traptri
 Param   oscillator(0, min=0, max=5);
@@ -170,7 +171,7 @@ a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... o
 
 ov			= latch(over,	oscsync);
 wv			= latch(wave,	oscsync);
-dcn			= latch(dci,	oscsync);
+dcn			= latch(dci,    oscsync);
 ft			= latch(filt,	oscsync);
 
 osc = 0;

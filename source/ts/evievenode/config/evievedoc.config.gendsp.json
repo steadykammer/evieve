@@ -2335,6 +2335,30 @@
                 "auto": true
             }
         },
+        "evi_line_reset.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": false,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "smooth"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_line.gendsp": {
             "define": {
                 "object": false,

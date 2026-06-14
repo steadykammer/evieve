@@ -227,7 +227,13 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 622.0, 373.0, 153.0, 23.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 20.0, 116.0, 511.0, 23.0 ]
+                    "presentation_rect": [ 20.0, 116.0, 511.0, 23.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_selectioncolor"
+                        }
+                    },
+                    "textcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ]
                 }
             },
             {
@@ -239,7 +245,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 927, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 928, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },

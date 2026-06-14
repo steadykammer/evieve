@@ -73,7 +73,7 @@ if (cfunits) {
 } else {
     cutoff  = in2;
 }
-cutoff  = maximum(cutoff, 1);
+cutoff  = maximum(cutoff, 10);
 
 reset   = delta(change(filt)) < 0;
 a0, a1, a2, b1, b2  = eviBiquadCoeff(filt, cutoff, gain, Q);

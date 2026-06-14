@@ -777,86 +777,17 @@
                             }
                         ]
                     }
-                ],
-                [
-                    {
-                        "type": "VariableDeclaration",
-                        "kind": "let",
-                        "declarations": [
-                            {
-                                "type": "VariableDeclarator",
-                                "id": {
-                                    "type": "Identifier",
-                                    "name": "reset",
-                                    "raw": "reset"
-                                },
-                                "init": {
-                                    "type": "NewExpression",
-                                    "callee": {
-                                        "type": "Identifier",
-                                        "name": "History",
-                                        "raw": "History"
-                                    },
-                                    "arguments": [
-                                        {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
                 ]
             ],
             "body": {
                 "type": "BlockStatement",
                 "body": [
                     {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "y0",
-                                "raw": "y0"
-                            },
-                            "right": {
-                                "type": "Literal",
-                                "value": 0,
-                                "raw": "0",
-                                "gen_kind": "integer"
-                            }
-                        }
-                    },
-                    {
                         "type": "IfStatement",
                         "test": {
-                            "type": "BinaryExpression",
-                            "operator": ">",
-                            "left": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "reset",
-                                    "raw": "reset"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "r0",
-                                    "raw": "r0"
-                                }
-                            },
-                            "right": {
-                                "type": "Literal",
-                                "value": 0,
-                                "raw": "0",
-                                "gen_kind": "integer"
-                            }
+                            "type": "Identifier",
+                            "name": "r0",
+                            "raw": "r0"
                         },
                         "consequent": {
                             "type": "BlockStatement",
@@ -868,24 +799,6 @@
                                         "operator": "=",
                                         "left": {
                                             "type": "Identifier",
-                                            "name": "y0",
-                                            "raw": "y0"
-                                        },
-                                        "right": {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "ExpressionStatement",
-                                    "expression": {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
                                             "name": "x1",
                                             "raw": "x1"
                                         },
@@ -917,98 +830,60 @@
                                 }
                             ]
                         },
-                        "alternate": {
-                            "type": "BlockStatement",
-                            "body": [
-                                {
-                                    "type": "ExpressionStatement",
-                                    "expression": {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "y0",
-                                            "raw": "y0"
-                                        },
-                                        "right": {
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "x0",
+                                        "raw": "x0"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "x1",
+                                        "raw": "x1"
+                                    }
+                                },
+                                "right": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
                                             "type": "BinaryExpression",
-                                            "operator": "+",
+                                            "operator": "*",
                                             "left": {
-                                                "type": "BinaryExpression",
-                                                "operator": "-",
-                                                "left": {
-                                                    "type": "Identifier",
-                                                    "name": "x0",
-                                                    "raw": "x0"
-                                                },
-                                                "right": {
-                                                    "type": "Identifier",
-                                                    "name": "x1",
-                                                    "raw": "x1"
-                                                }
+                                                "type": "Identifier",
+                                                "name": "y1",
+                                                "raw": "y1"
                                             },
                                             "right": {
-                                                "type": "CallExpression",
-                                                "arguments": [
-                                                    {
-                                                        "type": "BinaryExpression",
-                                                        "operator": "*",
-                                                        "left": {
-                                                            "type": "Identifier",
-                                                            "name": "y1",
-                                                            "raw": "y1"
-                                                        },
-                                                        "right": {
-                                                            "type": "Identifier",
-                                                            "name": "a0",
-                                                            "raw": "a0"
-                                                        }
-                                                    }
-                                                ],
-                                                "callee": {
-                                                    "type": "Identifier",
-                                                    "name": "fixdenorm",
-                                                    "raw": "fixdenorm"
-                                                }
+                                                "type": "Identifier",
+                                                "name": "a0",
+                                                "raw": "a0"
                                             }
                                         }
-                                    }
-                                },
-                                {
-                                    "type": "ExpressionStatement",
-                                    "expression": {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "x1",
-                                            "raw": "x1"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "x0",
-                                            "raw": "x0"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "ExpressionStatement",
-                                    "expression": {
-                                        "type": "AssignmentExpression",
-                                        "operator": "=",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "y1",
-                                            "raw": "y1"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "y0",
-                                            "raw": "y0"
-                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "fixdenorm",
+                                        "raw": "fixdenorm"
                                     }
                                 }
-                            ]
+                            }
                         }
                     },
                     {
@@ -1018,23 +893,30 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "reset",
-                                "raw": "reset"
+                                "name": "x1",
+                                "raw": "x1"
                             },
                             "right": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Literal",
-                                    "value": 0,
-                                    "raw": "0",
-                                    "gen_kind": "integer"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "r0",
-                                    "raw": "r0"
-                                }
+                                "type": "Identifier",
+                                "name": "x0",
+                                "raw": "x0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
                             }
                         }
                     },
@@ -1091,8 +973,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "dddummy",
-                                    "raw": "dddummy"
+                                    "name": "dddtn",
+                                    "raw": "dddtn"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -1104,8 +986,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -1125,14 +1007,43 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "dyndc",
-                                "raw": "dyndc"
+                                "name": "rdcn",
+                                "raw": "rdcn"
                             },
                             "right": {
-                                "type": "Literal",
-                                "value": 1,
-                                "raw": "1",
-                                "gen_kind": "integer"
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "dcn",
+                                                    "raw": "dcn"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "change",
+                                                "raw": "change"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
                             }
                         }
                     },
@@ -1201,19 +1112,9 @@
                                                                 "gen_kind": "float"
                                                             },
                                                             {
-                                                                "type": "CallExpression",
-                                                                "arguments": [
-                                                                    {
-                                                                        "type": "Identifier",
-                                                                        "name": "dcn",
-                                                                        "raw": "dcn"
-                                                                    }
-                                                                ],
-                                                                "callee": {
-                                                                    "type": "Identifier",
-                                                                    "name": "change",
-                                                                    "raw": "change"
-                                                                }
+                                                                "type": "Identifier",
+                                                                "name": "rdcn",
+                                                                "raw": "rdcn"
                                                             }
                                                         ],
                                                         "callee": {
@@ -1510,28 +1411,12 @@
                                                                     "name": "dc2",
                                                                     "raw": "dc2"
                                                                 }
-                                                            },
-                                                            {
-                                                                "type": "CallExpression",
-                                                                "arguments": [
-                                                                    {
-                                                                        "type": "Literal",
-                                                                        "value": 15.111,
-                                                                        "raw": "15.111",
-                                                                        "gen_kind": "float"
-                                                                    }
-                                                                ],
-                                                                "callee": {
-                                                                    "type": "Identifier",
-                                                                    "name": "mstosamps",
-                                                                    "raw": "mstosamps"
-                                                                }
                                                             }
                                                         ],
                                                         "callee": {
                                                             "type": "Identifier",
-                                                            "name": "evi_line",
-                                                            "raw": "evi_line"
+                                                            "name": "fixdenorm",
+                                                            "raw": "fixdenorm"
                                                         }
                                                     }
                                                 }
@@ -1560,19 +1445,9 @@
                                                                 "raw": "dyndc"
                                                             },
                                                             {
-                                                                "type": "CallExpression",
-                                                                "arguments": [
-                                                                    {
-                                                                        "type": "Identifier",
-                                                                        "name": "dcn",
-                                                                        "raw": "dcn"
-                                                                    }
-                                                                ],
-                                                                "callee": {
-                                                                    "type": "Identifier",
-                                                                    "name": "change",
-                                                                    "raw": "change"
-                                                                }
+                                                                "type": "Identifier",
+                                                                "name": "rdcn",
+                                                                "raw": "rdcn"
                                                             }
                                                         ],
                                                         "callee": {

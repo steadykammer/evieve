@@ -62,8 +62,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 594.0, 19.0, 229.0, 22.0 ],
-                    "text": "in 3 (signal/float) Freeze 0/1/2 @default 0"
+                    "patching_rect": [ 578.0, 19.0, 245.0, 22.0 ],
+                    "text": "in 3 (signal/float/int) Freeze 0/1/2 @default 0"
                 }
             },
             {
@@ -185,7 +185,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
-                    "midpoints": [ 603.5, 48.5, 677.5, 48.5 ],
+                    "midpoints": [ 587.5, 48.5, 677.5, 48.5 ],
                     "source": [ "obj-5", 0 ]
                 }
             },
@@ -196,7 +196,6 @@
                     "source": [ "obj-8", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

@@ -169,7 +169,7 @@ a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... o
 
 ov			= latch(over,	oscsync);
 wv			= latch(wave,	oscsync);
-dcn			= latch(dci,	oscsync);
+dcn			= latch(dci,    oscsync);
 ft			= latch(filt,	oscsync);
 
 osc = 0;

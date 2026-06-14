@@ -136,6 +136,7 @@ sawOscSelectOversample(phase, norm, width, gain, wave, over)
     return osc;
 }
 
+
 // saw osc types:
 // 0=saw+, 1=saw-, 2=sawsine+, 3=sawsine+, 4=pulse, 5=hpsaw, 6=logit, 7=trisaw
 Param   oscillator(0, min=0, max=7);
@@ -173,7 +174,7 @@ a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... o
 
 ov			= latch(over,	oscsync);
 wv			= latch(wave,	oscsync);
-dcn			= latch(dci,	oscsync);
+dcn			= latch(dci,    oscsync);
 ft			= latch(filt,	oscsync);
 
 osc = 0;

@@ -204,13 +204,13 @@ a, an		= evi_line(gain, smoothsamps);	// 0.5 for Oscillators, 1.0 for LFOs ... o
 ov			= latch(over,	oscsync);
 wv			= latch(wav,	oscsync);
 tp          = latch(typ,    oscsync);
-dcn			= latch(dci,	oscsync);
+dcn			= latch(dci,    oscsync);
 ft			= latch(filt,	oscsync);
 
 osc = 0;
 
 if (freqInHz > (SAMPLERATE * 0.25)) {       // sine if above (samplerate / 4)
-    osc	= sin73b(TWOPI * t);                 // or should be cos() here ?
+    osc	= sin73b(TWOPI * t);                // or should be cos() here ?
 }
 else {
     osc = classicOscSelectOversample(t, dt, pulseWidth, a, tp, wv, ov);
