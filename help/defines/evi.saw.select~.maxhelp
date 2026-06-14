@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -357,7 +357,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
-                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine+", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "(7=trisaw)" ],
+                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine-", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "(7=trisaw)" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -366,7 +366,7 @@
                                     "patching_rect": [ 246.0, 209.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine+", "4=pulse", "5=hpsaw", "6=logit", "(7=trisaw)" ],
+                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine-", "4=pulse", "5=hpsaw", "6=logit", "(7=trisaw)" ],
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[1]",
@@ -1004,7 +1004,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
-                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine+", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
+                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine-", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -1013,7 +1013,7 @@
                                     "patching_rect": [ 284.0, 296.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine+", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
+                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine-", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu",
@@ -1301,7 +1301,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2191,7 +2191,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
-                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine+", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
+                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine-", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -2200,7 +2200,7 @@
                                     "patching_rect": [ 349.0, 235.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine+", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
+                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine-", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[2]",
@@ -2918,7 +2918,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
-                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine+", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
+                                    "items": [ "0=saw+", ",", "1=saw-", ",", "2=sawsine+", ",", "3=sawsine-", ",", "4=pulse", ",", "5=hpsaw", ",", "6=logit", ",", "7=trisaw" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -2927,7 +2927,7 @@
                                     "patching_rect": [ 349.0, 235.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine+", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
+                                            "parameter_enum": [ "0=saw+", "1=saw-", "2=sawsine+", "3=sawsine-", "4=pulse", "5=hpsaw", "6=logit", "7=trisaw" ],
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[3]",

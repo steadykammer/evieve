@@ -198,7 +198,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 526.0, 314.0, 182.0, 37.0 ],
+                    "patching_rect": [ 531.0, 314.0, 182.0, 37.0 ],
                     "text": "mute messages turns voice audio processing on and off.",
                     "textjustification": 1
                 }
@@ -238,11 +238,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 587.0, 213.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 594.0, 213.0, 29.0, 22.0 ],
                     "text": "in 5"
                 }
             },
@@ -255,11 +251,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 534.0, 213.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 539.0, 213.0, 29.0, 22.0 ],
                     "text": "in 4"
                 }
             },
@@ -272,11 +264,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 480.0, 213.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 484.0, 213.0, 29.0, 22.0 ],
                     "text": "in 3"
                 }
             },
@@ -289,11 +277,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 427.0, 213.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 428.0, 213.0, 29.0, 22.0 ],
                     "text": "in 2"
                 }
             },
@@ -304,6 +288,10 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 97.0, 546.0, 42.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "out~ 1"
                 }
             },
@@ -314,8 +302,8 @@
                     "numinlets": 5,
                     "numoutlets": 4,
                     "outlettype": [ "signal", "signal", "", "signal" ],
-                    "patching_rect": [ 373.0, 267.0, 233.0, 22.0 ],
-                    "text": "evi.adsr~ 2. 100. 0.6 300. @muteupdate 1"
+                    "patching_rect": [ 373.0, 267.0, 240.0, 22.0 ],
+                    "text": "evi.adsr~ 10. 100. 0.6 300. @muteupdate 1"
                 }
             },
             {
@@ -459,6 +447,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 49.0, 34.0, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 1"
                 }
             }
@@ -479,6 +471,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 0 ],
+                    "midpoints": [ 58.5, 150.0, 382.5, 150.0 ],
                     "source": [ "obj-12", 0 ]
                 }
             },
@@ -600,7 +593,7 @@
                 "patchline": {
                     "color": [ 0.9994240403, 0.8905452806122449, 0.0, 1.0 ],
                     "destination": [ "obj-6", 1 ],
-                    "midpoints": [ 453.8333333333333, 305.0, 142.5, 305.0 ],
+                    "midpoints": [ 456.1666666666667, 305.0, 142.5, 305.0 ],
                     "source": [ "obj-9", 1 ]
                 }
             },
@@ -608,7 +601,7 @@
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
                     "disabled": 1,
-                    "midpoints": [ 525.1666666666666, 374.78515625, 661.5, 374.78515625 ],
+                    "midpoints": [ 529.8333333333334, 374.78515625, 661.5, 374.78515625 ],
                     "source": [ "obj-9", 2 ]
                 }
             },
@@ -629,7 +622,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

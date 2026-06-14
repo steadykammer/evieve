@@ -57,41 +57,37 @@ sin73b(x)
 // variable dcblock() so that effect can be bypassed (a0 = 1)
 // or active (a0 = 0.9997) or heavy (a0 = ...)
 // for making oscillators that can morph from LFOs to Audio, for example
-varDcblockReset(x0, a0, r0)
+varDcblockReset(x0, a0, r0)	// r0 = reset
 {
 	History	x1(0), y1(0);
-	History reset(1);		// N.B. varDcblock() must be in an if/else block for reset to work
-
-	y0 		= 0;
-	if ((reset + r0) > 0) {	// because NaNs if switching dynamically
-		y0	= 0;
+	if (r0) {
 		x1	= 0;
 		y1	= 0;
-	} else {
-		y0	= x0 - x1 + fixdenorm(y1 * a0);
-		x1	= x0;
-		y1	= y0;
 	}
 
-	reset	= 0 + r0;
+	y0	= x0 - x1 + fixdenorm(y1 * a0);
+	x1	= x0;
+	y1	= y0;
+
 	return	y0;
 }
 
 dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscillators
 {
-	History	dddummy(0);
-	// N.B. varDcblock() must be in an if/else block for reset to work
-	dyndc	= 1;
+	History	dddtn(1);
+	// sadly rdcn must go external to if/else block :-(
+	rdcn	= delta(change(dcn)) < 0; // which is cheaper, abs() or delta() ?
+
 	if (dcn > 0) {
 
 		if (dcn == 1) {
 
-			osc		= varDcblockReset(osc, 0.9997, change(dcn));
+			osc	= varDcblockReset(osc, 0.9997, rdcn);
 
 		} else {
 
 			// !! gen~ bug (or precision issue?): this sqrt causes NaNs !!
-//			sqrt1224	= sqrt(1 - ((clip(dtn, 0.0005, 0.001) - 0.0005) * 2000));
+			// sqrt1224	= sqrt(1 - ((clip(dtn, 0.0005, 0.001) - 0.0005) * 2000));
 			sqrt1224	= pow(1 - ((clip(dtn, 0.0005, 0.001) - 0.0005) * 2000), 0.5);	// :-(
 			dc1			= (sqrt1224 * 0.0003) + 0.9997;
 			dc2			= 0;
@@ -103,8 +99,10 @@ dynamicDc(osc, dtn, dcn)	// dcn: 0=off, 1=on, 2=auto for lfos, 3=auto for oscill
 
 			}
 
-			dyndc	= evi_line((dc1 + dc2), mstosamps(15.111));
-			osc		= varDcblockReset(osc, dyndc, change(dcn));
+			dyndc	= fixdenorm(dc1 + dc2); // this fixdenorm() is essential
+			// dyndc	= evi_line(dyndc, mstosamps(15.111)); // this works, but not on initialisation, not sure what to do
+			// dyndc	= evi_line_reset(dyndc, mstosamps(15.111), rdcn); // this breaks gen~, but gen~ won't tell me why
+			osc		= varDcblockReset(osc, dyndc, rdcn);
 
 		}
 

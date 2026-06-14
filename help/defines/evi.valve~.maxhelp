@@ -3835,7 +3835,7 @@
                             {
                                 "box": {
                                     "activeslidercolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
-                                    "appearance": 3,
+                                    "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "hint": "Envelope Release, fast..slow, mapped exponentially",
@@ -3869,7 +3869,7 @@
                             {
                                 "box": {
                                     "activeslidercolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
-                                    "appearance": 3,
+                                    "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "hint": "Envelope Attack, fast..slow, mapped exponentially",
@@ -7785,7 +7785,7 @@
                                                     "maxclass": "inlet",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
-                                                    "outlettype": [ "" ],
+                                                    "outlettype": [ "float" ],
                                                     "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
                                                 }
                                             },
@@ -7797,7 +7797,7 @@
                                                     "maxclass": "inlet",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
-                                                    "outlettype": [ "" ],
+                                                    "outlettype": [ "float" ],
                                                     "patching_rect": [ 349.0, 40.0, 30.0, 30.0 ]
                                                 }
                                             },
@@ -7883,7 +7883,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 510.0, 497.0, 185.0, 23.0 ],
+                                    "patching_rect": [ 495.0, 497.0, 185.0, 23.0 ],
                                     "text": "p attack_release_macroisation"
                                 }
                             },
@@ -7902,7 +7902,7 @@
                             {
                                 "box": {
                                     "activeslidercolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
-                                    "appearance": 3,
+                                    "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "hint": "Envelope Release, fast..slow, mapped exponentially",
@@ -7936,7 +7936,7 @@
                             {
                                 "box": {
                                     "activeslidercolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
-                                    "appearance": 3,
+                                    "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "hint": "Envelope Attack, fast..slow, mapped exponentially",
@@ -8129,7 +8129,8 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 510.0, 467.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 510.0, 467.0, 130.0, 130.0 ],
+                                    "range": [ 0.0, 2.0 ]
                                 }
                             },
                             {
@@ -8695,7 +8696,7 @@
                                 "patchline": {
                                     "destination": [ "obj-11", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 519.5, 530.0, 474.09375, 530.0, 474.09375, 328.55859375, 210.5, 328.55859375 ],
+                                    "midpoints": [ 504.5, 530.0, 474.09375, 530.0, 474.09375, 328.55859375, 210.5, 328.55859375 ],
                                     "source": [ "obj-48", 0 ]
                                 }
                             },
@@ -8723,7 +8724,7 @@
                                 "patchline": {
                                     "destination": [ "obj-48", 1 ],
                                     "hidden": 1,
-                                    "source": [ "obj-7", 0 ]
+                                    "source": [ "obj-7", 1 ]
                                 }
                             },
                             {
@@ -8745,7 +8746,7 @@
                                 "patchline": {
                                     "destination": [ "obj-48", 0 ],
                                     "hidden": 1,
-                                    "source": [ "obj-9", 0 ]
+                                    "source": [ "obj-9", 1 ]
                                 }
                             }
                         ],

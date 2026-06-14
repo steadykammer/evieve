@@ -1642,7 +1642,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1955,18 +1955,18 @@
                                     "patching_rect": [ 113.0, 402.0, 18.0, 82.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "0", "1" ],
-                                            "parameter_initial": [ 3.0 ],
+                                            "parameter_enum": [ "0", "1", "2", "3", "4" ],
+                                            "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup[1]",
-                                            "parameter_mmax": 1,
+                                            "parameter_mmax": 4,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "radiogroup[1]",
                                             "parameter_type": 2
                                         }
                                     },
                                     "size": 5,
-                                    "value": 3,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -2059,7 +2059,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
                                     "patching_rect": [ 148.0, 461.0, 262.0, 23.0 ],
-                                    "text": "mc.selector~ 4 3 @ramptime 99"
+                                    "text": "mc.selector~ 4 1 @ramptime 99"
                                 }
                             },
                             {
@@ -2338,7 +2338,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 171.0, 296.0, 50.0, 23.0 ],
-                                    "text": "60"
+                                    "text": "49"
                                 }
                             },
                             {
