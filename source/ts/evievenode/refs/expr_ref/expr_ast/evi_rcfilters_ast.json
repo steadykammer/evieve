@@ -3875,9 +3875,18 @@
                             "type": "BinaryExpression",
                             "operator": "-",
                             "left": {
-                                "type": "Identifier",
-                                "name": "Lp",
-                                "raw": "Lp"
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "k",
+                                    "raw": "k"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "Lp",
+                                    "raw": "Lp"
+                                }
                             },
                             "right": {
                                 "type": "Identifier",
@@ -4043,32 +4052,6 @@
                                     "type": "Identifier",
                                     "name": "s",
                                     "raw": "s"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "Hp",
-                                "raw": "Hp"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "-",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "Lp",
-                                    "raw": "Lp"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "Vin",
-                                    "raw": "Vin"
                                 }
                             }
                         }

@@ -3699,6 +3699,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 140.0, 297.0, 71.0, 23.0 ],
+                                    "text": "mc.*~ 0.55"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-11",
                                     "maxclass": "meter~",
                                     "numinlets": 1,
@@ -4003,7 +4014,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-1", 0 ]
                                 }
                             },
@@ -4017,6 +4028,12 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
                                     "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
@@ -4342,8 +4359,21 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 399.0, 221.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 399.0, 221.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 2000.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[3]",
+                                            "parameter_mmax": 4000.0,
+                                            "parameter_mmin": 62.5,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[3]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
                                 }
                             },
                             {
@@ -4384,8 +4414,21 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 601.0, 221.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 601.0, 221.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[4]",
+                                            "parameter_mmax": 15000.0,
+                                            "parameter_mmin": 500.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[4]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[1]"
                                 }
                             },
                             {
@@ -5346,7 +5389,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -5465,6 +5508,8 @@
             }
         ],
         "parameters": {
+            "obj-10::obj-66": [ "number[4]", "number[4]", 0 ],
+            "obj-10::obj-70": [ "number[3]", "number[3]", 0 ],
             "obj-2::obj-5::obj-54::obj-10": [ "spread", "spread", 0 ],
             "obj-2::obj-5::obj-54::obj-12": [ "earlyGain", "earlyGain", 0 ],
             "obj-2::obj-5::obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],

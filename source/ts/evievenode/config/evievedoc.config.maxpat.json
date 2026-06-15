@@ -690,7 +690,7 @@
         "evi.scope~": {
             "object": false,
             "ref": false,
-            "qlookup": true,
+            "qlookup": false,
             "helpfile": {
                 "generate": false,
                 "mctab": false,

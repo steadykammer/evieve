@@ -71,7 +71,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -514,20 +514,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 1,
+                                    "parameter_enable": 0,
                                     "patching_rect": [ 695.0, 528.0, 50.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[4]",
-                                            "parameter_mmax": 2.0,
-                                            "parameter_mmin": 0.5,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "number",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "varname": "number"
                                 }
                             },
@@ -541,19 +529,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 1,
+                                    "parameter_enable": 0,
                                     "patching_rect": [ 642.0, 528.0, 50.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[5]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "number[1]",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "varname": "number[1]"
                                 }
                             },
@@ -567,19 +544,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 1,
+                                    "parameter_enable": 0,
                                     "patching_rect": [ 589.0, 528.0, 50.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 0.5 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[6]",
-                                            "parameter_mmax": 1.0,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "number[2]",
-                                            "parameter_type": 0
-                                        }
-                                    },
                                     "varname": "number[2]"
                                 }
                             },
@@ -4920,7 +4886,7 @@
             "obj-2::obj-5::obj-54::obj-15": [ "inputHigh", "inputHigh", 0 ],
             "obj-2::obj-5::obj-54::obj-17": [ "feedbackHigh", "feedbackHigh", 0 ],
             "obj-2::obj-5::obj-54::obj-19": [ "feedbackLow", "feedbackLow", 0 ],
-            "obj-2::obj-5::obj-54::obj-2": [ "modDuty", "modDuty", 0 ],
+            "obj-2::obj-5::obj-54::obj-2": [ "modDuty[2]", "modDuty", 0 ],
             "obj-2::obj-5::obj-54::obj-21": [ "dampLow", "dampLow", 0 ],
             "obj-2::obj-5::obj-54::obj-23": [ "dampHigh", "dampHigh", 0 ],
             "obj-2::obj-5::obj-54::obj-25": [ "feedbackNonlin", "feedbackNonlin", 0 ],
@@ -4931,21 +4897,18 @@
             "obj-2::obj-5::obj-54::obj-38": [ "modRate", "modRate", 0 ],
             "obj-2::obj-5::obj-54::obj-7": [ "modShape", "modShape", 0 ],
             "obj-2::obj-5::obj-54::obj-8": [ "modSkew", "modSkew", 0 ],
-            "obj-2::obj-5::obj-54::obj-9": [ "outputNonlinGains", "outputNonlinGains", 0 ],
+            "obj-2::obj-5::obj-54::obj-9": [ "outputNonlinGains[3]", "outputNonlinGains", 0 ],
             "obj-2::obj-65": [ "number", "number", 0 ],
             "obj-2::obj-66": [ "number[2]", "number[2]", 0 ],
             "obj-2::obj-67": [ "number[3]", "number[3]", 0 ],
             "obj-2::obj-77": [ "number[1]", "number[1]", 0 ],
             "obj-5::obj-13": [ "toggle[2]", "toggle[2]", 0 ],
             "obj-5::obj-15": [ "toggle[3]", "toggle[2]", 0 ],
-            "obj-5::obj-16": [ "number[6]", "number[2]", 0 ],
-            "obj-5::obj-21": [ "number[5]", "number[1]", 0 ],
-            "obj-5::obj-23": [ "number[4]", "number", 0 ],
             "obj-5::obj-5::obj-54::obj-12": [ "inputLow[2]", "inputLow", 0 ],
             "obj-5::obj-5::obj-54::obj-15": [ "inputHigh[2]", "inputHigh", 0 ],
             "obj-5::obj-5::obj-54::obj-17": [ "feedbackHigh[2]", "feedbackHigh", 0 ],
             "obj-5::obj-5::obj-54::obj-19": [ "feedbackLow[2]", "feedbackLow", 0 ],
-            "obj-5::obj-5::obj-54::obj-2": [ "modDuty[2]", "modDuty", 0 ],
+            "obj-5::obj-5::obj-54::obj-2": [ "modDuty", "modDuty", 0 ],
             "obj-5::obj-5::obj-54::obj-21": [ "dampLow[2]", "dampLow", 0 ],
             "obj-5::obj-5::obj-54::obj-23": [ "dampHigh[2]", "dampHigh", 0 ],
             "obj-5::obj-5::obj-54::obj-25": [ "feedbackNonlin[2]", "feedbackNonlin", 0 ],
@@ -4983,17 +4946,64 @@
                 }
             },
             "parameter_overrides": {
-                "obj-2::obj-5::obj-54::obj-25": {
+                "obj-5::obj-5::obj-54::obj-12": {
+                    "parameter_initial": 125.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-15": {
+                    "parameter_initial": 4000.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-17": {
+                    "parameter_initial": 2000.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-19": {
+                    "parameter_initial": 250.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-2": {
+                    "parameter_initial": 0.5,
+                    "parameter_initial_enable": 1,
                     "parameter_invisible": 0,
-                    "parameter_modmode": 0,
-                    "parameter_range": [ "adaa2", "2x", "4x" ],
+                    "parameter_modmode": 4,
                     "parameter_unitstyle": 10
                 },
-                "obj-2::obj-5::obj-54::obj-30": {
-                    "parameter_invisible": 0,
-                    "parameter_modmode": 0,
-                    "parameter_range": [ "adaa1", "adaa2" ],
-                    "parameter_unitstyle": 10
+                "obj-5::obj-5::obj-54::obj-21": {
+                    "parameter_initial": 0.707107,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-23": {
+                    "parameter_initial": 0.8666,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-25": {
+                    "parameter_initial": 1.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-3": {
+                    "parameter_initial": 2.4,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-30": {
+                    "parameter_initial": 1.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-32": {
+                    "parameter_initial": 4.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-33": {
+                    "parameter_initial": 0.707107,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-38": {
+                    "parameter_initial": 1.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-9": {
+                    "parameter_initial": 0.0,
+                    "parameter_initial_enable": 1
                 }
             },
             "inherited_shortname": 1

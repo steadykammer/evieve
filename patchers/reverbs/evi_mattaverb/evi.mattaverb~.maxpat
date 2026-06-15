@@ -9,7 +9,8 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 59.0, 104.0, 750.0, 494.0 ],
+        "rect": [ 59.0, 104.0, 750.0, 465.0 ],
+        "bglocked": 1,
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
@@ -394,7 +395,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 310.0, 19.0, 255.0, 20.0 ],
+                    "patching_rect": [ 310.0, 26.0, 255.0, 20.0 ],
                     "text": "@ttributes or messages to evi.mattaverb~",
                     "textjustification": 2
                 }
@@ -934,12 +935,12 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 297.0, 159.0, 74.0, 22.0 ],
-                                    "restore": [ 0.707107 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.707107 ],
+                                            "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet[2]",
+                                            "parameter_longname": "dryWet",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "dryWet",
@@ -948,6 +949,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "initial": [ 0.707107 ],
                                         "parameter_enable": 1,
                                         "parameter_mappable": 0
                                     },
@@ -971,7 +973,7 @@
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "damp[1]",
+                                            "parameter_longname": "damp",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "damp",
@@ -998,10 +1000,10 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 247.0, 197.0, 80.0, 22.0 ],
-                                    "restore": [ 0.5 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.5 ],
+                                            "parameter_initial_enable": 1,
                                             "parameter_longname": "rvrbSize",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
@@ -1011,6 +1013,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "initial": [ 0.5 ],
                                         "parameter_enable": 1,
                                         "parameter_mappable": 0
                                     },
@@ -1029,10 +1032,10 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 99.0, 313.0, 91.0, 22.0 ],
-                                    "restore": [ 0.666666 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.666666 ],
+                                            "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
                                             "parameter_longname": "highDamp",
                                             "parameter_mmax": 1.0,
@@ -1043,6 +1046,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "initial": [ 0.666666 ],
                                         "parameter_enable": 1,
                                         "parameter_mappable": 0
                                     },
@@ -1061,10 +1065,10 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 49.0, 351.0, 86.0, 22.0 ],
-                                    "restore": [ 0.333333 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.333333 ],
+                                            "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
                                             "parameter_longname": "lowDamp",
                                             "parameter_mmax": 1.0,
@@ -1075,6 +1079,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "initial": [ 0.333333 ],
                                         "parameter_enable": 1,
                                         "parameter_mappable": 0
                                     },
@@ -1391,7 +1396,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 137.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -1403,7 +1408,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 34.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -1454,13 +1459,12 @@
             {
                 "box": {
                     "id": "obj-40",
-                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 309.0, 41.0, 256.0, 35.0 ],
-                    "text": "patcherargs @low 0.333333 @high 0.666666 @size 0.5 @drywet 0.707107"
+                    "patching_rect": [ 309.0, 48.0, 256.0, 22.0 ],
+                    "text": "patcherargs"
                 }
             },
             {
@@ -1520,13 +1524,15 @@
             },
             {
                 "box": {
+                    "background": 1,
                     "hidden": 1,
                     "id": "obj-13",
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 309.0, 78.0, 256.0, 20.0 ],
-                    "text": "evievedoc @damp 0 @space 1",
+                    "patching_rect": [ 367.0, 72.0, 177.0, 60.0 ],
+                    "text": "evievedoc @low 0.333333 @high 0.666666 @size 0.5 @drywet 0.707107 @damp 0 @space 1",
                     "varname": "evievedoc"
                 }
             }

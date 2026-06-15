@@ -156,24 +156,26 @@
                                     "bubbleside": 0,
                                     "hidden": 1,
                                     "id": "obj-23",
-                                    "linecount": 2,
+                                    "linecount": 3,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 539.0, 540.0, 161.0, 55.0 ],
-                                    "text": "[yafr2] is a little more muddy in mids ?",
+                                    "patching_rect": [ 539.0, 540.0, 161.0, 69.0 ],
+                                    "text": "Is [yafr2] is a little more muddy in mids ? Or do you prefer this ?",
                                     "textjustification": 1
                                 }
                             },
                             {
                                 "box": {
+                                    "bubble": 1,
                                     "id": "obj-22",
                                     "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 327.0, 475.0, 100.0, 36.0 ],
-                                    "text": "setup evieve to be like yafr2"
+                                    "patching_rect": [ 327.0, 473.0, 116.0, 40.0 ],
+                                    "text": "setup evieve to be like yafr2",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -454,7 +456,7 @@
                                     "patching_rect": [ 452.0, 173.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.548665 ],
+                                            "parameter_initial": [ 0.498 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[3]",
                                             "parameter_mmax": 1.0,
@@ -574,7 +576,7 @@
                                     "patching_rect": [ 329.0, 173.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.3 ],
+                                            "parameter_initial": [ 0.4 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[2]",
                                             "parameter_mmax": 1.0,
@@ -600,7 +602,7 @@
                                     "patching_rect": [ 224.0, 173.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.6 ],
+                                            "parameter_initial": [ 0.66 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[1]",
                                             "parameter_mmax": 1.0,
@@ -626,7 +628,7 @@
                                     "patching_rect": [ 130.0, 173.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.2 ],
+                                            "parameter_initial": [ 0.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number",
                                             "parameter_mmax": 1.0,
@@ -839,11 +841,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-4",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "Compare the evi.plateverb~ and it's parent yafr2",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "text": "Compare the evi.plateverb~ and it's parent yafr2. They are almost identical, but the evieve made some slightly different decisions regards tone.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -7108,7 +7111,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

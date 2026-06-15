@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2167,13 +2167,24 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-57",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 172.0, 495.0, 81.0, 23.0 ],
+                                    "text": "r toFreezeve"
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -4097,6 +4108,12 @@
                                     "destination": [ "obj-5", 1 ],
                                     "midpoints": [ 109.5, 523.1953125, 260.5, 523.1953125 ],
                                     "source": [ "obj-51", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-57", 0 ]
                                 }
                             },
                             {
@@ -6406,6 +6423,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 140.0, 296.0, 71.0, 23.0 ],
+                                    "text": "mc.*~ 0.55"
+                                }
+                            },
+                            {
+                                "box": {
                                     "format": 6,
                                     "id": "obj-42",
                                     "maxclass": "flonum",
@@ -6680,7 +6708,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-1", 0 ]
                                 }
                             },
@@ -6694,6 +6722,12 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
                                     "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
@@ -8087,6 +8121,61 @@
                     "name": "",
                     "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
                     "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
+            "parameter_overrides": {
+                "obj-5::obj-5::obj-54::obj-10": {
+                    "parameter_initial": 0.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-12": {
+                    "parameter_initial": -3.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-15": {
+                    "parameter_initial": 0.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-16": {
+                    "parameter_initial": 500.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-2": {
+                    "parameter_initial": 9.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-3": {
+                    "parameter_initial": 0.78,
+                    "parameter_initial_enable": 1,
+                    "parameter_unitstyle": 5
+                },
+                "obj-5::obj-5::obj-54::obj-33": {
+                    "parameter_initial": -9.542434,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-35": {
+                    "parameter_initial": 0.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-4": {
+                    "parameter_initial": -12,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-5": {
+                    "parameter_initial": 0.7,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-7": {
+                    "parameter_initial": 2000.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-8": {
+                    "parameter_initial": 49.0,
+                    "parameter_initial_enable": 1
+                },
+                "obj-5::obj-5::obj-54::obj-9": {
+                    "parameter_initial": 0.42,
+                    "parameter_initial_enable": 1
                 }
             },
             "inherited_shortname": 1

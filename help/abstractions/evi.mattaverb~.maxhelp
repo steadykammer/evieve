@@ -2078,13 +2078,24 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 140.0, 296.0, 71.0, 23.0 ],
+                                    "text": "mc.*~ 0.55"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-11",
@@ -2286,7 +2297,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-3", 0 ],
                                     "source": [ "obj-1", 0 ]
                                 }
                             },
@@ -2300,6 +2311,12 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
                                     "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
@@ -2363,7 +2380,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 211.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 200.0, 211.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2405,7 +2422,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 284.0, 281.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 283.0, 281.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
@@ -2416,7 +2433,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 224.0, 281.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 223.0, 281.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
@@ -2454,7 +2471,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 224.0, 192.0, 259.0, 57.0 ],
+                                    "patching_rect": [ 223.0, 192.0, 259.0, 57.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {

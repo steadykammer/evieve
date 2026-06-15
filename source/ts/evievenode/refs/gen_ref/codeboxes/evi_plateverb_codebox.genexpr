@@ -260,7 +260,7 @@ if (eqHighK != 0) {
 	rvrbR	= rcFilterDamp(rvrbR, eqHighG, eqHighK);
 }
 
-//if (eqLowK != 0) {										// cpu manage not click-free for low :-(
+//if (eqLowK != 0) { 										// cpu manage not click-free for low :-(
 	rvrbL   = rcFilterDampHp(rvrbL, eqLowG, eqLowK);		// lowshelf
 	rvrbR   = rcFilterDampHp(rvrbR, eqLowG, eqLowK);
 //}
