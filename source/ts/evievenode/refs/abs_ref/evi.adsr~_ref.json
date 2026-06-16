@@ -62,7 +62,7 @@
             "id": 3,
             "type": "message",
             "digest": "mute outlet to [thispoly~]",
-            "description": "Attach to 'thispoly~' to control 'poly~' voice mute state"
+            "description": "Attach to 'thispoly~ @automute 1' to control 'poly~' voice state"
         },
         {
             "id": 4,
@@ -237,17 +237,6 @@
             "default": {
                 "get": 0,
                 "value": "-1."
-            }
-        },
-        {
-            "name": "muteupdate",
-            "get": 0,
-            "type": "int",
-            "digest": "Time in ms",
-            "description": "Update rate of mute message outlet.",
-            "default": {
-                "get": 0,
-                "value": "10"
             }
         },
         {

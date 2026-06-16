@@ -44,6 +44,21 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-10",
+                                    "maxclass": "number~",
+                                    "mode": 2,
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "float" ],
+                                    "patching_rect": [ 623.0, 352.0, 38.0, 23.0 ],
+                                    "sig": 0.0
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -404,18 +419,6 @@
                             },
                             {
                                 "box": {
-                                    "dontreplace": 1,
-                                    "id": "obj-14",
-                                    "ignoreclick": 1,
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 606.0, 352.0, 55.0, 23.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-8",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -762,7 +765,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 5,
                                     "numoutlets": 4,
-                                    "outlettype": [ "signal", "signal", "", "signal" ],
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
                                     "patching_rect": [ 455.0, 312.0, 206.0, 23.0 ],
                                     "text": "evi.adsr~ 200. 300. 0.707946 600."
                                 }
@@ -936,7 +939,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-14", 1 ],
+                                    "destination": [ "obj-10", 0 ],
                                     "source": [ "obj-3", 2 ]
                                 }
                             },
@@ -1077,7 +1080,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1093,8 +1096,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 359.0, 331.0, 89.0, 23.0 ],
-                                    "text": "58 0"
+                                    "patching_rect": [ 359.0, 331.0, 89.0, 23.0 ]
                                 }
                             },
                             {
@@ -1155,7 +1157,7 @@
                                     "patching_rect": [ 242.0, 531.0, 136.0, 30.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -18 ],
+                                            "parameter_initial": [ -6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~",
                                             "parameter_mmax": 6.0,
@@ -2528,7 +2530,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 44100,
+                                    "numpoints": 44099,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 395.0, 432.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -2978,7 +2980,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 5,
                                     "numoutlets": 4,
-                                    "outlettype": [ "signal", "signal", "", "signal" ],
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
                                     "patching_rect": [ 118.0, 385.0, 184.0, 23.0 ],
                                     "text": "evi.adsr~ 200. 300. 0.666 600."
                                 }
@@ -3363,6 +3365,21 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-34",
+                                    "maxclass": "number~",
+                                    "mode": 2,
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "float" ],
+                                    "patching_rect": [ 348.0, 455.0, 38.0, 23.0 ],
+                                    "sig": 0.0
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-36",
                                     "maxclass": "toggle",
                                     "numinlets": 1,
@@ -3414,20 +3431,6 @@
                                     "outlettype": [ "signal", "float" ],
                                     "patching_rect": [ 308.0, 428.0, 38.0, 23.0 ],
                                     "sig": 0.0
-                                }
-                            },
-                            {
-                                "box": {
-                                    "dontreplace": 1,
-                                    "fontname": "Arial",
-                                    "fontsize": 13.0,
-                                    "id": "obj-30",
-                                    "ignoreclick": 1,
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 308.0, 483.0, 59.0, 23.0 ]
                                 }
                             },
                             {
@@ -3753,7 +3756,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 5,
                                     "numoutlets": 4,
-                                    "outlettype": [ "signal", "signal", "", "signal" ],
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
                                     "patching_rect": [ 170.0, 396.0, 286.0, 23.0 ],
                                     "text": "evi.adsr~",
                                     "varname": "evieveObject"
@@ -3804,13 +3807,13 @@
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-1",
-                                    "linecount": 3,
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 357.0, 416.0, 83.0, 50.0 ],
+                                    "patching_rect": [ 357.0, 416.0, 83.0, 36.0 ],
                                     "style": "helpfile_label",
-                                    "text": "mute messages for thispoly~"
+                                    "text": "active state for thispoly~"
                                 }
                             },
                             {
@@ -3827,7 +3830,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 494.0, 581.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 485.0, 581.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3845,7 +3848,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 357.0, 568.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 348.0, 568.0, 45.0, 45.0 ],
                                     "varname": "basic_dac"
                                 }
                             },
@@ -3859,7 +3862,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 404.0, 578.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 395.0, 578.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -4003,12 +4006,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-30", 1 ],
-                                    "source": [ "obj-5", 2 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-31", 0 ],
                                     "order": 1,
                                     "source": [ "obj-5", 1 ]
@@ -4018,6 +4015,12 @@
                                 "patchline": {
                                     "destination": [ "obj-33", 0 ],
                                     "source": [ "obj-5", 3 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-34", 0 ],
+                                    "source": [ "obj-5", 2 ]
                                 }
                             }
                         ],
@@ -4237,7 +4240,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 442.0, 331.0, 61.0, 25.0 ],
-                                    "text": "mute",
+                                    "text": "active",
                                     "textjustification": 1
                                 }
                             },
@@ -4281,7 +4284,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 22050,
+                                    "numpoints": 22049,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 513.0, 361.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",

@@ -97,11 +97,11 @@
         },
         {
             "id": 3,
-            "name": "mute",
+            "name": "active",
             "type": "float",
             "optional": 1,
             "digestauto": "Outlet (0/1)",
-            "digest": "Mute on (1, envelope is innactive) or off (0, envelope is active)."
+            "digest": "Active off (0, envelope is innactive) or on (1, envelope is active)."
         },
         {
             "id": 4,
