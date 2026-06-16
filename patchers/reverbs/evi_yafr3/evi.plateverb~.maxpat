@@ -9,8 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 37.0, 72.0, 839.0, 509.0 ],
-        "bglocked": 1,
+        "rect": [ 142.0, 147.0, 839.0, 509.0 ],
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
@@ -125,7 +124,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 3,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -136,7 +135,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-57",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -147,7 +146,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-56",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -171,7 +170,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 138.0, 1243.0, 480.0 ],
+                        "rect": [ 232.0, -567.0, 1243.0, 480.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "lefttoolbarpinned": 2,
@@ -759,7 +758,7 @@
                                                             "modernui": 1
                                                         },
                                                         "classnamespace": "dsp.gen",
-                                                        "rect": [ 59.0, 104.0, 404.0, 344.0 ],
+                                                        "rect": [ 59.0, 104.0, 405.0, 360.0 ],
                                                         "gridonopen": 2,
                                                         "lefttoolbarpinned": 2,
                                                         "toptoolbarpinned": 2,
@@ -778,7 +777,7 @@
                                                                     "numinlets": 0,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 155.0, 33.5, 205.0, 22.0 ],
+                                                                    "patching_rect": [ 155.0, 73.0, 205.0, 22.0 ],
                                                                     "text": "in 1 host samplerate @default 48000"
                                                                 }
                                                             },
@@ -791,7 +790,7 @@
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 49.0, 255.5, 69.0, 22.0 ],
+                                                                    "patching_rect": [ 49.0, 295.0, 69.0, 22.0 ],
                                                                     "text": "out 1 a 0..1"
                                                                 }
                                                             },
@@ -805,8 +804,8 @@
                                                                     "numinlets": 0,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 49.0, 33.5, 46.0, 22.0 ],
-                                                                    "text": "in 2 Hz"
+                                                                    "patching_rect": [ 49.0, 34.0, 131.0, 22.0 ],
+                                                                    "text": "in 2 Hz @default 6593."
                                                                 }
                                                             },
                                                             {
@@ -819,7 +818,7 @@
                                                                     "numinlets": 2,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 49.0, 87.5, 239.0, 22.0 ],
+                                                                    "patching_rect": [ 49.0, 127.0, 239.0, 22.0 ],
                                                                     "text": "expr maximum((minimum(in1\\, (in2 / pi)))\\, 1)"
                                                                 }
                                                             },
@@ -833,7 +832,7 @@
                                                                     "numinlets": 2,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 49.0, 133.5, 125.0, 22.0 ],
+                                                                    "patching_rect": [ 49.0, 173.0, 125.0, 22.0 ],
                                                                     "text": "expr (twopi * in1) / in2"
                                                                 }
                                                             },
@@ -847,7 +846,7 @@
                                                                     "numinlets": 1,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 49.0, 179.5, 156.0, 22.0 ],
+                                                                    "patching_rect": [ 49.0, 219.0, 156.0, 22.0 ],
                                                                     "text": "expr in1 - (0.25 * (in1 * in1))"
                                                                 }
                                                             },
@@ -860,7 +859,7 @@
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 49.0, 111.5, 28.0, 20.0 ],
+                                                                    "patching_rect": [ 49.0, 151.0, 28.0, 20.0 ],
                                                                     "text": "fcm"
                                                                 }
                                                             },
@@ -873,7 +872,7 @@
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 49.0, 157.5, 19.0, 20.0 ],
+                                                                    "patching_rect": [ 49.0, 197.0, 19.0, 20.0 ],
                                                                     "text": "ß"
                                                                 }
                                                             },
@@ -886,7 +885,7 @@
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 49.0, 203.5, 58.0, 20.0 ],
+                                                                    "patching_rect": [ 49.0, 243.0, 58.0, 20.0 ],
                                                                     "text": "a warped"
                                                                 }
                                                             },
@@ -899,7 +898,7 @@
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 49.0, 65.5, 114.0, 20.0 ],
+                                                                    "patching_rect": [ 49.0, 105.0, 114.0, 20.0 ],
                                                                     "text": "frequency in Hz"
                                                                 }
                                                             }
@@ -939,7 +938,7 @@
                                                             {
                                                                 "patchline": {
                                                                     "destination": [ "obj-29", 1 ],
-                                                                    "midpoints": [ 164.5, 71.0, 278.5, 71.0 ],
+                                                                    "midpoints": [ 164.5, 110.5, 278.5, 110.5 ],
                                                                     "order": 0,
                                                                     "source": [ "obj-6", 0 ]
                                                                 }
@@ -1195,7 +1194,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 100.0, 138.0, 749.0, 511.0 ],
+                                        "rect": [ 590.0, 419.0, 749.0, 511.0 ],
                                         "gridonopen": 2,
                                         "lefttoolbarpinned": 2,
                                         "toptoolbarpinned": 2,
@@ -1337,7 +1336,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 608.0, 180.0, 104.0, 22.0 ],
+                                                    "patching_rect": [ 609.0, 180.0, 104.0, 22.0 ],
                                                     "text": "prepend damplow"
                                                 }
                                             },
@@ -1480,7 +1479,7 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-1", 0 ],
-                                                    "midpoints": [ 617.5, 217.5, 73.5, 217.5 ],
+                                                    "midpoints": [ 618.5, 217.5, 73.5, 217.5 ],
                                                     "source": [ "obj-10", 0 ]
                                                 }
                                             },
@@ -1778,7 +1777,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 15.0, 451.0, 1096.0, 465.0 ],
+                                        "rect": [ 165.0, 363.0, 1096.0, 465.0 ],
                                         "gridonopen": 2,
                                         "lefttoolbarpinned": 2,
                                         "toptoolbarpinned": 2,
@@ -2277,7 +2276,7 @@
                                     "patching_rect": [ 49.0, 291.0, 93.0, 22.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.2 ],
+                                            "parameter_initial": [ 0.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
                                             "parameter_longname": "reverbSize",
@@ -2289,7 +2288,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
-                                        "initial": [ 0.2 ],
+                                        "initial": [ 0.3 ],
                                         "parameter_enable": 1,
                                         "parameter_mappable": 0
                                     },
@@ -2866,11 +2865,11 @@
                 "box": {
                     "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.plateverb~",
                     "id": "obj-47",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 133.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -2878,11 +2877,11 @@
                 "box": {
                     "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.plateverb~",
                     "id": "obj-46",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 34.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -3007,7 +3006,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 246.0, 72.0, 376.0, 60.0 ],
-                    "text": "evievedoc @size 0.2 @decay 0.6 @diffuse 0.3 @damp 6593. @highfrequency 2000. @highgain 0. @lowfrequency 500. @lowgain 0. @wet -3. @dry -15. @pan 0.5 @stereo 0 @bypass 0 @smoothtime 49.",
+                    "text": "evievedoc @size 0.3 @decay 0.6 @diffuse 0.3 @damp 6593. @highfrequency 2000. @highgain 0. @lowfrequency 500. @lowgain 0. @wet -3. @dry -15. @pan 0.5 @stereo 0 @bypass 0 @smoothtime 49.",
                     "varname": "evievedoc"
                 }
             }
@@ -3171,6 +3170,32 @@
                 }
             }
         ],
+        "parameters": {
+            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
+            "obj-54::obj-12": [ "wetGain", "wetGain", 0 ],
+            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
+            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
+            "obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
+            "obj-54::obj-33": [ "decay", "decay", 0 ],
+            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
+            "obj-54::obj-36": [ "diffusion", "diffusion", 0 ],
+            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
+            "obj-54::obj-42": [ "inputPan", "inputPan", 0 ],
+            "obj-54::obj-43": [ "stereo", "stereo", 0 ],
+            "obj-54::obj-5": [ "damping", "damping", 0 ],
+            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
+            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
+            "inherited_shortname": 1
+        },
+        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

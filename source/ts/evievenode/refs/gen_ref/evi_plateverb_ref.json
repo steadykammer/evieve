@@ -50,7 +50,7 @@
     ],
     "attributes": [
         {
-            "name": "apGain1\t\t",
+            "name": "APGAIN1\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
             "description": false,
@@ -60,7 +60,7 @@
             }
         },
         {
-            "name": "apGain2\t\t",
+            "name": "APGAIN2\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
             "description": false,
@@ -70,7 +70,7 @@
             }
         },
         {
-            "name": "apGain3\t\t",
+            "name": "APGAIN3\t\t",
             "type": "symbol",
             "digest": "@min -1, @max  1",
             "description": false,
@@ -80,7 +80,7 @@
             }
         },
         {
-            "name": "apGain4\t\t",
+            "name": "APGAIN4\t\t",
             "type": "float",
             "digest": "@min  0, @max  1",
             "description": false,
@@ -216,7 +216,7 @@
             "description": "Normalised 0..1, one of the original parameters. The perceived size of the reverb. ",
             "default": {
                 "type": "float",
-                "value": "0.2"
+                "value": "0.3"
             }
         },
         {
@@ -240,7 +240,7 @@
             }
         },
         {
-            "name": "sumMul\t\t",
+            "name": "SUMMUL\t\t",
             "type": "float",
             "digest": "@min 0, @max 1",
             "description": false,
@@ -250,7 +250,7 @@
             }
         },
         {
-            "name": "sumMul05\t",
+            "name": "SUMMUL05\t",
             "type": "float",
             "digest": "@min 0, @max 1",
             "description": false,
@@ -260,7 +260,7 @@
             }
         },
         {
-            "name": "sumMulSq\t",
+            "name": "SUMMULSQ\t",
             "type": "float",
             "digest": "@min 0, @max 1",
             "description": false,
@@ -270,7 +270,7 @@
             }
         },
         {
-            "name": "sumMulinv\t",
+            "name": "SUMMULINV\t",
             "type": "float",
             "digest": "@min 0, @max 1",
             "description": false,

@@ -51,15 +51,15 @@ Delay	tapsR(delayTime2, 1, feedback=1);
 
 // constants, not user
 
-Param	sumMul		(  0.14285714285714285, min=0, max=1);	// 1/7
-Param	sumMulinv	(  0.8571428571428572,  min=0, max=1);	// 1 - sumMul;
-Param	sumMul05	(  0.07142857142857142, min=0, max=1);	// 0.5 * sumMul
-Param	sumMulSq	(  0.3779644730092272,  min=0, max=1);	// 1/sqrt(7)
+Param	SUMMUL		(  0.14285714285714285, min=0, max=1);	// 1/7
+Param	SUMMULINV	(  0.8571428571428572,  min=0, max=1);	// 1 - SUMMUL;
+Param	SUMMUL05	(  0.07142857142857142, min=0, max=1);	// 0.5 * SUMMUL
+Param	SUMMULSQ	(  0.3779644730092272,  min=0, max=1);	// 1/sqrt(7)
 
-Param	apGain1		(  0.75,	min= 0, max= 1);
-Param	apGain2		(  0.625,	min= 0, max= 1);
-Param	apGain3		( -sqrt1_2,	min=-1, max= 1);
-Param	apGain4		(  0.5,		min= 0, max= 1);
+Param	APGAIN1		(  0.75,	min= 0, max= 1);
+Param	APGAIN2		(  0.625,	min= 0, max= 1);
+Param	APGAIN3		( -sqrt1_2,	min=-1, max= 1);
+Param	APGAIN4		(  0.5,		min= 0, max= 1);
 
 Param	smoothtime(49., min=1, max=500);// ms
 smoothsecs	= smoothtime * 0.001;		// secs
@@ -82,7 +82,7 @@ modDepth	= 0.033;					// in seconds; yafr2 has this at 20 miliiseconds
 
 sizescale	= (size * 1.59) + 0.01;
 sizediff	=  sizescale * diffuse;
-decayscale	= (decay * sumMulinv) + sumMul05;
+decayscale	= (decay * SUMMULINV) + SUMMUL05;
 
 wetAmp		= (wet > -90) ? dbtoaApprox(wet) : 0;
 dryAmp		= (dry > -90) ? dbtoaApprox(dry) : 0;
@@ -155,8 +155,8 @@ damping, decMulL	= logsmoothBank2(damp, decayscale, smoothsecs);
 decMulR	= decMulL;
 
 wetMix, dryMix	= logsmoothBank2(wetAmp, dryAmp, smoothsecs);
-wetMix			= wetMix * sumMul * iPass;
-dryAtten		= dryMix * sumMulSq * iPass;
+wetMix			= wetMix * SUMMUL * iPass;
+dryAtten		= dryMix * SUMMULSQ * iPass;
 
 eqHighK				= eviLine(highshelfK, smoothsamps);
 eqLowK				= eviLine(lowshelfK, smoothsamps);
@@ -195,28 +195,28 @@ dryRatten	=  dryR * dryAtten;
 x1	= poleZeroDamp((x0 * iPass),	damping);
 
 // early reflect (static)
-x1	= fffbAllpassShort(x1,	apGain1,	apTime1);
-x1	= fffbAllpassShort(x1,	apGain1,	apTime2);
-x1	= fffbAllpassShort(x1,	apGain2,	apTime3);
-x1	= fffbAllpassShort(x1,	apGain2,	apTime4);
+x1	= fffbAllpassShort(x1,	APGAIN1,	apTime1);
+x1	= fffbAllpassShort(x1,	APGAIN1,	apTime2);
+x1	= fffbAllpassShort(x1,	APGAIN2,	apTime3);
+x1	= fffbAllpassShort(x1,	APGAIN2,	apTime4);
 
 
 // -------	taps
 
 // taps left
 tap4L	= tapsL.read(LtimeMul4,	interp="spline");
-tap1L	= fffbAllpassLong((x1 + tap4L),			apGain3,		LtimeMul1);
+tap1L	= fffbAllpassLong((x1 + tap4L),			APGAIN3,		LtimeMul1);
 tap2L	= delayReadZero1mod(tap1L, LtimeMul2,	smoothsamps,	(modDepth - 0.00602));// + modulation (L)
 dampL	= poleZeroDamp((tap2L + dryRatten),		damping);					// + inject partial dry (R)
-tap3L	= fffbAllpassLong((dampL * decMulL),	apGain4,		LtimeMul3);
+tap3L	= fffbAllpassLong((dampL * decMulL),	APGAIN4,		LtimeMul3);
 tapsL.write(tap3L);
 
 // taps right
 tap4R	= tapsR.read(RtimeMul4,	interp="spline");
-tap1R	= fffbAllpassLong((x1 + tap4R),			apGain3,		RtimeMul1);
+tap1R	= fffbAllpassLong((x1 + tap4R),			APGAIN3,		RtimeMul1);
 tap2R	= delayReadZero1mod(tap1R, RtimeMul2,	smoothsamps,	(modDepth + 0.00021));// + modulation (R)
 dampR	= poleZeroDamp((tap2R + dryLatten),		damping);					// + inject partial dry (L)
-tap3R	= fffbAllpassLong((dampR * decMulR),	apGain4,		RtimeMul3);
+tap3R	= fffbAllpassLong((dampR * decMulR),	APGAIN4,		RtimeMul3);
 tapsR.write(tap3R);
 
 
