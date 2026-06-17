@@ -15,6 +15,12 @@
     },
     "inlets": [
         {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio In Left / (messages)",
+            "description": ""
+        },
+        {
             "id": 1,
             "type": "signal",
             "digest": "Audio In Left / (messages)",
@@ -28,6 +34,12 @@
         }
     ],
     "outlets": [
+        {
+            "id": 0,
+            "type": "signal",
+            "digest": "Audio Out Left",
+            "description": ""
+        },
         {
             "id": 1,
             "type": "signal",

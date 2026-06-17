@@ -9,7 +9,7 @@
 		<b>evi.phaser.analog~</b> is a 'max define' for the <o>evi_phaser_analog</o>.gendsp gen~ abstraction.
 		Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		THIS IS CURRENTLY SHIT AND NEEDS WORK <br />
+		Analog-like phaser in the sort of pedal sense (good for mono input but still does quasi stereo well). Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFO can be shaped and skewed. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -23,55 +23,55 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="1" type="">
+		<inlet id="1" type="signal">
 			<digest>
-				Inlet #1: 
+				Inlet #1: Audio in Left
 			</digest>
 			<description>
-				
+				Audio Input Left.
 			</description>
 		</inlet>
-		<inlet id="2" type="">
+		<inlet id="2" type="signal">
 			<digest>
-				Inlet #2: 
+				Inlet #2: Audio in Right
 			</digest>
 			<description>
-				
+				Audio Input Right.
 			</description>
 		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="1" type="">
+		<outlet id="1" type="signal">
 			<digest>
-				Outlet #1: 
+				Outlet #1: Phaser out Left
 			</digest>
 			<description>
-				
+				Phaser Effect Out Left.
 			</description>
 		</outlet>
-		<outlet id="2" type="">
+		<outlet id="2" type="signal">
 			<digest>
-				Outlet #2: 
+				Outlet #2: Phaser out Right
 			</digest>
 			<description>
-				
+				Phaser Effect Out Right.
 			</description>
 		</outlet>
-		<outlet id="3" type="">
+		<outlet id="3" type="signal">
 			<digest>
-				Outlet #3: 
+				Outlet #3: LFO in Hz
 			</digest>
 			<description>
-				
+				Internal LFO as mapped to Hz.
 			</description>
 		</outlet>
-		<outlet id="4" type="">
+		<outlet id="4" type="signal">
 			<digest>
-				Outlet #4: 
+				Outlet #4: LFO 0..1
 			</digest>
 			<description>
-				
+				Internal LFO normalised 0..1
 			</description>
 		</outlet>
 	</outletlist>
@@ -80,6 +80,149 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
+		<attribute name="center" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Center point around which the internal LFO modulates the frequncy
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.52" />
+			</attributelist>
+		</attribute>
+		<attribute name="crossover" get="1" set="1" type="float" min="10" max="1000">
+			<digest>
+				In Hz
+			</digest>
+			<description>
+				Crossover filter in Hz. Above this point, the Phaser effect is applied, below this point, the low end is mono and saturated. Both are summed on output.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="104." />
+			</attributelist>
+		</attribute>
+		<attribute name="depth" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				The size of the interal LFO modulation range.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.74" />
+			</attributelist>
+		</attribute>
+		<attribute name="duty" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				LFO: the duty cycle of the internal LFO triangle wave. Note that how much triangle wave is present in the LFO signal is dependent on the @shape attribute.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.4" />
+			</attributelist>
+		</attribute>
+		<attribute name="feedback" get="1" set="1" type="float" min="-1" max="1">
+			<digest>
+				Bipolar -1..1
+			</digest>
+			<description>
+				The amount of feedback added to the system, positive or negative linear gain. Along with the @pregain attribute, the feedback amount is what gives the Phaser it&#x27;s character, causing notches in the output.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="-0.5" />
+			</attributelist>
+		</attribute>
+		<attribute name="postgain" get="1" set="1" type="float" min="-6" max="6">
+			<digest>
+				in dB
+			</digest>
+			<description>
+				Gain applied to the final stage of the Allpass cascade. Effectively the output gain.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0." />
+			</attributelist>
+		</attribute>
+		<attribute name="pregain" get="1" set="1" type="float" min="-6" max="6">
+			<digest>
+				in dB
+			</digest>
+			<description>
+				This control, along with the @feedback attribute, boosts the audio input to the cascade of allpass filters, and gives the Phaser it&#x27;s character.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="2." />
+			</attributelist>
+		</attribute>
+		<attribute name="rate" get="1" set="1" type="float" min="0" max="8">
+			<digest>
+				In Hz
+			</digest>
+			<description>
+				The speed in Hz of the internal LFO. Most classic Phaser effects would keep this low and slow.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.49" />
+			</attributelist>
+		</attribute>
+		<attribute name="shape" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				LFO: interpolate between triangle (0) and sine (1) shape for the LFO. This can have a big effect on the irregularity of the Phaser movement.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.5" />
+			</attributelist>
+		</attribute>
+		<attribute name="skew" get="1" set="1" type="float" min="0.5" max="2">
+			<digest>
+				0.5..2 around 1
+			</digest>
+			<description>
+				LFO: skew the shape of the LFO with an exponent.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="1.2" />
+			</attributelist>
+		</attribute>
+		<attribute name="smooth" get="1" set="1" type="float" min="1" max="226">
+			<digest>
+				In ms
+			</digest>
+			<description>
+				This effects the lag time of all the internal smoothing of parameters in the Phaser. Parameters are smoothed by this amount in ms.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="22.666" />
+			</attributelist>
+		</attribute>
+		<attribute name="spread" get="1" set="1" type="float" min="0" max="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				The stereo spread of the effect. Internally left/right are used in a summed mono system around which spatialisation is set by this attribute. The effect therefore has a pedal-like character.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="0.632" />
+			</attributelist>
+		</attribute>
+		<attribute name="stages" get="1" set="1" type="int" min="2" max="32">
+			<digest>
+				Select 0..32
+			</digest>
+			<description>
+				This Phaser is a multistage phaser, meaning multiple allpass filters are cascaded serially to produce the effect. With this attribute you can specify how many stages are used. The more stages, the more absurd and &#x27;wobbly&#x27; the effect becomes, and the stronger the effect of the @feedback. More stages use more CPU.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="0" size="1" value="7" />
+			</attributelist>
+		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -91,7 +234,6 @@
 		<seealso name="evi.flanger.digital~"> </seealso>
 		<seealso name="evi.am~"> </seealso>
 		<seealso name="evi.tremolo~"> </seealso>
-		<seealso name="evi.phaser.analog~"> </seealso>
 		<seealso name="evi.detune.wrap~"> </seealso>
 		<seealso name="evi.detune~"> </seealso>
 		<seealso name="evi.phasor0~"> </seealso>

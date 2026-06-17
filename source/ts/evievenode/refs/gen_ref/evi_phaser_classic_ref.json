@@ -1,0 +1,308 @@
+{
+    "object": {
+        "name": "evi_phaser_classic",
+        "child": "evi.phaser.classic~",
+        "category": "evieve",
+        "digest": "TEXT_HERE",
+        "description": "TEXT_HERE"
+    },
+    "constructor": {
+        "inlets": "left, right, reset"
+    },
+    "includes": [
+        "evi_svfs_tpt_filters",
+        "evi_crossovers",
+        "evi_waveshaping",
+        "evi_counting",
+        "evi_lfo",
+        "evi_adaa"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Audio In",
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Audio In",
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "reset",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Phases Naive",
+            "digest": ""
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Audio Out",
+            "digest": ""
+        },
+        {
+            "id": 2,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Audio Out",
+            "digest": ""
+        },
+        {
+            "id": 3,
+            "name": "left",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "LFO 0..1",
+            "digest": ""
+        },
+        {
+            "id": 4,
+            "name": "right",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "LFO 0..1",
+            "digest": ""
+        }
+    ],
+    "attributes": [
+        {
+            "name": "center",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.57"
+            }
+        },
+        {
+            "name": "crossover",
+            "type": "float",
+            "digest": "@min 10, @max 1000",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "104."
+            }
+        },
+        {
+            "name": "depth",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.66"
+            }
+        },
+        {
+            "name": "drywet",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "sqrt1_2"
+            }
+        },
+        {
+            "name": "duty",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.4"
+            }
+        },
+        {
+            "name": "feedback",
+            "type": "float",
+            "digest": "@min -1, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.69"
+            }
+        },
+        {
+            "name": "feedbackcross",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "feedbackmix",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.3"
+            }
+        },
+        {
+            "name": "filter",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "filtermod",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "filteros",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "filterres",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.78"
+            }
+        },
+        {
+            "name": "filtertype",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "link",
+            "type": "float",
+            "digest": "@min 0.25, @max 4",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "2.4"
+            }
+        },
+        {
+            "name": "rate",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.24"
+            }
+        },
+        {
+            "name": "shape",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "skew",
+            "type": "float",
+            "digest": "@min 0.5, @max 2",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "1.2"
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 226",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "22.666"
+            }
+        },
+        {
+            "name": "spread",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.27"
+            }
+        },
+        {
+            "name": "stages",
+            "type": "int",
+            "digest": "@min 1, @max 32",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "10"
+            }
+        },
+        {
+            "name": "tone",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "float",
+                "value": "0.34"
+            }
+        },
+        {
+            "name": "zeroreset",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "",
+            "display": ""
+        }
+    ]
+}

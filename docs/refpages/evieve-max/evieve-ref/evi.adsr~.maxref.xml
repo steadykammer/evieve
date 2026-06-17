@@ -77,12 +77,12 @@
 				Trigger up on new envelope, trigger down on beginning of release stage
 			</description>
 		</outlet>
-		<outlet id="3" type="message">
+		<outlet id="3" type="signal">
 			<digest>
-				mute outlet to [thispoly~]
+				active state 0/1 (inverse of &#x27;mute&#x27;) for example to [thispoly~ @automute 1]
 			</digest>
 			<description>
-				Attach to &#x27;thispoly~&#x27; to control &#x27;poly~&#x27; voice mute state
+				Attach to &#x27;thispoly~ @automute 1&#x27; to control &#x27;poly~&#x27; voice state
 			</description>
 		</outlet>
 		<outlet id="4" type="signal">
@@ -264,17 +264,6 @@
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
-			</attributelist>
-		</attribute>
-		<attribute name="muteupdate" get="0" set="1" type="int" size="1">
-			<digest>
-				Time in ms
-			</digest>
-			<description>
-				Update rate of mute message outlet.
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="10" />
 			</attributelist>
 		</attribute>
 		<attribute name="release" get="0" set="1" type="float" size="1">

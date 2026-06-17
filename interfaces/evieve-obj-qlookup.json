@@ -662,7 +662,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+    },
+    "evi.phaser.classic~": {
+        "digest": 0,
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "keywords": [],
+        "seealso": []
     },
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",

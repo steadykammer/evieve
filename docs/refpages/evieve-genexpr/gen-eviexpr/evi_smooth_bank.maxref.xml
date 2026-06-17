@@ -302,6 +302,56 @@
 
       </description>
     </entry>
+    <entry name="tanApp ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="cfSmoothLinearCoeff ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="cfSmoothLinearFilter ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: g0, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="cfSmoothLinear ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+
+      </description>
+    </entry>
+    <entry name="cfSmoothLinear2 ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
+        <b>In 4</b>: type=<i>input</i>: s, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+
+      </description>
+    </entry>
   </misc>
   <metadatalist>
     <metadata name="author">Pete Dowling</metadata>

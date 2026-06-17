@@ -472,7 +472,12 @@
     "evi.phaser.analog~": {
         "type": "define",
         "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
-        "description": "evi.phaser.analog~ is a 'max define' for the evi_phaser_analog.gendsp gen~ abstraction. Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTHIS IS CURRENTLY SHIT AND NEEDS WORK"
+        "description": "evi.phaser.analog~ is a 'max define' for the evi_phaser_analog.gendsp gen~ abstraction. Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAnalog-like phaser in the sort of pedal sense (good for mono input but still does quasi stereo well). Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFO can be shaped and skewed."
+    },
+    "evi.phaser.classic~": {
+        "type": "define",
+        "digest": 0,
+        "description": ""
     },
     "evi.phaseshift~": {
         "type": "define",

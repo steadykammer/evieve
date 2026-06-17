@@ -254,6 +254,9 @@ max define mc.evi.paf~ mc.gen~ @gen evi_paf.gendsp @chans 2;
 max define evi.phaser.analog~ gen~ @gen evi_phaser_analog.gendsp;
 max define mc.evi.phaser.analog~ mc.gen~ @gen evi_phaser_analog.gendsp @chans 2;
 
+max define evi.phaser.classic~ gen~ @gen evi_phaser_classic.gendsp;
+max define mc.evi.phaser.classic~ mc.gen~ @gen evi_phaser_classic.gendsp @chans 2;
+
 max define evi.phaseshift~ gen~ @gen evi_phaseshift.gendsp;
 max define mc.evi.phaseshift~ mc.gen~ @gen evi_phaseshift.gendsp @chans 2;
 

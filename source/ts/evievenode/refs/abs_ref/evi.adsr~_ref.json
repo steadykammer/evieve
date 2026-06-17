@@ -60,8 +60,8 @@
         },
         {
             "id": 3,
-            "type": "message",
-            "digest": "mute outlet to [thispoly~]",
+            "type": "signal",
+            "digest": "active state 0/1 (inverse of 'mute') for example to [thispoly~ @automute 1]",
             "description": "Attach to 'thispoly~ @automute 1' to control 'poly~' voice state"
         },
         {

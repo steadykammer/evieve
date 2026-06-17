@@ -1,0 +1,195 @@
+
+// basic digital phaser example
+
+require("evi_svfs_tpt_filters.genexpr");
+require("evi_crossovers.genexpr");
+require("evi_waveshaping.genexpr");
+require("evi_counting.genexpr");
+require("evi_lfo.genexpr");
+require("evi_adaa.genexpr");
+
+Param	rate(0.24, min=0, max=1);
+Param	depth(0.66, min=0, max=1);
+Param	center(0.57, min=0, max=1);
+Param	spread(0.27, min=0, max=1);
+
+Param	duty(0.4, min=0, max=1);
+Param	shape(0.5, min=0, max=1);
+Param	skew(1.2, min=0.5, max=2);
+Param	link(2.4, min=0.25, max=4);
+Param	zeroreset(0, min=0, max=1);
+
+Param	feedback(0.69, min=-1, max=1);	    // linear gain -1..1
+Param   feedbackmix(0.3, min=0, max=1);     // xfade feedback tap between first stage and all stages
+Param	feedbackcross(0., min=0, max=1);
+
+Param	filter(1, min=0, max=1);	        // pre filter off / on
+Param	filtermod(1, min=0, max=1);	        // pre filter modulation system off/on
+Param	filterres(0.78, min=0, max=1);
+Param   filtertype(0, min=0, max=1);
+Param   filteros(1, min=0, max=1);          // 0=1x, 1=2x
+
+Param   tone(0.34, min=0, max=1);
+Param	drywet(sqrt1_2, min=0, max=1);
+Param	crossover(104., min=10, max=1000);	// hz
+Param	smooth(22.666, min=0, max=226);	    // ms
+
+History	dryL(0), dryR(0), lowSat(0);        // align
+History circuitL(0), circuitR(0);
+
+History prevNum(10);
+Data	allpassCascade(31, 4); // just change dim()-1 for different available number of stages
+Param	stages(10, min=1, max=32); // change "max" like "dim" if modifying
+maxSections = dim(allpassCascade);
+numSections = clamp(int(stages), 1, maxSections);
+numSectsM1  = numSections - 1;
+smoothsecs	= smooth*0.001;
+switchsamps = mstosamps(226);
+filte		= int(filter);
+ftype       = int(filtertype);
+os          = int(filteros);
+
+// SCALE
+
+rrt = 1 - rate;
+rt  = mtofApproxBaseless(rrt*rrt * -92);    // hz
+cn  = (center * 120) + 10;
+d2  = minimum((depth * 60), (131 - cn));
+dp  = minimum(d2, ((cn + 0.3) - 8.7));      // + 1;
+
+// SMOOTH
+
+reset = in3;//delta(in3) < 0;
+speedScale, depthScale, centerScale, spreadScale, subScale = logsmoothBank5(rt, dp, cn, spread*0.5, link, smoothsecs);
+dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
+xover, prefiltres, drywetmix = expsmoothBank3(crossover, filterres, drywet, smoothsecs);
+fbgain, fbmix, fbcross = logsmoothBank3(feedback, feedbackmix, feedbackcross, smoothsecs*sqrt2);
+prefiltmod = eviLine(int(filtermod) * filte, switchsamps);
+filt = eviLine(filte, switchsamps);
+
+// PHASES
+
+thisphasor, thisrate, currenthz, currentrate, syncphasor, syncrate = eviPhasorRate0(speedScale, subScale, reset, mode=zeroreset);
+phasor2 = wrap(thisphasor + spreadScale, 0, 1);
+psync2 = delta(abs(phasor2)) < 0;
+rate2 = wrap(thisrate + spreadScale, 0, 1);
+rsync2 = delta(abs(rate2)) < 0;
+
+// LFOS
+
+depthScale2 = depthScale + 1;
+lfoL = lfoMix(thisphasor, dutyScale, shapeScale, skewScale);
+lfoR = lfoMix(phasor2, dutyScale, shapeScale, skewScale);
+cfMin = (-depthScale2 + centerScale);
+cfMax = (depthScale2 + centerScale);
+cfL = mix(cfMin, cfMax, lfoL);
+cfR = mix(cfMin, cfMax, lfoR);
+cfL = mtofApproxBaseless(cfL);
+cfR = mtofApproxBaseless(cfR);
+
+centerFilt = centerScale + 11.59;
+pfL = centerFilt;
+pfR = centerFilt;
+if (prefiltmod > 0) { // includes 'filte' condition
+	depthFilt = (depthScale * 0.583318) + 1;	// semitones 1..36
+	pfoL = lfoMix(thisrate, dutyScale, shapeScale, skewScale);
+	pfoR = lfoMix(rate2, dutyScale, shapeScale, skewScale);
+	pfMin = (-depthFilt + centerFilt);
+	pfMax = (depthFilt + centerFilt);
+	pfL = eviMap(pfoL, 0, 1, pfMin, pfMax);
+	pfR = eviMap(pfoR, 0, 1, pfMin, pfMax);
+	pfL = mix(centerFilt, pfL, prefiltmod);
+	pfR = mix(centerFilt, pfR, prefiltmod);
+}
+
+Q = logsmooth((tone * 18.002 + 1.068), smoothsecs);
+gL, rL, hL, _cLL, cBL, _cHL = tptSvfCoeffAllpassNorm(cfL, Q*1.047);
+gR, rR, hR, _cLR, cBR, _cHR = tptSvfCoeffAllpassNorm(cfR, Q);
+cL, cR = logsmoothBank2(cBL, cBR, smoothsecs);
+
+// INPUTS
+
+xL      = in1;
+xR      = in2;
+dryL    = xL;
+dryR    = xR;
+// xover
+xoverLowL, xoverLowR, wetInL, wetInR = eviXover4pole2bandStereo(xL, xR, xover);
+
+// PHASER
+
+// first stage (for crossfading downstream)
+firstStageL, firstStageR = tptSvfAllpassStereo(circuitL, circuitR, gL, rL, hL, cL, gR, rR, hR, cR);
+allpassL = firstStageL;
+allpassR = firstStageR;
+
+// allpass cascade
+for (j = 0; j < numSectsM1; j += 1) {
+	ap1iL = peek(allpassCascade, j, 0);
+	ap2iL = peek(allpassCascade, j, 1);
+	ap1iR = peek(allpassCascade, j, 2);
+	ap2iR = peek(allpassCascade, j, 3);
+
+	allpassL, ap1oL, ap2oL = tptAllpassCascade(allpassL, gL, rL, hL, cL, ap1iL, ap2iL);
+	allpassR, ap1oR, ap2oR = tptAllpassCascade(allpassR, gR, rR, hR, cR, ap1iR, ap2iR);
+
+	poke(allpassCascade, ap1oL, j, 0);
+	poke(allpassCascade, ap2oL, j, 1);
+	poke(allpassCascade, ap1oR, j, 2);
+	poke(allpassCascade, ap2oR, j, 3);
+}
+if (prevNum != numSections) {
+	// zero remainder
+	for (k = numSectsM1; k < maxSections; k += 1) {
+		poke(allpassCascade, 0, k, 0);
+		poke(allpassCascade, 0, k, 1);
+		poke(allpassCascade, 0, k, 2);
+		poke(allpassCascade, 0, k, 3);
+	}
+	prevNum = numSections;
+}
+
+// LOW END
+
+lowMono = (xoverLowL + xoverLowR) * sqrt1_2;
+lowSat  = polySat(lowMono) * sqrt1_2; // align
+
+// OUTPUTS
+
+wetL    = lowSat + allpassL;
+wetR    = lowSat + allpassR;
+
+// xfade dry / wet & output
+outputL, outputR = xfadeQuartApproxStereo(dryL, dryR, wetL, wetR, drywetmix);
+
+out1 = outputL;
+out2 = outputR;
+
+// FEEDBACK
+
+fbL = altTanhSqrtAdaa1(mix(firstStageL, allpassL, fbmix)) * fbgain;
+fbR = altTanhSqrtAdaa1(mix(firstStageR, allpassR, fbmix)) * fbgain;
+fbL, fbR = xfadeQuartApproxSwap(fbL, fbR, fbcross);
+
+// NONLIN / PRE FILTER
+
+preFilterL = wetInL;
+preFilterR = wetInR;
+if (filt > 0) {
+    highclip = samplerate*0.44;
+    pfL = minimum(mtofApproxBaseless(pfL), highclip);
+    pfR = minimum(mtofApproxBaseless(pfR), highclip);
+	preFilterL = evi_korgms20_select(wetInL, pfL, prefiltres, filter=ftype, oversample=os);
+	preFilterR = evi_korgms20_select(wetInR, pfR, prefiltres, filter=ftype, oversample=os);
+	preFilterL = mix(wetInL, preFilterL, filt);
+	preFilterR = mix(wetInR, preFilterR, filt);
+}
+
+// WRITE
+
+circuitL = preFilterL + fbL;
+circuitR = preFilterR + fbR;
+
+out3 = lfoL;
+out4 = lfoR;
+

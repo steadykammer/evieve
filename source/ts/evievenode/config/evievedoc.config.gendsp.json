@@ -3104,17 +3104,17 @@
         },
         "evi_phaser_classic.gendsp": {
             "define": {
-                "object": false,
+                "object": true,
                 "msp": "evi.phaser.classic~",
                 "mcwrapper": true
             },
             "ref": {
-                "gen": false,
-                "msp": false
+                "gen": true,
+                "msp": true
             },
             "helpfile": {
-                "msp": false,
-                "gentab": false,
+                "msp": true,
+                "gentab": true,
                 "genexprtab": false,
                 "areaonly": false,
                 "areas": []

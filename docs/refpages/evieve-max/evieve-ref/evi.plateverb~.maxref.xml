@@ -18,6 +18,14 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				Audio In Mono or Left or 1 / messages to evi.plateverb~
+			</digest>
+			<description>
+				
+			</description>
+		</inlet>
 		<inlet id="1" type="signal">
 			<digest>
 				Audio In Mono or Left or 1 / messages to evi.plateverb~
@@ -37,6 +45,14 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+				Audio Out Left
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
 		<outlet id="1" type="signal">
 			<digest>
 				Audio Out Left
@@ -199,7 +215,7 @@
 				One of the original parameters. The perceived size of the reverb. 
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="0.2" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.3" />
 			</attributelist>
 		</attribute>
 		<attribute name="smoothtime" get="0" set="1" type="float" size="1">

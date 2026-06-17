@@ -174,7 +174,7 @@
                 Normalised 0..1, one of the original parameters. The perceived size of the reverb. 
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.2' />
+                <attribute name='default' type='float' value='0.3' />
             </attributelist>
         </attribute>
         <attribute name='smoothtime' type='float' get='0' set='1'>

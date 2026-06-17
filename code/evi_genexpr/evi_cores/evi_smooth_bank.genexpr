@@ -244,3 +244,56 @@ logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
 	y8		= logso(x8, ad);
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
+
+// ---
+
+tanApp(x)
+{
+	x2 = (x * x);
+	x3 = (x2 * x);
+	x5 = (x2 * x3);
+	return ((x5 * 0.133333333333) + (x3 * 0.333333333333)) + x;
+}
+
+// for cfSmoothLinear()
+cfSmoothLinearCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
+{
+	w0		= tanApp(pi * hz / samplerate);
+	g0		= (w0 + w0) / (1 + w0);
+	s0		= (1 - tauApp(s)) * 4;// this is a bit stupid
+	return	  g0, s0;
+}
+
+// for cfSmoothLinear()
+cfSmoothLinearFilter(x0, g0, s0)
+{
+	History	low1(0), low2(0);
+
+	low1z	= low1;
+	low2z	= low2;
+
+	bandz	= low1z - low2z;
+	g		= minimum(g0 + s0 * abs(bandz), 1);
+
+	low1	= low1z + g * (x0 - low1z);
+	low2	= low2z + g * (low1 - low2z);
+
+	return	  low2;
+}
+
+cfSmoothLinear(x1, hz, s)
+{
+	History	  cfsl1dummy(0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	return	  y1;
+}
+
+cfSmoothLinear2(x1, x2, hz, s)
+{
+	History	  cfsl2dummy(0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	y2		= cfSmoothLinearFilter(x2, g0, s0);
+	return	  y1, y2;
+}

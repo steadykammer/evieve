@@ -13,29 +13,172 @@
          <br />
         evi_phaser_analog is also available in MSP as: <o>evi.phaser.analog~</o>. <br />
          <br />
-	    THIS IS CURRENTLY SHIT AND NEEDS WORK <br />
+	    Analog-like phaser in the sort of pedal sense (good for mono input but still does quasi stereo well). Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFO can be shaped and skewed. <br />
     </description>
     <methodlist />
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ ,  } }
+                { arguments={}, inlets={ audio, audio } }
             </digest>
         </constructor>
     </constructorlist>
     <geninletlist>
-        <geninlet name='' type='float' optional='1'>
+        <geninlet name='audio' type='float' optional='1'>
             <digest>
-                
+                in Left. Audio Input Left.
             </digest>
         </geninlet>
-        <geninlet name='' type='float' optional='1'>
+        <geninlet name='audio' type='float' optional='1'>
             <digest>
-                
+                in Right. Audio Input Right.
             </digest>
         </geninlet>
     </geninletlist>
     <attributelist>
+        <attribute name='center' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                Center point around which the internal LFO modulates the frequncy
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.52' />
+            </attributelist>
+        </attribute>
+        <attribute name='crossover' type='float' get='0' set='1'>
+            <digest>
+                @min 10, @max 1000
+            </digest>
+            <description>
+                Crossover filter in Hz. Above this point, the Phaser effect is applied, below this point, the low end is mono and saturated. Both are summed on output.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='104.' />
+            </attributelist>
+        </attribute>
+        <attribute name='depth' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                The size of the interal LFO modulation range.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.74' />
+            </attributelist>
+        </attribute>
+        <attribute name='duty' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                LFO: the duty cycle of the internal LFO triangle wave. Note that how much triangle wave is present in the LFO signal is dependent on the @shape attribute.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.4' />
+            </attributelist>
+        </attribute>
+        <attribute name='feedback' type='float' get='0' set='1'>
+            <digest>
+                @min -1, @max 1
+            </digest>
+            <description>
+                The amount of feedback added to the system, positive or negative linear gain. Along with the @pregain attribute, the feedback amount is what gives the Phaser it&#x27;s character, causing notches in the output.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='-0.5' />
+            </attributelist>
+        </attribute>
+        <attribute name='postgain' type='float' get='0' set='1'>
+            <digest>
+                @min -6, @max 6
+            </digest>
+            <description>
+                Gain applied to the final stage of the Allpass cascade. Effectively the output gain.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.' />
+            </attributelist>
+        </attribute>
+        <attribute name='pregain' type='float' get='0' set='1'>
+            <digest>
+                @min -6, @max 6
+            </digest>
+            <description>
+                This control, along with the @feedback attribute, boosts the audio input to the cascade of allpass filters, and gives the Phaser it&#x27;s character.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='2.' />
+            </attributelist>
+        </attribute>
+        <attribute name='rate' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 8
+            </digest>
+            <description>
+                The speed in Hz of the internal LFO. Most classic Phaser effects would keep this low and slow.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.49' />
+            </attributelist>
+        </attribute>
+        <attribute name='shape' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                LFO: interpolate between triangle (0) and sine (1) shape for the LFO. This can have a big effect on the irregularity of the Phaser movement.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.5' />
+            </attributelist>
+        </attribute>
+        <attribute name='skew' type='float' get='0' set='1'>
+            <digest>
+                @min 0.5, @max 2
+            </digest>
+            <description>
+                LFO: skew the shape of the LFO with an exponent.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='1.2' />
+            </attributelist>
+        </attribute>
+        <attribute name='smooth' type='float' get='0' set='1'>
+            <digest>
+                @min 1, @max 226
+            </digest>
+            <description>
+                This effects the lag time of all the internal smoothing of parameters in the Phaser. Parameters are smoothed by this amount in ms.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='22.666' />
+            </attributelist>
+        </attribute>
+        <attribute name='spread' type='float' get='0' set='1'>
+            <digest>
+                @min 0, @max 1
+            </digest>
+            <description>
+                The stereo spread of the effect. Internally left/right are used in a summed mono system around which spatialisation is set by this attribute. The effect therefore has a pedal-like character.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='0.632' />
+            </attributelist>
+        </attribute>
+        <attribute name='stages' type='int' get='0' set='1'>
+            <digest>
+                @min 2, @max 32
+            </digest>
+            <description>
+                This Phaser is a multistage phaser, meaning multiple allpass filters are cascaded serially to produce the effect. With this attribute you can specify how many stages are used. The more stages, the more absurd and &#x27;wobbly&#x27; the effect becomes, and the stronger the effect of the @feedback. More stages use more CPU.
+            </description>
+            <attributelist>
+                <attribute name='default' type='int' value='7' />
+            </attributelist>
+        </attribute>
     </attributelist>
     <!-- metadata not part of real genobject ref pages but needed to trick Max -->
     <metadatalist>

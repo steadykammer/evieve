@@ -18,6 +18,14 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				Audio In Left / (messages)
+			</digest>
+			<description>
+				
+			</description>
+		</inlet>
 		<inlet id="1" type="signal">
 			<digest>
 				Audio In Left / (messages)
@@ -37,6 +45,14 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+				Audio Out Left
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
 		<outlet id="1" type="signal">
 			<digest>
 				Audio Out Left
