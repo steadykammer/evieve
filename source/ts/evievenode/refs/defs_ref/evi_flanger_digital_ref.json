@@ -25,13 +25,13 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "Left Audio In",
+            "digest": "Left or Mono Audio In",
             "description": "Left or mono audio input depending on the @stereo attribute."
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "Right Audio In",
+            "digest": "Right or Nothing Audio In",
             "description": "Right audio input if @stereo attribute is on."
         },
         {

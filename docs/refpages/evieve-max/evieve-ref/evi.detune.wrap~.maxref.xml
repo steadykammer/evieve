@@ -224,6 +224,7 @@
 		<seealso name="evi.flanger.digital~"> </seealso>
 		<seealso name="evi.am~"> </seealso>
 		<seealso name="evi.tremolo~"> </seealso>
+		<seealso name="evi.phaser.classic~"> </seealso>
 		<seealso name="evi.phaser.analog~"> </seealso>
 		<seealso name="evi.freqshift.hilbert~"> </seealso>
 	</seealsolist>

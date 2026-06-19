@@ -87,7 +87,7 @@
     "evi.chorus.digital~": {
         "type": "define",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a multi stage chorus using evieve primitives. There are many attributes so that the user can macroise the controls themselves to higher level parameters."
+        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a multi stage chorus using evieve primitives. There are many attributes so that the effect can be macroised in different ways for varying types of sound design."
     },
     "evi.classic.osc~": {
         "type": "define",

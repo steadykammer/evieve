@@ -32,7 +32,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.tremolo~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.tremolo~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.classic~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.arpnotch~": {
         "digest": "A nonlinear SVF Notch filter which can morph between LP..Notch..HP",
@@ -123,7 +123,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.classic~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.classic.osc~": {
         "digest": "A selection of 'classic' oscillator shapes",
@@ -214,14 +214,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.detune~", "evi.freqshift.weaver~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.freqshift.hilbert~" ]
+        "seealso": [ "evi.detune~", "evi.freqshift.weaver~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.classic~", "evi.phaser.analog~", "evi.freqshift.hilbert~" ]
     },
     "evi.detune~": {
         "digest": "A quirky digital Detune effect, LoFi and old school",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.detune.wrap~", "evi.freqshift.weaver~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~" ]
+        "seealso": [ "evi.detune.wrap~", "evi.freqshift.weaver~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.classic~", "evi.phaser.analog~" ]
     },
     "evi.dfm~": {
         "digest": "Classic MS20 filter emulation based on DFM1 by Tony Hardie-Bick \n",
@@ -375,7 +375,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.chorus.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.chorus.digital~", "evi.am~", "evi.tremolo~", "evi.phaser.classic~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.formantfilter.morph~": {
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
@@ -907,7 +907,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Saturation", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.am~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.am~", "evi.flanger.digital~", "evi.chorus.digital~", "evi.phaser.classic~", "evi.phaser.analog~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.tri.select~": {
         "digest": "Selection of antialiased triangle-like oscillators",

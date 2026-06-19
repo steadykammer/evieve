@@ -15,8 +15,8 @@ Delay   dryDelayR(samplerate*0.41, 1, feedback=0);
 Delay   cfDelayL(samplerate*0.41, 1, feedback=1);
 Delay   cfDelayR(samplerate*0.41, 1, feedback=1);
 // main
-Param	rate(0.5, min=0, max=1);
 Param   maxhz(2.69, min=0, max=100);        // hz
+Param	rate(0.5, min=0, max=1);
 Param   mintime(1., min=0, max=200);        // ms
 Param   maxtime(9., min=0, max=200);        // ms
 Param	depth(0.5, min=0, max=1);
@@ -56,16 +56,20 @@ delayMax = ((maxtime - mintime) * depth) + mintime;
 delayMin = min(delayMin, delayMax);
 delayMax = max(delayMin, delayMax);
 
-g = rcPreWarp1((tone * 13700) + (crossover+crossover));
+toneHz  = (tone * 13690) + 10;
+toneXx  = crossover + crossover;
+g = rcPreWarp1(toneHz + toneXx);
+
+// audio rate
 
 freqIn, minSamps, maxSamps, spreadIn = logsmoothBank4(rate*maxhz, mstosamps(delayMin), mstosamps(delayMax), spread*spread, smoothsecs);
 dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
 fbgain, fbmix, fbcross, G = logsmoothBank4(feedback, feedbackmix, feedbackcross, g, smoothsecs*sqrt2);
-Warp, xOver, dryDelay, inJect = expsmoothBank4(warp, crossover, drydelay, inject, smoothsecs*0.5);
+Warp, xOver, dryDelay, inJect = expsmoothBank4(warp, crossover, mstosamps(drydelay), inject, smoothsecs*0.5);
 preGain, postGain = logsmoothBank2(dbtoaApprox(pregain), (dbtoaApprox(postgain) * invSign), smoothsecs);
 attenStages, attenPow = expsmoothBank2(attenstages, attenpow, smoothsecs);
-dryWet = evi_sline(drywet, smoothsamps);
-drySamps = sqrt(dryWet) * mstosamps(dryDelay);
+dryWet = cfSmoothLinear(drywet, 2, smoothsecs);
+drySamps = sqrt(dryWet) * dryDelay;
 
 phaseL, phaseR, phaseHz, phaseSpread, syncL, syncR = eviPhasorTwo0(freqIn, spreadIn, in3, minimumhz=0.05, mode=phaseMode);
 
@@ -80,6 +84,7 @@ sumStageR = firstStageR;
 
 // cascade
 for (j = 1; j < numStages; j += 1) {    // from 1
+    // 'warp' concept developed by my friend Alex Harker
 	stageOffset = pow((j / numStages), expP(Warp)); // need pow() accuracy here :-(
 	stagePhaseL = wrap(phaseL + stageOffset, 0, 1);
 	stagePhaseR = wrap(phaseR + stageOffset, 0, 1);

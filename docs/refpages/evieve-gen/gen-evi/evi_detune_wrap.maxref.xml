@@ -199,5 +199,6 @@
         <seealso name='evi_detune' display='evi_detune' type='genrefpage' />
         <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
         <seealso name='evi_freqshift_hilbert' display='evi_freqshift_hilbert' type='genrefpage' />
+        <seealso name='evi_phaser_classic' display='evi_phaser_classic' type='genrefpage' />
     </seealsolist>
 </c74object>

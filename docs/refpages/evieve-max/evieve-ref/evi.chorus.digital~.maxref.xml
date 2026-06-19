@@ -9,7 +9,7 @@
 		<b>evi.chorus.digital~</b> is a 'max define' for the <o>evi_chorus_digital</o>.gendsp gen~ abstraction.
 		Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		An example of a multi stage chorus using evieve primitives. There are many attributes so that the user can macroise the controls themselves to higher level parameters. <br />
+		An example of a multi stage chorus using evieve primitives. There are many attributes so that the effect can be macroised in different ways for varying types of sound design. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -362,6 +362,7 @@
 		<seealso name="evi.flanger.digital~"> </seealso>
 		<seealso name="evi.am~"> </seealso>
 		<seealso name="evi.tremolo~"> </seealso>
+		<seealso name="evi.phaser.classic~"> </seealso>
 		<seealso name="evi.phaser.analog~"> </seealso>
 		<seealso name="evi.detune.wrap~"> </seealso>
 		<seealso name="evi.detune~"> </seealso>

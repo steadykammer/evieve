@@ -26,12 +26,12 @@
     <geninletlist>
         <geninlet name='left' type='float' optional='1'>
             <digest>
-                Audio In. Left or mono audio input depending on the @stereo attribute.
+                or Mono Audio In. Left or mono audio input depending on the @stereo attribute.
             </digest>
         </geninlet>
         <geninlet name='right' type='float' optional='1'>
             <digest>
-                Audio In. Right audio input if @stereo attribute is on.
+                or Nothing Audio In. Right audio input if @stereo attribute is on.
             </digest>
         </geninlet>
         <geninlet name='reset' type='float' optional='1'>
@@ -264,5 +264,6 @@
         <seealso name='evi_detune' display='evi_detune' type='genrefpage' />
         <seealso name='evi_phasor0' display='evi_phasor0' type='genrefpage' />
         <seealso name='evi_detune_wrap' display='evi_detune_wrap' type='genrefpage' />
+        <seealso name='evi_phaser_classic' display='evi_phaser_classic' type='genrefpage' />
     </seealsolist>
 </c74object>

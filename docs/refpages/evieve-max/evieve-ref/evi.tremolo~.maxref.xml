@@ -250,6 +250,7 @@
 		<seealso name="evi.am~"> </seealso>
 		<seealso name="evi.flanger.digital~"> </seealso>
 		<seealso name="evi.chorus.digital~"> </seealso>
+		<seealso name="evi.phaser.classic~"> </seealso>
 		<seealso name="evi.phaser.analog~"> </seealso>
 		<seealso name="evi.detune.wrap~"> </seealso>
 		<seealso name="evi.detune~"> </seealso>

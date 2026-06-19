@@ -166,6 +166,10 @@
         {
             "name": "evi_freqshift_weaver",
             "display": "evi_freqshift_weaver"
+        },
+        {
+            "name": "evi_phaser_classic",
+            "display": "evi_phaser_classic"
         }
     ]
 }

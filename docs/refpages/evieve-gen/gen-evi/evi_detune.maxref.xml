@@ -132,5 +132,6 @@
         <seealso name='evi_tremolo' display='evi_tremolo' type='genrefpage' />
         <seealso name='evi_phaser_analog' display='evi_phaser_analog' type='genrefpage' />
         <seealso name='evi_freqshift_weaver' display='evi_freqshift_weaver' type='genrefpage' />
+        <seealso name='evi_phaser_classic' display='evi_phaser_classic' type='genrefpage' />
     </seealsolist>
 </c74object>

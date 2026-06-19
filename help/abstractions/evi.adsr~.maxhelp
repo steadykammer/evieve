@@ -1369,7 +1369,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 242.0, 476.0, 252.0, 23.0 ],
-                                    "text": "poly~ evi-adsr-synth 2 @target 0 @steal 1"
+                                    "text": "poly~ evi-poly-adsr 2 @target 0 @steal 1"
                                 }
                             },
                             {

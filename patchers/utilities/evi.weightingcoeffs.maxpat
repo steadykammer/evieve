@@ -9,17 +9,61 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 84.0, 144.0, 974.0, 788.0 ],
+        "rect": [ 84.0, 144.0, 997.0, 788.0 ],
         "gridonopen": 2,
         "digest": "Copyright (c) 2019 Müller-BBM Active Sound Technology GmbH",
         "integercoordinates": 1,
         "boxes": [
             {
                 "box": {
+                    "id": "obj-34",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 819.0, 367.0, 61.0, 22.0 ],
+                    "text": "list.slice 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-33",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 819.0, 328.0, 73.0, 22.0 ],
+                    "text": "route import"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-30",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "int" ],
+                    "patching_rect": [ 748.0, 445.0, 30.0, 22.0 ],
+                    "text": "* 0"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 748.0, 406.0, 132.0, 22.0 ],
+                    "text": "pak 0 0"
+                }
+            },
+            {
+                "box": {
                     "comment": "(symbol) chosen weighting type symbol",
                     "hidden": 1,
                     "id": "obj-10",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -121,7 +165,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "bang", "bang" ],
-                    "patching_rect": [ 679.7, 592.0, 65.0, 22.0 ],
+                    "patching_rect": [ 680.0, 592.0, 65.0, 22.0 ],
                     "text": "onebang 1"
                 }
             },
@@ -426,6 +470,7 @@
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
                                     "id": "obj-17",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -998,11 +1043,11 @@
                 "box": {
                     "comment": "(bang/int) calculate coefficients",
                     "id": "obj-9",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "bang" ],
                     "patching_rect": [ 74.0, 8.0, 30.0, 30.0 ]
                 }
             },
@@ -1021,7 +1066,7 @@
                 "box": {
                     "comment": "(list) 15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)",
                     "id": "obj-1",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1317,7 +1362,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 679.7, 631.0, 278.0, 22.0 ],
+                    "patching_rect": [ 680.0, 631.0, 278.0, 22.0 ],
                     "text": "list.reg import evi_weighting_filter_coefficients.json"
                 }
             },
@@ -1426,6 +1471,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-30", 0 ],
+                    "source": [ "obj-19", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "color": [ 0.500002145767212, 4.5299530029e-05, 0.500004887580872, 1.0 ],
                     "destination": [ "obj-20", 0 ],
                     "source": [ "obj-2", 0 ]
@@ -1512,8 +1563,15 @@
             {
                 "patchline": {
                     "destination": [ "obj-90", 0 ],
-                    "midpoints": [ 689.2, 661.5, 83.5, 661.5 ],
+                    "midpoints": [ 689.5, 661.5, 83.5, 661.5 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-48", 0 ],
+                    "midpoints": [ 757.5, 476.2578125, 216.5, 476.2578125 ],
+                    "source": [ "obj-30", 0 ]
                 }
             },
             {
@@ -1529,6 +1587,18 @@
                     "destination": [ "obj-28", 0 ],
                     "midpoints": [ 535.5, 431.0, 511.5, 431.0, 511.5, 317.0, 535.5, 317.0 ],
                     "source": [ "obj-31", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-34", 0 ],
+                    "source": [ "obj-33", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-19", 1 ],
+                    "source": [ "obj-34", 1 ]
                 }
             },
             {
@@ -1558,6 +1628,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-19", 0 ],
+                    "source": [ "obj-38", 4 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-43", 0 ],
                     "source": [ "obj-38", 3 ]
                 }
@@ -1575,13 +1651,6 @@
                     "destination": [ "obj-47", 0 ],
                     "midpoints": [ 599.5, 163.0, 639.1, 163.0 ],
                     "source": [ "obj-38", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-48", 0 ],
-                    "midpoints": [ 757.9, 469.5, 216.5, 469.5 ],
-                    "source": [ "obj-38", 4 ]
                 }
             },
             {
@@ -1752,12 +1821,18 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-33", 0 ],
+                    "midpoints": [ 251.5, 702.0, 975.84375, 702.0, 975.84375, 318.0, 828.5, 318.0 ],
+                    "source": [ "obj-90", 4 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-6", 0 ],
                     "source": [ "obj-90", 1 ]
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

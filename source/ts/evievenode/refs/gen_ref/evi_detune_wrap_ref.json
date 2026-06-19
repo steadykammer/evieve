@@ -233,6 +233,10 @@
         {
             "name": "evi_freqshift_hilbert",
             "display": "evi_freqshift_hilbert"
+        },
+        {
+            "name": "evi_phaser_classic",
+            "display": "evi_phaser_classic"
         }
     ]
 }

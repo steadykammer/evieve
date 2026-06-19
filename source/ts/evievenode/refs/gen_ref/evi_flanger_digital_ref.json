@@ -20,7 +20,7 @@
             "name": "left",
             "type": "float",
             "optional": 1,
-            "digestauto": "Audio In",
+            "digestauto": "or Mono Audio In",
             "digest": "Left or mono audio input depending on the @stereo attribute."
         },
         {
@@ -28,7 +28,7 @@
             "name": "right",
             "type": "float",
             "optional": 1,
-            "digestauto": "Audio In",
+            "digestauto": "or Nothing Audio In",
             "digest": "Right audio input if @stereo attribute is on."
         },
         {
@@ -294,6 +294,10 @@
         {
             "name": "evi_detune_wrap",
             "display": "evi_detune_wrap"
+        },
+        {
+            "name": "evi_phaser_classic",
+            "display": "evi_phaser_classic"
         }
     ]
 }
