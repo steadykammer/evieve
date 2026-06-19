@@ -3,8 +3,8 @@
         "name": "evi_phaser_classic",
         "child": "evi.phaser.classic~",
         "category": "evieve",
-        "digest": "TEXT_HERE",
-        "description": "TEXT_HERE"
+        "digest": "A classic digital Phaser effect based around a cascade of two-pole TPT allpass filters, with input filter and saturation",
+        "description": "True stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as <o>evi.korgms20.select~</o>) can be coupled to the Phaser modulation source. The effect has many features and is quite CPU-expensive."
     },
     "constructor": {
         "inlets": "left, right, reset"
@@ -24,7 +24,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Audio In",
-            "digest": ""
+            "digest": "Audio input Left."
         },
         {
             "id": 2,
@@ -32,7 +32,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Audio In",
-            "digest": ""
+            "digest": "Audio input Right."
         },
         {
             "id": 3,
@@ -40,7 +40,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Phases Naive",
-            "digest": ""
+            "digest": "Naive reset of internal LFO phase."
         }
     ],
     "outlets": [
@@ -50,7 +50,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Audio Out",
-            "digest": ""
+            "digest": "Phaser Effect Out Left."
         },
         {
             "id": 2,
@@ -58,7 +58,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "Audio Out",
-            "digest": ""
+            "digest": "Phaser Effect Out Right."
         },
         {
             "id": 3,
@@ -66,7 +66,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "LFO 0..1",
-            "digest": ""
+            "digest": "Left LFO in range 0..1"
         },
         {
             "id": 4,
@@ -74,7 +74,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "LFO 0..1",
-            "digest": ""
+            "digest": "Right LFO in range 0..1"
         }
     ],
     "attributes": [
@@ -82,7 +82,7 @@
             "name": "center",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "Center point around which the internal LFO modulates the frequency of the allpass filters cascade.",
             "default": {
                 "type": "float",
                 "value": "0.57"
@@ -92,7 +92,7 @@
             "name": "crossover",
             "type": "float",
             "digest": "@min 10, @max 1000",
-            "description": "",
+            "description": "Crossover filter in Hz. Above this point, the Phaser effect is applied, below this point, the low end is mono summed and saturated. Both are summed back together on output.",
             "default": {
                 "type": "float",
                 "value": "104."
@@ -102,7 +102,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The size (across the frequency range) of the internal LFO modulation ranges.",
             "default": {
                 "type": "float",
                 "value": "0.66"
@@ -112,7 +112,7 @@
             "name": "drywet",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The dry/wet control around the Phaser effect. 0 is fully dry, 1 is fully wet.",
             "default": {
                 "type": "float",
                 "value": "sqrt1_2"
@@ -122,7 +122,7 @@
             "name": "duty",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "LFO: the duty cycle of the internal LFO triangle waves. Note that how much triangle wave is present in the LFO signals is dependent on the @shape attribute.",
             "default": {
                 "type": "float",
                 "value": "0.4"
@@ -132,7 +132,7 @@
             "name": "feedback",
             "type": "float",
             "digest": "@min -1, @max 1",
-            "description": "",
+            "description": "The amount of feedback added to the system, positive or negative linear gain. The feedback amount is what gives the Phaser it's character, causing notches in the output.",
             "default": {
                 "type": "float",
                 "value": "0.69"
@@ -142,7 +142,7 @@
             "name": "feedbackcross",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This attribute swaps the left/right feedback paths. if not at extremes, this can boost the saturation in the feedback path.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -152,7 +152,7 @@
             "name": "feedbackmix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This is one of the key features of this Phaser effect. @feedbackmix interpolates between using the tap of the first stage of the allpass cascade as the feedback source, or using the end of the chain of the allpass cascade as the feedback source. Depending on the @stages setting, this can have a drastic effect on the strength of the feedback and the saturation.",
             "default": {
                 "type": "float",
                 "value": "0.3"
@@ -162,7 +162,7 @@
             "name": "filter",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. If off (0, considerable CPU saving) there is no additional filter applied. If on (1, the default) the nonlinear filter is inserted into the audio chain.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -172,7 +172,7 @@
             "name": "filtermod",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. If @filter is on, turning on this attribute will modulate the filter cutoff with the same LFOs used by the allpass cascade of the Phaser. The relative speed of modulation is set by the @link attribute.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -182,7 +182,7 @@
             "name": "filteros",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. If on (1, the default) the internal nonlinear filter is oversampled, if off (0) the nonlinear filter runs at 1x sample rate. Turning this off will save CPU.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -192,7 +192,7 @@
             "name": "filterres",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. This is the normalised 0..1 resonance of the nonlinear filter. High values will create additional peaking of the Phaser, the movement will depend on the @filtermod attribute state.",
             "default": {
                 "type": "float",
                 "value": "0.78"
@@ -202,7 +202,7 @@
             "name": "filtertype",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. If set to 0 (the default) the lowpass Korg MS20 is used, if set to 1, the highpass Korg MS20 is used. Whilst the lowpass is more usual usage, the highpass can be a very interesting different effect, especially if @filtermod is on and @depth and @center are tuned accordingly.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -212,7 +212,7 @@
             "name": "link",
             "type": "float",
             "digest": "@min 0.25, @max 4",
-            "description": "",
+            "description": "This value represents the relative speed of the filter modulation to the Phaser LFOs, and therefore requires @filter and @filtermod to be on. It is directly equivalent to the MSP rate~ object, meaning values lower than '1' will make the filter modulation faster than the Phaser modulation, and values greater than '1' will make the modulation slower with respect to the Phaser modulation.",
             "default": {
                 "type": "float",
                 "value": "2.4"
@@ -222,7 +222,7 @@
             "name": "rate",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The speed (0..1 slow..fast) of the internal LFOs. Internally this is logarithmically mapped to a range of approximately 0.04..8.2 Hz.",
             "default": {
                 "type": "float",
                 "value": "0.24"
@@ -232,7 +232,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "LFO: interpolate between triangle (0) and sine (1) shape for the LFOs. This can have a big effect on the irregularity of the Phaser movement.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -242,7 +242,7 @@
             "name": "skew",
             "type": "float",
             "digest": "@min 0.5, @max 2",
-            "description": "",
+            "description": "LFO: skew the shape of the LFO with an exponent.",
             "default": {
                 "type": "float",
                 "value": "1.2"
@@ -252,7 +252,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 226",
-            "description": "",
+            "description": "This sets the lag time of all the internal smoothing of parameters in the Phaser. Parameters are smoothed by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "22.666"
@@ -262,7 +262,7 @@
             "name": "spread",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "The stereo spread of the effect. Internally this accentuates the left/right processing by shifting the relative phases of the left/right LFOs.",
             "default": {
                 "type": "float",
                 "value": "0.27"
@@ -272,7 +272,7 @@
             "name": "stages",
             "type": "int",
             "digest": "@min 1, @max 32",
-            "description": "",
+            "description": "This Phaser is a multistage phaser, meaning multiple allpass filters are cascaded serially to produce the effect. With this attribute you can specify how many two-pole filter stages are used. The more stages, the more saturated the effect becomes, and the stronger the effect of the @feedback. More stages use more CPU. With fewer stages the modulation of the effect is more 'sea sick' and pronounced.",
             "default": {
                 "type": "int",
                 "value": "10"
@@ -282,7 +282,7 @@
             "name": "tone",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "A quirky attribute which directly modifies the allpass filters used in the Phaser cascade. Lower values result in a more brittle sound, whereas higher values will give a more saturated and boomy sound. The strength of this effect is dependent on the @stages attribute.",
             "default": {
                 "type": "float",
                 "value": "0.34"
@@ -292,7 +292,7 @@
             "name": "zeroreset",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "",
+            "description": "LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a 'stepped' manner but completely cleanly. This can be very interesting if moving the @rate slowly, or random feeling if moving @rate fast.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -301,8 +301,36 @@
     ],
     "seealso": [
         {
-            "name": "",
-            "display": ""
+            "name": "evi_phaser_analog",
+            "display": "evi_phaser_analog"
+        },
+        {
+            "name": "evi_chorus_digital",
+            "display": "evi_chorus_digital"
+        },
+        {
+            "name": "evi_flanger_digital",
+            "display": "evi_flanger_digital"
+        },
+        {
+            "name": "evi_am",
+            "display": "evi_am"
+        },
+        {
+            "name": "evi_tremolo",
+            "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_detune_wrap",
+            "display": "evi_detune_wrap"
+        },
+        {
+            "name": "evi_detune",
+            "display": "evi_detune"
+        },
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
         }
     ]
 }

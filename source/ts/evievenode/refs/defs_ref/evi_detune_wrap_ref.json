@@ -240,6 +240,7 @@
         "evi.flanger.digital~",
         "evi.am~",
         "evi.tremolo~",
+        "evi.phaser.classic~",
         "evi.phaser.analog~",
         "evi.freqshift.hilbert~"
     ]

@@ -156,8 +156,8 @@ lowSat  = polySat(lowMono) * sqrt1_2; // align
 
 // OUTPUTS
 
-wetL    = lowSat + allpassL;
-wetR    = lowSat + allpassR;
+wetL    = (lowSat + allpassL) * 0.891251;
+wetR    = (lowSat + allpassR) * 0.891251;
 
 // xfade dry / wet & output
 outputL, outputR = xfadeQuartApproxStereo(dryL, dryR, wetL, wetR, drywetmix);

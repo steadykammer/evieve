@@ -658,18 +658,18 @@
         "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
     "evi.phaser.analog~": {
-        "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
+        "digest": "Analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
+        "seealso": [ "evi.phaser.classic~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.phaser.classic~": {
-        "digest": 0,
+        "digest": "A classic digital Phaser effect based around a cascade of two-pole TPT allpass filters, with input filter and saturation",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Gen Abstractions" ],
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "evi.phaser.analog~", "evi.chorus.digital~", "evi.flanger.digital~", "evi.am~", "evi.tremolo~", "evi.detune.wrap~", "evi.detune~", "evi.phasor0~" ]
     },
     "evi.phaseshift~": {
         "digest": "Reimplementation of MSP phaseshift~ object as a TPT filter",

@@ -4,7 +4,7 @@
         "parent": "evi_phaser_analog",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Analog Phaser effect with multiple stages, filtering and saturation",
+        "digest": "Analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
         "description": "Analog-like phaser in the sort of pedal sense (good for mono input but still does quasi stereo well). Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFO can be shaped and skewed.",
         "discussion": ""
     },
@@ -85,7 +85,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Center point around which the internal LFO modulates the frequncy",
+            "description": "Center point around which the internal LFO modulates the frequency of the allpass filters cascade.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -97,7 +97,7 @@
             "get": 1,
             "type": "float",
             "digest": "In Hz",
-            "description": "Crossover filter in Hz. Above this point, the Phaser effect is applied, below this point, the low end is mono and saturated. Both are summed on output.",
+            "description": "Crossover filter in Hz. Above this point, the Phaser effect is applied, below this point, the low end is mono and saturated. Both are summed back together on output.",
             "default": {
                 "min": "10",
                 "max": "1000",
@@ -109,7 +109,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "The size of the interal LFO modulation range.",
+            "description": "The size (across the frequency range) of the internal LFO modulation range.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -132,7 +132,7 @@
             "name": "feedback",
             "get": 1,
             "type": "float",
-            "digest": "Bipolar -1..1",
+            "digest": "Bipolar linear gain -1..1",
             "description": "The amount of feedback added to the system, positive or negative linear gain. Along with the @pregain attribute, the feedback amount is what gives the Phaser it's character, causing notches in the output.",
             "default": {
                 "min": "-1",
@@ -252,7 +252,7 @@
             "name": "skew",
             "get": 1,
             "type": "float",
-            "digest": "0.5..2 around 1",
+            "digest": "Exponent 0.5..2 around 1",
             "description": "LFO: skew the shape of the LFO with an exponent.",
             "default": {
                 "min": "0.5",
@@ -265,7 +265,7 @@
             "get": 1,
             "type": "float",
             "digest": "In ms",
-            "description": "This effects the lag time of all the internal smoothing of parameters in the Phaser. Parameters are smoothed by this amount in ms.",
+            "description": "This sets the lag time of all the internal smoothing of parameters in the Phaser. Parameters are smoothed by this amount in ms.",
             "default": {
                 "min": "1",
                 "max": "226",
@@ -288,8 +288,8 @@
             "name": "stages",
             "get": 1,
             "type": "int",
-            "digest": "Select 0..32",
-            "description": "This Phaser is a multistage phaser, meaning multiple allpass filters are cascaded serially to produce the effect. With this attribute you can specify how many stages are used. The more stages, the more absurd and 'wobbly' the effect becomes, and the stronger the effect of the @feedback. More stages use more CPU.",
+            "digest": "Select 2..32",
+            "description": "This Phaser is a multistage phaser, meaning multiple allpass filters are cascaded serially to produce the effect. With this attribute you can specify how many one-pole filter stages are used. The more stages, the more absurd and 'wobbly' the effect becomes, and the stronger the effect of the @feedback. More stages use more CPU.",
             "default": {
                 "min": "2",
                 "max": "32",
@@ -302,6 +302,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.phaser.classic~",
         "evi.chorus.digital~",
         "evi.flanger.digital~",
         "evi.am~",
