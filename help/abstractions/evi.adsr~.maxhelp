@@ -414,7 +414,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ]
+                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ],
+                                    "text": "mute 1"
                                 }
                             },
                             {
@@ -1096,7 +1097,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 359.0, 331.0, 89.0, 23.0 ]
+                                    "patching_rect": [ 359.0, 331.0, 89.0, 23.0 ],
+                                    "text": "38 0"
                                 }
                             },
                             {
@@ -1765,7 +1767,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 689.0, 463.0, 82.0, 69.0 ],
+                                    "patching_rect": [ 699.0, 463.0, 82.0, 69.0 ],
                                     "text": "see the 'gen~' tab for audio",
                                     "textjustification": 1
                                 }
@@ -2530,7 +2532,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 44099,
+                                    "numpoints": 48000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 395.0, 432.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -3365,6 +3367,18 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-37",
+                                    "maxclass": "button",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 143.0, 396.0, 24.0, 24.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -3993,6 +4007,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-37", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-10", 0 ],
                                     "source": [ "obj-5", 0 ]
                                 }
@@ -4073,7 +4094,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4208,7 +4229,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 533.0, 491.0, 227.0, 55.0 ],
+                                    "patching_rect": [ 533.0, 506.0, 227.0, 55.0 ],
                                     "text": "signal rate env segment can be used to trigger events sample-accurately",
                                     "textjustification": 1
                                 }
@@ -4284,7 +4305,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 22049,
+                                    "numpoints": 24000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 513.0, 361.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",

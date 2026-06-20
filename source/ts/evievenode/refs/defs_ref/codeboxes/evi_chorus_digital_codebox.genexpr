@@ -16,11 +16,11 @@ Delay   cfDelayL(samplerate*0.41, 1, feedback=1);
 Delay   cfDelayR(samplerate*0.41, 1, feedback=1);
 // main
 Param   maxhz(2.69, min=0, max=100);        // hz
-Param	rate(0.5, min=0, max=1);
+Param	rate(0.55, min=0, max=1);
 Param   mintime(1., min=0, max=200);        // ms
 Param   maxtime(9., min=0, max=200);        // ms
 Param	depth(0.5, min=0, max=1);
-Param	spread(0.5, min=0, max=1);
+Param	spread(0.44, min=0, max=1);
 // lfo
 Param	duty(0.4, min=0, max=1);
 Param	shape(0.5, min=0, max=1);           // tri..sine 0..1
@@ -32,12 +32,12 @@ Param   warp(0.5, min=-1, max=1);           // -1..1
 // mixing
 Param   pregain(3., min=-10, max=10);       // dB -10..10
 Param   postgain(0., min=-10, max=10);      // dB -10..10
-Param   drywet(0.5, min=0, max=1);          // % 0..1
+Param   drywet(0.7, min=0, max=1);          // % 0..1
 Param	crossover(104., min=10, max=1000);	// hz
 Param   drydelay(0., min=0, max=1000);      // ms
 Param   inject(0.5, min=0, max=1);
 Param   invert(0, min=0, max=1);            // flag 0/1
-Param	feedback(0.5, min=-1, max=1);	    // linear gain -1..1
+Param	feedback(0.6, min=-1, max=1);	    // linear gain -1..1
 Param   feedbackmix(0.5, min=0, max=1);     // xfade feedback tap between first stage and all stages
 Param	feedbackcross(0., min=0, max=1);
 Param   tone(0.5, min=0, max=1);

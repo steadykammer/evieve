@@ -1,0 +1,162 @@
+{
+    "object": {
+        "name": "evi.list.interp",
+        "category": "evieve",
+        "digest": "Manually or automatically interpolate between previous and current list",
+        "description": "A simple abstraction wrapper for interpolating between a previous and a new list input, with controls for slide up and slide down rates. Can be triggered manually, or automatically via an internal qmetro.",
+        "discussion": "Thanks to Vincent Goudard who made the original version of this abstraction."
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve Control",
+            "evieve Utility",
+            "evieve Map"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "list/bang/int",
+            "digest": "list to interpolate, bang retriggers most recent list, int turns auto mode on/off",
+            "description": "Send a list into this inlet and it will be interpolated to from the previously held list. Int 0/1 turns internal metro off/on."
+        },
+        {
+            "id": 2,
+            "type": "int/float/bang",
+            "digest": "slide_up",
+            "description": "Value over which to slide up the interpolation. A value of '1.' would mean no list interpolation."
+        },
+        {
+            "id": 3,
+            "type": "int/float/bang",
+            "digest": "slide_down",
+            "description": "Value over which to slide down the interpolation. A value of '1.' would mean no list interpolation."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "list",
+            "digest": "interpolated list out",
+            "description": "The list result of the interpolation."
+        }
+    ],
+    "arguments": [
+        {
+            "name": "SlideUp",
+            "type": "int/float",
+            "default": "2.",
+            "optional": 1,
+            "digest": "arg#1: Slide up value",
+            "description": "Value over which to slide up the interpolation. A value of '1.' would mean no list interpolation."
+        },
+        {
+            "name": "SlideDown",
+            "type": "int/float",
+            "default": "2.",
+            "optional": 1,
+            "digest": "arg#2: Slide down value",
+            "description": "Value over which to slide down the interpolation. A value of '1.' would mean no list interpolation."
+        },
+        {
+            "name": "UpdateRate",
+            "type": "int/float",
+            "default": "33",
+            "optional": 1,
+            "digest": "arg#3: Update rate",
+            "description": "Internal qmetro update rate in ms."
+        }
+    ],
+    "messages": [
+        {
+            "name": "int",
+            "arg": [
+                {
+                    "name": "toggle",
+                    "type": "0/1",
+                    "units": "int",
+                    "optional": 1
+                }
+            ],
+            "digest": "Flag 0/1",
+            "description": "Integer 0/1 turns internal qmetro off/on."
+        }
+    ],
+    "attributes": [
+        {
+            "name": "listinit",
+            "get": 0,
+            "type": "float",
+            "digest": "Any value",
+            "description": "By default the initial list on load is a list of 256 zeros, updated by first list in left inlet. With this attribute you can set the value used to create the initial list to any int or float.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "maxsize",
+            "get": 0,
+            "type": "int",
+            "digest": "Set 256..32767",
+            "description": "Maximum list size on which to operate. Reduce this to save resources as the default is the maximum.",
+            "default": {
+                "get": 0,
+                "value": "32767"
+            }
+        },
+        {
+            "name": "qmetro",
+            "get": 0,
+            "type": "symbol",
+            "digest": "Control internal qmetro",
+            "description": "Messages to internal qmetro for automatic list interpolation, such as '@qmetro active 1'.",
+            "default": {
+                "get": 0,
+                "value": "active"
+            }
+        },
+        {
+            "name": "slide_down",
+            "get": 0,
+            "type": "float",
+            "digest": "int/float, minimum 1",
+            "description": "Value over which to slide down the interpolation. Attribute wins out over argument. A value of '1.' would mean no list interpolation.",
+            "default": {
+                "get": 0,
+                "value": "2."
+            }
+        },
+        {
+            "name": "slide_up",
+            "get": 0,
+            "type": "float",
+            "digest": "int/float, minimum 1",
+            "description": "Value over which to slide up the interpolation. Attribute wins out over argument. A value of '1.' would mean no list interpolation.",
+            "default": {
+                "get": 0,
+                "value": "2."
+            }
+        },
+        {
+            "name": "update",
+            "get": 0,
+            "type": "float",
+            "digest": "In ms",
+            "description": "Update rate of internal qmetro (if active), set in ms.",
+            "default": {
+                "get": 0,
+                "value": "33."
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": [
+        "evi.list.xfade",
+        "mc.evi.listgen"
+    ]
+}

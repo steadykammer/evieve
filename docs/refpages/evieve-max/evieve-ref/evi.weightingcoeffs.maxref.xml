@@ -18,14 +18,6 @@
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
-		<inlet id="0" type="bang/int">
-			<digest>
-				calculate coefficients
-			</digest>
-			<description>
-				
-			</description>
-		</inlet>
 		<inlet id="1" type="bang/int">
 			<digest>
 				calculate coefficients
@@ -37,14 +29,6 @@
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
-		<outlet id="0" type="list">
-			<digest>
-				15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)
-			</digest>
-			<description>
-				
-			</description>
-		</outlet>
 		<outlet id="1" type="list">
 			<digest>
 				15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)

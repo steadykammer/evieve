@@ -155,13 +155,24 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-11",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 140.0, 241.0, 66.0, 22.0 ],
+                                                    "text": "route bang"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "comment": "",
                                                     "id": "obj-10",
                                                     "index": 2,
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 234.0, 295.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 234.0, 334.0, 30.0, 30.0 ]
                                                 }
                                             },
                                             {
@@ -215,7 +226,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 97.0, 241.0, 62.0, 22.0 ],
+                                                    "patching_rect": [ 97.0, 280.0, 109.0, 22.0 ],
                                                     "text": "join 2"
                                                 }
                                             },
@@ -261,7 +272,7 @@
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 97.0, 295.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 97.0, 334.0, 30.0, 30.0 ]
                                                 }
                                             }
                                         ],
@@ -274,13 +285,19 @@
                                             },
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-6", 1 ],
+                                                    "source": [ "obj-11", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-1", 0 ],
                                                     "source": [ "obj-2", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-6", 1 ],
+                                                    "destination": [ "obj-11", 0 ],
                                                     "source": [ "obj-3", 0 ]
                                                 }
                                             },
@@ -5973,7 +5990,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-64",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6086,7 +6103,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-10",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6097,7 +6114,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-6",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6108,11 +6125,11 @@
                 "box": {
                     "comment": "(signal) Audio In Right",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 195.418335, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -6142,11 +6159,11 @@
                 "box": {
                     "comment": "(signal) Audio In Left / (messages)",
                     "id": "obj-2",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 34.418343, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -7171,41 +7188,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-120::obj-20": [ "preTime", "preTime", 0 ],
-            "obj-120::obj-21": [ "preSymmetry", "preSymmetry", 0 ],
-            "obj-120::obj-22": [ "earlySize", "earlySize", 0 ],
-            "obj-120::obj-41": [ "earlySymmetry", "earlySymmetry", 0 ],
-            "obj-120::obj-42": [ "earlyDiffusion", "earlyDiffusion", 0 ],
-            "obj-120::obj-43": [ "lateSize", "lateSize", 0 ],
-            "obj-120::obj-44": [ "lateSymmetry", "lateSymmetry", 0 ],
-            "obj-120::obj-45": [ "lateDiffusion", "lateDiffusion", 0 ],
-            "obj-120::obj-46": [ "decay", "decay", 0 ],
-            "obj-120::obj-48": [ "absorbtion", "absorbtion", 0 ],
-            "obj-120::obj-53": [ "earlyLate", "earlyLate", 0 ],
-            "obj-120::obj-54": [ "modFrequency", "modFrequency", 0 ],
-            "obj-120::obj-55": [ "modAmplitude", "modAmplitude", 0 ],
-            "obj-120::obj-59": [ "smoothTime", "smoothTime", 0 ],
-            "obj-120::obj-60": [ "dryWet", "dryWet", 0 ],
-            "obj-120::obj-61": [ "highDampFrequency", "highDampFrequency", 0 ],
-            "obj-120::obj-62": [ "highDampGain", "highDampGain", 0 ],
-            "obj-120::obj-63": [ "lowDampFrequency", "lowDampFrequency", 0 ],
-            "obj-120::obj-64": [ "lowDampGain", "lowDampGain", 0 ],
-            "obj-120::obj-65": [ "highEqFrequency", "highEqFrequency", 0 ],
-            "obj-120::obj-66": [ "lowEqFrequency", "lowEqFrequency", 0 ],
-            "obj-120::obj-67": [ "highEqGain", "highEqGain", 0 ],
-            "obj-120::obj-68": [ "lowEqGain", "lowEqGain", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

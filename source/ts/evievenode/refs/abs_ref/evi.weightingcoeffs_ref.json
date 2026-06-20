@@ -15,12 +15,6 @@
     },
     "inlets": [
         {
-            "id": 0,
-            "type": "bang/int",
-            "digest": "calculate coefficients",
-            "description": ""
-        },
-        {
             "id": 1,
             "type": "bang/int",
             "digest": "calculate coefficients",
@@ -28,12 +22,6 @@
         }
     ],
     "outlets": [
-        {
-            "id": 0,
-            "type": "list",
-            "digest": "15 filter coefficents out here, plug into [cascade~] (or 3 [biquad~]s)",
-            "description": ""
-        },
         {
             "id": 1,
             "type": "list",

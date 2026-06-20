@@ -369,6 +369,16 @@
         "digest": "A fast no-lookahead limiter with antialiased nonlinear clipping",
         "description": "evi.limiterfast~ is a 'max define' for the evi_limiterfast.gendsp gen~ abstraction. Because evi.limiterfast~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic stereo limiter. Being a no-lookahead limiter, the 'crunch' can kick in quite easily. evi.limiterfast~ features an antialiased antiderivative hard clipping function to deal with this. Other than that it features fixed hard attack, a settable soft knee, variable smoothing, release time set in ms. The AGC envelope is available at the far right outlet."
     },
+    "evi.list.interp": {
+        "type": "abstraction",
+        "digest": "Manually or automatically interpolate between previous and current list \n",
+        "description": "A simple abstraction wrapper for interpolating between a previous and a new list input, with controls for slide up and slide down rates. Can be triggered manually, or automatically via an internal qmetro."
+    },
+    "evi.list.xfade": {
+        "type": "abstraction",
+        "digest": "Manually crossfade between two lists \n",
+        "description": "A simple abstraction wrapper for crossfading between two lists set in the right and left inlets. Lists are interpolated with a 0..1 float."
+    },
     "evi.logahr~": {
         "type": "external",
         "digest": "Attack/hold/release envelope follower",

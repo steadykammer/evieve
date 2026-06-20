@@ -517,6 +517,20 @@
         "keywords": [],
         "seealso": [ "evi.clipper~", "evi.hardclip~", "evi.softclip~" ]
     },
+    "evi.list.interp": {
+        "digest": "Manually or automatically interpolate between previous and current list \n",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
+        "keywords": [],
+        "seealso": [ "evi.list.xfade", "mc.evi.listgen" ]
+    },
+    "evi.list.xfade": {
+        "digest": "Manually crossfade between two lists \n",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
+        "keywords": [],
+        "seealso": [ "evi.list.interp", "mc.evi.listgen" ]
+    },
     "evi.logahr~": {
         "digest": "Attack/hold/release envelope follower",
         "module": "evieve-ref",

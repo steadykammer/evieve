@@ -71,7 +71,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1467,7 +1467,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 587.0, 587.0, 205.0, 22.0 ],
-                                    "text": "recall 14"
+                                    "text": "recall 13"
                                 }
                             },
                             {
@@ -4384,7 +4384,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -6651,7 +6651,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The evi.algoverb~ algorithm is also available inside the gen~ environment, with caveats",
+                                    "text": "The evi.algoverb~ algorithm is also available inside the gen~ environment, with caveats.",
                                     "varname": "digest_comment"
                                 }
                             },

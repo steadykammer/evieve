@@ -129,7 +129,7 @@
 				The global dry/wet mix of the chorus. 0 is completely dry, 1 is completely wet.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.5" />
+				<attribute name="default" get="0" set="0" size="1" value="0.7" />
 			</attributelist>
 		</attribute>
 		<attribute name="duty" get="1" set="1" type="float" min="0" max="1">
@@ -151,7 +151,7 @@
 				The global feedback gain. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.5" />
+				<attribute name="default" get="0" set="0" size="1" value="0.6" />
 			</attributelist>
 		</attribute>
 		<attribute name="feedbackcross" get="1" set="1" type="float" min="0" max="1">
@@ -261,7 +261,7 @@
 				The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.5" />
+				<attribute name="default" get="0" set="0" size="1" value="0.55" />
 			</attributelist>
 		</attribute>
 		<attribute name="shape" get="1" set="1" type="float" min="0" max="1">
@@ -305,7 +305,7 @@
 				The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.5" />
+				<attribute name="default" get="0" set="0" size="1" value="0.44" />
 			</attributelist>
 		</attribute>
 		<attribute name="stages" get="1" set="1" type="int" min="1" max="16">

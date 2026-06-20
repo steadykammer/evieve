@@ -177,6 +177,8 @@ alphabeticalSort.local = 1;
 // temp, need to automate this
 // objects for which we do create refs/helpfiles but do not want listed in our overview:
 const excludeObjects = [
+	"evi.list.interp",
+	"evi.list.xfade",
 	"evi.modalres~", // todo
 	"evi.tpqm",
 	"evi.transratio",

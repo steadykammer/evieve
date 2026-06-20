@@ -288,7 +288,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 1,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1175,7 +1175,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1623,6 +1623,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-15", 0 ],
+                                    "midpoints": [ 179.5, 328.2421875, 160.44140625, 328.2421875, 160.44140625, 524.390625, 226.5, 524.390625 ],
                                     "order": 0,
                                     "source": [ "obj-22", 0 ]
                                 }

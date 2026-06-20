@@ -14,7 +14,7 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    This file contains the actual DSP filter sections used throughout evieve. The two different types of filter sections (here labled 'TPT' and 'LTO' but actually the same principle), are alternative ways of achieving a similar result. The 'TPT' sections are methematical and well suited to nonlinearising, the 'LTO' sections are circuit analysed and well suited to EQ building, but the choice of which to use is largely circumstance specific. <br />
+    This file contains the actual DSP filter sections used throughout evieve. The two different types of filter sections (here labled 'TPT' and 'LTO' but actually the same principle), are alternative ways of achieving a similar result. The 'TPT' sections are mathematical and well suited to nonlinearising, the 'LTO' sections are circuit analysed and well suited to EQ building, but the choice of which to use is largely circumstance specific. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="tptSvf ( )">

@@ -74,6 +74,8 @@
 <refpage name='evi.ladder.transistor~.maxref.xml'/>
 <refpage name='evi.lagsmooth~.maxref.xml'/>
 <refpage name='evi.limiterfast~.maxref.xml'/>
+<refpage name='evi.list.interp.maxref.xml'/>
+<refpage name='evi.list.xfade.maxref.xml'/>
 <refpage name='evi.logahr~.maxref.xml'/>
 <refpage name='evi.logattackdecay~.maxref.xml'/>
 <refpage name='evi.logdecay~.maxref.xml'/>

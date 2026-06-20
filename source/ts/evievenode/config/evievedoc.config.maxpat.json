@@ -379,10 +379,10 @@
         },
         "evi.list.interp": {
             "object": true,
-            "ref": false,
+            "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": false,
+                "generate": true,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -392,8 +392,8 @@
                 "areas": []
             },
             "db": {
-                "browser": false,
-                "auto": false
+                "browser": true,
+                "auto": true
             }
         },
         "evi.list.product": {
@@ -417,10 +417,10 @@
         },
         "evi.list.xfade": {
             "object": true,
-            "ref": false,
+            "ref": true,
             "qlookup": true,
             "helpfile": {
-                "generate": false,
+                "generate": true,
                 "mctab": false,
                 "mcstab": false,
                 "mcparent": "",
@@ -430,8 +430,8 @@
                 "areas": []
             },
             "db": {
-                "browser": false,
-                "auto": false
+                "browser": true,
+                "auto": true
             }
         },
         "evi.lpg.core~": {

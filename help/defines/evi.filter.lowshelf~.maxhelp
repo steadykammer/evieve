@@ -615,7 +615,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -867,6 +867,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -1666,7 +1667,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1895,6 +1896,7 @@
                             {
                                 "box": {
                                     "id": "obj-10",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -2223,7 +2225,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 619.0, 509.0, 138.0, 69.0 ],
+                                    "patching_rect": [ 619.0, 509.0, 140.0, 69.0 ],
                                     "text": "Compares the current filter with similar evieve filters",
                                     "textjustification": 1
                                 }

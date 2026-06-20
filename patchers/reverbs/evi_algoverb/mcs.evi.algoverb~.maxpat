@@ -177,13 +177,24 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-11",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 140.0, 241.0, 66.0, 22.0 ],
+                                                    "text": "route bang"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "comment": "",
                                                     "id": "obj-10",
                                                     "index": 2,
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 234.0, 295.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 234.0, 334.0, 30.0, 30.0 ]
                                                 }
                                             },
                                             {
@@ -237,7 +248,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 97.0, 241.0, 62.0, 22.0 ],
+                                                    "patching_rect": [ 97.0, 280.0, 109.0, 22.0 ],
                                                     "text": "join 2"
                                                 }
                                             },
@@ -283,7 +294,7 @@
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 97.0, 295.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 97.0, 334.0, 30.0, 30.0 ]
                                                 }
                                             }
                                         ],
@@ -296,13 +307,19 @@
                                             },
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-6", 1 ],
+                                                    "source": [ "obj-11", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-1", 0 ],
                                                     "source": [ "obj-2", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-6", 1 ],
+                                                    "destination": [ "obj-11", 0 ],
                                                     "source": [ "obj-3", 0 ]
                                                 }
                                             },
@@ -1477,7 +1494,7 @@
                                             "parameter_initial": [ -3.5 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lowEqGain",
+                                            "parameter_longname": "lowEqGain[1]",
                                             "parameter_mmax": 24.0,
                                             "parameter_mmin": -24.0,
                                             "parameter_modmode": 2,
@@ -1511,7 +1528,7 @@
                                             "parameter_initial": [ -7.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "highEqGain",
+                                            "parameter_longname": "highEqGain[1]",
                                             "parameter_mmax": 24.0,
                                             "parameter_mmin": -24.0,
                                             "parameter_modmode": 2,
@@ -1545,7 +1562,7 @@
                                             "parameter_initial": [ 92.5 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lowEqFrequency",
+                                            "parameter_longname": "lowEqFrequency[1]",
                                             "parameter_mmax": 18000.0,
                                             "parameter_mmin": 10.0,
                                             "parameter_modmax": 14000.0,
@@ -1581,7 +1598,7 @@
                                             "parameter_initial": [ 2217.5 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "highEqFrequency",
+                                            "parameter_longname": "highEqFrequency[1]",
                                             "parameter_mmax": 20000.0,
                                             "parameter_mmin": 30.0,
                                             "parameter_modmax": 18000.0,
@@ -1617,7 +1634,7 @@
                                             "parameter_initial": [ -0.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lowDampGain",
+                                            "parameter_longname": "lowDampGain[1]",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -6.0,
                                             "parameter_modmode": 2,
@@ -1651,7 +1668,7 @@
                                             "parameter_initial": [ 69.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lowDampFrequency",
+                                            "parameter_longname": "lowDampFrequency[1]",
                                             "parameter_mmax": 18000.0,
                                             "parameter_mmin": 10.0,
                                             "parameter_modmax": 14000.0,
@@ -1686,7 +1703,7 @@
                                             "parameter_initial": [ -1.2 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "highDampGain",
+                                            "parameter_longname": "highDampGain[1]",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -6.0,
                                             "parameter_modmode": 2,
@@ -1720,7 +1737,7 @@
                                             "parameter_initial": [ 1108.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "highDampFrequency",
+                                            "parameter_longname": "highDampFrequency[1]",
                                             "parameter_mmax": 20000.0,
                                             "parameter_mmin": 30.0,
                                             "parameter_modmax": 18000.0,
@@ -1756,7 +1773,7 @@
                                             "parameter_initial": [ 0.4 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryWet",
+                                            "parameter_longname": "dryWet[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "dryWet",
@@ -1788,7 +1805,7 @@
                                             "parameter_initial": [ 50.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "smoothTime",
+                                            "parameter_longname": "smoothTime[1]",
                                             "parameter_mmax": 500.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "smoothTime",
@@ -1821,7 +1838,7 @@
                                             "parameter_initial": [ 0.15 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "modAmplitude",
+                                            "parameter_longname": "modAmplitude[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 1,
                                             "parameter_shortname": "modAmplitude",
@@ -1853,7 +1870,7 @@
                                             "parameter_initial": [ 0.23 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "modFrequency",
+                                            "parameter_longname": "modFrequency[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 1,
                                             "parameter_shortname": "modFrequency",
@@ -1886,7 +1903,7 @@
                                             "parameter_initial": [ 0.46 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "earlyLate",
+                                            "parameter_longname": "earlyLate[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "earlyLate",
@@ -1918,7 +1935,7 @@
                                             "parameter_initial": [ 0.186 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "absorbtion",
+                                            "parameter_longname": "absorbtion[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "absorbtion",
@@ -1950,7 +1967,7 @@
                                             "parameter_initial": [ 0.475 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "decay",
+                                            "parameter_longname": "decay[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "decay",
@@ -1982,7 +1999,7 @@
                                             "parameter_initial": [ 0.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lateDiffusion",
+                                            "parameter_longname": "lateDiffusion[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "lateDiffusion",
@@ -2014,7 +2031,7 @@
                                             "parameter_initial": [ -1.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lateSymmetry",
+                                            "parameter_longname": "lateSymmetry[1]",
                                             "parameter_mmax": 3.0,
                                             "parameter_mmin": -3.0,
                                             "parameter_modmode": 2,
@@ -2047,7 +2064,7 @@
                                             "parameter_initial": [ 0.653 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "lateSize",
+                                            "parameter_longname": "lateSize[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 1,
                                             "parameter_shortname": "lateSize",
@@ -2079,7 +2096,7 @@
                                             "parameter_initial": [ 0.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "earlyDiffusion",
+                                            "parameter_longname": "earlyDiffusion[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "earlyDiffusion",
@@ -2111,7 +2128,7 @@
                                             "parameter_initial": [ 1.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "earlySymmetry",
+                                            "parameter_longname": "earlySymmetry[1]",
                                             "parameter_mmax": 4.0,
                                             "parameter_mmin": -4.0,
                                             "parameter_modmode": 2,
@@ -2144,7 +2161,7 @@
                                             "parameter_initial": [ 0.389 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "earlySize",
+                                            "parameter_longname": "earlySize[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 1,
                                             "parameter_shortname": "earlySize",
@@ -2176,7 +2193,7 @@
                                             "parameter_initial": [ 0.33 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "preSymmetry",
+                                            "parameter_longname": "preSymmetry[1]",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 2,
@@ -2209,7 +2226,7 @@
                                             "parameter_initial": [ 16.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "preTime",
+                                            "parameter_longname": "preTime[1]",
                                             "parameter_mmax": 400.0,
                                             "parameter_modmode": 2,
                                             "parameter_shortname": "preTime",
@@ -5995,7 +6012,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-64",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6097,7 +6114,7 @@
                 "box": {
                     "comment": "(multichannelsignal) Audio Out Left and Right",
                     "id": "obj-6",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -6108,7 +6125,7 @@
                 "box": {
                     "comment": "(anything) messages to mcs.evi.algoverb~",
                     "id": "obj-5",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -6120,11 +6137,11 @@
                 "box": {
                     "comment": "(multichannelsignal) Audio In Left and Right",
                     "id": "obj-2",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 38.0, 150.0, 30.0, 30.0 ]
                 }
             },
@@ -6182,8 +6199,8 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 90.0, 195.0, 107.0, 22.0 ],
-                                    "text": "print evi.algoverb~"
+                                    "patching_rect": [ 90.0, 195.0, 132.0, 22.0 ],
+                                    "text": "print mcs.evi.algoverb~"
                                 }
                             },
                             {
@@ -7095,41 +7112,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-120::obj-20": [ "preTime", "preTime", 0 ],
-            "obj-120::obj-21": [ "preSymmetry", "preSymmetry", 0 ],
-            "obj-120::obj-22": [ "earlySize", "earlySize", 0 ],
-            "obj-120::obj-41": [ "earlySymmetry", "earlySymmetry", 0 ],
-            "obj-120::obj-42": [ "earlyDiffusion", "earlyDiffusion", 0 ],
-            "obj-120::obj-43": [ "lateSize", "lateSize", 0 ],
-            "obj-120::obj-44": [ "lateSymmetry", "lateSymmetry", 0 ],
-            "obj-120::obj-45": [ "lateDiffusion", "lateDiffusion", 0 ],
-            "obj-120::obj-46": [ "decay", "decay", 0 ],
-            "obj-120::obj-48": [ "absorbtion", "absorbtion", 0 ],
-            "obj-120::obj-53": [ "earlyLate", "earlyLate", 0 ],
-            "obj-120::obj-54": [ "modFrequency", "modFrequency", 0 ],
-            "obj-120::obj-55": [ "modAmplitude", "modAmplitude", 0 ],
-            "obj-120::obj-59": [ "smoothTime", "smoothTime", 0 ],
-            "obj-120::obj-60": [ "dryWet", "dryWet", 0 ],
-            "obj-120::obj-61": [ "highDampFrequency", "highDampFrequency", 0 ],
-            "obj-120::obj-62": [ "highDampGain", "highDampGain", 0 ],
-            "obj-120::obj-63": [ "lowDampFrequency", "lowDampFrequency", 0 ],
-            "obj-120::obj-64": [ "lowDampGain", "lowDampGain", 0 ],
-            "obj-120::obj-65": [ "highEqFrequency", "highEqFrequency", 0 ],
-            "obj-120::obj-66": [ "lowEqFrequency", "lowEqFrequency", 0 ],
-            "obj-120::obj-67": [ "highEqGain", "highEqGain", 0 ],
-            "obj-120::obj-68": [ "lowEqGain", "lowEqGain", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

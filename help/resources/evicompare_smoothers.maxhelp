@@ -85,7 +85,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -100,7 +100,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 112.0, 233.0, 196.0, 48.0 ]
+                                    "patching_rect": [ 127.0, 233.0, 193.0, 48.0 ]
                                 }
                             },
                             {
@@ -476,7 +476,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 3,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -3882,7 +3882,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

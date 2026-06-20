@@ -227,7 +227,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 556.0, 323.0, 182.0, 37.0 ],
+                    "patching_rect": [ 556.0, 323.0, 184.0, 37.0 ],
                     "text": "active state turns voice audio processing on and off.",
                     "textjustification": 1
                 }
@@ -254,7 +254,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 19.0, 295.0, 99.0, 74.0 ],
+                    "patching_rect": [ 19.0, 295.0, 100.0, 74.0 ],
                     "text": "sah~ passes the new frequency when evi.adsr~ signals a new envelope",
                     "textjustification": 2
                 }
@@ -269,6 +269,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 617.0, 228.0, 29.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 5"
                 }
             },
@@ -282,6 +286,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 562.0, 228.0, 29.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 4"
                 }
             },
@@ -295,6 +303,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 507.0, 228.0, 29.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 3"
                 }
             },
@@ -308,6 +320,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 451.0, 228.0, 29.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 2"
                 }
             },
@@ -318,10 +334,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 120.0, 546.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
@@ -333,7 +345,7 @@
                     "numoutlets": 4,
                     "outlettype": [ "signal", "signal", "signal", "signal" ],
                     "patching_rect": [ 396.0, 267.0, 240.0, 22.0 ],
-                    "text": "evi.adsr~ 10. 100. 0.6 300. @muteupdate 1"
+                    "text": "evi.adsr~ 10. 100. 0.6 300."
                 }
             },
             {
@@ -477,10 +489,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 72.0, 34.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 1"
                 }
             }
@@ -641,7 +649,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

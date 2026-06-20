@@ -115,7 +115,7 @@
             "description": "The global dry/wet mix of the chorus. 0 is completely dry, 1 is completely wet.",
             "default": {
                 "type": "float",
-                "value": "0.5"
+                "value": "0.7"
             }
         },
         {
@@ -135,7 +135,7 @@
             "description": "The global feedback gain. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.",
             "default": {
                 "type": "float",
-                "value": "0.5"
+                "value": "0.6"
             }
         },
         {
@@ -235,7 +235,7 @@
             "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).",
             "default": {
                 "type": "float",
-                "value": "0.5"
+                "value": "0.55"
             }
         },
         {
@@ -275,7 +275,7 @@
             "description": "The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.",
             "default": {
                 "type": "float",
-                "value": "0.5"
+                "value": "0.44"
             }
         },
         {

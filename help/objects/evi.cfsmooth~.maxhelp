@@ -2364,7 +2364,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3185,7 +3185,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 112.0, 237.0, 150.0, 33.0 ],
-                                                    "text": "this is the equivalent of [evi.vactrol~ @mode 1]",
+                                                    "text": "this is the equivalent of [evi.cfsmooth~ @mode 1]",
                                                     "textjustification": 1
                                                 }
                                             },
@@ -3389,7 +3389,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3604,7 +3604,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all evieve smoothing functions live in this require file:\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nhz = 3;\r\n\r\n// this 'cfSmoothLinear' function is the equivalent of 'evi_cfsmooth':\r\nout1 = cfSmoothLinear(in1, hz, in2*0.001);  // careful! the core code takes\r\n                                            // seconds, not milliseconds!\r\n\r\n// also available:\r\n\r\nout2, out3 = cfSmoothLinear2(in1, in1, hz, in2*0.001);\r\n\r\nout4 = cfSmoothCubic(in1, hz, in2*0.001);   // more expensive, like\r\n                                            // [evi.vactrol~ @mode 1]\r\n// etc\r\n",
+                                                    "code": "\r\n// all evieve smoothing functions live in this require file:\r\nrequire(\"evi_smooth.genexpr\");\r\n\r\nhz = 3;\r\n\r\n// this 'cfSmoothLinear' function is the equivalent of 'evi_cfsmooth':\r\nout1 = cfSmoothLinear(in1, hz, in2*0.001);  // careful! the core code takes\r\n                                            // seconds, not milliseconds!\r\n\r\n// also available:\r\n\r\nout2, out3 = cfSmoothLinear2(in1, in1, hz, in2*0.001);\r\n\r\nout4 = cfSmoothCubic(in1, hz, in2*0.001);   // more expensive, like\r\n                                            // [evi.cfsmooth~ @mode 1]\r\n// etc\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

@@ -93,7 +93,7 @@
                 The global feedback gain. The feedback path is safely saturated and antialiased.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='-0.5' />
+                <attribute name='default' type='float' value='-0.6' />
             </attributelist>
         </attribute>
         <attribute name='feedforward' type='float' get='0' set='1'>
@@ -181,7 +181,7 @@
                 The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.1' />
+                <attribute name='default' type='float' value='0.3' />
             </attributelist>
         </attribute>
         <attribute name='shape' type='float' get='0' set='1'>
@@ -225,7 +225,7 @@
                 The left/right spread of the audio outputs, actually the phase offset of the two internal LFOs. 0..1 is exponentially mapped to 0..180 degrees shift.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.7' />
+                <attribute name='default' type='float' value='0.67' />
             </attributelist>
         </attribute>
         <attribute name='stereo' type='int' get='0' set='1'>

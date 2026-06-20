@@ -1,0 +1,118 @@
+{
+    "object": {
+        "name": "evi.list.xfade",
+        "category": "evieve",
+        "digest": "Manually crossfade between two lists",
+        "description": "A simple abstraction wrapper for crossfading between two lists set in the right and left inlets. Lists are interpolated with a 0..1 float.",
+        "discussion": "Thanks to Vincent Goudard who made the original version of this abstraction."
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve Control",
+            "evieve Utility",
+            "evieve Map"
+        ]
+    },
+    "inlets": [
+        {
+            "id": 1,
+            "type": "float/list",
+            "digest": "xfade 0..1 / list 1 to crossfade",
+            "description": "List 1 to crossfade to. Left list triggers at current crossfade value."
+        },
+        {
+            "id": 2,
+            "type": "list",
+            "digest": "list 2 to crossfade",
+            "description": "List 2 to crossfade from. Cold, unless @hot attribute is set."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "list",
+            "digest": "crossfaded list out",
+            "description": "List result of crossfading list 2 to list 1"
+        }
+    ],
+    "arguments": [
+        {
+            "name": "Xfade",
+            "type": "float",
+            "default": "0.",
+            "optional": 1,
+            "digest": "arg#1: Xfade amount 0..1",
+            "description": "Initial crossfade value on instantiation."
+        }
+    ],
+    "messages": [
+        {
+            "name": "float",
+            "arg": [
+                {
+                    "name": "xfade",
+                    "type": "0..1",
+                    "units": "float",
+                    "optional": 1
+                }
+            ],
+            "digest": "Crossfade",
+            "description": "Crossfade between list 1 (0.) and list 2 (1.)"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "hot",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Set the right list inlet to be hot, so that changes in both inlets trigger the list crossfade.",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "init",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Trigger the set crossfade amount on instantiation if on (1).",
+            "default": {
+                "get": 0,
+                "value": "0"
+            }
+        },
+        {
+            "name": "maxsize",
+            "get": 0,
+            "type": "int",
+            "digest": "Set 256..32767",
+            "description": "Maximum list size on which to operate. Reduce this to save resources as the default is the maximum.",
+            "default": {
+                "get": 0,
+                "value": "32767"
+            }
+        },
+        {
+            "name": "setxfade",
+            "get": 0,
+            "type": "float",
+            "digest": "Normalised 0..1",
+            "description": "Set an initial crossfade amount. This can then be triggered with a list or a bang into the left inlet.",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": [
+        "evi.list.interp",
+        "mc.evi.listgen"
+    ]
+}
