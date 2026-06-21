@@ -51,7 +51,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 566.0, 237.0, 160.0, 69.0 ],
-                                    "text": "notice how 'medium' and 'hard' cannot even cope with the 'duduk.aif' sample",
+                                    "text": "notice how 'medium' and 'hard' can hardly cope with the (hot) 'duduk.aif' sample",
                                     "textjustification": 1
                                 }
                             },
@@ -1178,7 +1178,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1402,7 +1402,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1441,8 +1441,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 566.0, 237.0, 158.0, 69.0 ],
-                                    "text": "notice how 'medium' and 'hard' cannot even cope with the 'duduk.aif' sample",
+                                    "patching_rect": [ 566.0, 237.0, 160.0, 69.0 ],
+                                    "text": "notice how 'medium' and 'hard' can hardly cope with the (hot) 'duduk.aif' sample",
                                     "textjustification": 1
                                 }
                             },
@@ -2183,7 +2183,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2199,7 +2199,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 121.0, 197.0, 160.0, 69.0 ],
-                                    "text": "notice how 'medium' and 'hard' cannot even cope with the 'duduk.aif' sample",
+                                    "text": "notice how 'medium' and 'hard' can hardly cope with the (hot) 'duduk.aif' sample",
                                     "textjustification": 1
                                 }
                             },

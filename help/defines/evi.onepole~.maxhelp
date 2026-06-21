@@ -1106,7 +1106,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1402,6 +1402,20 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "attr": "logfreq",
+                                    "id": "obj-6",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 509.0, 336.0, 113.0, 23.0 ],
+                                    "text_width": 51.0
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -1626,8 +1640,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 373.0, 140.0, 85.0, 22.0 ],
-                                                    "text": "param smooth"
+                                                    "patching_rect": [ 373.0, 140.0, 102.0, 22.0 ],
+                                                    "text": "param smooth 10"
                                                 }
                                             },
                                             {
@@ -1819,6 +1833,20 @@
                                     "destination": [ "obj-14", 0 ],
                                     "source": [ "obj-5", 2 ]
                                 }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-14", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-6", 0 ]
+                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -1847,13 +1875,27 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "attr": "logfreq",
+                                    "id": "obj-6",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 520.0, 336.0, 113.0, 23.0 ],
+                                    "text_width": 51.0
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -2242,6 +2284,20 @@
                                 "patchline": {
                                     "destination": [ "obj-14", 0 ],
                                     "source": [ "obj-5", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-14", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-6", 0 ]
                                 }
                             }
                         ],

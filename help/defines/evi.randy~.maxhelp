@@ -484,7 +484,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -571,7 +571,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 40.0, 317.0, 106.0, 23.0 ],
-                                    "text": "1077.224991"
+                                    "text": "21.864572"
                                 }
                             },
                             {
@@ -984,7 +984,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1069,7 +1069,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 91.0, 523.0, 130.0, 21.0 ],
+                                    "patching_rect": [ 76.0, 523.0, 130.0, 21.0 ],
                                     "text": "white noise sync",
                                     "textjustification": 1
                                 }
@@ -1080,7 +1080,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 91.0, 391.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 76.0, 391.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1089,7 +1089,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 487.0, 523.0, 130.0, 21.0 ],
+                                    "patching_rect": [ 517.0, 523.0, 130.0, 21.0 ],
                                     "text": "cosine rand",
                                     "textjustification": 1
                                 }
@@ -1100,7 +1100,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 355.0, 523.0, 130.0, 21.0 ],
+                                    "patching_rect": [ 370.0, 523.0, 130.0, 21.0 ],
                                     "text": "linear rand",
                                     "textjustification": 1
                                 }
@@ -1122,7 +1122,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 487.0, 391.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 517.0, 391.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1131,7 +1131,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 355.0, 391.0, 130.0, 130.0 ]
+                                    "patching_rect": [ 370.0, 391.0, 130.0, 130.0 ]
                                 }
                             },
                             {
@@ -1275,7 +1275,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 219.0, 335.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 238.0, 335.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             },
@@ -1334,11 +1334,12 @@
                                             },
                                             {
                                                 "box": {
+                                                    "fontsize": 16.0,
                                                     "id": "obj-4",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 177.0, 335.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 177.0, 333.0, 44.0, 26.0 ],
                                                     "text": "out 2"
                                                 }
                                             }
@@ -1384,7 +1385,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 223.0, 336.0, 283.0, 23.0 ],
+                                    "patching_rect": [ 223.0, 336.0, 313.0, 23.0 ],
                                     "text": "gen~ @title using_evi.randy~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }

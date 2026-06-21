@@ -1335,7 +1335,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2011,7 +2011,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2385,8 +2385,8 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 363.0, 243.0, 129.0, 24.0 ],
-                                                    "text": "cutoff inlet in Hz",
+                                                    "patching_rect": [ 363.0, 243.0, 190.0, 24.0 ],
+                                                    "text": "cutoff inlet in Hz (the default)",
                                                     "textjustification": 1
                                                 }
                                             },

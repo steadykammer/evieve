@@ -770,7 +770,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 343.0, 209.0, 87.0, 40.0 ],
-                                    "text": "Deviate Mix 0..1",
+                                    "text": "Increment Mix 0..1",
                                     "textjustification": 1
                                 }
                             },

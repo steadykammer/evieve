@@ -1058,7 +1058,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1874,7 +1874,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 2756,
+                                    "numpoints": 3000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 412.0, 539.0, 198.0, 89.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -2125,7 +2125,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "Two Wave Packets make up a PAF",
+                                    "text": "Two Wave Packets make up a PAF. Both PAF and wave packet methods devised by Miller Puckette.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2935,7 +2935,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3062,7 +3062,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 60.0, 386.0, 74.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {
@@ -3344,7 +3344,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 646.0, 386.0, 74.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {
@@ -3359,7 +3359,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 570.0, 346.0, 74.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {
@@ -3374,7 +3374,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 496.0, 306.0, 74.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {

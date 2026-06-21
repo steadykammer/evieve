@@ -700,7 +700,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 119.0, 188.0, 102.0, 54.0 ],
-                                    "text": "like the [phasor~] helpfile",
+                                    "text": "like the MSP [phasor~] helpfile",
                                     "textjustification": 1
                                 }
                             },
@@ -992,7 +992,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "2",
+                                    "text": "3",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -1031,7 +1031,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "2",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -2011,7 +2011,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3376,7 +3376,7 @@
                                                 "patchline": {
                                                     "color": [ 0.447518749806177, 0.44751863973454, 0.447518668498017, 0.0 ],
                                                     "destination": [ "obj-18", 1 ],
-                                                    "midpoints": [ 568.5, 284.6953125, 1007.5, 284.6953125 ],
+                                                    "midpoints": [ 568.5, 90.44140625, 1007.5, 90.44140625 ],
                                                     "order": 0,
                                                     "source": [ "obj-1", 0 ]
                                                 }
@@ -3385,7 +3385,7 @@
                                                 "patchline": {
                                                     "color": [ 0.447518749806177, 0.44751863973454, 0.447518668498017, 0.0 ],
                                                     "destination": [ "obj-9", 1 ],
-                                                    "midpoints": [ 568.5, 284.7109375, 342.5, 284.7109375 ],
+                                                    "midpoints": [ 568.5, 91.3046875, 342.5, 91.3046875 ],
                                                     "order": 1,
                                                     "source": [ "obj-1", 0 ]
                                                 }
@@ -3607,7 +3607,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

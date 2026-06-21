@@ -498,7 +498,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 135.0, 299.0, 97.0, 23.0 ],
+                                    "patching_rect": [ 125.0, 309.0, 97.0, 23.0 ],
                                     "text": "p"
                                 }
                             },
@@ -510,18 +510,20 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 129.0, 182.0, 103.0, 100.0 ]
+                                    "patching_rect": [ 119.0, 192.0, 103.0, 100.0 ]
                                 }
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-88",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 213.0, 355.0, 27.0, 48.0 ],
+                                    "patching_rect": [ 203.0, 351.0, 37.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "A", "E", "I", "O", "U" ],
@@ -539,13 +541,15 @@
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-92",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 174.0, 355.0, 27.0, 48.0 ],
+                                    "patching_rect": [ 164.0, 351.0, 37.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "Bass", "Tenor", "Countertenor", "Alto", "Soprano" ],
@@ -827,7 +831,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-108", 0 ],
-                                    "midpoints": [ 144.5, 332.0, 117.3984375, 332.0, 117.3984375, 172.0, 138.5, 172.0 ],
+                                    "midpoints": [ 134.5, 342.0, 107.3984375, 342.0, 107.3984375, 182.0, 128.5, 182.0 ],
                                     "source": [ "obj-23", 0 ]
                                 }
                             },
@@ -2265,7 +2269,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 208.0, 236.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 198.0, 236.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2567,7 +2571,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 162.0, 376.0, 103.0, 23.0 ],
+                                    "patching_rect": [ 152.0, 376.0, 103.0, 23.0 ],
                                     "text": "p"
                                 }
                             },
@@ -2579,18 +2583,20 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 162.0, 259.0, 103.0, 100.0 ]
+                                    "patching_rect": [ 152.0, 259.0, 103.0, 100.0 ]
                                 }
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-88",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 246.0, 432.0, 27.0, 48.0 ],
+                                    "patching_rect": [ 236.0, 432.0, 37.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "A", "E", "I", "O", "U" ],
@@ -2608,13 +2614,15 @@
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
                                     "id": "obj-92",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 204.0, 432.0, 27.0, 48.0 ],
+                                    "patching_rect": [ 194.0, 432.0, 37.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "Bass", "Tenor", "Countertenor", "Alto", "Soprano" ],
@@ -2740,7 +2748,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-108", 0 ],
-                                    "midpoints": [ 171.5, 409.0, 150.3984375, 409.0, 150.3984375, 249.0, 171.5, 249.0 ],
+                                    "midpoints": [ 161.5, 409.0, 140.3984375, 409.0, 140.3984375, 249.0, 161.5, 249.0 ],
                                     "source": [ "obj-12", 0 ]
                                 }
                             },

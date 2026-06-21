@@ -1869,6 +1869,28 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-25",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 51.0, 433.0, 87.0, 21.0 ],
+                                    "text": "evi.reson~",
+                                    "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 555.0, 433.0, 107.0, 21.0 ],
+                                    "text": "MSP reson~",
+                                    "textjustification": 0
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -2090,6 +2112,8 @@
                                     "format": 6,
                                     "id": "obj-22",
                                     "maxclass": "flonum",
+                                    "maximum": 2.0,
+                                    "minimum": 1e-06,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -2570,7 +2594,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

@@ -520,6 +520,28 @@
                             },
                             {
                                 "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 501.0, 599.0, 200.0, 21.0 ],
+                                    "text": "Lowshelf",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 299.0, 599.0, 200.0, 21.0 ],
+                                    "text": "Highshelf",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "attr": "smoothfreq",
                                     "id": "obj-28",
                                     "lock": 1,
@@ -710,7 +732,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1089,6 +1111,28 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 531.0, 317.0, 150.0, 23.0 ],
                                     "text_width": 83.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 531.0, 599.0, 200.0, 21.0 ],
+                                    "text": "Lowshelfs L/R",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-18",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 329.0, 599.0, 200.0, 21.0 ],
+                                    "text": "Highshelfs L/R",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -1478,6 +1522,7 @@
                             {
                                 "box": {
                                     "id": "obj-17",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -2045,6 +2090,7 @@
                             {
                                 "box": {
                                     "id": "obj-19",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -2055,6 +2101,7 @@
                             {
                                 "box": {
                                     "id": "obj-17",
+                                    "logfreq": 1,
                                     "maxclass": "spectroscope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -2257,6 +2304,28 @@
                             },
                             {
                                 "box": {
+                                    "id": "obj-16",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 520.0, 534.0, 200.0, 21.0 ],
+                                    "text": "Lowshelf",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 318.0, 534.0, 200.0, 21.0 ],
+                                    "text": "Highshelf",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 3,
@@ -2281,8 +2350,8 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 462.0, 727.0, 35.0, 22.0 ],
-                                                    "text": "out 2"
+                                                    "patching_rect": [ 462.0, 727.0, 86.0, 22.0 ],
+                                                    "text": "out 2 Lowshelf"
                                                 }
                                             },
                                             {
@@ -2303,8 +2372,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 29.0, 28.0, 22.0 ],
-                                                    "text": "in 1"
+                                                    "patching_rect": [ 50.0, 29.0, 75.0, 22.0 ],
+                                                    "text": "in 1 Audio In"
                                                 }
                                             },
                                             {
@@ -2320,7 +2389,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all evieve onepole filters and coefficients live in this .genexpr file:\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\nParam   smoothfreq(33., min=0, max=333);     // ms\r\nParam   smoothshelf(22., min=0, max=333);    // ms\r\n\r\n\r\n// \"Shelf\" (in3) input:\r\n// 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost\r\n// achieved using this coefficients calculator:\r\ng, k    = rcDampCoeffs1(in2, in3);\r\n\r\n// (shelf boost / atten -1..1 is approx ± 10dB)\r\n\r\n\r\n// smooth after the coefficients calculation:\r\ng   = evi_logsmooth(g, smoothfreq);\r\nk   = evi_expsmooth(k, smoothshelf);\r\n\r\n\r\n// the 'rcFilterDampLpHp()' function is what is used in [evi.onepole.shelving~]\r\nHs, Ls  = rcFilterDampLpHp(in1, g, k);\r\n\r\n\r\n\r\nout1    = Hs;     // highshelf\r\nout2    = Ls;     // lowshelf\r\n\r\n\r\n// there are many other coefficients calculators and filters inside the 'evi_rcfilters.genexpr' file...\r\nglp, lk = rcDampCoeffs2(in2, in3);\r\nghp, hk = rcDampCoeffs2(in4, in5);\r\nout3 = rcFilterDampBandpass(in1, glp, ghp, lk, hk);\r\n\r\n\r\n",
+                                                    "code": "\r\n// all evieve onepole filters and coefficients live in this .genexpr file:\r\nrequire(\"evi_rcfilters.genexpr\");\r\n\r\n\r\nParam   smoothfreq(33., min=0, max=333);     // ms\r\nParam   smoothshelf(22., min=0, max=333);    // ms\r\n\r\n\r\n// \"Shelf\" (in3) input:\r\n// 0 == bypassed, -1..0 == shelving attenuation, 0..1 shelving boost\r\n// achieved using this coefficients calculator:\r\ng, k    = rcDampCoeffs1(in2, in3);\r\n\r\n// (shelf boost/atten -1..1 is approx ± 10dB)\r\n\r\n\r\n// smooth after the coefficients calculation:\r\ng   = evi_logsmooth(g, smoothfreq);\r\nk   = evi_expsmooth(k, smoothshelf);\r\n\r\n\r\n// the 'rcFilterDampLpHp()' function is what is used in [evi.onepole.shelving~]\r\nHs, Ls  = rcFilterDampLpHp(in1, g, k);\r\n\r\n\r\nout1    = Hs;     // highshelf\r\nout2    = Ls;     // lowshelf\r\n\r\n\r\n\r\n// there are many other coefficients calculators and filters inside the 'evi_rcfilters.genexpr' file...\r\nglp, lk = rcDampCoeffs2(in2, in3);\r\nghp, hk = rcDampCoeffs2(in4, in5);\r\nout3 = rcFilterDampBandpass(in1, glp, ghp, lk, hk);\r\n\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2338,8 +2407,8 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 727.0, 35.0, 22.0 ],
-                                                    "text": "out 1"
+                                                    "patching_rect": [ 50.0, 727.0, 82.0, 22.0 ],
+                                                    "text": "out 1 Highself"
                                                 }
                                             }
                                         ],

@@ -2082,7 +2082,7 @@
                             {
                                 "box": {
                                     "audioframerate": 33.0,
-                                    "audioframesize": 44100,
+                                    "audioframesize": 48000,
                                     "background": 1,
                                     "bgcolor": [ 0.095481, 0.100396, 0.100293, 1.0 ],
                                     "gridcolor": [ 0.32549, 0.345098, 0.372549, 1.0 ],
@@ -2093,7 +2093,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "numplots": 4,
-                                    "numpoints": 44100,
+                                    "numpoints": 48000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 289.0, 443.0, 400.0, 200.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -2521,7 +2521,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3274,8 +3274,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 140.0, 499.0, 308.0, 23.0 ],
-                                    "text": "mc.mixdown~ 2 @pans spread @pancontrolmode 1"
+                                    "patching_rect": [ 140.0, 499.0, 386.0, 23.0 ],
+                                    "text": "mc.mixdown~ 2 @autogain 1 @pans spread @pancontrolmode 1"
                                 }
                             },
                             {
@@ -4558,7 +4558,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -5131,7 +5131,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// in GenExpr there is a very similar limiter in this require file:\r\nrequire(\"evi_dynamics.genexpr\");\r\n\r\n\r\nParam   release(52., min=1, max=376);\r\nParam   knee(0.55, min=0.001, max=1);\r\nParam\tsmooth(0.05, min=0, max=1);\r\nParam   ingain(1., min=-20, max=40);\r\n\r\nParam   clip(0, min=0, max=2); // 0=hard, 1=soft, 2=softer\r\nclp     = int(clip);\r\n\r\n\r\n// we need to get the smoothing coefficients:\r\nenvsmooth = ((1 - smooth*smooth) * 99) + 1;\r\na0, a1, a2, b1, b2 = smoothCoeff(envsmooth);\r\n\r\n\r\n// compute and smooth gain:\r\ninputgain = dbtoaApprox(ingain);\r\ninputgainsmooth\t= logsmooth(inputgain, 0.022666);\r\n\r\nxL = in1 * inputgainsmooth;\r\nxR = in2 * inputgainsmooth;\r\n\r\n\r\n// 'limiterHardSoft()' is like [evi.limiterfast~] but with clipping option:\r\nout1, out2, out3 = limiterHardSoft(xL, xR, release, knee, clp, a0, a1, a2, b1, b2);\r\n\r\n",
+                                                    "code": "\r\n// in GenExpr there is a very similar limiter in this require file:\r\nrequire(\"evi_dynamics.genexpr\");\r\n\r\n\r\nParam   release(52., min=1, max=376);\r\nParam   knee(0.55, min=0.001, max=1);\r\nParam\tsmooth(0.05, min=0, max=1);\r\nParam   ingain(1., min=-20, max=40);\r\n\r\nParam   clip(0, min=0, max=2); // 0=hard, 1=soft, 2=softer\r\nclp     = int(clip);\r\n\r\n\r\n// we need to get the smoothing coefficients:\r\nenvsmooth = ((1 - smooth*smooth) * 99) + 1;\r\na0, a1, a2, b1, b2 = smoothCoeff(envsmooth);\r\n\r\n\r\n// compute and smooth gain:\r\ninputgain = dbtoaApprox(ingain);\r\ninputgainsmooth\t= logsmooth(inputgain, 0.022666);\r\n\r\nxL = in1 * inputgainsmooth;\r\nxR = in2 * inputgainsmooth;\r\n\r\n\r\n// 'limiterHardSoft()' is like [evi.limiterfast~] but with clipping options:\r\nout1, out2, out3 = limiterHardSoft(xL, xR, release, knee, clp, a0, a1, a2, b1, b2);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
