@@ -89,7 +89,7 @@
         "evi.filter~",
         "evi.filter.shelving~",
         "evi.filter.morph~",
-        "evi.filter.allpass",
+        "evi.filter.allpass~",
         "evi.filter.bandpass~",
         "evi.filter.bell~",
         "evi.filter.highpass~",

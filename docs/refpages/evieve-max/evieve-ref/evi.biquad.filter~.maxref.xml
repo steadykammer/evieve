@@ -9,7 +9,7 @@
 		<b>evi.biquad.filter~</b> is a 'max define' for the <o>evi_biquad_filter</o>.gendsp gen~ abstraction.
 		Because evi.biquad.filter~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. <br />
+		Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. There are 40 available filter types. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

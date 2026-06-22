@@ -1122,6 +1122,53 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "arrows": 3,
+                                    "id": "obj-56",
+                                    "justification": 4,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 329.0, 257.0, 30.0, 21.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "arrows": 3,
+                                    "id": "obj-52",
+                                    "justification": 1,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 381.0, 257.0, 26.0, 9.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hint": "Reset phases, useful if 'zeroreset' on and rate very very slow",
+                                    "id": "obj-51",
+                                    "maxclass": "button",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 356.0, 250.0, 24.0, 24.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-48",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 356.0, 325.0, 41.0, 23.0 ],
+                                    "text": "click~"
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-50",
                                     "maxclass": "newobj",
@@ -1962,6 +2009,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "midpoints": [ 365.5, 377.125, 334.5, 377.125 ],
+                                    "source": [ "obj-48", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "midpoints": [ 240.5, 531.2109375, 417.5, 531.2109375 ],
                                     "order": 0,
@@ -2008,6 +2062,12 @@
                                     "hidden": 1,
                                     "order": 0,
                                     "source": [ "obj-50", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-48", 0 ],
+                                    "source": [ "obj-51", 0 ]
                                 }
                             },
                             {

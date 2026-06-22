@@ -290,7 +290,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
+            "description": "One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @zerorest is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a reset signal into the third (far right) inlet.",
             "default": {
                 "min": "0",
                 "max": "1",

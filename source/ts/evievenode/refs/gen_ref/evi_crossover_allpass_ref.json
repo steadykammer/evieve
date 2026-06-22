@@ -68,6 +68,14 @@
         {
             "name": "evi_crossover_sum",
             "display": "evi_crossover_sum"
+        },
+        {
+            "name": "evi_filter_allpass",
+            "display": "evi_filter_allpass"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
         }
     ]
 }

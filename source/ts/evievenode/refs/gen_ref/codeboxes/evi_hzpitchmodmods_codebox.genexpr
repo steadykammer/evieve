@@ -31,13 +31,13 @@ smoothCutoff(cutoff, smooth, smoothtype)
 
 History prev_f(0.);
 
-// choose cutoff input in Hz (0) or pitch (1, default)
-Param	mode(1, min=0, max=1);
+// choose cutoff input in Hz (0, default) or pitch (1)
+Param	mode(0, min=0, max=1);
 Param	tuning(440., min=415, max=467);// tuning around 440 Hz
 // cutoff smooth time in ms; if == 0 then no cpu used for
 // smoothing and in1 can be signal rate modulator (e.g. lfo/env modified)
 Param	smooth(0., min=0, max=1000);// ms, default off
-Param	smoothtype(0, min=0, max=4);// select smoother, 0=lp default, 1=log, 2=line, 3=sline, 4=lag
+Param	smoothtype(0, min=0, max=4);// select smoother, 0=bp default, 1=log, 2=line, 3=sline, 4=lag
 Param	low(0., min=-samplerate*0.5, max=samplerate*0.5);	// in Hz
 Param	high(0.5, min=0, max=0.5);	// multiplier of samplerate
 Param	cliplimit(1, min=0, max=1);	// use limit to clip cf output?

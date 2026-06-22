@@ -80,7 +80,7 @@
                 If mode &#x3D;&#x3D; 1, inlet 1 is required to be in Pitch values (the default). If mode &#x3D;&#x3D; 0, inlet 1 is required to be in Hz values and inlet 2 (pitch) is ignored.
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
         <attribute name='outnomod' type='int' get='0' set='1'>

@@ -58,5 +58,7 @@
         <seealso name='evi_crossover' display='evi_crossover' type='genrefpage' />
         <seealso name='evi_crossover_3band' display='evi_crossover_3band' type='genrefpage' />
         <seealso name='evi_crossover_sum' display='evi_crossover_sum' type='genrefpage' />
+        <seealso name='evi_filter_allpass' display='evi_filter_allpass' type='genrefpage' />
+        <seealso name='evi_onepole' display='evi_onepole' type='genrefpage' />
     </seealsolist>
 </c74object>

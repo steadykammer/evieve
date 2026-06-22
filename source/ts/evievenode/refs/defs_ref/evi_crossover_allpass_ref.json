@@ -65,6 +65,8 @@
         "evi.cross~",
         "evi.crossover~",
         "evi.crossover.3band~",
-        "evi.crossover.sum~"
+        "evi.crossover.sum~",
+        "evi.filter.allpass~",
+        "evi.onepole~"
     ]
 }

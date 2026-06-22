@@ -1217,13 +1217,60 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "arrows": 3,
+                                    "id": "obj-56",
+                                    "justification": 4,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 328.0, 257.0, 30.0, 21.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "arrows": 3,
+                                    "id": "obj-52",
+                                    "justification": 1,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 380.0, 257.0, 26.0, 9.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hint": "Reset phases, useful if 'zeroreset' on and rate very very slow",
+                                    "id": "obj-51",
+                                    "maxclass": "button",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 355.0, 250.0, 24.0, 24.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-19",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 355.0, 325.0, 41.0, 23.0 ],
+                                    "text": "click~"
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -2051,6 +2098,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "midpoints": [ 364.5, 359.671875, 333.5, 359.671875 ],
+                                    "source": [ "obj-19", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 416.5, 413.0, 372.95703125, 413.0, 372.95703125, 370.0, 239.5, 370.0 ],
                                     "source": [ "obj-21", 0 ]
@@ -2168,6 +2222,12 @@
                                     "destination": [ "obj-5", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-50", 4 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-19", 0 ],
+                                    "source": [ "obj-51", 0 ]
                                 }
                             },
                             {

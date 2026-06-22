@@ -13,7 +13,7 @@
          <br />
         evi_biquad_filter is also available in MSP as: <o>evi.biquad.filter~</o>. <br />
          <br />
-	    Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. <br />
+	    Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. There are 40 available filter types. <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -843,12 +843,6 @@
                                                         }
                                                     },
                                                     {
-                                                        "type": "Literal",
-                                                        "value": 1,
-                                                        "raw": "1",
-                                                        "gen_kind": "integer"
-                                                    },
-                                                    {
                                                         "type": "Identifier",
                                                         "name": "reset",
                                                         "raw": "reset"
@@ -856,8 +850,8 @@
                                                 ],
                                                 "callee": {
                                                     "type": "Identifier",
-                                                    "name": "adSc2",
-                                                    "raw": "adSc2"
+                                                    "name": "adSc1_2x_6POINT",
+                                                    "raw": "adSc1_2x_6POINT"
                                                 }
                                             },
                                             "right": {
@@ -899,12 +893,6 @@
                                                         }
                                                     },
                                                     {
-                                                        "type": "Literal",
-                                                        "value": 1,
-                                                        "raw": "1",
-                                                        "gen_kind": "integer"
-                                                    },
-                                                    {
                                                         "type": "Identifier",
                                                         "name": "reset",
                                                         "raw": "reset"
@@ -912,8 +900,8 @@
                                                 ],
                                                 "callee": {
                                                     "type": "Identifier",
-                                                    "name": "adSc2",
-                                                    "raw": "adSc2"
+                                                    "name": "adSc1_2x_6POINT",
+                                                    "raw": "adSc1_2x_6POINT"
                                                 }
                                             },
                                             "right": {

@@ -1452,7 +1452,7 @@
                                     "patching_rect": [ 622.0, 435.0, 65.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 10.0 ],
+                                            "parameter_initial": [ 6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[1]",
                                             "parameter_mmax": 20.0,

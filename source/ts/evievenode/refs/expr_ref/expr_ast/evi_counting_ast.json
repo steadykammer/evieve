@@ -1298,6 +1298,36 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "mode_init",
+                                    "raw": "mode_init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ],
                 [
@@ -1746,14 +1776,23 @@
                                                     "type": "BinaryExpression",
                                                     "operator": "+",
                                                     "left": {
-                                                        "type": "Identifier",
-                                                        "name": "thisPhasor1Sync",
-                                                        "raw": "thisPhasor1Sync"
+                                                        "type": "BinaryExpression",
+                                                        "operator": "+",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "thisPhasor1Sync",
+                                                            "raw": "thisPhasor1Sync"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "reset",
+                                                            "raw": "reset"
+                                                        }
                                                     },
                                                     "right": {
                                                         "type": "Identifier",
-                                                        "name": "reset",
-                                                        "raw": "reset"
+                                                        "name": "mode_init",
+                                                        "raw": "mode_init"
                                                     }
                                                 }
                                             ],
@@ -1784,9 +1823,18 @@
                                                     "raw": "spreadFreeMul"
                                                 },
                                                 {
-                                                    "type": "Identifier",
-                                                    "name": "w_sync",
-                                                    "raw": "w_sync"
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "w_sync",
+                                                        "raw": "w_sync"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "mode_init",
+                                                        "raw": "mode_init"
+                                                    }
                                                 }
                                             ],
                                             "callee": {
@@ -1794,6 +1842,24 @@
                                                 "name": "latch",
                                                 "raw": "latch"
                                             }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode_init",
+                                            "raw": "mode_init"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
                                         }
                                     }
                                 }

@@ -64,9 +64,9 @@ eviPhasor0(frequency, reset)    // Hz, Trigger
     return  thisphasor, (freqsign * thisfrequency), thisdelta; // Phasor, Hz, Sync
 }
 
-eviPhasorTwo0(freqFree, spreadFree, reset, minimumhz=0.125, mode=1) { // Hz, 0..1, trigger, minimum Hz allows zero so be careful
-
-	History init(1);
+eviPhasorTwo0(freqFree, spreadFree, reset, minimumhz=0.125, mode=1) // Hz, 0..1, trigger, minimum Hz allows zero so be careful
+{
+	History init(1), mode_init(1);
     History t_phase(0), w_sync(0);                  // main phases
 
     firstfreq   = 0;
@@ -87,8 +87,9 @@ eviPhasorTwo0(freqFree, spreadFree, reset, minimumhz=0.125, mode=1) { // Hz, 0..
 
 	freqMain, spreadMain = 0;
 	if (mode > 0) {
-		freqMain = latch(maximum(freqFreeMul, minimumhz), (thisPhasor1Sync + reset));
-		spreadMain = latch(spreadFreeMul, w_sync);
+		freqMain = latch(maximum(freqFreeMul, minimumhz), (thisPhasor1Sync + reset + mode_init));
+		spreadMain = latch(spreadFreeMul, (w_sync + mode_init));
+        mode_init = 0; // needed first switch only
 	} else {
 		freqMain = freqFreeMul;
 		spreadMain = spreadFreeMul;

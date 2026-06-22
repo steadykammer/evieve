@@ -104,7 +104,7 @@
 		<seealso name="evi.filter.eq~"> </seealso>
 		<seealso name="evi.filter.shelving~"> </seealso>
 		<seealso name="evi.filter.morph~"> </seealso>
-		<seealso name="evi.filter.allpass"> </seealso>
+		<seealso name="evi.filter.allpass~"> </seealso>
 		<seealso name="evi.filter.bandpass~"> </seealso>
 		<seealso name="evi.filter.highpass~"> </seealso>
 		<seealso name="evi.filter.highshelf~"> </seealso>

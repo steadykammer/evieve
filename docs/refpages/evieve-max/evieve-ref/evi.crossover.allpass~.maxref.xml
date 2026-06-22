@@ -78,6 +78,8 @@
 		<seealso name="evi.crossover~"> </seealso>
 		<seealso name="evi.crossover.3band~"> </seealso>
 		<seealso name="evi.crossover.sum~"> </seealso>
+		<seealso name="evi.filter.allpass~"> </seealso>
+		<seealso name="evi.onepole~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

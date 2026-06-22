@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
         "description": "An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing.",
-        "discussion": "Thanks to Volker Böhm who suggested the simple block to emulate the oscillator concept in GenExpr code."
+        "discussion": "Thanks to Volker Böhm who created the simple block to emulate the oscillator concept in GenExpr code."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -88,7 +88,7 @@
             "get": 1,
             "type": "float",
             "digest": "0..0.5",
-            "description": "Multiplier of samplerate to set maximum frequency input. Typically this would be lower than samplerate/4 (0.25).",
+            "description": false,
             "default": {
                 "min": "0",
                 "max": "0.5",
@@ -100,11 +100,11 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth.",
+            "description": "Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth. But if audio rate modulating inlet 1, this should be turned off (0.)",
             "default": {
                 "min": "0",
                 "max": "1000",
-                "value": "20."
+                "value": "0."
             }
         }
     ],

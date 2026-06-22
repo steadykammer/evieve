@@ -1,9 +1,9 @@
 
-// Phase Modulation Oscillator by Pete for evieve
+// Phase Modulation Oscillator for evieve
 // a simplified version of "Squinewave Oscillator" by Rasmus Ekman
-// also based on gen~ port of Squinewave by Volker Böhm
+// based on gen~ port of Squinewave by Volker Böhm
 
-normaliseToLimit(freq, limit)
+normaliseToLimit(freq, limit) // temp: only works for @high 0.1 for now
 {
 	w0		= TWOPI / samplerate;
 	w1		= limit * w0;
@@ -11,8 +11,8 @@ normaliseToLimit(freq, limit)
 }
 
 Param	freqmode(0, min=0, max=1);								// in1 cutoff in: 1 = pitch, 0 = Hz
-Param	freqsmooth(20., min=0, max=1000);						// smooth in1 in ms, 0 == off
-Param	freqmul(0.1, min=0, max=0.5);							// multiplier of samplerate
+Param	freqsmooth(0., min=0, max=1000);						// smooth in1 in ms, 0 == off
+//Param	freqmul(0.1, min=0, max=0.5);							// multiplier of samplerate as limit
 
 dutyIn		= clamp(in5, 0, 1);
 duty0		= (dutyIn + dutyIn - 1);
@@ -20,8 +20,8 @@ dutycycle	= duty0 * 0.9998;									// -0.9998..0.9998
 //harm0		= (clamp(sqrt(in4), 0, 1) * 0.985558) + 0.014142;	// 0.014142..0.9997, always some harmonics
 harm0		= interp(clamp(in4, 0, 1), 0, 0.9997, mode="cosine");// 0. .. 0.9997
 harmonics	= (harm0 * (1 - abs(duty0)) * 0.292893) + (sqrt1_2 * harm0);
-
-freq, cf, limit	= evi_hzpitchmodmods(abs(in1), in2, in3, mode=freqmode, smooth=freqsmooth, high=freqmul, cliplimit=0, outnomod=1);
+                                                                                    //  @high must be 0.1 for now
+freq, cf, limit	= evi_hzpitchmodmods(abs(in1), in2, in3, mode=freqmode, smooth=freqsmooth, high=0.1, cliplimit=0, outnomod=1);
 
 phaseraw	= phasor(freq);
 phasemod	= phaseraw;
@@ -29,6 +29,7 @@ phasemod	= phaseraw;
 
 // based on volker böhm, 2016
 // volker's port is really clever and gen~centric, and much better than my initial attempt
+// https://cycling74.com/forums/topic/ann-squinewave-bandlimited-oscil-with-morphing-waveform-and-hardsync/#.WF-vQRQptEc
 if (freq < limit) {
 	// limits
 	reduce	= normaliseToLimit(cf, limit);
@@ -51,8 +52,10 @@ if (freq < limit) {
 	ramp2	= phaseraw * kink2 - kink2 + 0.5;
 	trigger	= ramp1 > 0.5;
 	// clamp & square ramps
-	ramp1  *= (1 - trigger) * sq1;
-	ramp2  *= trigger * sq2;
+	ramp1  *= (1 - trigger);// * sq1;
+	ramp2  *= trigger;// * sq2;
+    ramp1  *= sq1;
+    ramp2  *= sq2;
 	// create phase modulation signal
 	phasemod  = clip(ramp1 + ramp2, 0, 0.5);
 	phasemod += trigger * 0.5;
@@ -60,7 +63,7 @@ if (freq < limit) {
 //	trigger	= delta(phaseraw) < 0;
 }
 
-//phaseModOscillator = cycle(phasemod, index="phase");
+//phaseModOscillator = cycle(phasemod, index="phase"); // cheaper
 phaseModOscillator = cos(phasemod * TWOPI);
 
 out1 = dcblock(phaseModOscillator * 0.5);

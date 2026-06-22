@@ -102,7 +102,7 @@
             "description": "If mode == 1, inlet 1 is required to be in Pitch values (the default). If mode == 0, inlet 1 is required to be in Hz values and inlet 2 (pitch) is ignored.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {

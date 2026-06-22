@@ -106,26 +106,15 @@
 				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="freqmul" get="1" set="1" type="float" min="0" max="0.5">
-			<digest>
-				0..0.5
-			</digest>
-			<description>
-				Multiplier of samplerate to set maximum frequency input. Typically this would be lower than samplerate/4 (0.25).
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.1" />
-			</attributelist>
-		</attribute>
 		<attribute name="freqsmooth" get="1" set="1" type="float" min="0" max="1000">
 			<digest>
 				Time in ms
 			</digest>
 			<description>
-				Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth.
+				Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth. But if audio rate modulating inlet 1, this should be turned off (0.)
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="20." />
+				<attribute name="default" get="0" set="0" size="1" value="0." />
 			</attributelist>
 		</attribute>
 	</attributelist>
@@ -146,6 +135,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Thanks to Volker Böhm who suggested the simple block to emulate the oscillator concept in GenExpr code. <br />
+        Thanks to Volker Böhm who created the simple block to emulate the oscillator concept in GenExpr code. <br />
 	</discussion>
 </c74object>

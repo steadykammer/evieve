@@ -48,11 +48,11 @@ limiterHardSoft(xL, xR, release, knee, choochoo, a0, a1, a2, b1, b2)
 	yR		= dcblock(xR * env);
 
 	if (soft) {
-		// tanh option (2nd order antiderivative)
+		// tanh option (1st order antiderivative + oversampling)
 		headroom = compress ? 0.794328 : 1;
 		expand = compress ? 1.258926 : 1;
-		yL	= adSc2(yL * headroom, 1, reset) * expand;
-		yR	= adSc2(yR * headroom, 1, reset) * expand;
+		yL	= adSc1_2x_6POINT(yL * headroom, reset) * expand;
+		yR	= adSc1_2x_6POINT(yR * headroom, reset) * expand;
 	} else {
 		// hard clip (@ -0.3dB, 2nd order antiderivative + oversampling)
 		yL	= adHc2_2x_6POINT(yL, reset);

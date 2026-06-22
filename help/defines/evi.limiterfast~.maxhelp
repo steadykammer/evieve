@@ -2521,13 +2521,35 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-31",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "multichannelsignal", "multichannelsignal" ],
+                                    "patching_rect": [ 140.0, 286.0, 167.0, 23.0 ],
+                                    "text": "mc.transpose~ 2 2"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 167.0, 238.0, 140.0, 23.0 ],
+                                    "text": "mc.delay~ 16384 8192"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-53",
@@ -3142,17 +3164,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "multichannelsignal", "multichannelsignal" ],
-                                    "patching_rect": [ 140.0, 286.0, 167.0, 23.0 ],
-                                    "text": "mc.deinterleave~"
-                                }
-                            },
-                            {
-                                "box": {
                                     "clipheight": 38.0,
                                     "data": {
                                         "clips": [
@@ -3185,7 +3196,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 176.0, 232.0, 78.0 ],
+                                    "patching_rect": [ 140.0, 137.0, 232.0, 78.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -3401,6 +3412,13 @@
                         "lines": [
                             {
                                 "patchline": {
+                                    "destination": [ "obj-31", 1 ],
+                                    "midpoints": [ 176.5, 273.5, 297.5, 273.5 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-22", 0 ],
                                     "source": [ "obj-10", 0 ]
                                 }
@@ -3467,7 +3485,16 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-6", 0 ],
+                                    "destination": [ "obj-1", 0 ],
+                                    "midpoints": [ 149.5, 226.5, 176.5, 226.5 ],
+                                    "order": 0,
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-31", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
@@ -3476,6 +3503,18 @@
                                     "destination": [ "obj-88", 1 ],
                                     "hidden": 1,
                                     "source": [ "obj-30", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "source": [ "obj-31", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-31", 0 ]
                                 }
                             },
                             {
@@ -3521,18 +3560,6 @@
                                     "destination": [ "obj-18", 0 ],
                                     "order": 0,
                                     "source": [ "obj-53", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 1 ],
-                                    "source": [ "obj-6", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-6", 0 ]
                                 }
                             },
                             {
@@ -4558,7 +4585,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

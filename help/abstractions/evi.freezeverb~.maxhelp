@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1624,6 +1624,7 @@
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
+                                    "ignoreclick": 1,
                                     "maxclass": "number~",
                                     "mode": 2,
                                     "numinlets": 2,
@@ -1640,8 +1641,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 336.0, 237.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.51"
+                                    "patching_rect": [ 336.0, 237.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -1651,8 +1652,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 229.0, 237.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.51"
+                                    "patching_rect": [ 229.0, 237.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -2167,7 +2168,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2491,7 +2492,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 40.0, 618.0, 230.0, 23.0 ],
-                                    "text": "dump done"
+                                    "text": "freeze 0"
                                 }
                             },
                             {

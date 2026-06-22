@@ -4,7 +4,7 @@
         "child": "evi.biquad.filter~",
         "category": "evieve",
         "digest": "All-in-one audio rate biquad coefficients calculator and filter section. With selection of 40 different filter types.",
-        "description": "Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes."
+        "description": "Coefficients calculator and internal biquad filter section for all-in-one biquad filtering. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. There are 40 available filter types."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

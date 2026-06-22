@@ -62,6 +62,7 @@ g = rcPreWarp1(toneHz + toneXx);
 
 // audio rate
 
+//localReset = abs(change(phaseMode));
 freqIn, minSamps, maxSamps, spreadIn = logsmoothBank4(rate*maxhz, mstosamps(delayMin), mstosamps(delayMax), spread*spread, smoothsecs);
 dutyScale, shapeScale, skewScale = expsmoothBank3(duty, shape, skew, smoothsecs*sqrt1_2);
 fbgain, fbmix, fbcross, G = logsmoothBank4(feedback, feedbackmix, feedbackcross, g, smoothsecs*sqrt2);
