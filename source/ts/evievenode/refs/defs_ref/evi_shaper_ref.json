@@ -77,7 +77,7 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Optionally smooth @harmonics and @shape attributes, default off.",
+            "description": "Optionally smooth (in ms) @harmonics and @shape attributes, default off.",
             "default": {
                 "min": "0",
                 "max": "666",

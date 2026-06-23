@@ -116,7 +116,7 @@
 				Select 0..4
 			</digest>
 			<description>
-				The amount of time in samples used by the detuner. 0&#x3D;256, 1&#x3D;512, 2&#x3D;1024, 3&#x3D;2048, 4&#x3D;4096. This has a strong effect of the granular sound of the effect.
+				The amount of time in samples used by the detuner. 0&#x3D;256, 1&#x3D;512, 2&#x3D;1024, 3&#x3D;2048, 4&#x3D;4096. This has a strong effect of the granular sound of the detune.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="4" />
@@ -127,7 +127,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the feedback path, thus changing the strength of saturated and unsaturated audio into the detuning effect.
+				Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the detuning effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.9" />
@@ -138,7 +138,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time of the internal parameters.
+				Smoothing time of the internal parameters in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="22." />

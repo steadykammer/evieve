@@ -1,7 +1,7 @@
 {
     "evi.4wave~": {
         "type": "define",
-        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "digest": "Simultaneous antialiased Saw, Rect, Tri and Sine oscillators",
         "description": "evi.4wave~ is a 'max define' for the evi_4wave.gendsp gen~ abstraction. Because evi.4wave~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nPhase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Antialiasing method is 4-point polyblep."
     },
     "evi.adsr~": {
@@ -22,7 +22,7 @@
     "evi.am~": {
         "type": "define",
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
-        "description": "evi.am~ is a 'max define' for the evi_am.gendsp gen~ abstraction. Because evi.am~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
+        "description": "evi.am~ is a 'max define' for the evi_am.gendsp gen~ abstraction. Because evi.am~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic AM processor with the core algorithm and assocoiated controls surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with hot input and has the feel of a guitar pedal."
     },
     "evi.arpnotch~": {
         "type": "define",
@@ -32,7 +32,7 @@
     "evi.audiodust~": {
         "type": "define",
         "digest": "Spikey sparse noise implementation",
-        "description": "evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction. Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from."
+        "description": "evi.audiodust~ is a 'max define' for the evi_audiodust.gendsp gen~ abstraction. Because evi.audiodust~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal."
     },
     "evi.backverb~": {
         "type": "abstraction",
@@ -67,7 +67,7 @@
     "evi.bp~": {
         "type": "define",
         "digest": "Reimplementation of Pd 'bp~' filter",
-        "description": "evi.bp~ is a 'max define' for the evi_bp.gendsp gen~ abstraction. Because evi.bp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to reson~ and evi.reson~ but with no feedforward gains and thus a special and smooth alternative to those filters. Like reson etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as evi.vcf~."
+        "description": "evi.bp~ is a 'max define' for the evi_bp.gendsp gen~ abstraction. Because evi.bp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to reson~ and evi.reson~ but with no feedforward gains and thus a special and smooth alternative to those filters. Like reson~ etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as evi.vcf~."
     },
     "evi.butterworthlp6~": {
         "type": "define",
@@ -87,7 +87,7 @@
     "evi.chorus.digital~": {
         "type": "define",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a multi stage chorus using evieve primitives. There are many attributes so that the effect can be macroised in different ways for varying types of sound design."
+        "description": "evi.chorus.digital~ is a 'max define' for the evi_chorus_digital.gendsp gen~ abstraction. Because evi.chorus.digital~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn example of a multi stage chorus using evieve primitives. Many attributes are exposed so that the effect can be macroised in different ways for varying types of sound design, but ultimately it is a basic chorus."
     },
     "evi.classic.osc~": {
         "type": "define",
@@ -97,7 +97,7 @@
     "evi.clipasym~": {
         "type": "define",
         "digest": "Variable asymmetric clipping",
-        "description": "evi.clipasym~ is a 'max define' for the evi_clipasym.gendsp gen~ abstraction. Because evi.clipasym~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nVaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour. The antialiasing here is not as successful as in other evieve objects, so be careful not to drive it too hard."
+        "description": "evi.clipasym~ is a 'max define' for the evi_clipasym.gendsp gen~ abstraction. Because evi.clipasym~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nVaguely inspired by the nonlinear part of the K35 chip in the Korg MS10 filter. This has similar asymmetric nonlinear behaviour."
     },
     "evi.clipper~": {
         "type": "define",
@@ -112,7 +112,7 @@
     "evi.cross~": {
         "type": "define",
         "digest": "Reimplementation of MSP cross~ filter as Likwitz-Riley",
-        "description": "evi.cross~ is a 'max define' for the evi_cross.gendsp gen~ abstraction. Because evi.cross~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.cross~ differs from MSP cross~ in the following ways: evi.cross~ is a steeper 4-pole crossover slope ( cross~ is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. evi.cross~ is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas cross~ is pure Butterworths and sums with a +3dB bump). evi.cross~ remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see evi.crossover~."
+        "description": "evi.cross~ is a 'max define' for the evi_cross.gendsp gen~ abstraction. Because evi.cross~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.cross~ differs from MSP cross~ in the following ways: evi.cross~ is a steeper 4-pole crossover slope ( cross~ is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. evi.cross~ is a Linkwitz-Riley crossover which sums perfectly flat (whereas cross~ is pure Butterworths and sums with a +3dB bump). evi.cross~ remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see evi.crossover~."
     },
     "evi.crossover.3band~": {
         "type": "define",
@@ -142,7 +142,7 @@
     "evi.damp~": {
         "type": "define",
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
-        "description": "evi.damp~ is a 'max define' for the evi_damp.gendsp gen~ abstraction. Because evi.damp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTwo very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz)."
+        "description": "evi.damp~ is a 'max define' for the evi_damp.gendsp gen~ abstraction. Because evi.damp~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTwo very efficient damping filters in parallel. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP onepole~ (depending on Hz)."
     },
     "evi.dcblock~": {
         "type": "abstraction",
@@ -152,7 +152,7 @@
     "evi.detune.wrap~": {
         "type": "define",
         "digest": "A quirky digital Detune effect with filtering and saturation",
-        "description": "evi.detune.wrap~ is a 'max define' for the evi_detune_wrap.gendsp gen~ abstraction. Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune.wrap~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See evi.detune~ for a much simpler and efficient version of this algorithm."
+        "description": "evi.detune.wrap~ is a 'max define' for the evi_detune_wrap.gendsp gen~ abstraction. Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLoosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. evi.detune.wrap~ adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See evi.detune~ for a much simpler and more efficient version of this algorithm."
     },
     "evi.detune~": {
         "type": "define",
@@ -207,7 +207,7 @@
     "evi.filter.eq~": {
         "type": "define",
         "digest": "EQ type TPT filters with a choice of 7 filters",
-        "description": "evi.filter.eq~ is a 'max define' for the evi_filter_eq.gendsp gen~ abstraction. Because evi.filter.eq~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required."
+        "description": "evi.filter.eq~ is a 'max define' for the evi_filter_eq.gendsp gen~ abstraction. Because evi.filter.eq~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required."
     },
     "evi.filter.highpass~": {
         "type": "define",
@@ -242,7 +242,7 @@
     "evi.filter.peak~": {
         "type": "define",
         "digest": "TPT peaking filter",
-        "description": "evi.filter.peak~ is a 'max define' for the evi_filter_peak.gendsp gen~ abstraction. Because evi.filter.peak~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see evi.filter.bell~."
+        "description": "evi.filter.peak~ is a 'max define' for the evi_filter_peak.gendsp gen~ abstraction. Because evi.filter.peak~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe peak filter from the evieve TPT SVF collection. Peaking only. For peak/notch @see evi.filter.bell~."
     },
     "evi.filter.resonant~": {
         "type": "define",
@@ -252,7 +252,7 @@
     "evi.filter.shelving~": {
         "type": "define",
         "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
-        "description": "evi.filter.shelving~ is a 'max define' for the evi_filter_shelving.gendsp gen~ abstraction. Because evi.filter.shelving~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes."
+        "description": "evi.filter.shelving~ is a 'max define' for the evi_filter_shelving.gendsp gen~ abstraction. Because evi.filter.shelving~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick one stop shop for applying classic shelving filtering using linear TPT SVFs. Controls are via attributes."
     },
     "evi.filter.tilt~": {
         "type": "define",
@@ -262,7 +262,7 @@
     "evi.filter~": {
         "type": "define",
         "digest": "All-in-one TPT twopole filter section with a choice of 12 different filter types",
-        "description": "evi.filter~ is a 'max define' for the evi_filter.gendsp gen~ abstraction. Because evi.filter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 12 different filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most linear filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic filtering is required."
+        "description": "evi.filter~ is a 'max define' for the evi_filter.gendsp gen~ abstraction. Because evi.filter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis filter block can be switched between 12 different filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties. It is designed to be an every day patching workhorse for most linear filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic filtering is required."
     },
     "evi.flanger.digital~": {
         "type": "define",
@@ -272,7 +272,7 @@
     "evi.formantfilter.morph~": {
         "type": "abstraction",
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
-        "description": "While evi.formantfilter~ uses a bank of resonant filters, evi.formantfilter.morph~ uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated."
+        "description": "While the alternative evi.formantfilter~ uses a bank of resonant filters, this evi.formantfilter.morph~ uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated."
     },
     "evi.formantfilter~": {
         "type": "abstraction",
@@ -282,7 +282,7 @@
     "evi.formantosc~": {
         "type": "abstraction",
         "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. \n",
-        "description": "evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output and audio rate modulate it for an interesting source."
+        "description": "evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output, and to audio rate modulate it for an interesting source."
     },
     "evi.formletfilter~": {
         "type": "define",
@@ -302,7 +302,7 @@
     "evi.freqshift.weaver~": {
         "type": "define",
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
-        "description": "evi.freqshift.weaver~ is a 'max define' for the evi_freqshift_weaver.gendsp gen~ abstraction. Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTime domain frequency shifter. Not like MSP freqshift~. An implementation of D. K. Weaver's famous 'third method' (unlike freqshift~, fbinshift~ and evi.freqshift.hilbert~ which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
+        "description": "evi.freqshift.weaver~ is a 'max define' for the evi_freqshift_weaver.gendsp gen~ abstraction. Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTime domain frequency shifter. Not like MSP freqshift~. An implementation of D. K. Weaver's famous 'third method' (unlike freqshift~, fbinshift~ and evi.freqshift.hilbert~ which all implement the more usual hilbert filtering 'second method'). Noye, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
     },
     "evi.gaussiannoise~": {
         "type": "define",
@@ -312,7 +312,7 @@
     "evi.gigaverb~": {
         "type": "abstraction",
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
-        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version with updated filtering and parameter smooting."
+        "description": "A mono-in, stereo-out reverb implementation by Juhana Sadeharju. Originally Max/MSP-ified by Olaf Matthes (2004) Version 1.0test5, (c) 1999-2006 Juhana Sadeharju / Olaf Matthes. Originally Gen-ified by Graham Wakefield (2011). 64-bit MSP reference version by Volker Böhm (2016). This evieve version is with updated filtering and parameter smooting."
     },
     "evi.hardclip~": {
         "type": "define",
@@ -357,7 +357,7 @@
     "evi.ladder.transistor~": {
         "type": "define",
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
-        "description": "evi.ladder.transistor~ is a 'max define' for the evi_ladder_transistor.gendsp gen~ abstraction. Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the evi.ladder.moog~ object, which may be preferable if a clean sound is required."
+        "description": "evi.ladder.transistor~ is a 'max define' for the evi_ladder_transistor.gendsp gen~ abstraction. Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the evi.ladder.moog~ object, which may be preferable if a cleaner sound is required."
     },
     "evi.lagsmooth~": {
         "type": "external",
@@ -407,7 +407,7 @@
     "evi.lorez~": {
         "type": "define",
         "digest": "A novel two-pole nonlinear Ladder filter",
-        "description": "evi.lorez~ is a 'max define' for the evi_lorez.gendsp gen~ abstraction. Because evi.lorez~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nNonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required."
+        "description": "evi.lorez~ is a 'max define' for the evi_lorez.gendsp gen~ abstraction. Because evi.lorez~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nNonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. This filter has been tuned quite 'hot'. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required."
     },
     "evi.lpg~": {
         "type": "abstraction",
@@ -426,8 +426,8 @@
     },
     "evi.modosc~": {
         "type": "define",
-        "digest": "A deluxe cosine LFO with range and offset shaping",
-        "description": "evi.modosc~ is a 'max define' for the evi_modosc.gendsp gen~ abstraction. Because evi.modosc~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA simple sine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
+        "digest": "A simple cosine LFO with range and offset shaping",
+        "description": "evi.modosc~ is a 'max define' for the evi_modosc.gendsp gen~ abstraction. Because evi.modosc~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA very basic cosine oscillator for modulation purposes with sample accurate and clickless automatic phase reset when Hz input == 0, along with range and offset mapping."
     },
     "evi.morph.trap~": {
         "type": "define",
@@ -462,17 +462,17 @@
     "evi.overdrive.fold~": {
         "type": "define",
         "digest": "Antialiased tanh-based saturation, but folds it's input at high gain. Includes drive, input/output gain wrapping and filter shaping",
-        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative antialiasing and oversampling options. evi.overdrive.fold~ can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
+        "description": "evi.overdrive.fold~ is a 'max define' for the evi_overdrive_fold.gendsp gen~ abstraction. Because evi.overdrive.fold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThe most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative antialiasing and oversampling options. evi.overdrive.fold~ can be driven hard and tonally shaped easily, making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive."
     },
     "evi.overdrive.wrap~": {
         "type": "define",
         "digest": "Antialiased atan-based saturation with shape input to control overdrive and gain wrapping",
-        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven very hard and maintains stability and clean/dirty sound."
+        "description": "evi.overdrive.wrap~ is a 'max define' for the evi_overdrive_wrap.gendsp gen~ abstraction. Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven hard and maintains stability and dirty sound. At high gain input the evi.overdrive.wrap~ shape is similar to MSP overdrive~, but is antialiased and clean."
     },
     "evi.paf~": {
         "type": "define",
         "digest": "A basic 'paf' formant oscillator, very similar to the legacy 'paf~' external",
-        "description": "evi.paf~ is a 'max define' for the evi_paf.gendsp gen~ abstraction. Because evi.paf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\n'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in evi.formantosc~. However single evi.paf~ instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wavepackets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited."
+        "description": "evi.paf~ is a 'max define' for the evi_paf.gendsp gen~ abstraction. Because evi.paf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\n'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in evi.formantosc~. However single evi.paf~ instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wave packets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited."
     },
     "evi.pan~": {
         "type": "external",
@@ -481,13 +481,13 @@
     },
     "evi.phaser.analog~": {
         "type": "define",
-        "digest": "Analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
+        "digest": "Basic analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
         "description": "evi.phaser.analog~ is a 'max define' for the evi_phaser_analog.gendsp gen~ abstraction. Because evi.phaser.analog~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAnalog-like phaser in the sort of pedal sense (good for mono input but still does quasi stereo well). Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFO can be shaped and skewed."
     },
     "evi.phaser.classic~": {
         "type": "define",
         "digest": "A classic digital Phaser effect based around a cascade of two-pole TPT allpass filters, with input filter and saturation",
-        "description": "evi.phaser.classic~ is a 'max define' for the evi_phaser_classic.gendsp gen~ abstraction. Because evi.phaser.classic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTrue stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as evi.korgms20.select~) can be coupled to the Phaser modulation source. The effect has many features and is quite CPU-expensive."
+        "description": "evi.phaser.classic~ is a 'max define' for the evi_phaser_classic.gendsp gen~ abstraction. Because evi.phaser.classic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTrue stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as evi.korgms20.select~) can be coupled to the Phaser modulation source. The object has many features and is quite CPU-expensive."
     },
     "evi.phaseshift~": {
         "type": "define",
@@ -501,8 +501,8 @@
     },
     "evi.plateverb~": {
         "type": "abstraction",
-        "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
-        "description": "Based on yafr2~ from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters."
+        "digest": "Plate reverb based on yafr2 with additional filtering and smoothing \n",
+        "description": "Based on yafr2 from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters."
     },
     "evi.polyphaseiirhilbertcoeffs": {
         "type": "abstraction",
@@ -522,12 +522,12 @@
     "evi.randy~": {
         "type": "define",
         "digest": "Cubic interpolated version of the linear MSP rand~",
-        "description": "evi.randy~ is a 'max define' for the evi_randy.gendsp gen~ abstraction. Because evi.randy~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nBeing cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of rand~, which may or may not be useful. At LFO frequencies this is a really useful smooth control source. @see: 'evi_sources.genexpr' and 'evi_lfo.genexpr' for more like this."
+        "description": "evi.randy~ is a 'max define' for the evi_randy.gendsp gen~ abstraction. Because evi.randy~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nBeing cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of rand~, which may or may not be useful. At LFO frequencies this is a useful smooth control source. At higher frequencies it is a brown-ish noise source."
     },
     "evi.rcfilter~": {
         "type": "define",
         "digest": "Trapezoidal nonliner onepole rc filter emulation",
-        "description": "evi.rcfilter~ is a 'max define' for the evi_rcfilter.gendsp gen~ abstraction. Because evi.rcfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the prewarp attribute). Optional smoothing is default off. @see: evi.onepole~ for a multimode linear version."
+        "description": "evi.rcfilter~ is a 'max define' for the evi_rcfilter.gendsp gen~ abstraction. Because evi.rcfilter~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: evi_rcfilters.genexpr for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the prewarp attribute). Optional smoothing is default off. @see: evi.onepole~ for a multimode linear version."
     },
     "evi.rect.select~": {
         "type": "define",
@@ -542,7 +542,7 @@
     "evi.rectify~": {
         "type": "define",
         "digest": "Antialiased half wave signal rectifier",
-        "description": "evi.rectify~ is a 'max define' for the evi_rectify.gendsp gen~ abstraction. Because evi.rectify~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.rectify~ is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. evi.rectify~ is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
+        "description": "evi.rectify~ is a 'max define' for the evi_rectify.gendsp gen~ abstraction. Because evi.rectify~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.rectify~ is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive values remain in the output giving a digital distorted effect. evi.rectify~ is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
     },
     "evi.reson~": {
         "type": "define",
@@ -562,7 +562,7 @@
     "evi.saw.select~": {
         "type": "define",
         "digest": "Selection of antialiased saw-like oscillators",
-        "description": "evi.saw.select~ is a 'max define' for the evi_saw_select.gendsp gen~ abstraction. Because evi.saw.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
+        "description": "evi.saw.select~ is a 'max define' for the evi_saw_select.gendsp gen~ abstraction. Because evi.saw.select~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA collection of saw-like oscillator shapes using a 2-point polyblep algorithm. One shape takes PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators."
     },
     "evi.saw~": {
         "type": "define",
@@ -592,7 +592,7 @@
     "evi.softclip~": {
         "type": "define",
         "digest": "Antialiased soft clipping function",
-        "description": "evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction. Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick all purpose and efficient soft clipper. evi.softclip~ does not have all the options of evi.hardclip~ or evi.clipper~. It aims to be an easy tanh~ replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function."
+        "description": "evi.softclip~ is a 'max define' for the evi_softclip.gendsp gen~ abstraction. Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA quick all purpose and efficient soft clipper. evi.softclip~ does not have all the options of evi.hardclip~ or evi.clipper~. It aims to be an easy tanh~ replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh approximation."
     },
     "evi.softstatic~": {
         "type": "define",
@@ -602,22 +602,22 @@
     "evi.squeeze~": {
         "type": "define",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "evi.squeeze~ is a 'max define' for the evi_squeeze.gendsp gen~ abstraction. Because evi.squeeze~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.squeeze~ is a simple passive audio signal quadratic shaper. evi.squeeze~ is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute."
+        "description": "evi.squeeze~ is a 'max define' for the evi_squeeze.gendsp gen~ abstraction. Because evi.squeeze~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nevi.squeeze~ is a simple passive audio signal quadratic shaper. It is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute."
     },
     "evi.squine.simple~": {
         "type": "define",
-        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
-        "description": "evi.squine.simple~ is a 'max define' for the evi_squine_simple.gendsp gen~ abstraction. Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
+        "description": "evi.squine.simple~ is a 'max define' for the evi_squine_simple.gendsp gen~ abstraction. Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
     },
     "evi.sustainverb~": {
         "type": "abstraction",
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
-        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing."
+        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever-sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing."
     },
     "evi.svf~": {
         "type": "define",
         "digest": "Reimplementation of MSP svf~ as a TPT filter",
-        "description": "evi.svf~ is a 'max define' for the evi_svf.gendsp gen~ abstraction. Because evi.svf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block and is very efficient. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of evi.svf~ is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP svf~ as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering."
+        "description": "evi.svf~ is a 'max define' for the evi_svf.gendsp gen~ abstraction. Because evi.svf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nLinear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block and is very efficient. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of evi.svf~ is used in many of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP svf~ as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering."
     },
     "evi.svfinputmix~": {
         "type": "define",
@@ -627,7 +627,7 @@
     "evi.svfsmooth~": {
         "type": "define",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": "evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction. Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
+        "description": "evi.svfsmooth~ is a 'max define' for the evi_svfsmooth.gendsp gen~ abstraction. Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing (with resonance attenuation), available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
     },
     "evi.svfsynth~": {
         "type": "define",
@@ -642,7 +642,7 @@
     "evi.tone.macro~": {
         "type": "define",
         "digest": "A 'one knob' macroisation for nonlinear cut tone control useful for quick colourisation in your audio chain",
-        "description": "evi.tone.macro~ is a 'max define' for the evi_tone_macro.gendsp gen~ abstraction. Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimilar to evi.damp.macro~ but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. Forms the output stage of evi.valve~."
+        "description": "evi.tone.macro~ is a 'max define' for the evi_tone_macro.gendsp gen~ abstraction. Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimilar to evi.damp.macro~ but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation."
     },
     "evi.tpqm": {
         "type": "abstraction",
@@ -652,7 +652,7 @@
     "evi.transratio": {
         "type": "abstraction",
         "digest": "Convert semitones to pitch and vica versa \n",
-        "description": "Like the [transratio] abstraction but with multiple choices for input/output conversion."
+        "description": "Like the transratio abstraction but with multiple choices for input/output conversion."
     },
     "evi.tremolo~": {
         "type": "define",

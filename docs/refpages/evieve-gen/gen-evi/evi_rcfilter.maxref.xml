@@ -13,7 +13,7 @@
          <br />
         evi_rcfilter is also available in MSP as: <o>evi.rcfilter~</o>. <br />
          <br />
-	    A basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: 'evi_rcfilters.genexpr' for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the <m>prewarp</m> attribute). Optional smoothing is default off. @see: <o>evi.onepole~</o> for a multimode linear version. <br />
+	    A basic analog building block. Efficient, nonlinear analog onepole filter using trapezoidal integration and newton-raphson loop. @see: <o>evi_rcfilters</o>.genexpr for details. A choice of frequency input in Hz (default) or normalised 0..1 (via the <m>prewarp</m> attribute). Optional smoothing is default off. @see: <o>evi.onepole~</o> for a multimode linear version. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -36,17 +36,6 @@
         </geninlet>
     </geninletlist>
     <attributelist>
-        <attribute name='oversample' type='int' get='0' set='1'>
-            <digest>
-                @min 0, @max 1
-            </digest>
-            <description>
-                0&#x3D;1x (default). 1&#x3D;2x (actually not very good and rarely needed with this filter).
-            </description>
-            <attributelist>
-                <attribute name='default' type='int' value='0' />
-            </attributelist>
-        </attribute>
         <attribute name='prewarp' type='int' get='0' set='1'>
             <digest>
                 @min 0, @max 1

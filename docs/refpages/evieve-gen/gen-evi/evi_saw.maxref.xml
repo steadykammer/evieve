@@ -47,5 +47,6 @@
         <seealso name='evi_tri' display='evi_tri' type='genrefpage' />
         <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />
         <seealso name='evi_blitwaves' display='evi_blitwaves' type='genrefpage' />
+        <seealso name='evi_saw_select' display='evi_saw_select' type='genrefpage' />
     </seealsolist>
 </c74object>

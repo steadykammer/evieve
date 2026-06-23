@@ -13,7 +13,7 @@
          <br />
         evi_rectify is also available in MSP as: <o>evi.rectify~</o>. <br />
          <br />
-	    <o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification. <br />
+	    <o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive values remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification. <br />
     </description>
     <methodlist />
     <constructorlist>

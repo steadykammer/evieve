@@ -9,7 +9,7 @@
 		<b>evi.phaser.classic~</b> is a 'max define' for the <o>evi_phaser_classic</o>.gendsp gen~ abstraction.
 		Because evi.phaser.classic~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		True stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as <o>evi.korgms20.select~</o>) can be coupled to the Phaser modulation source. The effect has many features and is quite CPU-expensive. <br />
+		True stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as <o>evi.korgms20.select~</o>) can be coupled to the Phaser modulation source. The object has many features and is quite CPU-expensive. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -159,7 +159,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				This attribute swaps the left/right feedback paths. if not at extremes, this can boost the saturation in the feedback path.
+				This attribute swaps the left/right feedback paths. If not at extremes, this can boost the saturation in the feedback path.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -225,7 +225,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				This corresponds to the internal additional nonlinear filter available on the input. If set to 0 (the default) the lowpass Korg MS20 is used, if set to 1, the highpass Korg MS20 is used. Whilst the lowpass is more usual usage, the highpass can be a very interesting different effect, especially if @filtermod is on and @depth and @center are tuned accordingly.
+				This corresponds to the internal additional nonlinear filter available on the input. If set to 0 (the default) the lowpass Korg MS20 is used, if set to 1, the highpass Korg MS20 is used. Whilst the lowpass is more typical usage, the highpass can be an interesting different effect, especially if @filtermod is on and @depth and @center are tuned accordingly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -313,7 +313,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				A quirky attribute which directly modifies the allpass filters used in the Phaser cascade. Lower values result in a more brittle sound, whereas higher values will give a more saturated and boomy sound. The strength of this effect is dependent on the @stages attribute.
+				A quirky attribute which directly modifies the allpass filters used in the Phaser cascade. Lower values result in a more brittle sound, whereas higher values will give a more saturated and boomy sound. The strength of this attribute is dependent on the @stages attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.34" />
@@ -324,7 +324,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a &#x27;stepped&#x27; manner but completely cleanly. This can be very interesting if moving the @rate slowly, or random feeling if moving @rate fast.
+				LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a &#x27;stepped&#x27; manner but completely cleanly. This can be interesting if moving the @rate slowly, or give a random feeling if moving @rate fast.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />

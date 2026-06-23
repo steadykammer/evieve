@@ -207,7 +207,7 @@
 				In dB -6..0
 			</digest>
 			<description>
-				The high damping amount (negative dB) at the &#x27;highdampfrequency&#x27; point in the feedback path of the reverb.
+				The high damping amount (negative dB) at the @highdampfrequency point in the feedback path of the reverb.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-1.2" />
@@ -229,7 +229,7 @@
 				In dB -24..24
 			</digest>
 			<description>
-				The high EQ gain ± dB of the end of wet chain shelving filters at the &#x27;higheqfrequency&#x27; point.
+				The high EQ gain ± dB of the end of wet chain shelving filters at the @higheqfrequency point.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-7." />
@@ -284,7 +284,7 @@
 				In dB -6..0
 			</digest>
 			<description>
-				The low damping amount (negative dB) at the &#x27;lowdampfrequency&#x27; point in the feedback path of the reverb.
+				The low damping amount (negative dB) at the @lowdampfrequency point in the feedback path of the reverb.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-0.7" />
@@ -306,7 +306,7 @@
 				In dB -24..24
 			</digest>
 			<description>
-				The low EQ gain ± dB of the end of wet chain shelving filters at the &#x27;loweqfrequency&#x27; point.
+				The low EQ gain ± dB of the end of wet chain shelving filters at the @loweqfrequency point.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-3.5" />

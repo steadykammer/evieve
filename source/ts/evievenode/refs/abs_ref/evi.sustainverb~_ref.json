@@ -3,7 +3,7 @@
         "name": "evi.sustainverb~",
         "category": "evieve",
         "digest": "16x16 FDN reverb with smooth sustaining effect",
-        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing.",
+        "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever-sustain like the original. <o>evi.sustainverb~</o> also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing.",
         "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
@@ -105,7 +105,7 @@
             "get": 0,
             "type": "float",
             "digest": "Frequency in Hz",
-            "description": "Frequency at which 'damp' filters take effect.",
+            "description": "Frequency in Hz at which @damp filters take effect.",
             "default": {
                 "get": 0,
                 "value": "3000."
@@ -116,7 +116,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Amount of damping in the FDN. 0=no damping, 1=maximum damping.",
+            "description": "Amount of damping in the FDN. 0=no damping (bright), 1=maximum damping (dark).",
             "default": {
                 "get": 0,
                 "value": "0.2"
@@ -149,7 +149,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "This is the key parameter of 'evi.sustainverb~'. It controls the amount of reverberation in the system, but the higher the value the more towards foreverersustain the sound becomes.",
+            "description": "This is the key parameter of 'evi.sustainverb~'. It controls the amount of reverberation in the system, but the higher the value the more towards forever-sustain the sound becomes.",
             "default": {
                 "get": 0,
                 "value": "0.707107"
@@ -171,7 +171,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever sustain.",
+            "description": "This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever-sustain.",
             "default": {
                 "get": 0,
                 "value": "0."

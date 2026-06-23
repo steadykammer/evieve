@@ -9,7 +9,7 @@
 		<b>evi.tone.macro~</b> is a 'max define' for the <o>evi_tone_macro</o>.gendsp gen~ abstraction.
 		Because evi.tone.macro~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. Forms the output stage of <o>evi.valve~</o>. <br />
+		Similar to <o>evi.damp.macro~</o> but nonlinear so capable of driving audio input hard into the filter. The 'one knob' macroisation takes this into account. The effect is a dark saturated tone control for colourisation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -56,7 +56,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the internal coefficients controlled by the &#x27;tone&#x27; attribute, set in ms. If 0 smoothing is CPU-off.
+				Smooth the internal coefficients controlled by the &#x27;tone&#x27; attribute, set in ms. If 0, smoothing is CPU-off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -91,6 +91,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        <o>evi.tone.macro~</o> forms the output stage of <o>evi.valve~</o>. <br />
 	</discussion>
 </c74object>

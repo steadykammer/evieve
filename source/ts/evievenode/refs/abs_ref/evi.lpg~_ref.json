@@ -111,7 +111,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Core filter/gate functionality. Only has effect if the 'lpg' attribute is on. Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.",
+            "description": "Core filter/gate functionality. Only has effect if the @lpg attribute is on. Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -144,7 +144,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smooth the control offset inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "description": "Smooth the control offset inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -166,7 +166,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smooth the control scale inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "description": "Smooth the control scale inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -177,7 +177,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smoothing time for the interpolated 'vca', 'lpg' and 'boom' controls.",
+            "description": "Smoothing time in ms for the interpolated @vca, @lpg and @boom attributes.",
             "default": {
                 "get": 0,
                 "value": "15.111"
@@ -188,7 +188,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smooth the control sweep inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.",
+            "description": "Smooth the control sweep inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.",
             "default": {
                 "get": 0,
                 "value": "0."

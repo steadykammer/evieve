@@ -132,7 +132,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1, zero reset phase off/on",
-            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
+            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -144,7 +144,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range (0) or output the actual amplitude used by the effect (1).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -216,7 +216,7 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "The smoothing time of the internal parameters.",
+            "description": "The smoothing time in ms of the internal parameters.",
             "default": {
                 "min": "0",
                 "max": "151",

@@ -85,6 +85,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek. <br />
+        This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias large gain inputs whilst retaining the clipping functionality you seek. <br />
 	</discussion>
 </c74object>

@@ -75,7 +75,7 @@
             "name": "order",
             "type": "int",
             "digest": "@min 0, @max 8",
-            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope).",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope). The cutoff of this filter is set with the @cutoff attribute.",
             "default": {
                 "type": "int",
                 "value": "0"

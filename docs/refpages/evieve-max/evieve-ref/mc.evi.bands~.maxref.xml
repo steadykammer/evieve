@@ -136,7 +136,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Gain compensation flag to account for resonant filters at very high Q values.
+				Gain compensation flag 0/1 to account for resonant filters at very high Q values.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -158,7 +158,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time for the filter mixing gains.
+				Smoothing time in ms for the filter mixing gains.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="10." />
@@ -169,7 +169,7 @@
 				In Hz
 			</digest>
 			<description>
-				Tuning for the Hz calculations of all filter bands.
+				Tuning for the Hz calculations of all filter bands around A &#x3D; 440
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="440." />

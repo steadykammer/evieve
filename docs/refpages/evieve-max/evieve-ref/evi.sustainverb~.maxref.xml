@@ -6,7 +6,7 @@
 		16x16 FDN reverb with smooth sustaining effect <br />
 	</digest>
 	<description>
-		This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. evi.sustainverb~ also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing. <br />
+		This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever-sustain like the original. <o>evi.sustainverb~</o> also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -134,7 +134,7 @@
 				Frequency in Hz
 			</digest>
 			<description>
-				Frequency at which &#x27;damp&#x27; filters take effect.
+				Frequency in Hz at which @damp filters take effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="3000." />
@@ -145,7 +145,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Amount of damping in the FDN. 0&#x3D;no damping, 1&#x3D;maximum damping.
+				Amount of damping in the FDN. 0&#x3D;no damping (bright), 1&#x3D;maximum damping (dark).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.2" />
@@ -178,7 +178,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				This is the key parameter of &#x27;evi.sustainverb~&#x27;. It controls the amount of reverberation in the system, but the higher the value the more towards foreverersustain the sound becomes.
+				This is the key parameter of &#x27;evi.sustainverb~&#x27;. It controls the amount of reverberation in the system, but the higher the value the more towards forever-sustain the sound becomes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.707107" />
@@ -200,7 +200,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever sustain.
+				This can be a switch or interpolated, both are smoothed. Add in a highjpass filter to the FDN. This makes the sound of the FDN more reverb-like and tames low frequency recirculation, but also curtails the ability to forever-sustain.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />

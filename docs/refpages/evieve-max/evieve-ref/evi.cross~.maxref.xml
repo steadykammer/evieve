@@ -9,7 +9,7 @@
 		<b>evi.cross~</b> is a 'max define' for the <o>evi_cross</o>.gendsp gen~ abstraction.
 		Because evi.cross~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a proper Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>. <br />
+		<o>evi.cross~</o> differs from MSP <o>cross~</o> in the following ways: <o>evi.cross~</o> is a steeper 4-pole crossover slope (<o>cross~</o> is a 3-pole slope), because 3rd order is not possible with flat summing Linkwitz-Riley. <o>evi.cross~</o> is a Linkwitz-Riley crossover which sums perfectly flat (whereas <o>cross~</o> is pure Butterworths and sums with a +3dB bump). <o>evi.cross~</o> remains stable under modulation. For a shallower 2-pole Linkwitz-Riley crossover @see <o>evi.crossover~</o>. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

@@ -138,8 +138,6 @@
     "seealso": [
         "evi.ramp0~",
         "evi.randy~",
-        "evi.zeroxcount~",
-        "evi.am~",
-        "evi.tremolo~"
+        "evi.zeroxcount~"
     ]
 }

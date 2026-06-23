@@ -9,7 +9,7 @@
 		<b>evi.randy~</b> is a 'max define' for the <o>evi_randy</o>.gendsp gen~ abstraction.
 		Because evi.randy~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Being cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of <o>rand~</o>, which may or may not be useful. At LFO frequencies this is a really useful smooth control source. @see: 'evi_sources.genexpr' and 'evi_lfo.genexpr' for more like this. <br />
+		Being cubic interpolated the spectrum of this random oscillator rolls off much more steeply than the output of <o>rand~</o>, which may or may not be useful. At LFO frequencies this is a useful smooth control source. At higher frequencies it is a brown-ish noise source. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -74,6 +74,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        @see: <o>evi_sources</o>.genexpr and <o>evi_lfo</o>.genexpr for more like this. <br />
 	</discussion>
 </c74object>

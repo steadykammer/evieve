@@ -13,7 +13,7 @@
          <br />
         evi_filter_peak is also available in MSP as: <o>evi.filter.peak~</o>. <br />
          <br />
-	    The peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see <o>evi.filter.bell~</o>. <br />
+	    The peak filter from the evieve TPT SVF collection. Peaking only. For peak/notch @see <o>evi.filter.bell~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

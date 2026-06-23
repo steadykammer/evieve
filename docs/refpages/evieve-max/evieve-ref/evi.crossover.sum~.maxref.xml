@@ -80,7 +80,7 @@
 				Allpass alignment in this splitting stage off or on. This must be opposite to the equivalent attribute in the feeding [evi.crossover.3band~] object. @see &#x27;Discussion&#x27; in the reference file for more information.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="1" />
+				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="order" get="1" set="1" type="int" min="0" max="1">

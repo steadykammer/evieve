@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "TPT nonlinear Diode Ladder filter emulation",
         "description": "A 24dB Diode Ladder filter emulation, similar to the Roland-TB303 filter and not like a Transistor Ladder. Different to any of the other evieve Ladders. Unlike the (Moog) Transistor Ladder, the Diode Ladder resonance peaks, rather than scales. So be careful with high resonance! The object provides two FM modulation inlets for the filter cutoff frequency.",
-        "discussion": "Based on the original by Dom Wurtz (2012), see the gendsp for the license. Thanks also to Oli Larkin. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
+        "discussion": "Based on the original by Dom Wurtz (2012), see the .gendsp code for the license. Thanks also to Oli Larkin. For more information about other nonlinear Ladder filters in evieve, see the 'evieve: ladder' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -94,7 +94,7 @@
             "get": 1,
             "type": "int",
             "digest": "Select 0, 1, 2, 3, 4",
-            "description": "0=tanh-like, 1=polynomial-saturator, 2=cubic (default), 3=cubic-alternative, 4=atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. Each options gives the filter slightly different characteristics.",
+            "description": "0=tanh-like, 1=polynomial-saturator, 2=cubic (default), 3=cubic-alternative, 4=atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter (too much). Each option gives the filter slightly different characteristics.",
             "default": {
                 "min": "0",
                 "max": "5",

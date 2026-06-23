@@ -9,7 +9,7 @@
 		<b>evi.bp~</b> is a 'max define' for the <o>evi_bp</o>.gendsp gen~ abstraction.
 		Because evi.bp~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to <o>reson~</o> and <o>evi.reson~</o> but with no feedforward gains and thus a special and smooth alternative to those filters. Like <o>reson</o> etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as <o>evi.vcf~</o>. <br />
+		A linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to <o>reson~</o> and <o>evi.reson~</o> but with no feedforward gains and thus a special and smooth alternative to those filters. Like <o>reson~</o> etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as <o>evi.vcf~</o>. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

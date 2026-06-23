@@ -70,10 +70,11 @@
     },
     "seealso": [
         "evi.damp~",
-        "evi.onepole.shelving~",
         "evi.tone.macro~",
+        "evi.onepole.shelving~",
         "evi.filter.shelving~",
         "evi.filter.tilt~",
-        "evi.baxandall~"
+        "evi.baxandall~",
+        "evi.onepole~"
     ]
 }

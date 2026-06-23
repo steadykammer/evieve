@@ -13,7 +13,7 @@
          <br />
         evi_freqshift_weaver is also available in MSP as: <o>evi.freqshift.weaver~</o>. <br />
          <br />
-	    Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
+	    Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which all implement the more usual hilbert filtering 'second method'). Noye, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -117,7 +117,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using saturation increases CPU usage.
+                If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using @saturation increases CPU usage.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

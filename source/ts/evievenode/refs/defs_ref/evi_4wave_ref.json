@@ -4,7 +4,7 @@
         "parent": "evi_4wave",
         "category": "evieve",
         "tilde": "~",
-        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "digest": "Simultaneous antialiased Saw, Rect, Tri and Sine oscillators",
         "description": "Phase synchronous shared frequency oscillators with simultaneous Saw, Rect, Tri and Sine outputs. Antialiasing method is 4-point polyblep.",
         "discussion": ""
     },

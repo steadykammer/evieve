@@ -9,7 +9,7 @@
 		<b>evi.detune.wrap~</b> is a 'max define' for the <o>evi_detune_wrap</o>.gendsp gen~ abstraction.
 		Because evi.detune.wrap~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See <o>evi.detune~</o> for a much simpler and efficient version of this algorithm. <br />
+		Loosely based on 'mda detune' copyright (c) 1998-2000 Paul Kellett. <o>evi.detune.wrap~</o> adds a feedback path as would be found in modulation effects, and implements a linkwitz-riley crossover to shift the focus and strength of the effect. In addition a dynamically controllable morphing pre-filter can accentuate certain frequencies hitting the detuner. Feedback path and output are saturated and antialiased. See <o>evi.detune~</o> for a much simpler and more efficient version of this algorithm. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -117,7 +117,7 @@
 				Linear gain -1..1
 			</digest>
 			<description>
-				The level of gain to send the tapped audio through the feedback saturator.
+				The level of gain -1..1 to send the tapped audio through the feedback saturator.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -128,7 +128,7 @@
 				Select 0..4
 			</digest>
 			<description>
-				The amount of time in samples used by the detuner. 0&#x3D;256, 1&#x3D;512, 2&#x3D;1024, 3&#x3D;2048, 4&#x3D;4096. This has a strong effect of the granular sound of the effect.
+				The amount of time in samples used by the detuner. 0&#x3D;256, 1&#x3D;512, 2&#x3D;1024, 3&#x3D;2048, 4&#x3D;4096. This has a strong effect of the granular sound of the detune.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="4" />
@@ -161,7 +161,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				The bandwidth approx 0..10 octaves of the pre-filter (inverse resonance).
+				The bandwidth of the pre-filter (inverse resonance).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.5" />
@@ -194,7 +194,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time of the internal parameters.
+				Smoothing time of the internal parameters in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="22." />

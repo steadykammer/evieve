@@ -9,7 +9,7 @@
 		<b>evi.filter.peak~</b> is a 'max define' for the <o>evi_filter_peak</o>.gendsp gen~ abstraction.
 		Because evi.filter.peak~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		The peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see <o>evi.filter.bell~</o>. <br />
+		The peak filter from the evieve TPT SVF collection. Peaking only. For peak/notch @see <o>evi.filter.bell~</o>. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

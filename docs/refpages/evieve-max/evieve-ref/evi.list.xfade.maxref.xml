@@ -79,7 +79,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Set the right list inlet to be hot, so that changes in both inlets trigger the list crossfade.
+				Set the right list inlet to also be hot, so that changes in both inlets trigger the list crossfade.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />

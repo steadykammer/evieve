@@ -9,7 +9,7 @@
 		<b>evi.overdrive.wrap~</b> is a 'max define' for the <o>evi_overdrive_wrap</o>.gendsp gen~ abstraction.
 		Because evi.overdrive.wrap~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven very hard and maintains stability and clean/dirty sound. <br />
+		This atan() overdrive is a simple but deluxe memoryless nonlinear processor with atan() gain wrapping around it's core nonlinearity (controlled via inlet 2) and various antialiasing options. The object can be driven hard and maintains stability and dirty sound. At high gain input the <o>evi.overdrive.wrap~</o> shape is similar to MSP <o>overdrive~</o>, but is antialiased and clean. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -70,7 +70,7 @@
 				Select 0, 1, 2, 3, 4, 5
 			</digest>
 			<description>
-				The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.
+				The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="3" />

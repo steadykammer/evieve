@@ -70,7 +70,7 @@
 				Select 0, 1, 2, 3, 4, 5
 			</digest>
 			<description>
-				The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.
+				The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="3" />

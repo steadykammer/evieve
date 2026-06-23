@@ -4,7 +4,7 @@
         "child": "evi.freqshift.weaver~",
         "category": "evieve",
         "digest": "Time domain frequency shifter after D. K. Weaver's 'third method'",
-        "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
+        "description": "Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which all implement the more usual hilbert filtering 'second method'). Noye, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset."
     },
     "constructor": {
         "inlets": "audio, frequency, frequency, reset"
@@ -137,7 +137,7 @@
             "name": "saturation",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using saturation increases CPU usage.",
+            "description": "If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using @saturation increases CPU usage.",
             "default": {
                 "type": "int",
                 "value": "0"

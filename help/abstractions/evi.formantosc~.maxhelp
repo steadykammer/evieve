@@ -240,7 +240,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 487.0, 393.0, 190.0, 83.0 ],
-                                    "text": "once formants have been modified, it might be useful to ignore the data amplitude and normalise the gain for all formants here",
+                                    "text": "once formants have been modified, it might be useful to ignore the amplitude data and normalise the gain for all formants here",
                                     "textjustification": 1
                                 }
                             },
@@ -953,6 +953,44 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 3,
+                                    "id": "obj-16",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 115.0, 478.0, 55.0, 25.0 ],
+                                    "text": "Hz",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 311.0, 408.0, 87.0, 25.0 ],
+                                    "text": "vowel 0..1",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 3,
+                                    "id": "obj-10",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 99.0, 408.0, 87.0, 25.0 ],
+                                    "text": "voice 0..1",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -1459,7 +1497,7 @@
                                     "maxclass": "scope~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 367.0, 395.0, 50.0, 50.0 ]
+                                    "patching_rect": [ 455.0, 396.0, 50.0, 50.0 ]
                                 }
                             },
                             {
@@ -1942,7 +1980,7 @@
                                 "patchline": {
                                     "destination": [ "obj-13", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 129.5, 386.5, 376.5, 386.5 ],
+                                    "midpoints": [ 129.5, 386.5, 464.5, 386.5 ],
                                     "order": 0,
                                     "source": [ "obj-37", 0 ]
                                 }

@@ -80,6 +80,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        See the helpfile for an example of how to cope with unknown input ranges. <br />
+        <o>evi.softstatic~</o> expects audio input in range -1..1. See the helpfile for an example of how to cope with unknown input ranges. <br />
 	</discussion>
 </c74object>

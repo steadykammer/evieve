@@ -238,7 +238,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Add fake x ms sustain portion to looping envelope ?
+				Add additional x ms sustain portion to looping envelope ?
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
@@ -315,7 +315,7 @@
 				Type -2, -1, 0, 1, 2
 			</digest>
 			<description>
-				Velocity in curve, positive&#x3D;log, 0&#x3D;lin, negative&#x3D;exp
+				Velocity in curve -2..2, positive&#x3D;log, 0&#x3D;lin, negative&#x3D;exp
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />

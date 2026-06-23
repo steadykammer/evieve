@@ -6,7 +6,7 @@
 		Convert semitones to pitch and vica versa <br />
 	</digest>
 	<description>
-		Like the [transratio] abstraction but with multiple choices for input/output conversion. <br />
+		Like the <o>transratio</o> abstraction but with multiple choices for input/output conversion. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -85,7 +85,7 @@
 				Pitch
 			</digest>
 			<description>
-				Hz and pitch convert assuming middle C &#x3D; 60. Via @offset you can change this to anything you need.
+				Hz and pitch convertion assume middle C &#x3D; 60. Via @offset you can change this to anything you need.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="60." />
@@ -109,6 +109,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="transratio"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

@@ -9,7 +9,7 @@
 		<b>evi.paf~</b> is a 'max define' for the <o>evi_paf</o>.gendsp gen~ abstraction.
 		Because evi.paf~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in <o>evi.formantosc~</o>. However single <o>evi.paf~</o> instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wavepackets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited. <br />
+		'PAF' (phase aligned formant) is an oscillator that can model the human voice. Typically multiple PAF oscillators make up a formant model, as in <o>evi.formantosc~</o>. However single <o>evi.paf~</o> instances can provide novel oscillators for more generic synthesis. The formant is controlled by frequency (inlet 2) and bandwidth (inlet 3). In this model the PAF is approximated by adding two 'wave packets' together, which are also available separately on auxilliary outputs. The PAF algorithm is inherently bandlimited. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -120,6 +120,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        Both PAF and wave packet methods were devised by Miller Puckette. <br />
 	</discussion>
 </c74object>

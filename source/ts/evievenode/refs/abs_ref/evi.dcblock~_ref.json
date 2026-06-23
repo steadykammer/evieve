@@ -42,7 +42,7 @@
             "default": "0.9997",
             "optional": 1,
             "digest": "arg#1: coefficient",
-            "description": "a0 coefficient to set the filter amount"
+            "description": "a0 coefficient to set the filter amount. Typically (and default) 0.9997"
         }
     ],
     "messages": [],

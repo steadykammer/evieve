@@ -3,8 +3,8 @@
         "name": "evi_squine_simple",
         "child": "evi.squine.simple~",
         "category": "evieve",
-        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
-        "description": "An extremely versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
+        "description": "A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
     },
     "constructor": {
         "inlets": "freq, pitch, hz, harmonics, duty"
@@ -101,7 +101,7 @@
             "name": "freqsmooth",
             "type": "float",
             "digest": "@min 0, @max 1000",
-            "description": "Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this evern if audio rate modulating using inlets 2 and 3 as summing is post smooth. But if audio rate modulating inlet 1, this should be turned off (0.)",
+            "description": "Smooth frequency input (inlet 1) by this amount in ms. Note that it is safe to smooth this even if audio rate modulating using inlets 2 and 3, as summing is post smooth. But if audio rate modulating inlet 1, this should be turned off (0.)",
             "default": {
                 "type": "float",
                 "value": "0."

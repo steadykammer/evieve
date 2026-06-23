@@ -80,7 +80,7 @@
             "get": 0,
             "type": "float",
             "digest": "In Hz 31.25..1260",
-            "description": "The crossover frequency in Hz between the range of the 'lowdecay' and 'middecay' RT60 times. By tuning the RT60 times precisely this crossover control can have a big effect on the tonal balance of the reverb.",
+            "description": "The crossover frequency in Hz between the range of the @lowdecay and @middecay RT60 times. By tuning the RT60 times precisely this crossover control can have a big effect on the tonal balance of the reverb.",
             "default": {
                 "get": 0,
                 "value": "315."
@@ -91,7 +91,7 @@
             "get": 0,
             "type": "float",
             "digest": "In Hz, 500..14700",
-            "description": "The lowpass damping effect on the FDN is set to take effect at this frequency. Lower values result in a darker reverb.",
+            "description": "The lowpass damping effect on the FDN is set to take effect at this frequency in Hz. Lower values result in a darker reverb.",
             "default": {
                 "get": 0,
                 "value": "3780."
@@ -113,7 +113,7 @@
             "get": 0,
             "type": "float",
             "digest": "In Hz 40..2500",
-            "description": "The frequncey on Hz of the first twopole EQ filter.",
+            "description": "The frequency in Hz of the first twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "315."
@@ -135,7 +135,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1, not smoothed",
-            "description": "Sets the filter type of the first EQ filter between Lowshelf (0), and Bell (1). The filters in evi.zitaverb~ are high quality TPT SVF linear filters and can be modulated in realtime.",
+            "description": "Sets the filter type of the first EQ filter between Lowshelf (0), and Bell (1). The filters in evi.zitaverb~ are TPT SVF linear filters and can be modulated in realtime.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -146,7 +146,7 @@
             "get": 0,
             "type": "float",
             "digest": "In Hz 260..10000",
-            "description": "The frequncey on Hz of the second twopole EQ filter.",
+            "description": "The frequency in Hz of the second twopole EQ filter.",
             "default": {
                 "get": 0,
                 "value": "1260."
@@ -168,7 +168,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1, not smoothed",
-            "description": "Sets the filter type of the second EQ filter between Highshelf (0), and Bell (1). The filters in evi.zitaverb~ are high quality TPT SVF linear filters and can be modulated in realtime.",
+            "description": "Sets the filter type of the second EQ filter between Highshelf (0), and Bell (1). The filters in evi.zitaverb~ are TPT SVF linear filters and can be modulated in realtime.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -179,7 +179,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in seconds, 0.06..60",
-            "description": "The low frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on foreversustain but on specifically low frequency content.",
+            "description": "The low frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on forever-sustain but on specifically low frequency content.",
             "default": {
                 "get": 0,
                 "value": "3.333333"
@@ -190,7 +190,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in seconds, 0.06..60",
-            "description": "The mid frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on foreversustain but on specifically mid frequency content.",
+            "description": "The mid frequencies RT60 time set in seconds. Low values give a more realistic room sound, higher values produce atypical sustain effects verging on forever-sustain but on specifically mid frequency content.",
             "default": {
                 "get": 0,
                 "value": "2.222222"

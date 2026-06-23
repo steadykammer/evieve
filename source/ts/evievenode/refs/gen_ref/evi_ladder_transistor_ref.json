@@ -4,7 +4,7 @@
         "child": "evi.ladder.transistor~",
         "category": "evieve",
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
-        "description": "A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a clean sound is required."
+        "description": "A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a cleaner sound is required."
     },
     "constructor": {
         "inlets": "input, cutoff, cutoff, cutoff, resonance"

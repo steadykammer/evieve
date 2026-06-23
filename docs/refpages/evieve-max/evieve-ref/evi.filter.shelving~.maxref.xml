@@ -9,7 +9,7 @@
 		<b>evi.filter.shelving~</b> is a 'max define' for the <o>evi_filter_shelving</o>.gendsp gen~ abstraction.
 		Because evi.filter.shelving~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes. <br />
+		A quick one stop shop for applying classic shelving filtering using linear TPT SVFs. Controls are via attributes. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

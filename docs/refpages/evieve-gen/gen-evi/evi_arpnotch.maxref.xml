@@ -51,7 +51,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).
+                Switch cutoff frequency (inlet 2) between Pitch (1, on) or Hz (0, default off).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -62,7 +62,7 @@
                 @min 0, @max 333
             </digest>
             <description>
-                If morphsmooth &gt; 0, the &#x27;Morph&#x27; control (inlet 4) will be internally smoothed by this time. Default off.
+                If morphsmooth &gt; 0, the &#x27;Morph&#x27; control (inlet 4) will be internally smoothed by this time in ms. Default off.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

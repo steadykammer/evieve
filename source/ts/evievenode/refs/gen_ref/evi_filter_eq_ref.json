@@ -4,7 +4,7 @@
         "child": "evi.filter.eq~",
         "category": "evieve",
         "digest": "EQ type TPT filters with a choice of 7 filters",
-        "description": "This filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties to a biquad. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required."
+        "description": "This filter block can be switched between 7 different EQ filter types. The filter is a clean twopole TPT SVF section which can be used in place of a biquad as it has superior properties. It is designed to be an every day patching workhorse for most EQ filtering needs. Each individual filter type can also be instantiated in it's own all-in-one block, see the 'seealso' for details. The TPT SVF is used all over evieve whenever basic EQ filtering is required."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

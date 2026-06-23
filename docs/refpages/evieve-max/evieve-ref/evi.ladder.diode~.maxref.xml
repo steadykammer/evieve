@@ -108,7 +108,7 @@
 				Select 0, 1, 2, 3, 4
 			</digest>
 			<description>
-				0&#x3D;tanh-like, 1&#x3D;polynomial-saturator, 2&#x3D;cubic (default), 3&#x3D;cubic-alternative, 4&#x3D;atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. Each options gives the filter slightly different characteristics.
+				0&#x3D;tanh-like, 1&#x3D;polynomial-saturator, 2&#x3D;cubic (default), 3&#x3D;cubic-alternative, 4&#x3D;atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter (too much). Each option gives the filter slightly different characteristics.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="2" />
@@ -149,6 +149,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Based on the original by Dom Wurtz (2012), see the gendsp for the license. Thanks also to Oli Larkin. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile. <br />
+        Based on the original by Dom Wurtz (2012), see the .gendsp code for the license. Thanks also to Oli Larkin. For more information about other nonlinear Ladder filters in evieve, see the 'evieve: ladder' tab of the helpfile. <br />
 	</discussion>
 </c74object>

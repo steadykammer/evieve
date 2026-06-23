@@ -91,7 +91,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "The high damping amount of the post feedback trap filters at the Hz point of 'feedbackhzhigh'. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
+            "description": "The high damping amount of the post feedback trap filters at the Hz point of @feedbackhzhigh. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
             "default": {
                 "get": 0,
                 "value": "0.8666"
@@ -102,7 +102,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "The low damping amount of the post feedback trap filters at the Hz point of 'feedbackhzlow'. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
+            "description": "The low damping amount of the post feedback trap filters at the Hz point of @feedbackhzlow. The higher the values the more damping takes place, the lower the values the more feedback will recirculate.",
             "default": {
                 "get": 0,
                 "value": "0.707107"

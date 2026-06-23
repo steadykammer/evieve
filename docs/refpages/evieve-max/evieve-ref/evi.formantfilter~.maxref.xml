@@ -78,7 +78,7 @@
 				0.00625..32
 			</digest>
 			<description>
-				Multiply (warp) formants bandwidth size. 1 &#x3D; no warping.
+				Multiply (warp) formants bandwidth size. 1 &#x3D; no warping. Smaller values increase resonance.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -89,7 +89,7 @@
 				0.025..4
 			</digest>
 			<description>
-				Multiply (warp) formants frequency center. 1 &#x3D; no warping.
+				Multiply (warp) formants frequency center. 1 &#x3D; no warping. &lt; 1 shifts downwards, &gt; 1 shifts upwards.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -122,7 +122,7 @@
 				Select 0, 1, 2, 3, 4
 			</digest>
 			<description>
-				A utility. Out2 sends out the frequency of which formant? 0..4 &#x3D; 1..5. Can be useful for extracting data for downstream processes.
+				A utility. Out2 sends out the frequency of which formant? Integer 0..4 &#x3D; formants 1..5. Can be useful for extracting data for downstream processes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -155,7 +155,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants data and normalises the gain of all formants. The can be useful to balance the overall filter effect.
+				0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants gain data and normalises the gain of all formants. The can be useful to balance the overall filter effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -166,7 +166,7 @@
 				0.025..4
 			</digest>
 			<description>
-				Multiply (warp) formants gain amount. 1 &#x3D; no warping.
+				Multiply (warp) formants gain amount. 1 &#x3D; no warping. &lt; 1 is quieter, &gt; 1 is louder.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -188,7 +188,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Turn off or on the smoothing of the warp parameters (&#x27;cfwarp&#x27;, &#x27;bwwarp&#x27;, &#x27;gainwarp&#x27;).
+				Turn off or on the smoothing of the warp parameters (@cfwarp, @bwwarp, @gainwarp). If using the warp attributes this should be on. Turning off can save CPU.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />

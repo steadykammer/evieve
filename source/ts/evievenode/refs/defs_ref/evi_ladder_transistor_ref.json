@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Nonlinear TPT Transistor Ladder filter emulation",
-        "description": "A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a clean sound is required.",
-        "discussion": "Based on the famous original by Teemu Voipio, Copyright 2012 Teemu Voipio. See the gendsp source for license. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
+        "description": "A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a cleaner sound is required.",
+        "discussion": "Based on the famous original by Teemu Voipio, Copyright 2012 Teemu Voipio. See the .gendsp source code for the license. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile."
     },
     "metadata": {
         "author": "Pete Dowling",

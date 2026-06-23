@@ -129,7 +129,7 @@
             "name": "lfomode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
+            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly.",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -139,7 +139,7 @@
             "name": "lfoout",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range (0) or output the actual amplitude used by the effect (1).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -199,7 +199,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 151",
-            "description": "The smoothing time of the internal parameters.",
+            "description": "The smoothing time in ms of the internal parameters.",
             "default": {
                 "type": "float",
                 "value": "15.111"

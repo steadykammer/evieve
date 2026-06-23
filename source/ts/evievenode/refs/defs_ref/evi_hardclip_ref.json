@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Antialiased hard clipping function",
         "description": "To be used whenever clamping of audio is required, <o>evi.hardclip~</o> should do a good job of protecting your precious audio. This is because this is antialiased hard clipping capable of high input gain whilst maintaining audio quality. <o>evi.hardclip~</o> is the hard clipping section from the <o>evi.clipper~</o> object but with more antiderivative and oversampling options for when managing audio quality against CPU usage, selected via the @aa attribute. Increasing @aa does not necessarily translate to 'better'. Experiment with this setting depending on your audio input material.",
-        "discussion": "This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias very large gain inputs whilst retaining the clipping functionality you seek."
+        "discussion": "This object is for all those MSP users who use [<o>clip~</o> -1. 1.] at the end of their audio chains. You should never do this - it destroys your audio and aliases like hell. Use <o>evi.hardclip~</o> instead. It can anti-alias large gain inputs whilst retaining the clipping functionality you seek."
     },
     "metadata": {
         "author": "Pete Dowling",

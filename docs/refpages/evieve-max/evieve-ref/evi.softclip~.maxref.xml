@@ -9,7 +9,7 @@
 		<b>evi.softclip~</b> is a 'max define' for the <o>evi_softclip</o>.gendsp gen~ abstraction.
 		Because evi.softclip~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clipper~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh-like function. <br />
+		A quick all purpose and efficient soft clipper. <o>evi.softclip~</o> does not have all the options of <o>evi.hardclip~</o> or <o>evi.clipper~</o>. It aims to be an easy <o>tanh~</o> replacement to drop in to audio chains. The algorithm is a 2nd order antiderivative antialiasing tanh approximation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -74,6 +74,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        This object is for all those MSP users who use [<o>tanh~</o>] in their audio chains. You should avoid this - it can destroy your audio and aliases. Use <o>evi.softclip~</o> or <o>evi.clipper~</o> instead. It can anti-alias large gain inputs whilst retaining the soft clipping functionality you seek. <br />
+        This object is for all those MSP users who use [<o>tanh~</o>] in their audio chains. You should avoid this - it can destroy your audio and aliases. Use <o>evi.softclip~</o> or <o>evi.clipper~</o> instead. These can antialias large gain inputs whilst retaining the soft clipping functionality you seek. <br />
 	</discussion>
 </c74object>

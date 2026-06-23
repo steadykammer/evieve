@@ -4,7 +4,7 @@
         "child": "evi.filter.shelving~",
         "category": "evieve",
         "digest": "A chain of two twopole TPT SVF High/Low shelving filters",
-        "description": "A quick one stop shop for applying classic shelving filtering using high quality linear TPT SVFs. Controls are via attributes."
+        "description": "A quick one stop shop for applying classic shelving filtering using linear TPT SVFs. Controls are via attributes."
     },
     "constructor": {
         "inlets": "input"

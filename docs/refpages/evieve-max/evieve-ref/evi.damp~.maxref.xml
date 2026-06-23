@@ -9,7 +9,7 @@
 		<b>evi.damp~</b> is a 'max define' for the <o>evi_damp</o>.gendsp gen~ abstraction.
 		Because evi.damp~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Two very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz). <br />
+		Two very efficient damping filters in parallel. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP <o>onepole~</o> (depending on Hz). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -101,10 +101,10 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
-		<seealso name="evi.damp.macro~"> </seealso>
 		<seealso name="evi.onepole~"> </seealso>
-		<seealso name="evi.onepole.shelving~"> </seealso>
+		<seealso name="evi.damp.macro~"> </seealso>
 		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.onepole.shelving~"> </seealso>
 		<seealso name="evi.filter.shelving~"> </seealso>
 		<seealso name="evi.filter.tilt~"> </seealso>
 		<seealso name="evi.baxandall~"> </seealso>

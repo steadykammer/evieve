@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Antialiased nonlinear ring modulator",
         "description": "A clean FIR ring modulator algorithm with sine shaping saturation and filtering. Ring modulates two audio signals producing one modulated output, with antiderivative antialiasing and oversampling options.",
-        "discussion": "The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in 'evi_ringmod_enhanced.genexpr' for more info."
+        "discussion": "The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in <o>evi_ringmod_enhanced</o>.genexpr for more info."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -85,7 +85,7 @@
             "get": 1,
             "type": "int",
             "digest": "0..8",
-            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope).",
+            "description": "The object offers a utility Butterworth Lowpass on it's output for taming the distortion and high frequencies. 0 (the default) = bypassed (and CPU off), 1..8 = filter orders 1..8 (increasing in steepness of slope). The cutoff of this filter is set with the @cutoff attribute.",
             "default": {
                 "min": "0",
                 "max": "8",

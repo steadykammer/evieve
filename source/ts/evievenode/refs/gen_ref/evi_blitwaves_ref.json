@@ -92,7 +92,7 @@
             "name": "addsine",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "0 = SINE off, 1 = SINE on out of outlet 4 (CPU management)",
+            "description": "0 = SINE off (default, no CPU used), 1 = SINE on out of outlet 4",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -102,7 +102,7 @@
             "name": "addsync",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "0 = off, 1 = main phase output out of outlet 6, 2 = pwm phase output out of outlet 6",
+            "description": "0 = off, 1 (default) = main phase output out of outlet 6, 2 = pwm phase output out of outlet 6",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -112,7 +112,7 @@
             "name": "addtrain",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "0 = off, 1 = train based on main phase out of outlet 5, 2 = train based on pwm phase out of outlet 5",
+            "description": "0 = off (default, no CPU used), 1 = train based on main phase out of outlet 5, 2 = train based on pwm phase out of outlet 5",
             "default": {
                 "type": "int",
                 "value": "0"

@@ -9,7 +9,7 @@
 		<b>evi.saw.select~</b> is a 'max define' for the <o>evi_saw_select</o>.gendsp gen~ abstraction.
 		Because evi.saw.select~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators. <br />
+		A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. One shape takes PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -106,7 +106,7 @@
 				Select 0..7
 			</digest>
 			<description>
-				Select oscillator shape. 0&#x3D;saw+ (default), 1&#x3D;saw-, 2&#x3D;sawsine+, 3&#x3D;sawsine+, 4&#x3D;pulse, 5&#x3D;hpsaw, 6&#x3D;logit, 7&#x3D;trisaw (includes PWM)
+				Select oscillator shape. 0&#x3D;saw+ (default), 1&#x3D;saw-, 2&#x3D;sawsine+, 3&#x3D;sawsine-, 4&#x3D;pulse, 5&#x3D;hpsaw, 6&#x3D;logit, 7&#x3D;trisaw (includes PWM)
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />

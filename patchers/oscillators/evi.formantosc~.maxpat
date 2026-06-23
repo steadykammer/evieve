@@ -10,6 +10,7 @@
         },
         "classnamespace": "box",
         "rect": [ 63.0, 131.0, 750.0, 419.0 ],
+        "bglocked": 1,
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -508,7 +509,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "float" ],
                     "patching_rect": [ 174.0, 211.0, 30.0, 30.0 ]
                 }
             },
@@ -520,7 +521,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "float" ],
                     "patching_rect": [ 138.0, 211.0, 30.0, 30.0 ]
                 }
             },
@@ -539,13 +540,12 @@
             {
                 "box": {
                     "id": "obj-9",
-                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 49.0, 34.0, 641.0, 35.0 ],
-                    "text": "patcherargs @formants 5 @formantsoffset 0 @datainterp 1 @datatype 0 @gain 0. @warpsmooth 1 @cfwarp 1. @bwwarp 1. @gainwarp 1. @gainnorm 0 @zerophasor 1 @fundfreqmode 0 @paramsmooth 15.111 @highpass 31.25"
+                    "patching_rect": [ 210.0, 34.0, 480.0, 22.0 ],
+                    "text": "patcherargs"
                 }
             },
             {
@@ -588,6 +588,20 @@
                     "numoutlets": 0,
                     "patching_rect": [ 134.0, 91.0, 52.0, 20.0 ],
                     "text": "FREQ"
+                }
+            },
+            {
+                "box": {
+                    "background": 1,
+                    "hidden": 1,
+                    "id": "obj-1",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 210.0, 58.0, 480.0, 47.0 ],
+                    "text": "evievedoc @formants 5 @formantsoffset 0 @datainterp 1 @datatype 0 @gain 0. @warpsmooth 1 @cfwarp 1. @bwwarp 1. @gainwarp 1. @gainnorm 0 @zerophasor 1 @fundfreqmode 0 @paramsmooth 15.111 @highpass 31.25",
+                    "varname": "evievedoc"
                 }
             }
         ],
@@ -793,12 +807,11 @@
             {
                 "patchline": {
                     "destination": [ "obj-21", 0 ],
-                    "midpoints": [ 680.5, 101.0, 219.5, 101.0 ],
+                    "midpoints": [ 680.5, 111.9453125, 219.5, 111.9453125 ],
                     "source": [ "obj-9", 1 ]
                 }
             }
         ],
-        "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }
 }

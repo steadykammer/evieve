@@ -1,6 +1,6 @@
 {
     "evi.4wave~": {
-        "digest": "Antialiased Saw, Rect, Tri and Sine simultaneous oscillators",
+        "digest": "Simultaneous antialiased Saw, Rect, Tri and Sine oscillators",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source" ],
         "keywords": [],
@@ -193,14 +193,14 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Utility", "evieve Onepole" ],
         "keywords": [],
-        "seealso": [ "evi.damp~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
+        "seealso": [ "evi.damp~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~", "evi.onepole~" ]
     },
     "evi.damp~": {
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Utility", "evieve Onepole" ],
         "keywords": [],
-        "seealso": [ "evi.damp.macro~", "evi.onepole~", "evi.onepole.shelving~", "evi.tone.macro~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
+        "seealso": [ "evi.onepole~", "evi.damp.macro~", "evi.tone.macro~", "evi.onepole.shelving~", "evi.filter.shelving~", "evi.filter.tilt~", "evi.baxandall~" ]
     },
     "evi.dcblock~": {
         "digest": "DC Blocking filter \n",
@@ -595,7 +595,7 @@
         "seealso": [ "evi.formletfilter~", "evi.reson~", "evi.hilbert~", "evi.sustainverb~" ]
     },
     "evi.modosc~": {
-        "digest": "A deluxe cosine LFO with range and offset shaping",
+        "digest": "A simple cosine LFO with range and offset shaping",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Map", "evieve Utility" ],
         "keywords": [],
@@ -672,7 +672,7 @@
         "seealso": [ "evi.xfade~", "evi_utilities" ]
     },
     "evi.phaser.analog~": {
-        "digest": "Analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
+        "digest": "Basic analog Phaser effect with multiple one-pole allpass stages, filtering and saturation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Modulation", "evieve Effect", "evieve Antialiased" ],
         "keywords": [],
@@ -697,10 +697,10 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": [ "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
+        "seealso": [ "evi.ramp0~", "evi.randy~", "evi.zeroxcount~" ]
     },
     "evi.plateverb~": {
-        "digest": "Plate reverb based on yafr2~ with additional filtering and smoothing \n",
+        "digest": "Plate reverb based on yafr2 with additional filtering and smoothing \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
         "keywords": [],
@@ -725,7 +725,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": [ "evi.phasor0~", "evi.randy~", "evi.zeroxcount~", "evi.am~", "evi.tremolo~" ]
+        "seealso": [ "evi.phasor0~", "evi.randy~", "evi.zeroxcount~" ]
     },
     "evi.randy~": {
         "digest": "Cubic interpolated version of the linear MSP rand~",
@@ -795,7 +795,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.rect~", "evi.tri~", "evi.4wave~", "ev.saw.select~", "evi.blitwaves~" ]
+        "seealso": [ "evi.rect~", "evi.tri~", "evi.4wave~", "evi.saw.select~", "evi.blitwaves~" ]
     },
     "evi.shaper~": {
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
@@ -847,7 +847,7 @@
         "seealso": [ "evi.rectify~", "evi.softstatic~", "evi.hardclip~", "evi.softclip~", "evi.shaper~", "evi.sinfold~", "evi.clipasym~", "evi.overdrive.env~", "evi.overdrive.wrap~", "evi.overdrive.fold~", "evi.valve~", "evi.rcfilter~" ]
     },
     "evi.squine.simple~": {
-        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator with audio rate modulation",
+        "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
@@ -914,7 +914,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": []
+        "seealso": [ "transratio" ]
     },
     "evi.tremolo~": {
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",

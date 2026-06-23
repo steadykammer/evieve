@@ -6,7 +6,7 @@
         "tilde": "~",
         "digest": "Static antialiased soft clipping harmonics generator",
         "description": "A choice of two similar but different antialiased soft-ish / hard-ish static clipping algorithms",
-        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
+        "discussion": "<o>evi.softstatic~</o> expects audio input in range -1..1. See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",

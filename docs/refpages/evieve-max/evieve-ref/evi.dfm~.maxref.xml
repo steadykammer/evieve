@@ -108,7 +108,7 @@
 				In dB, -6..14
 			</digest>
 			<description>
-				Input gain in dB. Higher values will engage the engage the internal saturation more, but too high and the nonlinear effect is nullified.
+				Input gain in dB. Higher values will engage the internal saturation more, but too high and the nonlinear effect is nullified.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="3." />
@@ -119,7 +119,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Set the filter to be mono in/dual mono out (0, the default) ar true stereo input and output (1). The CPU is scaled accordingly.
+				Set the filter to be mono in/dual mono out (0, the default) or true stereo input and output (1). The CPU is scaled accordingly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />

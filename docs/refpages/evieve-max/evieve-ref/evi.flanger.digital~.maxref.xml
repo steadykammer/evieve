@@ -103,7 +103,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				The relative size of the modulation delay. At 0 the flanger delay is 0 ms, at 1, the chorus delay modulates between its extremes, set by @mintime and @maxtime arguments in ms.
+				The relative size of the modulation delay. At 0 the flanger delay is 0 ms, at 1, the chorus delay modulates between its extremes, set by @mintime and @maxtime attributes in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.74" />
@@ -158,7 +158,7 @@
 				In dB -10..10
 			</digest>
 			<description>
-				Attenuation or boost applied between the two saturation stages.
+				Attenuation or boost (in dB -10..10) applied between the two saturation stages.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />
@@ -257,7 +257,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time of the internal parameters.
+				Smoothing time of the internal parameters in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="30.111" />
@@ -290,7 +290,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @zerorest is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a rest signal into the third (far right) inlet.
+				One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @zerorest is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a reset signal into the third (far right) inlet.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />

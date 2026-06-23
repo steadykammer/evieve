@@ -6,7 +6,7 @@
 
 require("evi_crossovers.genexpr");
 
-Param   align(1, min=0, max=1); // 0 = no allpass alignment, 1 = allpass align in this sum (default) ?
+Param   align(0, min=0, max=1); // 0 = no allpass alignment (default), 1 = allpass align in this sum ?
 Param   order(1, min=0, max=1); // 0 = from 2-pole xover ?, 1 = from 4-pole xover ? (default)
 poles   = int(order);
 ap      = int(align);

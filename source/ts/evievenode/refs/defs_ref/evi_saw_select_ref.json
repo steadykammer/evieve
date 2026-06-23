@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Selection of antialiased saw-like oscillators",
-        "description": "A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators.",
+        "description": "A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. One shape takes PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators.",
         "discussion": ""
     },
     "metadata": {
@@ -90,7 +90,7 @@
             "get": 1,
             "type": "int",
             "digest": "Select 0..7",
-            "description": "Select oscillator shape. 0=saw+ (default), 1=saw-, 2=sawsine+, 3=sawsine+, 4=pulse, 5=hpsaw, 6=logit, 7=trisaw (includes PWM)",
+            "description": "Select oscillator shape. 0=saw+ (default), 1=saw-, 2=sawsine+, 3=sawsine-, 4=pulse, 5=hpsaw, 6=logit, 7=trisaw (includes PWM)",
             "default": {
                 "min": "0",
                 "max": "7",

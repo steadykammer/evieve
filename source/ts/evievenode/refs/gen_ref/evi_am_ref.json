@@ -4,7 +4,7 @@
         "child": "evi.am~",
         "category": "evieve",
         "digest": "Basic AM processor with saturation and choice of LFO shapes",
-        "description": "A basic but useful AM processor with the core basic algorithm and assocoiated cotrols surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with very hot input and has the feel of a guitar pedal. Because everybody needs a bosom for a pillow."
+        "description": "A basic AM processor with the core algorithm and assocoiated controls surrounded by saturation when driving the modulation signal > 0 dB. The saturation is antialiased and can cope with hot input and has the feel of a guitar pedal."
     },
     "constructor": {
         "inlets": "left, right, reset"
@@ -80,7 +80,7 @@
             "name": "depth",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Internally, increasing depth increases the amplitude size of the LFO movement.",
+            "description": "Increasing depth increases the amplitude size of the LFO movement.",
             "default": {
                 "type": "float",
                 "value": "0.75"
@@ -90,7 +90,7 @@
             "name": "factor",
             "type": "float",
             "digest": "@min 0.125, @max 8",
-            "description": "Multiply @rate (speed in Hz) by this factor.",
+            "description": "Multiply @rate (speed in Hz) by this factor. This is a strange control and can be ignored unless doing multi-voice processing in a [poly~].",
             "default": {
                 "type": "float",
                 "value": "1."
@@ -100,7 +100,7 @@
             "name": "gain",
             "type": "float",
             "digest": "@min -40, @max 40",
-            "description": "Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high aggressive gain staging and will saturate increasingly strongly in an antialiased way.",
+            "description": "Below 0 dB, @gain attenuates the gain affecting the LFO modulation. Above 0 dB the gain increases the LFO gain and also saturates the audio output. evi.am~ can take high gain staging and will increasingly saturate in an antialiased way.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -110,7 +110,7 @@
             "name": "lfomode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.",
+            "description": "If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @lfomode is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a reset signal into the third (far right) inlet.",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -120,7 +120,7 @@
             "name": "lfoout",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw -1..1 range or output the actual amplitude (AM) used.",
+            "description": "Switch the LFO outputs (outlets 3 and 4) to output raw -1..1 range (= 0) or output the actual amplitude (AM) used (= 1).",
             "default": {
                 "type": "int",
                 "value": "1"

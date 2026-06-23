@@ -2,8 +2,8 @@
     "object": {
         "name": "evi.plateverb~",
         "category": "evieve",
-        "digest": "Plate reverb based on <o>yafr2~</o> with additional filtering and smoothing",
-        "description": "Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters.",
+        "digest": "Plate reverb based on <o>yafr2</o> with additional filtering and smoothing",
+        "description": "Based on <o>yafr2</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters.",
         "discussion": "For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
     },
     "metadata": {
@@ -114,7 +114,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "One of the original parameters. Amount of diffuseness in the reflections. Effects times of multiple embedded delay lines.",
+            "description": "One of the original parameters. Amount of diffuseness in the reflections. Affects delay times of multiple embedded delay lines.",
             "default": {
                 "get": 0,
                 "value": "0.3"
@@ -147,7 +147,7 @@
             "get": 0,
             "type": "float",
             "digest": "-1..1",
-            "description": "± gain of the high shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
+            "description": "± gain of the high shelving onepole filters. Negative values attenuate, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -169,7 +169,7 @@
             "get": 0,
             "type": "float",
             "digest": "-1..1",
-            "description": "± gain of the low shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.",
+            "description": "± gain of the low shelving onepole filters. Negative values attenuate, positive values boost. -1..1 equates to approximately -10..10 dB.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -180,7 +180,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Input panning if 'stereo' attribute == 0 (mono). 0.5=center.",
+            "description": "Input panning if @stereo attribute == 0 (mono). 0.5=center.",
             "default": {
                 "get": 0,
                 "value": "0.5"

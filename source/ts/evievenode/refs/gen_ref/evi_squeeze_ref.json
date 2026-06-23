@@ -4,7 +4,7 @@
         "child": "evi.squeeze~",
         "category": "evieve",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute."
+        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. It is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute."
     },
     "constructor": {
         "inlets": "audio"

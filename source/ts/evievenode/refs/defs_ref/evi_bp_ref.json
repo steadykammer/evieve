@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of Pd 'bp~' filter",
-        "description": "A linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to <o>reson~</o> and <o>evi.reson~</o> but with no feedforward gains and thus a special and smooth alternative to those filters. Like <o>reson</o> etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as <o>evi.vcf~</o>.",
+        "description": "A linear twopole resonant bandpass filter, a port of [bp~] from Pd and therefore a direct form biquad. Similar to <o>reson~</o> and <o>evi.reson~</o> but with no feedforward gains and thus a special and smooth alternative to those filters. Like <o>reson~</o> etc it can take very high Q values which is one of it's primary use cases. [bp~] is basically a control rate version of [vcf~] from Pd, which is also ported in evieve as <o>evi.vcf~</o>.",
         "discussion": "For more information about other reimplementations of Pd filters in evieve, see the 'evieve pd' tab of the helpfile."
     },
     "metadata": {

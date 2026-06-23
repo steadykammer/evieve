@@ -13,7 +13,7 @@
          <br />
         evi_lorez is also available in MSP as: <o>evi.lorez~</o>. <br />
          <br />
-	    Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required. <br />
+	    Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. This filter has been tuned quite 'hot'. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required. <br />
     </description>
     <methodlist />
     <constructorlist>

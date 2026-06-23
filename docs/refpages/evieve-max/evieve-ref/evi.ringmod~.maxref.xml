@@ -94,7 +94,7 @@
 				0..8
 			</digest>
 			<description>
-				The object offers a utility Butterworth Lowpass on it&#x27;s output for taming the distortion and high frequencies. 0 (the default) &#x3D; bypassed (and CPU off), 1..8 &#x3D; filter orders 1..8 (increasing in steepness of slope).
+				The object offers a utility Butterworth Lowpass on it&#x27;s output for taming the distortion and high frequencies. 0 (the default) &#x3D; bypassed (and CPU off), 1..8 &#x3D; filter orders 1..8 (increasing in steepness of slope). The cutoff of this filter is set with the @cutoff attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -136,6 +136,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in 'evi_ringmod_enhanced.genexpr' for more info. <br />
+        The core linear algorithm is based on 'Enhanced Ring Mod' by Beat Frei. Copyright © 2008, 2009, 2010, Zurich University of the Arts, Beat Frei. GPL v2. See 'simpleRingmod()' in <o>evi_ringmod_enhanced</o>.genexpr for more info. <br />
 	</discussion>
 </c74object>

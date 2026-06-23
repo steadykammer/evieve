@@ -13,7 +13,7 @@
          <br />
         evi_damp is also available in MSP as: <o>evi.damp~</o>. <br />
          <br />
-	    Two very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz). <br />
+	    Two very efficient damping filters in parallel. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP <o>onepole~</o> (depending on Hz). <br />
     </description>
     <methodlist />
     <constructorlist>

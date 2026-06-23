@@ -264,7 +264,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 156.0, 245.0, 114.0, 36.0 ],
-                                    "text": "Allpass alignment post or pre ?"
+                                    "text": "Allpass alignment pre or post ?"
                                 }
                             },
                             {
@@ -2604,8 +2604,8 @@
                                                     "numinlets": 4,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 160.0, 199.0, 112.0, 22.0 ],
-                                                    "text": "evi_crossover_sum"
+                                                    "patching_rect": [ 160.0, 199.0, 163.0, 22.0 ],
+                                                    "text": "evi_crossover_sum @align 1"
                                                 }
                                             },
                                             {
@@ -2996,6 +2996,20 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.1,
+                                                    "bubbleside": 3,
+                                                    "id": "obj-6",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 230.0, 499.0, 63.0, 24.0 ],
+                                                    "text": "Out 2",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-7",
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
@@ -3029,7 +3043,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hzLow(250, min=10, max=20000);\r\nParam   hzHigh(2000, min=10, max=20000);\r\n\r\n\r\n// 'eviXover2pole3bandSum()' is the same as [evi.crossover.sum~ @order 0]\r\n//                          Low, Mid, High\r\nout1 = eviXover2pole3bandSum(in1, in2, in3, hzHigh);\r\n// Low, Mid, High\r\n\r\n// 'eviXover4pole3bandSum()' is the same as [evi.crossover.sum~ @order 1]\r\n//                          Low, Mid, High\r\nout2 = eviXover4pole3bandSum(in1, in2, in3, hzHigh);\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXover2pole3bandSumStereo(in1, in4, in2, in5, in3, in6, hzHigh);\r\n// L R\r\n\r\n",
+                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hzLow(250, min=10, max=20000);\r\nParam   hzHigh(2000, min=10, max=20000);\r\n\r\n\r\n// 'eviXover2pole3bandSum()' is the same as [evi.crossover.sum~ @order 0]\r\n//                          Low, Mid, High\r\nout1 = eviXover2pole3bandSum(in1, in2, in3, hzHigh);\r\n// Low, Mid, High\r\n\r\n// 'eviXover4pole3bandSum()' is the same as [evi.crossover.sum~ @order 1]\r\n//                          Low, Mid, High\r\nout2 = eviXover4pole3bandSum(in1, in2, in3, hzHigh); // aligned by default\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXover2pole3bandSumStereo(in1, in4, in2, in5, in3, in6, hzHigh);\r\n// L R\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -3228,7 +3242,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

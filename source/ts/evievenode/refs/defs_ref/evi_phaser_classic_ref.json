@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A classic digital Phaser effect based around a cascade of two-pole TPT allpass filters, with input filter and saturation",
-        "description": "True stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as <o>evi.korgms20.select~</o>) can be coupled to the Phaser modulation source. The effect has many features and is quite CPU-expensive.",
+        "description": "True stereo digital Phaser effect. Multple allpass filters are cascaded in series, with the amount setable via @stages. The feedback path is saturated and a crossover filter allows for selecting the frequency range of the input. The internal LFOs can be shaped and skewed and spread. An additional input filter (the same algorithm as <o>evi.korgms20.select~</o>) can be coupled to the Phaser modulation source. The object has many features and is quite CPU-expensive.",
         "discussion": ""
     },
     "metadata": {
@@ -164,7 +164,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "This attribute swaps the left/right feedback paths. if not at extremes, this can boost the saturation in the feedback path.",
+            "description": "This attribute swaps the left/right feedback paths. If not at extremes, this can boost the saturation in the feedback path.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -236,7 +236,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "This corresponds to the internal additional nonlinear filter available on the input. If set to 0 (the default) the lowpass Korg MS20 is used, if set to 1, the highpass Korg MS20 is used. Whilst the lowpass is more usual usage, the highpass can be a very interesting different effect, especially if @filtermod is on and @depth and @center are tuned accordingly.",
+            "description": "This corresponds to the internal additional nonlinear filter available on the input. If set to 0 (the default) the lowpass Korg MS20 is used, if set to 1, the highpass Korg MS20 is used. Whilst the lowpass is more typical usage, the highpass can be an interesting different effect, especially if @filtermod is on and @depth and @center are tuned accordingly.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -332,7 +332,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "A quirky attribute which directly modifies the allpass filters used in the Phaser cascade. Lower values result in a more brittle sound, whereas higher values will give a more saturated and boomy sound. The strength of this effect is dependent on the @stages attribute.",
+            "description": "A quirky attribute which directly modifies the allpass filters used in the Phaser cascade. Lower values result in a more brittle sound, whereas higher values will give a more saturated and boomy sound. The strength of this attribute is dependent on the @stages attribute.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -344,7 +344,7 @@
             "get": 1,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a 'stepped' manner but completely cleanly. This can be very interesting if moving the @rate slowly, or random feeling if moving @rate fast.",
+            "description": "LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a 'stepped' manner but completely cleanly. This can be interesting if moving the @rate slowly, or give a random feeling if moving @rate fast.",
             "default": {
                 "min": "0",
                 "max": "1",

@@ -103,7 +103,7 @@
 				Any value
 			</digest>
 			<description>
-				By default the initial list on load is a list of 256 zeros, updated by first list in left inlet. With this attribute you can set the value used to create the initial list to any int or float.
+				By default the initial list on load is a list of 256 zeros, updated when receiving the first list in the left inlet. With this attribute you can set the value used to create the initial list to any float.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -158,7 +158,7 @@
 				In ms
 			</digest>
 			<description>
-				Update rate of internal qmetro (if active), set in ms.
+				Update rate of internal qmetro (if active), set in any time syntax qmetro understands (default 33 ms).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="33." />

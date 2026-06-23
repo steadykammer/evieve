@@ -9,7 +9,7 @@
 		<b>evi.lorez~</b> is a 'max define' for the <o>evi_lorez</o>.gendsp gen~ abstraction.
 		Because evi.lorez~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required. <br />
+		Nonlinear 12dB TPT Lowpass with excellent modulation properties and allpass alignment. Capable of all audio rate modulation with cutoff FM-able whilst remaining stable. Resonance stays strong even in lower frequencies. This filter has been tuned quite 'hot'. The abstraction includes code which can be extracted for parameter rate control of the coefficients calculation and linear operation if required. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

@@ -4,7 +4,7 @@
         "child": "evi.rectify~",
         "category": "evieve",
         "digest": "Antialiased half wave signal rectifier",
-        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
+        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive values remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification."
     },
     "constructor": {
         "inlets": "audio"

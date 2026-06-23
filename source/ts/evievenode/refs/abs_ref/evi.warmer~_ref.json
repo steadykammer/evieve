@@ -39,7 +39,7 @@
             "get": 0,
             "type": "float",
             "digest": "-10..10",
-            "description": "One of the key parameters (along with 'drive') that shape the tonal quality of the object. @blend will only have an impact if @drive is > 0. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
+            "description": "One of the key parameters (along with @drive) that shape the tonal quality of the object. @blend will only have an impact if @drive is > 0. Blends the colour of the waveshaping distortion function. Positive blend is a more asymmetric sound than the cleaner negative blend.",
             "default": {
                 "get": 0,
                 "value": "-2."
@@ -61,7 +61,7 @@
             "get": 0,
             "type": "float",
             "digest": "0..10",
-            "description": "One of the key parameters (along with 'blend') that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower drive values will make the sound darker, higher values will make it brighter.",
+            "description": "One of the key parameters (along with @blend) that shape the tonal quality of the object. In general, drive will increase the gain and increase the harmonics in the output, but this depends on the @blend attribute. Lower @drive values will make the sound darker, higher values will make it brighter.",
             "default": {
                 "get": 0,
                 "value": "2."
@@ -72,7 +72,7 @@
             "get": 0,
             "type": "symbol",
             "digest": "Flag 0/1 or symbol",
-            "description": "'0' or 'soft' sets soft clipping internally, '1' or 'hard' sets hard (folding) clipping internally.",
+            "description": "'0' or 'soft' sets soft clipping internally, '1' or 'hard' sets hard (folding) clipping internally. 'soft' is subtle, 'hard' is more obvious.",
             "default": {
                 "get": 0,
                 "value": "soft"
@@ -105,7 +105,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Only active if @fold attribute is on and @foldmix is > 0. The slope of the @foldmix attribute, the higher (smoother) the value the softer the folding portion of the waveform.",
+            "description": "Only active if @fold attribute is on and @foldmix is > 0. The slope of the @foldmix attribute. The higher (smoother) the value the softer the folding portion of the waveform.",
             "default": {
                 "get": 0,
                 "value": "0.23228"
@@ -127,7 +127,7 @@
             "get": 0,
             "type": "float",
             "digest": "In dB, -24..24",
-            "description": "Activation depends on the '@decouplegain' attribute: @ingain and @outgain are active if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -24 and +24 dB.",
+            "description": "Activation depends on the '@decouplegain' attribute: @ingain and @outgain are active only if @decouplegain is on. The @ingain attribute sets the audio input gain to the saturation processes beween -24 and +24 dB.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -138,7 +138,7 @@
             "get": 0,
             "type": "float",
             "digest": "In dB, -24..24",
-            "description": "Activation depends on the '@decouplegain' attribute: @outgain and @ingain are active if @decouplegain is on. The @outgain attribute sets the audio output gain of the whole saturation chain beween -24 and +24 dB.",
+            "description": "Activation depends on the '@decouplegain' attribute: @outgain and @ingain are active only if @decouplegain is on. The @outgain attribute sets the audio output gain of the whole saturation chain beween -24 and +24 dB.",
             "default": {
                 "get": 0,
                 "value": "-1."
@@ -171,7 +171,7 @@
             "get": 0,
             "type": "float",
             "digest": "Cutoff frequency in Hz",
-            "description": "If @tone is on: the cutoff frequency of the tone filter. The tone filter is a variable order (set by the @toneslope attribute) butterworth lowpass and can be used to make severe tonal cuts in the audio output or subtle attenuation of the high frequency content.",
+            "description": "If @tone is on: the cutoff frequency in Hz of the tone filter. The tone filter is a variable order (set by the @toneslope attribute) butterworth lowpass and can be used to make severe tonal cuts in the audio output or subtle attenuation of the high frequency content.",
             "default": {
                 "get": 0,
                 "value": "6000."

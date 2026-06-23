@@ -103,7 +103,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Set the units for the cutoff frequency inlet (1). 0 = in Hz (default), 1 = in Pitch (e.g. 0..127).",
+            "description": "Set the units for the cutoff frequency (inlet 1). 0 = in Hz (default), 1 = in Pitch (e.g. 0..127).",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -114,7 +114,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Set the units for the gain inlet (2). 0 = in linear amplitude, 1 = in dB (the default).",
+            "description": "Set the units for the gain (inlet 2). 0 = in linear amplitude, 1 = in dB (the default).",
             "default": {
                 "get": 0,
                 "value": "1"

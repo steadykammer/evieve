@@ -66,5 +66,6 @@
         <seealso name='evi_filter_shelving' display='evi_filter_shelving' type='genrefpage' />
         <seealso name='evi_filter_tilt' display='evi_filter_tilt' type='genrefpage' />
         <seealso name='evi_baxandall' display='evi_baxandall' type='genrefpage' />
+        <seealso name='evi_onepole' display='evi_onepole' type='genrefpage' />
     </seealsolist>
 </c74object>

@@ -3,7 +3,7 @@
         "name": "evi.transratio",
         "category": "evieve",
         "digest": "Convert semitones to pitch and vica versa",
-        "description": "Like the [transratio] abstraction but with multiple choices for input/output conversion.",
+        "description": "Like the <o>transratio</o> abstraction but with multiple choices for input/output conversion.",
         "discussion": ""
     },
     "metadata": {
@@ -71,7 +71,7 @@
             "get": 0,
             "type": "float",
             "digest": "Pitch",
-            "description": "Hz and pitch convert assuming middle C = 60. Via @offset you can change this to anything you need.",
+            "description": "Hz and pitch convertion assume middle C = 60. Via @offset you can change this to anything you need.",
             "default": {
                 "get": 0,
                 "value": "60."
@@ -93,5 +93,7 @@
         "caption": "",
         "image": ""
     },
-    "seealso": []
+    "seealso": [
+        "transratio"
+    ]
 }

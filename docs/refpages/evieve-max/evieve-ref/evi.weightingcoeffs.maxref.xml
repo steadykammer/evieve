@@ -92,7 +92,7 @@
 				int/symbol sets samplerate
 			</digest>
 			<description>
-				An integer sets the samplerate to use for coefficients generation. The symbol &#x27;none&#x27; uses the host samplerate.
+				An integer sets the samplerate to use for coefficients generation. The symbol &#x27;none&#x27; uses the host samplerate (the default).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="symbol" size="1" value="auto" />
@@ -120,6 +120,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        The coefficients used in this object are just created using the IRCAM [spat5.weightingfilter] external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent. <br />
+        The coefficients used in this object are just created using the IRCAM <o>spat5.weightingfilter</o> external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent. <br />
 	</discussion>
 </c74object>

@@ -101,7 +101,7 @@
             "name": "latency",
             "type": "int",
             "digest": "@min 0, @max 4",
-            "description": "The amount of time in samples used by the detuner. 0=256, 1=512, 2=1024, 3=2048, 4=4096. This has a strong effect of the granular sound of the effect.",
+            "description": "The amount of time in samples used by the detuner. 0=256, 1=512, 2=1024, 3=2048, 4=4096. This has a strong effect of the granular sound of the detune.",
             "default": {
                 "type": "int",
                 "value": "4"
@@ -111,7 +111,7 @@
             "name": "mix",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the feedback path, thus changing the strength of saturated and unsaturated audio into the detuning effect.",
+            "description": "Not dry/wet mix. @mix refers to the internal mix of the wet detune chain. It mixes the crossover low/high audio around the detuning effect.",
             "default": {
                 "type": "float",
                 "value": "0.9"
@@ -121,7 +121,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "Smoothing time of the internal parameters.",
+            "description": "Smoothing time of the internal parameters in ms.",
             "default": {
                 "type": "float",
                 "value": "22."

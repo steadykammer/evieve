@@ -86,7 +86,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Optionally smooth @harmonics and @shape attributes, default off.
+				Optionally smooth (in ms) @harmonics and @shape attributes, default off.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0." />

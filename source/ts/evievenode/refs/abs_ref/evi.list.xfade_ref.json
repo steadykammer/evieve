@@ -67,7 +67,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Set the right list inlet to be hot, so that changes in both inlets trigger the list crossfade.",
+            "description": "Set the right list inlet to also be hot, so that changes in both inlets trigger the list crossfade.",
             "default": {
                 "get": 0,
                 "value": "0"

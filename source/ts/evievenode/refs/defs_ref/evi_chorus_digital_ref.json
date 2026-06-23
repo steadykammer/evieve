@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A basic digital Chorus implementation, with multiple stages and saturation",
-        "description": "An example of a multi stage chorus using evieve primitives. There are many attributes so that the effect can be macroised in different ways for varying types of sound design.",
+        "description": "An example of a multi stage chorus using evieve primitives. Many attributes are exposed so that the effect can be macroised in different ways for varying types of sound design, but ultimately it is a basic chorus.",
         "discussion": ""
     },
     "metadata": {
@@ -102,7 +102,7 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "This controls the delay time at the dry output mix delay of the chorus. This is a very strange effect and can make the sound very sea sickly depending on @drywet.",
+            "description": "This controls the delay time at the dry output mix delay of the chorus. This is a very strange effect and can make the sound sea sickly depending on @drywet.",
             "default": {
                 "min": "0",
                 "max": "1000",
@@ -138,7 +138,7 @@
             "get": 1,
             "type": "float",
             "digest": "Linear gain -1..1",
-            "description": "The global feedback gain. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.",
+            "description": "The global feedback gain -1..1. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.",
             "default": {
                 "min": "-1",
                 "max": "1",
@@ -150,7 +150,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Between 0..1 @feedbackcross crosses over the L/R of the feeback path to R/L. This can be a very useful sounshaping tool, the effect depends on the polarity of @feeback.",
+            "description": "Between 0..1 @feedbackcross crosses over the L/R of the feeback path to R/L. This can be a very useful soundshaping tool, the effect depends on the polarity of @feedback.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -174,7 +174,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Like @feedbackmix, @inject morphs the tap point of part of the audio path. @inject is much more subtle that @feedbackmix. It mixes in the wet post crossover mix into the feedback chain before the saturation stage @inject 0) or after the saturation stage (@inject 1), therefore modifying the strength of the saturated feedback path.",
+            "description": "Like @feedbackmix, @inject morphs the tap point of part of the audio path. @inject is much more subtle that @feedbackmix. It mixes in the wet post crossover mix into the feedback chain before the saturation stage (@inject 0) or after the saturation stage (@inject 1), therefore modifying the strength of the saturated feedback path.",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -258,7 +258,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).",
+            "description": "The global speed of the LFO phases normalised 0..1. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).",
             "default": {
                 "min": "0",
                 "max": "1",
@@ -294,7 +294,7 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smoothing time of the internal parameters.",
+            "description": "Smoothing time of the internal parameters in ms.",
             "default": {
                 "min": "0",
                 "max": "302",
@@ -318,7 +318,7 @@
             "get": 1,
             "type": "int",
             "digest": "Stages 1..16",
-            "description": "Sets how many delay stages in serial to use for the chorus. The chorus is created by putting modulated delay lines in a cascade. The more stages, the more delay lines are cascaded are therefore the stronger the chorus effect. Modify the offset of the modulation LFOs per stage with the @warp attribute.",
+            "description": "Sets how many delay stages in serial to use for the chorus. The chorus is created by putting modulated delay lines in a cascade. The more stages, the more delay lines are cascaded and therefore the stronger the chorus effect. Modify the offset of the modulation LFOs per stage with the @warp attribute.",
             "default": {
                 "min": "1",
                 "max": "16",
@@ -330,7 +330,7 @@
             "get": 1,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "@tone controls a lowpass filter on the input to the feedback path. Lower values will make the feedback recirculation darker, higher value will make it brighter.",
+            "description": "@tone controls a lowpass filter on the input to the feedback path. Lower values will make the feedback recirculation darker, higher values will make it brighter.",
             "default": {
                 "min": "0",
                 "max": "1",

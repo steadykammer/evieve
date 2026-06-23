@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for <o>cascade~</o>",
         "description": "<o>evi.weightingcoeffs</o> is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates and can therefore be used in a downsampled <o>poly~</o> (for example).",
-        "discussion": "The coefficients used in this object are just created using the IRCAM [spat5.weightingfilter] external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent."
+        "discussion": "The coefficients used in this object are just created using the IRCAM <o>spat5.weightingfilter</o> external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -79,7 +79,7 @@
             "get": 0,
             "type": "symbol",
             "digest": "int/symbol sets samplerate",
-            "description": "An integer sets the samplerate to use for coefficients generation. The symbol 'none' uses the host samplerate.",
+            "description": "An integer sets the samplerate to use for coefficients generation. The symbol 'none' uses the host samplerate (the default).",
             "default": {
                 "get": 0,
                 "value": "auto"

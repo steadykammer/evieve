@@ -53,7 +53,7 @@
 				arg#1: coefficient
 			</digest>
 			<description>
-				a0 coefficient to set the filter amount
+				a0 coefficient to set the filter amount. Typically (and default) 0.9997
 			</description>
 		</objarg>
 	</objarglist>

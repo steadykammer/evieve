@@ -146,7 +146,7 @@
 				Flag 0/1, zero reset phase off/on
 			</digest>
 			<description>
-				If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates smoothly morphing changes.
+				If on, changes to the speed (@rate) of the internal LFOs are synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -157,7 +157,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range or output the actual amplitude used by the effect.
+				Switch the LFO outputs (outlets 3 and 4) to output raw 0..1 range (0) or output the actual amplitude used by the effect (1).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1" />
@@ -223,7 +223,7 @@
 				Time in ms
 			</digest>
 			<description>
-				The smoothing time of the internal parameters.
+				The smoothing time in ms of the internal parameters.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="15.111" />

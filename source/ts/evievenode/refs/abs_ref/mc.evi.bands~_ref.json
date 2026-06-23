@@ -116,7 +116,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Gain compensation flag to account for resonant filters at very high Q values.",
+            "description": "Gain compensation flag 0/1 to account for resonant filters at very high Q values.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -138,7 +138,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Smoothing time for the filter mixing gains.",
+            "description": "Smoothing time in ms for the filter mixing gains.",
             "default": {
                 "get": 0,
                 "value": "10."
@@ -149,7 +149,7 @@
             "get": 0,
             "type": "float",
             "digest": "In Hz",
-            "description": "Tuning for the Hz calculations of all filter bands.",
+            "description": "Tuning for the Hz calculations of all filter bands around A = 440",
             "default": {
                 "get": 0,
                 "value": "440."

@@ -9,7 +9,7 @@
 		<b>evi.svf~</b> is a 'max define' for the <o>evi_svf</o>.gendsp gen~ abstraction.
 		Because evi.svf~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Linear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block and is very efficient. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of <o>evi.svf~</o> is used in most of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP <o>svf~</o> as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering. <br />
+		Linear TPT state variable filter with simultaneous outputs. The SVF is a really useful swiss-army-knife filter block and is very efficient. The evieve SVF can have it's parameters dynamically modulated up to audio rate whilst remaining clean and alias free. The internal filter structure of <o>evi.svf~</o> is used in many of the other linear and nonlinear filters in the evieve package. Here it is presented in it's purest form to be as close to MSP <o>svf~</o> as possible. Note, here we use MSP-like ordering of outputs, but in all other evieve SVFs we use a different ordering. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

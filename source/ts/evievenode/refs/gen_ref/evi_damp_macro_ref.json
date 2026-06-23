@@ -80,6 +80,10 @@
         {
             "name": "evi_baxandall",
             "display": "evi_baxandall"
+        },
+        {
+            "name": "evi_onepole",
+            "display": "evi_onepole"
         }
     ]
 }

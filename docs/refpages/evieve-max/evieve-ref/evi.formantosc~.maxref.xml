@@ -6,7 +6,7 @@
 		A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. <br />
 	</digest>
 	<description>
-		evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output and audio rate modulate it for an interesting source. <br />
+		evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output, and to audio rate modulate it for an interesting source. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -93,7 +93,7 @@
 				0.00625..32
 			</digest>
 			<description>
-				Multiply (warp) formants bandwidth size. 1 &#x3D; no warping.
+				Multiply (warp) formants bandwidth size. 1 &#x3D; no warping. Smaller values increase peaking effect.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -104,7 +104,7 @@
 				0.025..4
 			</digest>
 			<description>
-				Multiply (warp) formants frequency center. 1 &#x3D; no warping.
+				Multiply (warp) formants frequency center. 1 &#x3D; no warping. &lt; 1 shifts downwards, &gt; 1 shifts upwards.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -137,7 +137,7 @@
 				1..5
 			</digest>
 			<description>
-				evi.formantosc~ uses 5 measured formants to build an oscillator sound. However with this control you can choose to reduce the number off formants for a thinner (strange) sound. Use the &#x27;formantsoffset&#x27; attribute to offset once selected.
+				evi.formantosc~ uses 5 measured formants to build an oscillator sound. However with this control you can choose to reduce the number of formants for a thinner (strange) sound. Use the @formantsoffset attribute to offset the formants once selected.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="5" />
@@ -148,7 +148,7 @@
 				0..
 			</digest>
 			<description>
-				If the &#x27;formants&#x27; attribute &#x3D;&#x3D; 5 this attribute has no effect. If the &#x27;formants&#x27; attribute is &lt; 5, this attribute will shift the used formants cyclicly. So if &#x27;formants&#x27; &#x3D;&#x3D; 1, this attribute will shift which formant is sounded. This can have a quirky or ghostly effect. 0 &#x3D; none, no shifting.
+				If the @formants attribute &#x3D;&#x3D; 5 this attribute has no effect. If the @formants attribute is &lt; 5, this attribute will shift the used formants cyclicly. So if @formants &#x3D;&#x3D; 1, this attribute will shift which formant is sounded. This can have a quirky or ghostly effect. 0 &#x3D; none, no shifting.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -159,7 +159,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Set the input type (units) of the fundamental frequency input. 0 &#x3D; in Hz, 1 &#x3D; in Pitch.
+				Set the input type (units) of the fundamental frequency input. 0 (default) &#x3D; in Hz, 1 &#x3D; in Pitch.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -181,7 +181,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants data and normalises the gain of all formants. The can make a cool clangourous sound.
+				0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants gain data and normalises the gain of all formants. The can make a cool clangourous sound.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -192,7 +192,7 @@
 				0.025..4
 			</digest>
 			<description>
-				Multiply (warp) formants gain amount. 1 &#x3D; no warping.
+				Multiply (warp) formants gain amount. 1 &#x3D; no warping. &lt; 1 is quieter, &gt; 1 is louder.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="1." />
@@ -225,7 +225,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Turn off or on the smoothing of the warp parameters (&#x27;cfwarp&#x27;, &#x27;bwwarp&#x27;, &#x27;gainwarp&#x27;).
+				Turn off or on the smoothing of the warp parameters (@cfwarp, @bwwarp, @gainwarp). If using the warp attributes this should be on. Turning off can save CPU.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -236,7 +236,7 @@
 				-1, 0, 1
 			</digest>
 			<description>
-				0 &#x3D; free running phase updates controlling the oscialltor. 1 &#x3D; lock phase updates to the changes of the fundamental frequency. Use -1 for FM applications.
+				0 &#x3D; free running phase updates controlling the oscialltor. 1 &#x3D; lock phase updates to the changes of the fundamental frequency. Use -1 for FM applications (fundamental frequency processing adjusted for FM).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -256,6 +256,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        For filter versions of this code see <o>evi.formantfilter~</o> and <o>evi.formantfilter.morph~</o>. <br />
 	</discussion>
 </c74object>

@@ -3,7 +3,7 @@
         "name": "evi.formantfilter.morph~",
         "category": "evieve",
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types.",
-        "description": "While <o>evi.formantfilter~</o> uses a bank of resonant filters, <o>evi.formantfilter.morph~</o> uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated.",
+        "description": "While the alternative <o>evi.formantfilter~</o> uses a bank of resonant filters, this <o>evi.formantfilter.morph~</o> uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated.",
         "discussion": ""
     },
     "metadata": {
@@ -64,7 +64,7 @@
             "get": 0,
             "type": "float",
             "digest": "0.00625..32",
-            "description": "Multiply (warp) formants bandwidth size. 1 = no warping.",
+            "description": "Multiply (warp) formants bandwidth size. 1 = no warping. Smaller values increase resonance.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -75,7 +75,7 @@
             "get": 0,
             "type": "float",
             "digest": "0.025..4",
-            "description": "Multiply (warp) formants frequency center. 1 = no warping.",
+            "description": "Multiply (warp) formants frequency center. 1 = no warping. < 1 shifts downwards, > 1 shifts upwards.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -108,7 +108,7 @@
             "get": 0,
             "type": "int",
             "digest": "Select 0, 1, 2, 3, 4",
-            "description": "A utility. Out2 sends out the frequency of which formant? 0..4 = 1..5. Can be useful for extracting data for downstream processes.",
+            "description": "A utility. Out2 sends out the frequency of which formant? Integer 0..4 = formants 1..5. Can be useful for extracting data for downstream processes.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -130,7 +130,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants data and normalises the gain of all formants. The can be useful to balance the overall filter effect.",
+            "description": "0 respects the physical modelling of the voice, using the gain data to attenuate the formants. 1 ignores the formants gain data and normalises the gain of all formants. The can be useful to balance the overall filter effect.",
             "default": {
                 "get": 0,
                 "value": "0"
@@ -141,7 +141,7 @@
             "get": 0,
             "type": "float",
             "digest": "0.025..4",
-            "description": "Multiply (warp) formants gain amount. 1 = no warping.",
+            "description": "Multiply (warp) formants gain amount. 1 = no warping. < 1 is quieter, > 1 is louder.",
             "default": {
                 "get": 0,
                 "value": "1."
@@ -163,7 +163,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Turn off or on the smoothing of the warp parameters ('cfwarp', 'bwwarp', 'gainwarp').",
+            "description": "Turn off or on the smoothing of the warp parameters (@cfwarp, @bwwarp, @gainwarp). If using the warp attributes this should be on. Turning off can save CPU.",
             "default": {
                 "get": 0,
                 "value": "1"

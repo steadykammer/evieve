@@ -61,7 +61,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (1, on) or Hz (0, default off).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -71,7 +71,7 @@
             "name": "morphsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time. Default off.",
+            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time in ms. Default off.",
             "default": {
                 "type": "float",
                 "value": "0."

@@ -13,7 +13,7 @@
          <br />
         evi_saw_select is also available in MSP as: <o>evi.saw.select~</o>. <br />
          <br />
-	    A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. Some shapes take PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators. <br />
+	    A collection of saw-like oscillator shapes using a 2-point polyblep algorithm. One shape takes PWM control. Also offers high frequency loss compensation filters and rudimentary oversampling. An experimental dynamic DC control is included, allowing for simultaneous use as LFOs and audio rate oscillators. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -68,7 +68,7 @@
                 @min 0, @max 7
             </digest>
             <description>
-                Select oscillator shape. 0&#x3D;saw+ (default), 1&#x3D;saw-, 2&#x3D;sawsine+, 3&#x3D;sawsine+, 4&#x3D;pulse, 5&#x3D;hpsaw, 6&#x3D;logit, 7&#x3D;trisaw (includes PWM)
+                Select oscillator shape. 0&#x3D;saw+ (default), 1&#x3D;saw-, 2&#x3D;sawsine+, 3&#x3D;sawsine-, 4&#x3D;pulse, 5&#x3D;hpsaw, 6&#x3D;logit, 7&#x3D;trisaw (includes PWM)
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

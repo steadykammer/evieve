@@ -78,11 +78,12 @@
 	<!--SEEALSO-->
 	<seealsolist>
 		<seealso name="evi.damp~"> </seealso>
-		<seealso name="evi.onepole.shelving~"> </seealso>
 		<seealso name="evi.tone.macro~"> </seealso>
+		<seealso name="evi.onepole.shelving~"> </seealso>
 		<seealso name="evi.filter.shelving~"> </seealso>
 		<seealso name="evi.filter.tilt~"> </seealso>
 		<seealso name="evi.baxandall~"> </seealso>
+		<seealso name="evi.onepole~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>

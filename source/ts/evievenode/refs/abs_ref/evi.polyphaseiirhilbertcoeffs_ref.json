@@ -50,7 +50,7 @@
             "default": "0",
             "optional": 1,
             "digest": "arg#2: Number of coefficients",
-            "description": "Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load."
+            "description": "Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load or via a bang to the inlet."
         },
         {
             "name": "Transition bandwidth",
@@ -58,7 +58,7 @@
             "default": "0.",
             "optional": 1,
             "digest": "arg#3: Transition bandwidth",
-            "description": "Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load."
+            "description": "Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load or via a bang to the inlet."
         }
     ],
     "messages": [

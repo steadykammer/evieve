@@ -4,7 +4,7 @@
         "child": "evi.filter.peak~",
         "category": "evieve",
         "digest": "TPT peaking filter",
-        "description": "The peak filter from the evieve TPT SVF collection. Peak only. For peak/notch @see <o>evi.filter.bell~</o>."
+        "description": "The peak filter from the evieve TPT SVF collection. Peaking only. For peak/notch @see <o>evi.filter.bell~</o>."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

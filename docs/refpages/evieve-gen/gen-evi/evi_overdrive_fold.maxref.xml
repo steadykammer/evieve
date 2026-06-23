@@ -13,7 +13,7 @@
          <br />
         evi_overdrive_fold is also available in MSP as: <o>evi.overdrive.fold~</o>. <br />
          <br />
-	    The most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative antialiasing and oversampling options. <o>evi.overdrive.fold~</o> can be driven very hard and tonally shaped very easily making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive. <br />
+	    The most features of the evieve 'overdrive' objects, with drive, gain wrapping, additional input/output gain shaping and two damping filters which behave like a crossover, making it possible to control the amount of saturated and dry signal in the final output. The saturator is a tanh-like approximation but folds it's input at high gain, with antiderivative antialiasing and oversampling options. <o>evi.overdrive.fold~</o> can be driven hard and tonally shaped easily, making it a versatile nonlinear processor for a wide range of use cases. It is of course quite expensive. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -41,7 +41,7 @@
                 @min 0, @max 5
             </digest>
             <description>
-                The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.
+                The &#x27;aa&#x27; (&#x27;Anti Aliasing&#x27;) method used. 0&#x3D;Adaa1, 1&#x3D;Adaa1 2x oversampled, 2&#x3D;Adaa1 4x oversampled, 3&#x3D;Adaa2 (default), 4&#x3D;Adaa2 2x oversampled, 5&#x3D;Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='3' />
@@ -85,7 +85,7 @@
                 @min -1, @max 1
             </digest>
             <description>
-                An additional gain stage that is reciprocal around input / output. If @io is &gt; 0, input gain (to the saturator) is attenuated and output gain is boosted. If @io is &lt; 0, input gain (to the saturator) is boosted and output gain is attenuated. (Boost / attenuation is approximately ± 12dB). This completely reshapes the waveshaping effect.
+                An additional gain stage that is reciprocal around input / output. If @io is &gt; 0, input gain (to the saturator) is attenuated and output gain is boosted. If @io is &lt; 0, input gain (to the saturator) is boosted and output gain is attenuated. (Boost / attenuation is approximately ± 12dB). This completely reshapes the waveshaping.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

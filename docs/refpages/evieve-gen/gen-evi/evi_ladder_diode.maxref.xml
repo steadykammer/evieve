@@ -78,7 +78,7 @@
                 @min 0, @max 5
             </digest>
             <description>
-                0&#x3D;tanh-like, 1&#x3D;polynomial-saturator, 2&#x3D;cubic (default), 3&#x3D;cubic-alternative, 4&#x3D;atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter. Each options gives the filter slightly different characteristics.
+                0&#x3D;tanh-like, 1&#x3D;polynomial-saturator, 2&#x3D;cubic (default), 3&#x3D;cubic-alternative, 4&#x3D;atan-like. Unlike unit delay filters, TPT filters allow us to switch out the nonlinearity in the feedback loop without having to retune the filter (too much). Each option gives the filter slightly different characteristics.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='2' />

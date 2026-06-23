@@ -65,7 +65,7 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 666",
-            "description": "Optionally smooth @harmonics and @shape attributes, default off.",
+            "description": "Optionally smooth (in ms) @harmonics and @shape attributes, default off.",
             "default": {
                 "type": "float",
                 "value": "0."

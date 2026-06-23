@@ -9,7 +9,7 @@
 		<b>evi.svfsmooth~</b> is a 'max define' for the <o>evi_svfsmooth</o>.gendsp gen~ abstraction.
 		Because evi.svfsmooth~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch). <br />
+		A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing (with resonance attenuation), available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -110,7 +110,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).
+				Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (off, default).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />
@@ -121,7 +121,7 @@
 				Time in ms
 			</digest>
 			<description>
-				If morphsmooth &gt; 0, the &#x27;Morph&#x27; control (inlet 4) will be internally smoothed by this time.
+				If morphsmooth &gt; 0, the &#x27;Morph&#x27; control (inlet 4) will be internally smoothed by this time in ms.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="30." />

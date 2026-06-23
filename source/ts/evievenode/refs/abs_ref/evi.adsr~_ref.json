@@ -211,7 +211,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Add fake x ms sustain portion to looping envelope ?",
+            "description": "Add additional x ms sustain portion to looping envelope ?",
             "default": {
                 "get": 0,
                 "value": "100."
@@ -288,7 +288,7 @@
             "get": 0,
             "type": "int",
             "digest": "Type -2, -1, 0, 1, 2",
-            "description": "Velocity in curve, positive=log, 0=lin, negative=exp",
+            "description": "Velocity in curve -2..2, positive=log, 0=lin, negative=exp",
             "default": {
                 "get": 0,
                 "value": "1"

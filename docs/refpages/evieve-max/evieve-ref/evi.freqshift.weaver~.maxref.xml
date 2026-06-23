@@ -9,7 +9,7 @@
 		<b>evi.freqshift.weaver~</b> is a 'max define' for the <o>evi_freqshift_weaver</o>.gendsp gen~ abstraction.
 		Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which implement the more usual hilbert filtering 'second method'). N.B. no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
+		Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which all implement the more usual hilbert filtering 'second method'). Noye, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -89,7 +89,7 @@
 	<attributelist>
 		<attribute name="detune" get="1" set="1" type="float" min="-100" max="100">
 			<digest>
-				In cents
+				In cents -100..100
 			</digest>
 			<description>
 				Detune is in cents, applied ± 1 semitone. This detunes the main quadrature oscillators and the fixed frequency crossover filters, giving a strange and unsubtle effect.
@@ -158,7 +158,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using saturation increases CPU usage.
+				If active, a waveshaping distortion algorithm is applied to the sidebands in different ways depending on @select. If off (the default) the output is clean digital frequency shifting, if on the output is saturated and can be driven via the @drive attribute. Using @saturation increases CPU usage.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0" />

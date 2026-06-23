@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Onepole pass/shelf damping filters with simultaneous outputs",
-        "description": "Two very efficient damping filters in series. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP [onepole~] (depending on Hz).",
+        "description": "Two very efficient damping filters in parallel. A lowpass/highshelf filter (left outlet) and a highpass/lowshelf filter (right outlet). The frequency and damping inlets control both filters simultaneously for high level attenuation control. Useful for damping in reverbs and other situations. With the 'damp' inlet at 0.71..0.99 the first lowpass outlet is similar to MSP <o>onepole~</o> (depending on Hz).",
         "discussion": "Most of the evieve reverbs use some form of these filters internally."
     },
     "metadata": {
@@ -86,10 +86,10 @@
         "image": ""
     },
     "seealso": [
-        "evi.damp.macro~",
         "evi.onepole~",
-        "evi.onepole.shelving~",
+        "evi.damp.macro~",
         "evi.tone.macro~",
+        "evi.onepole.shelving~",
         "evi.filter.shelving~",
         "evi.filter.tilt~",
         "evi.baxandall~"

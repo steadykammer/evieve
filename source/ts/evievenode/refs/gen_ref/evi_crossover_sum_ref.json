@@ -64,7 +64,7 @@
             "description": "Allpass alignment in this splitting stage off or on. This must be opposite to the equivalent attribute in the feeding [evi.crossover.3band~] object. @see 'Discussion' in the reference file for more information.",
             "default": {
                 "type": "int",
-                "value": "1"
+                "value": "0"
             }
         },
         {

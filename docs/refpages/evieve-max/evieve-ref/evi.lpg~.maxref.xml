@@ -144,7 +144,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Core filter/gate functionality. Only has effect if the &#x27;lpg&#x27; attribute is on. Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.
+				Core filter/gate functionality. Only has effect if the @lpg attribute is on. Smoothly crossfades additional resistors into the feedback path while maintaining filter stability. This can have a drastic effect on the tone of the filter and the resonance behaviour.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -177,7 +177,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control offset inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.
+				Smooth the control offset inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -199,7 +199,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control scale inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.
+				Smooth the control scale inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -210,7 +210,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time for the interpolated &#x27;vca&#x27;, &#x27;lpg&#x27; and &#x27;boom&#x27; controls.
+				Smoothing time in ms for the interpolated @vca, @lpg and @boom attributes.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="15.111" />
@@ -221,7 +221,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control sweep inlet. Useful if using floats on that inlet. Turn off if modulating at audio rate.
+				Smooth the control sweep inlet. Useful if using floats on that inlet. Turn off (set to 0) if modulating at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />

@@ -54,7 +54,7 @@
             "name": "aa",
             "type": "int",
             "digest": "@min 0, @max 5",
-            "description": "The 'aa' ('Anti Aliasing') method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material. Experimentation is encouraged.",
+            "description": "The 'aa' ('Anti Aliasing') method used. 0=Adaa1, 1=Adaa1 2x oversampled, 2=Adaa1 4x oversampled, 3=Adaa2 (default), 4=Adaa2 2x oversampled, 5=Adaa2 4x oversampled. 0..5 does not necessarily mean increasing in quality, it really depends on your audio input material.",
             "default": {
                 "type": "int",
                 "value": "3"

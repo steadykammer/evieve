@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Antialiased half wave signal rectifier",
-        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive vallues remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification.",
-        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
+        "description": "<o>evi.rectify~</o> is a simple passive audio signal rectifer. Rectification waveshapes an audio signal so that only positive values remain in the output giving a digital distorted effect. <o>evi.rectify~</o> is antialiased via anti derivative antialiasing and dcblocked, so that the resulting signal is cleaner and softer than a mathematical rectification.",
+        "discussion": "<o>evi.rectify~</o> expects audio input in -1..1 range. See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",

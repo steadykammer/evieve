@@ -158,7 +158,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the mixing gains of the filters efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. Smoothing can be turned off if audio rate modulating all inputs.
+				Smooth the mixing gains of the filters efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. Smoothing should be turned off if audio rate modulating all inputs.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="15.333" />

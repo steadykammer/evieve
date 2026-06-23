@@ -127,7 +127,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Set the units for the cutoff frequency inlet (1). 0 &#x3D; in Hz (default), 1 &#x3D; in Pitch (e.g. 0..127).
+				Set the units for the cutoff frequency (inlet 1). 0 &#x3D; in Hz (default), 1 &#x3D; in Pitch (e.g. 0..127).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -138,7 +138,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Set the units for the gain inlet (2). 0 &#x3D; in linear amplitude, 1 &#x3D; in dB (the default).
+				Set the units for the gain (inlet 2). 0 &#x3D; in linear amplitude, 1 &#x3D; in dB (the default).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />

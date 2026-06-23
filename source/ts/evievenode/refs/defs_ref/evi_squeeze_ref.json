@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Antialiased quadratic signal shaper",
-        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. <o>evi.squeeze~</o> is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute.",
-        "discussion": "See the helpfile for an example of how to cope with unknown input ranges."
+        "description": "<o>evi.squeeze~</o> is a simple passive audio signal quadratic shaper. It is antialiased via anti derivative antialiasing, but is not designed for driving with high gain. Sadly this static waveshaper is expensive to compute.",
+        "discussion": "<o>evi.squeeze~</o> expects audio input in range -1..1. See the helpfile for an example of how to cope with unknown input ranges."
     },
     "metadata": {
         "author": "Pete Dowling",

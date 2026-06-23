@@ -61,7 +61,7 @@
 				arg#2: Number of coefficients
 			</digest>
 			<description>
-				Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load.
+				Set the number of coefficients to create, 2..64, default 8 (for evieve Hilbert). Does not technically recompute coefficients, but coefficients are computed on load or via a bang to the inlet.
 			</description>
 		</objarg>
 		<objarg name="Transition bandwidth" type="float" default="0." optional="1">
@@ -69,7 +69,7 @@
 				arg#3: Transition bandwidth
 			</digest>
 			<description>
-				Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load.
+				Set the filter transition bandwidth to use in Hz, default 40, 4..samplerate*0.25. Does not technically recompute coefficients, but coefficients are computed on load or via a bang to the inlet.
 			</description>
 		</objarg>
 	</objarglist>

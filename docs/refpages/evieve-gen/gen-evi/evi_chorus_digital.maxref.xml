@@ -13,7 +13,7 @@
          <br />
         evi_chorus_digital is also available in MSP as: <o>evi.chorus.digital~</o>. <br />
          <br />
-	    An example of a multi stage chorus using evieve primitives. There are many attributes so that the effect can be macroised in different ways for varying types of sound design. <br />
+	    An example of a multi stage chorus using evieve primitives. Many attributes are exposed so that the effect can be macroised in different ways for varying types of sound design, but ultimately it is a basic chorus. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -68,7 +68,7 @@
                 @min 0, @max 1000
             </digest>
             <description>
-                This controls the delay time at the dry output mix delay of the chorus. This is a very strange effect and can make the sound very sea sickly depending on @drywet.
+                This controls the delay time at the dry output mix delay of the chorus. This is a very strange effect and can make the sound sea sickly depending on @drywet.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -101,7 +101,7 @@
                 @min -1, @max 1
             </digest>
             <description>
-                The global feedback gain. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.
+                The global feedback gain -1..1. Strongly affected by the @feedbackmix, @feedbackcross and @stages attributes.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.6' />
@@ -112,7 +112,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Between 0..1 @feedbackcross crosses over the L/R of the feeback path to R/L. This can be a very useful sounshaping tool, the effect depends on the polarity of @feeback.
+                Between 0..1 @feedbackcross crosses over the L/R of the feeback path to R/L. This can be a very useful soundshaping tool, the effect depends on the polarity of @feedback.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -134,7 +134,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Like @feedbackmix, @inject morphs the tap point of part of the audio path. @inject is much more subtle that @feedbackmix. It mixes in the wet post crossover mix into the feedback chain before the saturation stage @inject 0) or after the saturation stage (@inject 1), therefore modifying the strength of the saturated feedback path.
+                Like @feedbackmix, @inject morphs the tap point of part of the audio path. @inject is much more subtle that @feedbackmix. It mixes in the wet post crossover mix into the feedback chain before the saturation stage (@inject 0) or after the saturation stage (@inject 1), therefore modifying the strength of the saturated feedback path.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />
@@ -211,7 +211,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                The global speed of the LFO phases. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).
+                The global speed of the LFO phases normalised 0..1. This sets the speed (between 0..@maxhz) the LFOs scale the delay times (set by @depth, @mintime and @maxtime).
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.55' />
@@ -244,7 +244,7 @@
                 @min 0, @max 302
             </digest>
             <description>
-                Smoothing time of the internal parameters.
+                Smoothing time of the internal parameters in ms.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='30.222' />
@@ -266,7 +266,7 @@
                 @min 1, @max 16
             </digest>
             <description>
-                Sets how many delay stages in serial to use for the chorus. The chorus is created by putting modulated delay lines in a cascade. The more stages, the more delay lines are cascaded are therefore the stronger the chorus effect. Modify the offset of the modulation LFOs per stage with the @warp attribute.
+                Sets how many delay stages in serial to use for the chorus. The chorus is created by putting modulated delay lines in a cascade. The more stages, the more delay lines are cascaded and therefore the stronger the chorus effect. Modify the offset of the modulation LFOs per stage with the @warp attribute.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='4' />
@@ -277,7 +277,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                @tone controls a lowpass filter on the input to the feedback path. Lower values will make the feedback recirculation darker, higher value will make it brighter.
+                @tone controls a lowpass filter on the input to the feedback path. Lower values will make the feedback recirculation darker, higher values will make it brighter.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />
@@ -299,7 +299,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @zerorest is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a rest signal into the third (far right) inlet.
+                One of four LFO controls (@duty, @shape, @skew, @zeroreset). If on, changes the speed (@rate) of the internal LFOs to be synchronised to zero reset of phase, which can produce seemless updating of speed changes. Otherwise the speed (@rate) updates continuously and smoothly. Note that if @zerorest is on and rate is changed to a very low (slow) value, it might take a very long time for phase to reset and thus change to a new rate. This is a feature :-) but can be remedied by sending a reset signal into the third (far right) inlet.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

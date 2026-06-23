@@ -89,7 +89,7 @@
             "get": 0,
             "type": "float",
             "digest": "Any value",
-            "description": "By default the initial list on load is a list of 256 zeros, updated by first list in left inlet. With this attribute you can set the value used to create the initial list to any int or float.",
+            "description": "By default the initial list on load is a list of 256 zeros, updated when receiving the first list in the left inlet. With this attribute you can set the value used to create the initial list to any float.",
             "default": {
                 "get": 0,
                 "value": "0."
@@ -144,7 +144,7 @@
             "get": 0,
             "type": "float",
             "digest": "In ms",
-            "description": "Update rate of internal qmetro (if active), set in ms.",
+            "description": "Update rate of internal qmetro (if active), set in any time syntax qmetro understands (default 33 ms).",
             "default": {
                 "get": 0,
                 "value": "33."

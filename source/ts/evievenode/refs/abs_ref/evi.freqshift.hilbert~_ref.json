@@ -80,7 +80,7 @@
                 }
             ],
             "digest": "In left inlet, resetphase message to evi.freqshift.hilbert~",
-            "description": "Sending the symbol 'resetphase' to the abstraction has the same effect as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi.freqshift.hilbert~' this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the 'resetauto' attribute, which is on by default)."
+            "description": "Sending the symbol 'resetphase' to the abstraction has the same effect as sending 'resetphase' to the MSP 'freqshift~' object - it resets the phase of the quadrature oscillators that modulate the sidebands of the incoming signal. Note that in 'evi.freqshift.hilbert~' this message need not be used, as a major feature of the internal gen~ code is that it does automatic and clickless resetting of phase itself (depending on the @resetauto attribute, which is on by default)."
         }
     ],
     "attributes": [
@@ -89,7 +89,7 @@
             "get": 0,
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Mix the far left outlet between 0 = Upper (or positive) and 1 = Lower (or negative) SideBands. Smoothed by the 'smooth' attribute.",
+            "description": "Mix the far left outlet between 0 = Upper (or positive) and 1 = Lower (or negative) SideBands. Smoothed by the @smooth attribute.",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -100,7 +100,7 @@
             "get": 0,
             "type": "float",
             "digest": "0..1..",
-            "description": "If the 'saturation' attribute is set to on (1), 'drive' adds gain shaping to the internal sine shaping saturation algorithm. This affects the far left bands mixing outlet but not the separately avilable USB and LSB outlets.",
+            "description": "If the @saturation attribute is set to on (1), @drive adds gain shaping to the internal sine shaping saturation algorithm. This affects the far left bands mixing outlet but not the separately avilable USB and LSB outlets.",
             "default": {
                 "get": 0,
                 "value": "0.5"
@@ -133,7 +133,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Turn the internal saturation off (0) or on (1). This saturation is a sine shaping waveshaper that is controlled by the 'drive' attribute. It is only applied to the far left bands mix outlet.",
+            "description": "Turn the internal saturation off (0) or on (1). This saturation is a sine shaping waveshaper that is controlled by the @drive attribute. It is only applied to the far left bands mix outlet.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -144,7 +144,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms, 0..333",
-            "description": "Smooth time in ms of the internal parameters. Note that the freq shift inlet has it's own independent smoothing attribute ('freqsmooth').",
+            "description": "Smooth time in ms of the internal parameters. Note that the freq shift inlet has it's own independent smoothing attribute (@freqsmooth).",
             "default": {
                 "get": 0,
                 "value": "22.666"

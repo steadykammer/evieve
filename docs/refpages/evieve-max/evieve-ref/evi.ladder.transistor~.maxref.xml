@@ -9,7 +9,7 @@
 		<b>evi.ladder.transistor~</b> is a 'max define' for the <o>evi_ladder_transistor</o>.gendsp gen~ abstraction.
 		Because evi.ladder.transistor~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a clean sound is required. <br />
+		A dirty nonlinear 24dB Transistor Ladder filter emulation. The object provides two FM modulation inlets for the filter cutoff frequency. This filter has been tuned to be quite 'hot' and aggressive compared to the <o>evi.ladder.moog~</o> object, which may be preferable if a cleaner sound is required. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -138,6 +138,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Based on the famous original by Teemu Voipio, Copyright 2012 Teemu Voipio. See the gendsp source for license. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile. <br />
+        Based on the famous original by Teemu Voipio, Copyright 2012 Teemu Voipio. See the .gendsp source code for the license. For more information about other nonlinear Ladder filters in evieve, see the 'evieve ladder' tab of the helpfile. <br />
 	</discussion>
 </c74object>

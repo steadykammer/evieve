@@ -10,7 +10,7 @@
                  <br />
         evi_audiodust is also available in MSP as: <o>evi.audiodust~</o>. <br />
          <br />
-	    Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. @see: 'evi_sources.genexpr' for more where this came from. <br />
+	    Audio dust is a sparse random noise source driven at a given frequency. It produces 'spikes' at random amplitude and time offsets. It can be very useful as both a control signal and an audio signal. <br />
     </description>
     <methodlist />
     <constructorlist>

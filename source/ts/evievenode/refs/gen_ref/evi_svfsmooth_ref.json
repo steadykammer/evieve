@@ -4,7 +4,7 @@
         "child": "evi.svfsmooth~",
         "category": "evieve",
         "digest": "Nonlinear TPT SVF filter with audio rate modulation and morphing capabilities",
-        "description": "A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing with resonance attenuation, available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
+        "description": "A cheap nonlinear 12dB multimode SVF for when you need a quick cheap synth filter. Morphing is between LP..BP..HP filters and is basic output-mixing (with resonance attenuation), available at the far left outlet (1). All filters are also available individually via their multimode outlets 2, 3, 4 and 5 (lowpass, bandpass, highpass, notch)."
     },
     "constructor": {
         "inlets": "input, freq, resonance, morph"
@@ -89,7 +89,7 @@
             "name": "cutoffmode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (default off).",
+            "description": "Switch cutoff frequency (inlet 2) between Pitch (on) or Hz (off, default).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -99,7 +99,7 @@
             "name": "morphsmooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time.",
+            "description": "If morphsmooth > 0, the 'Morph' control (inlet 4) will be internally smoothed by this time in ms.",
             "default": {
                 "type": "float",
                 "value": "30."

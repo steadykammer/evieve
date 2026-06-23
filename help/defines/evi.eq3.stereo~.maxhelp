@@ -4255,7 +4255,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4293,7 +4293,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 250.0, 271.0, 119.0, 23.0 ],
+                                    "patching_rect": [ 251.0, 271.0, 119.0, 23.0 ],
                                     "text": "delay~ 16384 8192"
                                 }
                             },

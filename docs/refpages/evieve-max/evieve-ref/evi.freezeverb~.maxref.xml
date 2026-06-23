@@ -152,7 +152,7 @@
 				-1..1
 			</digest>
 			<description>
-				± gain of the high shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
+				± gain of the high shelving onepole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -174,7 +174,7 @@
 				-1..1
 			</digest>
 			<description>
-				± gain of the low shelving onpole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
+				± gain of the low shelving onepole filters. Negative values damp, positive values boost. -1..1 equates to approximately -10..10 dB.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
