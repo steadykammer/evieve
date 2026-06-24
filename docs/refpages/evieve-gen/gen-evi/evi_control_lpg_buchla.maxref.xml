@@ -26,12 +26,12 @@
         </geninlet>
         <geninlet name='vactrol' type='float' optional='1'>
             <digest>
-                Rise. Vactrol envelope rise time (ping attack time) in ms.
+                Rise @default 0.416667. Vactrol envelope rise time (ping attack time) in ms.
             </digest>
         </geninlet>
         <geninlet name='vactrol' type='float' optional='1'>
             <digest>
-                Fall. Vactrol envelope fall time (ping decay time) in ms.
+                Fall @default 62.5. Vactrol envelope fall time (ping decay time) in ms.
             </digest>
         </geninlet>
         <geninlet name='offset' type='float' optional='1'>

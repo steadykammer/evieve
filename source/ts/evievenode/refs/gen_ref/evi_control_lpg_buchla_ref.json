@@ -23,7 +23,7 @@
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digestauto": "Rise",
+            "digestauto": "Rise @default 0.416667",
             "digest": "Vactrol envelope rise time (ping attack time) in ms."
         },
         {
@@ -31,7 +31,7 @@
             "name": "vactrol",
             "type": "float",
             "optional": 1,
-            "digestauto": "Fall",
+            "digestauto": "Fall @default 62.5",
             "digest": "Vactrol envelope fall time (ping decay time) in ms."
         },
         {

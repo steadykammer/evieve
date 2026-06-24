@@ -41,7 +41,7 @@
 		</inlet>
 		<inlet id="3" type="signal/float">
 			<digest>
-				Resonance 0..2
+				Resonance 0..2 (default 1.)
 			</digest>
 			<description>
 				Filter resonance. Effect depends on other settings, such as @boom, @lpg and @vca.
@@ -49,7 +49,7 @@
 		</inlet>
 		<inlet id="4" type="signal/float">
 			<digest>
-				Vactrol Rise in ms
+				Vactrol Rise in ms (default 0.416667)
 			</digest>
 			<description>
 				Ping attack time in ms.
@@ -57,7 +57,7 @@
 		</inlet>
 		<inlet id="5" type="signal/float">
 			<digest>
-				Vactrol Fall in ms
+				Vactrol Fall in ms (default 62.5)
 			</digest>
 			<description>
 				Ping decay time in ms.
@@ -131,6 +131,14 @@
 			</digest>
 			<description>
 				Oversampling factor for the core filter algorithm. Can be 2, 4 or 8. Default 4. Can only be a typed in argument.
+			</description>
+		</objarg>
+		<objarg name="resonance" type="float" default="1." optional="1">
+			<digest>
+				arg#2: initial resonance
+			</digest>
+			<description>
+				Sets the initially used resonance amount (inlet 3) for if setting up a static filter.
 			</description>
 		</objarg>
 	</objarglist>

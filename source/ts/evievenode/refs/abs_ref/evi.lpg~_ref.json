@@ -34,19 +34,19 @@
         {
             "id": 3,
             "type": "signal/float",
-            "digest": "Resonance 0..2",
+            "digest": "Resonance 0..2 (default 1.)",
             "description": "Filter resonance. Effect depends on other settings, such as @boom, @lpg and @vca."
         },
         {
             "id": 4,
             "type": "signal/float",
-            "digest": "Vactrol Rise in ms",
+            "digest": "Vactrol Rise in ms (default 0.416667)",
             "description": "Ping attack time in ms."
         },
         {
             "id": 5,
             "type": "signal/float",
-            "digest": "Vactrol Fall in ms",
+            "digest": "Vactrol Fall in ms (default 62.5)",
             "description": "Ping decay time in ms."
         },
         {
@@ -102,6 +102,14 @@
             "optional": 1,
             "digest": "arg#1: oversampling factor",
             "description": "Oversampling factor for the core filter algorithm. Can be 2, 4 or 8. Default 4. Can only be a typed in argument."
+        },
+        {
+            "name": "resonance",
+            "type": "float",
+            "default": "1.",
+            "optional": 1,
+            "digest": "arg#2: initial resonance",
+            "description": "Sets the initially used resonance amount (inlet 3) for if setting up a static filter."
         }
     ],
     "messages": [],
