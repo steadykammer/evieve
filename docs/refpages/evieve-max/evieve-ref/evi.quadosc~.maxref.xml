@@ -46,7 +46,7 @@
     </objarg>
     <objarg id="1" name="syncout" type="int" optional="1">
       <digest>Add Sync Outlets 0/1 (default 0)</digest>
-      <description>Syncout can only be a typed in argument and is not dynamic.</description>
+      <description>Syncout can only be a typed in argument and is not dynamic. Syncout creates two additional outlets to the object for sync signals.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -89,7 +89,7 @@
       <digest>Syncout mode 0/1 (0 = no sync outlets, the default, 1 = add sync outlets)</digest>
       <description>
         <m>syncout</m>
-can only be a typed in attribute and is not dynamic.      </description>
+can only be a typed in attribute and is not dynamic. Syncout creates two additional outlets to the object for sync signals.      </description>
       <attributelist>
         <attribute name="basic" get="0" set="1" type="int" size="1" value="0"></attribute>
         <attribute name="label" get="0" set="0" type="symbol" size="1" value="Sync Outputs Mode 0/1"></attribute>

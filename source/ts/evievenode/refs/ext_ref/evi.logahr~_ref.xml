@@ -134,7 +134,7 @@
 				Clears the internal filter state
 			</digest>
 			<description>
-				This should never be needed :-)
+				This clears the state of the filter. This should never be needed :-)
 			</description>
 		</method>
 		<method name="signal">

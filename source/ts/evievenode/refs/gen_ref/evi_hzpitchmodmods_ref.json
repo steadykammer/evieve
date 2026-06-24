@@ -19,7 +19,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Pitch or Hz",
-            "digest": "The required cutoff frequency, units depend on the @mode attribute, by default this is in Pitch."
+            "digest": "The required cutoff frequency, units depend on the @mode attribute, by default this is in Hz."
         },
         {
             "id": 2,
@@ -99,7 +99,7 @@
             "name": "mode",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If mode == 1, inlet 1 is required to be in Pitch values (the default). If mode == 0, inlet 1 is required to be in Hz values and inlet 2 (pitch) is ignored.",
+            "description": "If mode == 1, inlet 1 is required to be in Pitch values. If mode == 0, inlet 1 is required to be in Hz values (the default) and inlet 2 (pitch FM) is ignored.",
             "default": {
                 "type": "int",
                 "value": "0"

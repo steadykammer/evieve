@@ -4,7 +4,7 @@
         "child": "evi.vcf~",
         "category": "evieve",
         "digest": "Reimplementation of Pd 'vcf~' filter",
-        "description": "A twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as <o>evi.bp~</o>."
+        "description": "A twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as <o>evi.bp~</o>. In <o>evi.vcf~</o> there is an additional highpass output, as well as the bandpass and lowpass outputs available in Pd."
     },
     "constructor": {
         "inlets": "audio, cuttof, q"

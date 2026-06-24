@@ -24,7 +24,7 @@
     <geninletlist>
         <geninlet name='cutoff' type='float' optional='1'>
             <digest>
-                in Pitch or Hz. The required cutoff frequency, units depend on the @mode attribute, by default this is in Pitch.
+                in Pitch or Hz. The required cutoff frequency, units depend on the @mode attribute, by default this is in Hz.
             </digest>
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>
@@ -77,10 +77,10 @@
                 @min 0, @max 1
             </digest>
             <description>
-                If mode &#x3D;&#x3D; 1, inlet 1 is required to be in Pitch values (the default). If mode &#x3D;&#x3D; 0, inlet 1 is required to be in Hz values and inlet 2 (pitch) is ignored.
+                If mode &#x3D;&#x3D; 1, inlet 1 is required to be in Pitch values. If mode &#x3D;&#x3D; 0 (the default), inlet 1 is required to be in Hz values and inlet 2 (pitch FM) is ignored.
             </description>
             <attributelist>
-                <attribute name='default' type='int' value='1' />
+                <attribute name='default' type='int' value='0' />
             </attributelist>
         </attribute>
         <attribute name='smooth' type='float' get='0' set='1'>

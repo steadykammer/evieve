@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 0.0, 66.0, 824.0, 756.0 ],
+        "rect": [ 0.0, 66.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -33,7 +33,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 47.0, 439.0, 494.0, 21.0 ],
-                    "text": "Emulation - dynamic virtual analog processing"
+                    "text": "Emulation - virtual analog processing"
                 }
             },
             {
@@ -569,7 +569,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 128.0, 616.0, 358.0, 47.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "evi_overdrive_env = evi.overdrive.env~\nevi_overdrive_wrap = evi.overdrive.wrap~\nevi_overdrive_fold = evi.overdrive.fold~"
                                 }
                             },

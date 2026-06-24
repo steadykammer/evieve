@@ -83,7 +83,7 @@
 				Mode 0 or 1
 			</digest>
 			<description>
-				'Mode' can only be a typed in argument and is not dynamic. If the 2nd argument is integer it represents mode, otherwise if the 2nd argument is float an integer representing mode must be the third argument. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.
+				'Mode' can only be a typed in argument and is not dynamic. If the 2nd argument is integer it represents mode, otherwise if the 2nd argument is float, an integer representing mode must be the third argument. Mode switches between mono and stereo inputs for the object. If mode == 1 new inlets appear for the additional inputs.
 			</description>
 		</objarg>
 	</objarglist>

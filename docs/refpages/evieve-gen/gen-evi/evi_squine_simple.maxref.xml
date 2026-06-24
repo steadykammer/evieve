@@ -77,6 +77,7 @@
         <metadata name='tag'>GenDsp</metadata>
     </metadatalist>
     <seealsolist>
+        <seealso name='evi_quadfmpm' display='evi_quadfmpm' type='genrefpage' />
         <seealso name='evi_paf' display='evi_paf' type='genrefpage' />
         <seealso name='evi_vosim_basic' display='evi_vosim_basic' type='genrefpage' />
         <seealso name='evi_4wave' display='evi_4wave' type='genrefpage' />

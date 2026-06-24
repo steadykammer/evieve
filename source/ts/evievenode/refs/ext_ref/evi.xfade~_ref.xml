@@ -8,7 +8,7 @@
 		Crossfade audio signals
 	</digest>
 	<description>
-		Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups.
+		Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups are available.
 	</description>
 	<!--METADATA-->
 	<metadatalist>

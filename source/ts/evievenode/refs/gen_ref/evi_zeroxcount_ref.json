@@ -4,7 +4,7 @@
         "child": "evi.zeroxcount~",
         "category": "evieve",
         "digest": "Like MSP <o>zerox~</o> with controls for window size and threshold, with simultaneous analysis outputs",
-        "description": "This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings."
+        "description": "This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and running # of crossings."
     },
     "constructor": {
         "inlets": "input, reset"
@@ -68,7 +68,7 @@
             "name": "thresh",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "If count/window size is > than this threshold, report a gate event (middle outlet).",
+            "description": "If count divided by window size is greater than this threshold, report a gate event (middle outlet).",
             "default": {
                 "type": "float",
                 "value": "0.1"

@@ -935,7 +935,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Source", "evieve Antialiased" ],
         "keywords": [],
-        "seealso": [ "evi.saw~", "evi.rect~", "evi.4wave~", "ev.tri.select~", "evi.blitwaves~" ]
+        "seealso": [ "evi.saw~", "evi.rect~", "evi.4wave~", "evi.tri.select~", "evi.blitwaves~" ]
     },
     "evi.vactrol~": {
         "digest": "Vactrol response time domain filter envelope",
@@ -1019,7 +1019,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Oscillator", "evieve Effect", "evieve Noise" ],
         "keywords": [],
-        "seealso": [ "evi.blitwaves~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~" ]
+        "seealso": [ "evi.blitwaves~", "evi.audiodust~", "evi.velvetnoise~", "evi.gaussiannoise~", "evi.zeroxcount~", "evi.randy~" ]
     },
     "evi.zitaverb~": {
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",

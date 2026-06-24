@@ -93,7 +93,7 @@
             "name": "envasym",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit. This @envasym attribute turns the envelope at the asymmetry stage on or off.",
+            "description": "This @envasym attribute turns the envelope follower gain at the asymmetry stage on or off. If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double envelope gain staging before the saturation stage which can be extreme in effect. If both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit (not really the point of evi.valve~).",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -113,7 +113,7 @@
             "name": "envinterval",
             "type": "int",
             "digest": "@min 100, @max 2000",
-            "description": "The averaging period in samples of the internal envelope follower, and therefore also the entire object latency (reported out the far right outloet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.",
+            "description": "The averaging period in samples of the internal envelope follower averaging, and therefore also the entire object latency (reported out the far right outlet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.",
             "default": {
                 "type": "int",
                 "value": "200"
@@ -123,7 +123,7 @@
             "name": "envrelease",
             "type": "int",
             "digest": "@min 100, @max samplerate",
-            "description": "Envelope detection release time in samples. Not a plain 'release' as this is affected by other attributes such as @envinterval and @envshape.",
+            "description": "Envelope detection release time in samples. Not a plain 'release' as the response of the envelope is affected by other attributes such as @envinterval and @envshape.",
             "default": {
                 "type": "int",
                 "value": "2000"
@@ -133,7 +133,7 @@
             "name": "envscale",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Scales the main gain envelope. At '0.' the envelope is at it's most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.",
+            "description": "Scales the main gain envelope. At '0.' the envelope is at it's most dynamic, the higher this attribute value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values mean a higher gain floor.",
             "default": {
                 "type": "float",
                 "value": "0.25"
@@ -143,7 +143,7 @@
             "name": "envshape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Transform the envelope shape between flat ('0') and sharp('1'). Controls frequency response of internal vactrol filter.",
+            "description": "Transform the envelope shape between flat ('0') and sharp('1'). This controls the frequency response of the internal vactrol filters.",
             "default": {
                 "type": "float",
                 "value": "0.5"
@@ -153,7 +153,7 @@
             "name": "envvalve",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit. This @envvalve attribute turns the envelope at the core saturation stage on or off.",
+            "description": "This @envvalve attribute turns the envelope follower gain at the core saturation stage on or off. If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double envelope gain staging before the saturation stage which can be extreme in effect. If both attributes are off we have no dynamic gain envelopes and have a quasi 'static' distortion unit (not really the point of evi.valve~).",
             "default": {
                 "type": "int",
                 "value": "0"
@@ -163,7 +163,7 @@
             "name": "highpass",
             "type": "float",
             "digest": "@min 10, @max 400",
-            "description": "Final highpass on the output to help tame the bass.",
+            "description": "Final highpass filter on the output to help tame the bass.",
             "default": {
                 "type": "float",
                 "value": "40."
@@ -183,7 +183,7 @@
             "name": "makeup",
             "type": "float",
             "digest": "@min 0, @max 10",
-            "description": "Makeup gain is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!",
+            "description": "Makeup gain in dB. This is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!",
             "default": {
                 "type": "float",
                 "value": "0."

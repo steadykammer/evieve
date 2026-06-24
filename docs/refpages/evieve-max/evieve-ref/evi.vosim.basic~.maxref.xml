@@ -9,7 +9,7 @@
 		<b>evi.vosim.basic~</b> is a 'max define' for the <o>evi_vosim_basic</o>.gendsp gen~ abstraction.
 		Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single <o>evi.vosim.basic~</o> instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. This has since been put into the gen~ examples folder as 'gen~.vosim'. <br />
+		This is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However, a single <o>evi.vosim.basic~</o> instance can provide a novel oscillator for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -104,6 +104,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        This originally comes from a forum thread with contributions by Gregory Taylor, jvkr and Oli Larkin. This has since been put into the gen~ examples folder as 'gen~.vosim'. See <o>evi.paf~</o> for an alternative. <br />
 	</discussion>
 </c74object>

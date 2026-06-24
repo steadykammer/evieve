@@ -210,7 +210,7 @@
             "name": "oscsmoothfreq",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "Smoothing time for the oscillator frequency control (inlet 2). This should be turned off (set to 0) if audio rate modulating this control externally.",
+            "description": "Smoothing time for the oscillator frequency control (inlet 2). This should be turned off (set to 0.) if audio rate modulating inlet 2 externally.",
             "default": {
                 "type": "float",
                 "value": "22."
@@ -220,7 +220,7 @@
             "name": "oscsmoothinterp",
             "type": "float",
             "digest": "@min 0, @max 1000",
-            "description": "Smooth the interpolation (inlet 4) of the oscillator mixing function. It is recommended this is alsways smoothed.",
+            "description": "Smooth the interpolation (inlet 4) of the oscillator mixing function. It is recommended that this is always smoothed (and is by default).",
             "default": {
                 "type": "float",
                 "value": "30.111"

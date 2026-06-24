@@ -70,7 +70,7 @@
 				Initial Attack Time in milliseconds
 			</digest>
 			<description>
-				Amount of time the value takes to attack. evi.logdecay~ is logarithmic and does not attack in this time exactly.
+				Amount of time the value takes to attack. evi.logattackdecay~ is logarithmic and does not attack in this time exactly.
 			</description>
 		</objarg>
 		<objarg id="1" name="decay" type="float" optional="1">
@@ -78,7 +78,7 @@
 				Initial Decay Time in milliseconds
 			</digest>
 			<description>
-				Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.
+				Amount of time the value takes to decay. evi.logattackdecay~ is logarithmic and does not decay in this time exactly.
 			</description>
 		</objarg>
 	</objarglist>
@@ -116,7 +116,7 @@
 				Clears the internal filter state
 			</digest>
 			<description>
-				This should never be needed :-)
+				This clears the state of the filter. This should never be needed :-)
 			</description>
 		</method>
 		<method name="signal">
@@ -138,7 +138,7 @@
 				Attack Time in ms
 			</digest>
 			<description>
-				Amount of time the value takes to attack. evi.logdecay~ is logarithmic and does not attack in this time exactly.
+				Amount of time the value takes to attack. evi.logattackdecay~ is logarithmic and does not attack in this time exactly.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />
@@ -150,7 +150,7 @@
 				Decay Time in ms
 			</digest>
 			<description>
-				Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.
+				Amount of time the value takes to decay. evi.logattackdecay~ is logarithmic and does not decay in this time exactly.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />

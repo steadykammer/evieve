@@ -9,7 +9,7 @@
 		<b>evi.velvetnoise~</b> is a 'max define' for the <o>evi_velvetnoise</o>.gendsp gen~ abstraction.
 		Because evi.velvetnoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		This object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.' <br />
+		This object can actually interpolate between 'sparse noise' and 'velvet noise' (at the first outlet, via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.' <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -78,7 +78,7 @@
 				Linear amplitude
 			</digest>
 			<description>
-				The amplitude of the &#x27;velvet noise&#x27; algorithm. Setting this to anything other than &#x27;1&#x27; (the default) would be atypical, but might produce some interesting mixing effects.
+				The amplitude of the &#x27;velvet noise&#x27; algorithm. Setting this to anything other than &#x27;1&#x27; (the default) would be atypical, but might be useful in mixing situations.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="1." />

@@ -80,7 +80,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit. This @envasym attribute turns the envelope at the asymmetry stage on or off.
+                This @envasym attribute turns the envelope follower gain at the asymmetry stage on or off. If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double envelope gain staging before the saturation stage which can be extreme in effect. If both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit (not really the point of evi.valve~).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -102,7 +102,7 @@
                 @min 100, @max 2000
             </digest>
             <description>
-                The averaging period in samples of the internal envelope follower, and therefore also the entire object latency (reported out the far right outloet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.
+                The averaging period in samples of the internal envelope follower averaging, and therefore also the entire object latency (reported out the far right outlet). Shorter values are generally better for more transient material, longer values for more sustained material, but always worth experimenting as interesting hysterisis effects can be achieved if forcing this value to be quirky sizes.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='200' />
@@ -113,7 +113,7 @@
                 @min 100, @max samplerate
             </digest>
             <description>
-                Envelope detection release time in samples. Not a plain &#x27;release&#x27; as this is affected by other attributes such as @envinterval and @envshape.
+                Envelope detection release time in samples. Not a plain &#x27;release&#x27; as the response of the envelope is affected by other attributes such as @envinterval and @envshape.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='2000' />
@@ -124,7 +124,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Scales the main gain envelope. At &#x27;0.&#x27; the envelope is at it&#x27;s most dynamic, the higher the value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values are basically a gain boosting control.
+                Scales the main gain envelope. At &#x27;0.&#x27; the envelope is at it&#x27;s most dynamic, the higher this attribute value the more compressed the envelope is, but also the highjer gain the envelope is on average. Higher values mean a higher gain floor.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.25' />
@@ -135,7 +135,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Transform the envelope shape between flat (&#x27;0&#x27;) and sharp(&#x27;1&#x27;). Controls frequency response of internal vactrol filter.
+                Transform the envelope shape between flat (&#x27;0&#x27;) and sharp(&#x27;1&#x27;). This controls the frequency response of the internal vactrol filters.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />
@@ -146,7 +146,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double enveloping before the saturation stage which can be extreme in effect, if both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit. This @envvalve attribute turns the envelope at the core saturation stage on or off.
+                This @envvalve attribute turns the envelope follower gain at the core saturation stage on or off. If one of the @envasym or @envvalve attributes is active, we have a single dynamic gain envelope (normal operation), if both attributes are active we have double envelope gain staging before the saturation stage which can be extreme in effect. If both attributes are off we have no dynamic gain envelopes and have a quasi &#x27;static&#x27; distortion unit (not really the point of evi.valve~).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />
@@ -157,7 +157,7 @@
                 @min 10, @max 400
             </digest>
             <description>
-                Final highpass on the output to help tame the bass.
+                Final highpass filter on the output to help tame the bass.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='40.' />
@@ -179,7 +179,7 @@
                 @min 0, @max 10
             </digest>
             <description>
-                Makeup gain is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!
+                Makeup gain in dB. This is very dangerous, as it is post saturation and so you could clip the output. Required sometimes depending on envelope settings and input material. Use with great care!
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

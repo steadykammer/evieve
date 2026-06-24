@@ -97,7 +97,7 @@
 				Add Sync Outlets 0/1 (default 0)
 			</digest>
 			<description>
-				Syncout can only be a typed in argument and is not dynamic.
+				Syncout can only be a typed in argument and is not dynamic. Syncout creates two additional outlets to the object for sync signals.
 			</description>
 		</objarg>
 	</objarglist>
@@ -164,7 +164,7 @@
 				Syncout mode 0/1 (0 = no sync outlets, the default, 1 = add sync outlets)
 			</digest>
 			<description>
-				<m>syncout</m> can only be a typed in attribute and is not dynamic.
+				<m>syncout</m> can only be a typed in attribute and is not dynamic. Syncout creates two additional outlets to the object for sync signals.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="0" set="1" type="int" size="1" value="0" />

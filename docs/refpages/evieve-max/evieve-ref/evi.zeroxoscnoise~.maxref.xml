@@ -237,7 +237,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smoothing time for the oscillator frequency control (inlet 2). This should be turned off (set to 0) if audio rate modulating this control externally.
+				Smoothing time for the oscillator frequency control (inlet 2). This should be turned off (set to 0.) if audio rate modulating inlet 2 externally.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="22." />
@@ -248,7 +248,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the interpolation (inlet 4) of the oscillator mixing function. It is recommended this is alsways smoothed.
+				Smooth the interpolation (inlet 4) of the oscillator mixing function. It is recommended that this is always smoothed (and is by default).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="30.111" />
@@ -263,8 +263,8 @@
 	<seealsolist>
 		<seealso name="evi.blitwaves~"> </seealso>
 		<seealso name="evi.audiodust~"> </seealso>
-		<seealso name="evi.gaussiannoise~"> </seealso>
 		<seealso name="evi.velvetnoise~"> </seealso>
+		<seealso name="evi.gaussiannoise~"> </seealso>
 		<seealso name="evi.zeroxcount~"> </seealso>
 		<seealso name="evi.randy~"> </seealso>
 	</seealsolist>

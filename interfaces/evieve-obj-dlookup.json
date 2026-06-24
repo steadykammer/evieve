@@ -682,17 +682,17 @@
     "evi.vcf~": {
         "type": "define",
         "digest": "Reimplementation of Pd 'vcf~' filter",
-        "description": "evi.vcf~ is a 'max define' for the evi_vcf.gendsp gen~ abstraction. Because evi.vcf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as evi.bp~."
+        "description": "evi.vcf~ is a 'max define' for the evi_vcf.gendsp gen~ abstraction. Because evi.vcf~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA twopole linear multimode filter. It is very interesting though. The Pd helpfile says of the cutoff frequency '...may change continuously in time as in an analog voltage controlled filter', but this is not true as it is a direct form filter. However, ymmv. [vcf~] is basically an audio rate version of [bp~] from Pd, which is also ported in evieve as evi.bp~. In evi.vcf~ there is an additional highpass output, as well as the bandpass and lowpass outputs available in Pd."
     },
     "evi.velvetnoise~": {
         "type": "define",
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
-        "description": "evi.velvetnoise~ is a 'max define' for the evi_velvetnoise.gendsp gen~ abstraction. Because evi.velvetnoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the evi.audiodust~ algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'"
+        "description": "evi.velvetnoise~ is a 'max define' for the evi_velvetnoise.gendsp gen~ abstraction. Because evi.velvetnoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis object can actually interpolate between 'sparse noise' and 'velvet noise' (at the first outlet, via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the evi.audiodust~ algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'"
     },
     "evi.vosim.basic~": {
         "type": "define",
         "digest": "A basic implementation of a 'vosim' formant oscillator",
-        "description": "evi.vosim.basic~ is a 'max define' for the evi_vosim_basic.gendsp gen~ abstraction. Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However single evi.vosim.basic~ instances can provide novel oscillators for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited. This has since been put into the gen~ examples folder as 'gen~.vosim'."
+        "description": "evi.vosim.basic~ is a 'max define' for the evi_vosim_basic.gendsp gen~ abstraction. Because evi.vosim.basic~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a 'raw' formant oscillator with low level controls capable of modelling the human voice, typically used in a bank of multiple oscillators to do so. However, a single evi.vosim.basic~ instance can provide a novel oscillator for more generic synthesis, and is capable of ringing filtered-like tones. The VOSIM algorithm is inherently bandlimited."
     },
     "evi.warmer~": {
         "type": "abstraction",
@@ -707,7 +707,7 @@
     "evi.wavefolder~": {
         "type": "define",
         "digest": "Antialiased wavefolder device for shaping oscillators, simultaneous outputs up to four stages",
-        "description": "evi.wavefolder~ is a 'max define' for the evi_wavefolder.gendsp gen~ abstraction. Because evi.wavefolder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See evi.wavefolder.cascade~ for a version with more options."
+        "description": "evi.wavefolder~ is a 'max define' for the evi_wavefolder.gendsp gen~ abstraction. Because evi.wavefolder~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade of 4 stages, 3 stages, 2 stages or 1 stage, available at four different outlets. See evi.wavefolder.cascade~ for a version with more options."
     },
     "evi.weightingcoeffs": {
         "type": "abstraction",
@@ -717,12 +717,12 @@
     "evi.xfade~": {
         "type": "external",
         "digest": "Crossfade audio signals",
-        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups."
+        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups are available."
     },
     "evi.zeroxcount~": {
         "type": "define",
         "digest": "Like MSP zerox~ with controls for window size and threshold, with simultaneous analysis outputs",
-        "description": "evi.zeroxcount~ is a 'max define' for the evi_zeroxcount.gendsp gen~ abstraction. Because evi.zeroxcount~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings."
+        "description": "evi.zeroxcount~ is a 'max define' for the evi_zeroxcount.gendsp gen~ abstraction. Because evi.zeroxcount~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and running # of crossings."
     },
     "evi.zeroxoscnoise~": {
         "type": "define",

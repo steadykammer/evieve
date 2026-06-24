@@ -33,11 +33,11 @@
   <objarglist>
     <objarg id="0" name="attack" type="float" optional="1">
       <digest>Initial Attack Time in milliseconds</digest>
-      <description>Amount of time the value takes to attack. evi.logdecay~ is logarithmic and does not attack in this time exactly.</description>
+      <description>Amount of time the value takes to attack. evi.logattackdecay~ is logarithmic and does not attack in this time exactly.</description>
     </objarg>
     <objarg id="1" name="decay" type="float" optional="1">
       <digest>Initial Decay Time in milliseconds</digest>
-      <description>Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.</description>
+      <description>Amount of time the value takes to decay. evi.logattackdecay~ is logarithmic and does not decay in this time exactly.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -62,7 +62,7 @@
     <method name="clear">
       <arglist></arglist>
       <digest>Clears the internal filter state</digest>
-      <description>This should never be needed :-)</description>
+      <description>This clears the state of the filter. This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
@@ -75,7 +75,7 @@
   <attributelist>
     <attribute name="attack" get="1" set="1" type="float" size="1">
       <digest>Attack Time in ms</digest>
-      <description>Amount of time the value takes to attack. evi.logdecay~ is logarithmic and does not attack in this time exactly.</description>
+      <description>Amount of time the value takes to attack. evi.logattackdecay~ is logarithmic and does not attack in this time exactly.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Attack Time in ms"></attribute>
@@ -83,7 +83,7 @@
     </attribute>
     <attribute name="decay" get="1" set="1" type="float" size="1">
       <digest>Decay Time in ms</digest>
-      <description>Amount of time the value takes to decay. evi.logdecay~ is logarithmic and does not decay in this time exactly.</description>
+      <description>Amount of time the value takes to decay. evi.logattackdecay~ is logarithmic and does not decay in this time exactly.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Decay Time in ms"></attribute>

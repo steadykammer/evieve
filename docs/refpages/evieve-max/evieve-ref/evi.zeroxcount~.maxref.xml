@@ -9,7 +9,7 @@
 		<b>evi.zeroxcount~</b> is a 'max define' for the <o>evi_zeroxcount</o>.gendsp gen~ abstraction.
 		Because evi.zeroxcount~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and # of crossings. <br />
+		This was built for a very specific need but might be useful as a controller. It is very similar to the RNBO 'zerox_count~' object but with simultaneous outlets for a > threshold gate and running # of crossings. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -88,7 +88,7 @@
 				Linear 0..1
 			</digest>
 			<description>
-				If count/window size is &gt; than this threshold, report a gate event (middle outlet).
+				If count divided by window size is greater than this threshold, report a gate event (middle outlet).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="0" size="1" value="0.1" />

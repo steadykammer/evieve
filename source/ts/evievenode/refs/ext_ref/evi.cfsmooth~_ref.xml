@@ -111,7 +111,7 @@
 				Clears the internal filter state
 			</digest>
 			<description>
-				This should never be needed :-)
+				This clears the state of the filter. This should never be needed :-)
 			</description>
 		</method>
 		<method name="signal">
@@ -144,7 +144,7 @@
 				Smoothing Time in ms
 			</digest>
 			<description>
-				The ramp time in ms. Because evi.cfsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
+				The ramp time in ms. Because evi.cfsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the allotted time. Note that the minimum time the object can use is 1 millisecond due to internal approximations employed.
 			</description>
 			<attributelist>
 				<attribute name="basic" get="1" set="1" type="int" size="1" value="1" />

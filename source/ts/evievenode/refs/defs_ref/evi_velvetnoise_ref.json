@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Interpolating 'sparse noise' / 'velvet noise' audio source",
-        "description": "This object can actually interpolate between 'sparse noise' and 'velvet noise' (first outlet via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'",
+        "description": "This object can actually interpolate between 'sparse noise' and 'velvet noise' (at the first outlet, via the second 'mix' inlet), but also outlets both 'sparse' and 'velvet' simultaneously from auxilliary outlets. The 'sparse noise' is an alternative to the <o>evi.audiodust~</o> algorithm. Wikipedia: 'Velvet noise is a sparse sequence of random positive and negative impulses, typically characterised by its density in taps/second. At high densities it sounds similar to white noise. However, it is perceptually smoother.'",
         "discussion": "Sort of based on: Matti Karjalainen and Hanna Jarvelainen, 'Reverberation Modeling Using Velvet Noise', in Proc. 30th Int. Conf. Intelligent Audio Environments (AES07), March 2007."
     },
     "metadata": {
@@ -60,7 +60,7 @@
             "get": 1,
             "type": "float",
             "digest": "Linear amplitude",
-            "description": "The amplitude of the 'velvet noise' algorithm. Setting this to anything other than '1' (the default) would be atypical, but might produce some interesting mixing effects.",
+            "description": "The amplitude of the 'velvet noise' algorithm. Setting this to anything other than '1' (the default) would be atypical, but might be useful in mixing situations.",
             "default": {
                 "min": "0",
                 "max": "1",

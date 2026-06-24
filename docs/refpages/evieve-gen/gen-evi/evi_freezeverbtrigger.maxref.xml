@@ -11,7 +11,7 @@
         evi_freezeverbtrigger.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    This is a basic Schroeder reverb effect but with additional filtering and controls. The main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. In the <o>evi.freezeverb~</o>) abstraction, which wraps the <o>evi_freezeverb</o> gen~ abstraction, this freezing effect is achieved at message rate. The point of this <o>evi_freezeverbtrigger</o> abstraction is to offer the freeze and retrigger functions as audio-rate inlets so that triggering the effect can be done in audio only control rate processing scenarios. <br />
+	    This is a basic Schroeder reverb effect but with additional filtering and controls. The main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. In the <o>evi.freezeverb~</o> Max abstraction, which wraps the <o>evi_freezeverb</o> gen~ abstraction, this freezing effect is achieved at message rate. The point of this <o>evi_freezeverbtrigger</o> gen~ abstraction is to offer the freeze and retrigger functions as audio-rate inlets so that triggering the effect can be done in audio only control rate processing scenarios. See the 'audio rate' tab of the <o>evi.freezeverb~</o> helpfile for an example of this. <br />
     </description>
     <methodlist />
     <constructorlist>

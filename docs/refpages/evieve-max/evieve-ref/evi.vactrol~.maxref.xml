@@ -49,7 +49,7 @@
     </objarg>
     <objarg id="4" name="fix" type="int" optional="1">
       <digest>Fix mode of the object, 0/1</digest>
-      <description>Fix changes between two objects and is instantiation only. If fix = 0 (the default) the object has three inlets and can be controlled by rise, fall, shape and scalar. If fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (scalar can still be used).</description>
+      <description>Fix changes between two objects and is instantiation only. If fix = 0 (the default) the object has three inlets and can be controlled by these and also @rise, @fall, @shape and @scalar. If fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (@scalar can still be used). Fix == 1 is cheaper to compute but less versatile.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -72,7 +72,7 @@
     <method name="clear">
       <arglist></arglist>
       <digest>Clears the internal filter state</digest>
-      <description>This should never be needed :-)</description>
+      <description>This clears the state of the filter. This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
@@ -89,6 +89,14 @@
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Fall Time in Samples"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="fix" get="1" set="1" type="int" size="1">
+      <digest>Fix mode of the object, 0/1</digest>
+      <description>Fix changes between two objects and is instantiation only. If @fix = 0 (the default) the object has three inlets and can be controlled by these and also @rise, @fall, @shape and @scalar. If @fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (@scalar can still be used). Fix == 1 is cheaper to compute but less versatile.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Mode of Operation"></attribute>
       </attributelist>
     </attribute>
     <attribute name="rise" get="1" set="1" type="float" size="1" alias="up">

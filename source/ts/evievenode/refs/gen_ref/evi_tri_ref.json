@@ -58,6 +58,10 @@
         {
             "name": "evi_blitwaves",
             "display": "evi_blitwaves"
+        },
+        {
+            "name": "evi_tri_select",
+            "display": "evi_tri_select"
         }
     ]
 }

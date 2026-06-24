@@ -55,7 +55,7 @@
     <method name="clear">
       <arglist></arglist>
       <digest>Clears the internal filter state</digest>
-      <description>This should never be needed :-)</description>
+      <description>This clears the state of the filter. This should never be needed :-)</description>
     </method>
     <method name="signal">
       <arglist></arglist>
@@ -67,7 +67,7 @@
   <attributelist>
     <attribute name="time" get="1" set="1" type="float" size="1" alias="ms, smooth">
       <digest>Smoothing Time in ms</digest>
-      <description>The ramp time in ms. Because evi.lagsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the alloted time.</description>
+      <description>The ramp time in ms. Because evi.lagsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the allotted time.</description>
       <attributelist>
         <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
         <attribute name="label" get="1" set="1" type="symbol" size="1" value="Smoothing Time in ms"></attribute>

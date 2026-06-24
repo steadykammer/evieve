@@ -10,7 +10,7 @@
                  <br />
         evi_wavefolder is also available in MSP as: <o>evi.wavefolder~</o>. <br />
          <br />
-	    An analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade for four simultaneous outputs of 4 stages, 3 stages, 2 stages or 1 stage. See <o>evi.wavefolder.cascade~</o> for a version with more options. <br />
+	    An analog model of the 'Lockhart Wavefolder' employing antiderivative antialiasing via Lambert-W functions. The waveshaper takes a simple audio signal and aggressively folds and clips it to produce new shapes and harmonics in the style of west coast synthesis. This 'simple' version has a fixed cascade of 4 stages, 3 stages, 2 stages or 1 stage, available at four different outlets. See <o>evi.wavefolder.cascade~</o> for a version with more options. <br />
     </description>
     <methodlist />
     <constructorlist>
