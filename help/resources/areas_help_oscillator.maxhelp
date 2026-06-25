@@ -681,6 +681,77 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-33",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 113.0, 311.0, 124.0, 20.0 ],
+                                    "text": "[evi_squine_simple]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-32",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 415.0, 242.0, 124.0, 20.0 ],
+                                    "text": "[evi_blitwaves]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-31",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 113.0, 380.0, 124.0, 20.0 ],
+                                    "text": "[evi_zeroxoscnoise]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-29",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 472.0, 173.0, 117.0, 20.0 ],
+                                    "text": "[evi_sine_select]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-28",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 359.0, 173.0, 117.0, 20.0 ],
+                                    "text": "[evi_tri_select]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-27",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 238.0, 173.0, 117.0, 20.0 ],
+                                    "text": "[evi_rect_select]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-26",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 113.0, 173.0, 117.0, 20.0 ],
+                                    "presentation_linecount": 2,
+                                    "text": "[evi_saw_select]"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-19",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -688,17 +759,6 @@
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 307.0, 379.0, 76.0, 22.0 ],
                                     "text": "evi_quadosc"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-11",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 6,
-                                    "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 116.0, 379.0, 107.0, 22.0 ],
-                                    "text": "evi_zeroxoscnoise"
                                 }
                             },
                             {
@@ -747,28 +807,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-15",
-                                    "maxclass": "newobj",
-                                    "numinlets": 5,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 116.0, 310.0, 107.0, 22.0 ],
-                                    "text": "evi_squine_simple"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-14",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 6,
-                                    "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 418.0, 241.0, 80.0, 22.0 ],
-                                    "text": "evi_blitwaves"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-13",
                                     "maxclass": "newobj",
                                     "numinlets": 3,
@@ -791,50 +829,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-10",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 475.0, 172.0, 91.0, 22.0 ],
-                                    "text": "evi_sine_select"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-9",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 363.0, 172.0, 79.0, 22.0 ],
-                                    "text": "evi_tri_select"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-8",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 241.0, 172.0, 89.0, 22.0 ],
-                                    "text": "evi_rect_select"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-7",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 116.0, 172.0, 90.0, 22.0 ],
-                                    "text": "evi_saw_select"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-6",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -842,39 +836,6 @@
                                     "outlettype": [ "", "", "", "", "" ],
                                     "patching_rect": [ 358.0, 103.0, 65.0, 22.0 ],
                                     "text": "evi_4wave"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 284.0, 103.0, 41.0, 22.0 ],
-                                    "text": "evi_tri"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-3",
-                                    "maxclass": "newobj",
-                                    "numinlets": 3,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 200.0, 103.0, 51.0, 22.0 ],
-                                    "text": "evi_rect"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-2",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 116.0, 103.0, 52.0, 22.0 ],
-                                    "text": "evi_saw"
                                 }
                             },
                             {
@@ -919,6 +880,36 @@
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 599.0, 172.0, 92.0, 22.0 ],
                                     "text": "evi_classic_osc"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-25",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 281.0, 104.0, 59.0, 20.0 ],
+                                    "text": "[evi_tri]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-24",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 197.0, 104.0, 59.0, 20.0 ],
+                                    "text": "[evi_rect]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-23",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 113.0, 104.0, 59.0, 20.0 ],
+                                    "text": "[evi_saw]"
                                 }
                             }
                         ],

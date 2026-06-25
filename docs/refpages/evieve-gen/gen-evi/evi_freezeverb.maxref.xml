@@ -11,7 +11,7 @@
         evi_freezeverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. In gen~ alone (as opposed to the MSP abstraction <o>evi.freezeverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction, and all static delay times are produced in an external javascript. If used at 48kHz samplerate the static delay times will work without further intervention. Overall it can still be used in gen~ alone providing some plumbing work is done. <br />
+	    This is a basic Schroeder reverb effect but with additional filtering and controls, very servicable for certain situations. But the main feature here is the ability to smoothly capture the input audio in the recirculating feedback path in a way which gives a forever freezing effect. This can be triggered and released with wet+dry or with wet alone. In gen~ alone (as opposed to the MSP abstraction <o>evi.freezeverb~</o>) this is tricky to use as the damping coefficients are produced externally via the <o>evi_damp_coeffs</o>.gendsp abstraction, and all static delay times are produced in an external javascript. If used at 48kHz samplerate the static delay times will work without further intervention. Overall it can still be used in gen~ alone providing some plumbing work is done. For an audio rate triggering version of this abstraction see <o>evi_freezeverbtrigger</o>.gendsp. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -281,7 +281,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                Engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only). (For an audio rate synchronous triggering version of this effect see the &#x27;evi_freezeverbtrigger&#x27; abstraction).
+                Engages the special freeze effect in different ways. 0&#x3D;freeze off, 1&#x3D;freeze on with dry/wet mix, 2&#x3D;freeze on solo (wet only). (For an audio rate synchronous triggering version of this effect see the &#x27;evi_freezeverbtrigger.gendsp&#x27; abstraction).
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

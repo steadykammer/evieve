@@ -22,7 +22,7 @@
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Global 'cores' .genexpr files include. Do not include 'evi_core', 'evi_lib' or 'evi_evieve' together! Only ever use one of these global requires. <br />
   </description>
   <misc name="No Functions (require-only file)">
   </misc>

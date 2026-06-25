@@ -16,13 +16,24 @@
     See the GNU General Public License for more details.
 */
 
-// all evi_libraries functionality in a single require
-// probably not very useful as you will always need evi_core.genexpr required before this as well
-// @see: "evi_evieve.genexpr" for a real global require
+// all evi_core & evi_libraries functionality in a single require (but not the 'object' code)
+// for a global require that includes the object code, @see: 'evi_evieve.genexpr'
 
+// cores
+// require("evi_core.genexpr"); // no, must require individually...
+require("evi_approx.genexpr");
+require("evi_utilities.genexpr");
+require("evi_smooth.genexpr");
+require("evi_cossin.genexpr");
+require("evi_tanh.genexpr");
+require("evi_trig.genexpr");
+require("evi_pade.genexpr");
+require("evi_fastskew.genexpr");
+require("evi_interp.genexpr");
+
+// libs
 require("evi_adaa.genexpr");
-require("evi_biquads.genexpr");
-require("evi_buchla.genexpr");
+require("evi_biquads.genexpr"); // includes multiple biquad requires
 require("evi_butterworth.genexpr");
 require("evi_clipping.genexpr");
 require("evi_counting.genexpr");
@@ -30,15 +41,14 @@ require("evi_crossovers.genexpr");
 require("evi_dynamics.genexpr");
 require("evi_env.genexpr");
 require("evi_lfo.genexpr");
-require("evi_polyblep.genexpr");
+require("evi_polyblep.genexpr"); // includes multiple polyblep requires
 require("evi_ptr.genexpr");
 require("evi_rcfilters.genexpr");
-require("evi_resampling_templates.genexpr");
 require("evi_saturators.genexpr");
 require("evi_sources.genexpr");
-require("evi_svfs.genexpr");
+require("evi_svfs.genexpr"); // includes multiple svf requires
 require("evi_waveshaping.genexpr");
 
-// does not include no tilde (namespace clash):
+// ^^ does not include no tilde (namespace clash):
 // require("evi_biquads_no_tilde.genexpr");
 

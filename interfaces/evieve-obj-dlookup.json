@@ -607,7 +607,7 @@
     "evi.squine.simple~": {
         "type": "define",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
-        "description": "evi.squine.simple~ is a 'max define' for the evi_squine_simple.gendsp gen~ abstraction. Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
+        "description": "evi.squine.simple~ is a 'max define' for the evi_squine_simple.gendsp gen~ abstraction. Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. The oscillator morphs to a pure sine wave above about pitch 110."
     },
     "evi.sustainverb~": {
         "type": "abstraction",

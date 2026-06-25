@@ -4,7 +4,7 @@
         "child": "evi.biquad.eqfilter~",
         "category": "evieve",
         "digest": "EQ Biquad Filters",
-        "description": "All-in-one biquad filter block with selection of eq filter types."
+        "description": "All-in-one biquad filter block with selection of eq filter types. Consider using <o>evi_filter_eq</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

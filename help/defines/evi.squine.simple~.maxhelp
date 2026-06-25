@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -345,7 +345,7 @@
                                             "parameter_initial": [ 110.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[2]",
-                                            "parameter_mmax": 1000.0,
+                                            "parameter_mmax": 500.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "live.numbox",
                                             "parameter_type": 0,
@@ -624,11 +624,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-4",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "A basic FM example. Probably best not to use both modulation inputs simultaneously.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "text": "A basic FM example. Probably best not to use both modulation inputs simultaneously. The Hz FM is not very useful as the range cannot be high before breakup, but the Pitch FM is successful.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2751,7 +2752,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3551,7 +3552,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 39.0, 400.0, 79.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {
@@ -3645,8 +3646,8 @@
                                                         "text": "out 2",
                                                         "patching_rect": [ 900.0, 717.0, 35.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "id": "obj-6",
-                                                        "numoutlets": 0
+                                                        "numoutlets": 0,
+                                                        "id": "obj-6"
                                                     }
                                                 },
                                                 {
@@ -3655,8 +3656,8 @@
                                                         "text": "in 1 Hz",
                                                         "patching_rect": [ 47.0, 32.0, 46.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-1",
                                                         "numoutlets": 1,
+                                                        "id": "obj-1",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -3666,8 +3667,8 @@
                                                         "text": "in 2 Spread",
                                                         "patching_rect": [ 900.0, 32.0, 70.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-2",
                                                         "numoutlets": 1,
+                                                        "id": "obj-2",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -3675,13 +3676,13 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 47.0, 90.0, 872.0, 557.0 ],
-                                                        "fontface": 0,
+                                                        "fontname": "<Monospaced>",
                                                         "numinlets": 2,
+                                                        "fontface": 0,
+                                                        "numoutlets": 2,
                                                         "id": "obj-3",
                                                         "fontsize": 12.0,
-                                                        "numoutlets": 2,
                                                         "outlettype": [ "", "" ],
-                                                        "fontname": "<Monospaced>",
                                                         "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(7, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 148);\r\nspread = evi_expsmooth(in2 * 0.5, 74);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n"
                                                     }
                                                 },
@@ -3691,22 +3692,16 @@
                                                         "text": "out 1",
                                                         "patching_rect": [ 47.0, 717.0, 35.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "id": "obj-4",
-                                                        "numoutlets": 0
+                                                        "numoutlets": 0,
+                                                        "id": "obj-4"
                                                     }
                                                 }
                                             ],
                                             "lines": [
                                                 {
                                                     "patchline": {
-                                                        "source": [ "obj-3", 1 ],
-                                                        "destination": [ "obj-6", 0 ]
-                                                    }
-                                                },
-                                                {
-                                                    "patchline": {
-                                                        "source": [ "obj-3", 0 ],
-                                                        "destination": [ "obj-4", 0 ]
+                                                        "source": [ "obj-1", 0 ],
+                                                        "destination": [ "obj-3", 0 ]
                                                     }
                                                 },
                                                 {
@@ -3717,8 +3712,14 @@
                                                 },
                                                 {
                                                     "patchline": {
-                                                        "source": [ "obj-1", 0 ],
-                                                        "destination": [ "obj-3", 0 ]
+                                                        "source": [ "obj-3", 0 ],
+                                                        "destination": [ "obj-4", 0 ]
+                                                    }
+                                                },
+                                                {
+                                                    "patchline": {
+                                                        "source": [ "obj-3", 1 ],
+                                                        "destination": [ "obj-6", 0 ]
                                                     }
                                                 }
                                             ]
@@ -3732,7 +3733,7 @@
                                     "patching_rect": [ 349.0, 299.0, 210.0, 23.0 ],
                                     "text": "mc.gen~ @title eviMods @chans 8",
                                     "varname": "gen~_AB",
-                                    "wrapper_uniquekey": "u977010543"
+                                    "wrapper_uniquekey": "u032013258"
                                 }
                             },
                             {

@@ -13,7 +13,7 @@
          <br />
         evi_biquad_resonant is also available in MSP as: <o>evi.biquad.resonant~</o>. <br />
          <br />
-	    All-in-one biquad resonant filter block. <br />
+	    All-in-one biquad resonant filter block. Consider using <o>evi_filter_resonant</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

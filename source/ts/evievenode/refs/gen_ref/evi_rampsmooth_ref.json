@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Reimplementation of MSP <o>rampsmooth~</o> in gen abstraction form",
-        "description": "evi_rampsmooth is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by signals (ramp times only update if input value changes), providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well."
+        "description": "evi_rampsmooth is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by signals (ramp times only update if input value changes), providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the original gen~ example by Maurizio Giri and Graham Wakefield. See <o>evi_rampsmoothupdate</o> for an alternative."
     },
     "constructor": {
         "inlets": "input, ramp, ramp"

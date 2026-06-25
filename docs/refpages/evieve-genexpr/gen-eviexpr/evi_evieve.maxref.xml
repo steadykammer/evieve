@@ -11,11 +11,43 @@
     By declaring <m>require("evi_evieve.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
      <br />
     The <b>evi_evieve.genexpr</b> file also requires: <br />
-    evi_core.genexpr <br />
-    evi_lib.genexpr <br />
+    evi_approx.genexpr <br />
+    evi_utilities.genexpr <br />
+    evi_smooth.genexpr <br />
+    evi_cossin.genexpr <br />
+    evi_tanh.genexpr <br />
+    evi_trig.genexpr <br />
+    evi_pade.genexpr <br />
+    evi_fastskew.genexpr <br />
+    evi_interp.genexpr <br />
+    evi_adaa.genexpr <br />
+    evi_biquads.genexpr <br />
+    evi_butterworth.genexpr <br />
+    evi_clipping.genexpr <br />
+    evi_counting.genexpr <br />
+    evi_crossovers.genexpr <br />
+    evi_dynamics.genexpr <br />
+    evi_env.genexpr <br />
+    evi_lfo.genexpr <br />
+    evi_polyblep.genexpr <br />
+    evi_ptr.genexpr <br />
+    evi_rcfilters.genexpr <br />
+    evi_saturators.genexpr <br />
+    evi_sources.genexpr <br />
+    evi_svfs.genexpr <br />
+    evi_waveshaping.genexpr <br />
+    evi_buchla.genexpr <br />
+    evi_dfm_lib.genexpr <br />
+    evi_resbank.genexpr <br />
+    evi_reverb_library.genexpr <br />
+    evi_ringmod_enhanced.genexpr <br />
+    evi_sinfold_lib.genexpr <br />
+    evi_ssb.genexpr <br />
+    evi_valves.genexpr <br />
+    evi_warmer_lib.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-     <br />
+    Global 'cores' and 'libraries' and 'objects' .genexpr files include. Do not include 'evi_core', 'evi_lib' or 'evi_evieve' together! Only ever use one of these global requires. Note, it is very unlikely you would ever need this require. <br />
   </description>
   <misc name="No Functions (require-only file)">
   </misc>

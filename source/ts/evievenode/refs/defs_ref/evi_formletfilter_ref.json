@@ -134,7 +134,6 @@
     },
     "seealso": [
         "evi.reson~",
-        "evi.modalres~",
         "evi.formantfilter~",
         "evi.formantfilter.morph~",
         "evi.formantosc~",

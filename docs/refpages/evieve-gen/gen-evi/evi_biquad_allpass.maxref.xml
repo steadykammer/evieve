@@ -13,7 +13,7 @@
          <br />
         evi_biquad_allpass is also available in MSP as: <o>evi.biquad.allpass~</o>. <br />
          <br />
-	    All-in-one biquad allpass filter block. <br />
+	    All-in-one biquad allpass filter block. Consider using <o>evi_filter_allpass</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

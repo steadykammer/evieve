@@ -403,7 +403,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Effect" ],
         "keywords": [],
-        "seealso": [ "evi.reson~", "evi.modalres~", "evi.formantfilter~", "evi.formantfilter.morph~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~" ]
+        "seealso": [ "evi.reson~", "evi.formantfilter~", "evi.formantfilter.morph~", "evi.formantosc~", "evi.paf~", "evi.vosim.basic~" ]
     },
     "evi.freezeverb~": {
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",

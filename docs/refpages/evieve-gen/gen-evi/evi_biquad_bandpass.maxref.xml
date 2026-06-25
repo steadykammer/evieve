@@ -13,7 +13,7 @@
          <br />
         evi_biquad_bandpass is also available in MSP as: <o>evi.biquad.bandpass~</o>. <br />
          <br />
-	    All-in-one biquad bandpass filter block. <br />
+	    All-in-one biquad bandpass filter block. Consider using <o>evi_filter_bandpass</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

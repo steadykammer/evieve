@@ -3948,31 +3948,7 @@
                 "auto": true
             }
         },
-        "evi_sustainfdn.gendsp": {
-            "define": {
-                "object": false,
-                "msp": "",
-                "mcwrapper": false
-            },
-            "ref": {
-                "gen": false,
-                "msp": false
-            },
-            "helpfile": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areaonly": false,
-                "areas": [
-                    "reverb"
-                ]
-            },
-            "db": {
-                "browser": false,
-                "auto": false
-            }
-        },
-        "evi_sustainfdnclear.gendsp": {
+        "evi_sustainfdntrigger.gendsp": {
             "define": {
                 "object": false,
                 "msp": "",

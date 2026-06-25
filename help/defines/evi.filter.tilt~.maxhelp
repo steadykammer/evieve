@@ -188,18 +188,6 @@
                             },
                             {
                                 "box": {
-                                    "hidden": 1,
-                                    "id": "obj-22",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 279.0, 371.0, 86.0, 23.0 ],
-                                    "text": "loadmess 15."
-                                }
-                            },
-                            {
-                                "box": {
                                     "bubble": 1,
                                     "id": "obj-20",
                                     "maxclass": "comment",
@@ -258,7 +246,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 431.0, 388.0, 173.0, 40.0 ],
-                                    "text": "Coefficients smoothing time in ms, off by default",
+                                    "text": "Coefficients smoothing time in ms, on by default",
                                     "textjustification": 1
                                 }
                             },
@@ -550,13 +538,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-22", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-10", 0 ],
                                     "order": 0,
                                     "source": [ "obj-5", 0 ]
@@ -703,18 +684,6 @@
                                     },
                                     "text": "1",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-22",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 420.0, 356.0, 86.0, 23.0 ],
-                                    "text": "loadmess 15."
                                 }
                             },
                             {
@@ -1060,13 +1029,6 @@
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
                                     "source": [ "obj-19", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-22", 0 ]
                                 }
                             },
                             {
@@ -2277,7 +2239,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

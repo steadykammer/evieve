@@ -76,10 +76,10 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.
+				Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is on.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0." />
+				<attribute name="default" get="0" set="0" size="1" value="15.111" />
 			</attributelist>
 		</attribute>
 	</attributelist>

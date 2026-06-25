@@ -106,10 +106,10 @@
         {
             "name": "resonance",
             "type": "float",
-            "default": "1.",
+            "default": "0.",
             "optional": 1,
             "digest": "arg#2: initial resonance",
-            "description": "Sets the initially used resonance amount (inlet 3) for if setting up a static filter."
+            "description": "Sets the initially used resonance amount (inlet 3) for if setting up a static filter. Note this is no use if later connecting a signal, as the arg would then act as an offset."
         }
     ],
     "messages": [],

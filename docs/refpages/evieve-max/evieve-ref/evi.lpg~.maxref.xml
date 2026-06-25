@@ -133,12 +133,12 @@
 				Oversampling factor for the core filter algorithm. Can be 2, 4 or 8. Default 4. Can only be a typed in argument.
 			</description>
 		</objarg>
-		<objarg name="resonance" type="float" default="1." optional="1">
+		<objarg name="resonance" type="float" default="0." optional="1">
 			<digest>
 				arg#2: initial resonance
 			</digest>
 			<description>
-				Sets the initially used resonance amount (inlet 3) for if setting up a static filter.
+				Sets the initially used resonance amount (inlet 3) for if setting up a static filter. Note this is no use if later connecting a signal, as the arg would then act as an offset.
 			</description>
 		</objarg>
 	</objarglist>

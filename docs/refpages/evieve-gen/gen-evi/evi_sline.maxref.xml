@@ -8,7 +8,7 @@
     <description>
         <b>evi_sline</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    evi_sline is similar to MSP <o>line~</o> (without list processing of course) and evi_line, providing exact ramp destination time but with an 'S-curve' output ramp. Because the destination time is exact, this can be used for CPU management (as it is often in the evieve package). <br />
+	    evi_sline is similar to MSP <o>line~</o> (without list processing of course) and <o>evi_line</o>, providing exact ramp destination time but with an 'S-curve' output ramp. Because the destination time is exact, this can be used for CPU management (as it is often in the evieve package). <br />
     </description>
     <methodlist />
     <constructorlist>

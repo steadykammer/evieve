@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "",
         "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types",
-        "description": "evi_biquadcoeff_notilde is an efficient message rate coefficients calculator for the <o>evi_biquad</o> gendsp abstraction (or MSP <o>biquad~</o> if coefficients are sent out to Max). It is intended to replace <o>filtergraph~</o> but for <o>gen</o> (no tilde). High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. In Max the object is available in a wrapper as <o>evi.biquadcoeff</o>."
+        "description": "evi_biquadcoeff_notilde is an efficient message rate coefficients calculator for the <o>evi_biquad</o> gendsp abstraction (or MSP <o>biquad~</o> if coefficients are sent out to Max). It is intended to replace <o>filtergraph~</o> but for <o>gen</o> (no tilde). High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes. In Max the object is available in a wrapper abstraction as <o>evi.biquadcoeff</o>."
     },
     "constructor": {
         "inlets": "cutoff, gain, q"

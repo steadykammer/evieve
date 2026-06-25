@@ -13,7 +13,7 @@
          <br />
         evi_biquad_highpass is also available in MSP as: <o>evi.biquad.highpass~</o>. <br />
          <br />
-	    All-in-one biquad highpass filter block. <br />
+	    All-in-one biquad highpass filter block. Consider using <o>evi_filter_highpass</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -157,7 +157,7 @@
             "name": "loop",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Flag 0/1, loop the envelope off/on.",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "0"
@@ -167,7 +167,7 @@
             "name": "loopsustain",
             "type": "float",
             "digest": "@min 0, @max 60000",
-            "description": "Time in ms, add fake x ms sustain portion to looping envelope.",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "100."
@@ -177,7 +177,7 @@
             "name": "looptrigger",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Flag 0/1, loop mode needs triggering (1) or triggers itself (0).",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "0"
@@ -187,7 +187,7 @@
             "name": "maxsustain",
             "type": "float",
             "digest": "@min -1, @max 60000",
-            "description": "Time in ms, like 'adsr~' (-1 = none, else x ms length even if gate still on).",
+            "description": false,
             "default": {
                 "type": "float",
                 "value": "-1."
@@ -267,7 +267,7 @@
             "name": "zerophase",
             "type": "int",
             "digest": "@min 0, @max 1",
-            "description": "Flag 0/1, sync env param changes to env start (1) or free (0).",
+            "description": false,
             "default": {
                 "type": "int",
                 "value": "0"

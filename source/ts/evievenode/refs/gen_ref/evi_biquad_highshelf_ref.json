@@ -4,7 +4,7 @@
         "child": "evi.biquad.highshelf~",
         "category": "evieve",
         "digest": "Biquad Highshelf",
-        "description": "All-in-one biquad highshelf filter block."
+        "description": "All-in-one biquad highshelf filter block. Consider using <o>evi_filter_highshelf</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

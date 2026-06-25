@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
-        "description": "A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing.",
+        "description": "A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. The oscillator morphs to a pure sine wave above about pitch 110.",
         "discussion": "Thanks to Volker Böhm who created the simple block to emulate the oscillator concept in GenExpr code."
     },
     "metadata": {
@@ -22,7 +22,7 @@
             "id": 1,
             "type": "signal",
             "digest": "Freq in Hz or Pitch",
-            "description": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute."
+            "description": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute. The oscillator morphs to a pure sine wave above about pitch 110."
         },
         {
             "id": 2,
@@ -66,7 +66,7 @@
             "id": 3,
             "type": "signal",
             "digest": "phaseraw",
-            "description": "Oscillator phase sync 0..1 raw (no modulation)."
+            "description": "Oscillator phase sync 0..1 raw (no phase modulation)."
         }
     ],
     "messages": [],

@@ -28,3 +28,8 @@ require("evi_pade.genexpr");
 require("evi_fastskew.genexpr");
 require("evi_interp.genexpr");
 
+// Note, no need for 
+// require("evi_smooth_bank.genexpr");
+// as all that functionality is included in
+// require("evi_smooth.genexpr");
+

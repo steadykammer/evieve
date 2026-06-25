@@ -11,7 +11,7 @@
         evi_algoverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    Relatively expensive algorithmic reverb with many tweekable parameters. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as high quality linear TPT SVF filters in both the feedback path and end of wet path. In gen~ alone (as opposed to the MSP abstraction <o>evi.algoverb~</o>) this is tricky to use as the damping and EQ coefficients are produced externally via the 'evi_svf_eq_coeffs.gendsp' (or equivalent) abstraction, and many parameters are differently named to the MSP equivalents. However it can still be used in gen~ alone providing some plumbing work is done. <br />
+	    Relatively expensive algorithmic reverb with many tweekable parameters. The reverb is modular, with pre delay, early reflections and late reflections all controllable individually, as well as linear TPT SVF filters in both the feedback path and end of wet path. In gen~ alone (as opposed to the MSP abstraction <o>evi.algoverb~</o>) this is tricky to use as the damping and EQ coefficients are produced externally via the <o>evi_svf_eq_coeffs</o>.gendsp (or equivalent) abstraction, and some parameters are differently named to the MSP equivalents. However it can still be used in gen~ alone providing some plumbing work is done. <br />
     </description>
     <methodlist />
     <constructorlist>

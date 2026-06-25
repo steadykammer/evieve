@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Modulation helper for filters and oscillators",
-        "description": "A curious but useful (and expensive) modulation helper for oscillators and filters requiring FM control of frequency. The main cutoff frequency can be optionally smoothed, scaled, FM-ed with a pitch signal and FM-ed with a Hz signal."
+        "description": "A curious but useful (and expensive) modulation helper for oscillators and filters requiring FM control of frequency. The main cutoff frequency can be optionally smoothed, scaled, FM-ed with a pitch signal and FM-ed with a Hz signal. See <o>evi_hzpitchmodmods</o>.gendsp for a version with more options."
     },
     "constructor": {
         "inlets": "cutoff, pitch, hz"

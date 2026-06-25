@@ -13,7 +13,7 @@
          <br />
         evi_biquad_butterworth is also available in MSP as: <o>evi.biquad.butterworth~</o>. <br />
          <br />
-	    All-in-one biquad filter block with selection of butterworth filter types. <br />
+	    All-in-one biquad filter block with selection of butterworth filter types. Consider using <o>evi_filter</o> instead for better quality filters. <br />
     </description>
     <methodlist />
     <constructorlist>

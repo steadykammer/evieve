@@ -12,8 +12,8 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_core.genexpr",
-                        "raw": "\"evi_core.genexpr\"",
+                        "value": "evi_approx.genexpr",
+                        "raw": "\"evi_approx.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]
@@ -31,8 +31,616 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_lib.genexpr",
-                        "raw": "\"evi_lib.genexpr\"",
+                        "value": "evi_utilities.genexpr",
+                        "raw": "\"evi_utilities.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_smooth.genexpr",
+                        "raw": "\"evi_smooth.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_cossin.genexpr",
+                        "raw": "\"evi_cossin.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_tanh.genexpr",
+                        "raw": "\"evi_tanh.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_trig.genexpr",
+                        "raw": "\"evi_trig.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_pade.genexpr",
+                        "raw": "\"evi_pade.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_fastskew.genexpr",
+                        "raw": "\"evi_fastskew.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_interp.genexpr",
+                        "raw": "\"evi_interp.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_adaa.genexpr",
+                        "raw": "\"evi_adaa.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_biquads.genexpr",
+                        "raw": "\"evi_biquads.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_butterworth.genexpr",
+                        "raw": "\"evi_butterworth.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_clipping.genexpr",
+                        "raw": "\"evi_clipping.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_counting.genexpr",
+                        "raw": "\"evi_counting.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_crossovers.genexpr",
+                        "raw": "\"evi_crossovers.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_dynamics.genexpr",
+                        "raw": "\"evi_dynamics.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_env.genexpr",
+                        "raw": "\"evi_env.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_lfo.genexpr",
+                        "raw": "\"evi_lfo.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_polyblep.genexpr",
+                        "raw": "\"evi_polyblep.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_ptr.genexpr",
+                        "raw": "\"evi_ptr.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_rcfilters.genexpr",
+                        "raw": "\"evi_rcfilters.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_saturators.genexpr",
+                        "raw": "\"evi_saturators.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_sources.genexpr",
+                        "raw": "\"evi_sources.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_svfs.genexpr",
+                        "raw": "\"evi_svfs.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_waveshaping.genexpr",
+                        "raw": "\"evi_waveshaping.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_buchla.genexpr",
+                        "raw": "\"evi_buchla.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_dfm_lib.genexpr",
+                        "raw": "\"evi_dfm_lib.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_resbank.genexpr",
+                        "raw": "\"evi_resbank.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_reverb_library.genexpr",
+                        "raw": "\"evi_reverb_library.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_ringmod_enhanced.genexpr",
+                        "raw": "\"evi_ringmod_enhanced.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_sinfold_lib.genexpr",
+                        "raw": "\"evi_sinfold_lib.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_ssb.genexpr",
+                        "raw": "\"evi_ssb.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_valves.genexpr",
+                        "raw": "\"evi_valves.genexpr\"",
+                        "gen_kind": "string"
+                    }
+                ]
+            },
+            "gen_kind": "compiler_command"
+        },
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "Identifier",
+                    "name": "require"
+                },
+                "arguments": [
+                    {
+                        "type": "Literal",
+                        "value": "evi_warmer_lib.genexpr",
+                        "raw": "\"evi_warmer_lib.genexpr\"",
                         "gen_kind": "string"
                     }
                 ]

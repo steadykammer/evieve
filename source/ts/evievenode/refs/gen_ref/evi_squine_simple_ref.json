@@ -4,7 +4,7 @@
         "child": "evi.squine.simple~",
         "category": "evieve",
         "digest": "A basic implementation of Rasmus Ekman's 'squine wave' oscillator, with audio rate modulation",
-        "description": "A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing."
+        "description": "A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. The oscillator morphs to a pure sine wave above about pitch 110."
     },
     "constructor": {
         "inlets": "freq, pitch, hz, harmonics, duty"
@@ -17,7 +17,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "in Hz or Pitch",
-            "digest": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute."
+            "digest": "Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute. The oscillator morphs to a pure sine wave above about pitch 110."
         },
         {
             "id": 2,
@@ -73,7 +73,7 @@
             "name": "phaseraw",
             "type": "float",
             "optional": 1,
-            "digest": "Oscillator phase sync 0..1 raw (no modulation)."
+            "digest": "Oscillator phase sync 0..1 raw (no phase modulation)."
         }
     ],
     "attributes": [

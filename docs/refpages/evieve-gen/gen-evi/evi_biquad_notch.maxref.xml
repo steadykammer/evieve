@@ -13,7 +13,7 @@
          <br />
         evi_biquad_notch is also available in MSP as: <o>evi.biquad.notch~</o>. <br />
          <br />
-	    All-in-one biquad notch filter block. <br />
+	    All-in-one biquad notch filter block. Consider using <o>evi_filter_notch</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

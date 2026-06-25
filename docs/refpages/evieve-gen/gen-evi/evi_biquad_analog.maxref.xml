@@ -13,7 +13,7 @@
          <br />
         evi_biquad_analog is also available in MSP as: <o>evi.biquad.analog~</o>. <br />
          <br />
-	    All-in-one biquad filter block with selection of analog filter types. <br />
+	    All-in-one biquad filter block with selection of analog filter types. Consider using <o>evi_filter</o> instead for better quality filters. <br />
     </description>
     <methodlist />
     <constructorlist>

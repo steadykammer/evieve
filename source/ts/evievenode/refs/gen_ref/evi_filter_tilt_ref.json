@@ -60,10 +60,10 @@
             "name": "smooth",
             "type": "float",
             "digest": "@min 0, @max 333",
-            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is off.",
+            "description": "Smooth the mixing gains of the filter efficiently at the core of the DSP. With these TPT SVF filters this will usually be the only smoothing required. By default smoothing is on.",
             "default": {
                 "type": "float",
-                "value": "0."
+                "value": "15.111"
             }
         }
     ],

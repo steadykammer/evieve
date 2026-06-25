@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "Global 'cores' .genexpr files include. Do not include 'evi_core', 'evi_lib' or 'evi_evieve' together! Only ever use one of these global requires.",
     "requires": [
         "evi_approx.genexpr",
         "evi_utilities.genexpr",

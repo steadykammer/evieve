@@ -10,7 +10,7 @@
                  <br />
         evi_squine_simple is also available in MSP as: <o>evi.squine.simple~</o>. <br />
          <br />
-	    A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. <br />
+	    A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. The oscillator morphs to a pure sine wave above about pitch 110. <br />
     </description>
     <methodlist />
     <constructorlist>
@@ -23,7 +23,7 @@
     <geninletlist>
         <geninlet name='freq' type='float' optional='1'>
             <digest>
-                in Hz or Pitch. Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute.
+                in Hz or Pitch. Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute. The oscillator morphs to a pure sine wave above about pitch 110.
             </digest>
         </geninlet>
         <geninlet name='pitch' type='float' optional='1'>

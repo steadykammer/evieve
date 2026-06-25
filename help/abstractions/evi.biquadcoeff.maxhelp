@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -158,7 +158,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 212.0, 235.0, 99.0, 23.0 ],
+                                    "patching_rect": [ 213.0, 235.0, 99.0, 23.0 ],
                                     "text_width": 77.0
                                 }
                             },
@@ -211,7 +211,7 @@
                                     "numoutlets": 6,
                                     "outlettype": [ "", "float", "float", "float", "float", "float" ],
                                     "patching_rect": [ 512.0, 328.0, 206.0, 23.0 ],
-                                    "text": "evi.biquadcoeff peaknotchanalog1"
+                                    "text": "evi.biquadcoeff gainbpassanalog"
                                 }
                             },
                             {
@@ -228,9 +228,10 @@
                             {
                                 "box": {
                                     "edit_analog": 1,
-                                    "edit_mode": 5,
+                                    "edit_gainmode": 1,
+                                    "edit_mode": 3,
                                     "fontface": 0,
-                                    "frozen_box_attributes": [ "edit_analog", "edit_mode" ],
+                                    "frozen_box_attributes": [ "edit_analog", "edit_mode", "edit_gainmode" ],
                                     "id": "obj-3",
                                     "ignoreclick": 1,
                                     "maxclass": "filtergraph~",
@@ -240,7 +241,7 @@
                                     "outlettype": [ "list", "float", "float", "float", "float", "list", "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 112.0, 275.0, 256.0, 128.0 ],
-                                    "setfilter": [ 0, 5, 1, 1, 0, 2000.0, 3.981071710586548, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "setfilter": [ 0, 3, 1, 1, 0, 2000.0, 3.981071710586548, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -314,7 +315,7 @@
                                     "patching_rect": [ 699.0, 183.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.5 ],
+                                            "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[6]",
                                             "parameter_mmax": 10000.0,
@@ -416,7 +417,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "patching_rect": [ 10.0, 70.0, 661.0, 38.0 ],
                                     "text": "evi.biquadcoeff provides all the same filters as filtergraph~ (and more) and can be used as a substitute when the UI is not required.",
                                     "varname": "digest_comment"
                                 }
@@ -442,7 +443,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-3", 0 ],
-                                    "midpoints": [ 221.5, 266.5, 121.5, 266.5 ],
+                                    "midpoints": [ 222.5, 266.5, 121.5, 266.5 ],
                                     "source": [ "obj-10", 0 ]
                                 }
                             },
@@ -563,7 +564,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 229.0, 336.0, 77.0, 23.0 ],
-                    "presentation_linecount": 3,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },

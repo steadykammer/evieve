@@ -13,7 +13,7 @@
          <br />
         evi_biquad_peaknotch is also available in MSP as: <o>evi.biquad.peaknotch~</o>. <br />
          <br />
-	    All-in-one biquad peaknotch filter block. <br />
+	    All-in-one biquad peaknotch filter block. Consider using <o>evi_filter_bell</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

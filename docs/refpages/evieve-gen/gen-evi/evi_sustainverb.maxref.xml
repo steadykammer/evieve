@@ -11,7 +11,7 @@
         evi_sustainverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. <o>evi_sustainverb</o> also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing. In gen~ alone this is a bit tricky to use as it requires compuation of delay time externally. Defaults are for running at 48kHz samplerate. <br />
+	    This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever sustain like the original. <o>evi_sustainverb</o> also includes multichannel taps of the FDN which can be useful for surround-ish effects processing. In gen~ alone this is a bit tricky to use as it requires compuation of delay time externally. Defaults are for running at 48kHz samplerate. If not running at 48kHz then you will have to pass in the coefficients externally. See the <o>evi.sustainverb~</o> Max abstraction for an example. <br />
     </description>
     <methodlist />
     <constructorlist>

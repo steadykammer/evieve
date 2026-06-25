@@ -7939,7 +7939,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 165.0, 371.0, 49.0, 23.0 ],
+                                    "patching_rect": [ 165.0, 356.0, 49.0, 23.0 ],
                                     "text": "p ctrls"
                                 }
                             },
@@ -7952,7 +7952,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 472.0, 331.0, 24.0, 24.0 ],
+                                    "patching_rect": [ 472.0, 316.0, 24.0, 24.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "off", "on" ],
@@ -7976,7 +7976,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 472.0, 371.0, 77.0, 23.0 ],
+                                    "patching_rect": [ 472.0, 356.0, 77.0, 23.0 ],
                                     "text": "prepend lpg"
                                 }
                             },
@@ -7987,7 +7987,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 6.0, 290.0, 157.0, 50.0 ],
+                                    "patching_rect": [ 6.0, 275.0, 157.0, 50.0 ],
                                     "text": "Repeated pings will keep the envelope active and increase the cutoff",
                                     "textjustification": 2
                                 }
@@ -7999,7 +7999,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 165.0, 238.0, 159.0, 21.0 ],
+                                    "patching_rect": [ 165.0, 223.0, 159.0, 21.0 ],
                                     "text": "A basic Ping example"
                                 }
                             },
@@ -8040,7 +8040,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 286.0, 305.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 286.0, 290.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -8057,7 +8057,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 472.0, 628.0, 300.0, 21.0 ],
+                                    "patching_rect": [ 472.0, 604.0, 300.0, 21.0 ],
                                     "text": "LPG",
                                     "textjustification": 1
                                 }
@@ -8068,7 +8068,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 290.0, 372.0, 131.0, 21.0 ],
+                                    "patching_rect": [ 290.0, 357.0, 131.0, 21.0 ],
                                     "text": "resonance"
                                 }
                             },
@@ -8082,7 +8082,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 472.0, 483.0, 300.0, 23.0 ],
+                                    "patching_rect": [ 472.0, 459.0, 300.0, 23.0 ],
                                     "text_width": 56.0
                                 }
                             },
@@ -8094,7 +8094,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 472.0, 508.0, 300.0, 118.0 ]
+                                    "patching_rect": [ 472.0, 484.0, 300.0, 118.0 ]
                                 }
                             },
                             {
@@ -8108,7 +8108,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 238.0, 371.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 238.0, 356.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 2.0 ],
@@ -8130,7 +8130,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 215.0, 303.0, 70.0, 25.0 ],
+                                    "patching_rect": [ 215.0, 288.0, 70.0, 25.0 ],
                                     "text": "Ping",
                                     "textjustification": 1
                                 }
@@ -8143,7 +8143,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 165.0, 291.0, 48.0, 48.0 ]
+                                    "patching_rect": [ 165.0, 276.0, 48.0, 48.0 ]
                                 }
                             },
                             {
@@ -8152,7 +8152,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 389.0, 532.0, 69.0, 21.0 ],
+                                    "patching_rect": [ 389.0, 533.0, 69.0, 21.0 ],
                                     "text": "vactrol"
                                 }
                             },
@@ -8169,7 +8169,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 269.0, 483.0, 118.0, 118.0 ],
+                                    "patching_rect": [ 269.0, 484.0, 118.0, 118.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -8183,7 +8183,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 112.0, 437.0, 61.0, 25.0 ],
+                                    "patching_rect": [ 112.0, 422.0, 61.0, 25.0 ],
                                     "text": "LPG",
                                     "textjustification": 1
                                 }
@@ -8206,7 +8206,7 @@
                                     "numinlets": 8,
                                     "numoutlets": 4,
                                     "outlettype": [ "signal", "signal", "signal", "signal" ],
-                                    "patching_rect": [ 165.0, 428.0, 123.0, 23.0 ],
+                                    "patching_rect": [ 165.0, 413.0, 123.0, 23.0 ],
                                     "text": "evi.lpg~",
                                     "varname": "evieveObject"
                                 }
@@ -8296,7 +8296,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 290.0, 429.0, 168.13600158691406, 39.0 ],
+                                    "patching_rect": [ 290.0, 414.0, 183.0, 54.0 ],
                                     "textfile": {
                                         "filename": "evi.helpargs.js",
                                         "flags": 0,
@@ -8318,7 +8318,7 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "hidden": 1,
-                                    "midpoints": [ 481.5, 419.42578125, 174.5, 419.42578125 ],
+                                    "midpoints": [ 481.5, 404.42578125, 174.5, 404.42578125 ],
                                     "source": [ "obj-19", 0 ]
                                 }
                             },

@@ -9,9 +9,6 @@
 // based on code by Nigel Redmond,		@see: http://www.earlevel.com/main/2013/06/03/envelope-generators-adsr-code/
 // based on code by Peter McCulloch,	@see: Max > BEAP > AD2	&&	Max > BEAP > AHD
 
-// Note:    This code is a bit silly and overengineered and expensive. I found it in the depths
-//          of my hard drive. But it seems to work. So it's going in evieve.
-
 // TODO:
 // fix: maxsustain, zerophase, loop
 // implement: inverse env curves, constant rate or constant time option
@@ -63,6 +60,7 @@ History	valAtTrigger(1), prev_val_abs(0);
 History	attackCoeff(0), attackBase(0), decayCoeff(0), decayBase(0), releaseCoeff(0), releaseBase(0);
 History	computeFalls(0), prev_rR(0), prev_fR(0), prev_susL(-1), prev_attRate(-1), prev_decRate(-1), prev_relRate(-1);
 
+// these two not implemented yet
 Param	zerophase(0, min=0, max=1);				// sync env param changes to env start (1) or free (0)
 Param	constantrate(1, min=0, max=1);			// flag 0/1, env segments by time or by rate
 
@@ -74,6 +72,7 @@ Param	retrigger(5., min=0, max=1000);			// fade to 0 in x ms if reattacking acti
 Param	legato(0, min=0, max=1);				// start from current value if reattacking active envelope
 Param	wait(0, min=0, max=1);					// wait until envelope 0 before allowing reattack of active envelope
 
+// these four not implemented yet
 Param	maxsustain(-1., min=-1, max=60000);		// like [adsr~] (-1 = none, else x ms length even if gate still on)
 Param	loopsustain(100., min=0, max=60000);	// > 0 add fake x ms sustain portion to looping envelope ?
 Param	looptrigger(0, min=0, max=1);			// loop mode needs triggering (1) or triggers itself (0) ? 

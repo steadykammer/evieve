@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "A cheap vactrol-like envelope",
-        "description": "A cheaper fixed coefficients version of [evi_vactrol] providing a basic vactrol-like response."
+        "description": "A cheaper fixed coefficients version of <o>evi_vactrol</o>.gendsp providing a basic vactrol-like response."
     },
     "constructor": {
         "inlets": "trigger"

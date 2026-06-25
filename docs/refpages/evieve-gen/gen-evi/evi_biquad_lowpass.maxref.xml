@@ -13,7 +13,7 @@
          <br />
         evi_biquad_lowpass is also available in MSP as: <o>evi.biquad.lowpass~</o>. <br />
          <br />
-	    All-in-one biquad lowpass filter block. <br />
+	    All-in-one biquad lowpass filter block. Consider using <o>evi_filter_lowpass</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>

@@ -4,7 +4,7 @@
         "child": "evi.biquad.lowshelf~",
         "category": "evieve",
         "digest": "Biquad Lowshelf",
-        "description": "All-in-one biquad lowshelf filter block."
+        "description": "All-in-one biquad lowshelf filter block. Consider using <o>evi_filter_lowshelf</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

@@ -119,6 +119,17 @@
             }
         },
         {
+            "name": "constantrate",
+            "get": 0,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": false,
+            "default": {
+                "get": 0,
+                "value": "1"
+            }
+        },
+        {
             "name": "decay",
             "get": 0,
             "type": "float",
@@ -200,7 +211,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Loop the envelope off/on.",
+            "description": false,
             "default": {
                 "get": 0,
                 "value": "0"
@@ -211,7 +222,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Add additional x ms sustain portion to looping envelope ?",
+            "description": false,
             "default": {
                 "get": 0,
                 "value": "100."
@@ -222,7 +233,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Loop mode needs triggering (1) or triggers itself (0)",
+            "description": false,
             "default": {
                 "get": 0,
                 "value": "0"
@@ -233,7 +244,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Like 'adsr~' (-1 = none, else x ms length even if gate still on).",
+            "description": false,
             "default": {
                 "get": 0,
                 "value": "-1."
@@ -321,7 +332,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Sync env param changes to env start (1) or free (0)",
+            "description": false,
             "default": {
                 "get": 0,
                 "value": "0"

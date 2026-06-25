@@ -4,7 +4,7 @@
         "child": "evi.biquad.allpass~",
         "category": "evieve",
         "digest": "Biquad Allpass",
-        "description": "All-in-one biquad allpass filter block."
+        "description": "All-in-one biquad allpass filter block. Consider using <o>evi_filter_allpass</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

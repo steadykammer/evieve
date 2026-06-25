@@ -8,7 +8,7 @@
     <description>
         <b>evi_rampsmoothupdate</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    evi_rampsmoothupdate is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by integers (ramp times continuously update regardless of if input value changes) providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the gen~ example by Maurizio Giri and Graham Wakefield. <br />
+	    evi_rampsmoothupdate is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by integers (ramp times continuously update regardless of if input value changes) providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the original gen~ example by Maurizio Giri and Graham Wakefield. See <o>evi_rampsmooth</o> for an alternative. <br />
     </description>
     <methodlist />
     <constructorlist>

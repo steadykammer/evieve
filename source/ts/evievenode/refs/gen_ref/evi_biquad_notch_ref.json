@@ -4,7 +4,7 @@
         "child": "evi.biquad.notch~",
         "category": "evieve",
         "digest": "Biquad Notch",
-        "description": "All-in-one biquad notch filter block."
+        "description": "All-in-one biquad notch filter block. Consider using <o>evi_filter_notch</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

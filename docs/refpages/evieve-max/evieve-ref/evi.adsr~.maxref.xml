@@ -222,50 +222,6 @@
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="loop" get="0" set="1" type="int" size="1">
-			<digest>
-				Flag 0/1
-			</digest>
-			<description>
-				Loop the envelope off/on.
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="loopsustain" get="0" set="1" type="float" size="1">
-			<digest>
-				Time in ms
-			</digest>
-			<description>
-				Add additional x ms sustain portion to looping envelope ?
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
-			</attributelist>
-		</attribute>
-		<attribute name="looptrigger" get="0" set="1" type="int" size="1">
-			<digest>
-				Flag 0/1
-			</digest>
-			<description>
-				Loop mode needs triggering (1) or triggers itself (0)
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="maxsustain" get="0" set="1" type="float" size="1">
-			<digest>
-				Time in ms
-			</digest>
-			<description>
-				Like &#x27;adsr~&#x27; (-1 &#x3D; none, else x ms length even if gate still on).
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="-1." />
-			</attributelist>
-		</attribute>
 		<attribute name="release" get="0" set="1" type="float" size="1">
 			<digest>
 				Release time in ms
@@ -338,17 +294,6 @@
 			</digest>
 			<description>
 				Wait until envelope 0 before allowing reattack of active envelope
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
-			</attributelist>
-		</attribute>
-		<attribute name="zerophase" get="0" set="1" type="int" size="1">
-			<digest>
-				Flag 0/1
-			</digest>
-			<description>
-				Sync env param changes to env start (1) or free (0)
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />

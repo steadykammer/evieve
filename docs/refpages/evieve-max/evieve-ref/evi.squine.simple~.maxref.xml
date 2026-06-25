@@ -9,7 +9,7 @@
 		<b>evi.squine.simple~</b> is a 'max define' for the <o>evi_squine_simple</o>.gendsp gen~ abstraction.
 		Because evi.squine.simple~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. <br />
+		A versatile phase modulation oscillator which can morph shape and does not alias (up to a certain point). Inlets are available for linear and logarithmic FM modulation, as well as optionally audio rate control over the shape morphing. The oscillator morphs to a pure sine wave above about pitch 110. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -27,7 +27,7 @@
 				Inlet #1: Freq in Hz or Pitch
 			</digest>
 			<description>
-				Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute.
+				Oscillator frequency in Hz (default) or Pitch depending on @freqmode attribute. The oscillator morphs to a pure sine wave above about pitch 110.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal">
@@ -86,7 +86,7 @@
 				Outlet #3: phaseraw
 			</digest>
 			<description>
-				Oscillator phase sync 0..1 raw (no modulation).
+				Oscillator phase sync 0..1 raw (no phase modulation).
 			</description>
 		</outlet>
 	</outletlist>

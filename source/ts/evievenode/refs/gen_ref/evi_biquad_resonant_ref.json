@@ -4,7 +4,7 @@
         "child": "evi.biquad.resonant~",
         "category": "evieve",
         "digest": "Biquad Resonant",
-        "description": "All-in-one biquad resonant filter block."
+        "description": "All-in-one biquad resonant filter block. Consider using <o>evi_filter_resonant</o> instead for a better quality filter."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

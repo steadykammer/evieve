@@ -16,20 +16,46 @@
     See the GNU General Public License for more details.
 */
 
-// all evi_core & evi_libraries functionality in a single require (but not the object code)
+// all evi_core & evi_libraries & evi_objects functionality in a single require
+// i would hope that no one will ever need this
 
-// core
-require("evi_core.genexpr");
+// cores
+require("evi_approx.genexpr");
+require("evi_utilities.genexpr");
+require("evi_smooth.genexpr");
+require("evi_cossin.genexpr");
+require("evi_tanh.genexpr");
+require("evi_trig.genexpr");
+require("evi_pade.genexpr");
+require("evi_fastskew.genexpr");
+require("evi_interp.genexpr");
+
 // libs
-require("evi_lib.genexpr");
+require("evi_adaa.genexpr");
+require("evi_biquads.genexpr"); // includes multiple biquad requires
+require("evi_butterworth.genexpr");
+require("evi_clipping.genexpr");
+require("evi_counting.genexpr");
+require("evi_crossovers.genexpr");
+require("evi_dynamics.genexpr");
+require("evi_env.genexpr");
+require("evi_lfo.genexpr");
+require("evi_polyblep.genexpr"); // includes multiple polyblep requires
+require("evi_ptr.genexpr");
+require("evi_rcfilters.genexpr");
+require("evi_saturators.genexpr");
+require("evi_sources.genexpr");
+require("evi_svfs.genexpr"); // includes multiple svf requires
+require("evi_waveshaping.genexpr");
 
-// to inlcude the objects code you would also need these:
-/*
+// objects
+require("evi_buchla.genexpr");
 require("evi_dfm_lib.genexpr");
 require("evi_resbank.genexpr");
 require("evi_reverb_library.genexpr");
 require("evi_ringmod_enhanced.genexpr");
 require("evi_sinfold_lib.genexpr");
 require("evi_ssb.genexpr");
+require("evi_valves.genexpr");
 require("evi_warmer_lib.genexpr");
-*/
+

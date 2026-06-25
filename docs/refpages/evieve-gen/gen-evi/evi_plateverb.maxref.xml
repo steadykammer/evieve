@@ -11,7 +11,7 @@
         evi_plateverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters. In gen~ alone (as opposed to the MSP abstraction <o>evi.plateverb~</o>) this is tricky to use as the damping coefficients are produced externally via the 'evi_damp_coeffs.gendsp' abstraction. See 'evi_rcfilters.genexpr' for coefficients calculations alternatives. <br />
+	    Based on <o>yafr2~</o> from MSP ('Plate reverb in the style of Griesinger' by Randy Jones). This version for evieve with dry/wet and eq added, as well as modifications for better filtering, interpolation and smoothing, and zero hold delay changes. Parameters normalised 0..1. Clickless and smooth changes possible for all parameters. In gen~ alone (as opposed to the MSP abstraction <o>evi.plateverb~</o>) this is tricky to use as the damping coefficients are produced externally via the <o>evi_damp_coeffs</o>.gendsp abstraction. See <o>evi_rcfilters</o>.genexpr for coefficients calculations alternatives. <br />
     </description>
     <methodlist />
     <constructorlist>

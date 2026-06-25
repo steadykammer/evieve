@@ -4,7 +4,7 @@
         "child": "evi.biquad.butterworth~",
         "category": "evieve",
         "digest": "Butterworth Biquad Filters",
-        "description": "All-in-one biquad filter block with selection of butterworth filter types."
+        "description": "All-in-one biquad filter block with selection of butterworth filter types. Consider using <o>evi_filter</o> instead for better quality filters."
     },
     "constructor": {
         "inlets": "input, cutoff, gain, q"

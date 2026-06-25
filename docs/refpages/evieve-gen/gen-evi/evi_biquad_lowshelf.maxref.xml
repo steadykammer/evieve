@@ -13,7 +13,7 @@
          <br />
         evi_biquad_lowshelf is also available in MSP as: <o>evi.biquad.lowshelf~</o>. <br />
          <br />
-	    All-in-one biquad lowshelf filter block. <br />
+	    All-in-one biquad lowshelf filter block. Consider using <o>evi_filter_lowshelf</o> instead for a better quality filter. <br />
     </description>
     <methodlist />
     <constructorlist>
