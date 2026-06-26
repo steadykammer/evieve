@@ -16,7 +16,7 @@ if (jsarguments.length > 1) {
 		createDacForHelpfile = true;
 	}
 }
-let eviType: number = -1;	// 0 = external, 1 = gen define, 2 = abstraction
+let eviType: number = -1;	// 0 = external, 1 = gen define, 2 = max abstraction
 let eviOption1: number = 0;
 let eviOption2: number = 0;
 let eviOption3: number = 0;

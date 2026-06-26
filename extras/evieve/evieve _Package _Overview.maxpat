@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -135,7 +135,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -255,7 +255,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -391,7 +391,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 317.0, 251.0, 65.0, 26.0 ],
+                    "patching_rect": [ 314.0, 251.0, 65.0, 26.0 ],
                     "text": "p compare"
                 }
             },
@@ -407,9 +407,9 @@
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
                     "parameter_mappable": 0,
-                    "patching_rect": [ 317.0, 101.0, 219.0, 141.0 ],
+                    "patching_rect": [ 314.0, 101.0, 219.0, 141.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 317.0, 101.0, 219.0, 141.0 ],
+                    "presentation_rect": [ 314.0, 101.0, 219.0, 141.0 ],
                     "tabs": [ "Biquads/SVFs", "Linear Filters", "Nonlinear Korg Filters", "Nonlinear Ladder Filters", "Nonlinear SVFs", "Saturation and Aliasing", "Smoothers" ]
                 }
             },
@@ -433,9 +433,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 317.0, 34.0, 219.0, 24.0 ],
+                    "patching_rect": [ 314.0, 34.0, 219.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 317.0, 34.0, 219.0, 24.0 ],
+                    "presentation_rect": [ 314.0, 34.0, 219.0, 24.0 ],
                     "text": "View evieve Comparisons:"
                 }
             },
@@ -506,7 +506,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -882,7 +882,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -900,7 +900,7 @@
                                             "fileversion": 1,
                                             "appversion": {
                                                 "major": 9,
-                                                "minor": 2,
+                                                "minor": 3,
                                                 "revision": 0,
                                                 "architecture": "x64",
                                                 "modernui": 1
@@ -917,8 +917,8 @@
                                                         "text": "out 2 Reset (Param has changed)",
                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "id": "obj-7",
-                                                        "numoutlets": 0
+                                                        "numoutlets": 0,
+                                                        "id": "obj-7"
                                                     }
                                                 },
                                                 {
@@ -927,8 +927,8 @@
                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-5",
                                                         "numoutlets": 1,
+                                                        "id": "obj-5",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -938,8 +938,8 @@
                                                         "text": "in 1 (signal) Input Signal",
                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-1",
                                                         "numoutlets": 1,
+                                                        "id": "obj-1",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -947,13 +947,13 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                        "fontface": 0,
-                                                        "numinlets": 2,
-                                                        "id": "obj-3",
-                                                        "fontsize": 12.0,
-                                                        "numoutlets": 2,
-                                                        "outlettype": [ "", "" ],
                                                         "fontname": "<Monospaced>",
+                                                        "numinlets": 2,
+                                                        "fontface": 0,
+                                                        "numoutlets": 2,
+                                                        "id": "obj-3",
+                                                        "outlettype": [ "", "" ],
+                                                        "fontsize": 12.0,
                                                         "code": "\r\n// this is an antialiased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no antialiasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are antialiased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);           // must smooth in2 externally\r\nataninput = in1 * ingain;// + bias;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain;// * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                     }
                                                 },
@@ -963,8 +963,8 @@
                                                         "text": "out 1 (signal) Atan(x) Output - antialiased for your audio not for Maths",
                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "id": "obj-4",
-                                                        "numoutlets": 0
+                                                        "numoutlets": 0,
+                                                        "id": "obj-4"
                                                     }
                                                 }
                                             ],
@@ -1579,7 +1579,7 @@
                                             "fileversion": 1,
                                             "appversion": {
                                                 "major": 9,
-                                                "minor": 2,
+                                                "minor": 3,
                                                 "revision": 0,
                                                 "architecture": "x64",
                                                 "modernui": 1
@@ -1597,8 +1597,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-6",
                                                         "numoutlets": 1,
+                                                        "id": "obj-6",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -1609,8 +1609,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-5",
                                                         "numoutlets": 1,
+                                                        "id": "obj-5",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -1620,8 +1620,8 @@
                                                         "text": "in 1 (signal) Input",
                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-1",
                                                         "numoutlets": 1,
+                                                        "id": "obj-1",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -1632,8 +1632,8 @@
                                                         "linecount": 2,
                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
                                                         "numinlets": 0,
-                                                        "id": "obj-2",
                                                         "numoutlets": 1,
+                                                        "id": "obj-2",
                                                         "outlettype": [ "" ]
                                                     }
                                                 },
@@ -1643,21 +1643,21 @@
                                                         "text": "out 1 (signal) Filter Output",
                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
                                                         "numinlets": 1,
-                                                        "id": "obj-4",
-                                                        "numoutlets": 0
+                                                        "numoutlets": 0,
+                                                        "id": "obj-4"
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                        "fontface": 0,
-                                                        "numinlets": 4,
-                                                        "id": "obj-3",
-                                                        "fontsize": 12.0,
-                                                        "numoutlets": 1,
-                                                        "outlettype": [ "" ],
                                                         "fontname": "<Monospaced>",
+                                                        "numinlets": 4,
+                                                        "fontface": 0,
+                                                        "numoutlets": 1,
+                                                        "id": "obj-3",
+                                                        "outlettype": [ "" ],
+                                                        "fontsize": 12.0,
                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                     }
                                                 }
@@ -2040,7 +2040,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -2301,7 +2301,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -2712,7 +2712,13 @@
                     "patching_rect": [ 70.0, 318.0, 329.0, 24.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 70.0, 318.0, 329.0, 24.0 ],
-                    "text": "The basic principle of evieve patching:"
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_objectcolor"
+                        }
+                    },
+                    "text": "The basic principle of evieve patching:",
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -2727,7 +2733,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -2871,7 +2877,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -3471,7 +3477,7 @@
                 "patchline": {
                     "destination": [ "obj-57", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 526.5, 246.5, 372.5, 246.5 ],
+                    "midpoints": [ 523.5, 246.5, 369.5, 246.5 ],
                     "source": [ "obj-58", 2 ]
                 }
             },

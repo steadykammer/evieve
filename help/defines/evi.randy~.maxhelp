@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -66,7 +66,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -124,7 +124,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -478,7 +478,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -571,7 +571,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 40.0, 317.0, 106.0, 23.0 ],
-                                    "text": "21.864572"
+                                    "text": "0."
                                 }
                             },
                             {
@@ -978,13 +978,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1260,7 +1260,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1271,11 +1271,88 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 3,
+                                                    "id": "obj-16",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 39.0, 194.0, 131.0, 24.0 ],
+                                                    "presentation_linecount": 5,
+                                                    "text": "evieve abstraction",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 0,
+                                                    "id": "obj-15",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 223.0, 338.0, 55.0, 39.0 ],
+                                                    "text": "noise",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 0,
+                                                    "id": "obj-14",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 167.0, 338.0, 55.0, 39.0 ],
+                                                    "text": "cubic",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 0,
+                                                    "id": "obj-13",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 388.0, 338.0, 55.0, 39.0 ],
+                                                    "text": "cosine",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubble": 1,
+                                                    "bubbleside": 0,
+                                                    "id": "obj-12",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 332.0, 338.0, 55.0, 39.0 ],
+                                                    "text": "linear",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "linecount": 4,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 399.0, 176.0, 146.0, 60.0 ],
+                                                    "text": "additional object inside gen~, like MSP [rand~] but with additional cosine interpolated output"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-9",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 238.0, 335.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 233.0, 314.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             },
@@ -1285,7 +1362,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 399.0, 335.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 398.0, 314.0, 35.0, 22.0 ],
                                                     "text": "out 4"
                                                 }
                                             },
@@ -1295,7 +1372,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 347.0, 335.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 342.0, 314.0, 35.0, 22.0 ],
                                                     "text": "out 3"
                                                 }
                                             },
@@ -1306,7 +1383,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 347.0, 216.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 342.0, 195.0, 55.0, 22.0 ],
                                                     "text": "evi_rand"
                                                 }
                                             },
@@ -1317,7 +1394,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 177.0, 216.0, 61.0, 22.0 ],
+                                                    "patching_rect": [ 172.0, 195.0, 61.0, 22.0 ],
                                                     "text": "evi_randy"
                                                 }
                                             },
@@ -1328,7 +1405,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 177.0, 94.0, 28.0, 22.0 ],
+                                                    "patching_rect": [ 172.0, 73.0, 28.0, 22.0 ],
                                                     "text": "in 1"
                                                 }
                                             },
@@ -1339,7 +1416,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 177.0, 333.0, 44.0, 26.0 ],
+                                                    "patching_rect": [ 172.0, 312.0, 44.0, 26.0 ],
                                                     "text": "out 2"
                                                 }
                                             }
@@ -1500,7 +1577,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1829,13 +1906,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

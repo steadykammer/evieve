@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -18,12 +18,190 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "devicewidth": 660.0,
         "subpatcher_template": "<none>",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
         "title": "Reverbs in evieve",
         "boxes": [
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-31",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 562.0, 511.0, 83.0, 20.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "gen~ advice",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-30",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 417.0, 370.0, 83.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "difficult in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-29",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 120.0, 370.0, 83.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "difficult in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-28",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 309.0, 527.0, 69.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "easy in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-24",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 573.0, 146.0, 69.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "easy in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-6",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 120.0, 161.0, 83.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "difficult in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-5",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 72.0, 514.0, 83.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "difficult in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-3",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 468.0, 514.0, 69.0, 33.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "tricky in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
+                    "fontface": 2,
+                    "id": "obj-1",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 351.0, 173.0, 69.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_syntax_attrargcolor"
+                        }
+                    },
+                    "text": "easy in gen~",
+                    "textcolor": [ 0.9877194443920344, 0.772809765725725, 0.7235258105897308, 1.0 ],
+                    "textjustification": 2
+                }
+            },
             {
                 "box": {
                     "border": 1,
@@ -257,7 +435,7 @@
                         }
                     },
                     "text": "cheap-ish",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -288,7 +466,7 @@
                         }
                     },
                     "text": "cheap",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -319,7 +497,7 @@
                         }
                     },
                     "text": "expensive",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -336,7 +514,7 @@
                         }
                     },
                     "text": "expensive-ish",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -353,7 +531,7 @@
                         }
                     },
                     "text": "cheap",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -370,7 +548,7 @@
                         }
                     },
                     "text": "cheap-ish",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -387,7 +565,7 @@
                         }
                     },
                     "text": "expensive",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -404,7 +582,7 @@
                         }
                     },
                     "text": "cheap-ish",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ]
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
                 }
             },
             {
@@ -421,7 +599,7 @@
                         }
                     },
                     "text": "CPU",
-                    "textcolor": [ 0.956590352327427, 0.76614891786161, 0.452834090916593, 1.0 ],
+                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
                     "textjustification": 2
                 }
             },

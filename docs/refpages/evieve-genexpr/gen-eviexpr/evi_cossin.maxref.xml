@@ -50,7 +50,7 @@
 
       </description>
     </entry>
-    <entry name="quadOsc ( )">
+    <entry name="eviQuadOsc ( )">
       <description>
         Accurate and efficient quadrature oscillator approximation <br />
         <br />
@@ -62,7 +62,7 @@
 
       </description>
     </entry>
-    <entry name="quadOscSync ( )">
+    <entry name="eviQuadOscSync ( )">
       <description>
         Accurate and efficient quadrature oscillator approximation with independent sync outputs <br />
         <br />

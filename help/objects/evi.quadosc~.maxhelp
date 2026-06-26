@@ -1458,7 +1458,7 @@
                             },
                             {
                                 "box": {
-                                    "code": "\r\n// There are a few simple functions for cos/sin sources in\r\n// the 'evi_cossin.genexpr' file:\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'quadOsc()' function is the equivalent of [evi.quadosc~]\r\nout1, out2 = quadOsc(in1, in2);\r\n\r\n// This 'quadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout3, out4, out5, out6 = quadOscSync(in1, in2);\r\n\r\n\r\n// There are other interesting oscillators in 'evi_cossin',\r\n// such as this state variable filter quadrature oscillator:\r\nout7, out8 = tptSvfQuadOsc(in1, 0, in2, soft=0.1);\r\n\r\n",
+                                    "code": "\r\n// There are a few simple functions for cos/sin sources in\r\n// the 'evi_cossin.genexpr' file:\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'eviQuadOsc()' function is the equivalent of [evi.quadosc~]\r\nout1, out2 = eviQuadOsc(in1, in2);\r\n\r\n// This 'eviQuadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout3, out4, out5, out6 = eviQuadOscSync(in1, in2);\r\n\r\n\r\n// There are other interesting oscillators in 'evi_cossin',\r\n// such as this state variable filter quadrature oscillator:\r\nout7, out8 = tptSvfQuadOsc(in1, 0, in2, soft=0.1);\r\n\r\n",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 13.0,

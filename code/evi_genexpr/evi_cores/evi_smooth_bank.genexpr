@@ -26,7 +26,7 @@ expApp(x0)
 	return x;
 }
 
-tauApp(t)									// t = seconds
+tauApp(t)									// t = seconds, NOTE: minimum should be 1ms
 {
 	y = expApp(-1 / (t * samplerate));
 	return y + 0.000128;

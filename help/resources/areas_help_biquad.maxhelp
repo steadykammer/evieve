@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -27,6 +27,30 @@
         "boxes": [
             {
                 "box": {
+                    "border": 1,
+                    "evaluatehref": 1,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-17",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.203922, 0.47451, 0.780392, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 440.0, 239.0, 204.0, 37.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "Start with the 'See Also' of the gen~ <link href=\"; max htmlref evi_biquad\">Reference Pages</link> instead...",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
                     "bubble": 1,
                     "bubblepoint": 0.2,
                     "bubbleside": 2,
@@ -35,7 +59,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 513.0, 202.0, 85.0, 52.0 ],
+                    "patching_rect": [ 514.0, 183.0, 85.0, 52.0 ],
                     "text": "no helpfiles for these",
                     "textjustification": 1
                 }
@@ -48,7 +72,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 490.0, 169.0, 36.0 ],
+                    "patching_rect": [ 13.0, 488.0, 169.0, 36.0 ],
                     "text": "Compare Biquads and TPT Filters here:"
                 }
             },
@@ -60,7 +84,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 13.0, 528.0, 175.0, 21.0 ],
+                    "patching_rect": [ 11.0, 525.0, 175.0, 21.0 ],
                     "text": "Compare Biquads / TPT Filters",
                     "texton": "Compare Biquads / TPT Filters"
                 }
@@ -73,7 +97,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 208.0, 570.0, 210.0, 22.0 ],
+                    "patching_rect": [ 209.0, 568.0, 216.0, 22.0 ],
                     "text": "list.reg evicompare_biquadsvf.maxhelp"
                 }
             },
@@ -91,7 +115,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 314.0, 106.0, 120.0, 20.0 ],
+                    "patching_rect": [ 315.0, 104.0, 120.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -115,7 +139,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 193.0, 106.0, 120.0, 20.0 ],
+                    "patching_rect": [ 194.0, 104.0, 120.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -139,7 +163,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 439.0, 106.0, 120.0, 20.0 ],
+                    "patching_rect": [ 440.0, 104.0, 120.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -156,7 +180,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 430.0, 304.0, 168.0, 21.0 ],
+                    "patching_rect": [ 431.0, 302.0, 168.0, 21.0 ],
                     "text": "<<-- all in one sections",
                     "textjustification": 1
                 }
@@ -168,7 +192,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 429.0, 15.0, 130.0, 21.0 ],
+                    "patching_rect": [ 430.0, 14.0, 130.0, 21.0 ],
                     "text": "all available filters",
                     "textjustification": 1
                 }
@@ -181,7 +205,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 356.0, 166.0, 108.0 ],
+                    "patching_rect": [ 13.0, 353.0, 166.0, 108.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },
@@ -193,7 +217,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 13.0, 648.0, 51.0, 22.0 ],
+                    "patching_rect": [ 11.0, 646.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -205,7 +229,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 13.0, 609.0, 79.0, 22.0 ],
+                    "patching_rect": [ 11.0, 607.0, 79.0, 22.0 ],
                     "text": "prepend load"
                 }
             },
@@ -217,7 +241,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 13.0, 570.0, 184.0, 22.0 ],
+                    "patching_rect": [ 11.0, 568.0, 184.0, 22.0 ],
                     "text": "list.reg areas_help_filter.maxhelp"
                 }
             },
@@ -229,7 +253,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 13.0, 468.0, 175.0, 21.0 ],
+                    "patching_rect": [ 11.0, 463.0, 175.0, 21.0 ],
                     "text": "TPT Filters in evieve",
                     "texton": "TPT Filters in evieve"
                 }
@@ -241,7 +265,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 18.0, 128.0, 165.0, 21.0 ],
+                    "patching_rect": [ 19.0, 126.0, 165.0, 21.0 ],
                     "text": "all available filters -->>",
                     "textjustification": 2
                 }
@@ -259,7 +283,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 294.0, 224.0, 100.0, 23.0 ]
+                    "patching_rect": [ 295.0, 222.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -269,7 +293,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 294.0, 264.0, 79.0, 22.0 ],
+                    "patching_rect": [ 295.0, 262.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -280,7 +304,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 294.0, 202.0, 144.0, 21.0 ],
+                    "patching_rect": [ 295.0, 200.0, 144.0, 21.0 ],
                     "text": "just Analog filters:"
                 }
             },
@@ -291,7 +315,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 294.0, 303.0, 110.0, 22.0 ],
+                    "patching_rect": [ 295.0, 301.0, 110.0, 22.0 ],
                     "text": "evi.biquad.analog~"
                 }
             },
@@ -302,7 +326,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 521.0, 488.0, 111.0, 22.0 ],
+                    "patching_rect": [ 522.0, 486.0, 111.0, 22.0 ],
                     "text": "evi.biquad.allpass~"
                 }
             },
@@ -313,7 +337,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 521.0, 434.0, 120.0, 22.0 ],
+                    "patching_rect": [ 522.0, 432.0, 120.0, 22.0 ],
                     "text": "evi.biquad.resonant~"
                 }
             },
@@ -324,7 +348,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 521.0, 380.0, 122.0, 22.0 ],
+                    "patching_rect": [ 522.0, 378.0, 122.0, 22.0 ],
                     "text": "evi.biquad.highshelf~"
                 }
             },
@@ -335,7 +359,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 360.0, 488.0, 117.0, 22.0 ],
+                    "patching_rect": [ 361.0, 486.0, 117.0, 22.0 ],
                     "text": "evi.biquad.lowshelf~"
                 }
             },
@@ -346,7 +370,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 360.0, 434.0, 129.0, 22.0 ],
+                    "patching_rect": [ 361.0, 432.0, 129.0, 22.0 ],
                     "text": "evi.biquad.peaknotch~"
                 }
             },
@@ -357,7 +381,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 360.0, 380.0, 103.0, 22.0 ],
+                    "patching_rect": [ 361.0, 378.0, 103.0, 22.0 ],
                     "text": "evi.biquad.notch~"
                 }
             },
@@ -371,7 +395,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 208.0, 527.0, 69.0, 22.0 ],
+                    "patching_rect": [ 209.0, 525.0, 69.0, 22.0 ],
                     "text_width": 37.0
                 }
             },
@@ -382,7 +406,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 208.0, 488.0, 126.0, 22.0 ],
+                    "patching_rect": [ 209.0, 486.0, 126.0, 22.0 ],
                     "text": "evi.biquad.bandpass~"
                 }
             },
@@ -393,7 +417,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 208.0, 434.0, 122.0, 22.0 ],
+                    "patching_rect": [ 209.0, 432.0, 122.0, 22.0 ],
                     "text": "evi.biquad.highpass~"
                 }
             },
@@ -404,7 +428,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 208.0, 380.0, 117.0, 22.0 ],
+                    "patching_rect": [ 209.0, 378.0, 117.0, 22.0 ],
                     "text": "evi.biquad.lowpass~"
                 }
             },
@@ -421,7 +445,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 143.0, 224.0, 100.0, 23.0 ]
+                    "patching_rect": [ 144.0, 222.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -431,7 +455,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 143.0, 264.0, 79.0, 22.0 ],
+                    "patching_rect": [ 144.0, 262.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -442,7 +466,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 143.0, 303.0, 134.0, 22.0 ],
+                    "patching_rect": [ 144.0, 301.0, 134.0, 22.0 ],
                     "text": "evi.biquad.butterworth~"
                 }
             },
@@ -459,7 +483,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 15.0, 224.0, 100.0, 23.0 ]
+                    "patching_rect": [ 16.0, 222.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -469,7 +493,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 15.0, 264.0, 79.0, 22.0 ],
+                    "patching_rect": [ 16.0, 262.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -480,7 +504,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 15.0, 303.0, 110.0, 22.0 ],
+                    "patching_rect": [ 16.0, 301.0, 110.0, 22.0 ],
                     "text": "evi.biquad.eqfilter~"
                 }
             },
@@ -491,7 +515,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 439.0, 77.0, 79.0, 22.0 ],
+                    "patching_rect": [ 440.0, 75.0, 79.0, 22.0 ],
                     "text": "prepend filter"
                 }
             },
@@ -508,7 +532,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 439.0, 37.0, 100.0, 23.0 ]
+                    "patching_rect": [ 440.0, 35.0, 100.0, 23.0 ]
                 }
             },
             {
@@ -518,7 +542,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 182.0, 166.0, 72.0, 22.0 ],
+                    "patching_rect": [ 183.0, 164.0, 72.0, 22.0 ],
                     "text": "biquad~"
                 }
             },
@@ -529,7 +553,7 @@
                     "numinlets": 7,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 294.0, 166.0, 137.0, 22.0 ],
+                    "patching_rect": [ 295.0, 164.0, 137.0, 22.0 ],
                     "text": "evi.biquad~"
                 }
             },
@@ -540,7 +564,7 @@
                     "numinlets": 3,
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 314.0, 127.0, 97.0, 22.0 ],
+                    "patching_rect": [ 315.0, 125.0, 97.0, 22.0 ],
                     "text": "evi.biquadcoeff~"
                 }
             },
@@ -551,7 +575,7 @@
                     "numinlets": 3,
                     "numoutlets": 6,
                     "outlettype": [ "", "float", "float", "float", "float", "float" ],
-                    "patching_rect": [ 193.0, 127.0, 89.0, 22.0 ],
+                    "patching_rect": [ 194.0, 125.0, 89.0, 22.0 ],
                     "text": "evi.biquadcoeff"
                 }
             },
@@ -562,7 +586,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 439.0, 127.0, 96.0, 22.0 ],
+                    "patching_rect": [ 440.0, 125.0, 96.0, 22.0 ],
                     "text": "evi.biquad.filter~"
                 }
             },
@@ -573,7 +597,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 208.0, 343.0, 390.0, 21.0 ],
+                    "patching_rect": [ 209.0, 341.0, 390.0, 21.0 ],
                     "text": "all types available as individual all-in-one blocks as well:"
                 }
             },
@@ -584,7 +608,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 143.0, 202.0, 145.0, 21.0 ],
+                    "patching_rect": [ 144.0, 200.0, 145.0, 21.0 ],
                     "text": "just Butterworth filters:"
                 }
             },
@@ -595,7 +619,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 202.0, 108.0, 21.0 ],
+                    "patching_rect": [ 16.0, 200.0, 108.0, 21.0 ],
                     "text": "just EQ filters:"
                 }
             },
@@ -607,7 +631,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 543.0, 120.0, 69.0, 36.0 ],
+                    "patching_rect": [ 544.0, 118.0, 69.0, 36.0 ],
                     "text": "all in one section"
                 }
             },
@@ -619,7 +643,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 543.0, 32.0, 96.0, 36.0 ],
+                    "patching_rect": [ 544.0, 30.0, 96.0, 36.0 ],
                     "text": "more types than MSP"
                 }
             },
@@ -631,19 +655,140 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 280.0, 520.0, 263.0, 36.0 ],
-                    "text": "all individual blocks have choices for that type as well, double-click to see more"
+                    "patching_rect": [ 281.0, 518.0, 267.0, 36.0 ],
+                    "text": "all individual blocks have choices for that type as well, double-click them to see more"
                 }
             },
             {
                 "box": {
+                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
                     "fontsize": 13.0,
                     "id": "obj-88",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 15.0, 385.0, 21.0 ],
+                    "patching_rect": [ 16.0, 3.0, 267.0, 21.0 ],
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.theme_locked_bgcolor"
+                        }
+                    },
                     "text": "Legacy filters (biquads), might still be useful:"
+                }
+            },
+            {
+                "box": {
+                    "angle": 270.0,
+                    "background": 1,
+                    "border": 1,
+                    "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "id": "obj-23",
+                    "maxclass": "panel",
+                    "mode": 1,
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 7.0, 338.0, 182.0, 225.0 ],
+                    "proportion": 0.5,
+                    "rounded": 4,
+                    "saved_attribute_attributes": {
+                        "bordercolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    }
+                }
+            },
+            {
+                "box": {
+                    "angle": 270.0,
+                    "background": 1,
+                    "border": 1,
+                    "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "id": "obj-22",
+                    "maxclass": "panel",
+                    "mode": 1,
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 8.0, 13.0, 645.0, 177.0 ],
+                    "proportion": 0.5,
+                    "rounded": 4,
+                    "saved_attribute_attributes": {
+                        "bordercolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    }
+                }
+            },
+            {
+                "box": {
+                    "angle": 270.0,
+                    "background": 1,
+                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
+                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 0.0 ],
+                    "id": "obj-21",
+                    "maxclass": "panel",
+                    "mode": 0,
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 194.0, 329.0, 458.0, 10.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 923.0, 300.0, 372.0, 10.0 ],
+                    "proportion": 0.5,
+                    "rounded": 2,
+                    "saved_attribute_attributes": {
+                        "bgfillcolor": {
+                            "expression": "themecolor.theme_locked_bgcolor"
+                        }
+                    }
+                }
+            },
+            {
+                "box": {
+                    "angle": 270.0,
+                    "background": 1,
+                    "border": 1,
+                    "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "id": "obj-20",
+                    "maxclass": "panel",
+                    "mode": 1,
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 193.0, 333.0, 460.0, 230.0 ],
+                    "proportion": 0.5,
+                    "rounded": 4,
+                    "saved_attribute_attributes": {
+                        "bordercolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    }
+                }
+            },
+            {
+                "box": {
+                    "angle": 270.0,
+                    "background": 1,
+                    "border": 1,
+                    "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                    "id": "obj-19",
+                    "maxclass": "panel",
+                    "mode": 1,
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 7.0, 194.0, 646.0, 140.0 ],
+                    "proportion": 0.5,
+                    "rounded": 4,
+                    "saved_attribute_attributes": {
+                        "bordercolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    }
                 }
             },
             {
@@ -715,14 +860,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-59", 0 ],
-                    "midpoints": [ 489.0, 69.83984375, 202.5, 69.83984375 ],
+                    "midpoints": [ 490.0, 67.83984375, 203.5, 67.83984375 ],
                     "source": [ "obj-55", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-58", 0 ],
-                    "midpoints": [ 448.5, 104.28515625, 323.5, 104.28515625 ],
+                    "midpoints": [ 449.5, 102.28515625, 324.5, 102.28515625 ],
                     "order": 1,
                     "source": [ "obj-56", 0 ]
                 }
@@ -797,7 +942,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-72", 0 ],
-                    "midpoints": [ 217.5, 559.0, 195.79296875, 559.0, 195.79296875, 478.0, 217.5, 478.0 ],
+                    "midpoints": [ 218.5, 557.0, 199.37109375, 557.0, 199.37109375, 476.0, 218.5, 476.0 ],
                     "source": [ "obj-73", 0 ]
                 }
             }

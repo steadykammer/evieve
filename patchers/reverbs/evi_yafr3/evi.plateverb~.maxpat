@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -124,7 +124,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -135,7 +135,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Right",
                     "id": "obj-57",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -146,7 +146,7 @@
                 "box": {
                     "comment": "(signal) Audio Out Left",
                     "id": "obj-56",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -164,13 +164,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 232.0, -567.0, 1243.0, 480.0 ],
+                        "rect": [ 230.0, 94.0, 1243.0, 480.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "lefttoolbarpinned": 2,
@@ -303,7 +303,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -451,14 +451,14 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-28", 0 ],
-                                                    "order": 0,
+                                                    "disabled": 1,
                                                     "source": [ "obj-27", 1 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-49", 0 ],
-                                                    "order": 1,
+                                                    "disabled": 1,
                                                     "source": [ "obj-27", 1 ]
                                                 }
                                             },
@@ -471,24 +471,28 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-63", 0 ],
+                                                    "disabled": 1,
                                                     "source": [ "obj-28", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-64", 0 ],
+                                                    "disabled": 1,
                                                     "source": [ "obj-49", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-65", 0 ],
+                                                    "disabled": 1,
                                                     "source": [ "obj-63", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-65", 0 ],
+                                                    "disabled": 1,
                                                     "source": [ "obj-64", 0 ]
                                                 }
                                             },
@@ -659,7 +663,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -752,7 +756,7 @@
                                                         "fileversion": 1,
                                                         "appversion": {
                                                             "major": 9,
-                                                            "minor": 2,
+                                                            "minor": 3,
                                                             "revision": 0,
                                                             "architecture": "x64",
                                                             "modernui": 1
@@ -1188,7 +1192,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1771,7 +1775,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2865,11 +2869,11 @@
                 "box": {
                     "comment": "(signal) Audio In Nothing or Right or 2 / messages to evi.plateverb~",
                     "id": "obj-47",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 133.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -2877,11 +2881,11 @@
                 "box": {
                     "comment": "(signal) Audio In Mono or Left or 1 / messages to evi.plateverb~",
                     "id": "obj-46",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "outlettype": [ "signal" ],
                     "patching_rect": [ 34.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -3170,32 +3174,6 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
-            "obj-54::obj-12": [ "wetGain", "wetGain", 0 ],
-            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
-            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
-            "obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
-            "obj-54::obj-33": [ "decay", "decay", 0 ],
-            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
-            "obj-54::obj-36": [ "diffusion", "diffusion", 0 ],
-            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
-            "obj-54::obj-42": [ "inputPan", "inputPan", 0 ],
-            "obj-54::obj-43": [ "stereo", "stereo", 0 ],
-            "obj-54::obj-5": [ "damping", "damping", 0 ],
-            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
-            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",

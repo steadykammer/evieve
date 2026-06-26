@@ -16,14 +16,14 @@
     See the GNU General Public License for more details.
 */
 
-/*
-	v8 extensions for evieve
-	shared library used by the evieve TS/JS ( [v8] / [v8ui] )
+/*!
+    v8 extensions for evieve
+    shared library used by the evieve TS/JS ( [v8] / [v8ui] )
 
-	NOTE: for evieve shared code for [js] / [jsui] / [jspainter] @see: "evi.extensions.js"
+    NOTE: for evieve shared code for [js] / [jsui] / [jspainter] @see: "evi.extensions.js"
+
+    This file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
 */
-
-// this file is automatically transpiled from Typescript - DO NOT EDIT BY HAND
 
 export const eviUtil = {
 
@@ -39,16 +39,7 @@ export const eviUtil = {
     cheapRandomInt: (minInt: number, maxInt: number) => {
         return Math.floor(Math.random() * (maxInt - minInt + 1)) + minInt
     },
-/*
-    insideRect: (coordinateXY: Position, region: Rect) => {
-      // Checks if a coordinateXY is inside a specific region
-      const x = coordinateXY[0]
-      const y = coordinateXY[1]
-      const InsideYRange = !!(y >= region[1] && y <= region[3])
-      const insideXRange = !!(x >= region[0] && x <= region[2])
-      return insideXRange && InsideYRange
-    },
-*/
+
     dbtoa: (db: number) => {
       return Math.exp(eviConst.LOGTENDIVTWENTY * db)
     },

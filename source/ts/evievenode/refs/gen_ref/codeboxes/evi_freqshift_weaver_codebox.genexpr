@@ -73,14 +73,14 @@ autoreset	= rauto ? ((change(rrn == 1) > 0) * (rstatic == 0)) : 0;	// end of dow
 reset		= delta(in4) < 0;			// manual reset, will click, but useful if Hz @ zero
 thisreset	= reset + autoreset;
 
-rMod1, iMod1	= quadOsc(quadraturedetune1 + oscshift*freqshift, thisreset);
+rMod1, iMod1	= eviQuadOsc(quadraturedetune1 + oscshift*freqshift, thisreset);
 rMod1	= rMod1 * resetramp;
 iMod1	= iMod1 * resetramp;
 
 rMod2	= rMod1 + 0;
 iMod2	= iMod1 + 0;
 if (resetramp > 0) {
-	rMod2, iMod2	= quadOsc(quadraturedetune2 + ((1 - oscshift)*freqshift), thisreset);
+	rMod2, iMod2	= eviQuadOsc(quadraturedetune2 + ((1 - oscshift)*freqshift), thisreset);
 	rMod2	= rMod2 * resetramp;
 	iMod2	= iMod2 * resetramp;
 }

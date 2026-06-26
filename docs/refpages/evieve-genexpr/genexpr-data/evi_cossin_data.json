@@ -117,7 +117,7 @@
         {
             "document": true,
             "digest": "Accurate and efficient quadrature oscillator approximation",
-            "name": "quadOsc",
+            "name": "eviQuadOsc",
             "inputs": [
                 {
                     "id": 1,
@@ -148,7 +148,7 @@
         {
             "document": true,
             "digest": "Accurate and efficient quadrature oscillator approximation with independent sync outputs",
-            "name": "quadOscSync",
+            "name": "eviQuadOscSync",
             "inputs": [
                 {
                     "id": 1,

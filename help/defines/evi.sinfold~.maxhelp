@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -65,7 +65,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -136,7 +136,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -663,13 +663,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -900,8 +900,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 439.0, 373.0, 182.0, 21.0 ],
-                                    "text": "@drive smooth time in ms",
-                                    "textjustification": 0
+                                    "text": "@drive smooth time in ms"
                                 }
                             },
                             {
@@ -1165,13 +1164,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1509,7 +1508,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1540,7 +1539,7 @@
                                                         "fileversion": 1,
                                                         "appversion": {
                                                             "major": 9,
-                                                            "minor": 2,
+                                                            "minor": 3,
                                                             "revision": 0,
                                                             "architecture": "x64",
                                                             "modernui": 1
@@ -1551,6 +1550,7 @@
                                                         "boxes": [
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-22",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
@@ -1562,6 +1562,7 @@
                                                             },
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-21",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
@@ -1573,6 +1574,7 @@
                                                             },
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-20",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
@@ -1584,6 +1586,7 @@
                                                             },
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-19",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 2,
@@ -1595,58 +1598,59 @@
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "fontname": "Lato",
+                                                                    "fontname": "Arial",
                                                                     "fontsize": 12.0,
                                                                     "id": "obj-14",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 3,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 52.0, 85.0, 76.0, 23.0 ],
+                                                                    "patching_rect": [ 52.0, 85.0, 77.0, 22.0 ],
                                                                     "text": "scale -1 1 24"
                                                                 }
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "fontname": "Lato",
+                                                                    "fontname": "Arial",
                                                                     "fontsize": 12.0,
                                                                     "id": "obj-35",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 0,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 106.0, 45.0, 22.0, 23.0 ],
+                                                                    "patching_rect": [ 106.0, 45.0, 22.0, 22.0 ],
                                                                     "text": "48"
                                                                 }
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "fontname": "Lato",
+                                                                    "fontname": "Arial",
                                                                     "fontsize": 12.0,
                                                                     "id": "obj-28",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 52.0, 125.0, 34.0, 23.0 ],
+                                                                    "patching_rect": [ 52.0, 125.0, 34.0, 22.0 ],
                                                                     "text": "floor"
                                                                 }
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "fontname": "Lato",
+                                                                    "fontname": "Arial",
                                                                     "fontsize": 12.0,
                                                                     "id": "obj-24",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 0,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 52.0, 45.0, 40.0, 23.0 ],
+                                                                    "patching_rect": [ 52.0, 45.0, 40.0, 22.0 ],
                                                                     "text": "noise"
                                                                 }
                                                             },
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-23",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
@@ -1657,6 +1661,7 @@
                                                             },
                                                             {
                                                                 "box": {
+                                                                    "fontname": "Arial",
                                                                     "id": "obj-25",
                                                                     "maxclass": "newobj",
                                                                     "numinlets": 1,
@@ -2094,7 +2099,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -2429,7 +2434,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2645,7 +2650,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1

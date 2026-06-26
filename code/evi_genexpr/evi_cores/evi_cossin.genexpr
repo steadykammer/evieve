@@ -169,7 +169,7 @@ tanApprox3(x)
 }
 
 // better complex oscs, thanks to Martin Vicanek
-quadOsc(frequency, reset)
+eviQuadOsc(frequency, reset)
 {
 	History	u(1), v(0);				// init cos, init sin
 
@@ -185,7 +185,7 @@ quadOsc(frequency, reset)
 }
 
 // better complex oscs with sync outs
-quadOscSync(frequency, reset)
+eviQuadOscSync(frequency, reset)
 {
 	History	u(1), v(0);				// init cos, init sin
 

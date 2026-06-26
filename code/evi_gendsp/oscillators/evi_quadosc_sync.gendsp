@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 178.0, 100.0, 735.0, 329.0 ],
+        "rect": [ 178.0, 100.0, 750.0, 329.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -20,7 +20,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 559.0, 285.0, 135.0, 22.0 ],
+                    "patching_rect": [ 577.0, 285.0, 135.0, 22.0 ],
                     "text": "out 4 (signal) Sine Sync"
                 }
             },
@@ -30,7 +30,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 404.0, 285.0, 149.0, 22.0 ],
+                    "patching_rect": [ 422.0, 285.0, 149.0, 22.0 ],
                     "text": "out 3 (signal) Cosine Sync"
                 }
             },
@@ -62,13 +62,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 555.0, 34.0, 139.0, 22.0 ],
+                    "patching_rect": [ 573.0, 34.0, 139.0, 22.0 ],
                     "text": "in 2 (signal) Reset Naive"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'quadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout1, out2, out3, out4 = quadOscSync(in1, in2);\r\n\r\n\r\n// @see also: 'quadOsc()', 'evi_quadosc', 'evi.quadosc~'",
+                    "code": "\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'eviQuadOscSync()' function is the equivalent of [evi.quadosc~ @syncout 1]\r\nout1, out2, out3, out4 = eviQuadOscSync(in1, in2);\r\n\r\n\r\n// @see also: 'eviQuadOsc()', 'evi_quadosc', 'evi.quadosc~'",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -77,7 +77,7 @@
                     "numinlets": 2,
                     "numoutlets": 4,
                     "outlettype": [ "", "", "", "" ],
-                    "patching_rect": [ 48.0, 73.0, 646.0, 195.0 ]
+                    "patching_rect": [ 48.0, 73.0, 664.0, 195.0 ]
                 }
             },
             {
@@ -101,7 +101,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 564.5, 64.5, 684.5, 64.5 ],
+                    "midpoints": [ 582.5, 64.5, 702.5, 64.5 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
@@ -114,21 +114,21 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 0 ],
-                    "midpoints": [ 266.5, 276.5, 221.5, 276.5 ],
+                    "midpoints": [ 272.5, 276.5, 221.5, 276.5 ],
                     "source": [ "obj-3", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-6", 0 ],
-                    "midpoints": [ 684.5, 276.5, 568.5, 276.5 ],
+                    "midpoints": [ 702.5, 276.5, 586.5, 276.5 ],
                     "source": [ "obj-3", 3 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-7", 0 ],
-                    "midpoints": [ 475.5, 276.5, 413.5, 276.5 ],
+                    "midpoints": [ 487.5, 276.5, 431.5, 276.5 ],
                     "source": [ "obj-3", 2 ]
                 }
             }

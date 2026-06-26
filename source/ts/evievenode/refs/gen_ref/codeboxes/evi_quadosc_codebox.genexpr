@@ -2,8 +2,8 @@
 require("evi_cossin.genexpr");
 
 
-// This 'quadOsc()' function is the equivalent of [evi.quadosc~]
-out1, out2 = quadOsc(in1, in2);
+// This 'eviQuadOsc()' function is the equivalent of [evi.quadosc~]
+out1, out2 = eviQuadOsc(in1, in2);
 
 
-// @see also: 'quadOscSync()', 'evi_quadosc_sync', 'evi.quadosc~'
+// @see also: 'eviQuadOscSync()', 'evi_quadosc_sync', 'evi.quadosc~'
