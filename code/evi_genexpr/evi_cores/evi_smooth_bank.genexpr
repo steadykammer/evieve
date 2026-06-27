@@ -26,18 +26,20 @@ expApp(x0)
 	return x;
 }
 
-tauApp(t)									// t = seconds, NOTE: minimum should be 1ms
+tauApp(t)									// t = seconds, NOTE: minimum should be 1ms (0.001 seconds)
 {
 	y = expApp(-1 / (t * samplerate));
 	return y + 0.000128;
 }
 
-expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms
+expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms (0.001 seconds)
 {
-	History w(0);
+	History w(0), init1(1);
 	z = tauApp(t);
+	z = z * (1 - init1);
 	y = (z * w) + (x * (1 - z));
 	w = y;
+	init1 = 0;
 	return y;
 }
 
@@ -50,65 +52,76 @@ expso(x, z)									// z is pole
 	return y;
 }
 
-expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms (0.001 seconds)
 {
-	History	expsdummy2(0);
+	History	init2(1);
 	z		= tauApp(t);
-	y1		= expso(x1, z);
+	z		= z * (1 - init2);				// this means we do not need to do initialisation in expso()
+	y1		= expso(x1, z);					// 1st sample pass of y1 & y2 == x1 & x2 respectively
 	y2		= expso(x2, z);
+	init2	= 0;
 	return	y1, y2;
 }
 
 expsmoothBank3(x1, x2, x3, t)
 {
-	History	expsdummy3(0);
+	History	init3(1);
 	z		= tauApp(t);
+	z		= z * (1 - init3);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
+	init3	= 0;
 	return	y1, y2, y3;
 }
 
 expsmoothBank4(x1, x2, x3, x4, t)
 {
-	History	expsdummy4(0);
+	History	init4(1);
 	z		= tauApp(t);
+	z		= z * (1 - init4);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
+	init4	= 0;
 	return	y1, y2, y3, y4;
 }
 
 expsmoothBank5(x1, x2, x3, x4, x5, t)
 {
-	History	expsdummy5(0);
+	History	init5(1);
 	z		= tauApp(t);
+	z		= z * (1 - init5);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
 	y5		= expso(x5, z);
+	init5	= 0;
 	return	y1, y2, y3, y4, y5;
 }
 
 expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
 {
-	History	expsdummy6(0);
+	History	init6(1);
 	z		= tauApp(t);
+	z		= z * (1 - init6);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
 	y5		= expso(x5, z);
 	y6		= expso(x6, z);
+	init6	= 0;
 	return	y1, y2, y3, y4, y5, y6;
 }
 
 expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 {
-	History	expsdummy7(0);
+	History	init7(1);
 	z		= tauApp(t);
+	z		= z * (1 - init7);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -116,13 +129,15 @@ expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 	y5		= expso(x5, z);
 	y6		= expso(x6, z);
 	y7		= expso(x7, z);
+	init7	= 0;
 	return	y1, y2, y3, y4, y5, y6, y7;
 }
 
 expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 {
-	History	expsdummy8(0);
+	History	init8(1);
 	z		= tauApp(t);
+	z		= z * (1 - init8);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -131,6 +146,7 @@ expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 	y6		= expso(x6, z);
 	y7		= expso(x7, z);
 	y8		= expso(x8, z);
+	init8	= 0;
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
 
@@ -138,10 +154,10 @@ expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 
 logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 {
-	History z(0);
-	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no maximum check
-	y  = ((x - z) * ad) + z;
-	z  = y;
+	History z(0), ad1(1);
+	y  = ((x - z) * ad1) + z;
+	z  = y;									// 1st sample pass z == y == x
+	ad1 = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually very dangerous ?
 	return y;
 }
 
@@ -149,7 +165,7 @@ logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 logsad(s)									// s = time to drop 6dB (in seconds)
 {
 	return	LN2 / (s * samplerate);
-//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. minimum check
 }
 
 // for log banks
@@ -163,85 +179,85 @@ logso(x, ad)
 
 logsmoothBank2(x1, x2, s)
 {
-	History	logsdummy2(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
+	History	ad2(1);
+	y1		= logso(x1, ad2);
+	y2		= logso(x2, ad2);
+	ad2		= logsad(s);
 	return	y1, y2;
 }
 
 logsmoothBank3(x1, x2, x3, s)
 {
-	History	logsdummy3(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
+	History	ad3(1);
+	y1		= logso(x1, ad3);
+	y2		= logso(x2, ad3);
+	y3		= logso(x3, ad3);
+	ad3		= logsad(s);
 	return	y1, y2, y3;
 }
 
 logsmoothBank4(x1, x2, x3, x4, s)
 {
-	History	logsdummy4(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
+	History	ad4(1);
+	y1		= logso(x1, ad4);
+	y2		= logso(x2, ad4);
+	y3		= logso(x3, ad4);
+	y4		= logso(x4, ad4);
+	ad4		= logsad(s);
 	return	y1, y2, y3, y4;
 }
 
 logsmoothBank5(x1, x2, x3, x4, x5, s)
 {
-	History	logsdummy5(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
+	History	ad5(1);
+	y1		= logso(x1, ad5);
+	y2		= logso(x2, ad5);
+	y3		= logso(x3, ad5);
+	y4		= logso(x4, ad5);
+	y5		= logso(x5, ad5);
+	ad5		= logsad(s);
 	return	y1, y2, y3, y4, y5;
 }
 
 logsmoothBank6(x1, x2, x3, x4, x5, x6, s)
 {
-	History	logsdummy6(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
+	History	ad6(1);
+	y1		= logso(x1, ad6);
+	y2		= logso(x2, ad6);
+	y3		= logso(x3, ad6);
+	y4		= logso(x4, ad6);
+	y5		= logso(x5, ad6);
+	y6		= logso(x6, ad6);
+	ad6		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6;
 }
 
 logsmoothBank7(x1, x2, x3, x4, x5, x6, x7, s)
 {
-	History	logsdummy7(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
-	y7		= logso(x7, ad);
+	History	ad7(1);
+	y1		= logso(x1, ad7);
+	y2		= logso(x2, ad7);
+	y3		= logso(x3, ad7);
+	y4		= logso(x4, ad7);
+	y5		= logso(x5, ad7);
+	y6		= logso(x6, ad7);
+	y7		= logso(x7, ad7);
+	ad7		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6, y7;
 }
 
 logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
 {
-	History	logsdummy8(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
-	y7		= logso(x7, ad);
-	y8		= logso(x8, ad);
+	History	ad8(1);
+	y1		= logso(x1, ad8);
+	y2		= logso(x2, ad8);
+	y3		= logso(x3, ad8);
+	y4		= logso(x4, ad8);
+	y5		= logso(x5, ad8);
+	y6		= logso(x6, ad8);
+	y7		= logso(x7, ad8);
+	y8		= logso(x8, ad8);
+	ad8		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
 

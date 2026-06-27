@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 215.0, 100.0, 749.0, 389.0 ],
+        "rect": [ 215.0, 100.0, 749.0, 359.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -33,12 +33,12 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 422.0, 19.0, 287.0, 22.0 ],
-                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 0"
+                    "text": "in 2 (signal/float) Ramp Time in milliseconds @min 1"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nlogsmooth(x, s)\t\t// x = value\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0);\n\tad = LN2 / (s * samplerate);\t// (0.69314718056 / samples), no maximum check\n\ty  = ((x - z) * ad) + z;\n\tz  = y;\n\treturn y;\n}\n\r\nout1    = logsmooth(in1, in2*0.001);\r\n\r\n",
+                    "code": "\r\nlogsmooth(x, s)\t\t// x = value\t\t\t// s = time to drop 6dB (in seconds)\n{\n\tHistory z(0), ad0(1);\n\ty   = ((x - z) * ad0) + z;\n\tz   = y;\n\tad0 = LN2 / (s * samplerate);\t\t\t// no minimum check\n\treturn y;\n}\r\nout1    = logsmooth(in1, in2*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -47,7 +47,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 58.0, 660.0, 264.0 ]
+                    "patching_rect": [ 49.0, 58.0, 660.0, 239.0 ]
                 }
             },
             {
@@ -56,8 +56,19 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 339.0, 153.0, 22.0 ],
+                    "patching_rect": [ 49.0, 314.0, 153.0, 22.0 ],
                     "text": "out 1 (signal) Output Ramp"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-6",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 322.0, 20.0, 150.0, 20.0 ],
+                    "text": "must be @min 1"
                 }
             }
         ],

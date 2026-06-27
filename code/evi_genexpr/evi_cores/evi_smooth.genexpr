@@ -33,6 +33,7 @@ stepsmooth(x, y, a)	// in x, in y, interp 0..1
 }
 
 // like Faust [smooth], like 'expsmooth()' without 'tauA()' time compensation
+// not useful in most circumstances
 polesmooth(x, s)	// x = value			// s = smoothing amount, pole range, e.g. 0.999
 {
 	History y0(0);
@@ -42,6 +43,21 @@ polesmooth(x, s)	// x = value			// s = smoothing amount, pole range, e.g. 0.999
 }
 
 // excellent cheap generic smoother, fast(er) response
+// init routine in z-term takes only 1 extra multiplier, and is technically essential
+expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms (0.001 seconds)
+{
+	History w(0), init(1);
+	z = tauA(t);
+	z = z * (1 - init);						// init in z term, a brilliant joshua kit clayton idea, thanks
+	y = (z * w) + (x * (1 - z));
+	w = y;									// 1st sample pass of w == y == x
+	init = 0;
+	return y;
+}
+
+/*
+// excellent cheap generic smoother, fast(er) response
+// naive (no init)
 expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History w(0);
@@ -50,28 +66,43 @@ expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum sh
 	w = y;
 	return y;
 }
+*/
 
 // excellent & cheapest generic smoother, slow(er) response
+// with initialisation rolled into 'ad'
+logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
+{
+	History z(0), ad(1);
+	y  = ((x - z) * ad) + z;
+	z  = y;									// 1st sample pass z == y == x
+	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually very dangerous ?
+	return y;
+}
+
+/*
+// excellent & cheapest generic smoother, slow(er) response
+// naive no init
 logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 {
 	History z(0);
-	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no maximum check
+	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check
 	y  = ((x - z) * ad) + z;
 	z  = y;
 	return y;
 }
+*/
 
-// use bipolar for (audio) signals, etc
+// use for bipolar signals ?
 logsmoothClip(x, s)							// s = time to drop 6dB (in seconds)
 {
-	History z(0);
-	ad = LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+	History z(0), ad(1);
 	y  = ((x - z) * ad) + z;
 	z  = y;
+	ad = LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. minimum check
 	return y;
 }
 
-// for exp banks
+// for exp banks, init will be in caller
 expso(x, z)									// z is pole
 {
 	History w(0);
@@ -80,7 +111,63 @@ expso(x, z)									// z is pole
 	return y;
 }
 
-expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms
+/*
+// for proper initialisation, shitty branched pete version
+expsoR(x, z)
+{
+	History w(0);
+	History	init(1);
+	y = 0;
+	if (init) {
+		y = x;
+	} else {
+		y = (z * w) + (x * (1 - z));
+	}
+	// w = fixdenorm(y); // for C++ export
+	w = y;
+	init = 0;
+	return y;
+}
+
+// for single '...smooth()' version ? 2 extra multipliers :-( but better than a branch ?
+expsoI(x, z)
+{
+	History w(0);
+	History init(1);
+	y = (z * w) + (x * (1 - z));
+	w = (init * x) + ((1 - init) * y);
+	init = 0;
+	return w; // must be 'w'
+}
+
+// wrap into z term, for '...BankX()' logic
+expsoB(x, z0)
+{
+	History w(0);
+	History init(1);
+	z = z0 * (1 - init);
+	y = (z * w) + (x * (1 - z));
+	w = y;
+	init = 0;
+	return w; // could be 'y'
+}
+*/
+
+expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms (0.001 seconds)
+{
+	History	init2(1);
+	z		= tauA(t);
+	// wrap expso() init into z term in caller, a brilliant joshua kit clayton idea, thanks
+	z		= z * (1 - init2);				// this means we do not need to do initialisation in expso()
+	y1		= expso(x1, z);					// 1st sample pass of y1 & y2 == x1 & x2 respectively
+	y2		= expso(x2, z);
+	init2	= 0;
+	return	y1, y2;
+}
+
+/*
+// naive (no init)
+expsmoothBank2(x1, x2, t)
 {
 	History	expsdummy2(0);
 	z		= tauA(t);
@@ -88,57 +175,67 @@ expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum shou
 	y2		= expso(x2, z);
 	return	y1, y2;
 }
+*/
 
 expsmoothBank3(x1, x2, x3, t)
 {
-	History	expsdummy3(0);
+	History	init3(1);
 	z		= tauA(t);
+	z		= z * (1 - init3);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
+	init3	= 0;
 	return	y1, y2, y3;
 }
 
 expsmoothBank4(x1, x2, x3, x4, t)
 {
-	History	expsdummy4(0);
+	History	init4(1);
 	z		= tauA(t);
+	z		= z * (1 - init4);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
+	init4	= 0;
 	return	y1, y2, y3, y4;
 }
 
 expsmoothBank5(x1, x2, x3, x4, x5, t)
 {
-	History	expsdummy5(0);
+	History	init5(1);
 	z		= tauA(t);
+	z		= z * (1 - init5);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
 	y5		= expso(x5, z);
+	init5	= 0;
 	return	y1, y2, y3, y4, y5;
 }
 
 expsmoothBank6(x1, x2, x3, x4, x5, x6, t)
 {
-	History	expsdummy6(0);
+	History	init6(1);
 	z		= tauA(t);
+	z		= z * (1 - init6);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
 	y4		= expso(x4, z);
 	y5		= expso(x5, z);
 	y6		= expso(x6, z);
+	init6	= 0;
 	return	y1, y2, y3, y4, y5, y6;
 }
 
 expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 {
-	History	expsdummy7(0);
+	History	init7(1);
 	z		= tauA(t);
+	z		= z * (1 - init7);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -146,13 +243,15 @@ expsmoothBank7(x1, x2, x3, x4, x5, x6, x7, t)
 	y5		= expso(x5, z);
 	y6		= expso(x6, z);
 	y7		= expso(x7, z);
+	init7	= 0;
 	return	y1, y2, y3, y4, y5, y6, y7;
 }
 
 expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 {
-	History	expsdummy8(0);
+	History	init8(1);
 	z		= tauA(t);
+	z		= z * (1 - init8);
 	y1		= expso(x1, z);
 	y2		= expso(x2, z);
 	y3		= expso(x3, z);
@@ -161,6 +260,7 @@ expsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, t)
 	y6		= expso(x6, z);
 	y7		= expso(x7, z);
 	y8		= expso(x8, z);
+	init8	= 0;
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
 
@@ -176,16 +276,19 @@ cfSmoothLinearCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 // for cfSmoothLinear()
 cfSmoothLinearFilter(x0, g0, s0)
 {
-	History	low1(0), low2(0);
+	History	low1(0), low2(0);//, init(1); // this would make the init
 
 	low1z	= low1;
 	low2z	= low2;
 
 	bandz	= low1z - low2z;
 	g		= minimum(g0 + s0 * abs(bandz), 1);
+	// g	= minimum(g0 + s0 * abs(bandz), 1) * (1 - init); // this would make the init
 
 	low1	= low1z + g * (x0 - low1z);
 	low2	= low2z + g * (low1 - low2z);
+	// low2	= low2z + g * (low1 - low2z) + (init * x0); // this would make the init
+	// init	= 0;
 
 	return	  low2;
 }
@@ -220,7 +323,7 @@ cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 // for cfSmoothCubic()
 cfSmoothCubicFilter(x0, wc, s0)
 {
-	History	low1(0), low2(0), inz(0);
+	History	low1(0), low2(0), inz(0);//, init(1); // would be for init
 
 	low1z	= low1;
 	low2z	= low2;
@@ -232,6 +335,9 @@ cfSmoothCubicFilter(x0, wc, s0)
 	low1	= low1z + g * (0.5 * (x0 + inz) - low1z);
 	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
 	inz		= x0;
+
+	// low2	= (low2 * (1 - init)) + (x0 * init); // for init, would be horrible
+	// init	= 0;
 
 	return	  low2;
 }
@@ -271,10 +377,10 @@ smoothCoeff(smooth, q=0.54945)				// (q=0.54945 = 0.09 on normalised scale)
 logsad(s)									// s = time to drop 6dB (in seconds)
 {
 	return	LN2 / (s * samplerate);
-//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. maximum check
+//	return	LN2 / maximum((s * samplerate), 1);// (0.69314718056 / samples), incl. minimum check
 }
 
-// for log banks
+// for log banks, init will be in caller
 logso(x, ad)
 {
 	History z(0);
@@ -283,98 +389,117 @@ logso(x, ad)
 	return y;
 }
 
+/*
+// :-( for proper init version, really do not want to use this...
+logsoR(x, ad)
+{
+	History z(0);
+	History init(1);
+	y = 0;
+	if (init) {
+		y = x;
+	} else {
+		y = ((x - z) * ad) + z;
+	}
+	// z = fixdenorm(y); // for C++ export
+	z = y;
+	init = 0;
+	return y;
+}
+*/
+
 logsmoothBank2(x1, x2, s)
 {
-	History	logsdummy2(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
+	History	ad2(1);
+	y1		= logso(x1, ad2);
+	y2		= logso(x2, ad2);
+	ad2		= logsad(s);
 	return	y1, y2;
 }
 
 logsmoothBank3(x1, x2, x3, s)
 {
-	History	logsdummy3(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
+	History	ad3(1);
+	y1		= logso(x1, ad3);
+	y2		= logso(x2, ad3);
+	y3		= logso(x3, ad3);
+	ad3		= logsad(s);
 	return	y1, y2, y3;
 }
 
 logsmoothBank4(x1, x2, x3, x4, s)
 {
-	History	logsdummy4(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
+	History	ad4(1);
+	y1		= logso(x1, ad4);
+	y2		= logso(x2, ad4);
+	y3		= logso(x3, ad4);
+	y4		= logso(x4, ad4);
+	ad4		= logsad(s);
 	return	y1, y2, y3, y4;
 }
 
 logsmoothBank5(x1, x2, x3, x4, x5, s)
 {
-	History	logsdummy5(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
+	History	ad5(1);
+	y1		= logso(x1, ad5);
+	y2		= logso(x2, ad5);
+	y3		= logso(x3, ad5);
+	y4		= logso(x4, ad5);
+	y5		= logso(x5, ad5);
+	ad5		= logsad(s);
 	return	y1, y2, y3, y4, y5;
 }
 
 logsmoothBank6(x1, x2, x3, x4, x5, x6, s)
 {
-	History	logsdummy6(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
+	History	ad6(1);
+	y1		= logso(x1, ad6);
+	y2		= logso(x2, ad6);
+	y3		= logso(x3, ad6);
+	y4		= logso(x4, ad6);
+	y5		= logso(x5, ad6);
+	y6		= logso(x6, ad6);
+	ad6		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6;
 }
 
 logsmoothBank7(x1, x2, x3, x4, x5, x6, x7, s)
 {
-	History	logsdummy7(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
-	y7		= logso(x7, ad);
+	History	ad7(1);
+	y1		= logso(x1, ad7);
+	y2		= logso(x2, ad7);
+	y3		= logso(x3, ad7);
+	y4		= logso(x4, ad7);
+	y5		= logso(x5, ad7);
+	y6		= logso(x6, ad7);
+	y7		= logso(x7, ad7);
+	ad7		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6, y7;
 }
 
 logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
 {
-	History	logsdummy8(0);
-	ad		= logsad(s);
-	y1		= logso(x1, ad);
-	y2		= logso(x2, ad);
-	y3		= logso(x3, ad);
-	y4		= logso(x4, ad);
-	y5		= logso(x5, ad);
-	y6		= logso(x6, ad);
-	y7		= logso(x7, ad);
-	y8		= logso(x8, ad);
+	History	ad8(1);
+	y1		= logso(x1, ad8);
+	y2		= logso(x2, ad8);
+	y3		= logso(x3, ad8);
+	y4		= logso(x4, ad8);
+	y5		= logso(x5, ad8);
+	y6		= logso(x6, ad8);
+	y7		= logso(x7, ad8);
+	y8		= logso(x8, ad8);
+	ad8		= logsad(s);
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
 
 // log smooth (decay) envelope follower
 logdecay(x,	d)									// d = decay time (to drop 6dB) in seconds
 {
-	History	z(0);
-	ad		= logsad(d);
+	History	z(0), ad(1);
 	ff		= x - z;
 	y		= (ff > 0) ? x : ((ff * ad) + z);
 	z		= y;
+	ad		= logsad(d);
 	return	y;
 }
 
@@ -663,7 +788,7 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 }
 
 // like MSP [slide~], i.e. NOT exact destination
-// !! not required anymore, Graham Wakefield put this into gen~ native as 'slide()'
+// !! not needed anymore, Graham Wakefield put this into gen~ native as 'slide()'
 eviSlide(x, u, d)							// input, samples up, samples down
 {
 	History current(0);
