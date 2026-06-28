@@ -20,7 +20,7 @@ tauA(t)
 	return y + 0.000128;
 }
 
-cfSmoothLinearCoeff(hz, s)		// freq, seconds
+cfSmoothLinearCoeff(hz, s)		// freq, seconds (minimum 0.001 seconds !!)
 {
 	w0		= tanA(pi * hz / samplerate);
 	g0		= (w0 + w0) / (1 + w0);
@@ -42,9 +42,9 @@ cfSmoothLinearFilter(x0, g0, s0)
 
 cfSmoothLinear(x1, hz, s)
 {
-	History	  cfsl1dummy(0);
-	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	History	  g0(1), s0(0);
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
 	return	  y1;
 }
 

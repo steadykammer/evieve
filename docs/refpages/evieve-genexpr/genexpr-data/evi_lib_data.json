@@ -28,5 +28,8 @@
         "evi_waveshaping.genexpr"
     ],
     "functions": [],
-    "seealso": []
+    "seealso": [
+        "evi_core",
+        "evi_evieve"
+    ]
 }

@@ -297,19 +297,22 @@ cfSmoothLinearFilter(x0, g0, s0)
 	return	  low2;
 }
 
+// inits in the callers
+
 cfSmoothLinear(x1, hz, s)
 {
-	History	  cfsl1dummy(0);
-	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	History	  g0(1), s0(0);
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
 	return	  y1;
 }
 
 cfSmoothLinear2(x1, x2, hz, s)
 {
-	History	  cfsl2dummy(0);
-	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	History	  g0(1), s0(0);
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
 	y2		= cfSmoothLinearFilter(x2, g0, s0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
 	return	  y1, y2;
 }
+

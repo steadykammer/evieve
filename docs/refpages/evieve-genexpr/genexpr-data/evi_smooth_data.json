@@ -116,7 +116,7 @@
         },
         {
             "document": true,
-            "digest": "The same as 'logsmooth()' but with clipped input",
+            "digest": "The same as 'logsmooth()' but with clipped time factor",
             "name": "logsmoothClip",
             "inputs": [
                 {
@@ -1678,7 +1678,7 @@
         },
         {
             "document": true,
-            "digest": "A bit like Supercollider lag3(), a bootilicious smoother. Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB.",
+            "digest": "A bit like Supercollider lag3(), a bootilicious smoother. Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -60dB.",
             "name": "lagsmooth",
             "inputs": [
                 {
@@ -1723,7 +1723,7 @@
                     "id": 3,
                     "kind": "input",
                     "name": "th",
-                    "digest": "Threshold for log() e.g. 0.001 = -80dB"
+                    "digest": "Threshold for log() e.g. 0.001 = -60dB"
                 }
             ],
             "returns": [

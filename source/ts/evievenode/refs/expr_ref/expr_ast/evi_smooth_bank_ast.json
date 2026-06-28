@@ -347,6 +347,36 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init1",
+                                    "raw": "init1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ]
             ],
@@ -376,6 +406,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init1",
+                                        "raw": "init1"
+                                    }
                                 }
                             }
                         }
@@ -448,6 +514,24 @@
                                 "type": "Identifier",
                                 "name": "y",
                                 "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init1",
+                                "raw": "init1"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -649,8 +733,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy2",
-                                    "raw": "expsdummy2"
+                                    "name": "init2",
+                                    "raw": "init2"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -662,8 +746,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -699,6 +783,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init2",
+                                        "raw": "init2"
+                                    }
                                 }
                             }
                         }
@@ -764,6 +884,24 @@
                                     "name": "expso",
                                     "raw": "expso"
                                 }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init2",
+                                "raw": "init2"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -836,8 +974,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy3",
-                                    "raw": "expsdummy3"
+                                    "name": "init3",
+                                    "raw": "init3"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -849,8 +987,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -886,6 +1024,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init3",
+                                        "raw": "init3"
+                                    }
                                 }
                             }
                         }
@@ -987,6 +1161,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init3",
+                                "raw": "init3"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -1066,8 +1258,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy4",
-                                    "raw": "expsdummy4"
+                                    "name": "init4",
+                                    "raw": "init4"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -1079,8 +1271,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -1116,6 +1308,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init4",
+                                        "raw": "init4"
+                                    }
                                 }
                             }
                         }
@@ -1249,6 +1477,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init4",
+                                "raw": "init4"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -1339,8 +1585,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy5",
-                                    "raw": "expsdummy5"
+                                    "name": "init5",
+                                    "raw": "init5"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -1352,8 +1598,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -1389,6 +1635,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init5",
+                                        "raw": "init5"
+                                    }
                                 }
                             }
                         }
@@ -1554,6 +1836,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init5",
+                                "raw": "init5"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -1655,8 +1955,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy6",
-                                    "raw": "expsdummy6"
+                                    "name": "init6",
+                                    "raw": "init6"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -1668,8 +1968,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -1705,6 +2005,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init6",
+                                        "raw": "init6"
+                                    }
                                 }
                             }
                         }
@@ -1902,6 +2238,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init6",
+                                "raw": "init6"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -2014,8 +2368,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy7",
-                                    "raw": "expsdummy7"
+                                    "name": "init7",
+                                    "raw": "init7"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -2027,8 +2381,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -2064,6 +2418,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init7",
+                                        "raw": "init7"
+                                    }
                                 }
                             }
                         }
@@ -2293,6 +2683,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init7",
+                                "raw": "init7"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -2416,8 +2824,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "expsdummy8",
-                                    "raw": "expsdummy8"
+                                    "name": "init8",
+                                    "raw": "init8"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -2429,8 +2837,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -2466,6 +2874,42 @@
                                     "type": "Identifier",
                                     "name": "tauApp",
                                     "raw": "tauApp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "z",
+                                "raw": "z"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "z",
+                                    "raw": "z"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "init8",
+                                        "raw": "init8"
+                                    }
                                 }
                             }
                         }
@@ -2727,6 +3171,24 @@
                         }
                     },
                     {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init8",
+                                "raw": "init8"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "ArrayExpression",
@@ -2834,47 +3296,42 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "ad1",
+                                    "raw": "ad1"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ]
             ],
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "BinaryExpression",
-                                "operator": "/",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "LN2",
-                                    "raw": "LN2"
-                                },
-                                "right": {
-                                    "type": "BinaryExpression",
-                                    "operator": "*",
-                                    "left": {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    },
-                                    "right": {
-                                        "type": "Identifier",
-                                        "name": "samplerate",
-                                        "raw": "samplerate"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -2907,8 +3364,8 @@
                                     },
                                     "right": {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad1",
+                                        "raw": "ad1"
                                     }
                                 },
                                 "right": {
@@ -2933,6 +3390,41 @@
                                 "type": "Identifier",
                                 "name": "y",
                                 "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad1",
+                                "raw": "ad1"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "LN2",
+                                    "raw": "LN2"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "samplerate",
+                                        "raw": "samplerate"
+                                    }
+                                }
                             }
                         }
                     },
@@ -3177,8 +3669,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy2",
-                                    "raw": "logsdummy2"
+                                    "name": "ad2",
+                                    "raw": "ad2"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -3190,8 +3682,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -3204,33 +3696,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -3251,8 +3716,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad2",
+                                        "raw": "ad2"
                                     }
                                 ],
                                 "callee": {
@@ -3283,14 +3748,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad2",
+                                        "raw": "ad2"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad2",
+                                "raw": "ad2"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -3364,8 +3856,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy3",
-                                    "raw": "logsdummy3"
+                                    "name": "ad3",
+                                    "raw": "ad3"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -3377,8 +3869,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -3391,33 +3883,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -3438,8 +3903,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad3",
+                                        "raw": "ad3"
                                     }
                                 ],
                                 "callee": {
@@ -3470,8 +3935,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad3",
+                                        "raw": "ad3"
                                     }
                                 ],
                                 "callee": {
@@ -3502,14 +3967,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad3",
+                                        "raw": "ad3"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad3",
+                                "raw": "ad3"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -3594,8 +4086,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy4",
-                                    "raw": "logsdummy4"
+                                    "name": "ad4",
+                                    "raw": "ad4"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -3607,8 +4099,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -3621,33 +4113,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -3668,8 +4133,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad4",
+                                        "raw": "ad4"
                                     }
                                 ],
                                 "callee": {
@@ -3700,8 +4165,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad4",
+                                        "raw": "ad4"
                                     }
                                 ],
                                 "callee": {
@@ -3732,8 +4197,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad4",
+                                        "raw": "ad4"
                                     }
                                 ],
                                 "callee": {
@@ -3764,14 +4229,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad4",
+                                        "raw": "ad4"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad4",
+                                "raw": "ad4"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -3867,8 +4359,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy5",
-                                    "raw": "logsdummy5"
+                                    "name": "ad5",
+                                    "raw": "ad5"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -3880,8 +4372,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -3894,33 +4386,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -3941,8 +4406,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad5",
+                                        "raw": "ad5"
                                     }
                                 ],
                                 "callee": {
@@ -3973,8 +4438,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad5",
+                                        "raw": "ad5"
                                     }
                                 ],
                                 "callee": {
@@ -4005,8 +4470,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad5",
+                                        "raw": "ad5"
                                     }
                                 ],
                                 "callee": {
@@ -4037,8 +4502,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad5",
+                                        "raw": "ad5"
                                     }
                                 ],
                                 "callee": {
@@ -4069,14 +4534,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad5",
+                                        "raw": "ad5"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad5",
+                                "raw": "ad5"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -4183,8 +4675,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy6",
-                                    "raw": "logsdummy6"
+                                    "name": "ad6",
+                                    "raw": "ad6"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -4196,8 +4688,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -4210,33 +4702,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -4257,8 +4722,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
@@ -4289,8 +4754,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
@@ -4321,8 +4786,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
@@ -4353,8 +4818,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
@@ -4385,8 +4850,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
@@ -4417,14 +4882,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad6",
+                                        "raw": "ad6"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad6",
+                                "raw": "ad6"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -4542,8 +5034,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy7",
-                                    "raw": "logsdummy7"
+                                    "name": "ad7",
+                                    "raw": "ad7"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -4555,8 +5047,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -4569,33 +5061,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -4616,8 +5081,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4648,8 +5113,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4680,8 +5145,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4712,8 +5177,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4744,8 +5209,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4776,8 +5241,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
@@ -4808,14 +5273,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad7",
+                                        "raw": "ad7"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad7",
+                                "raw": "ad7"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -4944,8 +5436,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "logsdummy8",
-                                    "raw": "logsdummy8"
+                                    "name": "ad8",
+                                    "raw": "ad8"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -4957,8 +5449,8 @@
                                     "arguments": [
                                         {
                                             "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -4971,33 +5463,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "ad",
-                                "raw": "ad"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "logsad",
-                                    "raw": "logsad"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -5018,8 +5483,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5050,8 +5515,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5082,8 +5547,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5114,8 +5579,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5146,8 +5611,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5178,8 +5643,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5210,8 +5675,8 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
@@ -5242,14 +5707,41 @@
                                     },
                                     {
                                         "type": "Identifier",
-                                        "name": "ad",
-                                        "raw": "ad"
+                                        "name": "ad8",
+                                        "raw": "ad8"
                                     }
                                 ],
                                 "callee": {
                                     "type": "Identifier",
                                     "name": "logso",
                                     "raw": "logso"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ad8",
+                                "raw": "ad8"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logsad",
+                                    "raw": "logsad"
                                 }
                             }
                         }
@@ -6005,8 +6497,38 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "cfsl1dummy",
-                                    "raw": "cfsl1dummy"
+                                    "name": "g0",
+                                    "raw": "g0"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "s0",
+                                    "raw": "s0"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -6032,6 +6554,43 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "x1",
+                                        "raw": "x1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "g0",
+                                        "raw": "g0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s0",
+                                        "raw": "s0"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "cfSmoothLinearFilter",
+                                    "raw": "cfSmoothLinearFilter"
+                                }
+                            }
+                        }
+                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -6070,43 +6629,6 @@
                                     "type": "Identifier",
                                     "name": "cfSmoothLinearCoeff",
                                     "raw": "cfSmoothLinearCoeff"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "Identifier",
-                                "name": "y1",
-                                "raw": "y1"
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "x1",
-                                        "raw": "x1"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "g0",
-                                        "raw": "g0"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s0",
-                                        "raw": "s0"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "cfSmoothLinearFilter",
-                                    "raw": "cfSmoothLinearFilter"
                                 }
                             }
                         }
@@ -6170,8 +6692,38 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "cfsl2dummy",
-                                    "raw": "cfsl2dummy"
+                                    "name": "g0",
+                                    "raw": "g0"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "s0",
+                                    "raw": "s0"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -6197,48 +6749,6 @@
             "body": {
                 "type": "BlockStatement",
                 "body": [
-                    {
-                        "type": "ExpressionStatement",
-                        "expression": {
-                            "type": "AssignmentExpression",
-                            "operator": "=",
-                            "left": {
-                                "type": "ArrayPattern",
-                                "elements": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "g0",
-                                        "raw": "g0"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s0",
-                                        "raw": "s0"
-                                    }
-                                ]
-                            },
-                            "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "hz",
-                                        "raw": "hz"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "s",
-                                        "raw": "s"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "cfSmoothLinearCoeff",
-                                    "raw": "cfSmoothLinearCoeff"
-                                }
-                            }
-                        }
-                    },
                     {
                         "type": "ExpressionStatement",
                         "expression": {
@@ -6309,6 +6819,48 @@
                                     "type": "Identifier",
                                     "name": "cfSmoothLinearFilter",
                                     "raw": "cfSmoothLinearFilter"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "g0",
+                                        "raw": "g0"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s0",
+                                        "raw": "s0"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "hz",
+                                        "raw": "hz"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "s",
+                                        "raw": "s"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "cfSmoothLinearCoeff",
+                                    "raw": "cfSmoothLinearCoeff"
                                 }
                             }
                         }

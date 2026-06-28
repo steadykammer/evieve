@@ -12,5 +12,8 @@
         "evi_interp.genexpr"
     ],
     "functions": [],
-    "seealso": []
+    "seealso": [
+        "evi_lib",
+        "evi_evieve"
+    ]
 }

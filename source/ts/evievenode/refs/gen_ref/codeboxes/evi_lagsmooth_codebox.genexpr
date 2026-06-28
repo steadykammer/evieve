@@ -9,22 +9,22 @@ expA(x0)
 lagpole(x, c, l)							// value / coefficient / previous
 {
 //  return ((1 - abs(c)) * x) + (c * l);
-	return ((1 - c) * x) + (c * l);			// no need for abs here ?
+	return ((1 - c) * x) + (c * l);			// no need for abs here
 }
 
 // a bit like Supercollider [lag3], GPLv2
-// original by James MacCartney, mod by me
+// original by James MacCartney, mod by me, fixed threshold
 lagsmooth(v, lp0)							// destination value / time (in seconds)
 {
-	History coef(  0.9928302477768374);		// default: @20ms @48kHz
+	History coef(0);						// ensure lp3 == v on 1st sample pass
 	History lp1(0), lp2(0), lp3(0);
 	LOGTH	= -6.907755278982137;			// ln(0.001), fixed threshold of 0.001 (-60 dB)
-	lp0		= maximum(lp0, 0.008);			// <<-- careful! (this is an empirical number)
-	if (change(lp0))
-		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
 	lp1		= lagpole(v,	coef,	lp1);
 	lp2		= lagpole(lp1,	coef,	lp2);
 	lp3		= lagpole(lp2,	coef,	lp3);
+	lp0		= maximum(lp0, 0.008);			// <<-- careful! (this is an empirical number)
+	if (change(lp0))
+		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
 	return	lp3;
 }
 

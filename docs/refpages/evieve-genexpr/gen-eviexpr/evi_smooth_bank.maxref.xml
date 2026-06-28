@@ -302,53 +302,29 @@
 
       </description>
     </entry>
-    <entry name="tanApp ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="cfSmoothLinearCoeff ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: s, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="cfSmoothLinearFilter ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: x0, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: g0, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s0, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
     <entry name="cfSmoothLinear ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: s, <i></i> <br />
+        Signal smoother particularly well suited to smoothing cutoff frequencies. Based on Andy Simper's smoother, it tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (seconds) and filter cutoff (Hz). <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Destination value</i> <br />
+        <b>In 2</b>: type=<i>input</i>: hz, <i>Smoothing filter cutoff in Hz (typically 1..5)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Ramp, <i>Smoothed output ramp, or target value if ramp is complete.</i> <br />
 
       </description>
     </entry>
     <entry name="cfSmoothLinear2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: x1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: x2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: hz, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: s, <i></i> <br />
+        Bank of 2 'cfSmoothLinear()' smoothers with one hz and one time inlet <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x1, <i>Destination value 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: x2, <i>Destination value 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: hz, <i>Smoothing filter cutoff in Hz (typically 1..5)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 1</b>: Ramp 1, <i>Smoothed output ramp 1, or target value 1 if ramp is complete.</i> <br />
+        <b>Return 2</b>: Ramp 2, <i>Smoothed output ramp 2, or target value 2 if ramp is complete.</i> <br />
 
       </description>
     </entry>

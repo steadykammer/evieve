@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -29,7 +29,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -150,8 +150,8 @@
                                     "id": "obj-20",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "bang" ],
+                                    "numoutlets": 3,
+                                    "outlettype": [ "bang", "int", "bang" ],
                                     "patching_rect": [ 435.0, 216.0, 129.0, 23.0 ],
                                     "text": "metro 699 @active 1"
                                 }
@@ -477,7 +477,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -535,7 +535,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -551,11 +551,22 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-8",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 272.0, 488.0, 100.0, 36.0 ],
+                                    "text": "initialises with -0.5 correctly"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-12",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 221.0, 243.0, 136.0, 21.0 ],
+                                    "patching_rect": [ 269.0, 243.0, 136.0, 21.0 ],
                                     "text": "smooth time in ms"
                                 }
                             },
@@ -572,7 +583,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 199.0, 268.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 247.0, 268.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -641,7 +652,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 221.0, 266.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 269.0, 266.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 333.0 ],
@@ -726,8 +737,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 140.0, 336.0, 100.0, 23.0 ],
-                                    "text": "evi.lagsmooth~",
+                                    "patching_rect": [ 140.0, 336.0, 148.0, 23.0 ],
+                                    "text": "evi.lagsmooth~ -0.5 333",
                                     "varname": "evieveObject"
                                 }
                             },
@@ -772,7 +783,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 242.0, 337.0, 176.09849548339844, 54.0 ],
+                                    "patching_rect": [ 290.0, 337.0, 176.09849548339844, 54.0 ],
                                     "textfile": {
                                         "filename": "evi.helpargs.js",
                                         "flags": 0,
@@ -845,13 +856,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -939,8 +950,8 @@
                                     "id": "obj-29",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "bang" ],
+                                    "numoutlets": 3,
+                                    "outlettype": [ "bang", "int", "bang" ],
                                     "patching_rect": [ 502.0, 135.0, 136.0, 23.0 ],
                                     "text": "metro 1398 @active 1"
                                 }
@@ -1385,7 +1396,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1563,7 +1574,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1739,7 +1750,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1917,7 +1928,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2085,7 +2096,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1

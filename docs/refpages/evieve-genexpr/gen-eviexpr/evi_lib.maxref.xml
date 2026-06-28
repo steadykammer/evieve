@@ -49,6 +49,8 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_core" type="refpage"/>
+    <seealso name="evi_evieve" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

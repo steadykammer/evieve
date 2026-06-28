@@ -37,5 +37,8 @@
         "evi_warmer_lib.genexpr"
     ],
     "functions": [],
-    "seealso": []
+    "seealso": [
+        "evi_core",
+        "evi_lib"
+    ]
 }

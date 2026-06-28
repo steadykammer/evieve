@@ -12,27 +12,28 @@ tauA(t)
 	return y + 0.000128;
 }
 
-cfSmoothCubicCoeff(hz, s)		// freq, seconds
+cfSmoothCubicCoeff(hz, s)		// freq, seconds (minimum 0.001 seconds !!)
 {
 	wc		= hz / samplerate;
-	s0		= (1 - tauA(s));	// this is a bit stupid
+	s0		= (1 - tauA(s));
 	return	  wc, s0;
 }
 
 cfSmoothCubicFilter(x0, wc, s0)
 {
-	History	low1(0), low2(0), inz(0);
+	History	low1(0), low2(0), inz(0), g(2);
 
 	low1z	= low1;
 	low2z	= low2;
 
 	bandz	= low1z - low2z;
 	wd		= wc + s0 * abs(bandz);
-	g		= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);
 
 	low1	= low1z + g * (0.5 * (x0 + inz) - low1z);
 	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
 	inz		= x0;
+
+	g		= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);
 
 	return	  low2;
 }

@@ -64,7 +64,7 @@
     </entry>
     <entry name="logsmoothClip ( )">
       <description>
-        The same as 'logsmooth()' but with clipped input <br />
+        The same as 'logsmooth()' but with clipped time factor <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Value to smooth</i> <br />
         <b>In 2</b>: type=<i>input</i>: s, <i>Smoothing time in SECONDS (time to drop 6dB)</i> <br />
@@ -444,7 +444,7 @@
     </entry>
     <entry name="lagsmooth ( )">
       <description>
-        A bit like Supercollider lag3(), a bootilicious smoother. Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB. <br />
+        A bit like Supercollider lag3(), a bootilicious smoother. Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -60dB. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: v, <i>Destination value</i> <br />
         <b>In 2</b>: type=<i>input</i>: lp0, <i>Ramp time in SECONDS</i> <br />
@@ -459,7 +459,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: v, <i>Destination value</i> <br />
         <b>In 2</b>: type=<i>input</i>: lp0, <i>Ramp time in SECONDS</i> <br />
-        <b>In 3</b>: type=<i>input</i>: th, <i>Threshold for log() e.g. 0.001 &#x3D; -80dB</i> <br />
+        <b>In 3</b>: type=<i>input</i>: th, <i>Threshold for log() e.g. 0.001 &#x3D; -60dB</i> <br />
 
         <b>Return 1</b>: Ramp, <i>Smoothed output ramp, or target value if ramp is complete</i> <br />
 

@@ -106,6 +106,7 @@ void evi_lagsmooth_perform64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, 
     t_double xin = x->s_inconnect ? *ins[0] : (x->s_isinitial ? x->s_initial : x->s_dest);
     t_double ms = x->s_msconnect ? *ins[1] : x->s_ms;
 
+    t_double init = (double)x->s_isinitial;
     t_double lp1 = x->s_lp1;
     t_double lp2 = x->s_lp2;
     t_double lp3 = x->s_lp3;
@@ -125,7 +126,8 @@ void evi_lagsmooth_perform64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, 
         x->s_ms = ms;
         x->s_coef = coef;
     }
-    x->s_isinitial = 0;
+
+    coef = coef * (1.0 - init); // zero for init ensures lp3 == xin on 1st pass
 
     while (vs--) {
 
@@ -139,6 +141,7 @@ void evi_lagsmooth_perform64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, 
     x->s_lp1 = lp1;
     x->s_lp2 = lp2;
     x->s_lp3 = lp3;
+    x->s_isinitial = 0;
 }
 
 void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -152,6 +155,7 @@ void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double**
     t_double lp1 = x->s_lp1;
     t_double lp2 = x->s_lp2;
     t_double lp3 = x->s_isinitial ? x->s_initial : x->s_lp3;
+    double init = (double)x->s_isinitial;
     double coef = x->s_coef;
 
 	if (x->p_sob.z_disabled)
@@ -168,7 +172,8 @@ void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double**
         x->s_ms = ms;
         x->s_coef = coef;
     }
-    x->s_isinitial = 0;
+
+    coef = coef * (1.0 - init); // zero for init ensures lp3 == xin on 1st pass
 
     while (vs--) {
 
@@ -182,6 +187,7 @@ void evi_lagsmooth_perform_float64(t_evi_lagsmooth* x, t_object* dsp64, double**
     x->s_lp1 = lp1;
     x->s_lp2 = lp2;
     x->s_lp3 = lp3;
+    x->s_isinitial = 0;
 }
 
 void evi_lagsmooth_int(t_evi_lagsmooth* x, long n)

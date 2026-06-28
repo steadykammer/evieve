@@ -95,6 +95,5 @@ svfMix  = makeM * (lowM * LP + highM * HP);     // low + high = notch
 
 // output
 // LP..Notch..HP via 'morph'
-out1	= svfMix * sqrt1_2;                     // do NOT 'dcblock()' this - bug with above 
-                                                // 'expsmoothBank2()' & initialising
-                                                // '@morphsmooth' > 0, pete needs to work out
+out1	= dcblock(svfMix * sqrt1_2);
+

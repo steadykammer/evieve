@@ -1147,7 +1147,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "tanApp",
             "inputs": [
@@ -1167,7 +1167,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cfSmoothLinearCoeff",
             "inputs": [
@@ -1198,7 +1198,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "cfSmoothLinearFilter",
             "inputs": [
@@ -1231,76 +1231,76 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Signal smoother particularly well suited to smoothing cutoff frequencies. Based on Andy Simper's smoother, it tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (seconds) and filter cutoff (Hz).",
             "name": "cfSmoothLinear",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Destination value"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Smoothing filter cutoff in Hz (typically 1..5)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp",
+                    "digest": "Smoothed output ramp, or target value if ramp is complete."
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Bank of 2 'cfSmoothLinear()' smoothers with one hz and one time inlet",
             "name": "cfSmoothLinear2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "x1",
-                    "digest": ""
+                    "digest": "Destination value 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "x2",
-                    "digest": ""
+                    "digest": "Destination value 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "hz",
-                    "digest": ""
+                    "digest": "Smoothing filter cutoff in Hz (typically 1..5)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Smoothing time in SECONDS"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp 1",
+                    "digest": "Smoothed output ramp 1, or target value 1 if ramp is complete."
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "Ramp 2",
+                    "digest": "Smoothed output ramp 2, or target value 2 if ramp is complete."
                 }
             ]
         }

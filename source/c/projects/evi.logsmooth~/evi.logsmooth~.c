@@ -112,6 +112,7 @@ void evi_logsmooth_perform64(t_evi_logsmooth* x, t_object* dsp64, double** ins, 
     t_double xin = x->s_inconnect[0] ? *ins[0] : (x->s_isinitial ? x->s_initial : x->s_dest);
     t_double ms = x->s_msconnect ? *ins[x->s_banks] : x->s_ms;
 
+    t_double init = (double)x->s_isinitial;
     t_double z = x->s_z;
     double ad = x->s_ad;
     double y = 0.0;
@@ -130,11 +131,11 @@ void evi_logsmooth_perform64(t_evi_logsmooth* x, t_object* dsp64, double** ins, 
         x->s_ms = ms;
         x->s_ad = ad;
     }
-    x->s_isinitial = 0;
+
+    ad = init + (ad * (1.0 - init)); // this is a horrid way to init
 
     while (vs--) {
 
-        // (((*in1++) - z) * ad) + z
         y = ((xin - z) * ad) + z;
         z = y;
 
@@ -142,6 +143,7 @@ void evi_logsmooth_perform64(t_evi_logsmooth* x, t_object* dsp64, double** ins, 
     }
 
     x->s_z = z;
+    x->s_isinitial = 0;
 }
 
 void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -153,6 +155,7 @@ void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double**
     double ms = x->s_ms;
 
     t_double z = x->s_z;
+    double init = (double)x->s_isinitial;
     double ad = x->s_ad;
     double y = x->s_isinitial ? x->s_initial : 0.0;
 
@@ -170,7 +173,8 @@ void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double**
         x->s_ms = ms;
         x->s_ad = ad;
     }
-    x->s_isinitial = 0;
+
+    ad = init + (ad * (1.0 - init)); // this is a horrid way to init
 
     while (vs--) {
 
@@ -181,6 +185,7 @@ void evi_logsmooth_perform_float64(t_evi_logsmooth* x, t_object* dsp64, double**
     }
 
     x->s_z = z;
+    x->s_isinitial = 0;
 }
 
 void evi_logsmooth_int(t_evi_logsmooth* x, long n)

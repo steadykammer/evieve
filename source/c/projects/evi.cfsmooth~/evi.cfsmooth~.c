@@ -155,6 +155,7 @@ void evi_cfsmooth_linear_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** 
     t_double xin = x->s_inconnect[0] ? *ins[0] : (x->s_isinitial ? x->s_initial : x->s_dest);
     t_double ms = x->s_msconnect ? *ins[x->s_banks] : x->s_ms;
 
+    t_double init = (double)x->s_isinitial;
     t_double low1 = x->s_low1;
     t_double low2 = x->s_low2;
     double hz = x->s_hz;
@@ -169,8 +170,8 @@ void evi_cfsmooth_linear_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** 
     // constrain hz value
     hz = CLAMP(hz, 0.01, 10.0);
     // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -181,7 +182,9 @@ void evi_cfsmooth_linear_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** 
         x->s_ms = ms;
         x->s_hz = hz;
     }
-    x->s_isinitial = 0;
+
+    g0 = init + (g0 * (1.0 - init));
+    // s0 = s0 * (1.0 - init);
 
     while (vs--) {
 
@@ -198,6 +201,7 @@ void evi_cfsmooth_linear_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** 
 
     x->s_low1 = low1;
     x->s_low2 = low2;
+    x->s_isinitial = 0;
 }
 
 void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -210,6 +214,7 @@ void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, dou
 
     t_double low1 = x->s_low1;
     t_double low2 = x->s_isinitial ? x->s_initial : x->s_low2;
+    double init = (double)x->s_isinitial;
     double hz = x->s_hz;
     double g0 = x->s_g0;
     double s0 = x->s_s0;
@@ -222,8 +227,8 @@ void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, dou
     // constrain hz value
     hz = CLAMP(hz, 0.01, 10.0);
     // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -234,7 +239,8 @@ void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, dou
         x->s_ms = ms;
         x->s_hz = hz;
     }
-    x->s_isinitial = 0;
+
+    g0 = init + (g0 * (1.0 - init));
 
     while (vs--) {
 
@@ -251,6 +257,7 @@ void evi_cfsmooth_linear_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, dou
 
     x->s_low1 = low1;
     x->s_low2 = low2;
+    x->s_isinitial = 0;
 }
 
 void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -267,7 +274,8 @@ void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** i
     double hz = x->s_hz;
     double wc = x->s_wc;
     double s0 = x->s_s0;
-    double low1z, low2z, bandz, gz, wd;
+    double init = (double)x->s_isinitial;
+    double low1z, low2z, bandz, gz, wd, inits;
 
 	if (x->p_sob.z_disabled)
 		return;
@@ -275,8 +283,8 @@ void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** i
     // constrain hz value
     hz = CLAMP(hz, 0.01, 10.0);
     // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -286,7 +294,8 @@ void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** i
         x->s_ms = ms;
         x->s_hz = hz;
     }
-    x->s_isinitial = 0;
+
+    inits = init + init;
 
     while (vs--) {
 
@@ -296,6 +305,7 @@ void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** i
 	    bandz	= low1z - low2z;
 	    wd		= wc + s0 * fabs(bandz);
 	    gz		= MIN(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1.0);
+        gz      = inits + (gz * (1.0 - init)); // sadly we have to init in the filter :-(
 
 	    low1	= low1z + gz * (0.5 * (xin + inz) - low1z);
 	    low2	= low2z + gz * (0.5 * (low1 + low1z) - low2z);
@@ -307,6 +317,7 @@ void evi_cfsmooth_cubic_perform64(t_evi_cfsmooth* x, t_object* dsp64, double** i
     x->s_low1 = low1;
     x->s_low2 = low2;
     x->s_inz = inz;
+    x->s_isinitial = 0;
 }
 
 void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -323,7 +334,8 @@ void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, doub
     double hz = x->s_hz;
     double wc = x->s_wc;
     double s0 = x->s_s0;
-    double low1z, low2z, bandz, gz, wd;
+    double init = (double)x->s_isinitial;
+    double low1z, low2z, bandz, gz, wd, inits;
 
 	if (x->p_sob.z_disabled)
 		return;
@@ -331,8 +343,8 @@ void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, doub
     // constrain hz value
     hz = CLAMP(hz, 0.01, 10.0);
     // constrain ms value
-    if (ms < 0.0) {
-        ms = 0.0;
+    if (ms < 1.0) {
+        ms = 1.0;
     }
 
     // do we need to recompute?
@@ -342,7 +354,8 @@ void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, doub
         x->s_ms = ms;
         x->s_hz = hz;
     }
-    x->s_isinitial = 0;
+
+    inits = init + init;
 
     while (vs--) {
 
@@ -352,6 +365,7 @@ void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, doub
 	    bandz	= low1z - low2z;
 	    wd		= wc + s0 * fabs(bandz);
 	    gz		= MIN(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1.0);
+        gz      = inits + (gz * (1.0 - init)); // sadly we have to init in the filter :-(
 
 	    low1	= low1z + gz * (0.5 * (xin + inz) - low1z);
 	    low2	= low2z + gz * (0.5 * (low1 + low1z) - low2z);
@@ -363,6 +377,7 @@ void evi_cfsmooth_cubic_perform_float64(t_evi_cfsmooth* x, t_object* dsp64, doub
     x->s_low1 = low1;
     x->s_low2 = low2;
     x->s_inz = inz;
+    x->s_isinitial = 0;
 }
 
 void evi_cfsmooth_int(t_evi_cfsmooth* x, long n)

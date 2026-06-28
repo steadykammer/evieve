@@ -111,9 +111,10 @@ void evi_expsmooth_perform64(t_evi_expsmooth* x, t_object* dsp64, double** ins, 
     t_double xin = x->s_inconnect[0] ? *ins[0] : (x->s_isinitial ? x->s_initial : x->s_dest);
     t_double ms = x->s_msconnect ? *ins[x->s_banks] : x->s_ms;
 
+    t_double init = (double)x->s_isinitial;
     t_double w = x->s_w;
     double z = x->s_z;
-    double invz = 1.0 - z;
+    double invz;// = 1.0 - z; // cannot cache here due to init
     double y = 0.0;
 
 	if (x->p_sob.z_disabled)
@@ -127,21 +128,24 @@ void evi_expsmooth_perform64(t_evi_expsmooth* x, t_object* dsp64, double** ins, 
     // do we need to recompute?
     if (ms != x->s_ms) {
         z = evi_tau_A(ms * 0.001, x->s_sr);
-        invz = 1.0 - z;
         x->s_ms = ms;
         x->s_z = z;
     }
-    x->s_isinitial = 0;
+
+    z = z * (1.0 - init); // for init
+    invz = 1.0 - z;
 
     while (vs--) {
 
         y = (z * w) + (xin * invz);
         w = y;
+        // init = 0;
 
         *out1++ = y;
     }
 
     x->s_w = w;
+    x->s_isinitial = 0;//(short)init; // this feels stupid
 }
 
 void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double** ins, long numins, double** outs, long numouts, long sampleframes, long flags, void* userparam)
@@ -153,9 +157,10 @@ void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double**
     double ms = x->s_ms;
 
     t_double w = x->s_w;
+    double init = (double)x->s_isinitial;
     double z = x->s_z;
-    double invz = 1.0 - z;
-    double y = x->s_isinitial ? x->s_initial : 0.0;
+    double invz;// = 1.0 - z; // cannot cache here due to init
+    double y = x->s_isinitial ? x->s_initial : 0.0; // do i need this ?
 
 	if (x->p_sob.z_disabled)
 		return;
@@ -168,11 +173,12 @@ void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double**
     // do we need to recompute?
     if (ms != x->s_ms) {
         z = evi_tau_A(ms * 0.001, x->s_sr);
-        invz = 1.0 - z;
         x->s_ms = ms;
         x->s_z = z;
     }
-    x->s_isinitial = 0;
+
+    z = z * (1.0 - init); // for init
+    invz = 1.0 - z;
 
     while (vs--) {
 
@@ -183,6 +189,7 @@ void evi_expsmooth_perform_float64(t_evi_expsmooth* x, t_object* dsp64, double**
     }
 
     x->s_w = w;
+    x->s_isinitial = 0;
 }
 
 void evi_expsmooth_int(t_evi_expsmooth* x, long n)
@@ -241,6 +248,7 @@ void evi_expsmooth_clear(t_evi_expsmooth* x)
     x->s_w = 0.0;
 }
 
+// not including initialisation routine
 void evi_expsmooth_coefficients(t_evi_expsmooth* x)
 {
     x->s_z = evi_tau_A(x->s_ms * 0.001, x->s_sr);

@@ -92,7 +92,7 @@ logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 }
 */
 
-// use for bipolar signals ?
+// use for bipolar signals or unknown 's' input?
 logsmoothClip(x, s)							// s = time to drop 6dB (in seconds)
 {
 	History z(0), ad(1);
@@ -274,25 +274,45 @@ cfSmoothLinearCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 }
 
 // for cfSmoothLinear()
+// init will be in caller
 cfSmoothLinearFilter(x0, g0, s0)
 {
-	History	low1(0), low2(0);//, init(1); // this would make the init
+	History	low1(0), low2(0);
 
 	low1z	= low1;
 	low2z	= low2;
 
 	bandz	= low1z - low2z;
 	g		= minimum(g0 + s0 * abs(bandz), 1);
-	// g	= minimum(g0 + s0 * abs(bandz), 1) * (1 - init); // this would make the init
 
 	low1	= low1z + g * (x0 - low1z);
 	low2	= low2z + g * (low1 - low2z);
-	// low2	= low2z + g * (low1 - low2z) + (init * x0); // this would make the init
-	// init	= 0;
 
 	return	  low2;
 }
 
+/*
+// for cfSmoothLinear()
+// init in filter, but we do not need this
+cfSmoothLinearFilter(x0, g0, s0)
+{
+	History	low1(0), low2(0), g(1); // 'g' init means low2 == low1 == x0 on 1st sample pass
+
+	low1z	= low1;
+	low2z	= low2;
+
+	bandz	= low1z - low2z;
+
+	low1	= low1z + g * (x0 - low1z);
+	low2	= low2z + g * (low1 - low2z);
+
+	g		= minimum(g0 + s0 * abs(bandz), 1); // but cos of this min, we could init in caller using 'g0' ?
+
+	return	  low2;
+}
+*/
+
+/*
 cfSmoothLinear(x1, hz, s)
 {
 	History	  cfsl1dummy(0);
@@ -300,17 +320,28 @@ cfSmoothLinear(x1, hz, s)
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
 	return	  y1;
 }
+*/
+
+// inits in the callers
+
+cfSmoothLinear(x1, hz, s)
+{
+	History	  g0(1), s0(0);
+	y1		= cfSmoothLinearFilter(x1, g0, s0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	return	  y1;
+}
 
 cfSmoothLinear2(x1, x2, hz, s)
 {
-	History	  cfsl2dummy(0);
-	g0, s0	= cfSmoothLinearCoeff(hz, s);
+	History	  g0(1), s0(0);
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
 	y2		= cfSmoothLinearFilter(x2, g0, s0);
+	g0, s0	= cfSmoothLinearCoeff(hz, s);
 	return	  y1, y2;
 }
 
-// the cubic version is much more expensive and very rarely worth it
+// the cubic version is quite a lot more expensive and very rarely worth it
 
 // for cfSmoothCubic()
 cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
@@ -320,10 +351,12 @@ cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 	return	  wc, s0;
 }
 
+/*
 // for cfSmoothCubic()
+// naive no init
 cfSmoothCubicFilter(x0, wc, s0)
 {
-	History	low1(0), low2(0), inz(0);//, init(1); // would be for init
+	History	low1(0), low2(0), inz(0);
 
 	low1z	= low1;
 	low2z	= low2;
@@ -336,8 +369,27 @@ cfSmoothCubicFilter(x0, wc, s0)
 	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
 	inz		= x0;
 
-	// low2	= (low2 * (1 - init)) + (x0 * init); // for init, would be horrible
-	// init	= 0;
+	return	  low2;
+}
+*/
+
+// for cfSmoothCubic()
+// cannot init in caller as in 'cfSmoothLinear()' :-(
+cfSmoothCubicFilter(x0, wc, s0)
+{
+	History	low1(0), low2(0), inz(0), g(2); // 'g' init means low2 behaves as x0 on 1st sample pass
+
+	low1z	= low1;
+	low2z	= low2;
+
+	bandz	= low1z - low2z;
+	wd		= wc + s0 * abs(bandz);
+
+	low1	= low1z + g * (0.5 * (x0 + inz) - low1z);
+	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
+	inz		= x0;
+
+	g		= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);
 
 	return	  low2;
 }
@@ -492,14 +544,16 @@ logsmoothBank8(x1, x2, x3, x4, x5, x6, x7, x8, s)
 	return	y1, y2, y3, y4, y5, y6, y7, y8;
 }
 
+// technically initialisations not needed for envs ?
+
 // log smooth (decay) envelope follower
 logdecay(x,	d)									// d = decay time (to drop 6dB) in seconds
 {
-	History	z(0), ad(1);
+	History	z(0);
+	ad		= logsad(d);
 	ff		= x - z;
 	y		= (ff > 0) ? x : ((ff * ad) + z);
 	z		= y;
-	ad		= logsad(d);
 	return	y;
 }
 
@@ -516,6 +570,7 @@ logattackdecay(x, a, d)							// a/d = attack/decay times (to 6dB) in seconds
 }
 
 // log smooth (AHR) envelope follower
+// should get rid of if/else ?
 logattackholdrelease(x, a, h, r)				// a/h/r = attack/hold/release times (to 6dB) in seconds
 {
 	History	z(0), g(0);
@@ -549,15 +604,15 @@ lagpoleAbs(x, c, l)
 // original by James MacCartney, mod by me, fixed threshold
 lagsmooth(v, lp0)							// destination value / time (in seconds)
 {
-	History coef(  0.9928302477768374);		// default: @20ms @48kHz
+	History coef(0);						// ensure lp3 == v on 1st sample pass
 	History lp1(0), lp2(0), lp3(0);
 	LOGTH	= -6.907755278982137;			// ln(0.001), fixed threshold of 0.001 (-60 dB)
-	lp0		= maximum(lp0, 0.008);			// <<-- careful! (this is an empirical number)
-	if (change(lp0))
-		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
 	lp1		= lagpole(v,	coef,	lp1);
 	lp2		= lagpole(lp1,	coef,	lp2);
 	lp3		= lagpole(lp2,	coef,	lp3);
+	lp0		= maximum(lp0, 0.008);			// <<-- careful! (this is an empirical number)
+	if (change(lp0))
+		coef	= maximum(expA(LOGTH / (lp0 * samplerate)), 0);
 	return	lp3;
 }
 
@@ -568,13 +623,13 @@ lagsmoothThresh(v, lp0, th)			// destination value / time (in seconds) / thresho
 {
 	History coef(0);
 	History lp1(0), lp2(0), lp3(0);
+	lp1		= lagpole(v,	coef,	lp1);
+	lp2		= lagpole(lp1,	coef,	lp2);
+	lp3		= lagpole(lp2,	coef,	lp3);
 	lp0		= maximum(lp0, 0.008);	// <<-- careful!
 	if (change(lp0)) {
 		coef 	= expApprox(logApprox(th) / (lp0 * samplerate));	// not identical to above, sorry! (slower)
 	}
-	lp1		= lagpole(v,	coef,	lp1);
-	lp2		= lagpole(lp1,	coef,	lp2);
-	lp3		= lagpole(lp2,	coef,	lp3);
 	return	lp3;
 }
 
@@ -603,7 +658,7 @@ ramptwo(x, u, d, p)
 	return y;
 }
 
-// exact destinations (unlike all above smoothers)
+// exact destinations (unlike all above smoothers), no initialisations here :-(
 
 // like MSP [line~], exact destination
 eviLine(target, duration)				// target, duration in samples
@@ -613,7 +668,7 @@ eviLine(target, duration)				// target, duration in samples
     ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
     lin 	= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));
     val 	= lin;
-    return  lin, (ramp == 1);
+	return  lin, (ramp == 1);
 }
 
 // exact destination, with S-curve

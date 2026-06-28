@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -38,7 +38,7 @@
             },
             {
                 "box": {
-                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\nlagpole(x, c, l)\t\t\t\t\t\t\t// value / coefficient / previous\n{\n//  return ((1 - abs(c)) * x) + (c * l);\r\n\treturn ((1 - c) * x) + (c * l);\t\t\t// no need for abs here ?\n}\n\n// a bit like Supercollider [lag3], GPLv2\n// original by James MacCartney, mod by me\nlagsmooth(v, lp0)\t\t\t\t\t\t\t// destination value / time (in seconds)\n{\n\tHistory coef(  0.9928302477768374);\t\t// default: @20ms @48kHz\n\tHistory lp1(0), lp2(0), lp3(0);\n\tLOGTH\t= -6.907755278982137;\t\t\t// ln(0.001), fixed threshold of 0.001 (-60 dB)\n\tlp0\t\t= maximum(lp0, 0.008);\t\t\t// <<-- careful! (this is an empirical number)\n\tif (change(lp0))\n\t\tcoef\t= maximum(expA(LOGTH / (lp0 * samplerate)), 0);\n\tlp1\t\t= lagpole(v,\tcoef,\tlp1);\n\tlp2\t\t= lagpole(lp1,\tcoef,\tlp2);\n\tlp3\t\t= lagpole(lp2,\tcoef,\tlp3);\n\treturn\tlp3;\n}\r\n\r\nout1    = lagsmooth(in1, in2*0.001);\r\n\r\n",
+                    "code": "\r\nexpA(x0)\n{\n\tx = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;\n\tx *= x; x *= x; x *= x; x *= x; x *= x;\n\treturn x;\n}\n\r\nlagpole(x, c, l)\t\t\t\t\t\t\t// value / coefficient / previous\n{\n//  return ((1 - abs(c)) * x) + (c * l);\r\n\treturn ((1 - c) * x) + (c * l);\t\t\t// no need for abs here\n}\n\n// a bit like Supercollider [lag3], GPLv2\n// original by James MacCartney, mod by me, fixed threshold\nlagsmooth(v, lp0)\t\t\t\t\t\t\t// destination value / time (in seconds)\n{\n\tHistory coef(0);\t\t\t\t\t\t// ensure lp3 == v on 1st sample pass\n\tHistory lp1(0), lp2(0), lp3(0);\n\tLOGTH\t= -6.907755278982137;\t\t\t// ln(0.001), fixed threshold of 0.001 (-60 dB)\n\tlp1\t\t= lagpole(v,\tcoef,\tlp1);\n\tlp2\t\t= lagpole(lp1,\tcoef,\tlp2);\n\tlp3\t\t= lagpole(lp2,\tcoef,\tlp3);\n\tlp0\t\t= maximum(lp0, 0.008);\t\t\t// <<-- careful! (this is an empirical number)\n\tif (change(lp0))\n\t\tcoef\t= maximum(expA(LOGTH / (lp0 * samplerate)), 0);\n\treturn\tlp3;\n}\n\r\nout1    = lagsmooth(in1, in2*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

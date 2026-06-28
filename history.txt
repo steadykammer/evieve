@@ -4,11 +4,28 @@ evieve — History
 Change Log
 -----------------------------------------------------------------------------------------
 
+Changes in 0.1.1
+
+All smoothers in gen~ and the externals initialise correctly on load
+This fixes evi.arpnotch~ as well
+
+-------
+
+Changes in 0.1.0
+
+1st Beta release, send to JKC for gen~ bugs
+
+Ref pages all proof read
+
+-------
+
 Changes in 0.0.3
 
 Improvements
+- mc tabs and all helpfiles done
 
 Bug Fixes
+- lots
 
 -------
 
