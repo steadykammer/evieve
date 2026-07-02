@@ -79,10 +79,10 @@
                 @min 0, @max 333
             </digest>
             <description>
-                Internal parameters smoothed by this time in ms. Turn off (0) for audio rate modulation of inlets 1 and 2
+                Frequency and Pulse Width smoothed by this time in ms. Turn off (0, default) for audio rate modulation of inlets 1 and 2
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='22.' />
+                <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
     </attributelist>

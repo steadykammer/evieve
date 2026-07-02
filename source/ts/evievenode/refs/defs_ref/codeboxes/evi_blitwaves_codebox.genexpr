@@ -40,7 +40,7 @@ eviBlit(Ph, Mt, Mf)
 History	thisReset(1), prevSR(0);//, Ff(0);
 History sr05(0), sr01(0), srWN(0), omWN(0), MaxFreq(0);//, filterRolloff(0);
 
-Param	smooth(22., min=0, max=333);			// ms
+Param	smooth(0., min=0, max=333);			    // ms
 Param	addsync(1, min=0, max=2);				// out6: 0 = off, 1 = main phase output, 2 = pwm phase output
 Param	addtrain(0, min=0, max=2);				// out5: 0 = off, 1 = train based on main phase, 2 = train based on pwm phase
 Param	addsine(0, min=0, max=1);				// out4: 0 = SINE off, 1 = SINE on (considerable CPU management)

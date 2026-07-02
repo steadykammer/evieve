@@ -14,12 +14,12 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ input, ramp, ramp } }
+                { arguments={}, inlets={ target, ramp, ramp } }
             </digest>
         </constructor>
     </constructorlist>
     <geninletlist>
-        <geninlet name='input' type='float' optional='1'>
+        <geninlet name='target' type='float' optional='1'>
             <digest>
                 Value. Input value to be smoothly ramped.
             </digest>

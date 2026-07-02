@@ -3,13 +3,14 @@
 // original port by Maurizio Giri, Graham Wakefield
 eviRampsmoothUpdate(input, frampup, frampdown)	// input, up in samples, down in samples
 {
-	History value(0), prev(0), stepcounter(0), increment(1);
+    History init(1);
+	History value(0), prev(-999999), stepcounter(0), increment(1);
 	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
 	rampdown = trunc(frampdown);
 	notify = 1;
 
-	// reset ramp if input has changed, OR if ramp parameters change
-	if (input != prev || delta(rampup) || delta(rampdown)) {
+	// reset ramp if input has changed, OR if ramp parameters change (& !init)
+	if ((input != prev || delta(rampup) || delta(rampdown)) && (!init)) {
 		direction = (input - value);
 		if (direction > 0) {
 			stepcounter = rampup;
@@ -25,12 +26,13 @@ eviRampsmoothUpdate(input, frampup, frampdown)	// input, up in samples, down in 
 	if (stepcounter) {
 		stepcounter -= 1;
 		value += increment;
-		notify = 0;
+		notify = init;
 	} else {
 		value = input;
-		notify = 1;				// pete: this is lazy, should separate up/down
+		notify = 1 - init;		// pete: this is lazy, should separate (or merge) up/down
 	}
 
+    init = 0;
 	return value, notify;
 }
 

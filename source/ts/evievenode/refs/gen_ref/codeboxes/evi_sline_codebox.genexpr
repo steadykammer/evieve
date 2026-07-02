@@ -19,12 +19,13 @@ eviMap(valueIn, inLow, inHigh, outLow, outHigh)
 
 eviSline(target, duration)				// target, duration in samples
 {
-	History	value(0);
+	History	value(0), init(1);
 	trigger	= change(target);
 	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
 	cramp	= eviScurve(ramp);
-	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	curve	= eviMap(cramp, 0, 1, latch((value + (target * init)), trigger), latch(target, trigger));
 	value	= curve;
+    init    = 0;
 	return	curve, (ramp == 1);
 }
 

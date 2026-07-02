@@ -101,6 +101,16 @@
 
       </description>
     </entry>
+    <entry name="eviRandC ( )">
+      <description>
+        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+
+        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 2</b>: , <i></i> <br />
+        <b>Return 3</b>: , <i></i> <br />
+
+      </description>
+    </entry>
     <entry name="eviRands ( )">
       <description>
         Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()' <br />

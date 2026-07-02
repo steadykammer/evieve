@@ -3,24 +3,38 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 75.0, 100.0, 796.0, 720.0 ],
+        "rect": [ 34.0, 100.0, 810.0, 749.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
             {
                 "box": {
+                    "code": "\r\n// like MSP [rampsmooth~] if fed by ints at ramp inlets, exact destination\n// original port by Maurizio Giri, Graham Wakefield\neviRampsmoothUpdate(input, frampup, frampdown)\t// input, up in samples, down in samples\n{\r\n    History init(1);\n\tHistory value(0), prev(-999999), stepcounter(0), increment(1);\n\trampup = trunc(frampup);\t// pete: fixes bug in gen~ examples folder version\n\trampdown = trunc(frampdown);\n\tnotify = 1;\n\n\t// reset ramp if input has changed, OR if ramp parameters change (& !init)\n\tif ((input != prev || delta(rampup) || delta(rampdown)) && (!init)) {\n\t\tdirection = (input - value);\n\t\tif (direction > 0) {\n\t\t\tstepcounter = rampup;\n\t\t\tincrement = direction / rampup;\n\t\t} else {\n\t\t\tstepcounter = rampdown;\n\t\t\tincrement = direction / rampdown;\n\t\t}\n\t\tprev = input;\t\n\t}\n\n\t// keep incrementing until stepcounter counts down to zero\n\tif (stepcounter) {\n\t\tstepcounter -= 1;\n\t\tvalue += increment;\n\t\tnotify = init;\n\t} else {\n\t\tvalue = input;\n\t\tnotify = 1 - init;\t\t// pete: this is lazy, should separate (or merge) up/down\n\t}\n\r\n    init = 0;\n\treturn value, notify;\n}\r\n\r\nout1, out2 = eviRampsmoothUpdate(in1, in2, in3);\r\n\r\n// @see also: eviRampsmooth()",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 712.0, 634.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-6",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 416.0, 678.0, 341.0, 22.0 ],
+                    "patching_rect": [ 447.0, 709.0, 341.0, 22.0 ],
                     "text": "out 2 (signal) 1 When Env Reaches Destination (0 During Env)"
                 }
             },
@@ -30,7 +44,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 678.0, 175.0, 22.0 ],
+                    "patching_rect": [ 49.0, 709.0, 175.0, 22.0 ],
                     "text": "out 1 (signal) Exact Output Env"
                 }
             },
@@ -41,8 +55,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 474.0, 19.0, 283.0, 22.0 ],
-                    "text": "in 3 (signal/float) Ramp Down in SAMPLES @min 0"
+                    "patching_rect": [ 489.0, 19.0, 299.0, 22.0 ],
+                    "text": "in 3 (signal/float/int) Ramp Down in SAMPLES @min 0"
                 }
             },
             {
@@ -53,8 +67,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 13.0, 100.0, 35.0 ],
-                    "text": "in 1 (signal/float) Input Value"
+                    "patching_rect": [ 49.0, 13.0, 101.0, 35.0 ],
+                    "text": "in 1 (signal/float) Target Value"
                 }
             },
             {
@@ -64,22 +78,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 189.0, 19.0, 268.0, 22.0 ],
-                    "text": "in 2 (signal/float) Ramp Up in SAMPLES @min 0"
-                }
-            },
-            {
-                "box": {
-                    "code": "\r\n// like MSP [rampsmooth~] if fed by ints at ramp inlets, exact destination\n// original port by Maurizio Giri, Graham Wakefield\neviRampsmoothUpdate(input, frampup, frampdown)\t// input, up in samples, down in samples\n{\n\tHistory value(0), prev(0), stepcounter(0), increment(1);\n\trampup = trunc(frampup);\t// pete: fixes bug in gen~ examples folder version\n\trampdown = trunc(frampdown);\n\tnotify = 1;\n\n\t// reset ramp if input has changed, OR if ramp parameters change\n\tif (input != prev || delta(rampup) || delta(rampdown)) {\n\t\tdirection = (input - value);\n\t\tif (direction > 0) {\n\t\t\tstepcounter = rampup;\n\t\t\tincrement = direction / rampup;\n\t\t} else {\n\t\t\tstepcounter = rampdown;\n\t\t\tincrement = direction / rampdown;\n\t\t}\n\t\tprev = input;\t\n\t}\n\n\t// keep incrementing until stepcounter counts down to zero\n\tif (stepcounter) {\n\t\tstepcounter -= 1;\n\t\tvalue += increment;\n\t\tnotify = 0;\n\t} else {\n\t\tvalue = input;\n\t\tnotify = 1;\t\t\t\t// pete: this is lazy, should separate up/down\n\t}\n\n\treturn value, notify;\n}\r\n\r\nout1, out2 = eviRampsmoothUpdate(in1, in2, in3);\r\n\r\n// @see also: eviRampsmooth()",
-                    "fontface": 0,
-                    "fontname": "<Monospaced>",
-                    "fontsize": 12.0,
-                    "id": "obj-3",
-                    "maxclass": "codebox",
-                    "numinlets": 3,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 49.0, 58.0, 708.0, 603.0 ]
+                    "patching_rect": [ 188.0, 19.0, 284.0, 22.0 ],
+                    "text": "in 2 (signal/float/int) Ramp Up in SAMPLES @min 0"
                 }
             },
             {
@@ -90,7 +90,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 272.0, 678.0, 103.0, 22.0 ],
+                    "patching_rect": [ 283.0, 709.0, 103.0, 22.0 ],
                     "text": "history because 0"
                 }
             }
@@ -105,14 +105,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 198.5, 49.5, 403.0, 49.5 ],
+                    "midpoints": [ 197.5, 49.5, 405.0, 49.5 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-6", 0 ],
-                    "midpoints": [ 747.5, 669.5, 425.5, 669.5 ],
+                    "midpoints": [ 751.5, 700.5, 456.5, 700.5 ],
                     "source": [ "obj-3", 1 ]
                 }
             },
@@ -125,7 +125,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 2 ],
-                    "midpoints": [ 483.5, 49.5, 747.5, 49.5 ],
+                    "midpoints": [ 498.5, 49.5, 751.5, 49.5 ],
                     "source": [ "obj-5", 0 ]
                 }
             }

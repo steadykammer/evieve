@@ -2239,6 +2239,318 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "eviRandC",
+                "raw": "eviRandC"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "p",
+                    "raw": "p"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "prev",
+                                    "raw": "prev"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rr",
+                                "raw": "rr"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "p",
+                                            "raw": "p"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "a",
+                                "raw": "a"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "prev",
+                                        "raw": "prev"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rr",
+                                        "raw": "rr"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "latch",
+                                    "raw": "latch"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "n",
+                                "raw": "n"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "noise",
+                                    "raw": "noise"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "b",
+                                "raw": "b"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "n",
+                                        "raw": "n"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rr",
+                                        "raw": "rr"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "latch",
+                                    "raw": "latch"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "nv",
+                                "raw": "nv"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a",
+                                        "raw": "a"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b",
+                                        "raw": "b"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "p",
+                                        "raw": "p"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "mix",
+                                    "raw": "mix"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "nw",
+                                "raw": "nw"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "p",
+                                        "raw": "p"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "a",
+                                        "raw": "a"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "b",
+                                        "raw": "b"
+                                    },
+                                    {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "mode",
+                                            "raw": "mode"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": "cosine",
+                                            "raw": "\"cosine\"",
+                                            "gen_kind": "string"
+                                        },
+                                        "gen_kind": "attribute"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "interp",
+                                    "raw": "interp"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "prev",
+                                "raw": "prev"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "b",
+                                "raw": "b"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "nv",
+                                    "raw": "nv"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "nw",
+                                    "raw": "nw"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "n",
+                                    "raw": "n"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "eviRands",
                 "raw": "eviRands"
             },

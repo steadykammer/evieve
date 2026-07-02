@@ -3,13 +3,13 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 180.0, 100.0, 825.0, 643.0 ],
+        "rect": [ 34.0, 100.0, 872.0, 645.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -20,7 +20,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 426.0, 599.0, 364.0, 22.0 ],
+                    "patching_rect": [ 477.0, 599.0, 364.0, 22.0 ],
                     "text": "out 2 (signal) 1 When Ramp Reaches Destination (0 During Ramp)"
                 }
             },
@@ -42,13 +42,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 556.0, 19.0, 234.0, 22.0 ],
+                    "patching_rect": [ 607.0, 19.0, 234.0, 22.0 ],
                     "text": "in 2 (signal/float) Ramp Time in SAMPLES"
                 }
             },
             {
                 "box": {
-                    "code": "\r\n// exact ramp smoothing, like MSP [line~] but with additional \"S-Curve\" option\n// @see also: evi_line, evi_curve, evi_rampsmooth, etc\r\n\neviScurve(segment)\t\t\t\t\t\t// segment must be linear ramp 0..1\n{\n\ts2\t\t= segment * segment;\n\trec\t\t= 1 - segment;\n\tr2\t\t= rec * rec;\n\treturn\t(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));\n}\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\neviSline(target, duration)\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tcramp\t= eviScurve(ramp);\n\tcurve\t= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));\n\tvalue\t= curve;\n\treturn\tcurve, (ramp == 1);\n}\r\n\r\nout1, out2 = eviSline(in1, in2);\r\n\r\n",
+                    "code": "\r\n// exact ramp smoothing, like MSP [line~] but with additional \"S-Curve\" option\n// @see also: evi_line, evi_curve, evi_rampsmooth, etc\r\n\neviScurve(segment)\t\t\t\t\t\t// segment must be linear ramp 0..1\n{\n\ts2\t\t= segment * segment;\n\trec\t\t= 1 - segment;\n\tr2\t\t= rec * rec;\n\treturn\t(segment < 0.5) ? (s2 * 2) : (1 - (r2 * 2));\n}\n\n// basic linear scaling like linear part of [scale]\neviMap(valueIn, inLow, inHigh, outLow, outHigh)\n{\n\tmultiplier = (outLow - outHigh) / (inLow - inHigh);\n\treturn (valueIn - inLow) * multiplier + outLow;\n}\n\r\neviSline(target, duration)\t\t\t\t// target, duration in samples\n{\n\tHistory\tvalue(0), init(1);\n\ttrigger\t= change(target);\n\tramp\t= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);\n\tcramp\t= eviScurve(ramp);\n\tcurve\t= eviMap(cramp, 0, 1, latch((value + (target * init)), trigger), latch(target, trigger));\n\tvalue\t= curve;\r\n    init    = 0;\n\treturn\tcurve, (ramp == 1);\n}\r\n\r\nout1, out2 = eviSline(in1, in2);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -57,7 +57,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 34.0, 58.0, 756.0, 524.0 ]
+                    "patching_rect": [ 34.0, 58.0, 807.0, 524.0 ]
                 }
             },
             {
@@ -78,7 +78,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 271.0, 599.0, 103.0, 22.0 ],
+                    "patching_rect": [ 297.0, 599.0, 103.0, 22.0 ],
                     "text": "history because 0"
                 }
             }
@@ -93,7 +93,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 565.5, 49.5, 780.5, 49.5 ],
+                    "midpoints": [ 616.5, 49.5, 831.5, 49.5 ],
                     "source": [ "obj-2", 0 ]
                 }
             },
@@ -106,7 +106,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 0 ],
-                    "midpoints": [ 780.5, 590.5, 435.5, 590.5 ],
+                    "midpoints": [ 831.5, 590.5, 486.5, 590.5 ],
                     "source": [ "obj-3", 1 ]
                 }
             }

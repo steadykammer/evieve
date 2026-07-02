@@ -1,9 +1,9 @@
 
-expA(x0)
+expApprox(x)
 {
-	x = 0.999996 + (0.031261316 + (0.00048274797 + 0.000006 * x0) * x0) * x0;
-	x *= x; x *= x; x *= x; x *= x; x *= x;
-	return x;
+	x = 1 + (0.062500309 + (0.0019527233 + (0.0000408663 + (0.00000060184965 + 0.000000010856791*x)*x)*x)*x)*x;
+	x *= x; x *= x; x *= x;
+	return x*x;
 }
 
 // like MSP [curve~], exact destination
@@ -14,13 +14,14 @@ expA(x0)
 // N.B. - this is expensive in gen~ and you should probably avoid using it
 eviCurve(target, duration, curvature)		// target, duration in samples, curvature -1..1
 {
+    History init(1);
 	History v(0), v0(0), v1(0), vrange(0);			// value: current, from, to, range
 	History samplecount(0), samplesremain(0);		// samples elapsed, samples remaining
 	History divFactorDuration(0), divExpCurve(0);	// cached values to speed up per-sample loop
 	// magic numbers
-	RFACTOR		= 4.34782608695652;			// float(1 / 0.23)
+	RFACTOR		= 4.3478260869565215;		// float(1 / 0.23)
 	PFACTOR		= 5;
-	DIV_RFACTOR	= 0.01310440558293;			// float(1 / (exp(RFACTOR) - 1))
+	DIV_RFACTOR	= 0.013104405582925738;		// float(1 / (exp(RFACTOR) - 1))
 	SFACTOR		= 0.005;
 
 	// calculated only when a new target is set
@@ -28,21 +29,21 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 		// starting a new ramp
 		samplecount = 0;
 		// duration in samples
-		samplesremain = duration;
+		samplesremain = duration * (1 - init);
 		// ramp start & end values
 		v0, v1 = v, target;
 		// ramp range
 		vrange = v1 - v0;
 		// nonlinear mapping of -1 to 1 curve factor
 		f = 1 - abs(curvature);
-		f = PFACTOR * (expA(f * RFACTOR) - 1) * DIV_RFACTOR;
+		f = PFACTOR * (expApprox(f * RFACTOR) - 1) * DIV_RFACTOR;
 		s = sign(curvature);
 		p = (s != 0) ? (s * f) : f;			// must do this to avoid 'curvature == 0' issue
 		// bypass really sharp curves
-		// 'p = fixdenorm(p);' does not work, values too small, +/- SFACTOR fixed by Puckette / Zicarelli ?
+		// 'p = fixdenorm(p);' does not work ? or is it the expApprox() ?
 		p = (p >= 0 && p < SFACTOR) ? SFACTOR : ((p < 0 && p > -SFACTOR) ? -SFACTOR : p);
 		// cached factors for the per-sample curve calculation
-		divExpCurve = 1 / (expA(1 / p) - 1);
+		divExpCurve = 1 / (expApprox(1 / p) - 1);
 		divFactorDuration = 1 / (samplesremain * p);
 	}
 
@@ -50,20 +51,21 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 	// per sample calculation
 	if (samplesremain > 0.5) {				// still ramping
 		value	= v;
-		notify	= 0;	
+		notify	= init;	
 		// compute next ramp sample
 		samplecount += 1;
 		samplesremain -= 1;
 		// compute curvature
-		curv = (expA(samplecount * divFactorDuration) - 1) * divExpCurve;
+		curv = (expApprox(samplecount * divFactorDuration) - 1) * divExpCurve;
 		// scale to the output range & integrate
 		v += (v0 - v) + (curv * vrange);
 	} else {								// no longer ramping
-		v		= v1;
+		v		= v1;// + (target * init);
 		value	= v;
-		notify	= 1;
+		notify	= 1 - init;
 	}
 
+    init = 0;
 	return value, notify;
 }
 

@@ -243,6 +243,36 @@
         },
         {
             "document": true,
+            "digest": "",
+            "name": "eviRandC",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()'",
             "name": "eviRands",
             "inputs": [

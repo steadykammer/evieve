@@ -10783,6 +10783,36 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ]
             ],
@@ -10929,9 +10959,27 @@
                                         "type": "CallExpression",
                                         "arguments": [
                                             {
-                                                "type": "Identifier",
-                                                "name": "val",
-                                                "raw": "val"
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "val",
+                                                    "raw": "val"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "target",
+                                                        "raw": "target"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "init",
+                                                        "raw": "init"
+                                                    }
+                                                }
                                             },
                                             {
                                                 "type": "Identifier",
@@ -10988,6 +11036,24 @@
                                 "type": "Identifier",
                                 "name": "lin",
                                 "raw": "lin"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -11073,6 +11139,36 @@
                                             "type": "Literal",
                                             "value": 0,
                                             "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -11252,9 +11348,27 @@
                                         "type": "CallExpression",
                                         "arguments": [
                                             {
-                                                "type": "Identifier",
-                                                "name": "value",
-                                                "raw": "value"
+                                                "type": "BinaryExpression",
+                                                "operator": "+",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "value",
+                                                    "raw": "value"
+                                                },
+                                                "right": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "target",
+                                                        "raw": "target"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "init",
+                                                        "raw": "init"
+                                                    }
+                                                }
                                             },
                                             {
                                                 "type": "Identifier",
@@ -11311,6 +11425,24 @@
                                 "type": "Identifier",
                                 "name": "curve",
                                 "raw": "curve"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
                             }
                         }
                     },
@@ -11387,6 +11519,38 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
                                     "name": "value",
                                     "raw": "value"
                                 },
@@ -11429,10 +11593,15 @@
                                     },
                                     "arguments": [
                                         {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 999999,
+                                                "raw": "999999",
+                                                "gen_kind": "integer"
+                                            },
+                                            "prefix": true
                                         }
                                     ]
                                 }
@@ -11580,16 +11749,30 @@
                         "type": "IfStatement",
                         "test": {
                             "type": "BinaryExpression",
-                            "operator": "!=",
+                            "operator": "&&",
                             "left": {
-                                "type": "Identifier",
-                                "name": "input",
-                                "raw": "input"
+                                "type": "BinaryExpression",
+                                "operator": "!=",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "input",
+                                    "raw": "input"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "prev",
+                                    "raw": "prev"
+                                }
                             },
                             "right": {
-                                "type": "Identifier",
-                                "name": "prev",
-                                "raw": "prev"
+                                "type": "UnaryExpression",
+                                "operator": "!",
+                                "argument": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "prefix": true
                             }
                         },
                         "consequent": {
@@ -11812,10 +11995,9 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "type": "Identifier",
+                                            "name": "init",
+                                            "raw": "init"
                                         }
                                     }
                                 }
@@ -11852,14 +12034,41 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "init",
+                                                "raw": "init"
+                                            }
                                         }
                                     }
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
                         }
                     },
                     {
@@ -11925,6 +12134,38 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
                                     "name": "value",
                                     "raw": "value"
                                 },
@@ -11967,10 +12208,15 @@
                                     },
                                     "arguments": [
                                         {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 999999,
+                                                "raw": "999999",
+                                                "gen_kind": "integer"
+                                            },
+                                            "prefix": true
                                         }
                                     ]
                                 }
@@ -12118,22 +12364,41 @@
                         "type": "IfStatement",
                         "test": {
                             "type": "BinaryExpression",
-                            "operator": "||",
+                            "operator": "&&",
                             "left": {
                                 "type": "BinaryExpression",
                                 "operator": "||",
                                 "left": {
                                     "type": "BinaryExpression",
-                                    "operator": "!=",
+                                    "operator": "||",
                                     "left": {
-                                        "type": "Identifier",
-                                        "name": "input",
-                                        "raw": "input"
+                                        "type": "BinaryExpression",
+                                        "operator": "!=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "input",
+                                            "raw": "input"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "prev",
+                                            "raw": "prev"
+                                        }
                                     },
                                     "right": {
-                                        "type": "Identifier",
-                                        "name": "prev",
-                                        "raw": "prev"
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "rampup",
+                                                "raw": "rampup"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "delta",
+                                            "raw": "delta"
+                                        }
                                     }
                                 },
                                 "right": {
@@ -12141,8 +12406,8 @@
                                     "arguments": [
                                         {
                                             "type": "Identifier",
-                                            "name": "rampup",
-                                            "raw": "rampup"
+                                            "name": "rampdown",
+                                            "raw": "rampdown"
                                         }
                                     ],
                                     "callee": {
@@ -12153,19 +12418,14 @@
                                 }
                             },
                             "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "rampdown",
-                                        "raw": "rampdown"
-                                    }
-                                ],
-                                "callee": {
+                                "type": "UnaryExpression",
+                                "operator": "!",
+                                "argument": {
                                     "type": "Identifier",
-                                    "name": "delta",
-                                    "raw": "delta"
-                                }
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "prefix": true
                             }
                         },
                         "consequent": {
@@ -12388,10 +12648,9 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "type": "Identifier",
+                                            "name": "init",
+                                            "raw": "init"
                                         }
                                     }
                                 }
@@ -12428,14 +12687,41 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "init",
+                                                "raw": "init"
+                                            }
                                         }
                                     }
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
                         }
                     },
                     {
@@ -12492,6 +12778,38 @@
                 null
             ],
             "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
                 [
                     {
                         "type": "VariableDeclaration",
@@ -12754,8 +13072,8 @@
                             },
                             "right": {
                                 "type": "Literal",
-                                "value": 4.34782608695652,
-                                "raw": "4.34782608695652",
+                                "value": 4.3478260869565215,
+                                "raw": "4.3478260869565215",
                                 "gen_kind": "float"
                             }
                         }
@@ -12790,8 +13108,8 @@
                             },
                             "right": {
                                 "type": "Literal",
-                                "value": 0.01310440558293,
-                                "raw": "0.01310440558293",
+                                "value": 0.013104405582925738,
+                                "raw": "0.013104405582925738",
                                 "gen_kind": "float"
                             }
                         }
@@ -12863,9 +13181,28 @@
                                             "raw": "samplesremain"
                                         },
                                         "right": {
-                                            "type": "Identifier",
-                                            "name": "duration",
-                                            "raw": "duration"
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "duration",
+                                                "raw": "duration"
+                                            },
+                                            "right": {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "Literal",
+                                                    "value": 1,
+                                                    "raw": "1",
+                                                    "gen_kind": "integer"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "init",
+                                                    "raw": "init"
+                                                }
+                                            }
                                         }
                                     }
                                 },
@@ -13013,8 +13350,8 @@
                                                         ],
                                                         "callee": {
                                                             "type": "Identifier",
-                                                            "name": "expA",
-                                                            "raw": "expA"
+                                                            "name": "expApprox",
+                                                            "raw": "expApprox"
                                                         }
                                                     },
                                                     "right": {
@@ -13261,8 +13598,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "expA",
-                                                        "raw": "expA"
+                                                        "name": "expApprox",
+                                                        "raw": "expApprox"
                                                     }
                                                 },
                                                 "right": {
@@ -13391,10 +13728,9 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 0,
-                                            "raw": "0",
-                                            "gen_kind": "integer"
+                                            "type": "Identifier",
+                                            "name": "init",
+                                            "raw": "init"
                                         }
                                     }
                                 },
@@ -13470,8 +13806,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "expA",
-                                                        "raw": "expA"
+                                                        "name": "expApprox",
+                                                        "raw": "expApprox"
                                                     }
                                                 },
                                                 "right": {
@@ -13583,14 +13919,41 @@
                                             "raw": "notify"
                                         },
                                         "right": {
-                                            "type": "Literal",
-                                            "value": 1,
-                                            "raw": "1",
-                                            "gen_kind": "integer"
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "init",
+                                                "raw": "init"
+                                            }
                                         }
                                     }
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
                         }
                     },
                     {
@@ -13671,6 +14034,36 @@
                                             "type": "Literal",
                                             "value": 0,
                                             "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
                                             "gen_kind": "integer"
                                         }
                                     ]
@@ -13847,35 +14240,53 @@
                                 "type": "BinaryExpression",
                                 "operator": "+",
                                 "left": {
-                                    "type": "Identifier",
-                                    "name": "current",
-                                    "raw": "current"
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "current",
+                                        "raw": "current"
+                                    },
+                                    "right": {
+                                        "type": "ConditionalExpression",
+                                        "test": {
+                                            "type": "BinaryExpression",
+                                            "operator": ">",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "x",
+                                                "raw": "x"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "current",
+                                                "raw": "current"
+                                            }
+                                        },
+                                        "consequent": {
+                                            "type": "Identifier",
+                                            "name": "us",
+                                            "raw": "us"
+                                        },
+                                        "alternate": {
+                                            "type": "Identifier",
+                                            "name": "ds",
+                                            "raw": "ds"
+                                        }
+                                    }
                                 },
                                 "right": {
-                                    "type": "ConditionalExpression",
-                                    "test": {
-                                        "type": "BinaryExpression",
-                                        "operator": ">",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "x",
-                                            "raw": "x"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "current",
-                                            "raw": "current"
-                                        }
-                                    },
-                                    "consequent": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
                                         "type": "Identifier",
-                                        "name": "us",
-                                        "raw": "us"
+                                        "name": "x",
+                                        "raw": "x"
                                     },
-                                    "alternate": {
+                                    "right": {
                                         "type": "Identifier",
-                                        "name": "ds",
-                                        "raw": "ds"
+                                        "name": "init",
+                                        "raw": "init"
                                     }
                                 }
                             }
@@ -13892,19 +14303,27 @@
                                 "raw": "current"
                             },
                             "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "y",
-                                        "raw": "y"
-                                    }
-                                ],
-                                "callee": {
-                                    "type": "Identifier",
-                                    "name": "fixdenorm",
-                                    "raw": "fixdenorm"
-                                }
+                                "type": "Identifier",
+                                "name": "y",
+                                "raw": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
                             }
                         }
                     },

@@ -7,13 +7,13 @@
         "description": "evi_rampsmoothupdate is identical to an MSP <o>rampsmooth~</o> where it's ramp inlets are fed by integers (ramp times continuously update regardless of if input value changes) providing exact ramps in the given destination times. The algorithm is slightly different to account for efficiency in the gen~ domain, but it seems to work well. Based on the original gen~ example by Maurizio Giri and Graham Wakefield. See <o>evi_rampsmooth</o> for an alternative."
     },
     "constructor": {
-        "inlets": "input, ramp, ramp"
+        "inlets": "target, ramp, ramp"
     },
     "includes": [],
     "inlets": [
         {
             "id": 1,
-            "name": "input",
+            "name": "target",
             "type": "float",
             "optional": 1,
             "digestauto": "Value",

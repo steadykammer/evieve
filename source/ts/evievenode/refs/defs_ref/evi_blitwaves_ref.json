@@ -160,11 +160,11 @@
             "get": 1,
             "type": "float",
             "digest": "Time in ms",
-            "description": "Internal parameters smoothed by this time in ms. Turn off (0) for audio rate modulation of inlets 1 and 2",
+            "description": "Frequency and Pulse Width smoothed by this time in ms. Turn off (0, default) for audio rate modulation of inlets 1 and 2",
             "default": {
                 "min": "0",
                 "max": "333",
-                "value": "22."
+                "value": "0."
             }
         }
     ],

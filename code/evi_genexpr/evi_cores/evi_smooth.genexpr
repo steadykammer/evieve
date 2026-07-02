@@ -658,28 +658,30 @@ ramptwo(x, u, d, p)
 	return y;
 }
 
-// exact destinations (unlike all above smoothers), no initialisations here :-(
+// exact destinations (unlike all above smoothers)
 
 // like MSP [line~], exact destination
 eviLine(target, duration)				// target, duration in samples
 {
-	History val(0);
+	History val(0), init(1);
     trigger	= change(target);
     ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
-    lin 	= eviMap(ramp, 0, 1, latch(val, trigger), latch(target, trigger));
+    lin 	= eviMap(ramp, 0, 1, latch((val + (target * init)), trigger), latch(target, trigger));
     val 	= lin;
+	init	= 0;
 	return  lin, (ramp == 1);
 }
 
 // exact destination, with S-curve
 eviSline(target, duration)				// target, duration in samples
 {
-	History	value(0);
+	History	value(0), init(1);
 	trigger	= change(target);
 	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
 	cramp	= eviScurve(ramp);
-	curve	= eviMap(cramp, 0, 1, latch(value, trigger), latch(target, trigger));
+	curve	= eviMap(cramp, 0, 1, latch((value + (target * init)), trigger), latch(target, trigger));
 	value	= curve;
+	init	= 0;
 	return	curve, (ramp == 1);
 }
 
@@ -715,13 +717,14 @@ toggleLine(toggle, rampsamples)			// toggle == flag 0/1, time in samples
 // like MSP [rampsmooth~] if fed by signals at ramp inlets, exact destination
 eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in samples
 {
-	History value(0), prev(0), stepcounter(0), increment(1);
+	History init(1);
+	History value(0), prev(-999999), stepcounter(0), increment(1);
 	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
 	rampdown = trunc(frampdown);
 	notify = 1;
 
 	// reset ramp if input has changed, NOT if ramp parameters change
-	if (input != prev) {
+	if ((input != prev) && (!init)) {
 		direction = (input - value);
 		if (direction > 0) {
 			stepcounter = rampup;
@@ -737,12 +740,13 @@ eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in sampl
 	if (stepcounter) {
 		value += increment;
 		stepcounter -= 1;		// pete: i feel like this is actually the correct ordering
-		notify = 0;
+		notify = init;
 	} else {
 		value = input;
-		notify = 1;				// pete: this is lazy, should separate up/down
+		notify = 1 - init;		// pete: this is lazy, should separate (or merge) up/down
 	}
 
+	init = 0;
 	return value, notify;
 }
 
@@ -750,13 +754,14 @@ eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in sampl
 // original port by Maurizio Giri, Graham Wakefield
 eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in samples
 {
-	History value(0), prev(0), stepcounter(0), increment(1);
+	History init(1);
+	History value(0), prev(-999999), stepcounter(0), increment(1);
 	rampup = trunc(frampup);	// pete: fixes bug in gen~ examples folder version
 	rampdown = trunc(frampdown);
 	notify = 1;
 
 	// reset ramp if input has changed, OR if ramp parameters change
-	if (input != prev || delta(rampup) || delta(rampdown)) {
+	if ((input != prev || delta(rampup) || delta(rampdown)) && (!init)) {
 		direction = (input - value);
 		if (direction > 0) {
 			stepcounter = rampup;
@@ -772,12 +777,13 @@ eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in
 	if (stepcounter) {
 		stepcounter -= 1;
 		value += increment;
-		notify = 0;
+		notify = init;
 	} else {
 		value = input;
-		notify = 1;				// pete: this is lazy, should separate up/down
+		notify = 1 - init;		// pete: this is lazy, should separate (or merge) up/down
 	}
 
+	init = 0;
 	return value, notify;
 }
 
@@ -789,13 +795,14 @@ eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in
 // N.B. - this is expensive in gen~ and you should probably avoid using it
 eviCurve(target, duration, curvature)		// target, duration in samples, curvature -1..1
 {
+	History init(1);
 	History v(0), v0(0), v1(0), vrange(0);			// value: current, from, to, range
 	History samplecount(0), samplesremain(0);		// samples elapsed, samples remaining
 	History divFactorDuration(0), divExpCurve(0);	// cached values to speed up per-sample loop
 	// magic numbers
-	RFACTOR		= 4.34782608695652;			// float(1 / 0.23)
+	RFACTOR		= 4.3478260869565215;		// float(1 / 0.23)
 	PFACTOR		= 5;
-	DIV_RFACTOR	= 0.01310440558293;			// float(1 / (exp(RFACTOR) - 1))
+	DIV_RFACTOR	= 0.013104405582925738;		// float(1 / (exp(RFACTOR) - 1))
 	SFACTOR		= 0.005;
 
 	// calculated only when a new target is set
@@ -803,42 +810,43 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 		// starting a new ramp
 		samplecount = 0;
 		// duration in samples
-		samplesremain = duration;
+		samplesremain = duration * (1 - init);
 		// ramp start & end values
 		v0, v1 = v, target;
 		// ramp range
 		vrange = v1 - v0;
 		// nonlinear mapping of -1 to 1 curve factor
 		f = 1 - abs(curvature);
-		f = PFACTOR * (expA(f * RFACTOR) - 1) * DIV_RFACTOR;
+		f = PFACTOR * (expApprox(f * RFACTOR) - 1) * DIV_RFACTOR;
 		s = sign(curvature);
 		p = (s != 0) ? (s * f) : f;			// must do this to avoid 'curvature == 0' issue
 		// bypass really sharp curves
-		// 'p = fixdenorm(p);' does not work, values too small, +/- SFACTOR fixed by Puckette / Zicarelli ?
+		// 'p = fixdenorm(p);' does not work ? or is it the expApprox() ?
 		p = (p >= 0 && p < SFACTOR) ? SFACTOR : ((p < 0 && p > -SFACTOR) ? -SFACTOR : p);
 		// cached factors for the per-sample curve calculation
-		divExpCurve = 1 / (expA(1 / p) - 1);
-		divFactorDuration = 1 / (samplesremain * p);
+		divExpCurve = 1 / (expApprox(1 / p) - 1);
+		divFactorDuration = 1 / (samplesremain * p); // but init ?
 	}
 
 	value, notify = 0;
 	// per sample calculation
 	if (samplesremain > 0.5) {				// still ramping
 		value	= v;
-		notify	= 0;	
+		notify	= init;	
 		// compute next ramp sample
 		samplecount += 1;
 		samplesremain -= 1;
 		// compute curvature
-		curv = (expA(samplecount * divFactorDuration) - 1) * divExpCurve;
+		curv = (expApprox(samplecount * divFactorDuration) - 1) * divExpCurve;
 		// scale to the output range & integrate
 		v += (v0 - v) + (curv * vrange);
 	} else {								// no longer ramping
-		v		= v1;
+		v		= v1;// + (target * init);
 		value	= v;
-		notify	= 1;
+		notify	= 1 - init;
 	}
 
+	init = 0;
 	return value, notify;
 }
 
@@ -846,12 +854,13 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 // !! not needed anymore, Graham Wakefield put this into gen~ native as 'slide()'
 eviSlide(x, u, d)							// input, samples up, samples down
 {
-	History current(0);
+	History current(0), init(1);
 	s  = x - current;
 	us = s * (1 / (maximum(abs(u), 1)));
 	ds = s * (1 / (maximum(abs(d), 1)));
-	y  = current + ((x > current) ? us : ds);
-	current = fixdenorm(y);
+	y  = current + ((x > current) ? us : ds) + (x * init);
+	current = y;
+    init = 0;
 	return y;
 }
 

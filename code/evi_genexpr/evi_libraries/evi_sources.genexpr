@@ -133,9 +133,22 @@ eviRandN(p, n) {									// phasor input not frequency, and external noise sourc
 	rr = (delta(p)) < 0;                            // assumes positive freq only
 	a  = latch(prev, rr);
 	b  = latch(n, rr);
-	nv = mix(a, b, p);								// interp(p, a, b, mode="cosine") for more fun
+	nv = mix(a, b, p);								// interp linear
 	prev = b;
 	return nv;
+}
+
+// like 'eviRand()' but with additional cosine output
+eviRandC(p) {										// phasor input, not frequency
+	History prev(0);
+	rr = (delta(p)) < 0;                    		// assumes positive freq only
+	a  = latch(prev, rr);
+	n  = noise();
+	b  = latch(n, rr);
+	nv = mix(a, b, p);
+    nw = interp(p, a, b, mode="cosine");    		// additional cosine output
+	prev = b;
+	return nv, nw, n;
 }
 
 // like [rand~] but ready for cubic interpolation
