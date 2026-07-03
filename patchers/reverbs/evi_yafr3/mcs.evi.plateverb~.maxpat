@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -125,7 +125,7 @@
                 "box": {
                     "comment": "dumpout (pattrstorage)",
                     "id": "obj-58",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -136,7 +136,7 @@
                 "box": {
                     "comment": "(multichannelsignal) Audio Out Left and Right",
                     "id": "obj-56",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -154,7 +154,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -287,217 +287,10 @@
                                     "id": "obj-71",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "float" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 3,
-                                            "revision": 0,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 252.0, 92.0, 450.0, 552.0 ],
-                                        "gridonopen": 2,
-                                        "lefttoolbarpinned": 2,
-                                        "toptoolbarpinned": 2,
-                                        "righttoolbarpinned": 2,
-                                        "bottomtoolbarpinned": 2,
-                                        "toolbars_unpinned_last_save": 15,
-                                        "boxanimatetime": 0,
-                                        "subpatcher_template": "PeteSubDefault10",
-                                        "integercoordinates": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "int", "int" ],
-                                                    "patching_rect": [ 83.0, 86.0, 58.0, 22.0 ],
-                                                    "text": "change 0"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-65",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 183.0, 465.0, 106.0, 22.0 ],
-                                                    "text": "s #0_toPlate"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-64",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 153.0, 381.0, 117.0, 22.0 ],
-                                                    "text": "prepend delayTime2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-63",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 183.0, 327.0, 117.0, 22.0 ],
-                                                    "text": "prepend delayTime1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-49",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 153.0, 243.0, 186.0, 22.0 ],
-                                                    "text": "expr int(($f1 * 0.25995) + 0.5) + 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-28",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 183.0, 189.0, 186.0, 22.0 ],
-                                                    "text": "expr int(($f1 * 0.26636) + 0.5) + 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "float", "float" ],
-                                                    "patching_rect": [ 83.0, 135.0, 89.0714285714289, 22.0 ],
-                                                    "text": "t f f"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-69",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "int" ],
-                                                    "patching_rect": [ 83.0, 28.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-70",
-                                                    "index": 1,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 83.0, 461.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 183.0, 136.0, 156.0, 20.0 ],
-                                                    "text": "seconds to samples"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "linecount": 4,
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 183.0, 48.0, 156.0, 60.0 ],
-                                                    "text": "this is hopefully temporary and in order to get round a gen~ bug regards initialising 'Delay()' params"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-28", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-49", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-70", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-63", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-28", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-64", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-49", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-65", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-63", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-65", 0 ],
-                                                    "disabled": 1,
-                                                    "source": [ "obj-64", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-69", 0 ]
-                                                }
-                                            }
-                                        ],
-                                        "toolbaradditions": [ "transport", "audiosolo", "audiomute" ],
-                                        "toolbarexclusions": [ "audiopowerctrl", "browsebeap", "browsevizzie", "lessonbrowser" ]
-                                    },
-                                    "patching_rect": [ 906.0, 108.0, 83.0, 22.0 ],
-                                    "text": "p delay_times"
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "int", "int" ],
+                                    "patching_rect": [ 906.0, 108.0, 58.0, 22.0 ],
+                                    "text": "change 0"
                                 }
                             },
                             {
@@ -526,7 +319,7 @@
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "stereo[1]",
+                                            "parameter_longname": "stereo",
                                             "parameter_mmax": 2.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "stereo",
@@ -559,7 +352,7 @@
                                             "parameter_initial": [ 0.5 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "inputPan[1]",
+                                            "parameter_longname": "inputPan",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "inputPan",
@@ -592,7 +385,7 @@
                                             "parameter_initial": [ 0.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "diffusion[1]",
+                                            "parameter_longname": "diffusion",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "diffusion",
@@ -625,7 +418,7 @@
                                             "parameter_initial": [ 0.6 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "decay[1]",
+                                            "parameter_longname": "decay",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "decay",
@@ -653,7 +446,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -731,7 +524,7 @@
                                                     "maxclass": "inlet",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
-                                                    "outlettype": [ "float" ],
+                                                    "outlettype": [ "" ],
                                                     "patching_rect": [ 64.0, 34.0, 30.0, 30.0 ]
                                                 }
                                             },
@@ -746,7 +539,7 @@
                                                         "fileversion": 1,
                                                         "appversion": {
                                                             "major": 9,
-                                                            "minor": 3,
+                                                            "minor": 2,
                                                             "revision": 0,
                                                             "architecture": "x64",
                                                             "modernui": 1
@@ -1051,7 +844,7 @@
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowGain[1]",
+                                            "parameter_longname": "eqLowGain",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -1085,7 +878,7 @@
                                             "parameter_initial": [ 500.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqLowFreq[1]",
+                                            "parameter_longname": "eqLowFreq",
                                             "parameter_mmax": 4000.0,
                                             "parameter_mmin": 63.5,
                                             "parameter_modmode": 3,
@@ -1119,7 +912,7 @@
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighGain[1]",
+                                            "parameter_longname": "eqHighGain",
                                             "parameter_mmax": 1.0,
                                             "parameter_mmin": -1.0,
                                             "parameter_modmode": 3,
@@ -1153,7 +946,7 @@
                                             "parameter_initial": [ 2000.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "eqHighFreq[1]",
+                                            "parameter_longname": "eqHighFreq",
                                             "parameter_mmax": 15000.0,
                                             "parameter_mmin": 500.0,
                                             "parameter_modmode": 3,
@@ -1182,7 +975,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1419,7 +1212,7 @@
                                                     "maxclass": "inlet",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
-                                                    "outlettype": [ "float" ],
+                                                    "outlettype": [ "" ],
                                                     "patching_rect": [ 38.0, 34.0, 30.0, 30.0 ]
                                                 }
                                             },
@@ -1691,7 +1484,7 @@
                                             "parameter_initial": [ 49.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "smoothTime[1]",
+                                            "parameter_longname": "smoothTime",
                                             "parameter_mmax": 500.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 3,
@@ -1725,7 +1518,7 @@
                                             "parameter_initial": [ -15.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "dryGain[1]",
+                                            "parameter_longname": "dryGain",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -1765,7 +1558,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2172,7 +1965,7 @@
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "bypass[1]",
+                                            "parameter_longname": "bypass",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "bypass",
@@ -2205,7 +1998,7 @@
                                             "parameter_initial": [ -3.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "wetGain[1]",
+                                            "parameter_longname": "wetGain",
                                             "parameter_mmax": 0.0,
                                             "parameter_mmin": -90.0,
                                             "parameter_modmode": 3,
@@ -2239,7 +2032,7 @@
                                             "parameter_initial": [ 6593.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "damping[1]",
+                                            "parameter_longname": "damping",
                                             "parameter_mmax": 12000.0,
                                             "parameter_mmin": 20.0,
                                             "parameter_modmode": 3,
@@ -2273,7 +2066,7 @@
                                             "parameter_initial": [ 0.3 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_linknames": 1,
-                                            "parameter_longname": "reverbSize[1]",
+                                            "parameter_longname": "reverbSize",
                                             "parameter_mmax": 1.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "reverbSize",
@@ -2859,7 +2652,7 @@
                 "box": {
                     "comment": "messages to mcs.evi.plateverb~",
                     "id": "obj-47",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2871,11 +2664,11 @@
                 "box": {
                     "comment": "(multichannelsignal) Audio In Mono or Left & Right or 1 & 2",
                     "id": "obj-46",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "multichannelsignal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 34.0, 43.5, 30.0, 30.0 ]
                 }
             },
@@ -3116,6 +2909,32 @@
                 }
             }
         ],
+        "parameters": {
+            "obj-54::obj-10": [ "eqHighGain", "eqHighGain", 0 ],
+            "obj-54::obj-12": [ "wetGain", "wetGain", 0 ],
+            "obj-54::obj-15": [ "eqLowGain", "eqLowGain", 0 ],
+            "obj-54::obj-16": [ "eqLowFreq", "eqLowFreq", 0 ],
+            "obj-54::obj-2": [ "reverbSize", "reverbSize", 0 ],
+            "obj-54::obj-33": [ "decay", "decay", 0 ],
+            "obj-54::obj-35": [ "bypass", "bypass", 0 ],
+            "obj-54::obj-36": [ "diffusion", "diffusion", 0 ],
+            "obj-54::obj-4": [ "dryGain", "dryGain", 0 ],
+            "obj-54::obj-42": [ "inputPan", "inputPan", 0 ],
+            "obj-54::obj-43": [ "stereo", "stereo", 0 ],
+            "obj-54::obj-5": [ "damping", "damping", 0 ],
+            "obj-54::obj-7": [ "eqHighFreq", "eqHighFreq", 0 ],
+            "obj-54::obj-8": [ "smoothTime", "smoothTime", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
+            "inherited_shortname": 1
+        },
+        "autosave": 0,
         "styles": [
             {
                 "name": "AudioStatus_Menu",
