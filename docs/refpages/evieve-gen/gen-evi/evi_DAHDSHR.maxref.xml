@@ -11,7 +11,7 @@
         evi_DAHDSHR.gendsp requires the GenExpr file(s): <br />
         <o>evi_approx</o>.genexpr <br />
          <br />
-	    ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>, and other sample accurate processes in <o>gen~</o>. <br />
+	    ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>, and other sample accurate processes in <o>gen~</o>. See <o>evi.adsr~</o> for an MSP version. <br />
     </description>
     <methodlist />
     <constructorlist>

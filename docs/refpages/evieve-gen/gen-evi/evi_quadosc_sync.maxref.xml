@@ -11,7 +11,7 @@
         evi_quadosc_sync.gendsp requires the GenExpr file(s): <br />
         <o>evi_cossin</o>.genexpr <br />
          <br />
-	    A quadrature oscillator which outputs phase synchronous cosine and sine waves, including sync outlets. <br />
+	    A quadrature oscillator which outputs phase synchronous cosine and sine waves, including sync outlets. <o>evi_quadosc_sync</o> is available in MSP as <o>evi.quadosc~</o> @syncout 1 <br />
     </description>
     <methodlist />
     <constructorlist>

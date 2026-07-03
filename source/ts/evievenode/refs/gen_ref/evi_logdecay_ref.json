@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Decay envelope follower",
-        "description": "Logarithmic decay envelope follower / smoother."
+        "description": "Logarithmic decay envelope follower / smoother. <o>evi_logdecay</o> is available in MSP as <o>evi.logdecay~</o>."
     },
     "constructor": {
         "inlets": "value, decay"

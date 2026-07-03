@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Pan audio signals, mono",
-        "description": "Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+        "description": "Pan input to outputs using an efficient cosine algorithm very close to a 'sqrt'. <o>evi_pan_mono</o> is available in MSP as <o>evi.pan~</o>."
     },
     "constructor": {
         "inlets": "mono, panning"

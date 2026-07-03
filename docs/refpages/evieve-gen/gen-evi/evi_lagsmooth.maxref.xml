@@ -8,7 +8,7 @@
     <description>
         <b>evi_lagsmooth</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB. <br />
+	    Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB. <o>evi_lagsmooth</o> is available in MSP as <o>evi.lagsmooth~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

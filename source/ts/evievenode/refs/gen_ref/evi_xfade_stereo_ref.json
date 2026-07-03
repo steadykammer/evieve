@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Crossfade audio signals, stereo",
-        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'."
+        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. <o>evi_xfade_stereo</o> is available in MSP as <o>evi.xfade~</o> @mode 2"
     },
     "constructor": {
         "inlets": "input, input, input, input, xfade"

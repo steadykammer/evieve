@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Vactrol response time domain filter envelope",
-        "description": "Analog modelled vactrol opto isolator envelope emulation."
+        "description": "Analog modelled vactrol opto isolator envelope emulation. <o>evi_vactrol</o> is available in MSP as <o>evi.vactrol~</o>."
     },
     "constructor": {
         "inlets": "trigger, rise, fall"

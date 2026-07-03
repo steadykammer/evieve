@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Pan audio signals, dual",
-        "description": "Pan inputs to outputs using an efficient cosine algorithm very close to a 'sqrt'."
+        "description": "Pan inputs to outputs using an efficient cosine algorithm very close to a 'sqrt'. <o>evi_pan_dual</o> is available in MSP as <o>evi.pan~</o> @mode 1"
     },
     "constructor": {
         "inlets": "left, right, panning1, panning2"

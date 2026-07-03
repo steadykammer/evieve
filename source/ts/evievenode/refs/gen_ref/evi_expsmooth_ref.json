@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Exponential signal smoother",
-        "description": "A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds."
+        "description": "A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds. <o>evi_expsmooth</o> is available in MSP as <o>evi.expsmooth~</o>."
     },
     "constructor": {
         "inlets": "destination, ramp"

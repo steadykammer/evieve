@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Phase locked quadrature oscillator",
-        "description": "A quadrature oscillator which outputs phase synchronous cosine and sine waves."
+        "description": "A quadrature oscillator which outputs phase synchronous cosine and sine waves. <o>evi_quadosc</o> is available in MSP as <o>evi.quadosc~</o>."
     },
     "constructor": {
         "inlets": "frequency, reset"

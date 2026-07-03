@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Cubic signal smoother particularly well suited to smoothing filter cutoff frequencies",
-        "description": "Based on Andy Simper's smoother, evi_cubsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
+        "description": "Based on Andy Simper's smoother, evi_cubsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz). <o>evi_cubsmooth</o> is available in MSP as <o>evi.cfsmooth~</o> @mode 1"
     },
     "constructor": {
         "inlets": "destination, ramp"

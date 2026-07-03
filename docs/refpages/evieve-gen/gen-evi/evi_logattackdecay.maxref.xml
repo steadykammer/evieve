@@ -8,7 +8,7 @@
     <description>
         <b>evi_logattackdecay</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Logarithmic attack/decay envelope follower / smoother. <br />
+	    Logarithmic attack/decay envelope follower / smoother. <o>evi_logattackdecay</o> is available in MSP as <o>evi.logattackdecay~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

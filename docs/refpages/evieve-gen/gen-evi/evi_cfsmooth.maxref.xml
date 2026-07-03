@@ -8,7 +8,7 @@
     <description>
         <b>evi_cfsmooth</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz). <br />
+	    Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz). <o>evi_cfsmooth</o> is available in MSP as <o>evi.cfsmooth~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

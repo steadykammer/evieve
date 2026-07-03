@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Linear signal smoother particularly well suited to smoothing filter cutoff frequencies",
-        "description": "Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
+        "description": "Based on Andy Simper's smoother, evi_cfsmooth tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz). <o>evi_cfsmooth</o> is available in MSP as <o>evi.cfsmooth~</o>."
     },
     "constructor": {
         "inlets": "destination, ramp"

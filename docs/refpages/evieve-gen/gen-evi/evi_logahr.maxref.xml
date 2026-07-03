@@ -8,7 +8,7 @@
     <description>
         <b>evi_logahr</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Logarithmic attack/hold/release envelope follower / smoother. <br />
+	    Logarithmic attack/hold/release envelope follower / smoother. <o>evi_logahr</o> is available in MSP as <o>evi.logahr~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

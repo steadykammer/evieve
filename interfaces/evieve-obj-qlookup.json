@@ -945,7 +945,7 @@
         "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
     },
     "evi.valve~": {
-        "digest": "Dynamic valve distortion unit",
+        "digest": "Dynamic valve (tube) distortion unit",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Nonlinear", "evieve Filter Nonlinear", "evieve Antialiased", "evieve Effect", "evieve Dynamics", "evieve Modulation", "evieve Saturation" ],
         "keywords": [],

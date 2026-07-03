@@ -11,7 +11,7 @@
         evi_xfade_mono.gendsp requires the GenExpr file(s): <br />
         <o>evi_utilities</o>.genexpr <br />
          <br />
-	    Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. <br />
+	    Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. <o>evi_xfade_mono</o> is available in MSP as <o>evi.xfade~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

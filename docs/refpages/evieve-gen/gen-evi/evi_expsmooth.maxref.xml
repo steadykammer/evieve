@@ -8,7 +8,7 @@
     <description>
         <b>evi_expsmooth</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds. <br />
+	    A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds. <o>evi_expsmooth</o> is available in MSP as <o>evi.expsmooth~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

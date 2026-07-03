@@ -8,7 +8,7 @@
     <description>
         <b>evi_vactrol</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    Analog modelled vactrol opto isolator envelope emulation. <br />
+	    Analog modelled vactrol opto isolator envelope emulation. <o>evi_vactrol</o> is available in MSP as <o>evi.vactrol~</o>. <br />
     </description>
     <methodlist />
     <constructorlist>

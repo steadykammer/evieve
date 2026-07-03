@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Attack/hold/release envelope follower",
-        "description": "Logarithmic attack/hold/release envelope follower / smoother."
+        "description": "Logarithmic attack/hold/release envelope follower / smoother. <o>evi_logahr</o> is available in MSP as <o>evi.logahr~</o>."
     },
     "constructor": {
         "inlets": "value, attack, hold, release"

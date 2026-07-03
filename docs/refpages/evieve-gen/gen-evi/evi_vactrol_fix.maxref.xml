@@ -8,7 +8,7 @@
     <description>
         <b>evi_vactrol_fix</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    A cheaper fixed coefficients version of <o>evi_vactrol</o>.gendsp providing a basic vactrol-like response. <br />
+	    A cheaper fixed coefficients version of <o>evi_vactrol</o>.gendsp providing a basic vactrol-like response. <o>evi_vactrol_fix</o> is available in MSP as <o>evi.vactrol~</o> @fix 1 <br />
     </description>
     <methodlist />
     <constructorlist>

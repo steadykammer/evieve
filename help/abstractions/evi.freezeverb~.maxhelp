@@ -1088,7 +1088,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 48.0, 252.0, 169.0, 22.0 ],
-                                                                    "text": "expr noise() * 0.999 + 0.001"
+                                                                    "text": "expr noise() * 0.998 + 0.001"
                                                                 }
                                                             },
                                                             {
@@ -2492,7 +2492,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 40.0, 618.0, 230.0, 23.0 ],
-                                    "text": "freeze 0"
+                                    "text": "dump done"
                                 }
                             },
                             {

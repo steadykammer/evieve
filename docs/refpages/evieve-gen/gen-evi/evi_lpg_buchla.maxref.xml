@@ -11,7 +11,7 @@
         evi_lpg_buchla.gendsp requires the GenExpr file(s): <br />
         <o>evi_buchla</o>.genexpr <br />
          <br />
-	    Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (@boom) and refactored code for optimal CPU usage. The code in this abstraction can be used entirely inside gen~ / GenExpr with internal oversampling (@localresample) and <o>evi_control_lpg_buchla</o>.gendsp for voltage control of Rf (frequency). <br />
+	    Circuit modelled emulation of the Buchla Lowpass-Gate, unique version of a two-pole Sallen and Key filter, based on 'A Digital Model of the Buchla Lowpass-Gate' by Julian Parker and Stefano DAngelo, 2013. In evieve this is all audio rate inputs to control the voltage input to the gate, with additional features such as extra feedback resistors (@boom) and refactored code for optimal CPU usage. The code in this abstraction can be used entirely inside gen~ / GenExpr with internal oversampling (@localresample) and <o>evi_control_lpg_buchla</o>.gendsp for voltage control of Rf (frequency). See <o>evi.lpg~</o> for an MSP version. <br />
     </description>
     <methodlist />
     <constructorlist>

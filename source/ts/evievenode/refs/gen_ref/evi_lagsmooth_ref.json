@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Smooth signal ramp generator with logarithmic curve",
-        "description": "Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB."
+        "description": "Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB. <o>evi_lagsmooth</o> is available in MSP as <o>evi.lagsmooth~</o>."
     },
     "constructor": {
         "inlets": "destination, ramp"

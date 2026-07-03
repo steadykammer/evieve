@@ -11,7 +11,7 @@
         evi_pan_dual.gendsp requires the GenExpr file(s): <br />
         <o>evi_utilities</o>.genexpr <br />
          <br />
-	    Pan inputs to outputs using an efficient cosine algorithm very close to a 'sqrt'. <br />
+	    Pan inputs to outputs using an efficient cosine algorithm very close to a 'sqrt'. <o>evi_pan_dual</o> is available in MSP as <o>evi.pan~</o> @mode 1 <br />
     </description>
     <methodlist />
     <constructorlist>
