@@ -2376,7 +2376,7 @@
                                     "preset_data": [
                                         {
                                             "number": 1,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 100.0, 5, "obj-23", "live.dial", "float", 10.0, 5, "obj-22", "live.dial", "float", 48.0, 5, "obj-21", "live.dial", "float", 40.8140983581543, 5, "obj-5", "live.dial", "float", 0.0, 5, "obj-20", "live.dial", "float", 0.0, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -6.0, 5, "obj-24", "live.numbox", "float", 0.41666701436042786, 5, "obj-25", "live.numbox", "float", 62.5, 5, "obj-34", "live.numbox", "float", 10.0, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 100.0, 5, "obj-23", "live.dial", "float", 10.0, 5, "obj-22", "live.dial", "float", 48.0, 5, "obj-21", "live.dial", "float", 40.8140983581543, 5, "obj-5", "live.dial", "float", 0.0, 5, "obj-20", "live.dial", "float", 0.0, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -3.0, 5, "obj-24", "live.numbox", "float", 0.41666701436042786, 5, "obj-25", "live.numbox", "float", 62.5, 5, "obj-34", "live.numbox", "float", 11.239603042602539, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 2,
@@ -2384,7 +2384,7 @@
                                         },
                                         {
                                             "number": 3,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 139.3700714111328, 5, "obj-23", "live.dial", "float", 81.88976287841797, 5, "obj-22", "live.dial", "float", 50.39370346069336, 5, "obj-21", "live.dial", "float", 26.771656036376953, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 95.51181030273438, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -13.921318054199219, 5, "obj-24", "live.numbox", "float", 1.282808780670166, 5, "obj-25", "live.numbox", "float", 104.91339111328125, 5, "obj-34", "live.numbox", "float", 5.792335510253906, 5, "obj-39", "live.tab", "float", 0.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 139.3700714111328, 5, "obj-23", "live.dial", "float", 81.88976287841797, 5, "obj-22", "live.dial", "float", 50.39370346069336, 5, "obj-21", "live.dial", "float", 26.771656036376953, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 95.51181030273438, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -20.0, 5, "obj-24", "live.numbox", "float", 1.282808780670166, 5, "obj-25", "live.numbox", "float", 104.91339111328125, 5, "obj-34", "live.numbox", "float", 5.792335510253906, 5, "obj-39", "live.tab", "float", 0.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 4,
@@ -2396,19 +2396,19 @@
                                         },
                                         {
                                             "number": 6,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 121.88976287841797, 5, "obj-23", "live.dial", "float", 36.377952575683594, 5, "obj-22", "live.dial", "float", 34.645668029785156, 5, "obj-21", "live.dial", "float", 45.19684982299805, 5, "obj-5", "live.dial", "float", 37.086612701416016, 5, "obj-20", "live.dial", "float", 96.53543090820312, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -9.035346031188965, 5, "obj-24", "live.numbox", "float", 2.936352252960205, 5, "obj-25", "live.numbox", "float", 110.14961242675781, 5, "obj-34", "live.numbox", "float", 10.195406913757324, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 121.88976287841797, 5, "obj-23", "live.dial", "float", 36.377952575683594, 5, "obj-22", "live.dial", "float", 34.645668029785156, 5, "obj-21", "live.dial", "float", 45.19684982299805, 5, "obj-5", "live.dial", "float", 37.086612701416016, 5, "obj-20", "live.dial", "float", 96.53543090820312, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", 0.0, 5, "obj-24", "live.numbox", "float", 2.936352252960205, 5, "obj-25", "live.numbox", "float", 110.14961242675781, 5, "obj-34", "live.numbox", "float", 10.195406913757324, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 7,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 121.88976287841797, 5, "obj-23", "live.dial", "float", 27.244094848632812, 5, "obj-22", "live.dial", "float", 36.377952575683594, 5, "obj-21", "live.dial", "float", 58.42519760131836, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 80.07874298095703, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -2.9802565574645996, 5, "obj-24", "live.numbox", "float", 2.936352252960205, 5, "obj-25", "live.numbox", "float", 110.14961242675781, 5, "obj-34", "live.numbox", "float", 10.9513578414917, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 121.88976287841797, 5, "obj-23", "live.dial", "float", 27.244094848632812, 5, "obj-22", "live.dial", "float", 36.377952575683594, 5, "obj-21", "live.dial", "float", 42.99212646484375, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 80.07874298095703, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -2.9802565574645996, 5, "obj-24", "live.numbox", "float", 2.936352252960205, 5, "obj-25", "live.numbox", "float", 110.14961242675781, 5, "obj-34", "live.numbox", "float", 14.112360000610352, 5, "obj-39", "live.tab", "float", 1.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 8,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 130.55117797851562, 5, "obj-23", "live.dial", "float", 52.28346252441406, 5, "obj-22", "live.dial", "float", 64.61417388916016, 5, "obj-21", "live.dial", "float", 41.88976287841797, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 100.0, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -11.817584991455078, 5, "obj-24", "live.numbox", "float", 0.8891079425811768, 5, "obj-25", "live.numbox", "float", 98.62992095947266, 5, "obj-34", "live.numbox", "float", 4.956925868988037, 5, "obj-39", "live.tab", "float", 0.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 130.55117797851562, 5, "obj-23", "live.dial", "float", 52.28346252441406, 5, "obj-22", "live.dial", "float", 64.61417388916016, 5, "obj-21", "live.dial", "float", 41.88976287841797, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 100.0, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -11.817584991455078, 5, "obj-24", "live.numbox", "float", 0.8891079425811768, 5, "obj-25", "live.numbox", "float", 98.62992095947266, 5, "obj-34", "live.numbox", "float", 7.1401848793029785, 5, "obj-39", "live.tab", "float", 0.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 9,
-                                            "data": [ 5, "obj-6", "live.dial", "float", 196.22047424316406, 5, "obj-23", "live.dial", "float", 52.2047233581543, 5, "obj-22", "live.dial", "float", 69.29133605957031, 5, "obj-21", "live.dial", "float", 62.2047233581543, 5, "obj-5", "live.dial", "float", 16.535432815551758, 5, "obj-20", "live.dial", "float", 98.4251937866211, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -15.95508861541748, 5, "obj-24", "live.numbox", "float", 6.243438720703125, 5, "obj-25", "live.numbox", "float", 145.7559051513672, 5, "obj-34", "live.numbox", "float", 6.138808250427246, 5, "obj-39", "live.tab", "float", 2.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0 ]
+                                            "data": [ 5, "obj-52", "attrui", "attr", "samples", 5, "obj-52", "attrui", "float", 48000.0, 5, "obj-6", "live.dial", "float", 196.22047424316406, 5, "obj-23", "live.dial", "float", 52.2047233581543, 5, "obj-22", "live.dial", "float", 69.29133605957031, 5, "obj-21", "live.dial", "float", 62.2047233581543, 5, "obj-5", "live.dial", "float", 16.535432815551758, 5, "obj-20", "live.dial", "float", 98.4251937866211, 5, "obj-7", "live.dial", "float", 100.0, 5, "obj-18", "live.gain~", "float", -15.95508861541748, 5, "obj-24", "live.numbox", "float", 6.243438720703125, 5, "obj-25", "live.numbox", "float", 145.7559051513672, 5, "obj-34", "live.numbox", "float", 14.0387544631958, 5, "obj-39", "live.tab", "float", 2.0, 5, "obj-45", "attrui", "attr", "range", 6, "obj-45", "attrui", "list", 0.0, 10.0, 5, "obj-63", "attrui", "attr", "logfreq", 5, "obj-63", "attrui", "int", 1, 5, "obj-38", "number", "float", 1.0, 5, "obj-43", "attrui", "attr", "samples", 5, "obj-43", "attrui", "float", 1200.0 ]
                                         },
                                         {
                                             "number": 10,
@@ -7635,6 +7635,17 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "signal" ],
+                                                    "patching_rect": [ 116.0, 261.0, 40.0, 22.0 ],
+                                                    "text": "*~ 0.7"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-8",
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
@@ -7769,8 +7780,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 102.0, 100.0, 62.0, 22.0 ],
-                                                    "text": "sig~ 20.4"
+                                                    "patching_rect": [ 102.0, 100.0, 58.0, 22.0 ],
+                                                    "text": "sig~ 10.2"
                                                 }
                                             },
                                             {
@@ -7780,8 +7791,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 102.0, 140.0, 319.0, 22.0 ],
-                                                    "text": "gen~ @expr evi_mtofapprox(evi_randy(in1) * 24 + 36)",
+                                                    "patching_rect": [ 102.0, 140.0, 289.0, 22.0 ],
+                                                    "text": "gen~ @expr evi_mtofapprox(evi_randy(in1) * 3 + 36)",
                                                     "varname": "gen~_AB"
                                                 }
                                             },
@@ -7870,6 +7881,12 @@
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-17", 0 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-1", 0 ],
                                                     "order": 0,
                                                     "source": [ "obj-15", 1 ]
                                                 }
@@ -8296,7 +8313,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 290.0, 414.0, 183.0, 54.0 ],
+                                    "patching_rect": [ 290.0, 414.0, 182.72850036621094, 54.0 ],
                                     "textfile": {
                                         "filename": "evi.helpargs.js",
                                         "flags": 0,
@@ -8451,6 +8468,28 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-26",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "signal", "signal", "signal", "signal" ],
+                                    "patching_rect": [ 223.0, 326.0, 99.0, 23.0 ],
+                                    "text": "evi.wavefolder~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-13",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 223.0, 286.0, 74.0, 23.0 ],
+                                    "text": "cycle~ 110."
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
@@ -8667,17 +8706,6 @@
                                     "numinlets": 2,
                                     "numoutlets": 0,
                                     "patching_rect": [ 444.0, 420.0, 118.0, 118.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-3",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 326.0, 67.0, 23.0 ],
-                                    "text": "saw~ 110."
                                 }
                             },
                             {
@@ -9136,6 +9164,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-13", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-8", 0 ],
                                     "source": [ "obj-16", 0 ]
                                 }
@@ -9149,7 +9183,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-3", 0 ]
+                                    "source": [ "obj-26", 0 ]
                                 }
                             },
                             {

@@ -42,13 +42,6 @@ History	dryL(0), dryR(0);									// compensate dry
 
 Delay	tapsL(samplerate*0.26636, 1, feedback=1);			// loops, ± modulation time
 Delay	tapsR(samplerate*0.25995, 1, feedback=1);
-/*
-// old hack
-Param	delayTime1(12786, min=1, max=51142);				// defaults for 48kHz
-Param	delayTime2(12479, min=1, max=49911);
-Delay	tapsL(delayTime1, 1, feedback=1);
-Delay	tapsR(delayTime2, 1, feedback=1);
-*/
 
 // constants, not user
 

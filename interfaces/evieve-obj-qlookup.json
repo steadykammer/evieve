@@ -578,7 +578,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Nonlinear", "evieve Nonlinear", "evieve Effect", "evieve Modulation", "evieve Antialiased", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.vactrol~", "evi.wavefolder.cascade~", "evi.wavefolder~", "evi.modalres~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
+        "seealso": [ "evi.vactrol~", "evi.wavefolder.cascade~", "evi.wavefolder~", "evi.ringmod.diode~", "evi.formletfilter~", "evi.korgms20~", "evi.arpnotch~", "evi.ladder.moog~" ]
     },
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",
