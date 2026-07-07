@@ -15,6 +15,3 @@ Please consider helping to make `evieve` better by contributing via the Github o
 
 ### Thanks to...
 Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vincent Goudard, Matt Jackson, Maurizio Giri, Volker Böhm, Martijn Zwartjes, Martin Vicanek, Richard Dudas, Graham Wakefield, Joshua Kit Clayton.
-
-# CHOOCHOO
-

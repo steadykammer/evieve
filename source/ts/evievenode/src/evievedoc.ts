@@ -3448,8 +3448,8 @@ function buildPackage(dest?: string, zip = false)
 		verbatimSymlinks: true,
 		filter: src => {
 			// (src.indexOf('source') > -1)
-			return !(src.search(/\bsource\b/) > -1) && 
-			!(src.search(/\bbuild\b/) > -1) && 
+			return !(src.search(/\bsource\b/) > -1) &&  // whole source folder
+			!(src.search(/\bbuild\b/) > -1) &&  // whole build folder
 			!(src.indexOf('package-info.json.in') > -1) && 
 			!(src.indexOf('CMakeLists.txt') > -1) &&
 			!(src.indexOf('.git') > -1) &&
@@ -3463,7 +3463,8 @@ function buildPackage(dest?: string, zip = false)
 	void max.post('copying is complete...');
 
 	fs.mkdirSync(`${destination}/source`, { recursive: true });
-	fs.copyFileSync(`${source}/source/evieve_source_code.txt`, `${destination}/source/evieve_source_code.txt`);
+	fs.copyFileSync(`${source}/source/packaging/evieve_source_code.txt`, `${destination}/source/evieve_source_code.txt`);
+	fs.copyFileSync(`${source}/source/packaging/README.md`, `${destination}/README.md`); // will overwrite repo readme
 	void max.post(`build is complete, written evieve Package to: ${destination}`);
 
 	// TODO: .zip
