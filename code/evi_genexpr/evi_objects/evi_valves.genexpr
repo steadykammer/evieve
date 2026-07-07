@@ -659,6 +659,17 @@ diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 	d1 = diodeV8_8x(d0, k1, k2, k3, k4, k5, k6, VT, reset);
 	return dcblock(d1 - w4v(bias));
 }
-
+/*
+// this should work for initialisation, but it does not, why?
+diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
+{
+	History init(1);
+	d0 = gain * Vin + bias;
+	d1 = diodeV8_8x(d0, k1, k2, k3, k4, k5, k6, VT, reset);
+	diode = d1 - (w4v(bias) * (1 - init));
+	init = 0;
+	return dcblock(diode);
+}
+*/
 //	//	//
 

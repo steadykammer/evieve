@@ -38,3 +38,43 @@ require("evi_svfs_tpt_filters.genexpr");
 //	//	//	different all-in-one sections (Simper)
 require("evi_svfs_lto_extras.genexpr");
 
+
+/*
+BIBLIOGRAPHY
+
+
+Andrew Simper
+
+http://cytomic.com/technical-papers
+
+https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf
+
+
+Aaron Wishnick
+
+http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf
+
+
+Raph Levien
+
+https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb
+
+https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb
+
+
+Urs Heckman
+
+https://urs.silvrback.com
+
+https://urs.silvrback.com/one-pole-monster
+
+
+Vadim Zavalishin
+
+https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf
+
+(annoyingly NI change the address of the book whenever he updates it, so you might need to google to get latest version)
+
+
+*/
+

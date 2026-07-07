@@ -3264,6 +3264,30 @@
                 "auto": false
             }
         },
+        "evi_quadfmpm_param.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "oscillator"
+                ]
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_quadfmpm.gendsp": {
             "define": {
                 "object": false,

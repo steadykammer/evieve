@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -448,11 +448,6 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "signal", "signal", "signal", "multichannelsignal" ],
                                     "patching_rect": [ 239.0, 333.0, 122.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "color": {
-                                            "expression": "themecolor.theme_syntax_objectcolor"
-                                        }
-                                    },
                                     "text": "evi.freqshift.hilbert~"
                                 }
                             },
@@ -841,13 +836,27 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "hidden": 1,
+                                    "id": "obj-21",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 569.0, 358.0, 77.0, 40.0 ],
+                                    "text": "Sorry James !!",
+                                    "textjustification": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-88",
@@ -1156,12 +1165,14 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubblepoint": 0.1,
                                     "id": "obj-13",
+                                    "linecount": 3,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 417.0, 365.0, 123.0, 25.0 ],
-                                    "text": "Saturation On",
+                                    "patching_rect": [ 417.0, 351.0, 154.0, 54.0 ],
+                                    "text": "both float & signal, and have different meanings !",
                                     "textjustification": 1
                                 }
                             },
@@ -1333,7 +1344,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "The right inlet also accepts an audio signal in order to FM the Freq Shift. Note that smoothing the Freq Shift (float) input can be achieved with the @freqsmooth attribute (default 20ms)",
+                                    "text": "The right inlet also accepts an audio signal in order to FM the Freq Shift. Note that smoothing the Freq Shift (float) input can be achieved with the @freqsmooth attribute (default 20ms).",
                                     "varname": "digest_comment"
                                 }
                             },

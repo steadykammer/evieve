@@ -4,9 +4,10 @@
 // with additions by Graham Wakefield
 // Thanks so much!
 
-// Note, for a strange param rate only version see 'evi_quadfmpm_param.gendsp'.
+// Note: this is a strange param rate only version for specific situations,
+// see the more normal 'evi_quadfmpm.gendsp' for a fully audio rate inlets version.
 
-require("evi_approx.genexpr");
+require("evi_smooth.genexpr");
 
 // this is not so good, should replace
 lpfir3(x0)
@@ -31,17 +32,34 @@ ramplimit(target, maxslope)				// maxslope = maximum change per ms
 
 History modOscPrev(0), carrierCosFb(0), carrierSinFb(0);
 
-index	= maximum(in1, 1);
+Param	pitch(48., min=0, max=120);
+Param	modulationmult(1., min=0, max=100);
 
-pitch_a	= in2;
-mmult_a	= in7;
+Param	xfadedepth(1., min=0, max=100);
+Param	xfadeblend(1., min=0, max=1);	// % 0..1, default PM
+
+Param	modulationfeedback(0., min=0, max=100);
+Param	carrierfeedback(0., min=0, max=100);
+
+Param	smooth(10., min=0, max=333);	// ms
+smoothsecs	= smooth*0.001;
+smooth_p	= (smooth > 0);
+
+pitch_a	= pitch;
+mmult_a = modulationmult;
+modfb_a	= modulationfeedback;
+carfb_a	= carrierfeedback;
+if (smooth_p) {
+	pitch_a	= logsmooth(pitch, smoothsecs);
+	mmult_a	= expsmooth(modulationmult, smoothsecs);
+	modfb_a, carfb_a	= expsmoothBank2(modulationfeedback, carrierfeedback, smoothsecs);
+}
+
 freq_a	= mtofApproxBaseless(pitch_a);
 fmm		= freq_a*mmult_a;
+fmamount, pmamount	= p2cApproxQuart(xfadedepth, xfadeblend);
 
-modfb_a	= in5;
-carfb_a	= in6;
-
-fmamount, pmamount	= p2cApprox(in3, in4*halfpi);
+index	= maximum(in1, 1);
 
 // Op
 
@@ -51,7 +69,7 @@ modOscPrev	= modOsc;
 modBias		= latch(index, modZerox);
 modulator	= modOsc*modBias;
 fmamount	= ramplimit(fmamount, 0.01);
-fmamount	= latch(fmamount, modZerox);	// (gen: does not compile if above ramplimit inside latch)
+fmamount	= latch(fmamount, modZerox);
 pmamount	= ramplimit(pmamount, 0.01);
 
 carrierPhase	= (phasor(freq_a + (fmm*modulator*fmamount))*twopi) + (modulator*pmamount);

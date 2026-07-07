@@ -19,6 +19,22 @@
         "boxes": [
             {
                 "box": {
+                    "bubble": 1,
+                    "bubblepoint": 0.85,
+                    "bubbleside": 0,
+                    "id": "obj-22",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 719.0, 65.0, 150.0, 39.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 26.0, 601.0, 79.0, 39.0 ],
+                    "text": "Mod Wheel",
+                    "textjustification": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-21",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -1315,6 +1331,7 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 14.0,
                                     "gradient": 1,
+                                    "hint": "Octave z/x",
                                     "id": "obj-97",
                                     "ignoreclick": 1,
                                     "maxclass": "message",
@@ -1819,7 +1836,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 3,
                                     "numoutlets": 2,
-                                    "outlettype": [ "", "int" ],
+                                    "outlettype": [ "float", "int" ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {
@@ -1835,6 +1852,17 @@
                                         "subpatcher_template": "sub",
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-13",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 321.0, 698.0, 32.0, 22.0 ],
+                                                    "text": "t 0.3"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "comment": "",
@@ -2553,7 +2581,22 @@
                                             },
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-51", 0 ],
+                                                    "source": [ "obj-13", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-1", 0 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-14", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-13", 0 ],
+                                                    "hidden": 1,
+                                                    "order": 1,
                                                     "source": [ "obj-14", 0 ]
                                                 }
                                             },
@@ -3055,8 +3098,9 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
+                                    "inputmode": 2,
                                     "maxclass": "kslider",
-                                    "mode": 1,
+                                    "mode": 2,
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],

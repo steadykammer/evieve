@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -25,7 +25,7 @@
                     "filename": "evi.helpname.js",
                     "id": "obj-36",
                     "ignoreclick": 1,
-                    "jsarguments": [ "evieve Examples: West Coast Playground", 880 ],
+                    "jsarguments": [ "evieve Examples: Off Coast Playground", 880 ],
                     "maxclass": "v8ui",
                     "numinlets": 1,
                     "numoutlets": 1,
@@ -54,6 +54,7 @@
                     "patching_rect": [ 10.0, 70.0, 880.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 10.0, 70.0, 880.0, 22.0 ],
+                    "text": "Not quite West Coast",
                     "varname": "digest_comment"
                 }
             }

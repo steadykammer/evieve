@@ -123,6 +123,7 @@
 <refpage name='evi_phasorrate0.maxref.xml'/>
 <refpage name='evi_plateverb.maxref.xml'/>
 <refpage name='evi_quadfmpm.maxref.xml'/>
+<refpage name='evi_quadfmpm_param.maxref.xml'/>
 <refpage name='evi_quadosc.maxref.xml'/>
 <refpage name='evi_quadosc_sync.maxref.xml'/>
 <refpage name='evi_ramp0.maxref.xml'/>

@@ -1,0 +1,125 @@
+{
+    "object": {
+        "name": "evi_quadfmpm_param",
+        "child": "",
+        "category": "evieve",
+        "digest": "Quadrature FM/PM Oscillators by Lionel and Graham, param rate version",
+        "description": "This is a quadrature FM/PM xfading mod/carrier setup, based on LIONEL's patch from: https://cycling74.com/forums/fm-vs-pm-in-gen-unwanted-artifacts-clicks , with additions by Graham Wakefield. This is a strange evieve param rate version. For inlets / audio rate version see <o>evi_quadfmpm</o>. I have not been able to ask Lionel's permission. If you are Lionel and you see this, please get in touch."
+    },
+    "constructor": {
+        "inlets": "index"
+    },
+    "includes": [
+        "evi_smooth"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "index",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "@default 1.",
+            "digest": "The FM Index, zero-latched to the modulating oscillator. Index multiplies the amount of Modulator sent to the Carrier. Integer boundaries will sound harmonic, non integer values will sound inharmonic. The greater the index value the more complexity in the resulting signal."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "fm",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "output Cos",
+            "digest": "Cosine FM oscillator output."
+        },
+        {
+            "id": 2,
+            "name": "fm",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "output Sin",
+            "digest": "Sine FM oscillator output."
+        }
+    ],
+    "attributes": [
+        {
+            "name": "carrierfeedback",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "@carrierfeedback controls the feedback amount in the Carrier oscillator.",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "modulationfeedback",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "@modulationfeedback controls the feedback amount in the Modulation oscillator.",
+            "default": {
+                "type": "float",
+                "value": "0."
+            }
+        },
+        {
+            "name": "modulationmult",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "The @modulationmult attribute controls the modulation factor of the oscillators frequency in Hz (derived from the pitch).",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        },
+        {
+            "name": "pitch",
+            "type": "float",
+            "digest": "@min 0, @max 120",
+            "description": "The @pitch attribute controls the pitch of the oscillators in floating point MIDI note values.",
+            "default": {
+                "type": "float",
+                "value": "48."
+            }
+        },
+        {
+            "name": "smooth",
+            "type": "float",
+            "digest": "@min 0, @max 333",
+            "description": "All the attributes can be smoothed by this amount in ms.",
+            "default": {
+                "type": "float",
+                "value": "10."
+            }
+        },
+        {
+            "name": "xfadeblend",
+            "type": "float",
+            "digest": "@min 0, @max 1",
+            "description": "The @xfadeblend attribute (along with the @xfadedepth attribute) is used to derive FM and PM amounts. @xfadeblend 0..1 mixes between the FM circuit and the PM circuit to modulate the oscillators. This is a brilliant Graham Wakefield idea.",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        },
+        {
+            "name": "xfadedepth",
+            "type": "float",
+            "digest": "@min 0, @max 100",
+            "description": "The @xfadedepth attribute (along with the @xfadeblend attribute) is used to derive FM and PM amounts. @xfadedepth controls the range of modulation of FM or PM circuits (depending on the mix position of @xfadeblend).",
+            "default": {
+                "type": "float",
+                "value": "1."
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_quadfmpm",
+            "display": "evi_quadfmpm"
+        },
+        {
+            "name": "evi_squine_simple",
+            "display": "evi_squine_simple"
+        }
+    ]
+}

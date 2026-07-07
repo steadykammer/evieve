@@ -2271,7 +2271,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2289,7 +2289,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 285.0, 281.0, 199.0, 38.0 ],
-                                    "text": "0.132331 0.295692 0.493341 0.521308 0.538341 0.713456"
+                                    "text": "0.376559 0.38615 0.556691 0.691588 0.774917 0.878094"
                                 }
                             },
                             {
@@ -3210,7 +3210,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// avaialable in 'evi_smooth' as 'vactrolBuchla()':\r\nrequire(\"evi_smooth.genexpr\");\r\n// also available in 'evi_env' simply as 'vactrol()':\r\n//require(\"evi_env.genexpr\");\r\n\r\nParam   base(2000, min=100, max=10000);\r\n\r\nout1 = vactrolBuchla(in1, in2, in3, base=base) * 100;\r\n// could also use the abstraction which has built in scalar defaulting to '10':\r\n//out1 = evi_vactrol(in1, in2, in3, scalar=100, shape=0.6);\r\n\r\n// another vactrol-like filter:\r\nout2 = likeAvactrol(in1+in1, 0.1, 0.9) * 20000;\r\n// could also use the abstraction:\r\n//out2 = evi_vactrol_shape(in1, 0.1, 0.9, scalein=2, scaleout=20000);\r\n\r\n",
+                                                    "code": "\r\n// avaialable in 'evi_smooth' as 'vactrolBuchla()':\r\nrequire(\"evi_smooth.genexpr\");\r\n// also available in 'evi_env' simply as 'vactrol()':\r\n//require(\"evi_env.genexpr\");\r\n\r\nParam   base(2000, min=100, max=10000);\r\n\r\nout1 = vactrolBuchla(in1, in2, in3, base=base) * 100;\r\n// could also use the abstraction which has built in scalar defaulting to '1':\r\n//out1 = evi_vactrol(in1, in2, in3, scalar=100, shape=0.6);\r\n\r\n// another vactrol-like filter:\r\nout2 = likeAvactrol(in1+in1, 0.1, 0.9) * 20000;\r\n// could also use the abstraction:\r\n//out2 = evi_vactrol_shape(in1, 0.1, 0.9, scalein=2, scaleout=20000);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,

@@ -16,6 +16,8 @@
     See the GNU General Public License for more details.
 */
 
+// see: 'evi_svfs.genexpr' for TPT filters Bibliography
+
 //  //  //  For all evieve TPT SVF filters require "evi_svfs.genexpr".
 //  //  //  Because Gen does not cache require files, the evieve SVFs are
 //  //  //  separated out into smaller require files such as this one

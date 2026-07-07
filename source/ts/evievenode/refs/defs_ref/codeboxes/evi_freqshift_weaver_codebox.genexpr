@@ -134,7 +134,7 @@ if (sel == 2) {					// strange but cool AM DSB like effect
 }
 
 if (oo) {
-    out2, out3  = quadOsc(freqshift, thisreset);
+    out2, out3  = eviQuadOsc(freqshift, thisreset);
 } else {
     out2, out3  = 0;
 }

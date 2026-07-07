@@ -4,6 +4,13 @@ evieve — History
 Change Log
 -----------------------------------------------------------------------------------------
 
+Changes in 0.2.0
+
+Beta #2
+
+As sent to Rod, James, Alex, Todd, Tom, Vincent, Florian
+
+-------
 Changes in 0.1.1
 
 All smoothers in gen~ and the externals initialise correctly on load
