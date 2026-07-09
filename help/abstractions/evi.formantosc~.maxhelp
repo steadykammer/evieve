@@ -45,6 +45,18 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-12",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 25.0, 522.0, 136.0, 23.0 ],
+                                    "text": "loadmess datainterp 1"
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -76,7 +88,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 430.0, 28.0, 75.0, 23.0 ],
-                                    "text": "loadmess 1"
+                                    "text": "loadmess 2"
                                 }
                             },
                             {
@@ -108,6 +120,10 @@
                                         {
                                             "number": 5,
                                             "data": [ 5, "obj-8", "attrui", "attr", "logfreq", 5, "obj-8", "attrui", "int", 0, 6, "obj-108", "pictslider", "list", 11, 69, 5, "obj-10", "live.numbox", "float", 17.0, 5, "obj-28", "live.numbox", "float", 14.17322826385498, 5, "obj-17", "kslider", "int", 36, 5, "obj-22", "attrui", "attr", "samples", 5, "obj-22", "attrui", "float", 1000.0, 5, "obj-29", "live.dial", "float", 1.6611164808273315, 5, "obj-30", "live.dial", "float", 8.194270133972168 ]
+                                        },
+                                        {
+                                            "number": 6,
+                                            "data": [ 5, "obj-8", "attrui", "attr", "logfreq", 5, "obj-8", "attrui", "int", 0, 6, "obj-108", "pictslider", "list", 94, 105, 5, "obj-10", "live.numbox", "float", 1.0, 5, "obj-28", "live.numbox", "float", 0.787401556968689, 5, "obj-17", "kslider", "int", 34, 5, "obj-22", "attrui", "attr", "samples", 5, "obj-22", "attrui", "float", 1000.0, 5, "obj-29", "live.dial", "float", 0.7726758718490601, 5, "obj-30", "live.dial", "float", 0.036762792617082596 ]
                                         }
                                     ]
                                 }
@@ -772,7 +788,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 349.0, 58.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 348.9280090332031, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -817,6 +833,13 @@
                                 "patchline": {
                                     "destination": [ "obj-23", 0 ],
                                     "source": [ "obj-108", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-12", 0 ]
                                 }
                             },
                             {

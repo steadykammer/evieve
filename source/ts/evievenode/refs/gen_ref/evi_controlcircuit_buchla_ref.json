@@ -26,8 +26,8 @@
             "name": "offset",
             "type": "float",
             "optional": 1,
-            "digestauto": "@min 0 @max 1 @default 0.1",
-            "digest": "0..1. Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
+            "digestauto": "@min 0 @max 1 @default 0.78",
+            "digest": "0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "type": "float",
             "optional": 1,
             "digestauto": "@min 0 @max 1 @default 0.48",
-            "digest": "0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
+            "digest": "0..1 Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
             "id": 4,
@@ -61,7 +61,7 @@
             "name": "control",
             "type": "int",
             "digest": "@min 0, @max 2",
-            "description": "Select 0, 1, 2. To quote the paper, '...it makes little difference'. But sometimes it does make a difference. This control switches between slow..long response times for the voltage input into the control circuit shaper.",
+            "description": "Select 0, 1, 2. Subtle. This control switches between slow..long response times for the voltage input into the control circuit shaper. It is only noticeable with high control and resonance settings",
             "default": {
                 "type": "int",
                 "value": "1"
@@ -70,18 +70,18 @@
         {
             "name": "mapcutoff",
             "type": "float",
-            "digest": "@min 7, @max 788",
-            "description": "Low shelving filter frequency in Hz, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. Also see @mapdamp.",
+            "digest": "@min 4.1, @max 143",
+            "description": "Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @mapdamp attribute and is by default off.",
             "default": {
                 "type": "float",
-                "value": "143."
+                "value": "9.07"
             }
         },
         {
             "name": "mapdamp",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Low shelving filter damp, optionally maps between V_c and V_b (default bypassed). To quote the paper, '...it makes little difference'. 0 = no damping (default, bypassed), 1 = fully damped. Also see @mapcutoff.",
+            "description": "Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 = no damping (default, bypassed), 1 = fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value 'softens' the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @mapcutoff attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -92,16 +92,6 @@
             "type": "float",
             "digest": "@min 0, @max 333",
             "description": "If > 0, smooths the 'offset' control (inlet 2) by this amount in ms.",
-            "default": {
-                "type": "float",
-                "value": "0."
-            }
-        },
-        {
-            "name": "scalersmooth",
-            "type": "float",
-            "digest": "@min 0, @max 111",
-            "description": "",
             "default": {
                 "type": "float",
                 "value": "0."

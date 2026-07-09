@@ -178,9 +178,10 @@ buchlaLpg1(x, rf, res, resist, vcamode, lpgmode, nl)
 
 	}
 
-	// "outputs can be mixed to produce other filter modes", pete: "good luck with that, but i tried"
-	return	yo*rCr4L, yx*rCr4L, yd*(0.000041111111); // problem with yd (HP) @nyquist
-}
+	// "outputs can be mixed to produce other filter modes", pete: "good luck with that (but i tried)"
+	return	yo*rCr4L, yx*rCr4L, yd*(0.0021111111);	// problem with yd (HP) @nyquist, ultimately with yd you need to
+}													// gain down high end based on ping, it is a bit complex.
+													// yd*0.000041111111 would work as safe version, but not matched
 
 buchlaLpg2(x0, x1, rf, res, resist, vcamode, lpgmode, nl)
 {

@@ -14810,8 +14810,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "s1",
-                                    "raw": "s1"
+                                    "name": "s0",
+                                    "raw": "s0"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -14919,8 +14919,8 @@
                                             },
                                             "right": {
                                                 "type": "Identifier",
-                                                "name": "s1",
-                                                "raw": "s1"
+                                                "name": "s0",
+                                                "raw": "s0"
                                             }
                                         }
                                     }
@@ -15001,8 +15001,8 @@
                                             },
                                             "right": {
                                                 "type": "Identifier",
-                                                "name": "s1",
-                                                "raw": "s1"
+                                                "name": "s0",
+                                                "raw": "s0"
                                             }
                                         }
                                     }
@@ -15050,14 +15050,41 @@
                                 "type": "BinaryExpression",
                                 "operator": "-",
                                 "left": {
-                                    "type": "Identifier",
-                                    "name": "i",
-                                    "raw": "i"
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "i",
+                                            "raw": "i"
+                                        },
+                                        {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "prefix": true
+                                        },
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "clip",
+                                        "raw": "clip"
+                                    }
                                 },
                                 "right": {
                                     "type": "Identifier",
-                                    "name": "s1",
-                                    "raw": "s1"
+                                    "name": "s0",
+                                    "raw": "s0"
                                 }
                             }
                         }
@@ -15152,8 +15179,8 @@
                                 },
                                 "right": {
                                     "type": "Identifier",
-                                    "name": "s1",
-                                    "raw": "s1"
+                                    "name": "s0",
+                                    "raw": "s0"
                                 }
                             }
                         }
@@ -15165,8 +15192,8 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "s1",
-                                "raw": "s1"
+                                "name": "s0",
+                                "raw": "s0"
                             },
                             "right": {
                                 "type": "CallExpression",

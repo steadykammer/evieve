@@ -90,33 +90,34 @@ buchlaControlCircuit(V_b, offset, scaler, Ifpow, Ifmax)
 
 History	bcc(0);
 
-Param	mapcutoff(143., min=7, max=788);
-Param	mapdamp(0., min=0, max=1);							// default bypassed
+Param	mapcutoff(9.07, min=4.1, max=143);                  // Hz
+Param	mapdamp(0., min=0, max=1);							// default bypassed (0)
 
 // all smoothers default to off
 Param	offsetsmooth(0., min=0, max=333);				    // in ms
-Param	scalersmooth(0., min=0, max=111);				    // in ms
+Param	scalesmooth(0., min=0, max=111);				    // in ms
 Param	sweepsmooth(0., min=0, max=222);				    // in ms
 Param	control(1, min=0, max=2);							// int, select control response, default 0.04
 
 gamma	= 0.0001;
 igamma	= 0.9999;
 // param rate
-damp_g, damp_k	= rcDampCoeffs0(mapcutoff, mapdamp);		// "...it makes little difference"
+damp_g, damp_k	= rcDampCoeffs0(mapcutoff, mapdamp);		// "...it makes little difference", not true, dulls attack
 response  = selector(int(control)+1, 0.01, 0.04, 0.12);		// this also makes little difference, but some :-)
 
-// default 0.1 seems like a good idea
-offset	= (igamma * in2*in2) + gamma;	// 0.0001..1		// must scale like this before input to function
+// default 0.88 seems like a good idea
+offset	= (igamma * in2) + gamma;	    // 0.0001..1		// must scale like this before input to function
 if (offsetsmooth > 0) {					// turn off if modulating
-	offset = evi_logsmooth(offset, offsetsmooth);
+	offset = evi_lagsmooth(offset, offsetsmooth);
 }
 // 0.48 = tuned for original fixed input range
 scaler	= in3;							// 0..1				// should default to input "0.48"
 if (scalesmooth > 0) {					// turn off if static or modulating
 	scaler = evi_logsmooth(scaler, scalesmooth);
 }
+sweep = sqrt(1 - in4);
 // 0.408141 tuned for original fixed power output but taking into account fastpow() approximation here
-sweep	= (in4 * 0.977062) + 0.999938;	// 0.999938..1.997	// must default to input "0.408141" output "1.398717"
+sweep	= (sweep * 0.977062) + 0.999938;// 0.999938..1.997	// must default to input "0.408141" output "1.398717"
 if (sweepsmooth > 0) {					// turn off if static or modulating
 	sweep  = evi_line(sweep, mstosamps(sweepsmooth));
 }

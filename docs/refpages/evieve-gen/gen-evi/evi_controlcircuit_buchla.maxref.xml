@@ -29,12 +29,12 @@
         </geninlet>
         <geninlet name='offset' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.1. 0..1. Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @min 0 @max 1 @default 0.78. 0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
         <geninlet name='scale' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.48. 0..1. Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @min 0 @max 1 @default 0.48. 0..1 Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
         <geninlet name='sweep' type='float' optional='1'>
@@ -49,7 +49,7 @@
                 @min 0, @max 2
             </digest>
             <description>
-                Select 0, 1, 2. To quote the paper, &#x27;...it makes little difference&#x27;. But sometimes it does make a difference. This control switches between slow..long response times for the voltage input into the control circuit shaper.
+                Select 0, 1, 2. Subtle. This control switches between slow..long response times for the voltage input into the control circuit shaper. It is only noticeable with high control and resonance settings
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />
@@ -57,13 +57,13 @@
         </attribute>
         <attribute name='mapcutoff' type='float' get='0' set='1'>
             <digest>
-                @min 7, @max 788
+                @min 4.1, @max 143
             </digest>
             <description>
-                Low shelving filter frequency in Hz, optionally maps between V_c and V_b (default bypassed). To quote the paper, &#x27;...it makes little difference&#x27;. Also see @mapdamp.
+                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @mapdamp attribute and is by default off.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='143.' />
+                <attribute name='default' type='float' value='9.07' />
             </attributelist>
         </attribute>
         <attribute name='mapdamp' type='float' get='0' set='1'>
@@ -71,7 +71,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Low shelving filter damp, optionally maps between V_c and V_b (default bypassed). To quote the paper, &#x27;...it makes little difference&#x27;. 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Also see @mapcutoff.
+                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @mapcutoff attribute.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

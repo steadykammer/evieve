@@ -134,7 +134,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1053.0, 556.0, 150.0, 22.0 ],
+                    "patching_rect": [ 1053.0, 596.0, 150.0, 22.0 ],
                     "text": "make_gendsps_from_defs"
                 }
             },
@@ -2167,6 +2167,8 @@
                     "saved_object_attributes": {
                         "autostart": 0,
                         "defer": 0,
+                        "node_bin_path": "",
+                        "npm_bin_path": "",
                         "watch": 0
                     },
                     "text": "node.script Patcher:../dist/evievedoc.js",

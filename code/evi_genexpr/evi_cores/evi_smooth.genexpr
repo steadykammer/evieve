@@ -908,18 +908,18 @@ vactrolSection(x, a)					// trigger, time
 
 vactrolBuchla(i, r, f, base=1000.)		// impulse, rise (samps), fall (samps), base (Hz)
 {
-	History s1(0);
+	History s0(0);
 
 	a_base	= base*PI/SAMPLERATE;		// Hz*PI/samplerate
-	t_down	= 10 + f*(1 - 0.9*s1);		// fall time
+	t_down	= 10 + f*(1 - 0.9*s0);		// fall time
 	a_down	= a_base/t_down;
-	t_up	= 1 + r*(1 - 0.999*s1);		// rise time
+	t_up	= 1 + r*(1 - 0.999*s0);		// rise time
 	a_up	= a_base/t_up;
 
-	x		= i - s1;
+	x		= clip(i, -1, 1) - s0;		// should clip ?
 	x 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
-	y		= x + s1;
-	s1		= fixdenorm(y + x);
+	y		= x + s0;
+	s0		= fixdenorm(y + x);
 	return	  y;						// & scale externally
 }
 

@@ -61,7 +61,7 @@
             "name": "shape",
             "type": "float",
             "digest": "@min 0, @max 1",
-            "description": "Transform the envelope shape between flat ('0') and sharp('1'). Almost matches the native [slide] at about 0.86",
+            "description": "Transform the envelope shape between flat ('0') and sharp ('1'). Almost matches the native [slide] at about 0.86",
             "default": {
                 "type": "float",
                 "value": "0.5"

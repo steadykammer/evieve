@@ -63,13 +63,15 @@ nl		= int(nonlin);
 smoothsecs	= smooth*0.001;
 smoothsamps	= 0.0333*samplerate;
 
+damp = evi_log2sqrt01(vca);             // vca 0..1 (if @lpg > 0 @vca acts as a "Damp" control)
+
 freq = ctrlrf ? rf : in2;				// use param messages if "controlrate" == 1 ...
 res = ctrlres ? resonance : in3;
 
-freq = maximum(freq, 0);				// voltage not "freq" (can be very high numbers)
+freq = maximum(freq, 0);				// voltage not "freq" (very large numbers)
 res = maximum(res, 0);					// resonance 0..2..
-//damp = evi_log2sqrt01(vca);
-damp = vca*vca;                         // vca 0..1 (affectionately referred to as a "Damp" control)
+
+compensate = 1 - (sqrt(clip(res, 1, 2) - 1) * sqrt1_2);
 
 if (smooth > 0) {
 	damp    = logsmooth(damp, smoothsecs);
@@ -85,11 +87,11 @@ if (rfsmooth > 0) {
 
 // make gate/lpg switching real time capable
 slpg, nlpg	= eviSline(lpg, smoothsamps);
-resistors	= eviLine(boom * lpg, smoothsamps);  // boom is off if not "lpg" mode
+resistors	= eviLine(boom * compensate * lpg, smoothsamps);  // boom is off if not @lpg mode
 
 ylp, ybp, yhp   = localResampling(in1, freq, res, resistors, damp, slpg, nl, over);
 
 out1	 = ylp;
-out2	 = ybp; // zero if "localresample" > 0 ...
-out3	 = yhp;
+out2	 = ybp; // zero if "localresample" > 0
+out3	 = yhp; // ...
 
