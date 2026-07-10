@@ -79,8 +79,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ],
-                    "text": "1 192000. 64 256"
+                    "patching_rect": [ 251.0, 620.0, 150.0, 22.0 ]
                 }
             },
             {
@@ -90,7 +89,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 50.0, 28.0, 468.0, 20.0 ],
-                    "text": "arg #1: int, upsampling factor (2, 4 or 8) / arg #2: float, initial resonance value"
+                    "text": "arg #1: int, upsampling factor (2, 4 or 8) / arg #2: float, initial resonance value 0..2"
                 }
             },
             {

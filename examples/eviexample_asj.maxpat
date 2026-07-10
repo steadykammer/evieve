@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -13,24 +13,11 @@
         "bglocked": 1,
         "openinpresentation": 1,
         "gridonopen": 2,
+        "digest": "'Autechre Sex Jam' terminology originally coined by Clint Sand.",
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "title": "evieve Examples: ASJ",
         "boxes": [
-            {
-                "box": {
-                    "background": 1,
-                    "fontname": "Lato",
-                    "fontsize": 13.0,
-                    "id": "obj-1",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 10.0, 125.0, 660.0, 22.0 ],
-                    "text": "'Autechre Sex Jam' terminology originally coined by Clint Sand.",
-                    "varname": "digest_comment[1]"
-                }
-            },
             {
                 "box": {
                     "background": 1,

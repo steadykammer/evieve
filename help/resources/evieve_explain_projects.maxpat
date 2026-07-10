@@ -532,10 +532,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 3 (signal/float) Resonance 0..1 @min 0.01 @max 1 @default 0.88",
                                                         "patching_rect": [ 467.0, 19.0, 372.0, 22.0 ],
-                                                        "numinlets": 0,
                                                         "numoutlets": 1,
+                                                        "outlettype": [ "" ],
                                                         "id": "obj-5",
-                                                        "outlettype": [ "" ]
+                                                        "numinlets": 0
                                                     }
                                                 },
                                                 {
@@ -543,10 +543,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 1 (signal) Audio Input",
                                                         "patching_rect": [ 49.0, 19.0, 134.0, 22.0 ],
-                                                        "numinlets": 0,
                                                         "numoutlets": 1,
+                                                        "outlettype": [ "" ],
                                                         "id": "obj-1",
-                                                        "outlettype": [ "" ]
+                                                        "numinlets": 0
                                                     }
                                                 },
                                                 {
@@ -554,10 +554,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 2 (signal/float) Cutoff Frequency in Hz",
                                                         "patching_rect": [ 228.0, 19.0, 222.0, 22.0 ],
-                                                        "numinlets": 0,
                                                         "numoutlets": 1,
+                                                        "outlettype": [ "" ],
                                                         "id": "obj-2",
-                                                        "outlettype": [ "" ]
+                                                        "numinlets": 0
                                                     }
                                                 },
                                                 {
@@ -565,12 +565,12 @@
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 775.0, 732.0 ],
                                                         "fontname": "<Monospaced>",
-                                                        "numinlets": 3,
-                                                        "fontface": 0,
                                                         "numoutlets": 1,
-                                                        "id": "obj-3",
+                                                        "fontface": 0,
                                                         "outlettype": [ "" ],
+                                                        "id": "obj-3",
                                                         "fontsize": 12.0,
+                                                        "numinlets": 3,
                                                         "code": "\r\n// Korg OTA dual-amplifier buffered modified Sallen-Key topology filter.\r\n// The 'KLM' OTA chip was found in the later MS-20s & other Korg synthesisers - it is\r\n// different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the\r\n// earlier MS-20s & MS-10 and also in the 'monotron' series.\r\n// For 'Korg 35' chip 'emulation' @see: \"evi_korgms10.gendsp\". For a more aggressive MS20\r\n// style filter @see: \"evi_korgms20.gendsp\". Thanks to Will Pirkle.\r\n\r\n// This is a fabricated evieve version able to smoothly switch (with a nice 'plop')\r\n// between 12dB LP & 6dB HP filter types, realised in transposed TPT form. With 2x option.\r\n\r\nrequire(\"evi_tanh.genexpr\");\r\nrequire(\"evi_interp.genexpr\");\r\n\r\n// filter 1x\r\nSandKone(X, hz, k1, M1, M2, load)\r\n{\r\n    History\tstate0(0), state1(0), state2(0), state3(0);         // (T) S&K state initialise\r\n\r\n    // prewarp to alpha/beta\r\n    g0      = evi_tan(hz * PI / SAMPLERATE);\r\n    oneg\t=  1 + g0;\t\t\t\t\t\t\t\t\t\t\t// divisor\r\n    alphas\t=  g0 / oneg;\t\t\t\t\t\t\t\t\t\t// G (feedforward)\r\n    k1as\t= mix(k1, -1, M1) * alphas;\r\n    betam\t= mix((k1 - k1as), k1as, M1) / oneg;\t\t\t\t// feedback...\r\n    betas\t= mix(-1, 1, M1) / oneg;\t\t\t\t\t\t\t// ...\r\n    alpha0\t=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));// u scalar\r\n    k2\t\t= (1 / k1);\t\t\t\t\t\t\t\t\t\t\t// compensate\r\n\r\n    // 1st low/high-pass integrator\r\n    lp1vn\t= (X - state0) * alphas;\r\n    lp1\t\t= lp1vn + state0;\r\n    state0\t= lp1vn + lp1;\r\n    hp1\t\t=  X - lp1;\r\n\r\n    // s35 from feedbacks\r\n    hp2fb\t= state1 * betam * M1;\r\n    lp2fb\t= state2 * betam * M2;\r\n    bp2fb\t= state3 * betas;\r\n    s35\t\t= bp2fb + (lp2fb + hp2fb);\r\n\r\n    // create nonlinear\r\n    u\t\t= alpha0 * (mix(lp1, hp1, M1) + s35) * mix(1, k1, M1);\r\n    u\t\t= tanhLxA((u * 1.122018), load);\t                // 6 dB HP\r\n\r\n    // 2nd highpass integrator\r\n    hp2vn\t= (u - state1) * alphas;\r\n    bp1\t\t= hp2vn + state1;\r\n    state1\t= hp2vn + bp1;\r\n    hp2\t\t=  u - bp1;\r\n\r\n    // 2nd lowpass integrator\r\n    lp2vn\t= (u - state2) * alphas;\r\n    lp2\t\t= lp2vn + state2;\r\n    state2\t= lp2vn + lp2;\r\n    lp2\t\t= k1 * lp2;\t\t\t\t\t\t                    // 12 dB LP\r\n\r\n    Y\t\t= interp(M1, lp2, u, mode=\"cosine\") * k2;\t        // 12 dB LP || 6 dB HP\r\n\r\n    // feedback loop / 3rd integrator\r\n    bp0\t\t= mix(lp2, hp2, M1);\r\n    bp2vn\t= (bp0 - state3) * alphas;\r\n    bp2\t\t= bp2vn + state3;\r\n    state3\t= bp2vn + bp2;\r\n\r\n    return  dcblock(Y);\r\n}\r\n\r\n// filter 2x\r\nSandKtwo(X0, X1, hz, k1, M1, M2, load)\r\n{\r\n    History\tstate0(0), state1(0), state2(0), state3(0);\r\n\r\n    // prewarp to alpha/beta\r\n    g0      = evi_tan(hz * PI / SAMPLERATE) * 0.5;\r\n    oneg\t=  1 + g0;\r\n    alphas\t=  g0 / oneg;\r\n    k1as\t= mix(k1, -1, M1) * alphas;\r\n    betam\t= mix((k1 - k1as), k1as, M1) / oneg;\r\n    betas\t= mix(-1, 1, M1) / oneg;\r\n    alpha0\t=  1 / (1 - (k1 * alphas) + (k1 * alphas * alphas));\r\n    k2\t\t= (1 / k1);\r\n\r\n    // pass 1\r\n\r\n    // 1st low/high-pass integrator\r\n    lp1vn0\t= (X0 - state0) * alphas;\r\n    lp10\t= lp1vn0 + state0;\r\n    state0\t= lp1vn0 + lp10;\r\n    hp10\t=  X0 - lp10;\r\n\r\n    // s35 from feedbacks\r\n    hp2fb0\t= state1 * betam * M1;\r\n    lp2fb0\t= state2 * betam * M2;\r\n    bp2fb0\t= state3 * betas;\r\n    s350\t= bp2fb0 + (lp2fb0 + hp2fb0);\r\n\r\n    // create nonlinear\r\n    u0\t\t= alpha0 * (mix(lp10, hp10, M1) + s350) * mix(1, k1, M1);\r\n    u0\t\t= tanhLxA((u0 * 1.122018), load);\r\n\r\n    // 2nd highpass integrator\r\n    hp2vn0\t= (u0 - state1) * alphas;\r\n    bp10\t= hp2vn0 + state1;\r\n    state1\t= hp2vn0 + bp10;\r\n    hp20\t=  u0 - bp10;\r\n\r\n    // 2nd lowpass integrator\r\n    lp2vn0\t= (u0 - state2) * alphas;\r\n    lp20\t= lp2vn0 + state2;\r\n    state2\t= lp2vn0 + lp20;\r\n    lp20\t= k1 * lp20;\r\n\r\n    Y0\t\t= interp(M1, lp20, u0, mode=\"cosine\") * k2;\r\n\r\n    // feedback loop / 3rd integrator\r\n    bp00\t= mix(lp20, hp20, M1);\r\n    bp2vn0\t= (bp00 - state3) * alphas;\r\n    bp20\t= bp2vn0 + state3;\r\n    state3\t= bp2vn0 + bp20;\r\n\r\n    // pass 2\r\n\r\n    // 1st low/high-pass integrator\r\n    lp1vn1\t= (X1 - state0) * alphas;\r\n    lp11\t= lp1vn1 + state0;\r\n    state0\t= lp1vn1 + lp11;\r\n    hp11\t=  X1 - lp11;\r\n\r\n    // s35 from feedbacks\r\n    hp2fb1\t= state1 * betam * M1;\r\n    lp2fb1\t= state2 * betam * M2;\r\n    bp2fb1\t= state3 * betas;\r\n    s351\t= bp2fb1 + (lp2fb1 + hp2fb1);\r\n\r\n    // create nonlinear\r\n    u1\t\t= alpha0 * (mix(lp11, hp11, M1) + s351) * mix(1, k1, M1);\r\n    u1\t\t= tanhLxA((u1 * 1.122018), load);\r\n\r\n    // 2nd highpass integrator\r\n    hp2vn1\t= (u1 - state1) * alphas;\r\n    bp11\t= hp2vn1 + state1;\r\n    state1\t= hp2vn1 + bp11;\r\n    hp21\t=  u1 - bp11;\r\n\r\n    // 2nd lowpass integrator\r\n    lp2vn1\t= (u1 - state2) * alphas;\r\n    lp21\t= lp2vn1 + state2;\r\n    state2\t= lp2vn1 + lp21;\r\n    lp21\t= k1 * lp21;\r\n\r\n    Y1\t\t= interp(M1, lp21, u1, mode=\"cosine\") * k2;\r\n\r\n    // feedback loop / 3rd integrator\r\n    bp01\t= mix(lp21, hp21, M1);\r\n    bp2vn1\t= (bp01 - state3) * alphas;\r\n    bp21\t= bp2vn1 + state3;\r\n    state3\t= bp2vn1 + bp21;\r\n\r\n    return  dcblock(Y0), dcblock(Y1);\r\n}\r\n\r\n// fixed 2x quasi oversampling (cubic4)\nSandKtwo_2x4point(XIN, hz, k1, M1, M2, load)\n{\t// up 2\n\tHistory\tumTm1_0(0), umT0_0(0), umT1_0(0);\n\t// down 2\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// up 2x\n\tx0_0_a\t= XIN + 0;\n\tx1_0\t= cubic_hermite_interp(0.5,\tumTm1_0, umT0_0, umT1_0, x0_0_a);\n\tx2_0\t= umT1_0 + 0;\n\n\t// process 2x\n\ty1_0, y2_0\t= SandKtwo(x1_0, x2_0, hz, k1, M1, M2, load);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= cubic_hermite_interp(0.5,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1);\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tumTm1_0\t= umT0_0;\n\tumT0_0\t= umT1_0;\n\tumT1_0\t= x0_0_a;\n\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\treturn y0_0;\n}\r\n\r\nParam\tfilter(0, min=0, max=1);\t\t\t\t\t\t// switch LP/HP 0/1 flag\r\nParam\tfiltersmooth(92., min=0, max=296);\t\t\t\t// in ms\r\n// do not change load\r\nParam   load(1.333333333333, min=0.25, max=4);\r\nParam   oversample(1, min=0, max=1);                    // default 2x\r\nos      = int(oversample);\r\n\r\nX\t    = in1;\r\nhz\t    = clamp(in2, 1, samplerate*0.5);    // hz, i do not like this clamp, but rod asked\nk1      = in3 + in3;    // 0..1 .. 0..2\r\n\r\nM1\t\t= int(filter);                                  // switch not morph\r\nif (filtersmooth > 0) {\r\n\tM1\t= evi_sline(M1, mstosamps(filtersmooth));\r\n}\r\nM2\t\t= 1 - M1;\r\n\r\n// TPT Korg OTA filter\r\nif (os) {\r\n    // 2x slightly limits resonance for high frequencies, not as useful for highpass\r\n    out1    = SandKtwo_2x4point(X, hz, k1, M1, M2, load);\r\n}\r\nelse {\r\n    // 1x\r\n    out1    = SandKone(X, hz, k1, M1, M2, load);\r\n}\r\n\r\n"
                                                     }
                                                 },
@@ -579,9 +579,9 @@
                                                         "maxclass": "newobj",
                                                         "text": "out 1 (signal) Korg OTA S&K LP or HP Filter",
                                                         "patching_rect": [ 49.0, 807.0, 242.0, 22.0 ],
-                                                        "numinlets": 1,
                                                         "numoutlets": 0,
-                                                        "id": "obj-4"
+                                                        "id": "obj-4",
+                                                        "numinlets": 1
                                                     }
                                                 }
                                             ],
@@ -796,7 +796,7 @@
                     },
                     "patching_rect": [ 460.0, 632.0, 279.0, 22.0 ],
                     "rnboattrcache": {                    },
-                    "rnboversion": "1.5.0-dev.107",
+                    "rnboversion": "1.5.0-dev.118",
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_invisible": 1,
@@ -1090,6 +1090,7 @@
             {
                 "box": {
                     "bubble": 1,
+                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
                     "bubbleside": 3,
                     "fontsize": 14.0,
                     "id": "obj-7",
@@ -1097,6 +1098,11 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 206.0, 340.0, 344.0, 26.0 ],
+                    "saved_attribute_attributes": {
+                        "bubble_outlinecolor": {
+                            "expression": "themecolor.theme_syntax_objectcolor"
+                        }
+                    },
                     "text": "these two object instantiations are 100% identical",
                     "textjustification": 1
                 }
@@ -1104,12 +1110,18 @@
             {
                 "box": {
                     "bubble": 1,
+                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
                     "fontsize": 14.0,
                     "id": "obj-6",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 192.0, 340.0, 344.0, 26.0 ],
+                    "saved_attribute_attributes": {
+                        "bubble_outlinecolor": {
+                            "expression": "themecolor.theme_syntax_objectcolor"
+                        }
+                    },
                     "text": "these two object instantiations are 100% identical",
                     "textjustification": 1
                 }
