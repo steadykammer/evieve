@@ -2080,15 +2080,19 @@
                 },
                 {
                     "id": 2,
-                    "kind": "input",
-                    "name": "r",
-                    "digest": "Rise time in SAMPLES"
+                    "kind": "param",
+                    "name": "rise",
+                    "default": 20,
+                    "type": "integer",
+                    "digest": ""
                 },
                 {
                     "id": 3,
-                    "kind": "input",
-                    "name": "f",
-                    "digest": "Fall time in SAMPLES"
+                    "kind": "param",
+                    "name": "fall",
+                    "default": 3000,
+                    "type": "integer",
+                    "digest": ""
                 },
                 {
                     "id": 4,

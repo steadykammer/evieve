@@ -1,0 +1,36 @@
+
+// from 'evi_utilities.genexpr'
+
+triggerHoldGate(X, hold=10., trigger=1)
+{
+    History		prev_value(0);
+    History		hold_count(0);
+    trig 		= int(trigger + 1);
+
+    // parse input triggers
+    value		=	maximum(X, 0);				// X = any signal > 0
+    gate		=	value > 0;					// make 'gate' (1/0 gate on/off)
+    trg0		=	delta(gate) > 0;			// rising edge from 0 (gate-on 'click'-impulse)
+    klick		= -(value) + prev_value;		// make trigger impulses
+    trgU		=	klick < 0;					// from zero or any upwards change
+    trgD		=	klick > 0;					// to zero or any downwards change
+    trgUD		=	trgU + trgD;				// either from zero or to zero or any upwards or downwards changes
+    prev_value	=	value;						// update
+
+    seltrigger 	= selector(trig, trgUD, trgU, trgD);
+
+    hold_gate	= accum(hold_count, seltrigger) >= sah(maximum(int(mstosamps(hold) + 0.5), 1), seltrigger, 0.5, init=1);
+    gate		= hold_gate ? 0 : 1;
+    hold_count	= gate || seltrigger;
+
+    return      gate;
+}
+
+// 'hold' = ms (0 = 1 sample 'click'),
+// 'trigger' = trigger type: 0 = up/down, 1 = up only, 2 = down only
+
+Param   hold(10., min=0, max=60000);
+Param   trigger(1, min=0, max=2);
+
+out1    = triggerHoldGate(in1, hold=hold, trigger=trigger);
+

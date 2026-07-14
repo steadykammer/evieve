@@ -576,7 +576,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 1114.0, 130.0, 130.0, 130.0 ],
-                                    "range": [ 0.0, 30.0 ],
+                                    "range": [ 0.0, 10.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "vertical_divisions": 4
@@ -688,8 +688,8 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 279.0, 206.0, 202.0, 22.0 ],
-                                                    "text": "evi_vactrol @curve 0.6 @scalar 200"
+                                                    "patching_rect": [ 279.0, 206.0, 205.0, 22.0 ],
+                                                    "text": "evi_vactrol @shape 0.7 @scalar 100"
                                                 }
                                             },
                                             {
@@ -711,20 +711,6 @@
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 185.0, 469.0, 88.0, 22.0 ],
                                                     "text": "out 1 audio out"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "bubble": 1,
-                                                    "bubbleside": 3,
-                                                    "id": "obj-2",
-                                                    "linecount": 3,
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 22.0, 191.0, 173.0, 51.0 ],
-                                                    "text": "you might want to delay this by the attack time of the vactrol ?",
-                                                    "textjustification": 1
                                                 }
                                             },
                                             {
@@ -768,7 +754,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 494.0, 258.0, 177.0, 114.0 ],
+                                                    "patching_rect": [ 497.0, 258.0, 177.0, 114.0 ],
                                                     "text": "This is an extremely simplified example !\n@see: [evi.valve~] in MSP or [evi_valve] in gen~ for a complex example, or [evi.overdrive.env~] in MSP or [evi_overdrive_env] in gen~ for a simple example"
                                                 }
                                             },
@@ -780,20 +766,9 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 483.0, 192.0, 173.0, 51.0 ],
+                                                    "patching_rect": [ 486.0, 192.0, 173.0, 51.0 ],
                                                     "text": "use a vactorl envelope to control the amount of gain into a saturation stage",
                                                     "textjustification": 1
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "hidden": 1,
-                                                    "id": "obj-5",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 346.0, 96.0, 70.0, 20.0 ],
-                                                    "text": "important"
                                                 }
                                             }
                                         ],
@@ -2824,8 +2799,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 893.0, 294.0, 368.0, 66.0 ],
-                                    "text": "[evi.vactrol~] emulates an analog vactrol envelope, internally an opto isolator. There are similarities to [slide~]. Repeated triggers will increase the range and release stages. Takes audio input only.",
+                                    "patching_rect": [ 883.0, 294.0, 388.0, 66.0 ],
+                                    "text": "[evi.vactrol~] emulates an analog vactrol envelope, internally an opto isolator. There are similarities to [slide~]. Repeated 1-sample triggers will increase the range and release stages. Takes audio input only.",
                                     "textjustification": 1
                                 }
                             },
@@ -3452,8 +3427,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 1150.0, 537.0, 69.0, 22.0 ],
-                                    "text": "sig~ 3000."
+                                    "patching_rect": [ 1150.0, 537.0, 64.0, 22.0 ],
+                                    "text": "sig~ 2000."
                                 }
                             },
                             {

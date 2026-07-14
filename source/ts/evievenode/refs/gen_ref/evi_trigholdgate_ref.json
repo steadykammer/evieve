@@ -1,0 +1,77 @@
+{
+    "object": {
+        "name": "evi_trigholdgate",
+        "child": "evi.trigholdgate~",
+        "category": "evieve",
+        "digest": "Trigger audio rate gates held for X ms in length",
+        "description": "Audio rate trigger gates held for specified time, responding to trigger up, down or up/down, hold specified in ms including zero ms for single sample click."
+    },
+    "constructor": {
+        "inlets": "trigger"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "trigger",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "In (signal > 0)",
+            "digest": "Any audio rate trigger upwards or downwards can be detected depending on @trigger attribute."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "gate",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Triggered gate of length specified by @hold attribute."
+        }
+    ],
+    "attributes": [
+        {
+            "name": "hold",
+            "type": "float",
+            "digest": "@min 0, @max 60000",
+            "description": "Amount of time (set in ms) to 'hold' the (rectangular) triggered on/off gate for. zero = 1-sample click.",
+            "default": {
+                "type": "float",
+                "value": "10."
+            }
+        },
+        {
+            "name": "trigger",
+            "type": "int",
+            "digest": "@min 0, @max 2",
+            "description": "Respond to input trigger type: 0 = up/down, 1 = up only (default), 2 = down only.",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_vactrol",
+            "display": "evi_vactrol"
+        },
+        {
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        }
+    ]
+}

@@ -6308,8 +6308,8 @@
                                             },
                                             "right": {
                                                 "type": "Literal",
-                                                "value": 60000,
-                                                "raw": "60000",
+                                                "value": 3600000,
+                                                "raw": "3600000",
                                                 "gen_kind": "integer"
                                             },
                                             "gen_kind": "attribute"

@@ -4369,6 +4369,28 @@
                 "auto": true
             }
         },
+        "evi_trigholdgate.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.trigholdgate~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": true,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_vactrol_fix.gendsp": {
             "define": {
                 "object": false,

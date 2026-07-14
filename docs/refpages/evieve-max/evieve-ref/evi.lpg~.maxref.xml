@@ -31,7 +31,7 @@
 				Audio input to be filtered / gated.
 			</description>
 		</inlet>
-		<inlet id="2" type="signal">
+		<inlet id="2" type="signal/bang">
 			<digest>
 				Ping the LPG
 			</digest>
@@ -49,7 +49,7 @@
 		</inlet>
 		<inlet id="4" type="signal/float">
 			<digest>
-				Vactrol Rise in ms (default 0.208333)
+				Control Offset 0..1 (default 0.)
 			</digest>
 			<description>
 				Ping attack time in ms. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the LPG alltogether if @vactrolscalar or the three control inlets are set to low values.
@@ -57,7 +57,7 @@
 		</inlet>
 		<inlet id="5" type="signal/float">
 			<digest>
-				Vactrol Fall in ms (default 83.333333)
+				Control Scale 0..1 (default 0.5)
 			</digest>
 			<description>
 				Ping decay time in ms. This refers to the voltage release time. The audible decay of the LPG is longer.
@@ -65,7 +65,7 @@
 		</inlet>
 		<inlet id="6" type="signal/float">
 			<digest>
-				Control Offset 0..1 (default 0.)
+				Control Sweep 0..1 (default 0.7)
 			</digest>
 			<description>
 				Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.

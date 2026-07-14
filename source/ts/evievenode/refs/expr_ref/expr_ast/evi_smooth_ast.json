@@ -14652,27 +14652,17 @@
                                 "raw": "s0"
                             },
                             "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "BinaryExpression",
-                                        "operator": "+",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "G",
-                                            "raw": "G"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "Y",
-                                            "raw": "Y"
-                                        }
-                                    }
-                                ],
-                                "callee": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
                                     "type": "Identifier",
-                                    "name": "fixdenorm",
-                                    "raw": "fixdenorm"
+                                    "name": "G",
+                                    "raw": "G"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "Y",
+                                    "raw": "Y"
                                 }
                             }
                         }
@@ -14775,13 +14765,13 @@
                 },
                 {
                     "type": "Identifier",
-                    "name": "r",
-                    "raw": "r"
+                    "name": "rise",
+                    "raw": "rise"
                 },
                 {
                     "type": "Identifier",
-                    "name": "f",
-                    "raw": "f"
+                    "name": "fall",
+                    "raw": "fall"
                 },
                 {
                     "type": "Identifier",
@@ -14791,8 +14781,18 @@
             ],
             "defaults": [
                 null,
-                null,
-                null,
+                {
+                    "type": "Literal",
+                    "value": 20,
+                    "raw": "20",
+                    "gen_kind": "integer"
+                },
+                {
+                    "type": "Literal",
+                    "value": 3000,
+                    "raw": "3000",
+                    "gen_kind": "integer"
+                },
                 {
                     "type": "Literal",
                     "value": 1000,
@@ -14896,8 +14896,8 @@
                                     "operator": "*",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "f",
-                                        "raw": "f"
+                                        "name": "fall",
+                                        "raw": "fall"
                                     },
                                     "right": {
                                         "type": "BinaryExpression",
@@ -14978,8 +14978,8 @@
                                     "operator": "*",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "r",
-                                        "raw": "r"
+                                        "name": "rise",
+                                        "raw": "rise"
                                     },
                                     "right": {
                                         "type": "BinaryExpression",
@@ -15196,27 +15196,17 @@
                                 "raw": "s0"
                             },
                             "right": {
-                                "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "BinaryExpression",
-                                        "operator": "+",
-                                        "left": {
-                                            "type": "Identifier",
-                                            "name": "y",
-                                            "raw": "y"
-                                        },
-                                        "right": {
-                                            "type": "Identifier",
-                                            "name": "x",
-                                            "raw": "x"
-                                        }
-                                    }
-                                ],
-                                "callee": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
                                     "type": "Identifier",
-                                    "name": "fixdenorm",
-                                    "raw": "fixdenorm"
+                                    "name": "y",
+                                    "raw": "y"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "x",
+                                    "raw": "x"
                                 }
                             }
                         }

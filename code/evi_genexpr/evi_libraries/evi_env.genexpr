@@ -242,27 +242,25 @@ vactrolSad(x, a)							// trigger, coefficient
 }
 
 // "vactrolBuchla()" elsewhere in evieve, or evi_vactrol.gendsp
+// if 'impulse' is a single sample 'click', scaling must happen externally
 vactrol(impulse, rise, fall, base, reset)	// trigger, rise (samps), fall (samps), base (Hz), reset
 {
-	History s1(0), a_up(0), a_down(0);
+	History s1(0);
 	if (reset) {
 		s1 = 0;
-		a_up = 0;
-		a_down = 0;
 	}
-    // this is dubious because of sampling of 's1'
-    if (delta(rise) || delta(fall) || delta(base) || reset) {
-	    a_base	= base*PI/SAMPLERATE;		// base frequency (default 1016.898263)
-	    t_down	= 10 + fall*(1 - 0.9*s1);
-	    a_down	= a_base/t_down;            // fall coefficient
-	    t_up	= 1 + rise*(1 - 0.999*s1);
-	    a_up	= a_base/t_up;              // rise coefficient
-    }
+    // it would be good to cache all this, but difficult because of 's1'
+	a_base	= base*PI/SAMPLERATE;			// base frequency (default should be 1000)
+	t_down	= 10 + fall*(1 - 0.9*s1);
+	a_down	= a_base/t_down;            	// fall coefficient
+	t_up	= 1 + rise*(1 - 0.999*s1);		// rise default should be 20
+	a_up	= a_base/t_up;              	// rise coefficient
+
 	x		= clip(impulse, -1, 1) - s1;	// is it dangerous not to clip 'i' -1..1 ?? (yes)
 	z 		= (x < 0) ? vactrolSad(x, a_down) : vactrolSad(x, a_up);
 	y		= z + s1;
-	s1		= fixdenorm(y + z);
-	return	  y;						    // & scale externally
+	s1		= y + z;
+	return	  y;						    // & scale externally (especially if changing 'rise' from 20 or 'impulse' to click)
 }
 
 // quick, simple, cheap

@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1140,11 +1140,21 @@
                                                             "modernui": 1
                                                         },
                                                         "classnamespace": "dsp.gen",
-                                                        "rect": [ 34.0, 441.0, 1080.0, 299.0 ],
+                                                        "rect": [ 154.0, 567.0, 1080.0, 299.0 ],
                                                         "gridonopen": 2,
                                                         "subpatcher_template": "sub",
                                                         "integercoordinates": 1,
                                                         "boxes": [
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-4",
+                                                                    "maxclass": "comment",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 0,
+                                                                    "patching_rect": [ 444.0, 66.0, 80.0, 20.0 ],
+                                                                    "text": "20.833333"
+                                                                }
+                                                            },
                                                             {
                                                                 "box": {
                                                                     "id": "obj-46",
@@ -1185,8 +1195,8 @@
                                                                     "numinlets": 7,
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
-                                                                    "patching_rect": [ 48.0, 88.0, 466.0, 22.0 ],
-                                                                    "text": "evi_tpqm @useparams 1 @outlow 0.020833 @outmid 0.416667 @outhigh 20.833333"
+                                                                    "patching_rect": [ 48.0, 88.0, 459.0, 22.0 ],
+                                                                    "text": "evi_tpqm @useparams 1 @outlow 0.020833 @outmid 0.416667 @outhigh 2.083333"
                                                                 }
                                                             },
                                                             {
@@ -3607,7 +3617,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4427,6 +4437,16 @@
                                                         "boxes": [
                                                             {
                                                                 "box": {
+                                                                    "id": "obj-8",
+                                                                    "maxclass": "comment",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 0,
+                                                                    "patching_rect": [ 246.0, 67.0, 71.0, 20.0 ],
+                                                                    "text": "20.833333"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
                                                                     "id": "obj-4",
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
@@ -4559,7 +4579,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 50.0, 87.0, 267.0, 22.0 ],
-                                                                    "text": "evi.tpqm 0. 0.5 1. 0.020833 0.416667 20.833333"
+                                                                    "text": "evi.tpqm 0. 0.5 1. 0.020833 0.416667 2.083333"
                                                                 }
                                                             },
                                                             {

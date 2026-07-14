@@ -29,7 +29,7 @@
         </geninlet>
         <geninlet name='offset' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.78. 0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @min 0 @max 1 @default 0.1. 0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
         <geninlet name='scale' type='float' optional='1'>
@@ -39,7 +39,7 @@
         </geninlet>
         <geninlet name='sweep' type='float' optional='1'>
             <digest>
-                @min 0 @max 1 @default 0.408141. 0..1. Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @min 0 @max 1 @default 0.591859. 0..1. Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
     </geninletlist>
@@ -71,7 +71,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @mapcutoff attribute.
+                Low shelving filter damp, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @mapcutoff attribute.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />

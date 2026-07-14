@@ -882,7 +882,7 @@ likeAvactrol(V, up, down)
 	G  = (aV - s0) * g0;
 	Y  =  G + s0;
 
-	s0 = fixdenorm(G + Y);
+	s0 = G + Y;
 	return Y;
 }
 
@@ -900,26 +900,27 @@ likeAvactrol(V, up, down)
 // to the [Buchla] vactrol with correct setting of parameter values"
 
 // but here in evieve quite different, with setable rise, fall & base
+// defaults are for the buchla setup though
 
-vactrolSection(x, a)					// trigger, time
+vactrolSection(x, a)						// trigger, time
 {
 	return x * a / (1 + a);
 }
 
-vactrolBuchla(i, r, f, base=1000.)		// impulse, rise (samps), fall (samps), base (Hz)
+vactrolBuchla(i, rise=20, fall=3000, base=1000.)	// impulse, rise (samps) typically '20', fall (samps), base (Hz)
 {
 	History s0(0);
 
-	a_base	= base*PI/SAMPLERATE;		// Hz*PI/samplerate
-	t_down	= 10 + f*(1 - 0.9*s0);		// fall time
+	a_base	= base*PI/SAMPLERATE;			// Hz*PI/samplerate
+	t_down	= 10 + fall*(1 - 0.9*s0);		// fall time
 	a_down	= a_base/t_down;
-	t_up	= 1 + r*(1 - 0.999*s0);		// rise time
+	t_up	= 1 + rise*(1 - 0.999*s0);		// rise time
 	a_up	= a_base/t_up;
 
-	x		= clip(i, -1, 1) - s0;		// should clip ?
+	x		= clip(i, -1, 1) - s0;			// should clip ?
 	x 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
 	y		= x + s0;
-	s0		= fixdenorm(y + x);
-	return	  y;						// & scale externally
+	s0		= y + x;
+	return	  y;							// & scale externally
 }
 

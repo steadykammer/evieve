@@ -3,7 +3,7 @@
 
 require("evi_counting.genexpr");
 
-Param   duration(1000., min=0, max=60000);  // ramp duration in ms
+Param   duration(1000., min=0, max=3600000);// ramp duration in ms
 Param   zeroreset(0, min=0, max=1);         // zero reset phase off/on 0/1
 Param   retrigger(1, min=0, max=1);         // allow retriggering of ramp during ramp off/on 0/1
 Param   loop(0, min=0, max=1);              // loop ramp off/on 0/1 (@loop 1 = a phasor)

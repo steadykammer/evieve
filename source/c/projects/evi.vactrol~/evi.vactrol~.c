@@ -186,13 +186,13 @@ void evi_vactrol_perform64(t_evi_vactrol* x, t_object* dsp64, double** ins, long
         down    = base/dcoeff;
         up      = base/ucoeff;
 
-        x0		= CLAMP(impulse*0.5, -1.0, 1.0) - s;
+        x0		= CLAMP(impulse, -1.0, 1.0) - s;
         x1 		= (x0 < 0.0) ? evi_vactrol_sud(x0, down) : evi_vactrol_sud(x0, up);
         y0		= x1 + s;
         s		= y0 + x1;
         FIX_DENORM_DOUBLE(s);
 
-        *out1++ = (y0+y0) * scalar;
+        *out1++ = y0 * scalar;
     }
 
     x->v_s = s;
@@ -242,13 +242,13 @@ void evi_vactrol_perform_float64(t_evi_vactrol* x, t_object* dsp64, double** ins
         down    = base/dcoeff;
         up      = base/ucoeff;
 
-        x0		= CLAMP(impulse*0.5, -1.0, 1.0) - s;
+        x0		= CLAMP(impulse, -1.0, 1.0) - s;
         x1 		= (x0 < 0.0) ? evi_vactrol_sud(x0, down) : evi_vactrol_sud(x0, up);
         y0		= x1 + s;
         s		= y0 + x1;
         FIX_DENORM_DOUBLE(s);
 
-        *out1++ = (y0+y0) * scalar;
+        *out1++ = y0 * scalar;
     }
 
     x->v_s = s;
@@ -266,16 +266,16 @@ void evi_vactrol_float(t_evi_vactrol* x, double f)
 
     if (inlet == 1) { // middle inlet
         val = f;
-        if (val < 0.0) {
-            val = 0.0;
+        if (val < 1.0) {
+            val = 1.0;
         }
         x->v_rise = val;
         object_attr_touch((t_object*)x, gensym("rise"));
     }
     else if (inlet == 2) { // far right inlet
         val = f;
-        if (val < 0.0) {
-            val = 0.0;
+        if (val < 1.0) {
+            val = 1.0;
         }
         x->v_fall = val;
         object_attr_touch((t_object*)x, gensym("fall"));
@@ -300,8 +300,8 @@ t_max_err evi_vactrol_attr_setrise(t_evi_vactrol* x, void* attr, long argc, t_at
 {
     double rise = atom_getfloat(argv);
     // should we also have a maximum ?
-    if (rise < 0.0) {
-        rise = 0.0;
+    if (rise < 1.0) {
+        rise = 1.0;
     }
     x->v_rise = x->v_mode ? FIXRISE : rise;
 
@@ -312,8 +312,8 @@ t_max_err evi_vactrol_attr_setfall(t_evi_vactrol* x, void* attr, long argc, t_at
 {
     double fall = atom_getfloat(argv);
     // should we also have a maximum ?
-    if (fall < 0.0) {
-        fall = 0.0;
+    if (fall < 1.0) {
+        fall = 1.0;
     }
     x->v_fall = x->v_mode ? FIXFALL : fall;
 
@@ -390,8 +390,8 @@ void evi_vactrol_assist(t_evi_vactrol* x, void* b, long m, long a, char* s)
 void* evi_vactrol_new(t_symbol* s, long argc, t_atom* argv)
 {
     t_evi_vactrol* x = object_alloc(evi_vactrol_class);
-    long offset, fix = 0;
-    double rise = 20.0, fall = 3000.0, scalar = 1.0, shape = 0.5;
+    long offset;//, fix = 0;
+    double rise = FIXRISE, fall = FIXFALL, scalar = 1.0, shape = 0.5;
 
     if (!x)
         return x;
@@ -400,13 +400,13 @@ void* evi_vactrol_new(t_symbol* s, long argc, t_atom* argv)
 
     if (offset) {
         rise = atom_getfloat(argv);
-        if (rise < 0.0) {
-            rise = 0.0;
+        if (rise < 1.0) {
+            rise = 1.0;
         }
         if (offset > 1) {
             fall = atom_getfloat(argv + 1);
-            if (fall < 0.0) {
-                fall = 0.0;
+            if (fall < 1.0) {
+                fall = 1.0;
             }
             if (offset > 2) {
                 scalar = atom_getfloat(argv + 2);
@@ -426,22 +426,22 @@ void* evi_vactrol_new(t_symbol* s, long argc, t_atom* argv)
                     shape = 1.0;
                 }
             }
-            if (offset > 4) {
-                fix = atom_getlong(argv + 4);
-                if (fix < 0) {
-                    fix = 0;
-                }
-                else if (fix > 1) {
-                    fix = 1;
-                }
-            }
+            // if (offset > 4) {
+            //     fix = atom_getlong(argv + 4);
+            //     if (fix < 0) {
+            //         fix = 0;
+            //     }
+            //     else if (fix > 1) {
+            //         fix = 1;
+            //     }
+            // }
         }
     }
     x->v_rise = rise;
     x->v_fall = fall;
     x->v_scalar = scalar;
     x->v_shape = shape; // default 0.5 = 1016.898263 Hz
-    x->v_mode = fix;
+    // x->v_mode = fix;
 
     if (sys_getsr() <= 0) {
         x->v_sr = 48000.0;

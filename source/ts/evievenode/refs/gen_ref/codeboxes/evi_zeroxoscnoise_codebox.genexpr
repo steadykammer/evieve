@@ -45,8 +45,8 @@ zeroxEnvs(AudioForAnalysis, response, window, thresh, slope, release)
     else if (resp == 2) {   // log, default
         env = slide(xgate, envattack, envdecay);
     }
-    else if (resp == 3) {   // vactrol fast
-        env = vactrolBuchla(xgate, envattack, envdecay); // should expose @base ?
+    else if (resp == 3) {   // vactrol fast, stupid using audio rate data to drive params, switch to 'evi_env.genexpr' ?
+        env = vactrolBuchla(xgate, rise=envattack, fall=envdecay); // should expose @base ?
     }
     else if (resp == 4) {   // vactrol slow
         // don't ask...

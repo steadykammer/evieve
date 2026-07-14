@@ -78,7 +78,7 @@
             "description": "Set the duration of the ramp segment in ms. If @zeroreset is on, this is only updated on ramp zero-reset boundaries.",
             "default": {
                 "min": "0",
-                "max": "60000",
+                "max": "3600000",
                 "value": "1000."
             }
         },

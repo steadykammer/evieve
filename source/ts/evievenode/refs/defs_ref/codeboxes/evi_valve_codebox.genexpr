@@ -19,11 +19,11 @@ Param   highpass(40., min=10, max=400); // final highpass in Hz
 
 Param   envshape(0.5, min=0, max=1); // vactrol shape (filter cutoff), flat..sharp
 Param   envscale(0.25, min=0, max=1); // compress gain env (& the more compressed, the higher the gain)
-// !! in SAMPLES; any less than 100 you will have problems with fast transient material
+// !! in SAMPLES; any less than 100 you will have problems with evi.valve~
 Param   envinterval(200, min=100, max=2000); // average samples
-// !! in SAMPLES; for a useful macroisation see the helpfile
-Param   envattack(20, min=1, max=1000); // TEMP
-Param   envrelease(2000, min=100, max=samplerate); // TEMP
+// !! in (fake) SAMPLES; for a useful macroisation see the helpfile
+Param   envattack(20, min=1, max=1000);
+Param   envrelease(2000, min=100, max=samplerate);
 
 // if one of these is on we have single gain env (normal), if both are on we have double
 // enveloping (crazy), if both are off we have no dynamic gain and we are quasi 'static' distortion

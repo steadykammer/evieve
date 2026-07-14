@@ -41,15 +41,11 @@
     </objarg>
     <objarg id="2" name="scalar" type="float" optional="1">
       <digest>Initial Scalar Multiplier</digest>
-      <description>Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.</description>
+      <description>Envelope Output Multiplier. This can be useful depending on trigger input method, otherwise should be '1'.</description>
     </objarg>
     <objarg id="3" name="shape" type="float" optional="1">
       <digest>Initial Shape, normalised 0..1</digest>
       <description>Shape changes the curvature of the filter, which also affects the peak and trough of the envelope. Lower values flatten the envelope, higher values sharpen the envelope.</description>
-    </objarg>
-    <objarg id="4" name="fix" type="int" optional="1">
-      <digest>Fix mode of the object, 0/1</digest>
-      <description>Fix changes between two objects and is instantiation only. If fix = 0 (the default) the object has three inlets and can be controlled by these and also @rise, @fall, @shape and @scalar. If fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (@scalar can still be used). Fix == 1 is cheaper to compute but less versatile.</description>
     </objarg>
   </objarglist>
   <methodlist>
@@ -128,6 +124,7 @@
     <example caption="" img=""></example>
   </examplelist>
   <seealsolist>
+    <seealso name="evi.trigholdgate~"></seealso>
     <seealso name="evi.cfsmooth~"></seealso>
     <seealso name="evi.expsmooth~"></seealso>
     <seealso name="evi.lagsmooth~"></seealso>

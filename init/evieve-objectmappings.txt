@@ -125,6 +125,7 @@ max objectfile mc.evi.tone.macro~ mc.wrapper~ evi.tone.macro~ mc;
 max objectfile mc.evi.tremolo~ mc.wrapper~ evi.tremolo~ mc;
 max objectfile mc.evi.tri.select~ mc.wrapper~ evi.tri.select~ mc;
 max objectfile mc.evi.tri~ mc.wrapper~ evi.tri~ mc;
+max objectfile mc.evi.trigholdgate~ mc.wrapper~ evi.trigholdgate~ mc;
 max objectfile mc.evi.valve~ mc.wrapper~ evi.valve~ mc;
 max objectfile mc.evi.vcf~ mc.wrapper~ evi.vcf~ mc;
 max objectfile mc.evi.velvetnoise~ mc.wrapper~ evi.velvetnoise~ mc;

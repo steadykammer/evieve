@@ -125,6 +125,7 @@ max oblist "evieve Gen Abstractions" evi.tone.macro~;
 max oblist "evieve Gen Abstractions" evi.tremolo~;
 max oblist "evieve Gen Abstractions" evi.tri.select~;
 max oblist "evieve Gen Abstractions" evi.tri~;
+max oblist "evieve Gen Abstractions" evi.trigholdgate~;
 max oblist "evieve Gen Abstractions" evi.vactrol.shape~;
 max oblist "evieve Gen Abstractions" evi.valve~;
 max oblist "evieve Gen Abstractions" evi.vcf~;

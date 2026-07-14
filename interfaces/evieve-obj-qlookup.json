@@ -930,6 +930,13 @@
         "keywords": [],
         "seealso": [ "evi.sine.select~", "evi.saw.select~", "evi.rect.select~", "evi.4wave~", "evi.blitwaves~" ]
     },
+    "evi.trigholdgate~": {
+        "digest": "Trigger audio rate gates held for X ms in length",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Noise", "evieve Utility" ],
+        "keywords": [],
+        "seealso": [ "evi.vactrol~", "evi.audiodust~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.randy~" ]
+    },
     "evi.tri~": {
         "digest": "Antialiased triangle wave oscillator",
         "module": "evieve-ref",
@@ -942,7 +949,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Externals", "evieve Smooth", "evieve Dynamics" ],
         "keywords": [],
-        "seealso": [ "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
+        "seealso": [ "evi.trigholdgate~", "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
     },
     "evi.valve~": {
         "digest": "Dynamic valve (tube) distortion unit",

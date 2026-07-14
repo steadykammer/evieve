@@ -27,7 +27,7 @@
         },
         {
             "id": 2,
-            "type": "signal",
+            "type": "signal/bang",
             "digest": "Ping the LPG",
             "description": "Audio rate ping to attack the filter gate."
         },
@@ -40,19 +40,19 @@
         {
             "id": 4,
             "type": "signal/float",
-            "digest": "Vactrol Rise in ms (default 0.208333)",
+            "digest": "Control Offset 0..1 (default 0.)",
             "description": "Ping attack time in ms. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the LPG alltogether if @vactrolscalar or the three control inlets are set to low values."
         },
         {
             "id": 5,
             "type": "signal/float",
-            "digest": "Vactrol Fall in ms (default 83.333333)",
+            "digest": "Control Scale 0..1 (default 0.5)",
             "description": "Ping decay time in ms. This refers to the voltage release time. The audible decay of the LPG is longer."
         },
         {
             "id": 6,
             "type": "signal/float",
-            "digest": "Control Offset 0..1 (default 0.)",
+            "digest": "Control Sweep 0..1 (default 0.7)",
             "description": "Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
@@ -134,6 +134,17 @@
             "default": {
                 "get": 0,
                 "value": "1"
+            }
+        },
+        {
+            "name": "leakage",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0"
             }
         },
         {
@@ -225,6 +236,17 @@
             }
         },
         {
+            "name": "threshold",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "-60."
+            }
+        },
+        {
             "name": "vactrolcontroldamp",
             "get": 0,
             "type": "float",
@@ -244,6 +266,50 @@
             "default": {
                 "get": 0,
                 "value": "9.07"
+            }
+        },
+        {
+            "name": "vactroldecay",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0.5"
+            }
+        },
+        {
+            "name": "vactrolgate",
+            "get": 0,
+            "type": "int",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "5"
+            }
+        },
+        {
+            "name": "vactrolmapdamp",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "0."
+            }
+        },
+        {
+            "name": "vactrolmaphz",
+            "get": 0,
+            "type": "float",
+            "digest": "",
+            "description": "",
+            "default": {
+                "get": 0,
+                "value": "9."
             }
         },
         {

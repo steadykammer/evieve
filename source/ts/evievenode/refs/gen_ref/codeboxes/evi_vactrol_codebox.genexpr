@@ -6,27 +6,26 @@
 // As it turns out, the shape (not the behaviour) can be similar to [slide~]
 // in MSP/RNBO or [slide] in gen~, achievable via the @shape parameter here.
 
-vactrolSection(x, a)                        // trigger, coefficient
+vactrolSection(x, a)                        // trigger history, coefficient
 {
 	return x * a / (1 + a);
 }
-
+// if 'i' is a single sample 'click', scaling must happen externally
 vactrolBuchla(i, r, f, b)       // impulse, rise (samps), fall (samps), base (Hz)
 {
-	History s1(0), a_up(0), a_down(0);
-    // this caching is dubious because of sampling of 's1'
-    if (delta(r) || delta(f) || delta(b)) {
-	    a_base	= b*PI/SAMPLERATE;          // b = frequency (default 1016.898263)
-	    t_down	= 10 + f*(1 - 0.9*s1);
-	    a_down	= a_base/t_down;            // fall coefficient
-	    t_up	= 1 + r*(1 - 0.999*s1);
-	    a_up	= a_base/t_up;              // rise coefficient
-    }
+	History s1(0);
+    // it would be good to cache all this, but difficult because of 's1'
+	a_base	= b*PI/SAMPLERATE;              // b = frequency (default 1016.898263)
+	t_down	= 10 + f*(1 - 0.9*s1);
+	a_down	= a_base/t_down;                // fall coefficient
+	t_up	= 1 + r*(1 - 0.999*s1);
+	a_up	= a_base/t_up;                  // rise coefficient
+
     // is it dangerous not to clip 'i' -1..1 ?? (yes)
 	x		= clamp(i, -1, 1) - s1;
 	z 		= (x < 0) ? vactrolSection(x, a_down) : vactrolSection(x, a_up);
 	y		= z + s1;
-	s1		= fixdenorm(y + z);
+	s1		= y + z;
 	return	  y;						    // & scale externally
 }
 
@@ -35,9 +34,9 @@ Param	scalar(1., min=0.1, max=10000);
 
 base    = evi_mtofapprox(shape * 81 + 43);  // 100..10000 Hz
 
-rise	= in2;							    // in samples...
-fall	= in3;							    // ...
+rise	= in2;							    // difficult to change
+fall	= in3;							    // fully changeable
 
 //mult	= slide(scalar, rise, rise);
-vB      = vactrolBuchla(in1*0.5, rise, fall, base);
-out1 	= (vB+vB) * scalar;//mult;
+vB      = vactrolBuchla(in1, rise, fall, base);
+out1 	= vB * scalar;//mult;

@@ -2243,7 +2243,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4150,7 +4150,7 @@
                                                     "numoutlets": 6,
                                                     "outlettype": [ "", "", "", "", "", "" ],
                                                     "patching_rect": [ 147.0, 251.0, 178.0, 22.0 ],
-                                                    "text": "evi_zeroxoscnoise @oscgain -3"
+                                                    "text": "evi_zeroxoscnoise @oscgain -6"
                                                 }
                                             },
                                             {
@@ -4494,7 +4494,6 @@
             "obj-11::obj-17::obj-21": [ "Oscillator[1]", "Oscillator", 0 ],
             "obj-11::obj-18": [ "live.dial[1]", "Noise Mix", 0 ],
             "obj-11::obj-25": [ "ResynthesisEnvelope[1]", "VocalCrossover", 0 ],
-            "obj-13::obj-6::obj-23": [ "number", "number", 0 ],
             "obj-2::obj-14": [ "number[3]", "number[3]", 0 ],
             "obj-2::obj-15": [ "number[4]", "number[3]", 0 ],
             "obj-2::obj-8": [ "number[2]", "number[2]", 0 ],

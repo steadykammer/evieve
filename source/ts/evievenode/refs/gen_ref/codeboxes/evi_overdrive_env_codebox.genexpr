@@ -31,7 +31,7 @@ downms  = 41.666667;
 down    = mstosamps(downms);
 up      = int(down * 0.01 + 0.5); // samples
 down    = int(down + 0.5); // samples
-base    = 3275; // Hz
+base    = 3275; // Hz, should expose ?
 
 // audio rate...
 

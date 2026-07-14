@@ -7,7 +7,7 @@
         "description": "Analog modelled vactrol envelope and control circuit for the voltage control of the <o>evi_lpg_buchla</o>.gendsp frequency inlet. Also embedded in the MSP abstraction <o>evi.lpg~</o>."
     },
     "constructor": {
-        "inlets": "ping, vactrol, vactrol, offset, scale, sweep"
+        "inlets": "ping, offset, scale, sweep"
     },
     "includes": [],
     "inlets": [
@@ -20,22 +20,6 @@
         },
         {
             "id": 2,
-            "name": "vactrol",
-            "type": "float",
-            "optional": 1,
-            "digestauto": "Rise @default 0.208333",
-            "digest": "Ping attack time in ms. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values."
-        },
-        {
-            "id": 3,
-            "name": "vactrol",
-            "type": "float",
-            "optional": 1,
-            "digestauto": "Fall @default 83.333333",
-            "digest": "Ping decay time in ms. This refers to the voltage release time. The audible decay of the control circuit is longer."
-        },
-        {
-            "id": 4,
             "name": "offset",
             "type": "float",
             "optional": 1,
@@ -43,19 +27,19 @@
             "digest": "0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
-            "id": 5,
+            "id": 3,
             "name": "scale",
             "type": "float",
             "optional": 1,
-            "digestauto": "@default 0.7",
+            "digestauto": "@default 0.5",
             "digest": "0..1 Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "sweep",
             "type": "float",
             "optional": 1,
-            "digestauto": "@default 0.9",
+            "digestauto": "@default 0.7",
             "digest": "0..1 Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate."
         }
     ],
@@ -82,7 +66,7 @@
             "name": "offsetsmooth",
             "type": "float",
             "digest": "Time in ms",
-            "description": "If > 0, smooths the 'offset' control (inlet 4) by this amount in ms.",
+            "description": "If > 0, smooths the 'offset' control (inlet 2) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -95,9 +79,7 @@
             "description": "A special option that simplifies the LPG interaction. If set to on (1) the vactrol envelope controls all 'control inlets' (inlets 4, 5 and 6). This forces a classic LPG sound in a simple way. Typically, when using this feature, one would switch inlets 4, 5 and 6 to zero and control the circuit only via the rise/fall inlets and vactrol attributes. However, the vactrol 'override' control is summed with the control inlets, so interesting effects can be achieved by utilising 'scale' (inlet 5) and 'sweep' (inlet 6) simultaneously (but 'offset' - inlet 4 - should be zero with the 'override' feature on). If @override is off (the default), the LPG behaves as normal, with the control inlets only tuned by the values at their inputs.",
             "default": {
                 "type": "float",
-                "value": "0",
-                "min": 0,
-                "max": 1
+                "value": "0"
             }
         },
         {
@@ -114,7 +96,7 @@
             "name": "scalesmooth",
             "type": "float",
             "digest": "Time in ms",
-            "description": "If > 0, smooths the 'scale' control (inlet 5) by this amount in ms.",
+            "description": "If > 0, smooths the 'scale' control (inlet 3) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
@@ -124,40 +106,70 @@
             "name": "sweepsmooth",
             "type": "float",
             "digest": "Time in ms",
-            "description": "If > 0, smooths the 'sweep' control (inlet 6) by this amount in ms.",
+            "description": "If > 0, smooths the 'sweep' control (inlet 4) by this amount in ms.",
             "default": {
                 "type": "float",
                 "value": "0."
             }
         },
         {
-            "name": "vactrolcontroldamp",
+            "name": "vactrolfall",
+            "type": "int",
+            "digest": "In Samples, 100..10000",
+            "description": "Ping decay time in samples. This refers to the voltage release time. The audible decay of the control circuit is longer.",
+            "default": {
+                "type": "float",
+                "value": "3000"
+            }
+        },
+        {
+            "name": "vactrolgate",
+            "type": "int",
+            "digest": "Time in ms, sort of",
+            "description": "Amount of time (set in ms) to 'hold' the (rectangular) triggered on/off gate addressing the vactrol envelope. Zero = 1-sample click. 0, 1, 2, 3 are special values that allow for repeat triggering increasing amplitude. Values 4..20 result in a very predictable vactrol envelope. Higher values cause a held clamping of the envelope attack.",
+            "default": {
+                "type": "float",
+                "value": "5"
+            }
+        },
+        {
+            "name": "vactrolmapdamp",
             "type": "float",
             "digest": "Normalised 0..1",
-            "description": "Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 = no damping (default, bypassed), 1 = fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value 'softens' the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @vactrolcontrolhz attribute.",
+            "description": "Low shelving filter damp, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 = no damping (default, bypassed), 1 = fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value 'softens' the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @vactrolmaphz attribute.",
             "default": {
                 "type": "float",
                 "value": "0."
             }
         },
         {
-            "name": "vactrolcontrolhz",
+            "name": "vactrolmaphz",
             "type": "float",
             "digest": "In Hz 4.1..143",
-            "description": "Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolcontroldamp attribute and is by default off.",
+            "description": "Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolmapdamp attribute and is by default off.",
             "default": {
                 "type": "float",
-                "value": "9.07"
+                "value": "9."
+            }
+        },
+        {
+            "name": "vactrolrise",
+            "type": "int",
+            "digest": "In Samples, 1..100",
+            "description": "Ping attack time in samples. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values.",
+            "default": {
+                "type": "float",
+                "value": "20"
             }
         },
         {
             "name": "vactrolscalar",
             "type": "float",
             "digest": "Float 1..10000",
-            "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the Rise/Fall controls (inlets 2 and 3). Scaling behaviour is also achieved with the 'Offset', 'Scale' and 'Sweep' controls (inlets 4, 5 and 6). However, it is possible to keep those control values low and this attribute high to achieve a different sort of LPG effect. This attribute also requires high settings when using the @override attribute feature.",
+            "description": "Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the Rise/Fall attributes. Scaling behaviour is also achieved with the 'Offset', 'Scale' and 'Sweep' controls (inlets 2, 3 and 4). However, it is possible to keep those control values low and this attribute high to achieve a different sort of LPG effect. This attribute also requires retuning when using the @override attribute feature.",
             "default": {
                 "type": "float",
-                "value": "100."
+                "value": "4."
             }
         },
         {
@@ -167,7 +179,7 @@
             "description": "Transform the vactrol envelope shape between flat ('0') and sharp ('1'). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG.",
             "default": {
                 "type": "float",
-                "value": "0.75"
+                "value": "0.5"
             }
         }
     ],

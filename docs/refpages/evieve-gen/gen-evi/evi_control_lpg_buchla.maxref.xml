@@ -14,7 +14,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ ping, vactrol, vactrol, offset, scale, sweep } }
+                { arguments={}, inlets={ ping, offset, scale, sweep } }
             </digest>
         </constructor>
     </constructorlist>
@@ -24,16 +24,6 @@
                 Ping the control circuit. Once connected to an LPG (evi_lpg_buchla.gendsp) audio rate ping to attack the filter gate.
             </digest>
         </geninlet>
-        <geninlet name='vactrol' type='float' optional='1'>
-            <digest>
-                Rise @default 0.208333. Ping attack time in ms. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values.
-            </digest>
-        </geninlet>
-        <geninlet name='vactrol' type='float' optional='1'>
-            <digest>
-                Fall @default 83.333333. Ping decay time in ms. This refers to the voltage release time. The audible decay of the control circuit is longer.
-            </digest>
-        </geninlet>
         <geninlet name='offset' type='float' optional='1'>
             <digest>
                 @default 0.. 0..1 Offset (add to) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
@@ -41,12 +31,12 @@
         </geninlet>
         <geninlet name='scale' type='float' optional='1'>
             <digest>
-                @default 0.7. 0..1 Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @default 0.5. 0..1 Scale (multiply) the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
         <geninlet name='sweep' type='float' optional='1'>
             <digest>
-                @default 0.9. 0..1 Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
+                @default 0.7. 0..1 Amount of sweep range of the voltage input to the LPG. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
             </digest>
         </geninlet>
     </geninletlist>
@@ -56,7 +46,7 @@
                 Time in ms
             </digest>
             <description>
-                If &gt; 0, smooths the &#x27;offset&#x27; control (inlet 4) by this amount in ms.
+                If &gt; 0, smooths the &#x27;offset&#x27; control (inlet 2) by this amount in ms.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -89,7 +79,7 @@
                 Time in ms
             </digest>
             <description>
-                If &gt; 0, smooths the &#x27;scale&#x27; control (inlet 5) by this amount in ms.
+                If &gt; 0, smooths the &#x27;scale&#x27; control (inlet 3) by this amount in ms.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -100,32 +90,65 @@
                 Time in ms
             </digest>
             <description>
-                If &gt; 0, smooths the &#x27;sweep&#x27; control (inlet 6) by this amount in ms.
+                If &gt; 0, smooths the &#x27;sweep&#x27; control (inlet 4) by this amount in ms.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='vactrolcontroldamp' type='float' get='0' set='1'>
+        <attribute name='vactrolfall' type='int' get='0' set='1'>
+            <digest>
+                In Samples, 100..10000
+            </digest>
+            <description>
+                Ping decay time in samples. This refers to the voltage release time. The audible decay of the control circuit is longer.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='3000' />
+            </attributelist>
+        </attribute>
+        <attribute name='vactrolgate' type='int' get='0' set='1'>
+            <digest>
+                Time in ms, sort of
+            </digest>
+            <description>
+                Amount of time (set in ms) to &#x27;hold&#x27; the (rectangular) triggered on/off gate addressing the vactrol envelope. Zero &#x3D; 1-sample click. 0, 1, 2, 3 are special values that allow for repeat triggering increasing amplitude. Values 4..20 result in a very predictable vactrol envelope. Higher values cause a held clamping of the envelope attack.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='5' />
+            </attributelist>
+        </attribute>
+        <attribute name='vactrolmapdamp' type='float' get='0' set='1'>
             <digest>
                 Normalised 0..1
             </digest>
             <description>
-                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @vactrolcontrolhz attribute.
+                Low shelving filter damp, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @vactrolmaphz attribute.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
             </attributelist>
         </attribute>
-        <attribute name='vactrolcontrolhz' type='float' get='0' set='1'>
+        <attribute name='vactrolmaphz' type='float' get='0' set='1'>
             <digest>
                 In Hz 4.1..143
             </digest>
             <description>
-                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolcontroldamp attribute and is by default off.
+                Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolmapdamp attribute and is by default off.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='9.07' />
+                <attribute name='default' type='float' value='9.' />
+            </attributelist>
+        </attribute>
+        <attribute name='vactrolrise' type='int' get='0' set='1'>
+            <digest>
+                In Samples, 1..100
+            </digest>
+            <description>
+                Ping attack time in samples. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values.
+            </description>
+            <attributelist>
+                <attribute name='default' type='float' value='20' />
             </attributelist>
         </attribute>
         <attribute name='vactrolscalar' type='float' get='0' set='1'>
@@ -133,10 +156,10 @@
                 Float 1..10000
             </digest>
             <description>
-                Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the Rise/Fall controls (inlets 2 and 3). Scaling behaviour is also achieved with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; controls (inlets 4, 5 and 6). However, it is possible to keep those control values low and this attribute high to achieve a different sort of LPG effect. This attribute also requires high settings when using the @override attribute feature.
+                Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the Rise/Fall attributes. Scaling behaviour is also achieved with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; controls (inlets 2, 3 and 4). However, it is possible to keep those control values low and this attribute high to achieve a different sort of LPG effect. This attribute also requires retuning when using the @override attribute feature.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='100.' />
+                <attribute name='default' type='float' value='4.' />
             </attributelist>
         </attribute>
         <attribute name='vactrolshape' type='float' get='0' set='1'>
@@ -147,7 +170,7 @@
                 Transform the vactrol envelope shape between flat (&#x27;0&#x27;) and sharp (&#x27;1&#x27;). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG.
             </description>
             <attributelist>
-                <attribute name='default' type='float' value='0.75' />
+                <attribute name='default' type='float' value='0.5' />
             </attributelist>
         </attribute>
     </attributelist>

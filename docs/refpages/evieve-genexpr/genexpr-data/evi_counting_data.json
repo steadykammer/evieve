@@ -515,7 +515,7 @@
                     "name": "duration",
                     "default": 1000,
                     "min": 0,
-                    "max": 60000,
+                    "max": 3600000,
                     "type": "float",
                     "digest": "Ramp duration in ms"
                 },

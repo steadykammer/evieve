@@ -70,7 +70,7 @@
         {
             "name": "duration",
             "type": "float",
-            "digest": "@min 0, @max 60000",
+            "digest": "@min 0, @max 3600000",
             "description": "Set the duration of the ramp segment in ms. If @zeroreset is on, this is only updated on ramp zero-reset boundaries.",
             "default": {
                 "type": "float",

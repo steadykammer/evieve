@@ -344,6 +344,9 @@ max define mc.evi.tri.select~ mc.gen~ @gen evi_tri_select.gendsp @chans 2;
 max define evi.tri~ gen~ @gen evi_tri.gendsp;
 max define mc.evi.tri~ mc.gen~ @gen evi_tri.gendsp @chans 2;
 
+max define evi.trigholdgate~ gen~ @gen evi_trigholdgate.gendsp;
+max define mc.evi.trigholdgate~ mc.gen~ @gen evi_trigholdgate.gendsp @chans 2;
+
 max define evi.vactrol.shape~ gen~ @gen evi_vactrol_shape.gendsp;
 max define evi.valve~ gen~ @gen evi_valve.gendsp;
 max define mc.evi.valve~ mc.gen~ @gen evi_valve.gendsp @chans 2;

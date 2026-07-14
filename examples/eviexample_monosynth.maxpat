@@ -26,7 +26,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 719.0, 65.0, 150.0, 39.0 ],
+                    "patching_rect": [ 882.0, 406.0, 89.0, 39.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 26.0, 601.0, 79.0, 39.0 ],
                     "text": "Mod Wheel",
@@ -371,6 +371,10 @@
                         {
                             "number": 14,
                             "data": [ 5, "obj-9", "live.dial", "float", 1.0, 5, "obj-85", "live.dial", "float", 1.0, 5, "obj-99", "live.dial", "float", -1.2999999523162842, 5, "obj-39", "live.dial", "float", 2.0, 5, "obj-54", "live.dial", "float", 2.200000047683716, 5, "obj-66", "live.dial", "float", 3.110236167907715, 5, "obj-71", "live.dial", "float", 8.0, 5, "obj-72", "live.dial", "float", 190.17050170898438, 5, "obj-75", "live.dial", "float", 6536.376953125, 5, "obj-84", "live.tab", "float", 1.0, 5, "obj-104", "live.dial", "float", 9.480315208435059, 5, "obj-103", "live.dial", "float", 10.0, 5, "obj-102", "live.dial", "float", 1241.6407470703125, 5, "obj-101", "live.tab", "float", 0.0, 5, "obj-108", "live.tab", "float", 0.0, 5, "obj-110", "live.dial", "float", 5.559054851531982, 5, "obj-114", "live.dial", "float", 72.61417388916016, 5, "obj-118", "live.tab", "float", 1.0, 5, "obj-119", "live.tab", "float", 3.0, 5, "obj-120", "live.tab", "float", 2.0, 5, "obj-134", "live.dial", "float", 2.0, 5, "obj-12", "live.dial", "float", 0.0, 5, "obj-6", "live.dial", "float", 7.165354251861572, 5, "obj-17", "live.toggle", "float", 0.0, 5, "obj-35", "live.dial", "float", 7.527559280395508, 5, "obj-33", "live.toggle", "float", 1.0, 5, "obj-46", "live.dial", "float", 10.0, 5, "obj-44", "live.toggle", "float", 1.0, 5, "obj-57", "live.dial", "float", 3.992125988006592, 5, "obj-55", "live.toggle", "float", 1.0, 5, "obj-140", "live.dial", "float", -1.0, 5, "obj-139", "live.dial", "float", 3.0, 5, "obj-1", "live.toggle", "float", 1.0, 5, "obj-3", "live.toggle", "float", 0.0 ]
+                        },
+                        {
+                            "number": 15,
+                            "data": [ 5, "obj-9", "live.dial", "float", 4.0, 5, "obj-85", "live.dial", "float", 0.0, 5, "obj-99", "live.dial", "float", -7.0, 5, "obj-39", "live.dial", "float", 1.0, 5, "obj-54", "live.dial", "float", -3.0, 5, "obj-66", "live.dial", "float", -7.480315208435059, 5, "obj-71", "live.dial", "float", 8.0, 5, "obj-72", "live.dial", "float", 2.0, 5, "obj-75", "live.dial", "float", 222.0, 5, "obj-84", "live.tab", "float", 1.0, 5, "obj-104", "live.dial", "float", 4.400000095367432, 5, "obj-103", "live.dial", "float", 1.0, 5, "obj-102", "live.dial", "float", 1600.0, 5, "obj-101", "live.tab", "float", 0.0, 5, "obj-108", "live.tab", "float", 1.0, 5, "obj-110", "live.dial", "float", 9.527559280395508, 5, "obj-114", "live.dial", "float", 85.25196838378906, 5, "obj-118", "live.tab", "float", 1.0, 5, "obj-119", "live.tab", "float", 2.0, 5, "obj-120", "live.tab", "float", 5.0, 5, "obj-134", "live.dial", "float", 5.576377868652344, 5, "obj-12", "live.dial", "float", 0.0, 5, "obj-6", "live.dial", "float", 8.0, 5, "obj-17", "live.toggle", "float", 1.0, 5, "obj-35", "live.dial", "float", 8.0, 5, "obj-33", "live.toggle", "float", 1.0, 5, "obj-46", "live.dial", "float", 10.0, 5, "obj-44", "live.toggle", "float", 1.0, 5, "obj-57", "live.dial", "float", 5.0, 5, "obj-55", "live.toggle", "float", 0.0, 5, "obj-140", "live.dial", "float", 1.0, 5, "obj-139", "live.dial", "float", -0.75, 5, "obj-1", "live.toggle", "float", 1.0, 5, "obj-3", "live.toggle", "float", 1.0, 5, "obj-18", "number", "float", 8.0 ]
                         }
                     ]
                 }
@@ -1797,7 +1801,7 @@
                             {
                                 "box": {
                                     "id": "obj-53",
-                                    "items": [ "IAC Driver Bus 1", ",", "IAC Driver Bus 2", ",", "IAC Driver Bus 3", ",", "IAC Driver Bus 4", ",", "to Max 1", ",", "to Max 2" ],
+                                    "items": [ "to Max 1", ",", "to Max 2" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -3098,9 +3102,8 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
-                                    "inputmode": 2,
                                     "maxclass": "kslider",
-                                    "mode": 2,
+                                    "mode": 1,
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],
@@ -6426,7 +6429,7 @@
                     "patching_rect": [ 1097.0, 553.0, 32.0, 24.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 847.0, 234.0, 32.0, 24.0 ],
-                    "text": "+",
+                    "text": "-",
                     "textjustification": 1
                 }
             },

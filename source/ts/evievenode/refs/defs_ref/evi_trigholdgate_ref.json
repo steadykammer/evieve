@@ -1,0 +1,76 @@
+{
+    "object": {
+        "name": "evi.trigholdgate~",
+        "parent": "evi_trigholdgate",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "Trigger audio rate gates held for X ms in length",
+        "description": "Audio rate trigger gates held for specified time, responding to trigger up, down or up/down, hold specified in ms including zero ms for single sample click.",
+        "discussion": "Works particularly well for triggering <o>evi.vactrol~</o>."
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve Control",
+            "evieve Modulation",
+            "evieve Source",
+            "evieve Noise",
+            "evieve Utility"
+        ]
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Trigger In (signal > 0)",
+            "description": "Any audio rate trigger upwards or downwards can be detected depending on @trigger attribute."
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Gate",
+            "description": "Triggered gate of length specified by @hold attribute."
+        }
+    ],
+    "messages": [],
+    "attributes": [
+        {
+            "name": "hold",
+            "get": 1,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "Amount of time (set in ms) to 'hold' the (rectangular) triggered on/off gate for. zero = 1-sample click.",
+            "default": {
+                "min": "0",
+                "max": "60000",
+                "value": "10."
+            }
+        },
+        {
+            "name": "trigger",
+            "get": 1,
+            "type": "int",
+            "digest": "Select 0, 1, 2",
+            "description": "Respond to input trigger type: 0 = up/down, 1 = up only (default), 2 = down only.",
+            "default": {
+                "min": "0",
+                "max": "2",
+                "value": "1"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": [
+        "evi.vactrol~",
+        "evi.audiodust~",
+        "evi.velvetnoise~",
+        "evi.zeroxcount~",
+        "evi.randy~"
+    ]
+}

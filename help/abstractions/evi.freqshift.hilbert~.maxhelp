@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -836,7 +836,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2820,7 +2820,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 411.0, 555.0, 215.0, 65.0 ],
-                                    "text": "For a better gen~ frequency shifter, @see: [evi.freqshift.weaver~] (which does not rely on external coefficients)",
+                                    "text": "For a different gen~ frequency shifter, @see: [evi.freqshift.weaver~] (which does not rely on external coefficients)",
                                     "textjustification": 1
                                 }
                             },

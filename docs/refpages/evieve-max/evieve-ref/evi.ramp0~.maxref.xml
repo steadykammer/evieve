@@ -85,7 +85,7 @@
 				<attribute name="default" get="0" set="0" size="1" value="0" />
 			</attributelist>
 		</attribute>
-		<attribute name="duration" get="1" set="1" type="float" min="0" max="60000">
+		<attribute name="duration" get="1" set="1" type="float" min="0" max="3600000">
 			<digest>
 				Time in ms
 			</digest>

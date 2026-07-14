@@ -669,6 +669,11 @@
         "digest": "Antialiased triangle wave oscillator",
         "description": "evi.tri~ is a 'max define' for the evi_tri.gendsp gen~ abstraction. Because evi.tri~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nSimple antialiased tri wave oscillator based on 4-point polyblep algorithm. The highest quality of the evieve polyblep oscillators. Including high frequency compensation."
     },
+    "evi.trigholdgate~": {
+        "type": "define",
+        "digest": "Trigger audio rate gates held for X ms in length",
+        "description": "evi.trigholdgate~ is a 'max define' for the evi_trigholdgate.gendsp gen~ abstraction. Because evi.trigholdgate~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAudio rate trigger gates held for specified time, responding to trigger up, down or up/down, hold specified in ms including zero ms for single sample click."
+    },
     "evi.vactrol~": {
         "type": "external",
         "digest": "Vactrol response time domain filter envelope",
