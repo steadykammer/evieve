@@ -753,8 +753,8 @@
                                             },
                                             "right": {
                                                 "type": "Literal",
-                                                "value": 1,
-                                                "raw": "1",
+                                                "value": 0,
+                                                "raw": "0",
                                                 "gen_kind": "integer"
                                             },
                                             "gen_kind": "attribute"

@@ -47,7 +47,7 @@ smoothsamps	= smoothsecs*samplerate;
 smoothfreq	= mstosamps(freqsmooth);
 sat			= int(saturation);
 rauto		= int(resetauto);
-resettime	= maximum(smoothsamps * 2, vectorsize * 8);				// need to test this
+resettime	= maximum(smoothsamps+smoothsamps, vectorsize * 8);		// need to test this more
 spread		= 0.75;							// might do funky AM stuff with this la'er
 mix			= bandsmix;
 
@@ -58,7 +58,7 @@ drivepi, drivesin	= sinParam(drive);		// cheaper to keep out of audio branches a
 x		= in1;
 hz		= in2;
 fm		= in3;
-reset	= delta(in4) < 0;					// manual reset, will click, but useful if Hz @ zero
+reset	= delta(in4) < 0;					// manual reset, will click, but useful if Hz zero & resetauto zero
 
 if (smoothsecs > 0)							// only smooth if requested
 {

@@ -30,10 +30,11 @@ Param   oscout(0, min=0, max=1);        // create fake quadOsc output?
 oo      = int(oscout);
 sat		= int(saturation);
 sel		= int(select);
+fix     = 0.488888888888;
 
 // param rate ...
 
-fixedfreq	= samplerate * 0.25;
+fixedfreq	= samplerate * fix;                         // really we want fix to be lower, but the kidz will hear it
 fixedpitch	= ftomApproxAccurate(fixedfreq);
 fixedclamp	= fixedfreq*0.25;
 fWarp03		= fWarp(samplerate*0.333333333333);
@@ -47,7 +48,7 @@ smoothsecs	= smooth*0.001;
 smoothsamps	= smoothsecs*samplerate;
 
 rauto		= int(resetauto);
-resettime	= maximum(smoothsamps, vectorsize * 4);		// one could argue this should be longer
+resettime	= maximum(smoothsamps+smoothsamps, vectorsize * 8);		    // one could argue this is stupid
 
 g, k		= rcDampCoeffs0(highpass, 1);// 1 = fixed HP, no shelf, not smoothed but not needed ?
 pidrive, sindrive	= sinParam(drive);	// cheaper to keep out of "sat" branches and out of the while loop
@@ -66,11 +67,10 @@ if (freqsmooth > 0) {
 freqshift = clamp(freqshift + in3, -fixedclamp, fixedclamp);			// + audio rate modultion input
 
 // smooth and sample accurate auto reset
-rstatic		= freqshift != 0;			// is this weak?
-//resetramp, rrn	= eviSline(rstatic, resettime);
-resetramp, rrn	= eviLine(rstatic, resettime);
+rstatic		= freqshift != 0;			// is this weak? (yes)
+resetramp, rrn	= eviSline(rstatic, resettime);
 autoreset	= rauto ? ((change(rrn == 1) > 0) * (rstatic == 0)) : 0;	// end of down ramp only, not up
-reset		= delta(in4) < 0;			// manual reset, will click, but useful if Hz @ zero
+reset		= delta(in4) < 0;			// manual reset, will click, but useful if Hz zero & resetauto zero
 thisreset	= reset + autoreset;
 
 rMod1, iMod1	= eviQuadOsc(quadraturedetune1 + oscshift*freqshift, thisreset);

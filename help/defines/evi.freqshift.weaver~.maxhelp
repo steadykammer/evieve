@@ -255,7 +255,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup[1]"
                                 }
                             },
@@ -335,7 +335,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 1,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1972,18 +1972,6 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "id": "obj-13",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 342.0, 395.0, 123.0, 25.0 ],
-                                    "text": "Saturation On",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -3020,13 +3008,14 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 220.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 240.0 ],
                                     "textfile": {
                                         "filename": "evi.helpdetails.js",
                                         "flags": 0,
                                         "embed": 0,
                                         "autowatch": 1
-                                    }
+                                    },
+                                    "varname": "v8ui_AA"
                                 }
                             },
                             {
@@ -3199,7 +3188,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

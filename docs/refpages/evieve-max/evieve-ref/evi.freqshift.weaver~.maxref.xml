@@ -9,7 +9,7 @@
 		<b>evi.freqshift.weaver~</b> is a 'max define' for the <o>evi_freqshift_weaver</o>.gendsp gen~ abstraction.
 		Because evi.freqshift.weaver~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which all implement the more usual hilbert filtering 'second method'). Noye, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
+		Time domain frequency shifter. Not like MSP <o>freqshift~</o>. An implementation of D. K. Weaver's famous 'third method' (unlike <o>freqshift~</o>, <o>fbinshift~</o> and <o>evi.freqshift.hilbert~</o> which all implement the more usual hilbert filtering 'second method'). Note, no filtering shift here, all done with quadrature oscillators and lowpass filters. Includes antialiased saturation and automatic clickless phase reset. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
