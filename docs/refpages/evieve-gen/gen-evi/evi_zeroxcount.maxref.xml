@@ -69,5 +69,6 @@
         <seealso name='evi_randy' display='evi_randy' type='genrefpage' />
         <seealso name='evi_phasor0' display='evi_phasor0' type='genrefpage' />
         <seealso name='evi_ramp0' display='evi_ramp0' type='genrefpage' />
+        <seealso name='evi_trigholdgate' display='evi_trigholdgate' type='genrefpage' />
     </seealsolist>
 </c74object>

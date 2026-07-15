@@ -67,6 +67,10 @@
         {
             "name": "evi_randy",
             "display": "evi_randy"
+        },
+        {
+            "name": "evi_trigholdgate",
+            "display": "evi_trigholdgate"
         }
     ]
 }

@@ -103,6 +103,10 @@
         {
             "name": "evi_ramp0",
             "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_trigholdgate",
+            "display": "evi_trigholdgate"
         }
     ]
 }

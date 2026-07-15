@@ -46,7 +46,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Noise", "evieve Utility" ],
         "keywords": [],
-        "seealso": [ "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
+        "seealso": [ "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~", "evi.trigholdgate~" ]
     },
     "evi.backverb~": {
         "digest": "Ursa Major reverb unit with saturating feedback \n",
@@ -1019,7 +1019,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility" ],
         "keywords": [],
-        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
+        "seealso": [ "evi.trigholdgate~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
     },
     "evi.zeroxoscnoise~": {
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",

@@ -84,6 +84,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.trigholdgate~",
         "evi.audiodust~",
         "evi.gaussiannoise~",
         "evi.velvetnoise~",
