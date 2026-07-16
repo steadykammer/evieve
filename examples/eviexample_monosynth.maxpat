@@ -1280,7 +1280,7 @@
                                     "patching_rect": [ 33.0, 268.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 230.0, 173.0, 84.0, 20.0 ],
-                                    "text": "Mod Wheel"
+                                    "text": "^ Mod Wheel"
                                 }
                             },
                             {
@@ -1380,19 +1380,20 @@
                                     "patching_rect": [ 33.0, 404.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 616.0, 173.0, 121.0, 20.0 ],
-                                    "text": "Note Priority"
+                                    "text": "^ Note Priority"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-88",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 33.0, 382.0, 87.0, 20.0 ],
+                                    "patching_rect": [ 33.0, 382.0, 87.0, 33.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 438.0, 172.0, 121.0, 20.0 ],
-                                    "text": "Legato Mode"
+                                    "text": "^ Legato Mode"
                                 }
                             },
                             {
@@ -1462,7 +1463,7 @@
                                     "patching_rect": [ 33.0, 360.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 57.0, 0.0, 121.0, 20.0 ],
-                                    "text": "MIDI Input"
+                                    "text": "MIDI Input:"
                                 }
                             },
                             {
@@ -1474,7 +1475,7 @@
                                     "patching_rect": [ 33.0, 335.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 348.0, 0.0, 87.0, 20.0 ],
-                                    "text": "Keyboard"
+                                    "text": "Keyboard:"
                                 }
                             },
                             {
@@ -1486,7 +1487,7 @@
                                     "patching_rect": [ 33.0, 310.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 194.0, 0.0, 87.0, 20.0 ],
-                                    "text": "Velocity"
+                                    "text": "Velocity:"
                                 }
                             },
                             {
@@ -1498,7 +1499,7 @@
                                     "patching_rect": [ 33.0, 287.0, 87.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 57.0, 173.0, 87.0, 20.0 ],
-                                    "text": "Pitch Bend"
+                                    "text": "^ Pitch Bend"
                                 }
                             },
                             {
@@ -3126,7 +3127,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 1
+                                            "parameter_type": 3
                                         }
                                     },
                                     "varname": "kslider"
@@ -6429,7 +6430,7 @@
                     "patching_rect": [ 1097.0, 553.0, 32.0, 24.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 847.0, 234.0, 32.0, 24.0 ],
-                    "text": "-",
+                    "text": "+",
                     "textjustification": 1
                 }
             },
@@ -9901,7 +9902,7 @@
                     "presentation": 1,
                     "presentation_linecount": 3,
                     "presentation_rect": [ 10.0, 70.0, 660.0, 53.0 ],
-                    "text": "Here is a basic Minimoog starter patcher using evieve abstractions.  The modulation system needs work, there is no keyboard tracking, the pitch logic is all message rate and the DSP should probably be oversampled, but it is an OK starter. Try the presets, and don't forget the Mod Wheel !",
+                    "text": "Here is a basic sort-of Minimoog starter patcher using evieve abstractions.  The modulation system is basic, there is no keyboard tracking, the pitch logic is all message rate and the DSP should probably be oversampled, but it is an OK starter. Try the presets, and don't forget the Mod Wheel !",
                     "varname": "digest_comment"
                 }
             },

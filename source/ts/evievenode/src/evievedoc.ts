@@ -3457,7 +3457,8 @@ function buildPackage(dest?: string, zip = false)
 			!(src.indexOf('.gitmodules') > -1) &&
 			!(src.indexOf('.vscode') > -1) && 
 			!(src.indexOf('.VSCodeCounter') > -1) && 
-			!(src.indexOf('.DS_Store') > -1)
+			!(src.indexOf('.DS_Store') > -1) && 
+			!(src.indexOf('history.txt') > -1)
 		}
 	});
 	void max.post('copying is complete...');

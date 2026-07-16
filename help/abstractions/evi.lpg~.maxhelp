@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -317,7 +317,7 @@
                                     "patching_rect": [ 306.0, 326.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 4.0 ],
+                                            "parameter_initial": [ 2.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[4]",
                                             "parameter_mmax": 10.0,
@@ -722,7 +722,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 540.0, 514.0, 130.0, 130.0 ],
-                                    "range": [ 0.0, 4.0 ],
+                                    "range": [ 0.0, 2.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
                                     "saved_attribute_attributes": {
@@ -2435,7 +2435,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2531,7 +2531,7 @@
                                         },
                                         {
                                             "number": 2,
-                                            "data": [ 5, "obj-6", "number", "float", 0.5, 5, "obj-15", "attrui", "attr", "logfreq", 5, "obj-15", "attrui", "int", 1, 5, "obj-46", "number", "float", 1.3333330154418945, 5, "obj-55", "number", "float", 0.5, 5, "obj-5", "number", "float", 0.0, 5, "obj-10", "number", "float", 0.0, 5, "obj-16", "number", "float", 0.5199999809265137, 5, "obj-17", "number", "float", 0.6399999856948853, 5, "obj-45", "number", "float", 0.30000001192092896 ]
+                                            "data": [ 5, "obj-6", "number", "float", 0.5, 5, "obj-15", "attrui", "attr", "logfreq", 5, "obj-15", "attrui", "int", 1, 5, "obj-46", "number", "float", 1.3333330154418945, 5, "obj-55", "number", "float", 0.5, 5, "obj-5", "number", "float", 0.0, 5, "obj-10", "number", "float", 0.0, 5, "obj-16", "number", "float", 0.5199999809265137, 5, "obj-17", "number", "float", 0.6399999856948853, 5, "obj-45", "number", "float", 0.2199999988079071 ]
                                         },
                                         {
                                             "number": 3,
@@ -3615,8 +3615,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 71.0, 330.0, 43.0, 23.0 ],
-                                    "text": "*~ 0.5"
+                                    "patching_rect": [ 71.0, 330.0, 50.0, 23.0 ],
+                                    "text": "*~ 0.25"
                                 }
                             },
                             {
@@ -3851,7 +3851,7 @@
                                         },
                                         {
                                             "number": 3,
-                                            "data": [ 5, "obj-7", "number", "float", 1.1399999856948853, 5, "obj-15", "attrui", "attr", "logfreq", 5, "obj-15", "attrui", "int", 0, 5, "obj-19", "number", "float", 0.9700000286102295, 5, "obj-55", "number", "float", 0.6600000262260437, 5, "obj-6", "number", "float", 0.8999999761581421, 5, "obj-10", "number", "float", 0.2199999988079071, 5, "obj-16", "number", "float", 0.6200000047683716, 5, "obj-17", "number", "float", 0.36000001430511475, 5, "obj-21", "number", "float", 0.30000001192092896, 5, "obj-27", "number", "float", 20.0, 5, "obj-33", "number", "float", 1.7400000095367432, 5, "obj-44", "attrui", "attr", "range", 6, "obj-44", "attrui", "list", 0.0, 10.0, 5, "obj-45", "number", "float", 0.41999998688697815, 5, "obj-47", "number", "int", 3 ]
+                                            "data": [ 5, "obj-7", "number", "float", 1.1399999856948853, 5, "obj-15", "attrui", "attr", "logfreq", 5, "obj-15", "attrui", "int", 0, 5, "obj-19", "number", "float", 0.9700000286102295, 5, "obj-55", "number", "float", 0.6600000262260437, 5, "obj-6", "number", "float", 0.8999999761581421, 5, "obj-10", "number", "float", 0.2199999988079071, 5, "obj-16", "number", "float", 0.6200000047683716, 5, "obj-17", "number", "float", 0.36000001430511475, 5, "obj-21", "number", "float", 0.30000001192092896, 5, "obj-27", "number", "float", 14.0, 5, "obj-33", "number", "float", 1.7400000095367432, 5, "obj-44", "attrui", "attr", "range", 6, "obj-44", "attrui", "list", 0.0, 10.0, 5, "obj-45", "number", "float", 0.41999998688697815, 5, "obj-47", "number", "int", 3 ]
                                         },
                                         {
                                             "number": 4,

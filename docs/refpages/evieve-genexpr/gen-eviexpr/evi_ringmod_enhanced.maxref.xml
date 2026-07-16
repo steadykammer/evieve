@@ -20,202 +20,189 @@
   <misc name="GenExpr Functions">
     <entry name="simpleRingmod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
+        Naive version of the evieve ring modulator, based on 'enhanced ring mod' by Beat Frei, ICST <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="pDiode ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: vin, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: Vb, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: VL, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: H, <i></i> <br />
+        Piece-wise diode approximation used by 'pRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: vin, <i>Carier or Modulator input</i> <br />
+        <b>In 2</b>: type=<i>input</i>: Vb, <i>Voltage input</i> <br />
+        <b>In 3</b>: type=<i>input</i>: VL, <i>Knee input</i> <br />
+        <b>In 4</b>: type=<i>input</i>: H, <i>Slope input</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: Diode, <i>Diode approximation output</i> <br />
 
       </description>
     </entry>
     <entry name="pRingmod ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: car, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: mod, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: voltage, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: knee, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: slope, <i></i> <br />
+        Naive version of the four-diode ring modulator based on Julian Parker code <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: car, <i>Ring Mod input 1 (Carrier)</i> <br />
+        <b>In 2</b>: type=<i>input</i>: mod, <i>Ring Mod input 2 (Modulator)</i> <br />
+        <b>In 3</b>: type=<i>input</i>: voltage, <i>Voltage parameter 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: knee, <i>Knee parameter 0..1</i> <br />
+        <b>In 5</b>: type=<i>input</i>: slope, <i>Slope parameter 0..1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa1 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        First order Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2 ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        Second order Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa1_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        First order 2x oversampled Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa1_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        First order 4x oversampled Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2_2x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        Second order 2x oversampled Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2_4x ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: xin1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: xin2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        Second order 4x oversampled Adaa waveshaping version of 'simpleRingmod()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: xin1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: xin2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa1__2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        2x oversampled version of 'evieveRingmodAdaa1()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2__2x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        2x oversampled version of 'evieveRingmodAdaa2()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2__4x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        4x oversampled version of 'evieveRingmodAdaa2()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
     <entry name="evieveRingmodAdaa2__8x_6POINT ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
+        8x oversampled version of 'evieveRingmodAdaa2()' <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: XIN1, <i>Ring Mod input 1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: XIN2, <i>Ring Mod input 2</i> <br />
+        <b>In 3</b>: type=<i>input</i>: g, <i>Highpass coefficient</i> <br />
+        <b>In 4</b>: type=<i>input</i>: p, <i>Waveshape coefficient 1 (PI)</i> <br />
+        <b>In 5</b>: type=<i>input</i>: s, <i>Waveshape coefficient 2 (sin)</i> <br />
+        <b>In 6</b>: type=<i>input</i>: t, <i>Waveshape topology selector 0/1</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="evieveRingmodAdaa2_4x__2x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="evieveRingmodAdaa2_4x__4x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
-
-      </description>
-    </entry>
-    <entry name="evieveRingmodAdaa2_4x__8x_6POINT ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: XIN1, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: XIN2, <i></i> <br />
-        <b>In 3</b>: type=<i>input</i>: g, <i></i> <br />
-        <b>In 4</b>: type=<i>input</i>: p, <i></i> <br />
-        <b>In 5</b>: type=<i>input</i>: s, <i></i> <br />
-        <b>In 6</b>: type=<i>input</i>: t, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: RingMod, <i>Ring Modulated output</i> <br />
 
       </description>
     </entry>
@@ -227,6 +214,9 @@
   </metadatalist>
   <seealsolist>
     <!-- we use 'refpage' here not 'genrefpage' to trick Max -->
+    <seealso name="evi_ssb" type="refpage"/>
+    <seealso name="evi_butterworth" type="refpage"/>
+    <seealso name="evi_adaa" type="refpage"/>
   </seealsolist>
   <misc name="Discussion">
     <entry name="Keywords">

@@ -482,7 +482,7 @@ evieveRingmodAdaa2__8x_6POINT(XIN1, XIN2, g, p, s, t)
   return dcblock(y0_0);
 }
 
-// (stupid) experiment
+// (stupid) experiments...
 
 // fixed 2x quasi oversampling (hermite6), with two audio inlets, both resampled
 evieveRingmodAdaa2_4x__2x_6POINT(XIN1, XIN2, g, p, s, t)

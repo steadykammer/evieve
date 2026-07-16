@@ -100,7 +100,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "4",
+                                    "text": "3",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -183,7 +183,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "4",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -245,7 +245,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0", "1", "2", "3" ],
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ 2.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "radiogroup[2]",
                                             "parameter_mmax": 3,
@@ -255,7 +255,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 2,
                                     "varname": "radiogroup[1]"
                                 }
                             },
@@ -371,7 +371,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 108.0, 466.0, 176.0, 23.0 ],
-                                    "text": "selector~ 3 0"
+                                    "text": "selector~ 3 2"
                                 }
                             },
                             {

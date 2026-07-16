@@ -7,614 +7,614 @@
     "functions": [
         {
             "document": true,
-            "digest": "",
+            "digest": "Naive version of the evieve ring modulator, based on 'enhanced ring mod' by Beat Frei, ICST",
             "name": "simpleRingmod",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Piece-wise diode approximation used by 'pRingmod()'",
             "name": "pDiode",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "vin",
-                    "digest": ""
+                    "digest": "Carier or Modulator input"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "Vb",
-                    "digest": ""
+                    "digest": "Voltage input"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "VL",
-                    "digest": ""
+                    "digest": "Knee input"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "H",
-                    "digest": ""
+                    "digest": "Slope input"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "Diode",
+                    "digest": "Diode approximation output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Naive version of the four-diode ring modulator based on Julian Parker code",
             "name": "pRingmod",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "car",
-                    "digest": ""
+                    "digest": "Ring Mod input 1 (Carrier)"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "mod",
-                    "digest": ""
+                    "digest": "Ring Mod input 2 (Modulator)"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "voltage",
-                    "digest": ""
+                    "digest": "Voltage parameter 0..1"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "knee",
-                    "digest": ""
+                    "digest": "Knee parameter 0..1"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "slope",
-                    "digest": ""
+                    "digest": "Slope parameter 0..1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa1",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa2",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order 2x oversampled Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa1_2x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order 4x oversampled Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa1_4x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order 2x oversampled Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa2_2x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order 4x oversampled Adaa waveshaping version of 'simpleRingmod()'",
             "name": "evieveRingmodAdaa2_4x",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "xin1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "xin2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2x oversampled version of 'evieveRingmodAdaa1()'",
             "name": "evieveRingmodAdaa1__2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "2x oversampled version of 'evieveRingmodAdaa2()'",
             "name": "evieveRingmodAdaa2__2x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "4x oversampled version of 'evieveRingmodAdaa2()'",
             "name": "evieveRingmodAdaa2__4x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "8x oversampled version of 'evieveRingmodAdaa2()'",
             "name": "evieveRingmodAdaa2__8x_6POINT",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "evieveRingmodAdaa2_4x__2x_6POINT",
             "inputs": [
@@ -622,49 +622,49 @@
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "evieveRingmodAdaa2_4x__4x_6POINT",
             "inputs": [
@@ -672,49 +672,49 @@
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "evieveRingmodAdaa2_4x__8x_6POINT",
             "inputs": [
@@ -722,47 +722,51 @@
                     "id": 1,
                     "kind": "input",
                     "name": "XIN1",
-                    "digest": ""
+                    "digest": "Ring Mod input 1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "XIN2",
-                    "digest": ""
+                    "digest": "Ring Mod input 2"
                 },
                 {
                     "id": 3,
                     "kind": "input",
                     "name": "g",
-                    "digest": ""
+                    "digest": "Highpass coefficient"
                 },
                 {
                     "id": 4,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 1 (PI)"
                 },
                 {
                     "id": 5,
                     "kind": "input",
                     "name": "s",
-                    "digest": ""
+                    "digest": "Waveshape coefficient 2 (sin)"
                 },
                 {
                     "id": 6,
                     "kind": "input",
                     "name": "t",
-                    "digest": ""
+                    "digest": "Waveshape topology selector 0/1"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "RingMod",
+                    "digest": "Ring Modulated output"
                 }
             ]
         }
     ],
-    "seealso": []
+    "seealso": [
+        "evi_ssb",
+        "evi_butterworth",
+        "evi_adaa"
+    ]
 }
