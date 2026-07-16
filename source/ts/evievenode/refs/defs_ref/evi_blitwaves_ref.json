@@ -18,8 +18,7 @@
     },
     "includes": [
         "evi_smooth.genexpr",
-        "evi_trig.genexpr",
-        "evi_adaa.genexpr"
+        "evi_trig.genexpr"
     ],
     "inlets": [
         {
@@ -64,19 +63,19 @@
             "id": 4,
             "type": "signal",
             "digest": "SINE (if param addsine set)",
-            "description": "Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on."
+            "description": "Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on (default off)."
         },
         {
             "id": 5,
             "type": "signal",
             "digest": "Train 0/1 (if param addtrain set)",
-            "description": "Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on."
+            "description": "Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on (default off)."
         },
         {
             "id": 6,
             "type": "signal",
             "digest": "Sync 0..1 (if param addsync set)",
-            "description": "Global phase sync output 0..1, output if @addsync attribute set to on."
+            "description": "Global phase sync output 0..1, output if @addsync attribute set to on (default on)."
         }
     ],
     "messages": [

@@ -78,7 +78,7 @@
 				Outlet #4: SINE (if param addsine set)
 			</digest>
 			<description>
-				Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on.
+				Analog Sine wave oscillator with harmonics, output if @addsine attribute set to on (default off).
 			</description>
 		</outlet>
 		<outlet id="5" type="signal">
@@ -86,7 +86,7 @@
 				Outlet #5: Train 0/1 (if param addtrain set)
 			</digest>
 			<description>
-				Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on.
+				Naive Train (rectified naive square) wave oscillator, output if @addtrain attribute set to on (default off).
 			</description>
 		</outlet>
 		<outlet id="6" type="signal">
@@ -94,7 +94,7 @@
 				Outlet #6: Sync 0..1 (if param addsync set)
 			</digest>
 			<description>
-				Global phase sync output 0..1, output if @addsync attribute set to on.
+				Global phase sync output 0..1, output if @addsync attribute set to on (default on).
 			</description>
 		</outlet>
 	</outletlist>

@@ -82,5 +82,5 @@ if (smooth > 0) {
     h   = evi_line(h, smoothsamps);
 }
 
-out1    = hShaper(in1, s, h, compensate=c);
+out1    = hShaper(in1, s, h, compensate=c); // should be dcblocked ?
 

@@ -1,5 +1,5 @@
 
-// zero aliasing classic synth wave shapes, dsf-blit-like algo, sweep/modulation works with no noise, & very cheap :-)
+// zero aliasing classic synth wave shapes, dsf-blit-like algo, sweep/modulation works with no noise, & cheap :-)
 // good for subtractive because we stay very bright right up to nyquist, but no hard sync :-(
 // by pete for evieve, 2019
 
@@ -7,7 +7,6 @@
 //require("evi_rcfilters.genexpr");
 require("evi_smooth.genexpr");
 require("evi_trig.genexpr");
-require("evi_adaa.genexpr");                // for 'sine' only
 
 // simple integrator
 
@@ -22,8 +21,8 @@ leaky(x, f)
 //	//	//	BLITs
 
 eviSect(T, P, M)
-{	// we get a tiny bit of noise below -100dB with sin73, switch to sin() if you care about this
-	return	(sin73((T + 0.5) * P) * M) - 1;
+{	// we get a bit of noise below -100dB with 'sin73()', switch to 'sin()' because we care
+	return	(sin((T + 0.5) * P) * M) - 1;
 }
 
 // deluxe, a lot more expensive, but crossfades out the top harmonic - much nicer
@@ -32,12 +31,13 @@ eviBlit(Ph, Mt, Mf)
 	Mp		= 1 / sin(0.5 * Ph);						// must be sin() for accuracy
 	x0		= eviSect((maximum((Mt - 1), 0)), Ph, Mp);
 	x1		= eviSect(Mt, Ph, Mp);
-	return	interp(Mf*Mf, x0, x1, mode="cosine") * 0.5; // cosine but Mf is squared, ridiculous? i like it
+//	return	interp(Mf*Mf, x0, x1, mode="cosine") * 0.5; // cosine but Mf is squared, ridiculous? i like it
+	return	interp(Mf, x0, x1, mode="cosine") * 0.5;
 }
 
 //	//	//
 
-History	thisReset(1), prevSR(0);//, Ff(0);
+History	thisReset(1), prevSR(0);
 History sr05(0), sr01(0), srWN(0), omWN(0), MaxFreq(0);//, filterRolloff(0);
 
 Param	smooth(0., min=0, max=333);			    // ms
@@ -45,8 +45,7 @@ Param	addsync(1, min=0, max=2);				// out6: 0 = off, 1 = main phase output, 2 = 
 Param	addtrain(0, min=0, max=2);				// out5: 0 = off, 1 = train based on main phase, 2 = train based on pwm phase
 Param	addsine(0, min=0, max=1);				// out4: 0 = SINE off, 1 = SINE on (considerable CPU management)
 smoothsamps = mstosamps(smooth);
-LAURA	= 1.059463094359;
-JASON	= 2.221441469079183;
+LAURA	    = 1.059463094359;
 CPS_LIMIT	= 0.0001;
 
 Hz			= in1;
@@ -65,7 +64,7 @@ if (prevSR != SAMPLERATE) {
 
 // unlike pure DSF BLIT, we do not have to latch changes as rolloff/etc takes care of this for us
 // but if no latching option, we should exact-smooth "F" (because trunc/fract) and exact-smooth "P" (because center)
-F		= maximum(Hz, 0);						// Hz
+F		= clamp(Hz, 0, sr05);					// Hz
 if (smooth > 0) {
 	F	= eviLine(F, smoothsamps);
 }
@@ -77,7 +76,7 @@ if (smooth > 0) {
 	P	= eviLine(P, smoothsamps);
 }
 
-//filterZero = rcPreWarp1(76.1268 * Fn);
+//filterZero = rcPreWarp1(76.1268 * Fn);        // legacy pete thing, might return
 
 M		= abs((P + P) - 1);						// maintain energy in TRI, sort of...
 Wt		= ((M * M * M * M) * 16) + 4;
@@ -87,7 +86,7 @@ MFdF	= MaxFreq / F;
 Mt		= trunc(MFdF);
 Mf		= fract(MFdF);
 
-Phase	= phasor(F, naiveReset);//naiveReset ? 0 : Phase + Ff;
+Phase	= phasor(F, naiveReset);
 PhW		= wrap((Phase + P), 0, 1);
 Ph		= (Phase * TWOPI);
 Pwm		= (PhW * TWOPI);
@@ -109,7 +108,7 @@ blit_2	= eviBlit(Pwm, Mt, Mf);
 blit_saw	= dcblock(blit_1);
 blit_rect	= blit_1 - blit_2;
 
-bottom		= minimum(F, 10) * 0.1;	// extend down to zero Hz, no DC
+bottom		= minimum(F, 10) * 0.1;	// extend down to DC Hz
 thisReset	= (delta(Phase) < 0) + (Ff <= CPS_LIMIT) + naiveReset;
 
 // integrate...
@@ -129,25 +128,19 @@ TRI			= leaky((RECT * Wt) * Fa, Fn) * LAURA * bottom;
 
 SINE		= 0;
 adsn		= latch(int(addsine), thisReset);
-if (adsn) {	// ...73 fine for accuracy here	// you think "leaky()" is wrong here, but it is not :-)
-//	SINE	= adSc1(leaky(cos73(Ph), Fn) * JASON) * SQRT2 * bottom;
-	SINE	= atanAdaa2(leaky(cos73(Ph), Fn) * JASON) * SQRT2 * bottom;
+if (adsn) {	// ...73 fine for accuracy here
+	SINE	= evi_shaper(sin73(Ph), shape=-0.4, harmonics=(1 - Fn)); // sqrt(Fn) ?
+    SINE    = dcblock(SINE) * bottom;
 	// ^^ all sine variations work fine: cos73(Ph), cos73(Pwm), sin73(Ph), sin73(Pwm), just depends what you want (phase)
-	// ^^ sadly, the SINE phase does not line up at exact zero crossings, regardless of which function or phase driver you use
-//	SINE	= rcFilterHp(SINE, filterZero);	// leaves residual DC at bottom of bottom
 }
 
 // interesting weird SAW that also works...
-//interestingPwmSAW	= leaky(SAW - blit_2, Fn) * LAURA * LAURA * bottom;
-//interestingPwmSAW	= rcFilterHp(interestingPwmSAW, filterZero);	// leaves residual DC at bottom of bottom
+//interestingPwmSAW	= leaky(SAW - blit_2, Fn) * (LAURA + LAURA) * bottom;
+//interestingPwmSAW	= rcFilter(interestingPwmSAW, filterRolloff);
 
-//SAW	= rcFilter(SAW, filterRolloff);	    // some people might like it (but not needed with this algo)
-//SAW	= rcFilterHp(SAW, filterZero);		// leaves residual DC at bottom of bottom
-
-//RECT	= rcFilter(RECT, filterRolloff);	// some people might like it (but not needed with this algo)
-//RECT	= rcFilterHp(RECT, filterZero);		// leaves residual DC at bottom of bottom
-
-//TRI	= rcFilterHp(TRI, filterZero);		// leaves residual DC at bottom of bottom
+// some people might like this (but not technically needed with this algo)
+//SAW	= rcFilter(SAW, filterRolloff);
+//RECT	= rcFilter(RECT, filterRolloff);
 
 out1	= SAW;
 out2	= RECT;
