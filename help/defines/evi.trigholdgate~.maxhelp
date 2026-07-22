@@ -1082,7 +1082,7 @@
                                     "patching_rect": [ 285.0, 211.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -50.0 ],
+                                            "parameter_initial": [ -40.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[1]",
                                             "parameter_mmax": 50.0,
@@ -1167,7 +1167,7 @@
                                     "patching_rect": [ 45.0, 131.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1.17 ],
+                                            "parameter_initial": [ 0.7 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number",
                                             "parameter_mmax": 2.0,

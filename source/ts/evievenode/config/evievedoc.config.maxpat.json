@@ -512,6 +512,25 @@
                 "auto": true
             }
         },
+        "evi.most~": {
+            "object": false,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": true
+            }
+        },
         "evi.notes2ints": {
             "object": true,
             "ref": false,

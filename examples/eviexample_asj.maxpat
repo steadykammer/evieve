@@ -49,15 +49,15 @@
                     "fontname": "Lato",
                     "fontsize": 13.0,
                     "id": "obj-37",
-                    "linecount": 3,
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 10.0, 70.0, 660.0, 53.0 ],
+                    "patching_rect": [ 10.0, 70.0, 660.0, 69.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 3,
-                    "presentation_rect": [ 10.0, 70.0, 660.0, 53.0 ],
-                    "text": "Sometimes people ask me: 'Hey Pete, how do you get that classic ASJ sound?', and I reply: 'Well, it is quite simple really, you just need an osciallator that will morph between Tri and Rect and a Sallen & Key filter with some well tuned slow modulation sources'.",
+                    "presentation_linecount": 4,
+                    "presentation_rect": [ 10.0, 70.0, 660.0, 69.0 ],
+                    "text": "Sometimes people ask me: 'Hey Pete, how do you get that classic ASJ sound?', and I reply: 'Well, it is quite simple really, you just need an osciallator that will morph between Tri and Rect and a Sallen & Key filter with some well tuned slow modulation sources'. Remember, contrary to popular belief, the ASJ is not grungy, it is clean and perfect.",
                     "varname": "digest_comment"
                 }
             }

@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -17,6 +17,20 @@
         "integercoordinates": 1,
         "title": "evieve Examples: Polysynth",
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 18.0,
+                    "id": "obj-2",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 231.0, 94.0, 218.0, 27.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 365.0, 359.0, 218.0, 27.0 ],
+                    "text": "Coming Soon ...",
+                    "textjustification": 1
+                }
+            },
             {
                 "box": {
                     "background": 1,
@@ -59,17 +73,6 @@
             }
         ],
         "lines": [],
-        "parameters": {
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }

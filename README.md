@@ -16,7 +16,7 @@ About 50% of the code in `evieve` is original, the rest is ported from various o
 
 ## Build
 
-The repo is organised in 'Max Package' format so can be cloned to /Documents/Max 9/packages/ or via alias or junction and worked with as if the actual package in `Max`.
+The repo is organised in 'Max Package' format so can be cloned to /Documents/Max 9/Packages/ or via alias or junction and worked with as if the actual package in `Max`.
 
 Important folders:
 * `code` : all .gendsp and .genexpr source code
@@ -54,6 +54,7 @@ On Windows:
 ```shell
 cmake -G "Visual Studio 17 2022" ..
 ```
+...or whatever your current Visual Studio is.
 
 #### 3. Build the projects
 
@@ -77,8 +78,7 @@ Pre-requisites:
   - NodeJs version 22.18 (or later?)
   - Max 9.2.0 or later
 
-`/source/ts/evievev8` creates .js v8 code for distribution in the Package
-`/source/ts/evievenode` creates nodejs code only for the purposes of *automatic package documentation* for the distribution
+`/source/ts/evievev8` creates .js v8 code for distribution in the Package. `/source/ts/evievenode` creates nodejs code only for the purposes of *automatic package documentation* for the distribution
 
 #### Both folders
 ```shell
@@ -107,7 +107,7 @@ Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vi
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | JSON (incl. *.maxpat*) | 504 | 642,845 | 5 | 44 | 642,894 |
-| XML | 400 | 53,537 | 1,900 | 2,090 | 57,527 |
+| XML (docs) | 400 | 53,537 | 1,900 | 2,090 | 57,527 |
 | **GenExpr** (`evieve`) | 341 | 31,996 | 10,622 | 9,809 | 52,427 |
 | C++ | 130 | 21,716 | 13,567 | 5,490 | 40,773 |
 | C | 17 | 4,564 | 282 | 849 | 5,695 |

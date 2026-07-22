@@ -13,5 +13,7 @@ This is part of my personal **GenExpr** library but organised and documented for
 
 Please consider helping to make `evieve` better by contributing via the Github or by getting in touch, evieve@steadykammer.net
 
+`evieve` is in a state of constant development and some parts are marked as experimental. But the aim is to support the release and not make breaking changes to the core code.
+
 ### Thanks to...
 Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vincent Goudard, Matt Jackson, Maurizio Giri, Volker Böhm, Martijn Zwartjes, Martin Vicanek, Richard Dudas, Graham Wakefield, Joshua Kit Clayton.
