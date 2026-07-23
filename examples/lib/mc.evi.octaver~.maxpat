@@ -411,15 +411,15 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 746.0, 45.0, 241.0, 22.0 ],
-                    "text": "patcherargs @highpass 300 @lowpass 900"
+                    "patching_rect": [ 746.0, 45.0, 299.0, 22.0 ],
+                    "text": "patcherargs @highpass 300 @lowpass 900 @chans 2"
                 }
             },
             {
                 "box": {
                     "comment": "",
                     "id": "obj-67",
-                    "index": 2,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -1141,7 +1141,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-18",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1174,11 +1174,11 @@
                 "box": {
                     "comment": "",
                     "id": "obj-15",
-                    "index": 1,
+                    "index": 0,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "multichannelsignal" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 41.0, 41.0, 30.0, 30.0 ]
                 }
             },
@@ -1465,7 +1465,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-30", 0 ],
-                    "midpoints": [ 977.5, 77.5, 692.5, 77.5 ],
+                    "midpoints": [ 1035.5, 77.5, 692.5, 77.5 ],
                     "source": [ "obj-12", 1 ]
                 }
             },
@@ -1928,6 +1928,7 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ]
+        ],
+        "autosave": 0
     }
 }
