@@ -25,7 +25,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 174.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 174.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 605.0, 401.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -39,7 +39,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 167.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 167.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 605.0, 394.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -53,7 +53,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 210.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 210.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 499.0, 616.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -67,7 +67,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 203.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 203.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 499.0, 609.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -81,7 +81,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 253.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 253.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 191.0, 616.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -95,7 +95,7 @@
                     "numoutlets": 2,
                     "orientation": 1,
                     "outlettype": [ "float", "int" ],
-                    "patching_rect": [ 832.0, 246.0, 100.0, 5.0 ],
+                    "patching_rect": [ 847.0, 246.0, 100.0, 5.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 191.0, 609.0, 78.0, 4.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
@@ -131,7 +131,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 360.0, 240.0, 63.0, 22.0 ],
+                    "patching_rect": [ 360.0, 240.0, 76.0, 22.0 ],
                     "text": "s #0_sync"
                 }
             },
@@ -141,7 +141,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 262.0, 240.0, 64.0, 22.0 ],
+                    "patching_rect": [ 262.0, 240.0, 77.0, 22.0 ],
                     "text": "s #0_warp"
                 }
             },
@@ -151,7 +151,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 160.0, 240.0, 67.0, 22.0 ],
+                    "patching_rect": [ 160.0, 240.0, 80.0, 22.0 ],
                     "text": "s #0_pulse"
                 }
             },
@@ -160,6 +160,7 @@
                     "allowdrag": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
+                    "hint": "Pulse, but it does not mean beat",
                     "id": "obj-158",
                     "items": [ "128n", ",", "64n", ",", "32nt", ",", "64nd", ",", "32n", ",", "16nt", ",", "32nd", ",", "16n", ",", "8nt", ",", "16nd", ",", "8n", ",", "4nt", ",", "8nd", ",", "4n", ",", "2nt", ",", "4nd", ",", "2n", ",", "1nt", ",", "2nd", ",", "1n", ",", "1nd" ],
                     "maxclass": "umenu",
@@ -182,12 +183,15 @@
                             "parameter_type": 2
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "umenu"
                 }
             },
             {
                 "box": {
                     "format": 6,
+                    "hint": "Warp Pulse with exponent",
                     "id": "obj-15",
                     "maxclass": "flonum",
                     "maximum": 2.0,
@@ -211,11 +215,14 @@
                             "parameter_type": 0
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "number[4]"
                 }
             },
             {
                 "box": {
+                    "hint": "Sync Pitch with Pulse (sort of)",
                     "id": "obj-122",
                     "maxclass": "toggle",
                     "numinlets": 1,
@@ -237,6 +244,8 @@
                             "parameter_type": 2
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "toggle"
                 }
             },
@@ -407,7 +416,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 100.0, 1665.0, 809.0 ],
+                        "rect": [ 34.0, 100.0, 1444.0, 809.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -456,6 +465,7 @@
                                             {
                                                 "box": {
                                                     "id": "obj-164",
+                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
@@ -477,6 +487,7 @@
                                             {
                                                 "box": {
                                                     "id": "obj-162",
+                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
@@ -488,6 +499,7 @@
                                             {
                                                 "box": {
                                                     "id": "obj-161",
+                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
@@ -722,7 +734,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 622.0, 590.0, 61.0, 22.0 ],
+                                                    "patching_rect": [ 592.0, 590.0, 89.0, 22.0 ],
                                                     "text": "r #0_sync"
                                                 }
                                             },
@@ -1109,7 +1121,7 @@
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 622.0, 672.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 592.0, 672.0, 30.0, 30.0 ]
                                                 }
                                             },
                                             {
@@ -3038,7 +3050,7 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 666.0, 73.0, 62.0, 22.0 ],
+                                    "patching_rect": [ 666.0, 73.0, 75.0, 22.0 ],
                                     "text": "r #0_warp"
                                 }
                             },
@@ -3049,7 +3061,7 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 609.0, 34.0, 65.0, 22.0 ],
+                                    "patching_rect": [ 609.0, 34.0, 78.0, 22.0 ],
                                     "text": "r #0_pulse"
                                 }
                             },
@@ -3481,7 +3493,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 172.0, 424.0, 94.0, 22.0 ],
+                                    "patching_rect": [ 172.0, 424.0, 107.0, 22.0 ],
                                     "text": "s #0_sync_logic"
                                 }
                             },
@@ -3546,7 +3558,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 965.0, 750.0, 103.0, 22.0 ],
+                                    "patching_rect": [ 965.0, 750.0, 116.0, 22.0 ],
                                     "text": "s #0_freeze_logic"
                                 }
                             },
@@ -3600,7 +3612,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1157.0, 448.0, 93.0, 22.0 ],
+                                    "patching_rect": [ 1157.0, 448.0, 106.0, 22.0 ],
                                     "text": "s #0_gate_logic"
                                 }
                             },
@@ -3731,7 +3743,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 270.0, 722.0, 127.0, 22.0 ],
+                                    "patching_rect": [ 270.0, 722.0, 140.0, 22.0 ],
                                     "text": "s #0_generators_logic"
                                 }
                             }
@@ -4271,6 +4283,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Mix between freqshift and ringmod into the wavefolder (which is fed into the LPG 'Gate')",
                     "id": "obj-28",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4294,6 +4307,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Fold"
                 }
             },
@@ -4302,6 +4317,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Morph between LPGyness and VCAyness",
                     "id": "obj-27",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4324,6 +4340,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "VCA"
                 }
             },
@@ -4332,6 +4350,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Resonance style, whoopy or klangy",
                     "id": "obj-26",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4354,6 +4373,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Klang"
                 }
             },
@@ -4362,6 +4383,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "The low threshold of the gate, how 'open' it is",
                     "id": "obj-24",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4384,6 +4406,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Open"
                 }
             },
@@ -4392,6 +4416,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "The amount of LPG 'gateyness'",
                     "id": "obj-25",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4414,6 +4439,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Gate"
                 }
             },
@@ -4422,6 +4449,7 @@
                     "appearance": 1,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Add annoying whoopy noises to the Source sounds",
                     "id": "obj-22",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4446,6 +4474,8 @@
                         }
                     },
                     "shownumber": 0,
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Add"
                 }
             },
@@ -4453,6 +4483,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Add Bell source sounds to the mains",
                     "id": "obj-23",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4476,6 +4507,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Source"
                 }
             },
@@ -4484,6 +4517,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Decay and slowness in the system, mainly affects envelopes",
                     "id": "obj-21",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4506,6 +4540,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Decay"
                 }
             },
@@ -4514,6 +4550,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Flat to Sharp, 0..100%, affects the envelope shapes and attack times",
                     "id": "obj-20",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4536,6 +4573,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Sharp"
                 }
             },
@@ -4544,6 +4583,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Noisyness in the generators (not actually 'noise')",
                     "id": "obj-19",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4566,6 +4606,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Noise"
                 }
             },
@@ -4574,6 +4616,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Distortion and grit in the generators",
                     "id": "obj-18",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4596,6 +4639,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Tone"
                 }
             },
@@ -4604,6 +4649,7 @@
                     "appearance": 1,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Mix between freqshift and ringmod",
                     "id": "obj-9",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4628,6 +4674,8 @@
                         }
                     },
                     "shownumber": 0,
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Mix"
                 }
             },
@@ -4636,6 +4684,7 @@
                     "appearance": 1,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "FM of the oscillators, also affects generator sounds",
                     "id": "obj-1",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4661,6 +4710,8 @@
                         }
                     },
                     "shownumber": 0,
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "FM"
                 }
             },
@@ -4669,6 +4720,7 @@
                     "appearance": 1,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Frequency of the oscillators and some modulation in the generators sounds",
                     "id": "obj-7",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4694,6 +4746,8 @@
                         }
                     },
                     "shownumber": 0,
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Hz"
                 }
             },
@@ -4701,6 +4755,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Send sustained oscillators to the 'Space'",
                     "id": "obj-5",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4724,6 +4779,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Oscs"
                 }
             },
@@ -4731,6 +4788,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Send modulation generators sounds to the 'Space'",
                     "id": "obj-6",
                     "maxclass": "live.dial",
                     "needlemode": 1,
@@ -4754,6 +4812,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Mods"
                 }
             },
@@ -4761,6 +4821,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Space low frequency attenuate / boost",
                     "id": "obj-4",
                     "maxclass": "live.dial",
                     "needlemode": 2,
@@ -4785,6 +4846,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Low"
                 }
             },
@@ -4792,6 +4855,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Space high frequency attenuate / boost",
                     "id": "obj-3",
                     "maxclass": "live.dial",
                     "needlemode": 2,
@@ -4816,6 +4880,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "High"
                 }
             },
@@ -4824,6 +4890,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "The Size and Diffuseness of the 'Space'",
                     "id": "obj-2",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4846,6 +4913,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Size"
                 }
             },
@@ -4854,6 +4923,7 @@
                     "appearance": 4,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "The amount of 'Space' in the system",
                     "id": "obj-10",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -4876,6 +4946,8 @@
                             "parameter_unitstyle": 5
                         }
                     },
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
                     "varname": "Space"
                 }
             },
@@ -6934,7 +7006,7 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 242.0, 40.0, 101.0, 22.0 ],
+                                    "patching_rect": [ 242.0, 40.0, 135.0, 22.0 ],
                                     "text": "r #0_freeze_logic"
                                 }
                             },
@@ -7241,22 +7313,24 @@
                                             {
                                                 "box": {
                                                     "id": "obj-95",
+                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 799.0, 196.0, 108.0, 22.0 ],
+                                                    "patching_rect": [ 799.0, 196.0, 108.0, 35.0 ],
                                                     "text": "receive~ #0_trig_2"
                                                 }
                                             },
                                             {
                                                 "box": {
                                                     "id": "obj-91",
+                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 256.0, 267.0, 104.0, 22.0 ],
+                                                    "patching_rect": [ 256.0, 267.0, 104.0, 35.0 ],
                                                     "text": "receive~ #0_lfo_3"
                                                 }
                                             },
@@ -8651,6 +8725,7 @@
                                             {
                                                 "box": {
                                                     "id": "obj-95",
+                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
@@ -10721,6 +10796,7 @@
                                             {
                                                 "box": {
                                                     "id": "obj-95",
+                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
@@ -12636,6 +12712,8 @@
             {
                 "box": {
                     "clip_size": 1,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
                     "id": "obj-8",
                     "lastchannelcount": 0,
                     "maxclass": "live.gain~",
@@ -12644,9 +12722,9 @@
                     "orientation": 1,
                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 646.0, 363.0, 74.0, 47.0 ],
+                    "patching_rect": [ 646.0, 363.0, 74.0, 53.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 503.0, 194.0, 301.0, 47.0 ],
+                    "presentation_rect": [ 503.0, 194.0, 301.0, 53.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_initial": [ -6.0 ],
@@ -13373,6 +13451,7 @@
                             {
                                 "box": {
                                     "id": "obj-7",
+                                    "linecount": 3,
                                     "maxclass": "newobj",
                                     "numinlets": 0,
                                     "numoutlets": 1,
@@ -13472,6 +13551,7 @@
                             {
                                 "box": {
                                     "id": "obj-2",
+                                    "linecount": 2,
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -13483,6 +13563,7 @@
                             {
                                 "box": {
                                     "id": "obj-93",
+                                    "linecount": 2,
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,

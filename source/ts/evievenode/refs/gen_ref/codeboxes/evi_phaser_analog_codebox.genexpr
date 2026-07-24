@@ -4,7 +4,6 @@
 require("evi_smooth_bank.genexpr");
 require("evi_rcfilters.genexpr");
 require("evi_crossovers.genexpr");
-//require("evi_sources.genexpr");
 require("evi_lfo.genexpr");
 require("evi_adaa.genexpr");
 

@@ -277,7 +277,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 182.0, 475.0, 130.0, 130.0 ],
                     "rounded": 1.0,
-                    "samples": 10000.0,
+                    "samples": 20000.0,
                     "vertical_divisions": 4
                 }
             },
@@ -321,7 +321,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 182.0, 343.0, 130.0, 130.0 ],
                     "rounded": 1.0,
-                    "samples": 10000.0,
+                    "samples": 20000.0,
                     "vertical_divisions": 4
                 }
             },
@@ -2994,7 +2994,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 49.0, 369.0, 37.0, 22.0 ],
+                    "patching_rect": [ 49.0, 365.0, 37.0, 22.0 ],
                     "text": "p sus",
                     "varname": "patcher"
                 }
@@ -5400,7 +5400,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 92.0, 1421.0, 749.0 ],
+                        "rect": [ 57.0, 167.0, 1421.0, 749.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -7339,7 +7339,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 127.0, 261.0, 49.0, 22.0 ],
-                                                    "text": "> 0.999"
+                                                    "text": "> 0.997"
                                                 }
                                             },
                                             {
@@ -7877,7 +7877,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "parizek_ji1"
+                                                    "text": "porcupine15fip"
                                                 }
                                             },
                                             {

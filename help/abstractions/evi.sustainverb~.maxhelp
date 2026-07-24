@@ -80,6 +80,119 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-27",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 595.0, 476.0, 101.0, 21.0 ],
+                                    "text": "See Also:"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-29",
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 595.0, 498.0, 156.0, 21.0 ],
+                                    "text": "Drone Garden Example",
+                                    "texton": "Drone Garden Example"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-30",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 231.0, 352.0, 262.0, 284.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 180.0, 55.0, 22.0 ],
+                                                    "text": "pcontrol"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-17",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 140.0, 84.0, 22.0 ],
+                                                    "text": "prepend load"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-18",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 50.0, 100.0, 183.0, 22.0 ],
+                                                    "text": "list.reg eviexample_dronegarden"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-23",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-8", 0 ],
+                                                    "source": [ "obj-17", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-17", 0 ],
+                                                    "source": [ "obj-18", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-18", 0 ],
+                                                    "source": [ "obj-23", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 595.0, 537.0, 64.0, 23.0 ],
+                                    "text": "p seealso"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-28",
                                     "maxclass": "meter~",
                                     "numinlets": 1,
@@ -271,7 +384,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 636.0, 244.0, 50.0, 23.0 ],
-                                    "text": "70"
+                                    "text": "60"
                                 }
                             },
                             {
@@ -1372,6 +1485,13 @@
                                 "patchline": {
                                     "destination": [ "obj-15", 0 ],
                                     "source": [ "obj-23", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-30", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-29", 0 ]
                                 }
                             },
                             {
@@ -5073,14 +5193,14 @@
             "obj-12::obj-1::obj-54::obj-5": [ "damp[2]", "damp", 0 ],
             "obj-12::obj-1::obj-54::obj-9": [ "crossover[2]", "crossover", 0 ],
             "obj-12::obj-42": [ "number[1]", "number", 0 ],
-            "obj-2::obj-5::obj-54::obj-10": [ "highPass[4]", "highPass", 0 ],
-            "obj-2::obj-5::obj-54::obj-12": [ "fdnGain[4]", "fdnGain", 0 ],
-            "obj-2::obj-5::obj-54::obj-2": [ "early[4]", "early", 0 ],
-            "obj-2::obj-5::obj-54::obj-3": [ "feedback[4]", "feedback", 0 ],
-            "obj-2::obj-5::obj-54::obj-33": [ "dryWet[4]", "dryWet", 0 ],
-            "obj-2::obj-5::obj-54::obj-35": [ "smoothTime[4]", "smoothTime", 0 ],
-            "obj-2::obj-5::obj-54::obj-5": [ "damp[4]", "damp", 0 ],
-            "obj-2::obj-5::obj-54::obj-9": [ "crossover[4]", "crossover", 0 ],
+            "obj-2::obj-5::obj-54::obj-10": [ "highPass[5]", "highPass", 0 ],
+            "obj-2::obj-5::obj-54::obj-12": [ "fdnGain[5]", "fdnGain", 0 ],
+            "obj-2::obj-5::obj-54::obj-2": [ "early[1]", "early", 0 ],
+            "obj-2::obj-5::obj-54::obj-3": [ "feedback[5]", "feedback", 0 ],
+            "obj-2::obj-5::obj-54::obj-33": [ "dryWet[1]", "dryWet", 0 ],
+            "obj-2::obj-5::obj-54::obj-35": [ "smoothTime[1]", "smoothTime", 0 ],
+            "obj-2::obj-5::obj-54::obj-5": [ "damp[5]", "damp", 0 ],
+            "obj-2::obj-5::obj-54::obj-9": [ "crossover[1]", "crossover", 0 ],
             "obj-2::obj-6": [ "number", "number", 0 ],
             "obj-5::obj-13": [ "toggle[2]", "toggle[2]", 0 ],
             "obj-5::obj-36": [ "number[13]", "number[1]", 0 ],
@@ -5097,6 +5217,14 @@
             "obj-5::obj-52": [ "toggle[3]", "toggle[2]", 0 ],
             "obj-5::obj-62": [ "number[11]", "number", 0 ],
             "obj-5::obj-63": [ "number[12]", "number", 0 ],
+            "obj-9::obj-5::obj-54::obj-10": [ "highPass[4]", "highPass", 0 ],
+            "obj-9::obj-5::obj-54::obj-12": [ "fdnGain[4]", "fdnGain", 0 ],
+            "obj-9::obj-5::obj-54::obj-2": [ "early[4]", "early", 0 ],
+            "obj-9::obj-5::obj-54::obj-3": [ "feedback[4]", "feedback", 0 ],
+            "obj-9::obj-5::obj-54::obj-33": [ "dryWet[4]", "dryWet", 0 ],
+            "obj-9::obj-5::obj-54::obj-35": [ "smoothTime[4]", "smoothTime", 0 ],
+            "obj-9::obj-5::obj-54::obj-5": [ "damp[4]", "damp", 0 ],
+            "obj-9::obj-5::obj-54::obj-9": [ "crossover[4]", "crossover", 0 ],
             "obj-9::obj-8": [ "number[3]", "number", 0 ],
             "parameterbanks": {
                 "0": {
