@@ -19,6 +19,18 @@
         "boxes": [
             {
                 "box": {
+                    "hidden": 1,
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 340.0, 487.0, 121.0, 22.0 ],
+                    "text": "r #0_sr_on_on"
+                }
+            },
+            {
+                "box": {
                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                     "fontname": "Arial Bold",
                     "hint": "",
@@ -277,7 +289,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 182.0, 475.0, 130.0, 130.0 ],
                     "rounded": 1.0,
-                    "samples": 20000.0,
+                    "samples": 48000.0,
                     "vertical_divisions": 4
                 }
             },
@@ -321,7 +333,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 182.0, 343.0, 130.0, 130.0 ],
                     "rounded": 1.0,
-                    "samples": 20000.0,
+                    "samples": 48000.0,
                     "vertical_divisions": 4
                 }
             },
@@ -5698,6 +5710,16 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 194.0, 178.0, 121.0, 22.0 ],
+                                                    "text": "s #0_sr_on_on"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "comment": "",
                                                     "id": "obj-6",
                                                     "index": 1,
@@ -5812,6 +5834,12 @@
                                                 "patchline": {
                                                     "destination": [ "obj-4", 0 ],
                                                     "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-8", 0 ],
+                                                    "source": [ "obj-3", 1 ]
                                                 }
                                             },
                                             {
@@ -7877,7 +7905,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "porcupine15fip"
+                                                    "text": "knot"
                                                 }
                                             },
                                             {
@@ -9641,6 +9669,13 @@
                     "destination": [ "obj-39", 0 ],
                     "order": 0,
                     "source": [ "obj-42", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-42", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-7", 0 ]
                 }
             },
             {

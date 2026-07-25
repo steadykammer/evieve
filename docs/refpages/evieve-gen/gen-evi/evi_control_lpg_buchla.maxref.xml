@@ -57,7 +57,7 @@
                 Flag 0/1
             </digest>
             <description>
-                A special option that simplifies the LPG interaction. If set to on (1) the vactrol envelope controls all &#x27;control inlets&#x27; (inlets 4, 5 and 6). This forces a classic LPG sound in a simple way. Typically, when using this feature, one would switch inlets 4, 5 and 6 to zero and control the circuit only via the rise/fall inlets and vactrol attributes. However, the vactrol &#x27;override&#x27; control is summed with the control inlets, so interesting effects can be achieved by utilising &#x27;scale&#x27; (inlet 5) and &#x27;sweep&#x27; (inlet 6) simultaneously (but &#x27;offset&#x27; - inlet 4 - should be zero with the &#x27;override&#x27; feature on). If @override is off (the default), the LPG behaves as normal, with the control inlets only tuned by the values at their inputs.
+                A special option that simplifies the LPG interaction. If set to on (1) the vactrol envelope controls all &#x27;control inlets&#x27; (inlets 2, 3 and 4). This forces a classic LPG sound in a simple way. Typically, when using this feature, one would switch inlets 2, 3 and 4 to zero and control the circuit only via the @vactrol... attributes. However, the vactrol &#x27;override&#x27; control is summed with the control inlets, so interesting effects can be achieved by utilising &#x27;scale&#x27; (inlet 3) and &#x27;sweep&#x27; (inlet 4) simultaneously (but &#x27;offset&#x27; - inlet 2 - is easier to use if set to zero with the &#x27;override&#x27; feature on, although there is no harm in trying). If @override is off (the default), the LPG behaves as normal, with the control inlets only tuned by the values at their inputs.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0' />
@@ -145,7 +145,7 @@
                 In Samples, 1..100
             </digest>
             <description>
-                Ping attack time in samples. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values.
+                Ping attack time in samples. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the control circuit alltogether if @vactrolscalar or the three control inlets are set to low values. Most useful in range 1..20
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='20' />
@@ -167,7 +167,7 @@
                 Normalised 0..1
             </digest>
             <description>
-                Transform the vactrol envelope shape between flat (&#x27;0&#x27;) and sharp (&#x27;1&#x27;). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG.
+                Transform the vactrol envelope shape between flat (&#x27;0&#x27;) and sharp (&#x27;1&#x27;). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG, especially if @vactrolgate is low.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.5' />

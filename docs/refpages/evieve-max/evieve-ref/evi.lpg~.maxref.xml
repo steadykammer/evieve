@@ -44,7 +44,7 @@
 				Resonance 0..2
 			</digest>
 			<description>
-				Filter resonance. Effect depends on other settings, especially @boom and @lpg.
+				Filter resonance. Effect also depends on other settings, especially @boom and @lpg.
 			</description>
 		</inlet>
 		<inlet id="4" type="signal/float">
@@ -52,7 +52,7 @@
 				Control Offset 0..1 (default 0.)
 			</digest>
 			<description>
-				Ping attack time in ms. Because this is an analog modelled vactrol, the attack time has a strong affect on envelope range and sweep. Slower attack times may silence the LPG alltogether if @vactrolscalar or the three control inlets are set to low values.
+				Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
 			</description>
 		</inlet>
 		<inlet id="5" type="signal/float">
@@ -60,28 +60,12 @@
 				Control Scale 0..1 (default 0.5)
 			</digest>
 			<description>
-				Ping decay time in ms. This refers to the voltage release time. The audible decay of the LPG is longer.
+				Scale (multiply) the voltage input to the LPG, thus extending the frequency range of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
 			</description>
 		</inlet>
 		<inlet id="6" type="signal/float">
 			<digest>
 				Control Sweep 0..1 (default 0.7)
-			</digest>
-			<description>
-				Offset (add to) the voltage input to the LPG, thus increasing the starting point of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
-			</description>
-		</inlet>
-		<inlet id="7" type="signal/float">
-			<digest>
-				Control Scale 0..1 (default 0.7)
-			</digest>
-			<description>
-				Scale (multiply) the voltage input to the LPG, thus extending the frequency range of the LPG filter sweep. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
-			</description>
-		</inlet>
-		<inlet id="8" type="signal/float">
-			<digest>
-				Control Sweep 0..1 (default 0.9)
 			</digest>
 			<description>
 				Amount of sweep range of the voltage input to the LPG, from a small range to a large range. Can be used as a classic sounding Lowpass filter cutoff sweeper. Part of the control circuit that engages the voltage (frequency) of the filter/gate.
@@ -119,7 +103,7 @@
 				Envelope, switch with @envout 1 &#x3D; Vactrol (default), @envout 0 &#x3D; Control Circuit
 			</digest>
 			<description>
-				Aux output of the control envelope follower that modifies the ping of the LPG. Can be useful for synchronous downstream processing. See @envout for envelope selection.
+				Aux output of the control envelope follower that modifies the ping of the LPG. Can be useful for synchronous downstream processing. See the @envout attribute for envelope selection.
 			</description>
 		</outlet>
 	</outletlist>
@@ -163,10 +147,21 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Selects an envelope type to be output by the 4th (far right) outlet of the abstraction. If @envout &#x3D;&#x3D; 1 (the default) the vactrol envelope is output. If @envout &#x3D;&#x3D; 0, the &#x27;Rf&#x27; (frequency control voltage) envelope is output.
+				Selects an envelope type to be output by the 4th (far right) outlet of the abstraction. If @envout &#x3D;&#x3D; 1 (the default) the vactrol envelope is output. If @envout &#x3D;&#x3D; 0, the &#x27;Rf&#x27; (frequency control voltage) envelope is output, which are very large voltage values.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
+			</attributelist>
+		</attribute>
+		<attribute name="leakage" get="0" set="1" type="int" size="1">
+			<digest>
+				Flag 0/1
+			</digest>
+			<description>
+				Controls the amplitude signal outputs. If @leakage &#x3D; 0 (the default) the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB). If @leakage &#x3D; 1 no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
 			</attributelist>
 		</attribute>
 		<attribute name="lpg" get="0" set="1" type="float" size="1">
@@ -185,7 +180,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				Turning this off is atypical behaviour. It is strongly advised not to turn this off. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be interesting triggering it linearly, but if you do so be careful of overall gain - if off there are no safeguards for the resonance (inlet 3) or @boom attribute.
+				Turning this off is atypical behaviour. It is strongly advised not to turn this off. On (the default) engages the nonlinearities in the filter/gate structure. However, it can be interesting triggering it linearly, but if you do so be careful of overall gain - if off there are no safeguards for the resonance (inlet 3) or @boom attribute settings.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -196,7 +191,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control offset inlet (inlet 6). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 6 at audio rate.
+				Smooth the control &#x27;offset&#x27; inlet (inlet 4). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 4 at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -207,7 +202,7 @@
 				Flag 0/1
 			</digest>
 			<description>
-				A special option that simplifies the LPG interaction. If set to on (1) the vactrol envelope controls all &#x27;control inlets&#x27; (inlets 6, 7 and 8). This forces a classic LPG sound in a simple way. Typically, when using this feature, one would switch inlets 6, 7 and 8 to zero and control the LPG only via the rise/fall inlets and vactrol attributes. However, the vactrol &#x27;override&#x27; control is summed with the control inlets, so interesting effects can be achieved by utilising &#x27;scale&#x27; (inlet 7) and &#x27;sweep&#x27; (inlet 8) simultaneously (but &#x27;offset&#x27; - inlet 6 - should be zero with the &#x27;override&#x27; feature on). If @override is off (the default), the LPG behaves as normal, with the control inlets only tuned by the values at their inputs.
+				A special option which simplifies the LPG interaction. If set to on (1) the vactrol envelope controls all &#x27;control inlets&#x27; (inlets 4, 5 and 6). This forces a classic LPG sound in a simple way. Typically, when using this feature, one would switch inlets 4, 5 and 6 to zero and control the LPG only via the @vactrol... attributes. However, the vactrol &#x27;override&#x27; control is summed with the control inlets, so interesting effects can be achieved by utilising &#x27;scale&#x27; (inlet 5) and &#x27;sweep&#x27; (inlet 6) simultaneously (but &#x27;offset&#x27; - inlet 4 - is easier to use if set to zero with the &#x27;override&#x27; feature on, although there is no harm in trying). If @override is off (the default), the LPG behaves as normal, with the control inlets only tuned by the values at their inputs.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="0" />
@@ -218,7 +213,7 @@
 				Select 0, 1, 2
 			</digest>
 			<description>
-				Subtle. This control switches between slow..long response times for the voltage input into the control circuit shaper. It is only noticeable with strong @lpg and resonance settings (including @boom).
+				Subtle. This control switches between short..long response times for the voltage input into the control circuit shaper. It is only noticeable with strong @lpg and resonance settings (including @boom).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />
@@ -229,7 +224,7 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control scale inlet (inlet 7). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 7 at audio rate.
+				Smooth the control scale inlet (inlet 5). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 5 at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -251,32 +246,65 @@
 				Time in ms
 			</digest>
 			<description>
-				Smooth the control sweep inlet (inlet 8). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 8 at audio rate.
+				Smooth the control sweep inlet (inlet 6). Useful if using floats on that inlet. Turn off (set to 0) if modulating inlet 6 at audio rate.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="vactrolcontroldamp" get="0" set="1" type="float" size="1">
+		<attribute name="threshold" get="0" set="1" type="float" size="1">
+			<digest>
+				In dB, -120..-40
+			</digest>
+			<description>
+				If the @leakage attribute is set to &#x27;0&#x27; (the default), @threshold sets the vactrol envelope gain level in dB below which the audio output signals are zeroed. If @leakage &#x3D; 1 this attribute is ignored.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="-60." />
+			</attributelist>
+		</attribute>
+		<attribute name="vactroldecay" get="0" set="1" type="float" size="1">
 			<digest>
 				Normalised 0..1
 			</digest>
 			<description>
-				Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound the is rather cool. The mapping filter frequency is set by the @vactrolcontrolhz attribute.
+				The relative decay time of the initial vactrol envelope, 0..1 fast..slow, default 0.5 . Higher values give the vactrol envelope a slow(er) and less dynamic response feeling. Lower values can become very snappy and even clicky. Tune in conjunction with the @vactrolshape attribute, which operates in the y range as oposed to the x range of @vactroldecay.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="float" size="1" value="0.5" />
+			</attributelist>
+		</attribute>
+		<attribute name="vactrolgate" get="0" set="1" type="int" size="1">
+			<digest>
+				Integer 0..100..
+			</digest>
+			<description>
+				Transforms the behaviour of how the LPG attack stage behaves. If set to &#x27;0&#x27;, fast repeated triggers result in dynamic variable &#x27;ping&#x27; maximums, resulting in a novel &#x27;build up&#x27; effect. At 0..4 this effect becomes less pronounced until when set at &#x27;5&#x27; (the default) the attack behaviour of the LPG is predictable and repeatable with normalised maximums for every trigger. If set greater than about 20 the flattening of the ping maximums become more pronounced resulting in atttack &#x27;hold&#x27; behaviours clamping the maximum. The effects of this @vactrolgate attribute is unique to the evieve LPG and mimics certain types of analog behaviour.
+			</description>
+			<attributelist>
+				<attribute name="default" get="0" set="1" type="int" size="1" value="5" />
+			</attributelist>
+		</attribute>
+		<attribute name="vactrolmapdamp" get="0" set="1" type="float" size="1">
+			<digest>
+				Normalised 0..1
+			</digest>
+			<description>
+				Low shelving filter damp, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). 0 &#x3D; no damping (default, bypassed), 1 &#x3D; fully damped. Under the right settings, this attribute can have a strong affect on the attack feeling of the gate voltage. A higher damping value &#x27;softens&#x27; the attack at the filter stage rather than in the envelope stage. This can add a squidgy sound that is rather cool. The mapping filter frequency is set by the @vactrolmaphz attribute.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
 			</attributelist>
 		</attribute>
-		<attribute name="vactrolcontrolhz" get="0" set="1" type="float" size="1">
+		<attribute name="vactrolmaphz" get="0" set="1" type="float" size="1">
 			<digest>
 				In Hz, 4.1..143
 			</digest>
 			<description>
-				Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolcontroldamp attribute and is by default off.
+				Low shelving filter frequency, optionally maps between V_c (vactrol) and V_b (filter cutoff voltage). Typically this would be set to low Hz values (perhaps 5..20) for maximum effect. This filter mapping is controlled by the @vactrolmapdamp attribute and is by default off.
 			</description>
 			<attributelist>
-				<attribute name="default" get="0" set="1" type="float" size="1" value="9.07" />
+				<attribute name="default" get="0" set="1" type="float" size="1" value="9." />
 			</attributelist>
 		</attribute>
 		<attribute name="vactrolscalar" get="0" set="1" type="float" size="1">
@@ -284,7 +312,7 @@
 				Float 1..10000
 			</digest>
 			<description>
-				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the Rise/Fall controls (inlets 4 and 5). Scaling behaviour is also achieved with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; controls (inlets 6, 7 and 8). However, it is possible to keep those control values low and this attribute high to achieve a different sort of LPG effect. This attribute also requires high settings when using the @override attribute feature.
+				Scale the output amplitude of the vactrol envelope at the beginning of the ping chain. Very different behaviours can be achieved by modifying this in combination with careful tuning if the @vactroldecay and @vactrolshape attributes. LPG scaling behaviour is achieved with the &#x27;Offset&#x27;, &#x27;Scale&#x27; and &#x27;Sweep&#x27; controls (inlets 4, 5 and 6), but it is possible to use @vactrolscalar to interact with those settings&#x27; behaviours to achieve different sorts of effects. This attribute can also require high settings when using the @override attribute feature.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="100." />
@@ -295,7 +323,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Transform the vactrol envelope shape between flat (&#x27;0&#x27;) and sharp (&#x27;1&#x27;). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG.
+				Transform the vactrol envelope shape between flat (&#x27;0&#x27;) and sharp (&#x27;1&#x27;). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG, especially if @vactrolgate is low.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0.75" />
@@ -306,7 +334,7 @@
 				Normalised 0..1
 			</digest>
 			<description>
-				Core filter/gate functionality. Smoothly switch or interpolate between LP(G) and VCA behaviour. Using the object as a pure VCA is useful but far less fun. If @lpg is high, this can be thought of as a gate damping effect, darkening the tone. If @lpg is low (or off), this controls the hardness of the VCA attack. Best results are achieved with @vca slightly less than &#x27;1&#x27;. At &#x27;1&#x27; the VCA is very dull.
+				Core filter/gate functionality. Smoothly switch or interpolate between LP(G) and VCA behaviour. Using the object as a pure VCA is useful but far less fun. If @lpg is high, this can be thought of as a gate damping effect, darkening the tone. If @lpg is low (or off), this controls the hardness of the VCA attack, with best &#x27;vca&#x27;-like results achieved with @vca slightly less than &#x27;1&#x27; (at &#x27;1&#x27; the VCA is very dull).
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="0." />
@@ -330,6 +358,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        The code of this abstraction can also be used entirely inside gen~ / GenExpr by using the <o>evi_lpg_buchla</o>.gendsp abstraction (with has internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control. See the 'gen~' tab of the helpfile for details. <br />
+        The code of this abstraction can also be used entirely inside gen~ / GenExpr by using the <o>evi_lpg_buchla</o>.gendsp abstraction (which has internal oversampling) and <o>evi_control_lpg_buchla</o>.gendsp for control. See the 'gen~' tab of the helpfile for details. <br />
 	</discussion>
 </c74object>
