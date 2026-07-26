@@ -28,6 +28,14 @@
             "optional": 1,
             "digestauto": "",
             "digest": "Triggered gate of length specified by @hold attribute."
+        },
+        {
+            "id": 2,
+            "name": "sync",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": ""
         }
     ],
     "attributes": [

@@ -14,6 +14,16 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-2",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 905.0, 643.0, 108.0, 22.0 ],
+                    "text": "out 2 (signal) Sync"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-1",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -25,15 +35,15 @@
             },
             {
                 "box": {
-                    "code": "\r\n// from 'evi_utilities.genexpr'\r\n\r\ntriggerHoldGate(X, hold=10., trigger=1)\n{\n    History\t\tprev_value(0);\n    History\t\thold_count(0);\n    trig \t\t= int(trigger + 1);\n\n    // parse input triggers\n    value\t\t=\tmaximum(X, 0);\t\t\t\t// X = any signal > 0\n    gate\t\t=\tvalue > 0;\t\t\t\t\t// make 'gate' (1/0 gate on/off)\n    trg0\t\t=\tdelta(gate) > 0;\t\t\t// rising edge from 0 (gate-on 'click'-impulse)\n    klick\t\t= -(value) + prev_value;\t\t// make trigger impulses\n    trgU\t\t=\tklick < 0;\t\t\t\t\t// from zero or any upwards change\n    trgD\t\t=\tklick > 0;\t\t\t\t\t// to zero or any downwards change\n    trgUD\t\t=\ttrgU + trgD;\t\t\t\t// either from zero or to zero or any upwards or downwards changes\n    prev_value\t=\tvalue;\t\t\t\t\t\t// update\n\n    seltrigger \t= selector(trig, trgUD, trgU, trgD);\n\n    hold_gate\t= accum(hold_count, seltrigger) >= sah(maximum(int(mstosamps(hold) + 0.5), 1), seltrigger, 0.5, init=0);\n    gate\t\t= hold_gate ? 0 : 1;\n    hold_count\t= gate || seltrigger;\n\n    return      gate;\n}\n\r\n// 'hold' = ms (0 = 1 sample 'click'),\n// 'trigger' = trigger type: 0 = up/down, 1 = up only, 2 = down only\n\r\nParam   hold(10., min=0, max=60000);\r\nParam   trigger(1, min=0, max=2);\r\n\r\nout1    = triggerHoldGate(in1, hold=hold, trigger=trigger);\r\n\r\n",
+                    "code": "\r\n// from 'evi_utilities.genexpr'\r\n\r\ntriggerHoldGate(X, hold=10., trigger=1)\n{\n    History\t\tprev_value(0);\n    History\t\thold_count(0);\n    trig \t\t= int(trigger + 1);\n\n    // parse input triggers\n    value\t\t=\tmaximum(X, 0);\t\t\t\t// X = any signal > 0\n    gate\t\t=\tvalue > 0;\t\t\t\t\t// make 'gate' (1/0 gate on/off)\n    trg0\t\t=\tdelta(gate) > 0;\t\t\t// rising edge from 0 (gate-on 'click'-impulse)\n    klick\t\t= -(value) + prev_value;\t\t// make trigger impulses\n    trgU\t\t=\tklick < 0;\t\t\t\t\t// from zero or any upwards change\n    trgD\t\t=\tklick > 0;\t\t\t\t\t// to zero or any downwards change\n    trgUD\t\t=\ttrgU + trgD;\t\t\t\t// either from zero or to zero or any upwards or downwards changes\n    prev_value\t=\tvalue;\t\t\t\t\t\t// update\n\n    seltrigger \t= selector(trig, trgUD, trgU, trgD);\n\n    hold_gate\t= accum(hold_count, seltrigger) >= sah(maximum(int(mstosamps(hold) + 0.5), 1), seltrigger, 0.5, init=0);\n    gate\t\t= hold_gate ? 0 : 1;\n    hold_count\t= gate || seltrigger;\n\n    return      gate, seltrigger;\n}\n\r\n// 'hold' = ms (0 = 1 sample 'click'),\n// 'trigger' = trigger type: 0 = up/down, 1 = up only, 2 = down only\n\r\nParam   hold(10., min=0, max=60000);\r\nParam   trigger(1, min=0, max=2);\r\n\r\nout1, out2      = triggerHoldGate(in1, hold=hold, trigger=trigger);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "codebox",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
                     "patching_rect": [ 49.0, 58.0, 964.0, 568.0 ]
                 }
             },
@@ -53,6 +63,13 @@
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
                     "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "midpoints": [ 1003.5, 634.5, 914.5, 634.5 ],
+                    "source": [ "obj-3", 1 ]
                 }
             },
             {

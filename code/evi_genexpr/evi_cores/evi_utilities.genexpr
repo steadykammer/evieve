@@ -366,7 +366,7 @@ sel4(w, x, y, z, sel)
     return selector(sel, w, x, y, z, 0);
 }
 
-scan4(x0, x1, x2, x3, scan) // scan should be exactly smoothed, 0..1..2..3..4..5, going from 0..0
+scan4(x0, x1, x2, x3, scan) // scan should be exactly smoothed, 0..1..2..3..4..5
 {
     // would 'fract()' be cheaper than 'wrap()' ?
     return mix(sel4(x0, x1, x2, x3, scan), sel4(x0, x1, x2, x3, (scan+1)), wrap(scan, 0, 1));

@@ -33,6 +33,12 @@
             "type": "signal",
             "digest": "Gate",
             "description": "Triggered gate of length specified by @hold attribute."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Sync",
+            "description": ""
         }
     ],
     "messages": [],

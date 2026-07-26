@@ -23,7 +23,7 @@ triggerHoldGate(X, hold=10., trigger=1)
     gate		= hold_gate ? 0 : 1;
     hold_count	= gate || seltrigger;
 
-    return      gate;
+    return      gate, seltrigger;
 }
 
 // 'hold' = ms (0 = 1 sample 'click'),
@@ -32,5 +32,5 @@ triggerHoldGate(X, hold=10., trigger=1)
 Param   hold(10., min=0, max=60000);
 Param   trigger(1, min=0, max=2);
 
-out1    = triggerHoldGate(in1, hold=hold, trigger=trigger);
+out1, out2      = triggerHoldGate(in1, hold=hold, trigger=trigger);
 

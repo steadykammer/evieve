@@ -129,10 +129,10 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Controls the amplitude signal outputs. If @leakage = 0 (the default) the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB). If @leakage = 1 no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system.",
+            "description": "Controls the amplitude signal outputs. If @leakage = 0 the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB) in a time set by the @ramptime attribute (default 20 ms). If @leakage = 1 (the default) no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system.",
             "default": {
                 "get": 0,
-                "value": "0"
+                "value": "1"
             }
         },
         {
@@ -177,6 +177,17 @@
             "default": {
                 "get": 0,
                 "value": "0"
+            }
+        },
+        {
+            "name": "ramptime",
+            "get": 0,
+            "type": "float",
+            "digest": "Time in ms",
+            "description": "If @leakage = 0, this attribute reresents the ramp time in ms the outputs gains will ramp to zero when the vactrol envelope reaches the @threshold attribute (default -60 dB). If @leakage = 1 (the default) this attribute is ignored.",
+            "default": {
+                "get": 0,
+                "value": "20."
             }
         },
         {
@@ -228,7 +239,7 @@
             "get": 0,
             "type": "float",
             "digest": "In dB, -120..-40",
-            "description": "If the @leakage attribute is set to '0' (the default), @threshold sets the vactrol envelope gain level in dB below which the audio output signals are zeroed. If @leakage = 1 this attribute is ignored.",
+            "description": "If the @leakage attribute is set to '0', @threshold sets the vactrol envelope gain level in dB below which the audio output signals are zeroed. If @leakage = 1 (the default) this attribute is ignored.",
             "default": {
                 "get": 0,
                 "value": "-60."
@@ -297,7 +308,7 @@
             "description": "Transform the vactrol envelope shape between flat ('0') and sharp ('1'). This has a radical affect on the sound of the ping. Higher values also accentuate the attack stage and increase the amplitude of the envelope hitting the LPG, especially if @vactrolgate is low.",
             "default": {
                 "get": 0,
-                "value": "0.75"
+                "value": "0.5"
             }
         },
         {

@@ -43,6 +43,14 @@
 				Triggered gate of length specified by @hold attribute.
 			</description>
 		</outlet>
+		<outlet id="2" type="signal">
+			<digest>
+				Outlet #2: Sync
+			</digest>
+			<description>
+				
+			</description>
+		</outlet>
 	</outletlist>
 	<!--MESSAGES-->
 	<methodlist>
