@@ -19,6 +19,27 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-42",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_examples.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 698.0, 70.0, 192.0, 23.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 698.0, 70.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-38",
                     "maxclass": "live.meter~",
                     "numinlets": 1,
@@ -6666,8 +6687,8 @@
                                     "id": "obj-8",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 668.0, 478.0, 97.0, 22.0 ],
                                     "text": "evi.trigholdgate~",
                                     "varname": "gen~_AE"

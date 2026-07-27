@@ -153,6 +153,7 @@ diodeV(Vin, k1, k2, k3, k4, k5, k6, VT, reset) // audio rate
 // for gain & bias as params, @see: 'evi_clipping.genexpr'
 
 // naive wrap
+// todo: fix dc on initialisation
 diodeWrapGB(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History didu(0);
@@ -652,6 +653,7 @@ diodeWrapGB_4x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 	return dcblock(d1 - w4v(bias));
 }
 
+// massive dc on initialisation problem
 diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History didu8(0);
@@ -660,13 +662,15 @@ diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 	return dcblock(d1 - w4v(bias));
 }
 /*
-// this should work for initialisation, but it does not, why?
+// this works for initialisation, but it is completely horrible
 diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History init(1);
+    // f0 is SO HORRIBLE I WANT TO DIE, AND CRY, AND DIE AGAIN, SORRY FOR f0 :-( please help if you can
+    f0 = 1 - evi_logsmooth(init, 666);
 	d0 = gain * Vin + bias;
 	d1 = diodeV8_8x(d0, k1, k2, k3, k4, k5, k6, VT, reset);
-	diode = d1 - (w4v(bias) * (1 - init));
+	diode = d1 - (w4v(bias) * f0);
 	init = 0;
 	return dcblock(diode);
 }

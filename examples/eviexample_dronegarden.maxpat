@@ -19,6 +19,27 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-12",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_examples.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 712.0, 27.0, 192.0, 23.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 712.0, 27.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-7",
                     "maxclass": "newobj",
@@ -7905,7 +7926,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "knot"
+                                                    "text": "rozencrantz"
                                                 }
                                             },
                                             {
@@ -8802,8 +8823,8 @@
                                     "id": "obj-9",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "multichannelsignal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "multichannelsignal", "multichannelsignal" ],
                                     "patching_rect": [ 140.0, 385.0, 235.0, 22.0 ],
                                     "text": "mc.evi.trigholdgate~ @hold 5 @chans 14"
                                 }

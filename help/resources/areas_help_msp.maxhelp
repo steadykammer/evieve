@@ -29,6 +29,25 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-1",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 439.0, 495.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-49",
                     "maxclass": "live.line",
                     "numinlets": 1,
@@ -97,7 +116,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 508.0, 208.0, 52.0, 21.0 ],
+                    "patching_rect": [ 509.0, 146.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -554,7 +573,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 449.0, 427.0, 169.0, 20.0 ],
+                    "patching_rect": [ 450.0, 365.0, 169.0, 20.0 ],
                     "text": "Other TPT Filters in evieve",
                     "texton": "Other TPT Filters in evieve"
                 }
@@ -579,7 +598,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 449.0, 494.0, 169.0, 20.0 ],
+                    "patching_rect": [ 450.0, 432.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -617,7 +636,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 511.0, 240.0, 46.0, 101.0 ]
+                    "patching_rect": [ 512.0, 178.0, 46.0, 101.0 ]
                 }
             },
             {
@@ -940,7 +959,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 429.0, 358.0, 210.0, 22.0 ],
+                    "patching_rect": [ 430.0, 296.0, 210.0, 22.0 ],
                     "text": "gen~ @t evieve_MSP_filters_in_gen~"
                 }
             },

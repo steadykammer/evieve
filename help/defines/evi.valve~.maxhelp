@@ -7821,7 +7821,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 510.0, 292.0, 130.0, 23.0 ],
-                                    "text_width": 64.0
+                                    "text_width": 76.0
                                 }
                             },
                             {
@@ -7922,7 +7922,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 510.0, 267.0, 130.0, 23.0 ],
-                                    "text_width": 64.0
+                                    "text_width": 76.0
                                 }
                             },
                             {
@@ -8277,7 +8277,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 510.0, 242.0, 130.0, 23.0 ],
-                                    "text_width": 64.0
+                                    "text_width": 76.0
                                 }
                             },
                             {

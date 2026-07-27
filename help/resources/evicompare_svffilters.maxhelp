@@ -41,7 +41,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -56,7 +56,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 1069.0, 574.0, 18.0, 203.0 ],
-                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {
@@ -1537,7 +1537,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 166.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {
@@ -2440,7 +2440,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 161.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {
@@ -3991,13 +3991,32 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-38",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "name": "evimenu_comparisons.maxpat",
+                                    "numinlets": 0,
+                                    "numoutlets": 0,
+                                    "offset": [ 0.0, 0.0 ],
+                                    "patching_rect": [ 872.0, 27.0, 192.0, 23.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "hidden": 1,
@@ -5077,7 +5096,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 173.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {
@@ -7778,7 +7797,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 173.0, 595.0, 14.0, 102.0 ],
-                                    "slidercolor": [ 0.09452562456504829, 0.09452558603066269, 0.0945255959970798, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {

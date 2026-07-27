@@ -31,9 +31,9 @@ reset	= resetaa + resethf;
 
 drive	= in2 + 0;
 iowrapper	= (abs(io) * 3) + 1;			// 1..4 = ± 12 dB
-iogain, lowfilter, highfilter	= expsmoothBank3(iowrapper, lowdamp, highdamp, 0.022666);
-io_in	= io >= 0 ? 1 / iogain : iogain;
-io_out	= io < 0 ? 1 / iogain : iogain;
+ioin	= io >= 0 ? 1 / iowrapper : iowrapper;
+ioout	= io < 0 ? 1 / iowrapper : iowrapper;
+io_in, io_out, lowfilter, highfilter	= expsmoothBank4(ioin, ioout, lowdamp, highdamp, 0.022666);
 
 if (smooth > 0) {							// turn off if modulating in2 at audio rate
 	drive	= logsmooth(drive, smoothsecs);

@@ -481,25 +481,19 @@
                 },
                 {
                     "id": 10,
-                    "kind": "input",
-                    "name": "reset",
-                    "digest": "Sample accurate reset state"
-                },
-                {
-                    "id": 11,
                     "kind": "param",
                     "name": "gain",
                     "default": 0.999999,
                     "type": "float",
-                    "digest": "Gain linear"
+                    "digest": ""
                 },
                 {
-                    "id": 12,
+                    "id": 11,
                     "kind": "param",
                     "name": "bias",
                     "default": 0.000001,
                     "type": "float",
-                    "digest": "Bias offset"
+                    "digest": ""
                 }
             ],
             "returns": [

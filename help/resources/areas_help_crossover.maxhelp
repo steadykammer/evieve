@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
@@ -26,6 +27,25 @@
         "integercoordinates": 1,
         "title": "Crossover filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-20",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 348.0, 461.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
             {
                 "box": {
                     "fontsize": 13.0,

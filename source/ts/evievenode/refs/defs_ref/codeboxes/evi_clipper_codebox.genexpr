@@ -1,18 +1,25 @@
+
 // simple but antialiased clipping for your audio
 // antiderivative anti aliasing + quasi oversampling, by Pete for evieve, 2022
-// "Diode" aliases far sooner than "Hard" or "Soft", sorry
+// "Diode" aliases far sooner than "Hard" or "Soft", see evi.valve~ for better diode
+
 require("evi_clipping.genexpr");
-History prevSR(0);
+
+History prevSR(0), initS(1), initD(1);
 History k1(0.), k2(0.), k3(0.), k4(0.), k5(0.), k6(0.), VT(0.), A1(0.);
+
 Param	oversampling(2, min=0, max=2);	// 0 = 1x, 1 = 2x, 2 = 4x
 Param	clip(0, min=0, max=3);			// 0 = Hard, 1 = Soft, 2 = Diode, 3 = Asym
 cp		= int(clip);
 os		= int(oversampling);
+
 X		= xMega(dcblock(in1), xCONST=0.1);       // ..+40dB
 reset   = (delta(change(cp)) < 0) + (delta(change(os)) < 0);
+
 Y		= 0;
 // Y gains for fake oversampling are tuned to take up to +40dB input
 if (cp == 1) { // soft clip
+    fs = 1 - evi_logsmooth(initS, 999); // the only way
 	if (os == 1) {
 		Y = adSc2_2x_6POINT_fix2(X, reset) * 0.955101;
 	} else if (os == 2) {
@@ -20,7 +27,10 @@ if (cp == 1) { // soft clip
 	} else {
 		Y = adSc2(X, 1, reset) * 0.998008;
 	}
+    Y = Y * fs;
+    initS = 0;
 } else if (cp == 2) { // diode clip
+    fd = 1 - evi_logsmooth(initD, 666); // the only way
     if (prevSR != SAMPLERATE) {
         k1, k2, k3, k4, k5, k6, VT, A1 = diodeCoeffs(SAMPLERATE);
         prevSR = SAMPLERATE;
@@ -32,7 +42,8 @@ if (cp == 1) { // soft clip
 	} else {
 		Y = diode_2x_4POINT(X, k1, k2, k3, k4, k5, k6, VT, A1, reset); // not great
 	}
-	Y = Y * 3.162278; // not wrong
+	Y = Y * fd * 3.162278; // not wrong
+    initD = 0;
 } else if (cp == 3) { // asymmetric clip
 	if (os == 1) {
 		Y = asym_2x_6POINT(X);
@@ -50,4 +61,6 @@ if (cp == 1) { // soft clip
 		Y = adHc2(X, reset) * 0.996263;
 	}
 }
+
 out1 = dcblock(Y * 0.999999);
+

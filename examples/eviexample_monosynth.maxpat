@@ -19,6 +19,27 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-26",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_examples.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 672.0, 27.0, 192.0, 23.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 672.0, 27.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "bubble": 1,
                     "bubbleside": 3,
                     "id": "obj-16",
@@ -3190,8 +3211,9 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
+                                    "inputmode": 2,
                                     "maxclass": "kslider",
-                                    "mode": 1,
+                                    "mode": 2,
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],
@@ -3214,7 +3236,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 1
+                                            "parameter_type": 3
                                         }
                                     },
                                     "varname": "kslider"

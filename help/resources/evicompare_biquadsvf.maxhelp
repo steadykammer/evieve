@@ -84,13 +84,32 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-38",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "name": "evimenu_comparisons.maxpat",
+                                    "numinlets": 0,
+                                    "numoutlets": 0,
+                                    "offset": [ 0.0, 0.0 ],
+                                    "patching_rect": [ 692.0, 27.0, 192.0, 23.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-12",
@@ -683,13 +702,13 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-36",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evieve Compare: Biquads/SVFs", 660 ],
+                                    "jsarguments": [ "evieve Compare: Biquads/SVFs", 680 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
+                                    "patching_rect": [ 10.0, 10.0, 680.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,
@@ -7703,7 +7722,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,
@@ -9571,13 +9590,13 @@
                                     "filename": "evi.helpname.js",
                                     "id": "obj-36",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evieve Compare: Biquads/SVFs", 660 ],
+                                    "jsarguments": [ "evieve Compare: Biquads/SVFs", 680 ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
+                                    "patching_rect": [ 10.0, 10.0, 680.0, 57.599853515625 ],
                                     "textfile": {
                                         "filename": "evi.helpname.js",
                                         "flags": 0,

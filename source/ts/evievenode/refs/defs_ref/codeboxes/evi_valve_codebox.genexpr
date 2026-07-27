@@ -56,6 +56,7 @@ downhalf = int(down * 0.5 + 0.5);
 
 // audio rate from here
 
+f0 = 1 - evi_logsmooth(init, 666); // horrid, but the only way
 if ( (init) || (prevSR != SAMPLERATE) ) {
     od   = mstosamps(86400000);
     k1, k2, k3, k4, k5, k6, VT = diodeCoeffsV(SAMPLERATE);
@@ -121,6 +122,7 @@ valve = 0;
 // do not additionally dcblock anything in this block
 if (dio) {  // 'hard'
     valve = diodeWrapGB_8x(valveInput, k1, k2, k3, k4, k5, k6, VT, gainEnvPost, biasEnv, reset) * 1.995262;
+    valve = valve * f0;
 }
 else {      // 'soft'
     ingain, outgain = atanDriveV(gainEnvPost);

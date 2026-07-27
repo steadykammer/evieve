@@ -129,7 +129,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "Controls the amplitude signal outputs. If @leakage = 0 the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB) in a time set by the @ramptime attribute (default 20 ms). If @leakage = 1 (the default) no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system.",
+            "description": "This attribute is for forcing closed gate behaviour and thus controls the amplitude signal of the outputs. Force closing: if @leakage = 0 the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB) in a time set by the @ramptime attribute (default 20 ms). No forcing (the default): if @leakage = 1, no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system. The key control is 'Offset' (inlet 4) and the key attributes are @vactrolshape and @vactroldecay. More often than not, if 'Offset' is > 0, some residual audio signals will be present in the output and will need forcing off if clean gate behaviour is required. This is also affected by the sharpness of the vactrol envelope controled by the shape and decay. If using @override mode @leakage can usually be left on.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -184,7 +184,7 @@
             "get": 0,
             "type": "float",
             "digest": "Time in ms",
-            "description": "If @leakage = 0, this attribute reresents the ramp time in ms the outputs gains will ramp to zero when the vactrol envelope reaches the @threshold attribute (default -60 dB). If @leakage = 1 (the default) this attribute is ignored.",
+            "description": "If @leakage = 0, this attribute represents the ramp time in ms the outputs gains will ramp to zero over when the vactrol envelope reaches the @threshold attribute (default -60 dB). If @leakage = 1 (the default) this attribute is ignored.",
             "default": {
                 "get": 0,
                 "value": "20."
@@ -238,7 +238,7 @@
             "name": "threshold",
             "get": 0,
             "type": "float",
-            "digest": "In dB, -120..-40",
+            "digest": "In dB, -120..-20",
             "description": "If the @leakage attribute is set to '0', @threshold sets the vactrol envelope gain level in dB below which the audio output signals are zeroed. If @leakage = 1 (the default) this attribute is ignored.",
             "default": {
                 "get": 0,
@@ -261,7 +261,7 @@
             "get": 0,
             "type": "int",
             "digest": "Integer 0..100..",
-            "description": "Transforms the behaviour of how the LPG attack stage behaves. If set to '0', fast repeated triggers result in dynamic variable 'ping' maximums, resulting in a novel 'build up' effect. At 0..4 this effect becomes less pronounced until when set at '5' (the default) the attack behaviour of the LPG is predictable and repeatable with normalised maximums for every trigger. If set greater than about 20 the flattening of the ping maximums become more pronounced resulting in atttack 'hold' behaviours clamping the maximum. The effects of this @vactrolgate attribute are unique to the evieve LPG and mimic certain types of analog behaviours.",
+            "description": "Transforms the behaviour of how the LPG attack stage behaves. If set to '0', fast repeated triggers result in dynamic variable 'ping' maximums, resulting in a novel 'build up' effect with increased activity. At 1..4 this effect becomes less pronounced until when set at '5' (the default) the attack behaviour of the LPG is predictable and repeatable with normalised maximums for every trigger. If set greater than about 20 the flattening of the ping maximums become more pronounced resulting in atttack 'hold' behaviours clamping the maximum. The effects of this @vactrolgate attribute are unique to the evieve LPG and mimic certain types of analog behaviours. This attribute can be changed in real time when using '1' or greater, but be aware that when setting to the minimum '0' a slight delay in the adjustment of the vactrol envelope is incurred.",
             "default": {
                 "get": 0,
                 "value": "5"
