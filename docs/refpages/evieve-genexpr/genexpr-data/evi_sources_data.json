@@ -365,7 +365,7 @@
         },
         {
             "document": true,
-            "digest": "4-point catmull rom cubic spline interpolator with bias and tension parameters",
+            "digest": "4-point catmull rom cubic spline interpolator with bias and tension parameters, similar to the native gen~ example",
             "name": "catmullRomSplineDynamic",
             "inputs": [
                 {

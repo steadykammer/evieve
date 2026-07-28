@@ -19,7 +19,7 @@
   <misc name="GenExpr Functions">
     <entry name="lfoMix ( )">
       <description>
-        A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in tange 0..1 <br />
+        A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in range 0..1 <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: duty, <i>Duty of triangle wave, 0..1, 0.5&#x3D;&#x3D;tri</i> <br />
@@ -32,10 +32,12 @@
     </entry>
     <entry name="lfoSkew ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: phase, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: skew, <i></i> <br />
+        A cheap computed simple sine lfo with added skew, phase 0..1 in, wave 0..1 out <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: skew, <i>Skew exponent of LFO output, 0.5..2, 1&#x3D;&#x3D;no skew</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
+        <b>Return 1</b>: LFO, <i>Wave output in range 0..1</i> <br />
 
       </description>
     </entry>

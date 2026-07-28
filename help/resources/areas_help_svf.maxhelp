@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 1049.0, 834.0 ],
+        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -33,7 +33,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 101.0, 419.0, 222.0, 21.0 ],
-                    "presentation_linecount": 2,
                     "text": "For Linear SVF filters in evieve see:"
                 }
             },
@@ -94,7 +93,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 102.0, 609.0, 202.0, 22.0 ],
+                    "patching_rect": [ 102.0, 609.0, 208.0, 22.0 ],
                     "text": "list.reg evicompare_svffilters.maxhelp"
                 }
             },
@@ -142,7 +141,7 @@
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
-                    "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> - a nonlinear SVF Notch filter which can morph between LP..Notch..HP, as a partial emulation of the ARP 1047 filter/resonator.",
+                    "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> - a nonlinear SVF Notch filter which can morph between LP..Notch..HP, as a partial emulation of the ARP 1047 filter/resonator",
                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
@@ -184,7 +183,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 145.0, 484.0, 33.0 ],
+                    "patching_rect": [ 62.0, 145.0, 475.0, 47.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"

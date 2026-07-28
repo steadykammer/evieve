@@ -19,7 +19,7 @@ reset   = (delta(change(cp)) < 0) + (delta(change(os)) < 0);
 Y		= 0;
 // Y gains for fake oversampling are tuned to take up to +40dB input
 if (cp == 1) { // soft clip
-    fs = 1 - evi_logsmooth(initS, 999); // the only way
+    fs = 1 - evi_logsmooth(initS, 777); // the only way
 	if (os == 1) {
 		Y = adSc2_2x_6POINT_fix2(X, reset) * 0.955101;
 	} else if (os == 2) {
@@ -27,7 +27,7 @@ if (cp == 1) { // soft clip
 	} else {
 		Y = adSc2(X, 1, reset) * 0.998008;
 	}
-    Y = Y * fs;
+    Y = dcblock(Y * fs);
     initS = 0;
 } else if (cp == 2) { // diode clip
     fd = 1 - evi_logsmooth(initD, 666); // the only way

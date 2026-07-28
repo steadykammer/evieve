@@ -84,7 +84,7 @@
         },
         {
             "document": true,
-            "digest": "A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in tange 0..1",
+            "digest": "A computed but cheap LFO that can morph between triangle and sine shapes, requires phase 0..1 input, produces wave shape output in range 0..1",
             "name": "lfoMix",
             "inputs": [
                 {
@@ -122,27 +122,27 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A cheap computed simple sine lfo with added skew, phase 0..1 in, wave 0..1 out",
             "name": "lfoSkew",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "phase",
-                    "digest": ""
+                    "digest": "Phase 0..1"
                 },
                 {
                     "id": 2,
                     "kind": "input",
                     "name": "skew",
-                    "digest": ""
+                    "digest": "Skew exponent of LFO output, 0.5..2, 1==no skew"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "LFO",
+                    "digest": "Wave output in range 0..1"
                 }
             ]
         },

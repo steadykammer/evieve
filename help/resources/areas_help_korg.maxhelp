@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
@@ -56,7 +57,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 151.0, 609.0, 211.0, 22.0 ],
+                    "patching_rect": [ 151.0, 609.0, 217.0, 22.0 ],
                     "text": "list.reg evicompare_korgfilters.maxhelp"
                 }
             },
@@ -121,7 +122,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 61.0, 263.0, 488.0, 48.0 ],
+                    "patching_rect": [ 61.0, 263.0, 484.0, 68.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"

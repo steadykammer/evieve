@@ -8,7 +8,7 @@
     <description>
         <b>evi_vactrol_shape</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
                  <br />
-	    A digital model of a vactrol filter, quasi 'analog' in behaviour, with quirky rise/fall settings in fixed ranges. <br />
+	    A digital model of a vactrol filter, quasi 'analog' in behaviour, with quirky rise/fall settings in fixed normalised ranges. <br />
     </description>
     <methodlist />
     <constructorlist>

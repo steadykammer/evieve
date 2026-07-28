@@ -1,5 +1,5 @@
 {
-    "description": "Antialiased antiderivative and oversampled clipping functions for treating your precious audio well when clipping is required. A choice of four clippers are available: Hard clipping, Diode clipping, Asymmetric clipping and Soft clipping. The oversampled versions of these functions can give up to +40dB headroom, but using just the antiderivatives when not clipping too hard are also very effective. These are for all people who disastrously like to use [clip~ -1. 1.] in their patchers (you should never do this).",
+    "description": "Antialiased antiderivative and oversampled clipping functions for treating your precious audio well when clipping is required. A choice of four clippers are available: Hard clipping, Diode clipping, Asymmetric clipping and Soft clipping. The oversampled versions of these functions can give up to +40dB headroom, but using just the antiderivatives when not clipping too hard are also very effective. These are for all people who disastrously like to use [clip~ -1. 1.] in their audio chains (you should never do this).",
     "requires": [
         "evi_utilities.genexpr",
         "evi_interp.genexpr"

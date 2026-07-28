@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -408,8 +408,8 @@
                                     "id": "obj-22",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 461.0, 310.0, 104.0, 23.0 ],
                                     "text": "evi.trigholdgate~"
                                 }
@@ -3164,7 +3164,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 285.0, 281.0, 199.0, 38.0 ],
-                                    "text": "0.521083 0.548204 0.672067 0.880797"
+                                    "text": "0.119799 0.219374 0.597536 0.641421 0.776408 0.970954"
                                 }
                             },
                             {
@@ -3574,6 +3574,20 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "bubblepoint": 0.25,
+                                                    "bubbleside": 0,
+                                                    "id": "obj-13",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 639.0, 232.0, 150.0, 39.0 ],
+                                                    "text": "@scalar 1 is the default",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-15",
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
@@ -3647,8 +3661,8 @@
                                                     "id": "obj-8",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
                                                     "patching_rect": [ 586.0, 109.0, 93.0, 22.0 ],
                                                     "text": "evi_trigholdgate"
                                                 }

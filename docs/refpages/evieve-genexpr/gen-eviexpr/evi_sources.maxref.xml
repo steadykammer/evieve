@@ -149,7 +149,7 @@
     </entry>
     <entry name="catmullRomSplineDynamic ( )">
       <description>
-        4-point catmull rom cubic spline interpolator with bias and tension parameters <br />
+        4-point catmull rom cubic spline interpolator with bias and tension parameters, similar to the native gen~ example <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: f, <i>Interpolator 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: y0, <i>Cubic interpolator input 1</i> <br />

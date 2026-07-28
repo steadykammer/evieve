@@ -11,7 +11,7 @@
         evi_warmer.gendsp requires the GenExpr file(s): <br />
         <o>evi_warmer_lib</o>.genexpr <br />
          <br />
-	    Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed. Some of the attributes are slightly differently named as opposed to the MSP <o>evi.warmer~</o> wrapper version. <br />
+	    Based on an idea by Tom Szilagyi. Contains two asymmetric saturation stages with a foldover boosting function and tone control filter. The effect can be blended between atan and asymmetric like behaviour, and the tonal characteristics can be continuously morphed. Some of the attributes are slightly differently named as opposed to the MSP <o>evi.warmer~</o> wrapper abstraction version. <br />
     </description>
     <methodlist />
     <constructorlist>

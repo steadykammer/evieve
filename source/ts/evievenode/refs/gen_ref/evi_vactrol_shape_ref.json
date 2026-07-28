@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "A digital model of a vactrol filter",
-        "description": "A digital model of a vactrol filter, quasi 'analog' in behaviour, with quirky rise/fall settings in fixed ranges."
+        "description": "A digital model of a vactrol filter, quasi 'analog' in behaviour, with quirky rise/fall settings in fixed normalised ranges."
     },
     "constructor": {
         "inlets": "voltage, rise, fall"

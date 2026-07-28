@@ -179,7 +179,7 @@ alphabeticalSort.local = 1;
 const excludeObjects = [
 	"evi.list.interp",
 	"evi.list.xfade",
-	"evi.modalres~", // todo
+	"evi.modalres~",
 	"evi.tpqm",
 	"evi.transratio",
 	"mc.evi.bands~",

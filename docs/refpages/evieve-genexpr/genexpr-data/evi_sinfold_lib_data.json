@@ -1,5 +1,5 @@
 {
-    "description": "This file just wraps the 'sinFold()' adaa functions from the 'evi_saturators.genexpr' file for ease of use in the MSP [evi.sinfold~] abstraction. Not very useful for anything else, but useful if you want to use the same sine saturating waveshaper in your own code.",
+    "description": "This file just wraps the 'sinFold()' adaa functions from the 'evi_saturators.genexpr' file for ease of use in the gen~ [evi_sinfold] abstraction and the MSP [evi.sinfold~] define. Not very useful for anything else, but useful if you want to use the same sine saturating waveshaper in your own code.",
     "requires": [
         "evi_smooth.genexpr",
         "evi_trig.genexpr",

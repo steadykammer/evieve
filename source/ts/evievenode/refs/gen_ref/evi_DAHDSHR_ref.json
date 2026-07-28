@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "ADSR envelope generator, similar features to MSP <o>adsr~</o> but with logarithmic segments",
-        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>, and other sample accurate processes in <o>gen~</o>. See <o>evi.adsr~</o> for an MSP version."
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>, and other sample accurate processes in <o>gen~</o>. See <o>evi.adsr~</o> for a wrapped MSP abstraction version."
     },
     "constructor": {
         "inlets": "gate, delay, attack, hold1, decay, sustain, hold2, release"

@@ -849,8 +849,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 471.0, 430.0, 129.0, 23.0 ],
-                                    "text": "evi.logsmooth~ 1. 33"
+                                    "patching_rect": [ 471.0, 430.0, 143.0, 23.0 ],
+                                    "text": "evi.logsmooth~ 0.82 33"
                                 }
                             },
                             {
@@ -919,7 +919,7 @@
                                     "patching_rect": [ 471.0, 391.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial": [ 0.82 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[52]",
                                             "parameter_mmax": 1.4,

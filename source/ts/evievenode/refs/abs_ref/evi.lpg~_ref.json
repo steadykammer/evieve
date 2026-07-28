@@ -129,7 +129,7 @@
             "get": 0,
             "type": "int",
             "digest": "Flag 0/1",
-            "description": "This attribute is for forcing closed gate behaviour and thus controls the amplitude signal of the outputs. Force closing: if @leakage = 0 the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB) in a time set by the @ramptime attribute (default 20 ms). No forcing (the default): if @leakage = 1, no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system. The key control is 'Offset' (inlet 4) and the key attributes are @vactrolshape and @vactroldecay. More often than not, if 'Offset' is > 0, some residual audio signals will be present in the output and will need forcing off if clean gate behaviour is required. This is also affected by the sharpness of the vactrol envelope controled by the shape and decay. If using @override mode @leakage can usually be left on.",
+            "description": "This attribute is for forcing closed gate behaviour and thus controls the amplitude signal of the outputs. Force closing: if @leakage = 0 the audio outputs of the object are zeroed when the amplitude of the vactrol envelope reaches below a certain gain level set by the @threshold attribute (default -60 dB) in a time set by the @ramptime attribute (default 100 ms). No forcing (the default): if @leakage = 1, no attempt is made to silence the outputs, often resulting in constant low level audio, as can happen in an analog system. The key control is 'Offset' (inlet 4) and the key attributes are @vactrolshape and @vactroldecay. More often than not, if 'Offset' is > 0, some residual audio signals will be present in the output and will need forcing off if clean gate behaviour is required. This is also affected by the sharpness of the vactrol envelope controled by the shape and decay. If using @override mode @leakage can usually be left on.",
             "default": {
                 "get": 0,
                 "value": "1"
@@ -187,7 +187,7 @@
             "description": "If @leakage = 0, this attribute represents the ramp time in ms the outputs gains will ramp to zero over when the vactrol envelope reaches the @threshold attribute (default -60 dB). If @leakage = 1 (the default) this attribute is ignored.",
             "default": {
                 "get": 0,
-                "value": "20."
+                "value": "100."
             }
         },
         {

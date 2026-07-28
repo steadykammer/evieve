@@ -15,7 +15,7 @@
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
-        "title": "evieve Examples: West Coast Playground",
+        "title": "evieve Examples: Off Coast Playground",
         "boxes": [
             {
                 "box": {

@@ -48,7 +48,7 @@ fastskewlfo052ar(x, skew)					// !! skew must be clamped 0.5..2 !!
 	return y;
 }
 
-// thanks Alex
+// thanks Alex Harker
 // lfo morphable between tri and sine with added skew, phase 0..1 in, wave 0..1 out
 lfoMix(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri phase)
 {
