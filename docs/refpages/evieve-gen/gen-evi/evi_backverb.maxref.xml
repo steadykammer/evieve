@@ -366,10 +366,10 @@
         </attribute>
         <attribute name='outputnonlinear' type='int' get='0' set='1'>
             <digest>
-                @min 0, @max 1
+                @min 0, @max 2
             </digest>
             <description>
-                The parabolic nonlinearity shape at the end of the reverb chain. 0&#x3D;naive (not recommended as can alias), 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
+                The nonlinearity at the end of the reverb chain. 0&#x3D;Adaa2 (2nd order antiderivative antialiasing) soft saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='1' />

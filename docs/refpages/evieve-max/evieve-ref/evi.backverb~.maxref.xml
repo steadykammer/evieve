@@ -237,10 +237,10 @@
 		</attribute>
 		<attribute name="outputnonlinear" get="0" set="1" type="int" size="1">
 			<digest>
-				Select 0, 1
+				Select 0, 1, 2
 			</digest>
 			<description>
-				The cubic nonlinear shape at the end of the reverb chain. 0&#x3D;Adaa1 (1st order antiderivative antialiasing), 1&#x3D;Adaa2 (2nd order antiderivative antialiasing).
+				The nonlinearity at the end of the reverb chain. 0&#x3D;Adaa2 (2nd order antiderivative antialiasing) soft saturation, 1&#x3D;same but 2x oversampled, 2&#x3D;same but 4x oversampled.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="int" size="1" value="1" />

@@ -28,6 +28,7 @@ tanhLNonlin(xin, oversampling)
 		y = altTanhSqrtAdaa2_4x_6POINT(xin);
 	} else {						// use Adaa 2nd order
 		y = altTanhSqrtAdaa2(xin);
+        y = dcblock(y);
 	}
 	return y;
 }
@@ -42,7 +43,7 @@ cubicNonlin(xin, order)
 	} else {						// use Adaa 1st order
 		y = eCubicAdaa1(xin);
 	}
-	return y;
+	return dcblock(y);
 }
 
 // make oversampling choice on parabolSat nonlinearity
@@ -56,6 +57,23 @@ parabolNonlin(xin, a, c, oversampling)
 		y = parabolSat_4x_6POINT(xin, a, c);
 	} else {						// use 1x
 		y = parabolSat(xin, a, c);
+        y = dcblock(y);
+	}
+	return y;
+}
+
+// make oversampling choice on algebraic nonlinearity
+tanhAlgNonlin(xin, oversampling)
+{
+	History tnhadummy(0);
+	y = 0;
+	if (oversampling == 1) {		// use Adaa2 2x oversampling
+		y = algebraicAdaa2_2x_6POINT(xin);
+	} else if (oversampling == 2) {	// use Adaa2 4x oversampling
+		y = algebraicAdaa2_4x_6POINT(xin);
+	} else {						// use Adaa 2nd order
+		y = algebraicAdaa2(xin);
+        y = dcblock(y);
 	}
 	return y;
 }
@@ -128,8 +146,8 @@ Param	feedbackdamphigh(0.8666, min=0, max=1);		// ...
 Param	feedback(2.4, min=0.01, max=10);			// amplitude
 
 Param	feedbacknonlinear(1, min=0, max=2);			// 0 = Adaa2, 1 = 2x, 2 = 4x oversampled
-Param	outputnonlinear(1, min=0, max=1);			// 0 = Adaa1, 1 = Adaa2
-// secret gains (careful, not smoothed)
+Param	outputnonlinear(1, min=0, max=2);			// 0 = Adaa2, 1 = 2x, 2 = 4x oversampled
+// secret gains switch (careful, not smoothed)
 Param	outputnonlineargains(0, min=0, max=1);		// switch input/output gains of output nonlinearity pre/post
 
 Param	modulationdepth(4., min=-16, max=16);		// ± ms peak to peak
@@ -269,8 +287,10 @@ ssR		= dcblock(tap05 + tap06 + tap07 + tap08) * outputAttenuation;
 
 //ssL		= parabolNonlin(ssL, opNlGain1, opNlGain2, opNonlin);	// nonlins choice (opNonlin)
 //ssR		= parabolNonlin(ssR, opNlGain1, opNlGain2, opNonlin);	// ...
-ssL		= cubicNonlin(ssL * opNlGain1, opNonlin) * opNlGain2;	// nonlins choice (opNonlin)
-ssR		= cubicNonlin(ssR * opNlGain1, opNonlin) * opNlGain2;	// ...
+//ssL		= cubicNonlin(ssL * opNlGain1, opNonlin) * opNlGain2;	// nonlins choice (opNonlin)
+//ssR		= cubicNonlin(ssR * opNlGain1, opNonlin) * opNlGain2;	// ...
+ssL		= tanhAlgNonlin(ssL * opNlGain1, opNonlin) * opNlGain2;	    // nonlins choice (opNonlin)
+ssR		= tanhAlgNonlin(ssR * opNlGain1, opNonlin) * opNlGain2;	    // ...
 
 //ssL		= dcblock(ssL);
 //ssR		= dcblock(ssR);
