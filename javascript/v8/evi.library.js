@@ -15,9 +15,8 @@
     evieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
     without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
-
-    //  //  //  //  //  //  //  //
-
+*/
+/*!
     v8 extensions for evieve
     shared library used by the evieve TS/JS ( [v8] / [v8ui] )
 
@@ -35,16 +34,6 @@ export const eviUtil = {
   cheapRandomInt: (minInt, maxInt) => {
     return Math.floor(Math.random() * (maxInt - minInt + 1)) + minInt;
   },
-  /*
-      insideRect: (coordinateXY: Position, region: Rect) => {
-        // Checks if a coordinateXY is inside a specific region
-        const x = coordinateXY[0]
-        const y = coordinateXY[1]
-        const InsideYRange = !!(y >= region[1] && y <= region[3])
-        const insideXRange = !!(x >= region[0] && x <= region[2])
-        return insideXRange && InsideYRange
-      },
-  */
   dbtoa: (db) => {
     return Math.exp(eviConst.LOGTENDIVTWENTY * db);
   },

@@ -417,6 +417,14 @@
                         {
                             "number": 21,
                             "data": [ 5, "obj-10", "live.dial", "float", 100.0, 5, "obj-2", "live.dial", "float", 100.0, 5, "obj-3", "live.dial", "float", -50.0, 5, "obj-4", "live.dial", "float", -30.0, 5, "obj-6", "live.dial", "float", 30.0, 5, "obj-5", "live.dial", "float", 70.0, 5, "obj-7", "live.dial", "float", 71.6721420288086, 5, "obj-1", "live.dial", "float", 5.939806938171387, 5, "obj-9", "live.dial", "float", 100.0, 5, "obj-18", "live.dial", "float", 74.0, 5, "obj-19", "live.dial", "float", 1.0, 5, "obj-20", "live.dial", "float", 66.0, 5, "obj-21", "live.dial", "float", 86.0, 5, "obj-23", "live.dial", "float", 0.0, 5, "obj-22", "live.dial", "float", 0.0, 5, "obj-25", "live.dial", "float", 0.0, 5, "obj-24", "live.dial", "float", 0.0, 5, "obj-26", "live.dial", "float", 0.0, 5, "obj-27", "live.dial", "float", 0.0, 5, "obj-28", "live.dial", "float", 50.0, 5, "obj-122", "toggle", "int", 0, 5, "obj-15", "number", "float", 0.6000000238418579, 5, "obj-158", "umenu", "int", 18 ]
+                        },
+                        {
+                            "number": 47,
+                            "data": [ 5, "obj-10", "live.dial", "float", 0.0, 5, "obj-2", "live.dial", "float", 0.0, 5, "obj-3", "live.dial", "float", -100.0, 5, "obj-4", "live.dial", "float", -98.4251937866211, 5, "obj-6", "live.dial", "float", 0.0, 5, "obj-5", "live.dial", "float", 0.0, 5, "obj-7", "live.dial", "float", 0.0, 5, "obj-1", "live.dial", "float", 0.0, 5, "obj-9", "live.dial", "float", 0.0, 5, "obj-18", "live.dial", "float", 0.0, 5, "obj-19", "live.dial", "float", 0.0, 5, "obj-20", "live.dial", "float", 0.0, 5, "obj-21", "live.dial", "float", 0.0, 5, "obj-23", "live.dial", "float", 100.0, 5, "obj-22", "live.dial", "float", 0.0, 5, "obj-25", "live.dial", "float", 0.0, 5, "obj-24", "live.dial", "float", 0.0, 5, "obj-26", "live.dial", "float", 0.0, 5, "obj-27", "live.dial", "float", 0.0, 5, "obj-28", "live.dial", "float", 0.0, 5, "obj-122", "toggle", "int", 0, 5, "obj-15", "number", "float", 1.0, 5, "obj-158", "umenu", "int", 20 ]
+                        },
+                        {
+                            "number": 48,
+                            "data": [ 5, "obj-10", "live.dial", "float", 100.0, 5, "obj-2", "live.dial", "float", 100.0, 5, "obj-3", "live.dial", "float", 100.0, 5, "obj-4", "live.dial", "float", 100.0, 5, "obj-6", "live.dial", "float", 100.0, 5, "obj-5", "live.dial", "float", 100.0, 5, "obj-7", "live.dial", "float", 1000.0, 5, "obj-1", "live.dial", "float", 1000.0, 5, "obj-9", "live.dial", "float", 100.0, 5, "obj-18", "live.dial", "float", 100.0, 5, "obj-19", "live.dial", "float", 100.0, 5, "obj-20", "live.dial", "float", 100.0, 5, "obj-21", "live.dial", "float", 100.0, 5, "obj-23", "live.dial", "float", 100.0, 5, "obj-22", "live.dial", "float", 100.0, 5, "obj-25", "live.dial", "float", 100.0, 5, "obj-24", "live.dial", "float", 100.0, 5, "obj-26", "live.dial", "float", 100.0, 5, "obj-27", "live.dial", "float", 100.0, 5, "obj-28", "live.dial", "float", 100.0, 5, "obj-122", "toggle", "int", 1, 5, "obj-15", "number", "float", 2.0, 5, "obj-158", "umenu", "int", 0 ]
                         }
                     ]
                 }
@@ -486,11 +494,10 @@
                                             {
                                                 "box": {
                                                     "id": "obj-164",
-                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 305.0, 380.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 305.0, 380.0, 113.0, 22.0 ],
                                                     "text": "s #0_global_hz"
                                                 }
                                             },
@@ -508,23 +515,21 @@
                                             {
                                                 "box": {
                                                     "id": "obj-162",
-                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 455.0, 146.0, 97.0, 22.0 ],
+                                                    "patching_rect": [ 455.0, 146.0, 121.0, 22.0 ],
                                                     "text": "r #0_minimumhz"
                                                 }
                                             },
                                             {
                                                 "box": {
                                                     "id": "obj-161",
-                                                    "linecount": 3,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 455.0, 380.0, 99.0, 22.0 ],
+                                                    "patching_rect": [ 455.0, 380.0, 123.0, 22.0 ],
                                                     "text": "s #0_minimumhz"
                                                 }
                                             },
@@ -7334,24 +7339,22 @@
                                             {
                                                 "box": {
                                                     "id": "obj-95",
-                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 799.0, 196.0, 108.0, 35.0 ],
+                                                    "patching_rect": [ 799.0, 196.0, 124.0, 22.0 ],
                                                     "text": "receive~ #0_trig_2"
                                                 }
                                             },
                                             {
                                                 "box": {
                                                     "id": "obj-91",
-                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 256.0, 267.0, 104.0, 35.0 ],
+                                                    "patching_rect": [ 256.0, 267.0, 120.0, 22.0 ],
                                                     "text": "receive~ #0_lfo_3"
                                                 }
                                             },
@@ -13477,7 +13480,7 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 494.0, 42.0, 91.0, 22.0 ],
+                                    "patching_rect": [ 494.0, 42.0, 91.0, 49.0 ],
                                     "text": "r #0_gate_logic"
                                 }
                             },
@@ -13577,7 +13580,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 369.0, 135.0, 104.0, 22.0 ],
+                                    "patching_rect": [ 369.0, 135.0, 104.0, 35.0 ],
                                     "text": "receive~ #0_lfo_2"
                                 }
                             },
@@ -13589,7 +13592,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 206.0, 135.0, 104.0, 22.0 ],
+                                    "patching_rect": [ 206.0, 135.0, 104.0, 35.0 ],
                                     "text": "receive~ #0_lfo_1"
                                 }
                             },

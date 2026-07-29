@@ -429,8 +429,8 @@
         {
             "name": "outputnonlinear",
             "type": "int",
-            "digest": "@min 0, @max 1",
-            "description": "The parabolic nonlinearity shape at the end of the reverb chain. 0=naive (not recommended as can alias), 1=same but 2x oversampled, 2=same but 4x oversampled.",
+            "digest": "@min 0, @max 2",
+            "description": "The nonlinearity at the end of the reverb chain. 0=Adaa2 (2nd order antiderivative antialiasing) soft saturation, 1=same but 2x oversampled, 2=same but 4x oversampled.",
             "default": {
                 "type": "int",
                 "value": "1"
