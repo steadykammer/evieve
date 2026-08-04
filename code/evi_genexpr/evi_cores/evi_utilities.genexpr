@@ -87,6 +87,7 @@ eviCopysign(y, x) // <<-- HA HA !!
   return (x >= 0) ? y : -y;
 }
 
+// i cannot remember where i used this
 runningMax(current, reset)
 {
     History prev(0);

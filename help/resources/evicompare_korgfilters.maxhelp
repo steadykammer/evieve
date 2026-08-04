@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 2,
+            "minor": 3,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -35,7 +35,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -48,6 +48,17 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-49",
+                                    "maxclass": "live.meter~",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "float", "int" ],
+                                    "patching_rect": [ 140.0, 595.0, 14.0, 102.0 ],
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
@@ -244,7 +255,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -685,6 +696,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-18", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-49", 0 ],
+                                    "order": 1,
                                     "source": [ "obj-3", 0 ]
                                 }
                             }
@@ -705,13 +724,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -797,7 +816,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -969,7 +988,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1001,7 +1020,7 @@
                                                         "fileversion": 1,
                                                         "appversion": {
                                                             "major": 9,
-                                                            "minor": 2,
+                                                            "minor": 3,
                                                             "revision": 0,
                                                             "architecture": "x64",
                                                             "modernui": 1
@@ -1396,7 +1415,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1929,7 +1948,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2962,13 +2981,13 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 2,
+                            "minor": 3,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -3802,7 +3821,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -4173,7 +4192,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 2,
+                                            "minor": 3,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1

@@ -25,7 +25,7 @@
     "outlets": [
         {
             "id": 1,
-            "name": "valve",
+            "name": "tube",
             "type": "float",
             "optional": 1,
             "digestauto": "Goodness",

@@ -8,7 +8,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "Helper function, return 'sqrt(x * sign(x)'",
+            "digest": "Helper function, return 'sqrt(x * sign(x))'",
             "name": "D",
             "inputs": [
                 {
@@ -22,7 +22,7 @@
                 {
                     "id": 1,
                     "name": "Y",
-                    "digest": "sqrt(x * sign(x)"
+                    "digest": "sqrt(x * sign(x))"
                 }
             ]
         },

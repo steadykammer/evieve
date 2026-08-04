@@ -36,7 +36,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "A sample accurate hold/gate via sample trigger, available in gen~ as 'evi_trigholdgate' and available in MSP as 'evi.trigholdgate~'",
             "name": "triggerHoldGate",
             "inputs": [
                 {
@@ -163,8 +163,8 @@
             ]
         },
         {
-            "document": true,
-            "digest": "",
+            "document": false,
+            "digest": "This is very interesting, but i cannot remember where i used it or what situation it is useful in, so it is 'false' for now",
             "name": "runningMax",
             "inputs": [
                 {

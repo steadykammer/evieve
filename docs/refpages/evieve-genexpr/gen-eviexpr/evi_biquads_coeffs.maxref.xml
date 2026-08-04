@@ -498,7 +498,7 @@
     </entry>
     <entry name="eviBiquadCoeffResonantAnalog ( )">
       <description>
-        Martin Vicanek analog matched method, incorrectly called 'Bandpass' in the paper <br />
+        Martin Vicanek analog matched method, confusingly called 'Bandpass' in the paper <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: cutoff, <i></i> <br />
         <b>In 2</b>: type=<i>input</i>: fullQ, <i></i> <br />

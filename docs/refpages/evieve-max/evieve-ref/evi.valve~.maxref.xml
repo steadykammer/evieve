@@ -39,7 +39,7 @@
 	<outletlist>
 		<outlet id="1" type="signal">
 			<digest>
-				Outlet #1: Valve Goodness
+				Outlet #1: Tube Goodness
 			</digest>
 			<description>
 				The valve distortion output.

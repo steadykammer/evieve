@@ -31131,8 +31131,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "lambertW",
-                "raw": "lambertW"
+                "name": "wavefoldLambertW",
+                "raw": "wavefoldLambertW"
             },
             "params": [
                 {
@@ -31526,8 +31526,8 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
-                "name": "lockhartAA",
-                "raw": "lockhartAA"
+                "name": "wavefoldAA",
+                "raw": "wavefoldAA"
             },
             "params": [
                 {
@@ -31926,8 +31926,8 @@
                                 ],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "lambertW",
-                                    "raw": "lambertW"
+                                    "name": "wavefoldLambertW",
+                                    "raw": "wavefoldLambertW"
                                 }
                             }
                         }
@@ -32204,8 +32204,8 @@
                                             ],
                                             "callee": {
                                                 "type": "Identifier",
-                                                "name": "lambertW",
-                                                "raw": "lambertW"
+                                                "name": "wavefoldLambertW",
+                                                "raw": "wavefoldLambertW"
                                             }
                                         }
                                     }

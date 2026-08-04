@@ -21,11 +21,11 @@
   <misc name="GenExpr Functions">
     <entry name="D ( )">
       <description>
-        Helper function, return 'sqrt(x * sign(x)' <br />
+        Helper function, return 'sqrt(x * sign(x))' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>X</i> <br />
 
-        <b>Return 1</b>: Y, <i>sqrt(x * sign(x)</i> <br />
+        <b>Return 1</b>: Y, <i>sqrt(x * sign(x))</i> <br />
 
       </description>
     </entry>

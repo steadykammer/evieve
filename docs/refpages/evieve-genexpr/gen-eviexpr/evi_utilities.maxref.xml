@@ -31,6 +31,8 @@
     </entry>
     <entry name="triggerHoldGate ( )">
       <description>
+        A sample accurate hold/gate via sample trigger, available in gen~ as 'evi_trigholdgate' and available in MSP as 'evi.trigholdgate~' <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: X, <i>Trigger (anything &gt; 0)</i> <br />
         <b>In 2</b>: type=<i>param</i> (optional): hold, default: <b>10</b>, <i>Hold time in ms (0-ms &#x3D; 1-sample click)</i> <br />
         <b>In 3</b>: type=<i>param</i> (optional): trigger, default: <b>1</b>, <i>Trigger response, 0 &#x3D; up/down, 1 &#x3D; up only, 2 &#x3D; down only</i> <br />
@@ -67,15 +69,6 @@
         <b>In 1</b>: type=<i>input</i>: cutoff, <i>in Hz</i> <br />
 
         <b>Return 1</b>: G, <i>g coefficient for trapezoidal linear rc filters</i> <br />
-
-      </description>
-    </entry>
-    <entry name="runningMax ( )">
-      <description>
-        <b>In 1</b>: type=<i>input</i>: current, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: reset, <i></i> <br />
-
-        <b>Return 1</b>: , <i></i> <br />
 
       </description>
     </entry>

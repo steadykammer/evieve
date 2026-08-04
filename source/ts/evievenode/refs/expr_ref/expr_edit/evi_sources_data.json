@@ -243,31 +243,31 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "like 'eviRand()' but with additional cosine interpolated output",
             "name": "eviRandC",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "p",
-                    "digest": ""
+                    "digest": "Phasor driver 0..1 (not frequency)"
                 }
             ],
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
-                    "digest": ""
+                    "name": "nv",
+                    "digest": "Linear rand oscillator output"
                 },
                 {
                     "id": 2,
-                    "name": "",
-                    "digest": ""
+                    "name": "nw",
+                    "digest": "Cosine rand oscillator output"
                 },
                 {
                     "id": 3,
-                    "name": "",
-                    "digest": ""
+                    "name": "n",
+                    "digest": "Internal white noise source sync"
                 }
             ]
         },

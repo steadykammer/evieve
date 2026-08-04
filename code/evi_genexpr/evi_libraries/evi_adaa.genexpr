@@ -18,6 +18,7 @@
 
 
 // most of the adaa (anti derivative antialiasing) in evieve is in this file
+// see also: 'evi_clipping.genexpr' & 'evi_saturators.genexpr'
 
 
 // theory:
@@ -1556,7 +1557,7 @@ adaa_2_template(x0)
 
 
 // Lambert-W function
-lambertW(x, ln1, loop, thresh)
+wavefoldLambertW(x, ln1, loop, thresh)
 {
   // initial guess (use previous value)
   w   = ln1;
@@ -1581,8 +1582,8 @@ lambertW(x, ln1, loop, thresh)
   return  w;
 }
 
-// Antialiased Lockhart wavefolder with Lambert-W function
-lockhartAA(Xo, loop=1000)
+// Antialiased wavefolder with Lambert-W function
+wavefoldAA(Xo, loop=1000)
 {
   // declare previous state
   History Ln1(0), Fn1(0), Xn1(0);
@@ -1604,7 +1605,7 @@ lockhartAA(Xo, loop=1000)
   // compute antiderivative (adaa, 1st order)
 //  u = d * expApprox(l * b * Xo);
   u = d * exp(l * b * Xo);  // :-(
-  Ln  = lambertW(u, Ln1, loop, epsilon);
+  Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
     Lp1 = 1 + Ln;
 //  Fn  = (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
   Fn  = VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
@@ -1617,7 +1618,7 @@ lockhartAA(Xo, loop=1000)
     //  !! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
     u = d * expApprox(l * b * Xn);
 //    u = d * exp(l * b * Xn);
-    Ln  = lambertW(u, Ln1, loop, epsilon);
+    Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
 //    Yn  = (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
     Yn  = (l * VT * Ln) - Xn;
   } else {

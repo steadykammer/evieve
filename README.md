@@ -106,17 +106,5 @@ Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vi
 
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| JSON (incl. *.maxpat*) | 504 | 642,845 | 5 | 44 | 642,894 |
-| XML (docs) | 400 | 53,537 | 1,900 | 2,090 | 57,527 |
-| **GenExpr** (`evieve`) | 341 | 31,996 | 10,622 | 9,809 | 52,427 |
-| C++ | 130 | 21,716 | 13,567 | 5,490 | 40,773 |
-| C | 17 | 4,564 | 282 | 849 | 5,695 |
-| TypeScript | 13 | 4,237 | 835 | 666 | 5,738 |
-| JavaScript | 18 | 2,994 | 549 | 316 | 3,859 |
-| CMake | 18 | 735 | 0 | 167 | 902 |
-| YAML | 3 | 640 | 0 | 179 | 819 |
-| Peggy | 1 | 580 | 188 | 88 | 856 |
-| Handlebars | 12 | 561 | 0 | 21 | 582 |
-| Markdown | 7 | 97 | 0 | 58 | 155 |
-| JSON with Comments | 2 | 41 | 8 | 3 | 52 |
+| GenExpr | 54 | 16,757 | 6,308 | 4,229 | 27,294 |
 

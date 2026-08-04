@@ -1,7 +1,7 @@
 {
 	"name" : "evieve",
 	"displayname" : "",
-	"version" : "0.4.0",
+	"version" : "0.5.0",
 	"author" : "Pete Dowling (stkr)",
 	"authors" : [  ],
 	"description" : "A library of GenExpr audio code",

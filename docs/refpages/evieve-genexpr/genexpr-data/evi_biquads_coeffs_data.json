@@ -1532,7 +1532,7 @@
         },
         {
             "document": true,
-            "digest": "Martin Vicanek analog matched method, incorrectly called 'Bandpass' in the paper",
+            "digest": "Martin Vicanek analog matched method, confusingly called 'Bandpass' in the paper",
             "name": "eviBiquadCoeffResonantAnalog",
             "inputs": [
                 {

@@ -18,7 +18,7 @@
 
 require("evi_utilities.genexpr");
 require("evi_interp.genexpr");
-
+// see also: 'evi_adaa.genexpr' & 'evi_saturators.genexpr'
 
 //	//	//	Hard Clip	//	//	//
 

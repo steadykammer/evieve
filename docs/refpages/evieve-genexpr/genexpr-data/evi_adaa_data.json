@@ -1530,7 +1530,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "First order antiderivative antialiasing of the Szilagyi static waveshaper",
             "name": "szilagyiAdaa1",
             "inputs": [
                 {
@@ -1543,14 +1543,14 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
+                    "name": "Folded",
                     "digest": "Antialiased clipping output"
                 }
             ]
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Second order antiderivative antialiasing of the Szilagyi static waveshaper",
             "name": "szilagyiAdaa2",
             "inputs": [
                 {
@@ -1563,7 +1563,7 @@
             "returns": [
                 {
                     "id": 1,
-                    "name": "",
+                    "name": "Folded",
                     "digest": "Antialiased clipping output"
                 }
             ]
@@ -2010,8 +2010,8 @@
         },
         {
             "document": true,
-            "digest": "Lambert W loop for the Lockhart wavefolder",
-            "name": "lambertW",
+            "digest": "Lambert W loop for the wavefolder objects",
+            "name": "wavefoldLambertW",
             "inputs": [
                 {
                     "id": 1,
@@ -2048,8 +2048,8 @@
         },
         {
             "document": true,
-            "digest": "First order antiderivative antialiasing of the Lockhart wavefolder function",
-            "name": "lockhartAA",
+            "digest": "First order antiderivative antialiasing for the wavefolder objects",
+            "name": "wavefoldAA",
             "inputs": [
                 {
                     "id": 1,

@@ -103,11 +103,13 @@
     </entry>
     <entry name="eviRandC ( )">
       <description>
-        <b>In 1</b>: type=<i>input</i>: p, <i></i> <br />
+        like 'eviRand()' but with additional cosine interpolated output <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
 
-        <b>Return 1</b>: , <i></i> <br />
-        <b>Return 2</b>: , <i></i> <br />
-        <b>Return 3</b>: , <i></i> <br />
+        <b>Return 1</b>: nv, <i>Linear rand oscillator output</i> <br />
+        <b>Return 2</b>: nw, <i>Cosine rand oscillator output</i> <br />
+        <b>Return 3</b>: n, <i>Internal white noise source sync</i> <br />
 
       </description>
     </entry>

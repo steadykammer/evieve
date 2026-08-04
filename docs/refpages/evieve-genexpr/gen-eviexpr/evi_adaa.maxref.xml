@@ -270,17 +270,21 @@
     </entry>
     <entry name="szilagyiAdaa1 ( )">
       <description>
+        First order antiderivative antialiasing of the Szilagyi static waveshaper <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: , <i>Antialiased clipping output</i> <br />
+        <b>Return 1</b>: Folded, <i>Antialiased clipping output</i> <br />
 
       </description>
     </entry>
     <entry name="szilagyiAdaa2 ( )">
       <description>
+        Second order antiderivative antialiasing of the Szilagyi static waveshaper <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: x0, <i>Audio input to saturate</i> <br />
 
-        <b>Return 1</b>: , <i>Antialiased clipping output</i> <br />
+        <b>Return 1</b>: Folded, <i>Antialiased clipping output</i> <br />
 
       </description>
     </entry>
@@ -336,9 +340,9 @@
 
       </description>
     </entry>
-    <entry name="lambertW ( )">
+    <entry name="wavefoldLambertW ( )">
       <description>
-        Lambert W loop for the Lockhart wavefolder <br />
+        Lambert W loop for the wavefolder objects <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: ln1, <i>Linear prediction (previous) state</i> <br />
@@ -349,9 +353,9 @@
 
       </description>
     </entry>
-    <entry name="lockhartAA ( )">
+    <entry name="wavefoldAA ( )">
       <description>
-        First order antiderivative antialiasing of the Lockhart wavefolder function <br />
+        First order antiderivative antialiasing for the wavefolder objects <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Xo, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>param</i> (optional): loop, default: <b>1000</b>, <i>Number of inner loops to process</i> <br />

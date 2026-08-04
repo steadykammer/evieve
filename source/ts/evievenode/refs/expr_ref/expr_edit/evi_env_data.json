@@ -115,7 +115,7 @@
             ]
         },
         {
-            "document": true,
+            "document": false,
             "digest": "",
             "name": "averageDataV",
             "inputs": [
