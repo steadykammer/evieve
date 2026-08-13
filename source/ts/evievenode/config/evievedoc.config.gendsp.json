@@ -4139,30 +4139,6 @@
                 "auto": true
             }
         },
-        "evi_svfsmoothcore.gendsp": {
-            "define": {
-                "object": false,
-                "msp": "",
-                "mcwrapper": false
-            },
-            "ref": {
-                "gen": false,
-                "msp": false
-            },
-            "helpfile": {
-                "msp": false,
-                "gentab": false,
-                "genexprtab": false,
-                "areaonly": false,
-                "areas": [
-                    "svf"
-                ]
-            },
-            "db": {
-                "browser": false,
-                "auto": false
-            }
-        },
         "evi_svfsynth.gendsp": {
             "define": {
                 "object": true,

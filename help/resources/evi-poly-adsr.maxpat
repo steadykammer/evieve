@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -14,6 +14,17 @@
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-21",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 472.0, 419.0, 203.0, 60.0 ],
+                    "text": "To make this work more like the [adsr~] helpfile you would not use @automute and manage muting manually via the logic in the patcher"
+                }
+            },
             {
                 "box": {
                     "id": "obj-31",
@@ -73,18 +84,6 @@
                     "patching_rect": [ 427.0, 516.0, 248.0, 66.0 ],
                     "text": "evi.adsr~ is designed to work with [thispoly~ @automute 1] rather than the more usual MSP 'mute' message of [adsr~].",
                     "textjustification": 1
-                }
-            },
-            {
-                "box": {
-                    "hidden": 1,
-                    "id": "obj-21",
-                    "maxclass": "button",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "bang" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 371.0, 266.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -177,10 +176,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 617.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 5"
                 }
             },
@@ -194,10 +189,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 562.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 4"
                 }
             },
@@ -211,10 +202,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 507.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 3"
                 }
             },
@@ -228,10 +215,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 451.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 2"
                 }
             },
@@ -242,6 +225,10 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 120.0, 546.0, 42.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "out~ 1"
                 }
             },
@@ -397,6 +384,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 72.0, 34.0, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 1"
                 }
             }
@@ -455,13 +446,6 @@
                 "patchline": {
                     "destination": [ "obj-12", 0 ],
                     "source": [ "obj-2", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-9", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-21", 0 ]
                 }
             },
             {

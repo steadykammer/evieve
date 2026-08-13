@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -29,7 +29,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -322,8 +322,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ],
-                                    "text": "mute 1"
+                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ]
                                 }
                             },
                             {
@@ -379,8 +378,8 @@
                                     "id": "obj-32",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "bang", "int", "bang" ],
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
                                     "patching_rect": [ 118.0, 172.0, 67.0, 23.0 ],
                                     "text": "metro 888"
                                 }
@@ -976,19 +975,45 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-30",
+                                    "maxclass": "number",
+                                    "maximum": 4000,
+                                    "minimum": 10,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 398.0, 221.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 500.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[16]",
+                                            "parameter_mmax": 4000.0,
+                                            "parameter_mmin": 10.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[16]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
                             {
                                 "box": {
                                     "dontreplace": 1,
@@ -999,7 +1024,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 359.0, 331.0, 89.0, 23.0 ],
-                                    "text": "76 0"
+                                    "text": "41 0"
                                 }
                             },
                             {
@@ -1364,7 +1389,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "This is a copy of the 'poly~' tab from the [adsr~] helpfile to show that [evi.adsr~] works similarly.",
+                                    "text": "This is a copy of the 'poly~' tab from the [adsr~] helpfile to show that [evi.adsr~] works sort of similarly.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1587,6 +1612,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-3", 2 ],
+                                    "source": [ "obj-30", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-6", 1 ],
                                     "source": [ "obj-5", 1 ]
                                 }
@@ -1645,7 +1676,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -1685,7 +1716,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -1932,7 +1963,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -2310,8 +2341,8 @@
                                     "id": "obj-32",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "bang", "int", "bang" ],
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
                                     "patching_rect": [ 118.0, 220.0, 67.0, 23.0 ],
                                     "text": "metro 888"
                                 }
@@ -2341,7 +2372,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 48000,
+                                    "numpoints": 44100,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 395.0, 432.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -3095,7 +3126,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -3153,7 +3184,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -3890,7 +3921,7 @@
                         "fileversion": 1,
                         "appversion": {
                             "major": 9,
-                            "minor": 3,
+                            "minor": 2,
                             "revision": 0,
                             "architecture": "x64",
                             "modernui": 1
@@ -4107,7 +4138,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 24000,
+                                    "numpoints": 22050,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 513.0, 361.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -4147,7 +4178,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -4700,7 +4731,7 @@
                                         "fileversion": 1,
                                         "appversion": {
                                             "major": 9,
-                                            "minor": 3,
+                                            "minor": 2,
                                             "revision": 0,
                                             "architecture": "x64",
                                             "modernui": 1
@@ -4765,7 +4796,7 @@
                                                         "fileversion": 1,
                                                         "appversion": {
                                                             "major": 9,
-                                                            "minor": 3,
+                                                            "minor": 2,
                                                             "revision": 0,
                                                             "architecture": "x64",
                                                             "modernui": 1
@@ -5621,6 +5652,7 @@
             "obj-11::obj-23": [ "dial[3]", "dial[3]", 0 ],
             "obj-11::obj-24": [ "dial[1]", "dial[1]", 0 ],
             "obj-11::obj-25": [ "dial", "dial", 0 ],
+            "obj-11::obj-30": [ "number[16]", "number[16]", 0 ],
             "obj-12::obj-22": [ "number[10]", "number[2]", 0 ],
             "obj-12::obj-23": [ "number[9]", "number[2]", 0 ],
             "obj-12::obj-24": [ "number[8]", "number[2]", 0 ],

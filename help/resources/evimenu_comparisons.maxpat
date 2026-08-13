@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 812.0, 790.0 ],
+        "rect": [ 63.0, 131.0, 795.0, 768.0 ],
         "openrect": [ 0.0, 0.0, 192.0, 23.0 ],
         "openrectmode": 0,
         "openinpresentation": 1,
@@ -185,6 +185,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 309.0, 514.0, 192.0, 23.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 0.0, 0.0, 192.0, 23.0 ]
