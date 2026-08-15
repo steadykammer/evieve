@@ -79,7 +79,7 @@ Param	morphsmooth(30., min=0, max=333);	    // in ms
 // inputs (smooth || mod res & cutoff externally)
 morph   = clip(     in4, 0, 1);                 // 0=LP .. 0.5=BP .. 1=HP
 res		= clip(		in3, 0, 1) * 1.01;		    // cheeky for self oscillation
-cutoff	= maximum(	in2, 0);		            // cutoff freq (default in pitch)
+cutoff	= maximum(	in2, 0);		            // cutoff freq (default in hz)
 X		=	dcblock(in1 * sqrt1_2);	            // clean audio input, who knows why
 
 // freq warp

@@ -286,7 +286,8 @@ if		    (state == 1) {						// env_delay
 } else if	(state == 8) {						// env_retrigger (treat as segment for sync possibilities)
 	rTrigBase	= 0;
 	rTrigCoeff	= 0;
-	if (retrigger > 10) {		// if retrigger time is greater than 10 ms, make RC-style curve, else linear
+	if (retrigger > 20) {		// if retrigger time is greater than 20 ms, make RC-style curve, else linear
+                                // >20 does not work well - there is a little jump :-(
 		// targetRatioFall same as decay & release, tRFmul difference
 		tRFmul		=  retrigRatio(targetRatioRise, targetRatioFall);
 		rTrigCoeff	=  calcCoeff(retrigRate, tRFmul);
@@ -295,7 +296,7 @@ if		    (state == 1) {						// env_delay
 		rTrigCoeff	=  1 / retrigRate;
 		rTrigBase	=  0;
 	}
-	env			= rTrigBase + env * rTrigCoeff;
+	env			= rTrigBase + env * rTrigCoeff; // is this where the bad jump is ?
 	if (env <= 0) {
 		env		= 0;
 		state	= 1 + (1 - delActive);//  goto env_delay or env_attack (start of env)
@@ -320,10 +321,10 @@ envOut			= env * scalar;					//  env 0..1 by default scaled by it's input value 
 
 // outlets
 
-out1			= envOut;						//	DAHDSHR envelope 0..value..0
-out2			= gate;							//	new env trigger 1/0
-out3			= active;					    //  active state 0/1, inverse of 'mute', for [thispoly~ @automute 1]
 out4			= state;						//	segment # 0, 1, 2, 3, 4, 5, 6, 7, 8, 0
+out3			= active;					    //  active state 0/1, inverse of 'mute', for [thispoly~ @automute 1]
+out2			= gate;							//	new env trigger 1/0
+out1			= envOut;						//	DAHDSHR envelope 0..value..0
 
 // updates
 
