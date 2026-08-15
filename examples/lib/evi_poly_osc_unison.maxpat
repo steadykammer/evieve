@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 161.0, 107.0, 720.0, 435.0 ],
+        "rect": [ 161.0, 107.0, 749.0, 435.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "boxes": [
@@ -655,7 +655,7 @@
                             },
                             {
                                 "box": {
-                                    "code": "\r\n// this is just a quick minimisation of [evi.morph.trap~] / [evi_morph_trap]\r\n// for the purposes of optimisation / taking just what we need\r\n\r\nrequire(\"evi_polyblep_two.genexpr\");\r\nrequire(\"evi_polyblep_utility.genexpr\");\r\n\r\nmorphOscSelect(phase, norm, morph, gain, wave)\r\n{\r\n    osc = 0;\r\n    if (wave == 1) {            // sawpulse\r\n        osc\t= morph_sawpulse_trirect(phase, norm, morph);\r\n    }\r\n    else if (wave == 2) {       // pulsetrirect\r\n        osc\t= morph_pulsepulse_trirect(phase, norm, morph);\r\n    }\r\n    else if (wave == 3) {       // pulsetrisquare   // default\r\n        osc\t= morph_pulsebipulse_trirect(phase, norm, morph);\r\n    }\r\n    else {  // (wave == 0)      // trirect\r\n        mph = (morph > 0.5) ? morph * 0.999 + 0.0005 : morph;\n        osc = poly_trap2(phase, norm, mph);\r\n    }\r\n\r\n    return osc * gain;\r\n}\r\n\r\n// fixed 2x quasi downsampling \nmorphOscSelect_2x_4POINT(phase, norm, morph, gain, wave)\n{\t// down 2\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// process 2x\n\ty1_0\t= morphOscSelect(phase, norm, morph, gain, wave);\n\ty2_0\t= morphOscSelect(phase, norm, morph, gain, wave);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(0.5,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\treturn y0_0;\n}\r\n\r\n// morph osc types:\r\n// 0=trirect, 1=sawpulse, 2=pulsetrirect, 3=pulsetrisquare\r\nParam   oscillator(2, min=0, max=3);\r\nwaves   = int(oscillator);\r\n\r\nfreqInHz\t= evi_mtofapprox(in1);          // hz should be clamped to SR*0.25\r\nMorph\t    = in2;                          // 0..1\r\nsyncReset\t= in3;                          // naive\r\n\r\nt\t\t    = phasor(freqInHz, syncReset);  // naive reset, careful\r\ndt\t\t\t= freqInHz / SAMPLERATE;\r\noscsync\t\t= delta(t) < 0;\r\nwvs\t\t\t= latch(waves,\toscsync);\r\n\r\nosc = morphOscSelect_2x_4POINT(t, dt, Morph, 0.5, wvs);\r\n\r\nosc = dcblock(osc);\r\nosc = decorelateOsc(osc);\r\n\r\nout1\t= osc;\r\nout2\t= t;\r\nout3\t= oscsync;\r\n\r\n",
+                                    "code": "\r\n// this is just a quick minimisation of [evi.morph.trap~] / [evi_morph_trap]\r\n// for the purposes of optimisation / taking just what we need\r\n\r\nrequire(\"evi_polyblep_two.genexpr\");\r\nrequire(\"evi_polyblep_utility.genexpr\");\r\n\r\nmorphOscSelect(phase, norm, morph, gain, wave)\r\n{\r\n    osc = 0;\r\n    if (wave == 1) {            // sawpulse\r\n        osc\t= morph_sawpulse_trirect(phase, norm, morph);\r\n    }\r\n    else if (wave == 2) {       // pulsetrirect\r\n        osc\t= morph_pulsepulse_trirect(phase, norm, morph);\r\n    }\r\n    else if (wave == 3) {       // pulsetrisquare   // default\r\n        osc\t= morph_pulsebipulse_trirect(phase, norm, morph);\r\n    }\r\n    else {  // (wave == 0)      // trirect\r\n        mph = (morph > 0.5) ? morph * 0.999 + 0.0005 : morph;\n        osc = poly_trap2(phase, norm, mph);\r\n    }\r\n\r\n    return osc * gain;\r\n}\r\n\r\n// fixed 2x quasi downsampling \nmorphOscSelect_2x_4POINT(phase, norm, morph, gain, wave)\n{\t// down 2\n\tHistory\tdmT2_1(0), dmT1_1(0), dmT0_1(0);\n\t// align\n\tHistory\tdoX0(0);\n\n\t// process 2x\n\ty1_0\t= morphOscSelect(phase, norm, morph, gain, wave);\n\ty2_0\t= morphOscSelect(phase, norm, morph, gain, wave);\n\n\t// down 2x\n\ty2_0_a\t= y2_0 + 0;\n\ty2_1\t= interp(0.5,\ty2_0_a,\tdmT0_1, dmT1_1, dmT2_1, mode=\"spline\");\n\n\ty0_0\t= (doX0 + y2_1) * 0.5;\n\n\t// update\n\tdoX0\t= y1_0;\n\n\tdmT2_1\t= dmT1_1;\n\tdmT1_1\t= dmT0_1;\n\tdmT0_1\t= y2_0;\n\n\treturn y0_0;\n}\r\n\r\n// morph osc types:\r\n// 0=trirect, 1=sawpulse, 2=pulsetrirect, 3=pulsetrisquare\r\nParam   oscillator(2, min=0, max=3);\r\nwaves   = int(oscillator);\r\n\r\nfreqInHz\t= evi_mtofapprox(in1);          // hz should be clamped to SR*0.25\r\nMorph\t    = in2;                          // 0..1\r\nsyncReset\t= in3;                          // naive\r\n\r\nt\t\t    = phasor(freqInHz, syncReset);  // naive reset, careful\r\ndt\t\t\t= freqInHz / SAMPLERATE;\r\noscsync\t\t= delta(t) < 0;\r\nwvs\t\t\t= latch(waves,\toscsync);\r\n\r\nosc = morphOscSelect_2x_4POINT(t, dt, Morph, 0.5, wvs);\r\n//osc = morphOscSelect(t, dt, Morph, 0.5, wvs);\r\n\r\nosc = dcblock(osc);\r\nosc = decorelateOsc(osc);\r\n\r\nout1\t= osc;\r\nout2\t= t;\r\nout3\t= oscsync;\r\n\r\n",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
@@ -705,7 +705,8 @@
                                     "source": [ "obj-5", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "autosave": 0
                     },
                     "patching_rect": [ 186.0, 274.0, 315.0, 22.0 ],
                     "text": "gen~ @title evi_morph_trap_osc"
