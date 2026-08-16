@@ -62,6 +62,7 @@
     "maxDb": {
         "additionalIgnore": [
             "/docs/refpages/evieve-genexpr/genexpr-data",
+            "/examples/lib",
             "/extras",
             "/help/resources",
             "/javascript/node",
