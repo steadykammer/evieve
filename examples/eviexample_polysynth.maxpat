@@ -19,6 +19,183 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-29",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 2,
+                    "outlettype": [ "int", "int" ],
+                    "patching_rect": [ 597.0, 576.0, 50.0, 22.0 ],
+                    "text": "split 1 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-28",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 555.0, 537.0, 61.0, 22.0 ],
+                    "text": "list.slice 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-27",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 555.0, 498.0, 63.0, 22.0 ],
+                    "text": "route read"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-25",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 423.0, 147.0, 54.0, 22.0 ],
+                    "text": "deferlow"
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
+                    "fontsize": 14.0,
+                    "id": "obj-19",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 463.0, 186.0, 61.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.theme_locked_bgcolor"
+                        }
+                    },
+                    "text": "Presets"
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
+                    "fontsize": 14.0,
+                    "id": "obj-12",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 111.0, 147.0, 69.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.theme_locked_bgcolor"
+                        }
+                    },
+                    "text": "Keyboard"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 555.0, 420.0, 89.0, 22.0 ],
+                    "text": "storagewindow"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 4,
+                    "outlettype": [ "", "", "", "" ],
+                    "patching_rect": [ 268.0, 340.0, 56.0, 22.0 ],
+                    "restore": {
+                        "synthGlide": [ 20.0 ],
+                        "synthReverb": [ 10.0 ],
+                        "synthVolume": [ -9.0 ]
+                    },
+                    "restore_extra": {
+                        "synthGlide": {
+                            "id": "obj-78"
+                        },
+                        "synthReverb": {
+                            "id": "obj-24"
+                        },
+                        "synthVolume": {
+                            "id": "obj-79"
+                        }
+                    },
+                    "text": "autopattr",
+                    "varname": "u275007555"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 555.0, 459.0, 281.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "client_rect": [ 4, 45, 362, 523 ],
+                        "parameter_enable": 0,
+                        "parameter_mappable": 0,
+                        "storage_rect": [ 333, 69, 1280, 583 ]
+                    },
+                    "text": "pattrstorage evi_example_polysynth @savemode 3",
+                    "varname": "evi_example_polysynth"
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                    "fontname": "Arial Bold",
+                    "hint": "",
+                    "id": "obj-3",
+                    "ignoreclick": 1,
+                    "legacytextcolor": 1,
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "parameter_mappable": 0,
+                    "patching_rect": [ 432.0, 672.0, 20.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 876.0, 155.0, 20.0, 20.0 ],
+                    "rounded": 60.0,
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.live_key_assignment"
+                        }
+                    },
+                    "text": "2",
+                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "bubblesize": 13,
+                    "frozen_box_attributes": [ "pattrstorage" ],
+                    "id": "obj-2",
+                    "maxclass": "preset",
+                    "numinlets": 1,
+                    "numoutlets": 5,
+                    "outlettype": [ "preset", "int", "preset", "int", "" ],
+                    "patching_rect": [ 423.0, 186.0, 38.0, 481.0 ],
+                    "pattrstorage": "evi_example_polysynth",
+                    "presentation": 1,
+                    "presentation_rect": [ 867.0, 177.0, 38.0, 481.0 ]
+                }
+            },
+            {
+                "box": {
                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                     "fontname": "Arial Bold",
                     "hint": "",
@@ -30,9 +207,10 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 95.0, 668.0, 20.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 767.0, 652.0, 20.0, 20.0 ],
+                    "presentation_rect": [ 768.0, 660.0, 20.0, 20.0 ],
                     "rounded": 60.0,
                     "saved_attribute_attributes": {
                         "bgcolor": {
@@ -47,6 +225,7 @@
                 "box": {
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Dry/Wet of post-Synth Reverb",
                     "id": "obj-24",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -55,12 +234,14 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 195.0, 387.0, 57.0, 55.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 749.0, 454.0, 57.0, 55.0 ],
+                    "presentation_rect": [ 750.0, 467.0, 57.0, 55.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
+                            "parameter_exponent": 2.0,
                             "parameter_initial": [ 10.0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "live.dial",
+                            "parameter_linknames": 1,
+                            "parameter_longname": "synthReverb",
                             "parameter_mmax": 100.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "Reverb",
@@ -68,7 +249,9 @@
                             "parameter_unitstyle": 5
                         }
                     },
-                    "varname": "live.dial"
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
+                    "varname": "synthReverb"
                 }
             },
             {
@@ -160,7 +343,7 @@
                     "outlettype": [ "float", "int" ],
                     "patching_rect": [ 144.0, 567.0, 10.0, 100.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 804.0, 549.0, 10.0, 101.0 ],
+                    "presentation_rect": [ 805.0, 557.0, 10.0, 101.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                 }
             },
@@ -173,7 +356,7 @@
                     "outlettype": [ "float", "int" ],
                     "patching_rect": [ 55.0, 567.0, 10.0, 100.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 740.0, 549.0, 10.0, 102.0 ],
+                    "presentation_rect": [ 741.0, 557.0, 10.0, 102.0 ],
                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                 }
             },
@@ -819,10 +1002,46 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 59.0, 111.0, 657.0, 353.0 ],
+                        "rect": [ 59.0, 111.0, 657.0, 358.0 ],
                         "openinpresentation": 1,
                         "gridonopen": 2,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "", "", "", "" ],
+                                    "patching_rect": [ 506.0, 274.0, 56.0, 22.0 ],
+                                    "restore": {
+                                        "synthEnvAttack": [ 10.000000000000002 ],
+                                        "synthEnvDecay": [ 100.0 ],
+                                        "synthEnvHold": [ 0.0 ],
+                                        "synthEnvRelease": [ 299.99999999999994 ],
+                                        "synthEnvSustain": [ 70.7107 ]
+                                    },
+                                    "restore_extra": {
+                                        "synthEnvAttack": {
+                                            "id": "obj-72"
+                                        },
+                                        "synthEnvDecay": {
+                                            "id": "obj-71"
+                                        },
+                                        "synthEnvHold": {
+                                            "id": "obj-73"
+                                        },
+                                        "synthEnvRelease": {
+                                            "id": "obj-75"
+                                        },
+                                        "synthEnvSustain": {
+                                            "id": "obj-70"
+                                        }
+                                    },
+                                    "text": "autopattr",
+                                    "varname": "u275007555"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-1",
@@ -853,6 +1072,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Envelope Release time in ms",
                                     "id": "obj-75",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -867,7 +1087,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 300.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[12]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "synthEnvRelease",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Decay",
@@ -875,7 +1096,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[12]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "synthEnvRelease"
                                 }
                             },
                             {
@@ -925,6 +1148,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Envelope Sustain amount in exponentially mapped %",
                                     "id": "obj-70",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -939,7 +1163,8 @@
                                             "parameter_exponent": 0.5,
                                             "parameter_initial": [ 70.7107 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[17]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "synthEnvSustain",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Sustain",
@@ -947,7 +1172,9 @@
                                             "parameter_unitstyle": 5
                                         }
                                     },
-                                    "varname": "live.numbox[8]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "synthEnvSustain"
                                 }
                             },
                             {
@@ -955,6 +1182,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Envelope Decay time in ms",
                                     "id": "obj-71",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -969,7 +1197,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 100.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[19]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "synthEnvDecay",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Decay",
@@ -977,7 +1206,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[9]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "synthEnvDecay"
                                 }
                             },
                             {
@@ -985,6 +1216,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Envelope Hold time in ms",
                                     "id": "obj-73",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -999,7 +1231,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[11]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "synthEnvHold",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Delay",
@@ -1007,7 +1240,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[11]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "synthEnvHold"
                                 }
                             },
                             {
@@ -1029,6 +1264,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Envelope Attack time in ms",
                                     "id": "obj-72",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -1043,7 +1279,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 10.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[10]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "synthEnvAttack",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Attack",
@@ -1051,7 +1288,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[10]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "synthEnvAttack"
                                 }
                             },
                             {
@@ -1208,7 +1447,8 @@
                     },
                     "patching_rect": [ 341.0, 259.0, 40.0, 40.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 62.0, 599.0, 386.0, 47.0 ],
+                    "presentation_rect": [ 62.0, 606.0, 386.0, 47.0 ],
+                    "varname": "envelope",
                     "viewvisibility": 1
                 }
             },
@@ -1267,6 +1507,7 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 13.0,
                                     "gradient": 1,
+                                    "hidden": 1,
                                     "hint": "Velocity of last pressed key",
                                     "id": "obj-21",
                                     "ignoreclick": 1,
@@ -1345,6 +1586,7 @@
                             {
                                 "box": {
                                     "arrows": 3,
+                                    "hidden": 1,
                                     "hint": "Mouse click on keyboard keys for variable Velocity",
                                     "id": "obj-12",
                                     "justification": 1,
@@ -1360,7 +1602,6 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
-                                    "hidden": 1,
                                     "hint": "Static Velocity for Computer Keyboard Keys",
                                     "id": "obj-11",
                                     "maxclass": "live.slider",
@@ -2114,7 +2355,6 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 14.0,
                                     "gradient": 1,
-                                    "hidden": 1,
                                     "hint": "Octave z/x",
                                     "id": "obj-97",
                                     "ignoreclick": 1,
@@ -2441,7 +2681,6 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
-                                    "inputmode": 2,
                                     "maxclass": "kslider",
                                     "mode": 1,
                                     "numinlets": 2,
@@ -2845,6 +3084,7 @@
                     "patching_rect": [ 81.0, 171.0, 128.0, 128.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 10.0, 155.0, 797.0, 175.0 ],
+                    "varname": "keyboard",
                     "viewvisibility": 1
                 }
             },
@@ -2853,6 +3093,7 @@
                     "appearance": 3,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Global Volume of the Synth, pre Reverb",
                     "id": "obj-79",
                     "maxclass": "live.dial",
                     "numinlets": 1,
@@ -2861,13 +3102,14 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 99.0, 316.0, 50.0, 70.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 752.0, 533.0, 50.0, 70.0 ],
+                    "presentation_rect": [ 753.0, 541.0, 50.0, 70.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_exponent": 0.25,
                             "parameter_initial": [ -9.0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "live.dial[9]",
+                            "parameter_linknames": 1,
+                            "parameter_longname": "synthVolume",
                             "parameter_mmax": 0.0,
                             "parameter_mmin": -70.0,
                             "parameter_modmode": 3,
@@ -2876,7 +3118,9 @@
                             "parameter_unitstyle": 4
                         }
                     },
-                    "varname": "live.dial[6]"
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
+                    "varname": "synthVolume"
                 }
             },
             {
@@ -2888,7 +3132,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 116.0, 403.0, 75.0, 21.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 597.0, 75.0, 21.0 ],
+                    "presentation_rect": [ 495.0, 606.0, 75.0, 21.0 ],
                     "text": "Glide",
                     "textjustification": 1
                 }
@@ -2898,6 +3142,7 @@
                     "appearance": 2,
                     "fontname": "Arial",
                     "fontsize": 13.0,
+                    "hint": "Global Glide time in ms of Synth parameters (Pitch)",
                     "id": "obj-78",
                     "maxclass": "live.numbox",
                     "numinlets": 1,
@@ -2906,13 +3151,14 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 116.0, 424.0, 75.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 618.0, 75.0, 18.0 ],
+                    "presentation_rect": [ 495.0, 625.0, 75.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_exponent": 4.0,
                             "parameter_initial": [ 20.0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "live.numbox[13]",
+                            "parameter_linknames": 1,
+                            "parameter_longname": "synthGlide",
                             "parameter_mmax": 666.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "Filter",
@@ -2920,7 +3166,9 @@
                             "parameter_unitstyle": 2
                         }
                     },
-                    "varname": "live.numbox[13]"
+                    "valuepopup": 1,
+                    "valuepopuplabel": 1,
+                    "varname": "synthGlide"
                 }
             },
             {
@@ -2949,10 +3197,62 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 59.0, 111.0, 1080.0, 464.0 ],
+                        "rect": [ 59.0, 111.0, 1080.0, 448.0 ],
                         "openinpresentation": 1,
                         "gridonopen": 2,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "", "", "", "" ],
+                                    "patching_rect": [ 960.0, 35.0, 56.0, 22.0 ],
+                                    "restore": {
+                                        "filterCutoff": [ 56.37795275590554 ],
+                                        "filterCutoffKeytrack": [ 50.0 ],
+                                        "filterEnvAttack": [ 100.0 ],
+                                        "filterEnvDecay": [ 199.99999999999997 ],
+                                        "filterEnvDelay": [ 0.0 ],
+                                        "filterEnvRange": [ 33.0 ],
+                                        "filterEnvSustain": [ 49.99999999999999 ],
+                                        "filterResonance": [ 58.0 ],
+                                        "filterTypeMorph": [ 0.0 ]
+                                    },
+                                    "restore_extra": {
+                                        "filterCutoff": {
+                                            "id": "obj-3"
+                                        },
+                                        "filterCutoffKeytrack": {
+                                            "id": "obj-16"
+                                        },
+                                        "filterEnvAttack": {
+                                            "id": "obj-39"
+                                        },
+                                        "filterEnvDecay": {
+                                            "id": "obj-46"
+                                        },
+                                        "filterEnvDelay": {
+                                            "id": "obj-30"
+                                        },
+                                        "filterEnvRange": {
+                                            "id": "obj-60"
+                                        },
+                                        "filterEnvSustain": {
+                                            "id": "obj-47"
+                                        },
+                                        "filterResonance": {
+                                            "id": "obj-9"
+                                        },
+                                        "filterTypeMorph": {
+                                            "id": "obj-21"
+                                        }
+                                    },
+                                    "text": "autopattr",
+                                    "varname": "u275007555"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-6",
@@ -3102,6 +3402,7 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Filter Modulation Envelope Amount Positive / Negative from Cutoff point, Envelope triggered by Velocity",
                                     "id": "obj-60",
                                     "maxclass": "live.dial",
                                     "needlemode": 2,
@@ -3116,7 +3417,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 33.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[8]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterEnvRange",
                                             "parameter_mmax": 100.0,
                                             "parameter_mmin": -100.0,
                                             "parameter_modmode": 3,
@@ -3126,7 +3428,9 @@
                                         }
                                     },
                                     "shownumber": 0,
-                                    "varname": "live.dial[5]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterEnvRange"
                                 }
                             },
                             {
@@ -3249,6 +3553,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Sustain amount in % (linear) of Filter Modulation Envelope",
                                     "id": "obj-47",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3263,7 +3568,8 @@
                                             "parameter_exponent": 0.9,
                                             "parameter_initial": [ 50.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[7]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterEnvSustain",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Sustain",
@@ -3271,7 +3577,9 @@
                                             "parameter_unitstyle": 5
                                         }
                                     },
-                                    "varname": "live.numbox[7]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterEnvSustain"
                                 }
                             },
                             {
@@ -3279,6 +3587,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Decay time in ms of Filter Modulation Envelope",
                                     "id": "obj-46",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3293,7 +3602,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 200.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[6]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterEnvDecay",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Decay",
@@ -3301,7 +3611,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[6]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterEnvDecay"
                                 }
                             },
                             {
@@ -3309,6 +3621,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Attack time in ms of Filter Modulation Envelope",
                                     "id": "obj-39",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3323,7 +3636,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 100.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[8]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterEnvAttack",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Attack",
@@ -3331,7 +3645,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[5]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterEnvAttack"
                                 }
                             },
                             {
@@ -3339,6 +3655,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Delay in ms before Filter Envelope kicks in (after Key pressed)",
                                     "id": "obj-30",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3353,7 +3670,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[9]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterEnvDelay",
                                             "parameter_mmax": 1000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Delay",
@@ -3361,7 +3679,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[4]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterEnvDelay"
                                 }
                             },
                             {
@@ -3378,6 +3698,7 @@
                             {
                                 "box": {
                                     "handoff": "",
+                                    "hint": "Set Filter to Highpass (100 %)",
                                     "id": "obj-27",
                                     "maxclass": "ubutton",
                                     "numinlets": 1,
@@ -3386,7 +3707,9 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 167.0, 39.0, 39.75, 21.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 50.0, 18.0, 21.666666666666668, 21.0 ]
+                                    "presentation_rect": [ 50.0, 18.0, 21.666666666666668, 21.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -3403,6 +3726,7 @@
                             {
                                 "box": {
                                     "handoff": "",
+                                    "hint": "Set Filter to Bandpass (50 %)",
                                     "id": "obj-24",
                                     "maxclass": "ubutton",
                                     "numinlets": 1,
@@ -3411,7 +3735,9 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 97.0, 39.0, 39.75, 21.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 27.0, 18.0, 21.666666666666668, 21.0 ]
+                                    "presentation_rect": [ 27.0, 18.0, 21.666666666666668, 21.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -3428,6 +3754,7 @@
                             {
                                 "box": {
                                     "handoff": "",
+                                    "hint": "Set Filter to Lowpass (0 %)",
                                     "id": "obj-13",
                                     "maxclass": "ubutton",
                                     "numinlets": 1,
@@ -3436,7 +3763,9 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 33.0, 39.0, 39.75, 21.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 2.0, 18.0, 21.666666666666668, 21.0 ]
+                                    "presentation_rect": [ 2.0, 18.0, 21.666666666666668, 21.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -3454,6 +3783,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Morph Filter Type Lowpass..Bandpass..Highpass",
                                     "id": "obj-21",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3467,7 +3797,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[1]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterTypeMorph",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Filter",
@@ -3475,7 +3806,9 @@
                                             "parameter_unitstyle": 5
                                         }
                                     },
-                                    "varname": "live.numbox[1]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterTypeMorph"
                                 }
                             },
                             {
@@ -3505,6 +3838,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Filter Cutoff Keytracking 0% (none) .. 100% (one-to-one). With Keytrack at 100% and Filter in self-oscillation (Resonance high) this will add an additional Oscillator",
                                     "id": "obj-16",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -3518,7 +3852,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 50.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterCutoffKeytrack",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Keytrack",
@@ -3526,7 +3861,9 @@
                                             "parameter_unitstyle": 5
                                         }
                                     },
-                                    "varname": "live.numbox"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterCutoffKeytrack"
                                 }
                             },
                             {
@@ -3555,6 +3892,7 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Main Filter Resonance 0..100% mapped logarithmically",
                                     "id": "obj-9",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
@@ -3568,7 +3906,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 58.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[1]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterResonance",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Res",
@@ -3577,7 +3916,9 @@
                                         }
                                     },
                                     "shownumber": 0,
-                                    "varname": "live.dial[1]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterResonance"
                                 }
                             },
                             {
@@ -3606,6 +3947,7 @@
                                     "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Main Filter Cutoff Frequency, 0..100% mapped to Pitch linearly",
                                     "id": "obj-3",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
@@ -3619,7 +3961,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 56.37795275590554 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[10]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "filterCutoff",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Cutoff",
@@ -3628,7 +3971,9 @@
                                         }
                                     },
                                     "shownumber": 0,
-                                    "varname": "live.dial"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "filterCutoff"
                                 }
                             },
                             {
@@ -3868,6 +4213,7 @@
                     "patching_rect": [ 290.0, 259.0, 40.0, 40.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 62.0, 486.0, 586.0, 74.0 ],
+                    "varname": "filter",
                     "viewvisibility": 1
                 }
             },
@@ -3879,7 +4225,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 82.0, 621.0, 45.0, 45.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 754.0, 605.0, 45.0, 45.0 ]
+                    "presentation_rect": [ 755.0, 613.0, 45.0, 45.0 ]
                 }
             },
             {
@@ -3929,10 +4275,109 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 59.0, 111.0, 916.0, 692.0 ],
+                        "rect": [ 399.0, 92.0, 916.0, 718.0 ],
                         "openinpresentation": 1,
                         "gridonopen": 2,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "bgcolor2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "bgfillcolor_angle": 270.0,
+                                    "bgfillcolor_autogradient": 0.0,
+                                    "bgfillcolor_color": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "bgfillcolor_color1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "bgfillcolor_color2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "bgfillcolor_proportion": 0.5,
+                                    "bgfillcolor_type": "gradient",
+                                    "fontsize": 14.0,
+                                    "gradient": 1,
+                                    "id": "obj-59",
+                                    "ignoreclick": 1,
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 332.0, 673.0, 32.0, 24.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 79.0, 55.0, 32.0, 24.0 ],
+                                    "text": "+",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-56",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "int", "int" ],
+                                    "patching_rect": [ 345.0, 596.0, 58.0, 22.0 ],
+                                    "text": "change 2"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-57",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "" ],
+                                    "patching_rect": [ 345.0, 634.0, 80.0, 22.0 ],
+                                    "text": "list.lookup - +"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-58",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "int" ],
+                                    "patching_rect": [ 345.0, 557.0, 43.0, 22.0 ],
+                                    "text": ">= 0.5"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "outlettype": [ "", "", "", "" ],
+                                    "patching_rect": [ 157.0, 49.0, 56.0, 22.0 ],
+                                    "restore": {
+                                        "oscEnv": [ 99.99999999999999 ],
+                                        "oscMod": [ 33.0 ],
+                                        "oscShape": [ 66.0 ],
+                                        "oscUnisonAmount": [ 10.000000000000002 ],
+                                        "oscUnisonType": [ 1.0 ],
+                                        "oscUnisonVoices": [ 2.0 ]
+                                    },
+                                    "restore_extra": {
+                                        "oscEnv": {
+                                            "id": "obj-43"
+                                        },
+                                        "oscMod": {
+                                            "id": "obj-40"
+                                        },
+                                        "oscShape": {
+                                            "id": "obj-25"
+                                        },
+                                        "oscUnisonAmount": {
+                                            "id": "obj-5"
+                                        },
+                                        "oscUnisonType": {
+                                            "id": "obj-4"
+                                        },
+                                        "oscUnisonVoices": {
+                                            "id": "obj-3"
+                                        }
+                                    },
+                                    "text": "autopattr",
+                                    "varname": "u275007555"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-8",
@@ -4116,6 +4561,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Osc Mod Envelope Time in ms, triggered by Velocity",
                                     "id": "obj-43",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -4130,7 +4576,8 @@
                                             "parameter_exponent": 2.0,
                                             "parameter_initial": [ 100.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[4]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscEnv",
                                             "parameter_mmax": 666.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Filter",
@@ -4138,7 +4585,9 @@
                                             "parameter_unitstyle": 2
                                         }
                                     },
-                                    "varname": "live.numbox[3]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscEnv"
                                 }
                             },
                             {
@@ -4156,6 +4605,7 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Osc Shape Modulation Envelope Positive / Negative, triggered by Velocity",
                                     "id": "obj-40",
                                     "maxclass": "live.dial",
                                     "needlemode": 2,
@@ -4170,7 +4620,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 33.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[5]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscMod",
                                             "parameter_mmax": 100.0,
                                             "parameter_mmin": -100.0,
                                             "parameter_modmode": 3,
@@ -4180,7 +4631,9 @@
                                         }
                                     },
                                     "shownumber": 0,
-                                    "varname": "live.dial[4]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscMod"
                                 }
                             },
                             {
@@ -4222,6 +4675,7 @@
                             {
                                 "box": {
                                     "handoff": "",
+                                    "hint": "Set Osc Shape to Rect",
                                     "id": "obj-35",
                                     "maxclass": "ubutton",
                                     "numinlets": 1,
@@ -4230,12 +4684,15 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 208.0, 360.0, 39.75, 21.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 184.0, 22.0, 39.75, 21.0 ]
+                                    "presentation_rect": [ 184.0, 22.0, 39.75, 21.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
                                 "box": {
                                     "handoff": "",
+                                    "hint": "Set Osc Shape to Tri",
                                     "id": "obj-34",
                                     "maxclass": "ubutton",
                                     "numinlets": 1,
@@ -4244,7 +4701,9 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 60.0, 360.0, 39.75, 21.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 126.0, 22.0, 39.75, 21.0 ]
+                                    "presentation_rect": [ 126.0, 22.0, 39.75, 21.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -4294,6 +4753,7 @@
                                     "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Main Osc Shape, Morph Pulse..Tri..Rect..Pulse, modulated by 'Mod' dial",
                                     "id": "obj-25",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
@@ -4307,7 +4767,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 66.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[6]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscShape",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Osc",
@@ -4317,7 +4778,9 @@
                                     },
                                     "showname": 0,
                                     "shownumber": 0,
-                                    "varname": "live.dial[3]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscShape"
                                 }
                             },
                             {
@@ -4370,6 +4833,7 @@
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Osc Unison Amount in Cents, % 0..100 mapped exponentially to 5..199 Cents",
                                     "id": "obj-5",
                                     "maxclass": "live.numbox",
                                     "numinlets": 1,
@@ -4384,7 +4848,8 @@
                                             "parameter_exponent": 3.0,
                                             "parameter_initial": [ 10.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[5]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscUnisonAmount",
                                             "parameter_mmax": 100.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Filter",
@@ -4392,13 +4857,16 @@
                                             "parameter_unitstyle": 5
                                         }
                                     },
-                                    "varname": "live.numbox[2]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscUnisonAmount"
                                 }
                             },
                             {
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Osc Unison Type, Unison affects: Pitch, Pitch & Shape, Pitch & Hard Sync, Pitch & Shape & Hard Sync",
                                     "id": "obj-4",
                                     "maxclass": "live.menu",
                                     "numinlets": 1,
@@ -4413,20 +4881,24 @@
                                             "parameter_enum": [ "Pitch", "Pitch + Shape", "Pitch + Sync", "Pitch + Shape + Sync" ],
                                             "parameter_initial": [ 1.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.menu[1]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscUnisonType",
                                             "parameter_mmax": 3,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "Unison",
                                             "parameter_type": 2
                                         }
                                     },
-                                    "varname": "live.menu"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscUnisonType"
                                 }
                             },
                             {
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hint": "Osc Unison Voices, 1 (no Unison) to 8 Voices, currently:",
                                     "id": "obj-3",
                                     "maxclass": "live.dial",
                                     "numinlets": 1,
@@ -4440,7 +4912,8 @@
                                         "valueof": {
                                             "parameter_initial": [ 2.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.dial[7]",
+                                            "parameter_linknames": 1,
+                                            "parameter_longname": "oscUnisonVoices",
                                             "parameter_mmax": 8.0,
                                             "parameter_mmin": 1.0,
                                             "parameter_modmode": 4,
@@ -4449,7 +4922,9 @@
                                             "parameter_unitstyle": 0
                                         }
                                     },
-                                    "varname": "live.dial[2]"
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1,
+                                    "varname": "oscUnisonVoices"
                                 }
                             }
                         ],
@@ -4560,6 +5035,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-58", 0 ],
+                                    "source": [ "obj-40", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-21", 0 ],
                                     "source": [ "obj-41", 0 ]
                                 }
@@ -4601,12 +5082,31 @@
                                     "destination": [ "obj-28", 0 ],
                                     "source": [ "obj-5", 1 ]
                                 }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-57", 0 ],
+                                    "source": [ "obj-56", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-59", 1 ],
+                                    "source": [ "obj-57", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-56", 0 ],
+                                    "source": [ "obj-58", 0 ]
+                                }
                             }
                         ]
                     },
                     "patching_rect": [ 233.0, 259.0, 40.0, 40.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 62.0, 359.0, 509.0, 88.0 ],
+                    "varname": "oscillator",
                     "viewvisibility": 1
                 }
             },
@@ -4646,7 +5146,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 290.0, 259.0, 40.0, 40.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 47.0, 479.0, 616.0, 81.0 ],
+                    "presentation_rect": [ 47.0, 479.0, 616.0, 82.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -4669,7 +5169,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 341.0, 259.0, 40.0, 40.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 47.0, 592.0, 416.0, 54.0 ],
+                    "presentation_rect": [ 47.0, 592.0, 416.0, 66.0 ],
                     "proportion": 0.5,
                     "rounded": 4,
                     "saved_attribute_attributes": {
@@ -4718,12 +5218,18 @@
                     "presentation": 1,
                     "presentation_linecount": 2,
                     "presentation_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                    "text": "Expensive 8 voice Polysynth example using evieve primitives, with unison and key tracked filter per voice. Supposed to be 'modern' sounding but plenty of wobblyness tuned in.",
+                    "text": "Expensive 8 voice Polysynth example using evieve primitives, with unison and key tracked filter per voice. Supposed to be 'modern' sounding but plenty of wobblyness tuned in. Start with the Presets.",
                     "varname": "digest_comment"
                 }
             }
         ],
         "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-11", 0 ]
+                }
+            },
             {
                 "patchline": {
                     "destination": [ "obj-18", 1 ],
@@ -4780,6 +5286,37 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-28", 0 ],
+                    "source": [ "obj-27", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "source": [ "obj-28", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-25", 0 ],
+                    "midpoints": [ 606.5, 608.0, 529.578125, 608.0, 529.578125, 137.0, 432.5, 137.0 ],
+                    "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-27", 0 ],
+                    "source": [ "obj-4", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-13", 0 ],
                     "source": [ "obj-49", 0 ]
                 }
@@ -4812,34 +5349,34 @@
             "obj-18::obj-54::obj-35": [ "bypass", "bypass", 0 ],
             "obj-18::obj-54::obj-5": [ "midDecay", "midDecay", 0 ],
             "obj-18::obj-54::obj-9": [ "crossover", "crossover", 0 ],
-            "obj-24": [ "live.dial", "Reverb", 0 ],
+            "obj-24": [ "synthReverb", "Reverb", 0 ],
             "obj-49::obj-11": [ "live.slider", "live.slider", 0 ],
             "obj-49::obj-142": [ "kslider[1]", "kslider", 0 ],
             "obj-49::obj-29": [ "tab[1]", "tab[1]", 0 ],
             "obj-49::obj-5": [ "live.button", "live.button", 0 ],
             "obj-49::obj-60": [ "number", "number", 0 ],
-            "obj-5::obj-16": [ "live.numbox", "Keytrack", 0 ],
-            "obj-5::obj-21": [ "live.numbox[1]", "Filter", 0 ],
-            "obj-5::obj-3": [ "live.dial[10]", "Cutoff", 0 ],
-            "obj-5::obj-30": [ "live.numbox[9]", "Delay", 0 ],
-            "obj-5::obj-39": [ "live.numbox[8]", "Attack", 0 ],
-            "obj-5::obj-46": [ "live.numbox[6]", "Decay", 0 ],
-            "obj-5::obj-47": [ "live.numbox[7]", "Sustain", 0 ],
-            "obj-5::obj-60": [ "live.dial[8]", "Env", 0 ],
-            "obj-5::obj-9": [ "live.dial[1]", "Res", 0 ],
-            "obj-6::obj-70": [ "live.numbox[17]", "Sustain", 0 ],
-            "obj-6::obj-71": [ "live.numbox[19]", "Decay", 0 ],
-            "obj-6::obj-72": [ "live.numbox[10]", "Attack", 0 ],
-            "obj-6::obj-73": [ "live.numbox[11]", "Delay", 0 ],
-            "obj-6::obj-75": [ "live.numbox[12]", "Decay", 0 ],
-            "obj-78": [ "live.numbox[13]", "Filter", 0 ],
-            "obj-79": [ "live.dial[9]", "Volume", 0 ],
-            "obj-7::obj-25": [ "live.dial[6]", "Osc", 0 ],
-            "obj-7::obj-3": [ "live.dial[7]", "Unison", 0 ],
-            "obj-7::obj-4": [ "live.menu[1]", "Unison", 0 ],
-            "obj-7::obj-40": [ "live.dial[5]", "Mod", 0 ],
-            "obj-7::obj-43": [ "live.numbox[4]", "Filter", 0 ],
-            "obj-7::obj-5": [ "live.numbox[5]", "Filter", 0 ],
+            "obj-5::obj-16": [ "filterCutoffKeytrack", "Keytrack", 0 ],
+            "obj-5::obj-21": [ "filterTypeMorph", "Filter", 0 ],
+            "obj-5::obj-3": [ "filterCutoff", "Cutoff", 0 ],
+            "obj-5::obj-30": [ "filterEnvDelay", "Delay", 0 ],
+            "obj-5::obj-39": [ "filterEnvAttack", "Attack", 0 ],
+            "obj-5::obj-46": [ "filterEnvDecay", "Decay", 0 ],
+            "obj-5::obj-47": [ "filterEnvSustain", "Sustain", 0 ],
+            "obj-5::obj-60": [ "filterEnvRange", "Env", 0 ],
+            "obj-5::obj-9": [ "filterResonance", "Res", 0 ],
+            "obj-6::obj-70": [ "synthEnvSustain", "Sustain", 0 ],
+            "obj-6::obj-71": [ "synthEnvDecay", "Decay", 0 ],
+            "obj-6::obj-72": [ "synthEnvAttack", "Attack", 0 ],
+            "obj-6::obj-73": [ "synthEnvHold", "Delay", 0 ],
+            "obj-6::obj-75": [ "synthEnvRelease", "Decay", 0 ],
+            "obj-78": [ "synthGlide", "Filter", 0 ],
+            "obj-79": [ "synthVolume", "Volume", 0 ],
+            "obj-7::obj-25": [ "oscShape", "Osc", 0 ],
+            "obj-7::obj-3": [ "oscUnisonVoices", "Unison", 0 ],
+            "obj-7::obj-4": [ "oscUnisonType", "Unison", 0 ],
+            "obj-7::obj-40": [ "oscMod", "Mod", 0 ],
+            "obj-7::obj-43": [ "oscEnv", "Filter", 0 ],
+            "obj-7::obj-5": [ "oscUnisonAmount", "Filter", 0 ],
             "parameterbanks": {
                 "0": {
                     "index": 0,
