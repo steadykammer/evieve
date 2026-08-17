@@ -143,7 +143,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 555.0, 459.0, 281.0, 22.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 4, 45, 362, 523 ],
+                        "client_rect": [ 100, 172, 458, 650 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
                         "storage_rect": [ 333, 69, 1280, 583 ]
@@ -1507,7 +1507,6 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 13.0,
                                     "gradient": 1,
-                                    "hidden": 1,
                                     "hint": "Velocity of last pressed key",
                                     "id": "obj-21",
                                     "ignoreclick": 1,
@@ -1586,7 +1585,6 @@
                             {
                                 "box": {
                                     "arrows": 3,
-                                    "hidden": 1,
                                     "hint": "Mouse click on keyboard keys for variable Velocity",
                                     "id": "obj-12",
                                     "justification": 1,
@@ -1602,6 +1600,7 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
+                                    "hidden": 1,
                                     "hint": "Static Velocity for Computer Keyboard Keys",
                                     "id": "obj-11",
                                     "maxclass": "live.slider",
@@ -2355,6 +2354,7 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 14.0,
                                     "gradient": 1,
+                                    "hidden": 1,
                                     "hint": "Octave z/x",
                                     "id": "obj-97",
                                     "ignoreclick": 1,
@@ -2681,6 +2681,7 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
+                                    "inputmode": 2,
                                     "maxclass": "kslider",
                                     "mode": 1,
                                     "numinlets": 2,
@@ -2705,7 +2706,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 3
+                                            "parameter_type": 1
                                         }
                                     },
                                     "varname": "kslider"
@@ -3132,7 +3133,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 116.0, 403.0, 75.0, 21.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 606.0, 75.0, 21.0 ],
+                    "presentation_rect": [ 564.0, 606.0, 75.0, 21.0 ],
                     "text": "Glide",
                     "textjustification": 1
                 }
@@ -3151,7 +3152,7 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 116.0, 424.0, 75.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 625.0, 75.0, 18.0 ],
+                    "presentation_rect": [ 564.0, 625.0, 75.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_exponent": 4.0,
@@ -4220,6 +4221,7 @@
             {
                 "box": {
                     "id": "obj-63",
+                    "local": 1,
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,

@@ -19,6 +19,18 @@
         "boxes": [
             {
                 "box": {
+                    "hidden": 1,
+                    "id": "obj-11",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 662.0, 269.0, 32.0, 22.0 ],
+                    "text": "0.84"
+                }
+            },
+            {
+                "box": {
                     "format": 6,
                     "hidden": 1,
                     "id": "obj-10",
@@ -2032,6 +2044,7 @@
             {
                 "box": {
                     "id": "obj-84",
+                    "local": 1,
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,
@@ -2080,7 +2093,7 @@
                     "presentation": 1,
                     "presentation_linecount": 4,
                     "presentation_rect": [ 10.0, 70.0, 660.0, 69.0 ],
-                    "text": "Sometimes people ask me: 'Hey Pete, how do you get that classic ASJ sound?', and I reply: 'Well, it is quite simple really, you just need an osciallator that will morph between Tri and Rect and a Sallen & Key filter with some well tuned slow modulation sources'. Remember, contrary to popular belief, the ASJ is not grungy, it is clean and perfect.",
+                    "text": "Sometimes people ask me: 'Hey Pete, how do you get that classic ASJ sound?', and I reply: 'Well, it is quite simple really, you just need an oscillator that will morph between Tri and Rect and a Sallen & Key filter with some well tuned slow modulation sources'. Remember, contrary to popular belief, the ASJ is not grungy, it is clean and perfect.",
                     "varname": "digest_comment"
                 }
             }
@@ -2091,6 +2104,13 @@
                     "destination": [ "obj-23", 0 ],
                     "hidden": 1,
                     "source": [ "obj-10", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-11", 0 ]
                 }
             },
             {
