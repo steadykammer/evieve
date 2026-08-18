@@ -27,7 +27,7 @@ Param   drive(0.5, min=0, max=1);   // scaled downstream as dB 0..10 saturation 
 
 // bypass, ramp up, ramp down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise
 Param   lfowave(4, min=0, max=10);
-Param   lfomode(1, min=0, max=1);   // zero reset 0/1
+Param   lfomode(0, min=0, max=1);   // zero reset 0/1
 Param   lfowidth(0.5, min=0, max=1);// pwm 0..1
 Param   lfoinvert(0, min=0, max=1); // invert waveform 0/1
 Param   lfoskew(1., min=0.5, max=2);// exponent 0.5..2

@@ -295,6 +295,18 @@
                 "max": "32",
                 "value": "7"
             }
+        },
+        {
+            "name": "zeroreset",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "LFO: if @zeroreset is off (0, the default) the @rate attribute controls the speed (in Hz) of the internal LFOs smoothly interpolated. If on (1), the speed of the @rate attribute (and the internal phasor it controls) will only update on zero reset phase boundaries, in a 'stepped' manner but completely cleanly. This can be interesting if moving the @rate slowly, or give a random feeling if moving @rate fast.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
         }
     ],
     "example": {

@@ -143,7 +143,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 555.0, 459.0, 281.0, 22.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 100, 172, 458, 650 ],
+                        "client_rect": [ 4, 45, 362, 523 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
                         "storage_rect": [ 333, 69, 1280, 583 ]
@@ -5216,11 +5216,11 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                    "patching_rect": [ 10.0, 70.0, 667.0, 38.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                    "text": "Expensive 8 voice Polysynth example using evieve primitives, with unison and key tracked filter per voice. Supposed to be 'modern' sounding but plenty of wobblyness tuned in. Start with the Presets.",
+                    "presentation_rect": [ 10.0, 70.0, 667.0, 38.0 ],
+                    "text": "Expensive 8 voice Polysynth example using evieve primitives, with unison and key tracked filter per voice. Supposed to be 'modern' sounding but plenty of wobblyness tuned in. Start with the Presets (and Velocity is very important!).",
                     "varname": "digest_comment"
                 }
             }

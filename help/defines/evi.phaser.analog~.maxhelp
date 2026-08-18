@@ -35,13 +35,51 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "id": "obj-9",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 641.0, 331.0, 83.0, 25.0 ],
+                                    "text": "sync",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-11",
+                                    "maxclass": "toggle",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 615.0, 331.0, 24.0, 24.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "zeroreset",
+                                    "id": "obj-40",
+                                    "ignoreclick": 1,
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 516.0, 331.0, 97.0, 23.0 ],
+                                    "text_width": 67.0
+                                }
+                            },
                             {
                                 "box": {
                                     "bubble": 1,
@@ -102,7 +140,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 6.0, 209.0, 172.0, 40.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "above apply phaser, below mono saturate",
                                     "textjustification": 1
                                 }
@@ -207,7 +244,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 530.0, 238.0, 91.0, 40.0 ],
+                                    "patching_rect": [ 530.0, 216.0, 91.0, 40.0 ],
                                     "text": "LFO",
                                     "textjustification": 1
                                 }
@@ -219,7 +256,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 636.0, 328.0, 88.0, 25.0 ],
+                                    "patching_rect": [ 636.0, 303.0, 88.0, 25.0 ],
                                     "text": "exponent",
                                     "textjustification": 1
                                 }
@@ -231,7 +268,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 636.0, 304.0, 88.0, 25.0 ],
+                                    "patching_rect": [ 636.0, 279.0, 88.0, 25.0 ],
                                     "text": "tri..sine",
                                     "textjustification": 1
                                 }
@@ -243,7 +280,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 636.0, 280.0, 88.0, 25.0 ],
+                                    "patching_rect": [ 636.0, 255.0, 88.0, 25.0 ],
                                     "text": "tri duty",
                                     "textjustification": 1
                                 }
@@ -298,7 +335,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 516.0, 331.0, 118.0, 23.0 ],
+                                    "patching_rect": [ 516.0, 306.0, 118.0, 23.0 ],
                                     "text_width": 60.0
                                 }
                             },
@@ -312,7 +349,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 516.0, 306.0, 118.0, 23.0 ],
+                                    "patching_rect": [ 516.0, 281.0, 118.0, 23.0 ],
                                     "text_width": 60.0
                                 }
                             },
@@ -326,7 +363,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 516.0, 281.0, 118.0, 23.0 ],
+                                    "patching_rect": [ 516.0, 256.0, 118.0, 23.0 ],
                                     "text_width": 60.0
                                 }
                             },
@@ -419,7 +456,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 34.0, 100.0, 211.0, 345.0 ],
+                                        "rect": [ 34.0, 100.0, 253.0, 345.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -451,8 +488,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 63.0, 159.0, 81.0, 22.0 ],
-                                                    "text": "2 0 1., 3 1 1."
+                                                    "patching_rect": [ 63.0, 159.0, 155.0, 22.0 ],
+                                                    "text": "2 0 0.707946, 3 1 0.707946"
                                                 }
                                             },
                                             {
@@ -462,8 +499,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 49.0, 198.0, 81.0, 22.0 ],
-                                                    "text": "0 0 1., 1 1 1."
+                                                    "patching_rect": [ 49.0, 198.0, 155.0, 22.0 ],
+                                                    "text": "0 0 0.707946, 1 1 0.707946"
                                                 }
                                             },
                                             {
@@ -914,6 +951,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-40", 0 ],
+                                    "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 525.5, 369.6015625, 324.5, 369.6015625 ],
                                     "source": [ "obj-12", 0 ]
@@ -1038,6 +1081,13 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
+                                    "midpoints": [ 525.5, 370.0, 324.5, 370.0 ],
+                                    "source": [ "obj-40", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 189.5, 370.14453125, 324.5, 370.14453125 ],
                                     "source": [ "obj-42", 0 ]
                                 }
@@ -1110,7 +1160,6 @@
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
                     "patching_rect": [ 154.0, 336.0, 58.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1311,7 +1360,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 516.0, 231.0, 219.0, 98.0 ],
-                                    "presentation_linecount": 6,
                                     "text": "this is a multistage phaser, the 'stages' attribute sets the amount of allpass filters in the cascade, this drastically changes the tone and 'strength' of the phaser",
                                     "textjustification": 1
                                 }
@@ -1390,7 +1438,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 34.0, 100.0, 211.0, 345.0 ],
+                                        "rect": [ 34.0, 100.0, 270.0, 345.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1422,8 +1470,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 63.0, 159.0, 81.0, 22.0 ],
-                                                    "text": "2 0 1., 3 1 1."
+                                                    "patching_rect": [ 63.0, 159.0, 155.0, 22.0 ],
+                                                    "text": "2 0 0.707946, 3 1 0.707946"
                                                 }
                                             },
                                             {
@@ -1433,8 +1481,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 49.0, 198.0, 81.0, 22.0 ],
-                                                    "text": "0 0 1., 1 1 1."
+                                                    "patching_rect": [ 49.0, 198.0, 155.0, 22.0 ],
+                                                    "text": "0 0 0.707946, 1 1 0.707946"
                                                 }
                                             },
                                             {
@@ -2131,7 +2179,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 424.0, 509.0, 76.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {

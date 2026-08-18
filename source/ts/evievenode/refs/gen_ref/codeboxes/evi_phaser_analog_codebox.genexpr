@@ -29,6 +29,7 @@ Param	spread(0.632, min=0, max=1);
 Param	duty(0.4, min=0, max=1);
 Param	shape(0.5, min=0, max=1);
 Param	skew(1.2, min=0.5, max=2);
+Param   zeroreset(0, min=0, max=1);
 
 Param   crossover(104., min=10, max=1000);
 Param   pregain(2., min=-6, max=6);
@@ -82,7 +83,7 @@ fbattenLs, fbattenRs, stereoInS, stereoOutS = expsmoothBank4(fbattenL, fbattenR,
 xover = logsmooth(crossover, smoothsecs*1.09);
 
 // lfo
-phase, currentHz, sync = evi_phasor0(rate, 0);
+phase, currentHz, sync = evi_phasor0(rate, 0, mode=zeroreset);
 lfo01	= lfoMix(phase, duty, shape, skew);
 lfomid	= mix(minPitchS, maxPitchS, lfo01);
 lfohz	= mtofApproxBaseless(lfomid);

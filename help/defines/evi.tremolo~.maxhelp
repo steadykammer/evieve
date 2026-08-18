@@ -1629,13 +1629,25 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-24",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 196.0, 357.0, 37.0, 23.0 ],
+                                    "text": "reset"
+                                }
+                            },
                             {
                                 "box": {
                                     "hidden": 1,
@@ -1984,6 +1996,17 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 210.0, 377.0, 119.0, 22.0 ],
+                                                    "text": "prepend applyvalues"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-2",
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
@@ -2000,8 +2023,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 204.0, 143.0, 22.0 ],
-                                                    "text": "prepend applyvalues rate"
+                                                    "patching_rect": [ 50.0, 204.0, 77.0, 22.0 ],
+                                                    "text": "prepend rate"
                                                 }
                                             },
                                             {
@@ -2044,8 +2067,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 403.0, 243.0, 159.0, 22.0 ],
-                                                    "text": "prepend applyvalues spread"
+                                                    "patching_rect": [ 403.0, 243.0, 93.0, 22.0 ],
+                                                    "text": "prepend spread"
                                                 }
                                             },
                                             {
@@ -2088,8 +2111,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 210.0, 282.0, 153.0, 22.0 ],
-                                                    "text": "prepend applyvalues depth"
+                                                    "patching_rect": [ 210.0, 282.0, 86.0, 22.0 ],
+                                                    "text": "prepend depth"
                                                 }
                                             },
                                             {
@@ -2228,7 +2251,7 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-51", 0 ],
+                                                    "destination": [ "obj-3", 0 ],
                                                     "source": [ "obj-14", 0 ]
                                                 }
                                             },
@@ -2248,6 +2271,12 @@
                                                 "patchline": {
                                                     "destination": [ "obj-8", 0 ],
                                                     "source": [ "obj-2", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-51", 0 ],
+                                                    "source": [ "obj-3", 0 ]
                                                 }
                                             },
                                             {
@@ -2294,13 +2323,13 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-51", 0 ],
+                                                    "destination": [ "obj-3", 0 ],
                                                     "source": [ "obj-8", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-51", 0 ],
+                                                    "destination": [ "obj-3", 0 ],
                                                     "source": [ "obj-9", 0 ]
                                                 }
                                             }
@@ -2834,23 +2863,14 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-24", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-41", 0 ],
-                                    "hidden": 1,
-                                    "order": 2,
-                                    "source": [ "obj-28", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-42", 0 ],
-                                    "hidden": 1,
-                                    "order": 1,
-                                    "source": [ "obj-28", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-45", 0 ],
                                     "hidden": 1,
                                     "order": 3,
                                     "source": [ "obj-28", 0 ]
@@ -2858,9 +2878,33 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-62", 0 ],
+                                    "destination": [ "obj-42", 0 ],
+                                    "hidden": 1,
+                                    "order": 2,
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-45", 0 ],
+                                    "hidden": 1,
+                                    "order": 4,
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-61", 0 ],
                                     "hidden": 1,
                                     "order": 0,
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-62", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
                                     "source": [ "obj-28", 0 ]
                                 }
                             },
@@ -3073,7 +3117,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

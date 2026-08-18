@@ -45,6 +45,17 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-20",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 41.0, 598.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-35",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -85,7 +96,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 112.0, 198.0, 86.0, 23.0 ],
-                                    "text": "loadmess 20."
+                                    "text": "loadmess 10."
                                 }
                             },
                             {
@@ -698,6 +709,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "midpoints": [ 50.5, 630.75, 213.5234375, 630.75, 213.5234375, 355.0, 239.5, 355.0 ],
+                                    "source": [ "obj-20", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-31", 0 ],
                                     "source": [ "obj-22", 0 ]
                                 }
@@ -711,8 +729,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "midpoints": [ 50.5, 607.0, 213.5234375, 607.0, 213.5234375, 355.0, 239.5, 355.0 ],
+                                    "destination": [ "obj-20", 0 ],
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
