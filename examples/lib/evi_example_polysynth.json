@@ -210,7 +210,7 @@
                 "data": {
                     "synthGlide": [ 29.999999999999993 ],
                     "synthReverb": [ 54.97104618195141 ],
-                    "synthVolume": [ -5.625647025542049 ],
+                    "synthVolume": [ -6.401387099090202 ],
                     "oscillator::oscEnv": [ 382.42766892965915 ],
                     "oscillator::oscMod": [ 27.559055118110297 ],
                     "oscillator::oscShape": [ 33.0 ],

@@ -827,7 +827,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "signal", "", "" ],
                                     "patching_rect": [ 134.0, 205.0, 319.0, 22.0 ],
-                                    "text": "poly~ evi_poly_voice 8 up 2 @steal 1",
+                                    "text": "poly~ evi_poly_voice 12 up 2 @steal 0",
                                     "varname": "poly~_AA"
                                 }
                             },
@@ -840,18 +840,6 @@
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 41.0, 151.0, 63.0, 22.0 ],
                                     "text": "allnotesoff"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-68",
-                                    "linecount": 8,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 490.0, 205.0, 151.0, 114.0 ],
-                                    "text": "Note: '@parallel 1' works great for reducing CPU, but there is a bug with @parallel & resampling which means there is crazy distortion caused on all voices. Will report to cycling."
                                 }
                             },
                             {
@@ -900,6 +888,30 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 134.0, 338.0, 30.0, 30.0 ]
                                 }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-2",
+                                    "linecount": 12,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 262.0, 24.5, 150.0, 167.0 ],
+                                    "text": "About @steal: of course this should be '@steal 1', but it seems it is impossible to do sample accurate triggering of custom envelopes (evi.adsr~) with cpu and voice management, without @steal 1 clicking. I tried every hack I could think of. If you can fix it, please get in touch."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-68",
+                                    "linecount": 8,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 490.0, 205.0, 151.0, 114.0 ],
+                                    "text": "Note: '@parallel 1' works great for reducing CPU, but there is a bug with @parallel & resampling which means there is crazy distortion caused on all voices. Has been reported."
+                                }
                             }
                         ],
                         "lines": [
@@ -942,6 +954,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-65", 0 ],
+                                    "midpoints": [ 50.5, 189.0, 143.5, 189.0 ],
                                     "source": [ "obj-75", 0 ]
                                 }
                             },
@@ -5183,6 +5196,18 @@
             },
             {
                 "box": {
+                    "hidden": 1,
+                    "id": "obj-26",
+                    "linecount": 4,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 254.0, 385.0, 95.0, 60.0 ],
+                    "text": "(i messed up this scaling before tuning presets, sorry)"
+                }
+            },
+            {
+                "box": {
                     "background": 1,
                     "border": 0,
                     "embed": 0,
@@ -5216,10 +5241,10 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 10.0, 70.0, 667.0, 38.0 ],
+                    "patching_rect": [ 10.0, 70.0, 668.0, 38.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 10.0, 70.0, 667.0, 38.0 ],
+                    "presentation_rect": [ 10.0, 70.0, 668.0, 38.0 ],
                     "text": "Expensive 8 voice Polysynth example using evieve primitives, with unison and key tracked filter per voice. Supposed to be 'modern' sounding but plenty of wobblyness tuned in. Start with the Presets (and Velocity is very important!).",
                     "varname": "digest_comment"
                 }
