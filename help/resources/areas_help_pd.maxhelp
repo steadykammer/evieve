@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 131.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 660.0, 568.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "enablehscroll": 0,
         "enablevscroll": 0,
         "subpatcher_template": "sub",
@@ -28,12 +29,31 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-20",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 360.0, 479.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "fontsize": 13.0,
                     "id": "obj-11",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 87.0, 341.0, 104.0, 21.0 ],
+                    "patching_rect": [ 87.0, 296.0, 104.0, 21.0 ],
                     "text": "See Also"
                 }
             },
@@ -44,7 +64,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 435.0, 55.0, 52.0, 21.0 ],
+                    "patching_rect": [ 435.0, 40.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -63,7 +83,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 87.0, 147.0, 73.0, 20.0 ],
+                    "patching_rect": [ 87.0, 132.0, 73.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -87,7 +107,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 87.0, 230.0, 73.0, 20.0 ],
+                    "patching_rect": [ 87.0, 215.0, 73.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -111,7 +131,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 172.0, 147.0, 139.0, 21.0 ],
+                    "patching_rect": [ 172.0, 132.0, 139.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -153,7 +173,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 297.0, 388.0, 169.0, 20.0 ],
+                    "patching_rect": [ 297.0, 343.0, 169.0, 20.0 ],
                     "text": "Biquad Filters in evieve",
                     "texton": "Biquad Filters in evieve"
                 }
@@ -166,7 +186,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 87.0, 388.0, 169.0, 20.0 ],
+                    "patching_rect": [ 87.0, 343.0, 169.0, 20.0 ],
                     "text": "MSP Filters in evieve",
                     "texton": "MSP Filters in evieve"
                 }
@@ -215,7 +235,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 133.0, 440.0, 169.0, 20.0 ],
+                    "patching_rect": [ 133.0, 395.0, 169.0, 20.0 ],
                     "text": " TPT Filters in evieve",
                     "texton": " TPT Filters in evieve"
                 }
@@ -240,7 +260,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 356.0, 440.0, 169.0, 20.0 ],
+                    "patching_rect": [ 356.0, 395.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -255,7 +275,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 438.0, 88.0, 46.0, 101.0 ]
+                    "patching_rect": [ 438.0, 73.0, 46.0, 101.0 ]
                 }
             },
             {
@@ -294,7 +314,7 @@
                                 "box": {
                                     "id": "obj-21",
                                     "maxclass": "newobj",
-                                    "numinlets": 2,
+                                    "numinlets": 3,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
                                     "patching_rect": [ 162.0, 142.0, 46.0, 22.0 ],
@@ -349,7 +369,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 356.0, 206.0, 199.0, 22.0 ],
+                    "patching_rect": [ 356.0, 191.0, 199.0, 22.0 ],
                     "text": "gen~ @t evieve_Pd_filters_in_gen~"
                 }
             },
@@ -360,7 +380,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 172.0, 123.0, 110.0, 22.0 ],
+                    "patching_rect": [ 172.0, 108.0, 110.0, 22.0 ],
                     "text": "evi.butterworthlp6~"
                 }
             },
@@ -371,7 +391,7 @@
                     "numinlets": 4,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 87.0, 123.0, 51.0, 22.0 ],
+                    "patching_rect": [ 87.0, 108.0, 51.0, 22.0 ],
                     "text": "evi.bp~"
                 }
             },
@@ -393,7 +413,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 168.0, 100.0, 118.0, 21.0 ],
+                    "patching_rect": [ 168.0, 85.0, 118.0, 21.0 ],
                     "text": "6-pole derivative",
                     "textjustification": 1
                 }
@@ -402,10 +422,10 @@
                 "box": {
                     "id": "obj-5",
                     "maxclass": "newobj",
-                    "numinlets": 2,
+                    "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "signal" ],
-                    "patching_rect": [ 87.0, 206.0, 50.0, 22.0 ],
+                    "patching_rect": [ 87.0, 191.0, 50.0, 22.0 ],
                     "text": "evi.vcf~"
                 }
             },

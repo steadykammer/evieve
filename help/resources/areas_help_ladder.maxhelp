@@ -19,6 +19,7 @@
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
         "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "subpatcher_template": "sub",
         "helpsidebarclosed": 1,
         "integercoordinates": 1,
@@ -26,12 +27,31 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-3",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 441.0, 534.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "fontsize": 13.0,
                     "id": "obj-2",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 32.0, 488.0, 162.0, 21.0 ],
+                    "patching_rect": [ 32.0, 474.0, 162.0, 21.0 ],
                     "text": "See Also"
                 }
             },
@@ -56,7 +76,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 148.0, 609.0, 221.0, 22.0 ],
+                    "patching_rect": [ 148.0, 609.0, 227.0, 22.0 ],
                     "text": "list.reg evicompare_ladderfilters.maxhelp"
                 }
             },
@@ -79,7 +99,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 439.0, 369.0, 52.0, 21.0 ],
+                    "patching_rect": [ 439.0, 359.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -98,7 +118,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 337.0, 486.0, 26.0 ],
+                    "patching_rect": [ 62.0, 321.0, 486.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -122,7 +142,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 276.0, 493.0, 37.0 ],
+                    "patching_rect": [ 62.0, 264.0, 493.0, 37.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -146,7 +166,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 225.0, 486.0, 26.0 ],
+                    "patching_rect": [ 62.0, 217.0, 486.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -170,7 +190,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 175.0, 518.0, 26.0 ],
+                    "patching_rect": [ 62.0, 171.0, 518.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -224,7 +244,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 32.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 32.0, 504.0, 191.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -249,7 +269,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 441.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 441.0, 504.0, 191.0, 20.0 ],
                     "text": "Nonlinear SVF Filters in evieve",
                     "texton": "Nonlinear SVF Filters in evieve"
                 }
@@ -298,7 +318,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 237.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 237.0, 504.0, 191.0, 20.0 ],
                     "text": "Nonlinear Korg Filters in evieve",
                     "texton": "Nonlinear Korg Filters in evieve"
                 }
@@ -323,7 +343,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 62.0, 405.0, 187.0, 36.0 ],
+                    "patching_rect": [ 62.0, 395.0, 187.0, 36.0 ],
                     "text": "legacy Z-1 (not TPT) old style Ladders, useful for comparison"
                 }
             },
@@ -334,7 +354,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 172.0, 449.0, 146.0, 22.0 ],
+                    "patching_rect": [ 172.0, 439.0, 146.0, 22.0 ],
                     "text": "gen~ @gen evi_pmladder"
                 }
             },
@@ -345,7 +365,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 62.0, 449.0, 93.0, 22.0 ],
+                    "patching_rect": [ 62.0, 439.0, 93.0, 22.0 ],
                     "text": "evi.ladder.antti~"
                 }
             },
@@ -474,7 +494,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 374.0, 449.0, 181.0, 22.0 ],
+                    "patching_rect": [ 374.0, 439.0, 181.0, 22.0 ],
                     "text": "gen~ @t evieve_ladders_in_gen"
                 }
             },
@@ -488,7 +508,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 442.0, 392.0, 45.0, 54.0 ]
+                    "patching_rect": [ 442.0, 382.0, 45.0, 54.0 ]
                 }
             },
             {

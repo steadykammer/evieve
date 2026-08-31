@@ -1564,7 +1564,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1843,7 +1843,7 @@
                                         }
                                     },
                                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness3": 2.0
+                                    "thickness": 2.0
                                 }
                             },
                             {
@@ -2297,7 +2297,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -3991,7 +3991,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -8579,7 +8579,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 173.0, 208.0, 177.0, 33.0 ],
+                                    "patching_rect": [ 173.0, 209.0, 177.0, 33.0 ],
                                     "text": "thin resonance sound but strong in high frequencies"
                                 }
                             },
@@ -8631,7 +8631,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 151.0, 214.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 151.0, 215.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -8672,7 +8672,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 25.0, 214.0, 126.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 215.0, 126.0, 20.0 ],
                                     "text": "evi.svfsmooth~",
                                     "textjustification": 2
                                 }

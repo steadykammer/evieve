@@ -4,7 +4,7 @@
         "child": "evi.shaper~",
         "category": "evieve",
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
-        "description": "A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal."
+        "description": "A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. Note, this may have no perceivable effect on your signal - it really depends on the source material :-)"
     },
     "constructor": {
         "inlets": "audio"

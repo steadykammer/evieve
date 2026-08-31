@@ -9,7 +9,7 @@
 		<b>evi.shaper~</b> is a 'max define' for the <o>evi_shaper</o>.gendsp gen~ abstraction.
 		Because evi.shaper~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. <br />
+		A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. Note, this may have no perceivable effect on your signal - it really depends on the source material :-) <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

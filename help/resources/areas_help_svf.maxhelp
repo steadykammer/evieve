@@ -27,6 +27,25 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-5",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 354.0, 17.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "fontsize": 13.0,
                     "id": "obj-10",
                     "maxclass": "comment",

@@ -27,12 +27,31 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-20",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 456.0, 532.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "fontsize": 13.0,
                     "id": "obj-6",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 47.0, 488.0, 162.0, 21.0 ],
+                    "patching_rect": [ 47.0, 458.0, 162.0, 21.0 ],
                     "text": "See Also"
                 }
             },
@@ -79,7 +98,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 429.0, 336.0, 52.0, 21.0 ],
+                    "patching_rect": [ 431.0, 336.0, 52.0, 21.0 ],
                     "text": "gen~",
                     "textjustification": 1
                 }
@@ -98,7 +117,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 62.0, 386.0, 241.0, 38.0 ],
+                    "patching_rect": [ 62.0, 371.0, 241.0, 38.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -200,7 +219,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 47.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 47.0, 496.0, 191.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -225,7 +244,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 456.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 456.0, 496.0, 191.0, 20.0 ],
                     "text": "Nonlinear SVF Filters in evieve",
                     "texton": "Nonlinear SVF Filters in evieve"
                 }
@@ -274,7 +293,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 252.0, 526.0, 191.0, 20.0 ],
+                    "patching_rect": [ 252.0, 496.0, 191.0, 20.0 ],
                     "text": "Nonlinear Ladder Filters in evieve",
                     "texton": "Nonlinear Ladder Filters in evieve"
                 }
@@ -416,7 +435,7 @@
                         ],
                         "lines": []
                     },
-                    "patching_rect": [ 355.0, 453.0, 200.0, 22.0 ],
+                    "patching_rect": [ 355.0, 438.0, 200.0, 22.0 ],
                     "text": "gen~ @t evieve_korg_filters_in_gen"
                 }
             },
@@ -430,7 +449,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "orientation": 0,
-                    "patching_rect": [ 432.0, 359.0, 46.0, 92.0 ]
+                    "patching_rect": [ 432.0, 359.0, 49.0, 77.0 ]
                 }
             },
             {

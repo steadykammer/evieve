@@ -572,7 +572,7 @@
     "evi.shaper~": {
         "type": "define",
         "digest": "An interpolated choice of even or odd harmonics waveshaping",
-        "description": "evi.shaper~ is a 'max define' for the evi_shaper.gendsp gen~ abstraction. Because evi.shaper~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal."
+        "description": "evi.shaper~ is a 'max define' for the evi_shaper.gendsp gen~ abstraction. Because evi.shaper~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. Note, this may have no perceivable effect on your signal - it really depends on the source material :-)"
     },
     "evi.sine.select~": {
         "type": "define",

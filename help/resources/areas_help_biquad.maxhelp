@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -25,6 +25,25 @@
         "integercoordinates": 1,
         "title": "Legacy Biquad Filters in evieve",
         "boxes": [
+            {
+                "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-24",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 11.0, 536.0, 175.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
             {
                 "box": {
                     "border": 1,
@@ -72,7 +91,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 13.0, 488.0, 169.0, 36.0 ],
+                    "patching_rect": [ 13.0, 472.0, 169.0, 36.0 ],
                     "text": "Compare Biquads and TPT Filters here:"
                 }
             },
@@ -84,7 +103,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 11.0, 525.0, 175.0, 21.0 ],
+                    "patching_rect": [ 11.0, 505.0, 175.0, 21.0 ],
                     "text": "Compare Biquads / TPT Filters",
                     "texton": "Compare Biquads / TPT Filters"
                 }
@@ -205,7 +224,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 13.0, 353.0, 166.0, 108.0 ],
+                    "patching_rect": [ 13.0, 339.0, 166.0, 108.0 ],
                     "text": "There are more filter types when you use Biquads (40 different types in evieve) but Biquads are inferior filters to TPT filters, so you might wish to use TPT filters in most situations:"
                 }
             },
@@ -253,7 +272,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 11.0, 463.0, 175.0, 21.0 ],
+                    "patching_rect": [ 11.0, 445.0, 175.0, 21.0 ],
                     "text": "TPT Filters in evieve",
                     "texton": "TPT Filters in evieve"
                 }

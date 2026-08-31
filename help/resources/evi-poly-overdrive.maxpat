@@ -31,7 +31,11 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 380.0, 408.0, 42.0, 22.0 ],
+                    "patching_rect": [ 370.0, 438.0, 42.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "out~ 1"
                 }
             },
@@ -41,9 +45,13 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 426.0, 300.0, 35.0, 22.0 ],
-                    "text": "in~ 2"
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 416.0, 276.0, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
+                    "text": "in 2"
                 }
             },
             {
@@ -53,7 +61,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 380.0, 354.0, 65.0, 22.0 ],
+                    "patching_rect": [ 370.0, 384.0, 65.0, 22.0 ],
                     "text": "overdrive~"
                 }
             },
@@ -64,8 +72,23 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 380.0, 300.0, 35.0, 22.0 ],
+                    "patching_rect": [ 370.0, 276.0, 35.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in~ 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-5",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "bang" ],
+                    "patching_rect": [ 416.0, 330.0, 54.0, 22.0 ],
+                    "text": "line~ 10."
                 }
             }
         ],
@@ -84,8 +107,14 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-2", 1 ],
+                    "destination": [ "obj-5", 0 ],
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 1 ],
+                    "source": [ "obj-5", 0 ]
                 }
             }
         ],

@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -8521,7 +8521,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -9210,7 +9210,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 228.0, 760.0, 33.0 ],
-                                    "text": "When you are not sure which filter you need, it is sometimes useful to have an object with multiple filters available. In evieve there are two generic utility objects for this. These are the evieve equivalent of [filtercoeff~] + [biquad~]."
+                                    "text": "When you are not sure which filter you need, it is sometimes useful to have an object with multiple filters available. In evieve there are two generic utility objects for this. These are the evieve equivalents of [filtercoeff~] + [biquad~]."
                                 }
                             },
                             {

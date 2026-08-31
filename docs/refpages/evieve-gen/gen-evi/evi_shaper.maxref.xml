@@ -10,7 +10,7 @@
                  <br />
         evi_shaper is also available in MSP as: <o>evi.shaper~</o>. <br />
          <br />
-	    A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. <br />
+	    A simple object to cleanly add harmonics to an audio chain when required. A choice of up to 8-ish harmonics either even or odd can be smoothly interpolated onto the audio signal. Note, this may have no perceivable effect on your signal - it really depends on the source material :-) <br />
     </description>
     <methodlist />
     <constructorlist>

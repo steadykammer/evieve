@@ -2567,7 +2567,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 619.0, 509.0, 140.0, 69.0 ],
+                                    "patching_rect": [ 619.0, 479.0, 140.0, 69.0 ],
                                     "text": "Compares the current filter with similar evieve filters",
                                     "textjustification": 1
                                 }

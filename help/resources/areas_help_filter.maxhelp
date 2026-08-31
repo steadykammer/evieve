@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 63.0, 100.0, 817.0, 726.0 ],
+        "rect": [ 63.0, 100.0, 789.0, 752.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -29,13 +29,32 @@
         "boxes": [
             {
                 "box": {
+                    "bgmode": 0,
+                    "border": 0,
+                    "clickthrough": 0,
+                    "enablehscroll": 0,
+                    "enablevscroll": 0,
+                    "id": "obj-29",
+                    "lockeddragscroll": 0,
+                    "lockedsize": 0,
+                    "maxclass": "bpatcher",
+                    "name": "evimenu_topics.maxpat",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "offset": [ 0.0, 0.0 ],
+                    "patching_rect": [ 458.0, 535.0, 192.0, 23.0 ],
+                    "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
                     "id": "obj-31",
                     "maxclass": "textbutton",
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 481.0, 479.0, 169.0, 20.0 ],
+                    "patching_rect": [ 481.0, 449.0, 169.0, 20.0 ],
                     "text": "Compare Linear TPT Filters",
                     "texton": "Compare Linear TPT Filters"
                 }
@@ -59,7 +78,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 480.0, 456.0, 123.0, 21.0 ],
+                    "patching_rect": [ 480.0, 426.0, 123.0, 21.0 ],
                     "text": "See Also:"
                 }
             },
@@ -69,7 +88,7 @@
                     "maxclass": "live.line",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 131.0, 142.0, 9.0, 119.0 ]
+                    "patching_rect": [ 131.0, 127.0, 9.0, 119.0 ]
                 }
             },
             {
@@ -78,7 +97,7 @@
                     "maxclass": "live.line",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 29.0, 408.0, 576.0, 14.0 ]
+                    "patching_rect": [ 29.0, 393.0, 576.0, 14.0 ]
                 }
             },
             {
@@ -87,7 +106,7 @@
                     "maxclass": "live.line",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 228.0, 325.0, 19.0 ]
+                    "patching_rect": [ 295.0, 213.0, 325.0, 19.0 ]
                 }
             },
             {
@@ -96,7 +115,7 @@
                     "maxclass": "live.line",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 142.0, 288.0, 14.0 ]
+                    "patching_rect": [ 295.0, 127.0, 288.0, 14.0 ]
                 }
             },
             {
@@ -113,7 +132,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 365.0, 199.0, 102.0, 20.0 ],
+                    "patching_rect": [ 365.0, 184.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -129,7 +148,7 @@
                     "maxclass": "live.line",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 29.0, 142.0, 204.0, 14.0 ]
+                    "patching_rect": [ 29.0, 127.0, 204.0, 14.0 ]
                 }
             },
             {
@@ -140,7 +159,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 456.0, 152.0, 50.0 ],
+                    "patching_rect": [ 295.0, 426.0, 152.0, 50.0 ],
                     "text": "But if you need Biquads there are many of those in evieve as well:"
                 }
             },
@@ -152,7 +171,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 63.0, 508.0, 175.0, 21.0 ],
+                    "patching_rect": [ 63.0, 478.0, 175.0, 21.0 ],
                     "text": "Compare Biquads / TPT Filters",
                     "texton": "Compare Biquads / TPT Filters"
                 }
@@ -183,7 +202,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 29.0, 376.0, 117.0, 21.0 ],
+                    "patching_rect": [ 29.0, 361.0, 117.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -207,7 +226,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 490.0, 339.0, 102.0, 20.0 ],
+                    "patching_rect": [ 490.0, 324.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -231,7 +250,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 365.0, 339.0, 122.0, 21.0 ],
+                    "patching_rect": [ 365.0, 324.0, 122.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -255,7 +274,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 245.0, 339.0, 117.0, 21.0 ],
+                    "patching_rect": [ 245.0, 324.0, 117.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -279,7 +298,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 150.0, 339.0, 97.0, 20.0 ],
+                    "patching_rect": [ 150.0, 324.0, 97.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -303,7 +322,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 28.0, 339.0, 120.0, 20.0 ],
+                    "patching_rect": [ 28.0, 324.0, 120.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -327,7 +346,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 505.0, 301.0, 102.0, 20.0 ],
+                    "patching_rect": [ 505.0, 286.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -351,7 +370,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 402.0, 301.0, 102.0, 20.0 ],
+                    "patching_rect": [ 402.0, 286.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -375,7 +394,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 273.0, 301.0, 124.0, 21.0 ],
+                    "patching_rect": [ 273.0, 286.0, 124.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -399,7 +418,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 147.0, 301.0, 124.0, 21.0 ],
+                    "patching_rect": [ 147.0, 286.0, 124.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -423,7 +442,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 29.0, 301.0, 117.0, 21.0 ],
+                    "patching_rect": [ 29.0, 286.0, 117.0, 21.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -447,7 +466,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 565.0, 199.0, 62.0, 20.0 ],
+                    "patching_rect": [ 565.0, 184.0, 62.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -471,7 +490,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 494.0, 199.0, 62.0, 20.0 ],
+                    "patching_rect": [ 494.0, 184.0, 62.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -495,7 +514,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 295.0, 199.0, 102.0, 20.0 ],
+                    "patching_rect": [ 295.0, 184.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -519,7 +538,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 481.0, 113.0, 128.0, 20.0 ],
+                    "patching_rect": [ 481.0, 98.0, 128.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -543,7 +562,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 295.0, 113.0, 128.0, 20.0 ],
+                    "patching_rect": [ 295.0, 98.0, 128.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -567,7 +586,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 154.0, 113.0, 102.0, 20.0 ],
+                    "patching_rect": [ 154.0, 98.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -591,7 +610,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 29.0, 113.0, 102.0, 20.0 ],
+                    "patching_rect": [ 29.0, 98.0, 102.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -645,7 +664,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 481.0, 508.0, 169.0, 20.0 ],
+                    "patching_rect": [ 481.0, 478.0, 169.0, 20.0 ],
                     "text": "Nonlinear Filters in evieve",
                     "texton": "Nonlinear Filters in evieve"
                 }
@@ -670,7 +689,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 286.0, 508.0, 169.0, 20.0 ],
+                    "patching_rect": [ 286.0, 478.0, 169.0, 20.0 ],
                     "text": "Biquad Filters in evieve",
                     "texton": "Biquad Filters in evieve"
                 }
@@ -683,7 +702,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 15.0, 456.0, 272.0, 50.0 ],
+                    "patching_rect": [ 15.0, 426.0, 272.0, 50.0 ],
                     "text": "You should always favour these linear filters over Biquads as they are superior TPT filters with excellent modulation characteristics:"
                 }
             },
@@ -694,7 +713,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 150.0, 376.0, 455.0, 21.0 ],
+                    "patching_rect": [ 150.0, 361.0, 455.0, 21.0 ],
                     "text": "all freqs in Hz, all gains in dB, all Qs are Q",
                     "textjustification": 1
                 }
@@ -706,7 +725,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 495.0, 176.0, 125.0, 21.0 ],
+                    "patching_rect": [ 495.0, 161.0, 125.0, 21.0 ],
                     "text": "EQs @ param rate"
                 }
             },
@@ -717,7 +736,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 176.0, 172.0, 21.0 ],
+                    "patching_rect": [ 295.0, 161.0, 172.0, 21.0 ],
                     "text": "EQs @ audio rate"
                 }
             },
@@ -728,7 +747,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 29.0, 90.0, 102.0, 21.0 ],
+                    "patching_rect": [ 29.0, 75.0, 102.0, 21.0 ],
                     "text": "all filter types"
                 }
             },
@@ -739,7 +758,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 153.0, 90.0, 103.0, 21.0 ],
+                    "patching_rect": [ 153.0, 75.0, 103.0, 21.0 ],
                     "text": "just EQ types"
                 }
             },
@@ -750,7 +769,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 90.0, 104.0, 21.0 ],
+                    "patching_rect": [ 295.0, 75.0, 104.0, 21.0 ],
                     "text": "low/high shelfs"
                 }
             },
@@ -773,7 +792,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 452.0, 75.0, 152.0, 36.0 ],
+                    "patching_rect": [ 452.0, 60.0, 152.0, 36.0 ],
                     "text": "morphing filter LP..BP..HP..NOTCH..LP",
                     "textjustification": 1
                 }
@@ -796,7 +815,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 31.0, 263.0, 366.0, 21.0 ],
+                    "patching_rect": [ 31.0, 248.0, 366.0, 21.0 ],
                     "text": "all types available as individual all-in-one blocks as well"
                 }
             }
