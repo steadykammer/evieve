@@ -695,8 +695,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 173.0, 557.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 173.0, 557.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -1231,8 +1231,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 292.0, 538.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 292.0, 538.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -1960,8 +1960,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 110.0, 512.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 110.0, 512.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -2489,8 +2489,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 130.0, 507.0, 71.0, 23.0 ],
-                                    "text": "mc.*~ 0.25"
+                                    "patching_rect": [ 130.0, 507.0, 64.0, 23.0 ],
+                                    "text": "mc.*~ 0.5"
                                 }
                             },
                             {
@@ -3115,8 +3115,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 478.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 223.0, 478.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -3714,7 +3714,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

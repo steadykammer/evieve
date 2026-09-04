@@ -1174,8 +1174,8 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                        "fontname": "<Monospaced>",
                                                         "id": "obj-3",
+                                                        "fontname": "<Monospaced>",
                                                         "outlettype": [ "", "" ],
                                                         "fontface": 0,
                                                         "numinlets": 2,
@@ -1878,8 +1878,8 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                        "fontname": "<Monospaced>",
                                                         "id": "obj-3",
+                                                        "fontname": "<Monospaced>",
                                                         "outlettype": [ "" ],
                                                         "fontface": 0,
                                                         "numinlets": 4,
@@ -1932,7 +1932,7 @@
                                     "patching_rect": [ 69.0, 184.0, 211.0, 23.0 ],
                                     "rnbo_classname": "gen~",
                                     "rnbo_serial": 2,
-                                    "rnbo_uniqueid": "gen~_obj-1",
+                                    "rnbo_uniqueid": "evi_filter",
                                     "rnboinfo": {
                                         "needsInstanceInfo": 1,
                                         "argnames": {
@@ -2076,7 +2076,8 @@
                                         "changesPatcherIO": 0,
                                         "hasPatcherArgs": 0
                                     },
-                                    "text": "gen~ @file evi_filter @exposeparams 1"
+                                    "text": "gen~ @file evi_filter @exposeparams 1",
+                                    "varname": "evi_filter"
                                 }
                             },
                             {
@@ -2134,20 +2135,20 @@
                     "presentation": 1,
                     "presentation_rect": [ 1142.0, 424.0, 104.0, 26.0 ],
                     "rnboattrcache": {
-                        "gen~_obj-1/filter": {
-                            "label": "filter",
+                        "evi_filter/smooth": {
+                            "label": "smooth",
                             "isEnum": 0,
                             "parsestring": "",
                             "type": 0
                         },
-                        "gen~_obj-1/smooth": {
-                            "label": "smooth",
+                        "evi_filter/filter": {
+                            "label": "filter",
                             "isEnum": 0,
                             "parsestring": "",
                             "type": 0
                         }
                     },
-                    "rnboversion": "1.5.0-dev.118",
+                    "rnboversion": "1.5.0-dev.128",
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_invisible": 1,
@@ -2172,10 +2173,10 @@
                         "subtype": "Undefined",
                         "embed": 1,
                         "snapshot": {
-                            "gen~_obj-1/filter": {
+                            "evi_filter/filter": {
                                 "value": 0.0
                             },
-                            "gen~_obj-1/smooth": {
+                            "evi_filter/smooth": {
                                 "value": 0.0
                             },
                             "__presetid": "gen~"
@@ -2193,10 +2194,10 @@
                                     "subtype": "",
                                     "embed": 0,
                                     "snapshot": {
-                                        "gen~_obj-1/filter": {
+                                        "evi_filter/filter": {
                                             "value": 0.0
                                         },
-                                        "gen~_obj-1/smooth": {
+                                        "evi_filter/smooth": {
                                             "value": 0.0
                                         },
                                         "__presetid": "gen~"

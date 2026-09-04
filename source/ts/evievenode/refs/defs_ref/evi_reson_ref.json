@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Reimplementation of MSP <o>reson~</o> as a TPT filter",
-        "description": "A linear TPT resonant bandpass filter. <o>evi.reson~</o> has a very similar response as MSP <o>reson~</o> and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation.",
+        "description": "A linear TPT resonant bandpass filter. <o>evi.reson~</o> has a very similar response to MSP <o>reson~</o> and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation.",
         "discussion": "For more information about other reimplementations of MSP filters in evieve, see the 'evieve: msp' tab of the helpfile."
     },
     "metadata": {

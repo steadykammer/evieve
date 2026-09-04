@@ -46,6 +46,19 @@
                                 "box": {
                                     "bubble": 1,
                                     "bubbleside": 3,
+                                    "id": "obj-14",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 250.0, 116.0, 70.0, 25.0 ],
+                                    "text": "Ping",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubbleside": 3,
                                     "id": "obj-12",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -659,17 +672,28 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 333.0, 266.0, 254.0, 345.0 ],
+                                        "rect": [ 333.0, 266.0, 269.0, 345.0 ],
                                         "gridonopen": 2,
                                         "subpatcher_template": "sub",
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "int" ],
+                                                    "patching_rect": [ 150.0, 57.0, 85.0, 22.0 ],
+                                                    "text": "adstatus sigvs"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "format": 6,
                                                     "id": "obj-48",
                                                     "maxclass": "flonum",
                                                     "maximum": 1000.0,
-                                                    "minimum": 0.0,
+                                                    "minimum": 10.0,
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "bang" ],
@@ -681,6 +705,7 @@
                                                             "parameter_initial_enable": 1,
                                                             "parameter_longname": "number[49]",
                                                             "parameter_mmax": 1000.0,
+                                                            "parameter_mmin": 10.0,
                                                             "parameter_modmode": 3,
                                                             "parameter_shortname": "number",
                                                             "parameter_type": 0
@@ -780,6 +805,12 @@
                                             }
                                         ],
                                         "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-45", 1 ],
+                                                    "source": [ "obj-1", 1 ]
+                                                }
+                                            },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-39", 1 ],

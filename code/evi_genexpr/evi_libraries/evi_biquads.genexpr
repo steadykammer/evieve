@@ -38,7 +38,7 @@
 // Part 2: Filter Selectors
 // require("evi_biquads_selectors.genexpr");
 
-require("evi_biquads_union.genexpr"); // instead of above two?
+require("evi_biquads_union.genexpr"); // instead of above two
 
 // Part 3: Biquad Filters
 require("evi_biquads_filters.genexpr");

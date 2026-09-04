@@ -20,7 +20,6 @@
 // for a global require that includes the object code, @see: 'evi_evieve.genexpr'
 
 // cores
-// require("evi_core.genexpr"); // no, must require individually...
 require("evi_approx.genexpr");
 require("evi_utilities.genexpr");
 require("evi_smooth.genexpr");

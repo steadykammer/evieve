@@ -140,6 +140,7 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-36",
@@ -148,7 +149,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 471.0, 261.0, 57.0, 55.0 ],
+                                    "patching_rect": [ 478.0, 247.0, 50.0, 70.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -2670,7 +2671,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

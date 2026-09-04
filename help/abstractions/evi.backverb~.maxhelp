@@ -71,7 +71,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -89,7 +89,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 479.0, 119.0, 161.0, 55.0 ],
-                                    "presentation_linecount": 5,
                                     "text": "tune feedback saturation with # 4, 5 & 6",
                                     "textjustification": 1
                                 }
@@ -3617,7 +3616,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 201.0, 163.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 202.0, 163.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3659,7 +3658,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 281.0, 241.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 283.0, 241.0, 50.0, 23.0 ],
                                     "text": "*~ 0.58"
                                 }
                             },
@@ -3708,7 +3707,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 222.0, 136.0, 257.0, 73.0 ],
+                                    "patching_rect": [ 223.0, 136.0, 257.0, 73.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -4899,7 +4898,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

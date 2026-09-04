@@ -614,8 +614,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 193.0, 455.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 193.0, 455.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -1496,7 +1496,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1633,7 +1633,7 @@
                                     "patching_rect": [ 389.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.12 ],
+                                            "parameter_initial": [ 0.04 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[6]",
                                             "parameter_mmax": 1.0,
@@ -1659,7 +1659,7 @@
                                     "patching_rect": [ 225.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.28 ],
+                                            "parameter_initial": [ 0.12 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[7]",
                                             "parameter_mmax": 1.0,
@@ -1848,8 +1848,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 318.0, 276.0, 200.0, 22.0 ],
-                                                    "text": "mc.evi.expsmooth~ 1. 22 @chans 4"
+                                                    "patching_rect": [ 318.0, 276.0, 206.0, 22.0 ],
+                                                    "text": "mc.evi.expsmooth~ 0.5 22 @chans 4"
                                                 }
                                             },
                                             {
@@ -2588,8 +2588,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 193.0, 440.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 193.0, 440.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -2656,7 +2656,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 337.0, 100.0, 22.0, 22.0 ],
+                                                    "patching_rect": [ 337.0, 115.0, 22.0, 22.0 ],
                                                     "text": "22"
                                                 }
                                             },
@@ -2667,8 +2667,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 267.0, 100.0, 39.0, 22.0 ],
-                                                    "text": "dbtoa"
+                                                    "patching_rect": [ 267.0, 76.0, 97.0, 22.0 ],
+                                                    "text": "evi_dbtoaapprox"
                                                 }
                                             },
                                             {
@@ -2678,7 +2678,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 267.0, 150.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 267.0, 165.0, 89.0, 22.0 ],
                                                     "text": "evi_expsmooth"
                                                 }
                                             },
@@ -2689,7 +2689,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 191.0, 209.0, 95.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 224.0, 95.0, 22.0 ],
                                                     "text": "*"
                                                 }
                                             },
@@ -2700,7 +2700,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 191.0, 150.0, 59.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 165.0, 59.0, 22.0 ],
                                                     "text": "cycle 220"
                                                 }
                                             },
@@ -2711,7 +2711,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 4,
                                                     "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 191.0, 267.0, 89.0, 22.0 ],
+                                                    "patching_rect": [ 191.0, 282.0, 89.0, 22.0 ],
                                                     "text": "evi_wavefolder"
                                                 }
                                             },

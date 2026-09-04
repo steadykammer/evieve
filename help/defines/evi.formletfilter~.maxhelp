@@ -818,8 +818,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 136.0, 517.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 136.0, 517.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -1763,8 +1763,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 140.0, 482.0, 50.0, 23.0 ],
-                                    "text": "*~ 0.25"
+                                    "patching_rect": [ 140.0, 482.0, 43.0, 23.0 ],
+                                    "text": "*~ 0.5"
                                 }
                             },
                             {
@@ -2662,8 +2662,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 155.0, 520.0, 71.0, 23.0 ],
-                                    "text": "mc.*~ 0.25"
+                                    "patching_rect": [ 155.0, 520.0, 64.0, 23.0 ],
+                                    "text": "mc.*~ 0.5"
                                 }
                             },
                             {
@@ -3400,8 +3400,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 215.0, 467.0, 40.0, 22.0 ],
-                                                    "text": "* 0.25"
+                                                    "patching_rect": [ 215.0, 467.0, 33.0, 22.0 ],
+                                                    "text": "* 0.5"
                                                 }
                                             },
                                             {

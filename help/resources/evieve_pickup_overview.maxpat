@@ -34,8 +34,8 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 11.0, 165.0, 79.0, 22.0 ],
-                    "text": "prepend load"
+                    "patching_rect": [ 11.0, 165.0, 115.0, 22.0 ],
+                    "text": "prepend loadunique"
                 }
             },
             {
