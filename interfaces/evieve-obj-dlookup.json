@@ -547,7 +547,7 @@
     "evi.reson~": {
         "type": "define",
         "digest": "Reimplementation of MSP reson~ as a TPT filter",
-        "description": "evi.reson~ is a 'max define' for the evi_reson.gendsp gen~ abstraction. Because evi.reson~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear TPT resonant bandpass filter. evi.reson~ has a very similar response as MSP reson~ and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation."
+        "description": "evi.reson~ is a 'max define' for the evi_reson.gendsp gen~ abstraction. Because evi.reson~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA linear TPT resonant bandpass filter. evi.reson~ has a very similar response to MSP reson~ and can therefore be used as a drop in replacement in most situations, but has better modulation characteristics with FM-able center frequency as well as optional auto gain compensation."
     },
     "evi.ringmod.diode~": {
         "type": "abstraction",
