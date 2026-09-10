@@ -21,6 +21,268 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-6",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 0,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "bglocked": 1,
+                        "default_fontsize": 13.0,
+                        "gridonopen": 2,
+                        "showontab": 1,
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-16",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 439.0, 244.0, 150.0, 36.0 ],
+                                    "text": "set in \"average spacing between samples\""
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-15",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 141.0, 252.0, 150.0, 21.0 ],
+                                    "text": "set in Hz"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-13",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 141.0, 282.0, 54.0, 23.0 ],
+                                    "text": "sig~ 14."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-7",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 439.0, 282.0, 65.0, 23.0 ],
+                                    "text": "sig~ 2937"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 223.0, 377.0, 184.0, 68.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-5",
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 439.0, 377.0, 184.0, 68.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "signal", "signal", "signal" ],
+                                    "patching_rect": [ 141.0, 322.0, 101.0, 23.0 ],
+                                    "text": "evi.velvetnoise~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-1",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "signal" ],
+                                    "patching_rect": [ 439.0, 322.0, 127.0, 23.0 ],
+                                    "text": "abl.dsp.velvetnoise~"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-12",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 201.0, 550.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "border": 0,
+                                    "embed": 0,
+                                    "filename": "evi.helpname.js",
+                                    "id": "obj-2",
+                                    "ignoreclick": 1,
+                                    "jsarguments": [ "evi.velvetnoise~", 660 ],
+                                    "maxclass": "v8ui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
+                                    "textfile": {
+                                        "filename": "evi.helpname.js",
+                                        "flags": 0,
+                                        "embed": 0,
+                                        "autowatch": 1
+                                    },
+                                    "varname": "v8ui_AA"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.9,
+                                    "bubbleside": 0,
+                                    "id": "obj-20",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 135.0, 347.0, 67.0, 40.0 ],
+                                    "text": "+ sparse",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bubble": 1,
+                                    "bubblepoint": 0.0,
+                                    "bubbleside": 3,
+                                    "id": "obj-18",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 72.0, 342.0, 78.0, 25.0 ],
+                                    "text": "+ mixed",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "id": "obj-4",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
+                                    "text": "Compare to the native 'velvetnoise' object",
+                                    "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "local": 1,
+                                    "maxclass": "ezdac~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 223.0, 537.0, 45.0, 45.0 ],
+                                    "varname": "mcs_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 270.0, 547.0, 86.0, 25.0 ],
+                                    "text": "Audio On",
+                                    "textjustification": 1,
+                                    "varname": "comment_dac"
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "source": [ "obj-13", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "source": [ "obj-3", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 417.0, 336.0, 70.0, 23.0 ],
+                    "saved_object_attributes": {
+                        "fontsize": 13.0
+                    },
+                    "text": "p compare",
+                    "varname": "compare_tab"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-4",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -535,7 +797,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 10.0, 10.0, 500.0, 50.0 ],
+                    "patching_rect": [ 10.0, 10.0, 347.4640197753906, 57.599853515625 ],
                     "textfile": {
                         "filename": "evi.helpname.js",
                         "flags": 0,
@@ -560,7 +822,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1017,7 +1279,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 229.0, 336.0, 37.0, 23.0 ],
+                    "patching_rect": [ 172.0, 336.0, 37.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1268,7 +1530,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 134.0, 167.0, 600.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1463,7 +1725,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 373.0, 336.0, 50.0, 23.0 ],
+                    "patching_rect": [ 229.0, 336.0, 50.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1783,7 +2045,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 455.0, 336.0, 71.0, 23.0 ],
+                    "patching_rect": [ 296.0, 336.0, 71.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1909,7 +2171,6 @@
             "obj-10::obj-29": [ "number[5]", "number[5]", 0 ],
             "obj-11::obj-1": [ "number[3]", "number[1]", 0 ],
             "obj-12::obj-1": [ "number[2]", "number[1]", 0 ],
-            "obj-13::obj-6::obj-23": [ "number", "number", 0 ],
             "obj-2::obj-11": [ "number[1]", "number[1]", 0 ],
             "parameterbanks": {
                 "0": {

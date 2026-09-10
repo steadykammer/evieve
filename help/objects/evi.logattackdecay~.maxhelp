@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -697,7 +697,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "showontab": 1,
                         "integercoordinates": 1,
@@ -1108,7 +1108,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1761,7 +1761,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2137,7 +2137,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 373.0, 336.0, 50.0, 23.0 ],
+                    "patching_rect": [ 303.0, 336.0, 50.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -2161,7 +2161,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2529,7 +2529,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 455.0, 336.0, 71.0, 23.0 ],
+                    "patching_rect": [ 385.0, 336.0, 71.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -2553,7 +2553,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 803.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2621,7 +2621,7 @@
                         "lines": [],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 543.0, 336.0, 112.0, 23.0 ],
+                    "patching_rect": [ 568.0, 336.0, 112.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
