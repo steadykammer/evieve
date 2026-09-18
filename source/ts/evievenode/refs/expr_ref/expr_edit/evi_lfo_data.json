@@ -147,6 +147,98 @@
             ]
         },
         {
+            "document": true,
+            "digest": "Bipolar LFO. Possibly what Ableton calls 'wander'? Either way, modified from Iftah's Ableton work, thanks. Really does 'wander' around in a smooth sinus-like quasi random way.",
+            "name": "glideLfoBipolar",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random sinus-like LFO -1..1"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Like 'glideLfoBipolar()' but with external noise sync source input.",
+            "name": "glideLfoBipolarN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": "External noise sync source input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random sinus-like LFO -1..1"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Unipolar LFO. Possibly what Ableton calls 'wander'? Either way, modified from Iftah's Ableton work, thanks. Really does 'wander' around in a smooth sinus-like quasi random way.",
+            "name": "glideLfoUnipolar",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random sinus-like LFO -1..1"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Like 'glideLfoUnipolar()' but with external noise sync source input.",
+            "name": "glideLfoUnipolarN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": "External noise sync source input"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random sinus-like LFO -1..1"
+                }
+            ]
+        },
+        {
             "document": false,
             "digest": "",
             "name": "tanhC",
@@ -224,14 +316,14 @@
                 {
                     "id": 3,
                     "kind": "input",
-                    "name": "width",
+                    "name": "mod",
                     "digest": "Pulse width input 0..1 for LFOs that require it (3=tri, 5=tanh, 6=square)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
-                    "name": "wave",
-                    "digest": "0=bypass, 1=ramp up, 2=ramp down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise"
+                    "name": "shape",
+                    "digest": "0=off, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand bin, 8=rand step, 9=rand linear, 10=rand cosine, 11=rand cubic, 12=rand walk, 13=noise"
                 }
             ],
             "returns": [
@@ -262,14 +354,14 @@
                 {
                     "id": 3,
                     "kind": "input",
-                    "name": "width",
+                    "name": "mod",
                     "digest": "Pulse width input 0..1 for LFOs that require it (3=tri, 5=tanh, 6=square)"
                 },
                 {
                     "id": 4,
                     "kind": "input",
-                    "name": "wave",
-                    "digest": "0=bypass, 1=ramp up, 2=ramp down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise"
+                    "name": "shape",
+                    "digest": "0=off, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand bin, 8=rand step, 9=rand linear, 10=rand cosine, 11=rand cubic, 12=rand walk, 13=noise"
                 }
             ],
             "returns": [

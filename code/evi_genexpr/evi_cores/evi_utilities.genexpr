@@ -199,11 +199,31 @@ kinky(p, k)
 	return pk05 ? pk : slope;
 }
 
+// mirror exponent, unlike evi_fastskew.genexpr or the various [scale] like objects
+// x must be clamped 0..1, warp = -1..1 around 0
+// (there must be a better way to do this)
+warpExp(x, warp)
+{
+    y = x;
+    if (warp != 0) {
+        wp = warp * 0.88; // because approximations
+        wa = abs(wp);
+        ma = 1 / (1 - wa);
+        if (wp > 0) {
+            y = expApprox(logApprox(x) * ma);
+        }
+        else {
+            y = 1 - expApprox(logApprox(1 - x) * ma);
+        }
+    }
+    return y;
+}
+
 // Note: x1 = -1..1 input, this is not sin(), it is between sin & cos
 sin7(x1)	// 5 muls, 3 plus, terrible accuracy, for lfos etc only
 {
 	x2 = x1 * x1;
-	x3 = x2 * -0.540347 + 2.53566;
+	x3 = x2 * -0.540347 + 2.53566; // -0.540347 = cos(2)
 	x4 = x3 * x2 + -5.16651;
 	x5 = x4 * x2 + PI;
 	return x5 * x1;

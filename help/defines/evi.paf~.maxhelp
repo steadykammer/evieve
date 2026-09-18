@@ -44,6 +44,31 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-3",
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
+                                    "maxclass": "umenu",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 575.0, 237.0, 100.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
+                                            "parameter_initial": [ 11.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "umenu[2]",
+                                            "parameter_mmax": 13,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "umenu",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "varname": "umenu[1]"
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -315,31 +340,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-26",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
-                                    "maxclass": "umenu",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "int", "", "" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 575.0, 236.0, 100.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
-                                            "parameter_initial": [ 9.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu",
-                                            "parameter_mmax": 10,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "umenu",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "umenu"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-22",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -392,7 +392,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(9, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nlfo1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nlfo2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\nout1 = evi_mtofapprox(lfo1 * 120);\r\nout2 = evi_mtofapprox(lfo2 * 108);\r\n\r\n",
+                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// off, ramp up, ramp down, tri, sine, tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(11, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nlfo1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nlfo2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\nout1 = evi_mtofapprox(lfo1 * 120);\r\nout2 = evi_mtofapprox(lfo2 * 108);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1015,14 +1015,14 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-20", 0 ],
-                                    "source": [ "obj-26", 0 ]
+                                    "destination": [ "obj-22", 0 ],
+                                    "source": [ "obj-28", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-22", 0 ],
-                                    "source": [ "obj-28", 0 ]
+                                    "destination": [ "obj-20", 0 ],
+                                    "source": [ "obj-3", 0 ]
                                 }
                             },
                             {
@@ -1058,7 +1058,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1874,7 +1874,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 3000,
+                                    "numpoints": 2756,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 412.0, 539.0, 198.0, 89.0 ],
                                     "prototypename": "Audio Scope - Light",
@@ -6690,7 +6690,7 @@
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(9, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nlfo1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nlfo2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\nout1 = evi_mtofapprox(lfo1 * 120);\r\nout2 = evi_mtofapprox(lfo2 * 108);\r\n\r\n",
+                                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// off, ramp up, ramp down, tri, sine, tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(11, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nlfo1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nlfo2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\nout1 = evi_mtofapprox(lfo1 * 120);\r\nout2 = evi_mtofapprox(lfo2 * 108);\r\n\r\n",
                                                                     "fontface": 0,
                                                                     "fontname": "<Monospaced>",
                                                                     "fontsize": 12.0,
@@ -7109,8 +7109,8 @@
             "obj-10::obj-28": [ "number[13]", "number", 0 ],
             "obj-10::obj-31": [ "number[11]", "number[3]", 0 ],
             "obj-11::obj-12": [ "number[14]", "number[14]", 0 ],
-            "obj-11::obj-26": [ "umenu", "umenu", 0 ],
             "obj-11::obj-28": [ "number[6]", "number", 0 ],
+            "obj-11::obj-3": [ "umenu[2]", "umenu", 0 ],
             "obj-11::obj-31": [ "number[10]", "number[3]", 0 ],
             "obj-2::obj-11": [ "number[1]", "number[1]", 0 ],
             "obj-2::obj-12": [ "number", "number", 0 ],

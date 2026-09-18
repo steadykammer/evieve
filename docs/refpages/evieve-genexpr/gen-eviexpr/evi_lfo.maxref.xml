@@ -41,14 +41,56 @@
 
       </description>
     </entry>
+    <entry name="glideLfoBipolar ( )">
+      <description>
+        Bipolar LFO. Possibly what Ableton calls 'wander'? Either way, modified from Iftah's Ableton work, thanks. Really does 'wander' around in a smooth sinus-like quasi random way. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+
+      </description>
+    </entry>
+    <entry name="glideLfoBipolarN ( )">
+      <description>
+        Like 'glideLfoBipolar()' but with external noise sync source input. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise sync source input</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+
+      </description>
+    </entry>
+    <entry name="glideLfoUnipolar ( )">
+      <description>
+        Unipolar LFO. Possibly what Ableton calls 'wander'? Either way, modified from Iftah's Ableton work, thanks. Really does 'wander' around in a smooth sinus-like quasi random way. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+
+      </description>
+    </entry>
+    <entry name="glideLfoUnipolarN ( )">
+      <description>
+        Like 'glideLfoUnipolar()' but with external noise sync source input. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise sync source input</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+
+      </description>
+    </entry>
     <entry name="lfoShapes01 ( )">
       <description>
         Collection of computed switchable LFOs, all wave selections in output range 0..1 <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: sync, <i>The sync of the phase input required for random LFOs</i> <br />
-        <b>In 3</b>: type=<i>input</i>: width, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
-        <b>In 4</b>: type=<i>input</i>: wave, <i>0&#x3D;bypass, 1&#x3D;ramp up, 2&#x3D;ramp down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise</i> <br />
+        <b>In 3</b>: type=<i>input</i>: mod, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: shape, <i>0&#x3D;off, 1&#x3D;up, 2&#x3D;down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand bin, 8&#x3D;rand step, 9&#x3D;rand linear, 10&#x3D;rand cosine, 11&#x3D;rand cubic, 12&#x3D;rand walk, 13&#x3D;noise</i> <br />
 
         <b>Return 1</b>: LFO, <i>Selected LFO wave in range 0..1</i> <br />
 
@@ -60,8 +102,8 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: phase, <i>Phase 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: sync, <i>The sync of the phase input required for random LFOs</i> <br />
-        <b>In 3</b>: type=<i>input</i>: width, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
-        <b>In 4</b>: type=<i>input</i>: wave, <i>0&#x3D;bypass, 1&#x3D;ramp up, 2&#x3D;ramp down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise</i> <br />
+        <b>In 3</b>: type=<i>input</i>: mod, <i>Pulse width input 0..1 for LFOs that require it (3&#x3D;tri, 5&#x3D;tanh, 6&#x3D;square)</i> <br />
+        <b>In 4</b>: type=<i>input</i>: shape, <i>0&#x3D;off, 1&#x3D;up, 2&#x3D;down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand bin, 8&#x3D;rand step, 9&#x3D;rand linear, 10&#x3D;rand cosine, 11&#x3D;rand cubic, 12&#x3D;rand walk, 13&#x3D;noise</i> <br />
 
         <b>Return 1</b>: LFO, <i>Selected LFO wave in range -1..1</i> <br />
 

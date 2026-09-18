@@ -44,6 +44,31 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-21",
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
+                                    "maxclass": "umenu",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 40.0, 268.0, 100.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
+                                            "parameter_initial": [ 4.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "umenu[2]",
+                                            "parameter_mmax": 13,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "umenu",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "varname": "umenu[1]"
+                                }
+                            },
+                            {
+                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -114,27 +139,27 @@
                                     "preset_data": [
                                         {
                                             "number": 1,
-                                            "data": [ 5, "obj-6", "number", "float", 10.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 1.4229999780654907, 5, "obj-3", "number", "float", 0.6600000262260437, 5, "obj-20", "number", "float", 0.2199999988079071, 6, "obj-108", "pictslider", "list", 53, 18, 5, "obj-26", "umenu", "int", 5 ]
+                                            "data": [ 5, "obj-6", "number", "float", 10.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 1.4229999780654907, 5, "obj-3", "number", "float", 0.6600000262260437, 5, "obj-20", "number", "float", 0.2199999988079071, 6, "obj-108", "pictslider", "list", 53, 18, 5, "obj-21", "umenu", "int", 5 ]
                                         },
                                         {
                                             "number": 2,
-                                            "data": [ 5, "obj-6", "number", "float", 14.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.6899999976158142, 5, "obj-3", "number", "float", 0.6600000262260437, 5, "obj-20", "number", "float", 3.680000066757202, 6, "obj-108", "pictslider", "list", 55, 19, 5, "obj-26", "umenu", "int", 9 ]
+                                            "data": [ 5, "obj-6", "number", "float", 14.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.6899999976158142, 5, "obj-3", "number", "float", 0.6600000262260437, 5, "obj-20", "number", "float", 3.680000066757202, 6, "obj-108", "pictslider", "list", 55, 19, 5, "obj-21", "umenu", "int", 11 ]
                                         },
                                         {
                                             "number": 3,
-                                            "data": [ 5, "obj-6", "number", "float", 12.0, 5, "obj-40", "number", "float", 0.9399999976158142, 5, "obj-16", "number", "float", 0.0560000017285347, 5, "obj-3", "number", "float", 0.3799999952316284, 5, "obj-20", "number", "float", 3.690000057220459, 6, "obj-108", "pictslider", "list", 28, 0, 5, "obj-26", "umenu", "int", 9 ]
+                                            "data": [ 5, "obj-6", "number", "float", 12.0, 5, "obj-40", "number", "float", 0.9399999976158142, 5, "obj-16", "number", "float", 0.0560000017285347, 5, "obj-3", "number", "float", 0.3799999952316284, 5, "obj-20", "number", "float", 3.690000057220459, 6, "obj-108", "pictslider", "list", 28, 0, 5, "obj-21", "umenu", "int", 11 ]
                                         },
                                         {
                                             "number": 4,
-                                            "data": [ 5, "obj-6", "number", "float", 10.0, 5, "obj-40", "number", "float", 0.46000000834465027, 5, "obj-16", "number", "float", 0.1348000019788742, 5, "obj-3", "number", "float", 0.7200000286102295, 5, "obj-20", "number", "float", 1.7100000381469727, 6, "obj-108", "pictslider", "list", 92, 100, 5, "obj-26", "umenu", "int", 5 ]
+                                            "data": [ 5, "obj-6", "number", "float", 10.0, 5, "obj-40", "number", "float", 0.46000000834465027, 5, "obj-16", "number", "float", 0.1348000019788742, 5, "obj-3", "number", "float", 0.7200000286102295, 5, "obj-20", "number", "float", 1.7100000381469727, 6, "obj-108", "pictslider", "list", 92, 100, 5, "obj-21", "umenu", "int", 5 ]
                                         },
                                         {
                                             "number": 5,
-                                            "data": [ 5, "obj-6", "number", "float", 3.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.0062500000931322575, 5, "obj-3", "number", "float", 0.5, 5, "obj-20", "number", "float", 0.5899999737739563, 6, "obj-108", "pictslider", "list", 107, 99, 5, "obj-26", "umenu", "int", 7 ]
+                                            "data": [ 5, "obj-6", "number", "float", 3.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.0062500000931322575, 5, "obj-3", "number", "float", 0.5, 5, "obj-20", "number", "float", 0.5899999737739563, 6, "obj-108", "pictslider", "list", 107, 99, 5, "obj-21", "umenu", "int", 8 ]
                                         },
                                         {
                                             "number": 6,
-                                            "data": [ 5, "obj-6", "number", "float", 14.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.5879999995231628, 5, "obj-3", "number", "float", 0.5, 5, "obj-20", "number", "float", 1.8799999952316284, 6, "obj-108", "pictslider", "list", 115, 16, 5, "obj-26", "umenu", "int", 5 ]
+                                            "data": [ 5, "obj-6", "number", "float", 14.0, 5, "obj-40", "number", "float", 0.699999988079071, 5, "obj-16", "number", "float", 0.5879999995231628, 5, "obj-3", "number", "float", 0.5, 5, "obj-20", "number", "float", 1.8799999952316284, 6, "obj-108", "pictslider", "list", 115, 16, 5, "obj-21", "umenu", "int", 5 ]
                                         }
                                     ]
                                 }
@@ -345,31 +370,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-26",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
-                                    "maxclass": "umenu",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "int", "", "" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 40.0, 268.0, 100.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
-                                            "parameter_initial": [ 5.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu",
-                                            "parameter_mmax": 10,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "umenu",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "umenu"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-24",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -432,7 +432,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(4, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nspread = in2 * 0.5;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(in1, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n",
+                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// off, ramp up, ramp down, tri, sine (default), tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(4, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nspread = in2 * 0.5;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(in1, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1077,6 +1077,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-25", 0 ],
+                                    "source": [ "obj-21", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-34", 0 ],
                                     "order": 1,
                                     "source": [ "obj-22", 0 ]
@@ -1107,12 +1113,6 @@
                                 "patchline": {
                                     "destination": [ "obj-22", 0 ],
                                     "source": [ "obj-25", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-25", 0 ],
-                                    "source": [ "obj-26", 0 ]
                                 }
                             },
                             {
@@ -1248,7 +1248,7 @@
                             {
                                 "patchline": {
                                     "color": [ 0.447518749806177, 0.44751863973454, 0.447518668498017, 0.0 ],
-                                    "destination": [ "obj-26", 0 ],
+                                    "destination": [ "obj-21", 0 ],
                                     "order": 6,
                                     "source": [ "obj-57", 0 ]
                                 }
@@ -2197,7 +2197,7 @@
             "obj-6::obj-16": [ "number[2]", "number[1]", 0 ],
             "obj-6::obj-17": [ "toggle[1]", "toggle", 0 ],
             "obj-6::obj-20": [ "number[7]", "number", 0 ],
-            "obj-6::obj-26": [ "umenu", "umenu", 0 ],
+            "obj-6::obj-21": [ "umenu[2]", "umenu", 0 ],
             "obj-6::obj-28": [ "number[6]", "number", 0 ],
             "obj-6::obj-3": [ "number[8]", "number", 0 ],
             "obj-6::obj-31": [ "number[5]", "number[3]", 0 ],

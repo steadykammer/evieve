@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1439,7 +1439,7 @@
                             {
                                 "box": {
                                     "id": "obj-26",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -1448,11 +1448,11 @@
                                     "patching_rect": [ 569.0, 234.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
-                                            "parameter_initial": [ 7.0 ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
+                                            "parameter_initial": [ 8.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu",
-                                            "parameter_mmax": 10,
+                                            "parameter_longname": "umenu[2]",
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -1515,7 +1515,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(7, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n",
+                                                    "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// off, ramp up, ramp down, tri, sine, tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(8, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 22);\r\nspread = evi_expsmooth(in2 * 0.5, 11);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2938,7 +2938,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 599.0, 211.0, 71.0, 23.0 ],
-                                    "text": "random 10"
+                                    "text": "random 13"
                                 }
                             },
                             {
@@ -3676,14 +3676,14 @@
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 47.0, 90.0, 872.0, 557.0 ],
-                                                        "fontname": "<Monospaced>",
                                                         "numinlets": 2,
                                                         "fontface": 0,
                                                         "numoutlets": 2,
                                                         "id": "obj-3",
                                                         "fontsize": 12.0,
                                                         "outlettype": [ "", "" ],
-                                                        "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// bypass, up, down, tri, sine (default), tanh, square, rand step, rand linear, rand cubic, noise\r\nParam   lfowave(7, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 148);\r\nspread = evi_expsmooth(in2 * 0.5, 74);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n"
+                                                        "fontname": "<Monospaced>",
+                                                        "code": "\r\n\r\nrequire(\"evi_lfo.genexpr\");\r\nrequire(\"evi_counting.genexpr\");\r\n\r\n\r\n// off, ramp up, ramp down, tri, sine (default), tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(8, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\n\r\n\r\nfreq = evi_logsmooth(in1, 148);\r\nspread = evi_expsmooth(in2 * 0.5, 74);\r\n\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR = eviPhasorTwo0(freq, spread, 0, minimumhz=0.1, mode=0);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\n\r\nwidthL = latch(lfowidth, syncL);\r\nwidthR = latch(lfowidth, syncR);\r\n\r\nout1 = lfoShapes01(phaseL, syncL, widthL, waveL);\r\nout2 = lfoShapes01(phaseR, syncR, widthR, waveR);\r\n\r\n"
                                                     }
                                                 },
                                                 {
@@ -3700,14 +3700,8 @@
                                             "lines": [
                                                 {
                                                     "patchline": {
-                                                        "source": [ "obj-1", 0 ],
-                                                        "destination": [ "obj-3", 0 ]
-                                                    }
-                                                },
-                                                {
-                                                    "patchline": {
-                                                        "source": [ "obj-2", 0 ],
-                                                        "destination": [ "obj-3", 1 ]
+                                                        "source": [ "obj-3", 1 ],
+                                                        "destination": [ "obj-6", 0 ]
                                                     }
                                                 },
                                                 {
@@ -3718,8 +3712,14 @@
                                                 },
                                                 {
                                                     "patchline": {
-                                                        "source": [ "obj-3", 1 ],
-                                                        "destination": [ "obj-6", 0 ]
+                                                        "source": [ "obj-2", 0 ],
+                                                        "destination": [ "obj-3", 1 ]
+                                                    }
+                                                },
+                                                {
+                                                    "patchline": {
+                                                        "source": [ "obj-1", 0 ],
+                                                        "destination": [ "obj-3", 0 ]
                                                     }
                                                 }
                                             ]
@@ -3733,7 +3733,7 @@
                                     "patching_rect": [ 349.0, 299.0, 210.0, 23.0 ],
                                     "text": "mc.gen~ @title eviMods @chans 8",
                                     "varname": "gen~_AB",
-                                    "wrapper_uniquekey": "u032013258"
+                                    "wrapper_uniquekey": "u072011271"
                                 }
                             },
                             {
@@ -4631,7 +4631,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -5445,7 +5445,7 @@
             "obj-13::obj-20::obj-20": [ "number[7]", "number", 0 ],
             "obj-13::obj-20::obj-40": [ "number[4]", "number[4]", 0 ],
             "obj-13::obj-20::obj-6": [ "number[8]", "number", 0 ],
-            "obj-13::obj-26": [ "umenu", "umenu", 0 ],
+            "obj-13::obj-26": [ "umenu[2]", "umenu", 0 ],
             "obj-13::obj-28": [ "number[6]", "number", 0 ],
             "obj-13::obj-31": [ "number[5]", "number[3]", 0 ],
             "obj-14::obj-17": [ "kslider", "kslider", 0 ],

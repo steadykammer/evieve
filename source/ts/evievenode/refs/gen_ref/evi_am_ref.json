@@ -129,8 +129,8 @@
         {
             "name": "lfowave",
             "type": "int",
-            "digest": "@min 0, @max 10",
-            "description": "The shape of the LFOs driving the modulation. 0=bypass, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand step, 8=rand linear, 9=rand cubic, 10=noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.",
+            "digest": "@min 0, @max 13",
+            "description": "The shape of the LFOs driving the modulation. 0=off, 1=up, 2=down, 3=tri, 4=sine (default), 5=tanh, 6=square, 7=rand bin, 8=rand step, 9=rand linear, 10=rand cosine, 11=rand cubic, 12=rand walk, 13=noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.",
             "default": {
                 "type": "int",
                 "value": "4"

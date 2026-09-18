@@ -45,6 +45,31 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-32",
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
+                                    "maxclass": "umenu",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 394.0, 275.0, 100.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
+                                            "parameter_initial": [ 3.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "umenu[3]",
+                                            "parameter_mmax": 13,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "umenu",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "varname": "umenu[1]"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-20",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -455,31 +480,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-12",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
-                                    "maxclass": "umenu",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "int", "", "" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 394.0, 275.0, 100.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
-                                            "parameter_initial": [ 3.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu[2]",
-                                            "parameter_mmax": 10,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "umenu",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "umenu"
-                                }
-                            },
-                            {
-                                "box": {
                                     "calccount": 64,
                                     "id": "obj-11",
                                     "maxclass": "scope~",
@@ -672,12 +672,6 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-13", 0 ],
-                                    "source": [ "obj-12", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 403.5, 356.5, 239.5, 356.5 ],
                                     "source": [ "obj-13", 0 ]
@@ -738,6 +732,12 @@
                                     "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 520.5, 492.0, 503.0390625, 492.0, 503.0390625, 356.40625, 239.5, 356.40625 ],
                                     "source": [ "obj-31", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-13", 0 ],
+                                    "source": [ "obj-32", 0 ]
                                 }
                             },
                             {
@@ -2732,7 +2732,7 @@
                             {
                                 "box": {
                                     "id": "obj-12",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -2741,11 +2741,11 @@
                                     "patching_rect": [ 416.0, 236.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
                                             "parameter_initial": [ 4.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu[1]",
-                                            "parameter_mmax": 10,
+                                            "parameter_longname": "umenu[2]",
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -3303,9 +3303,9 @@
             "obj-10::obj-35": [ "live.numbox", "live.numbox", 0 ],
             "obj-10::obj-36": [ "live.numbox[1]", "live.numbox", 0 ],
             "obj-10::obj-7": [ "live.numbox[2]", "live.numbox", 0 ],
-            "obj-11::obj-12": [ "umenu[1]", "umenu", 0 ],
-            "obj-6::obj-12": [ "umenu[2]", "umenu", 0 ],
+            "obj-11::obj-12": [ "umenu[2]", "umenu", 0 ],
             "obj-6::obj-22": [ "toggle[1]", "toggle", 0 ],
+            "obj-6::obj-32": [ "umenu[3]", "umenu", 0 ],
             "obj-6::obj-33": [ "number[1]", "number", 0 ],
             "parameterbanks": {
                 "0": {

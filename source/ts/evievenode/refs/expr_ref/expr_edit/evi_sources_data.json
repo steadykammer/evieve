@@ -273,6 +273,37 @@
         },
         {
             "document": true,
+            "digest": "like 'eviRandN()' but with additional cosine interpolated output",
+            "name": "eviRandCN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": "Phasor driver 0..1 (not frequency)"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": "External noise source from which rand is derived"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "nv",
+                    "digest": "Linear rand oscillator output"
+                },
+                {
+                    "id": 2,
+                    "name": "nw",
+                    "digest": "Cosine rand oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()'",
             "name": "eviRands",
             "inputs": [
@@ -453,6 +484,93 @@
                     "id": 2,
                     "name": "x",
                     "digest": "Internal white noise source sync"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "A beautiful random LFO based on Iftah / Ableton LFO, using an external windowing function to produce a sine-like random walk algorithm.",
+            "name": "eviWindowLfo",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "window",
+                    "digest": "A gen buffer reference containing a window function 0..1, only really works with a blackman-like window or a kaiser window with alpha > 8"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "distribution",
+                    "digest": "Default should be 0.5, towards extremes (0 or 1) becomes less random and more regular in output"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "density",
+                    "digest": "Default should be 0, 0..1 increasingly folds over the wave shape by increasing the internal radians, making the LFO dense and busy"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random walk output"
+                },
+                {
+                    "id": 2,
+                    "name": "Noise",
+                    "digest": "The internal noise source output for driving downstream processes"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "The same as 'eviWindowLfo()' but with external noise source input",
+            "name": "eviWindowLfoN",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "window",
+                    "digest": "A gen buffer reference containing a window function 0..1, only really works with a blackman-like window or a kaiser window with alpha > 8"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "rng",
+                    "digest": "External (white) noise source to drive the random algorithm"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "phase",
+                    "digest": "Phase driver 0..1"
+                },
+                {
+                    "id": 4,
+                    "kind": "input",
+                    "name": "distribution",
+                    "digest": "Default should be 0.5, towards extremes (0 or 1) becomes less random and more regular in output"
+                },
+                {
+                    "id": 5,
+                    "kind": "input",
+                    "name": "density",
+                    "digest": "Default should be 0, 0..1 increasingly folds over the wave shape by increasing the internal radians, making the LFO dense and busy"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "LFO",
+                    "digest": "Quasi random walk output"
                 }
             ]
         },

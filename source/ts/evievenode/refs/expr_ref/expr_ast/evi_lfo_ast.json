@@ -866,6 +866,1261 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "glideLfoBipolar",
+                "raw": "glideLfoBipolar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "Rng",
+                                    "raw": "Rng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "prevRng",
+                                    "raw": "prevRng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "delta",
+                                    "raw": "delta"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "signed",
+                                            "raw": "signed"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "noise",
+                                                "raw": "noise"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "prevRng",
+                                            "raw": "prevRng"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "signed",
+                                                        "raw": "signed"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "signed",
+                                                        "raw": "signed"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "abs",
+                                                "raw": "abs"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cosDrive",
+                                "raw": "cosDrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "phase",
+                                                    "raw": "phase"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "PI",
+                                                    "raw": "PI"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "HALFPI",
+                                                "raw": "HALFPI"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "fastsin",
+                                        "raw": "fastsin"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lfo",
+                                "raw": "lfo"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "cosDrive",
+                                                "raw": "cosDrive"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "Rng",
+                                                "raw": "Rng"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "Literal",
+                                                    "value": 2,
+                                                    "raw": "2",
+                                                    "gen_kind": "integer"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "cosDrive",
+                                                    "raw": "cosDrive"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "prevRng",
+                                                "raw": "prevRng"
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "lfo",
+                            "raw": "lfo"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "glideLfoBipolarN",
+                "raw": "glideLfoBipolarN"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "n",
+                    "raw": "n"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "Rng",
+                                    "raw": "Rng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "prevRng",
+                                    "raw": "prevRng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "delta",
+                                    "raw": "delta"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "prevRng",
+                                            "raw": "prevRng"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "+",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "n",
+                                                        "raw": "n"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "n",
+                                                        "raw": "n"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "abs",
+                                                "raw": "abs"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cosDrive",
+                                "raw": "cosDrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "phase",
+                                                    "raw": "phase"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "PI",
+                                                    "raw": "PI"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "HALFPI",
+                                                "raw": "HALFPI"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "fastsin",
+                                        "raw": "fastsin"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lfo",
+                                "raw": "lfo"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "cosDrive",
+                                                "raw": "cosDrive"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "Rng",
+                                                "raw": "Rng"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "*",
+                                            "left": {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "Literal",
+                                                    "value": 2,
+                                                    "raw": "2",
+                                                    "gen_kind": "integer"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "cosDrive",
+                                                    "raw": "cosDrive"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "prevRng",
+                                                "raw": "prevRng"
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "lfo",
+                            "raw": "lfo"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "glideLfoUnipolar",
+                "raw": "glideLfoUnipolar"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "Rng",
+                                    "raw": "Rng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "prevRng",
+                                    "raw": "prevRng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "delta",
+                                    "raw": "delta"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "prevRng",
+                                            "raw": "prevRng"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "CallExpression",
+                                                    "arguments": [],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "noise",
+                                                        "raw": "noise"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "abs",
+                                                "raw": "abs"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cosDrive",
+                                "raw": "cosDrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    },
+                                    "right": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "phase",
+                                                        "raw": "phase"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "PI",
+                                                        "raw": "PI"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "HALFPI",
+                                                    "raw": "HALFPI"
+                                                }
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "fastsin",
+                                            "raw": "fastsin"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lfo",
+                                "raw": "lfo"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "cosDrive",
+                                        "raw": "cosDrive"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "Rng",
+                                        "raw": "Rng"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cosDrive",
+                                            "raw": "cosDrive"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "prevRng",
+                                        "raw": "prevRng"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "lfo",
+                            "raw": "lfo"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "glideLfoUnipolarN",
+                "raw": "glideLfoUnipolarN"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "phase",
+                    "raw": "phase"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "n",
+                    "raw": "n"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "Rng",
+                                    "raw": "Rng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "prevRng",
+                                    "raw": "prevRng"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "BinaryExpression",
+                            "operator": "<",
+                            "left": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "phase",
+                                        "raw": "phase"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "delta",
+                                    "raw": "delta"
+                                }
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "prevRng",
+                                            "raw": "prevRng"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "Rng",
+                                            "raw": "Rng"
+                                        },
+                                        "right": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "n",
+                                                    "raw": "n"
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "abs",
+                                                "raw": "abs"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": null
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cosDrive",
+                                "raw": "cosDrive"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 0.5,
+                                    "raw": "0.5",
+                                    "gen_kind": "float"
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Literal",
+                                        "value": 0.5,
+                                        "raw": "0.5",
+                                        "gen_kind": "float"
+                                    },
+                                    "right": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "BinaryExpression",
+                                                    "operator": "*",
+                                                    "left": {
+                                                        "type": "Identifier",
+                                                        "name": "phase",
+                                                        "raw": "phase"
+                                                    },
+                                                    "right": {
+                                                        "type": "Identifier",
+                                                        "name": "PI",
+                                                        "raw": "PI"
+                                                    }
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "HALFPI",
+                                                    "raw": "HALFPI"
+                                                }
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "fastsin",
+                                            "raw": "fastsin"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lfo",
+                                "raw": "lfo"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "+",
+                                "left": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "cosDrive",
+                                        "raw": "cosDrive"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "Rng",
+                                        "raw": "Rng"
+                                    }
+                                },
+                                "right": {
+                                    "type": "BinaryExpression",
+                                    "operator": "*",
+                                    "left": {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "cosDrive",
+                                            "raw": "cosDrive"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "prevRng",
+                                        "raw": "prevRng"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "lfo",
+                            "raw": "lfo"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "tanhC",
                 "raw": "tanhC"
             },
@@ -1113,13 +2368,13 @@
                 },
                 {
                     "type": "Identifier",
-                    "name": "width",
-                    "raw": "width"
+                    "name": "mod",
+                    "raw": "mod"
                 },
                 {
                     "type": "Identifier",
-                    "name": "wave",
-                    "raw": "wave"
+                    "name": "shape",
+                    "raw": "shape"
                 }
             ],
             "defaults": [
@@ -1193,8 +2448,8 @@
                                 "operator": ">=",
                                 "left": {
                                     "type": "Identifier",
-                                    "name": "wave",
-                                    "raw": "wave"
+                                    "name": "shape",
+                                    "raw": "shape"
                                 },
                                 "right": {
                                     "type": "Literal",
@@ -1208,8 +2463,8 @@
                                 "operator": "<=",
                                 "left": {
                                     "type": "Identifier",
-                                    "name": "wave",
-                                    "raw": "wave"
+                                    "name": "shape",
+                                    "raw": "shape"
                                 },
                                 "right": {
                                     "type": "Literal",
@@ -1239,8 +2494,8 @@
                                                 "operator": "==",
                                                 "left": {
                                                     "type": "Identifier",
-                                                    "name": "wave",
-                                                    "raw": "wave"
+                                                    "name": "shape",
+                                                    "raw": "shape"
                                                 },
                                                 "right": {
                                                     "type": "Literal",
@@ -1251,8 +2506,8 @@
                                             },
                                             "consequent": {
                                                 "type": "Identifier",
-                                                "name": "width",
-                                                "raw": "width"
+                                                "name": "mod",
+                                                "raw": "mod"
                                             },
                                             "alternate": {
                                                 "type": "ConditionalExpression",
@@ -1261,8 +2516,8 @@
                                                     "operator": "==",
                                                     "left": {
                                                         "type": "Identifier",
-                                                        "name": "wave",
-                                                        "raw": "wave"
+                                                        "name": "shape",
+                                                        "raw": "shape"
                                                     },
                                                     "right": {
                                                         "type": "Literal",
@@ -1343,8 +2598,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -1358,8 +2613,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -1423,8 +2678,8 @@
                                             "operator": "==",
                                             "left": {
                                                 "type": "Identifier",
-                                                "name": "wave",
-                                                "raw": "wave"
+                                                "name": "shape",
+                                                "raw": "shape"
                                             },
                                             "right": {
                                                 "type": "Literal",
@@ -1601,13 +2856,13 @@
                                                                                             "operator": "*",
                                                                                             "left": {
                                                                                                 "type": "Identifier",
-                                                                                                "name": "width",
-                                                                                                "raw": "width"
+                                                                                                "name": "mod",
+                                                                                                "raw": "mod"
                                                                                             },
                                                                                             "right": {
                                                                                                 "type": "Identifier",
-                                                                                                "name": "width",
-                                                                                                "raw": "width"
+                                                                                                "name": "mod",
+                                                                                                "raw": "mod"
                                                                                             }
                                                                                         },
                                                                                         "right": {
@@ -1666,8 +2921,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -1726,8 +2981,8 @@
                                                     },
                                                     "right": {
                                                         "type": "Identifier",
-                                                        "name": "width",
-                                                        "raw": "width"
+                                                        "name": "mod",
+                                                        "raw": "mod"
                                                     }
                                                 }
                                             }
@@ -1778,8 +3033,8 @@
                                         "operator": ">",
                                         "left": {
                                             "type": "Identifier",
-                                            "name": "wave",
-                                            "raw": "wave"
+                                            "name": "shape",
+                                            "raw": "shape"
                                         },
                                         "right": {
                                             "type": "Literal",
@@ -1816,17 +3071,36 @@
                                                 "type": "IfStatement",
                                                 "test": {
                                                     "type": "BinaryExpression",
-                                                    "operator": "==",
+                                                    "operator": "||",
                                                     "left": {
-                                                        "type": "Identifier",
-                                                        "name": "wave",
-                                                        "raw": "wave"
+                                                        "type": "BinaryExpression",
+                                                        "operator": "==",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "shape",
+                                                            "raw": "shape"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 7,
+                                                            "raw": "7",
+                                                            "gen_kind": "integer"
+                                                        }
                                                     },
                                                     "right": {
-                                                        "type": "Literal",
-                                                        "value": 7,
-                                                        "raw": "7",
-                                                        "gen_kind": "integer"
+                                                        "type": "BinaryExpression",
+                                                        "operator": "==",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "shape",
+                                                            "raw": "shape"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 8,
+                                                            "raw": "8",
+                                                            "gen_kind": "integer"
+                                                        }
                                                     }
                                                 },
                                                 "consequent": {
@@ -1866,84 +3140,6 @@
                                                                 "operator": "=",
                                                                 "left": {
                                                                     "type": "Identifier",
-                                                                    "name": "sr20",
-                                                                    "raw": "sr20"
-                                                                },
-                                                                "right": {
-                                                                    "type": "BinaryExpression",
-                                                                    "operator": "+",
-                                                                    "left": {
-                                                                        "type": "Identifier",
-                                                                        "name": "sr10",
-                                                                        "raw": "sr10"
-                                                                    },
-                                                                    "right": {
-                                                                        "type": "Identifier",
-                                                                        "name": "sr10",
-                                                                        "raw": "sr10"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "ExpressionStatement",
-                                                            "expression": {
-                                                                "type": "AssignmentExpression",
-                                                                "operator": "=",
-                                                                "left": {
-                                                                    "type": "Identifier",
-                                                                    "name": "lfo",
-                                                                    "raw": "lfo"
-                                                                },
-                                                                "right": {
-                                                                    "type": "BinaryExpression",
-                                                                    "operator": "+",
-                                                                    "left": {
-                                                                        "type": "BinaryExpression",
-                                                                        "operator": "*",
-                                                                        "left": {
-                                                                            "type": "CallExpression",
-                                                                            "arguments": [
-                                                                                {
-                                                                                    "type": "Identifier",
-                                                                                    "name": "n",
-                                                                                    "raw": "n"
-                                                                                },
-                                                                                {
-                                                                                    "type": "Identifier",
-                                                                                    "name": "sync",
-                                                                                    "raw": "sync"
-                                                                                }
-                                                                            ],
-                                                                            "callee": {
-                                                                                "type": "Identifier",
-                                                                                "name": "latch",
-                                                                                "raw": "latch"
-                                                                            }
-                                                                        },
-                                                                        "right": {
-                                                                            "type": "Literal",
-                                                                            "value": 0.5,
-                                                                            "raw": "0.5",
-                                                                            "gen_kind": "float"
-                                                                        }
-                                                                    },
-                                                                    "right": {
-                                                                        "type": "Literal",
-                                                                        "value": 0.5,
-                                                                        "raw": "0.5",
-                                                                        "gen_kind": "float"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "ExpressionStatement",
-                                                            "expression": {
-                                                                "type": "AssignmentExpression",
-                                                                "operator": "=",
-                                                                "left": {
-                                                                    "type": "Identifier",
                                                                     "name": "lfo",
                                                                     "raw": "lfo"
                                                                 },
@@ -1952,26 +3148,240 @@
                                                                     "arguments": [
                                                                         {
                                                                             "type": "Identifier",
-                                                                            "name": "lfo",
-                                                                            "raw": "lfo"
+                                                                            "name": "n",
+                                                                            "raw": "n"
                                                                         },
                                                                         {
                                                                             "type": "Identifier",
-                                                                            "name": "sr10",
-                                                                            "raw": "sr10"
-                                                                        },
-                                                                        {
-                                                                            "type": "Identifier",
-                                                                            "name": "sr20",
-                                                                            "raw": "sr20"
+                                                                            "name": "sync",
+                                                                            "raw": "sync"
                                                                         }
                                                                     ],
                                                                     "callee": {
                                                                         "type": "Identifier",
-                                                                        "name": "evi_rampsmooth",
-                                                                        "raw": "evi_rampsmooth"
+                                                                        "name": "latch",
+                                                                        "raw": "latch"
                                                                     }
                                                                 }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "IfStatement",
+                                                            "test": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "==",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "shape",
+                                                                    "raw": "shape"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 8,
+                                                                    "raw": "8",
+                                                                    "gen_kind": "integer"
+                                                                }
+                                                            },
+                                                            "consequent": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "sr20",
+                                                                                "raw": "sr20"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "+",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "+",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Literal",
+                                                                                        "value": 0.5,
+                                                                                        "raw": "0.5",
+                                                                                        "gen_kind": "float"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 0.5,
+                                                                                    "raw": "0.5",
+                                                                                    "gen_kind": "float"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr10",
+                                                                                        "raw": "sr10"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr20",
+                                                                                        "raw": "sr20"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "evi_rampsmooth",
+                                                                                    "raw": "evi_rampsmooth"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "alternate": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "sr05",
+                                                                                "raw": "sr05"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 0.5,
+                                                                                    "raw": "0.5",
+                                                                                    "gen_kind": "float"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": ">",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "lfo",
+                                                                                    "raw": "lfo"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 0,
+                                                                                    "raw": "0",
+                                                                                    "gen_kind": "integer"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr05",
+                                                                                        "raw": "sr05"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr05",
+                                                                                        "raw": "sr05"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "evi_rampsmooth",
+                                                                                    "raw": "evi_rampsmooth"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
                                                             }
                                                         }
                                                     ]
@@ -1980,17 +3390,36 @@
                                                     "type": "IfStatement",
                                                     "test": {
                                                         "type": "BinaryExpression",
-                                                        "operator": "==",
+                                                        "operator": "||",
                                                         "left": {
-                                                            "type": "Identifier",
-                                                            "name": "wave",
-                                                            "raw": "wave"
+                                                            "type": "BinaryExpression",
+                                                            "operator": "==",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "shape",
+                                                                "raw": "shape"
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 9,
+                                                                "raw": "9",
+                                                                "gen_kind": "integer"
+                                                            }
                                                         },
                                                         "right": {
-                                                            "type": "Literal",
-                                                            "value": 8,
-                                                            "raw": "8",
-                                                            "gen_kind": "integer"
+                                                            "type": "BinaryExpression",
+                                                            "operator": "==",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "shape",
+                                                                "raw": "shape"
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 10,
+                                                                "raw": "10",
+                                                                "gen_kind": "integer"
+                                                            }
                                                         }
                                                     },
                                                     "consequent": {
@@ -2002,50 +3431,142 @@
                                                                     "type": "AssignmentExpression",
                                                                     "operator": "=",
                                                                     "left": {
-                                                                        "type": "Identifier",
-                                                                        "name": "lfo",
-                                                                        "raw": "lfo"
+                                                                        "type": "ArrayPattern",
+                                                                        "elements": [
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "linear",
+                                                                                "raw": "linear"
+                                                                            },
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "cosine",
+                                                                                "raw": "cosine"
+                                                                            }
+                                                                        ]
                                                                     },
                                                                     "right": {
-                                                                        "type": "BinaryExpression",
-                                                                        "operator": "+",
-                                                                        "left": {
-                                                                            "type": "BinaryExpression",
-                                                                            "operator": "*",
-                                                                            "left": {
-                                                                                "type": "CallExpression",
-                                                                                "arguments": [
-                                                                                    {
-                                                                                        "type": "Identifier",
-                                                                                        "name": "phase",
-                                                                                        "raw": "phase"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "Identifier",
-                                                                                        "name": "n",
-                                                                                        "raw": "n"
-                                                                                    }
-                                                                                ],
-                                                                                "callee": {
-                                                                                    "type": "Identifier",
-                                                                                    "name": "eviRandN",
-                                                                                    "raw": "eviRandN"
-                                                                                }
+                                                                        "type": "CallExpression",
+                                                                        "arguments": [
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "phase",
+                                                                                "raw": "phase"
                                                                             },
-                                                                            "right": {
-                                                                                "type": "Literal",
-                                                                                "value": 0.5,
-                                                                                "raw": "0.5",
-                                                                                "gen_kind": "float"
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "n",
+                                                                                "raw": "n"
                                                                             }
-                                                                        },
-                                                                        "right": {
-                                                                            "type": "Literal",
-                                                                            "value": 0.5,
-                                                                            "raw": "0.5",
-                                                                            "gen_kind": "float"
+                                                                        ],
+                                                                        "callee": {
+                                                                            "type": "Identifier",
+                                                                            "name": "eviRandCN",
+                                                                            "raw": "eviRandCN"
                                                                         }
                                                                     }
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "IfStatement",
+                                                                "test": {
+                                                                    "type": "BinaryExpression",
+                                                                    "operator": "==",
+                                                                    "left": {
+                                                                        "type": "Identifier",
+                                                                        "name": "shape",
+                                                                        "raw": "shape"
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "Literal",
+                                                                        "value": 9,
+                                                                        "raw": "9",
+                                                                        "gen_kind": "integer"
+                                                                    }
+                                                                },
+                                                                "consequent": {
+                                                                    "type": "BlockStatement",
+                                                                    "body": [
+                                                                        {
+                                                                            "type": "ExpressionStatement",
+                                                                            "expression": {
+                                                                                "type": "AssignmentExpression",
+                                                                                "operator": "=",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "lfo",
+                                                                                    "raw": "lfo"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "*",
+                                                                                        "left": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "linear",
+                                                                                            "raw": "linear"
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Literal",
+                                                                                            "value": 0.5,
+                                                                                            "raw": "0.5",
+                                                                                            "gen_kind": "float"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Literal",
+                                                                                        "value": 0.5,
+                                                                                        "raw": "0.5",
+                                                                                        "gen_kind": "float"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "alternate": {
+                                                                    "type": "BlockStatement",
+                                                                    "body": [
+                                                                        {
+                                                                            "type": "ExpressionStatement",
+                                                                            "expression": {
+                                                                                "type": "AssignmentExpression",
+                                                                                "operator": "=",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "lfo",
+                                                                                    "raw": "lfo"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "BinaryExpression",
+                                                                                        "operator": "*",
+                                                                                        "left": {
+                                                                                            "type": "Identifier",
+                                                                                            "name": "cosine",
+                                                                                            "raw": "cosine"
+                                                                                        },
+                                                                                        "right": {
+                                                                                            "type": "Literal",
+                                                                                            "value": 0.5,
+                                                                                            "raw": "0.5",
+                                                                                            "gen_kind": "float"
+                                                                                        }
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Literal",
+                                                                                        "value": 0.5,
+                                                                                        "raw": "0.5",
+                                                                                        "gen_kind": "float"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
                                                                 }
                                                             }
                                                         ]
@@ -2057,13 +3578,13 @@
                                                             "operator": "==",
                                                             "left": {
                                                                 "type": "Identifier",
-                                                                "name": "wave",
-                                                                "raw": "wave"
+                                                                "name": "shape",
+                                                                "raw": "shape"
                                                             },
                                                             "right": {
                                                                 "type": "Literal",
-                                                                "value": 9,
-                                                                "raw": "9",
+                                                                "value": 11,
+                                                                "raw": "11",
                                                                 "gen_kind": "integer"
                                                             }
                                                         },
@@ -2125,28 +3646,89 @@
                                                             ]
                                                         },
                                                         "alternate": {
-                                                            "type": "BlockStatement",
-                                                            "body": [
-                                                                {
-                                                                    "type": "ExpressionStatement",
-                                                                    "expression": {
-                                                                        "type": "AssignmentExpression",
-                                                                        "operator": "=",
-                                                                        "left": {
-                                                                            "type": "Identifier",
-                                                                            "name": "lfo",
-                                                                            "raw": "lfo"
-                                                                        },
-                                                                        "right": {
-                                                                            "type": "BinaryExpression",
-                                                                            "operator": "+",
+                                                            "type": "IfStatement",
+                                                            "test": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "==",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "shape",
+                                                                    "raw": "shape"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 12,
+                                                                    "raw": "12",
+                                                                    "gen_kind": "integer"
+                                                                }
+                                                            },
+                                                            "consequent": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
                                                                             "left": {
-                                                                                "type": "BinaryExpression",
-                                                                                "operator": "*",
-                                                                                "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "phase",
+                                                                                        "raw": "phase"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "n",
+                                                                                        "raw": "n"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
                                                                                     "type": "Identifier",
-                                                                                    "name": "n",
-                                                                                    "raw": "n"
+                                                                                    "name": "glideLfoUnipolarN",
+                                                                                    "raw": "glideLfoUnipolarN"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "alternate": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "+",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "*",
+                                                                                    "left": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "n",
+                                                                                        "raw": "n"
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Literal",
+                                                                                        "value": 0.5,
+                                                                                        "raw": "0.5",
+                                                                                        "gen_kind": "float"
+                                                                                    }
                                                                                 },
                                                                                 "right": {
                                                                                     "type": "Literal",
@@ -2154,17 +3736,11 @@
                                                                                     "raw": "0.5",
                                                                                     "gen_kind": "float"
                                                                                 }
-                                                                            },
-                                                                            "right": {
-                                                                                "type": "Literal",
-                                                                                "value": 0.5,
-                                                                                "raw": "0.5",
-                                                                                "gen_kind": "float"
                                                                             }
                                                                         }
                                                                     }
-                                                                }
-                                                            ]
+                                                                ]
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -2232,13 +3808,13 @@
                 },
                 {
                     "type": "Identifier",
-                    "name": "width",
-                    "raw": "width"
+                    "name": "mod",
+                    "raw": "mod"
                 },
                 {
                     "type": "Identifier",
-                    "name": "wave",
-                    "raw": "wave"
+                    "name": "shape",
+                    "raw": "shape"
                 }
             ],
             "defaults": [
@@ -2312,8 +3888,8 @@
                                 "operator": ">=",
                                 "left": {
                                     "type": "Identifier",
-                                    "name": "wave",
-                                    "raw": "wave"
+                                    "name": "shape",
+                                    "raw": "shape"
                                 },
                                 "right": {
                                     "type": "Literal",
@@ -2327,8 +3903,8 @@
                                 "operator": "<=",
                                 "left": {
                                     "type": "Identifier",
-                                    "name": "wave",
-                                    "raw": "wave"
+                                    "name": "shape",
+                                    "raw": "shape"
                                 },
                                 "right": {
                                     "type": "Literal",
@@ -2358,8 +3934,8 @@
                                                 "operator": "==",
                                                 "left": {
                                                     "type": "Identifier",
-                                                    "name": "wave",
-                                                    "raw": "wave"
+                                                    "name": "shape",
+                                                    "raw": "shape"
                                                 },
                                                 "right": {
                                                     "type": "Literal",
@@ -2370,8 +3946,8 @@
                                             },
                                             "consequent": {
                                                 "type": "Identifier",
-                                                "name": "width",
-                                                "raw": "width"
+                                                "name": "mod",
+                                                "raw": "mod"
                                             },
                                             "alternate": {
                                                 "type": "ConditionalExpression",
@@ -2380,8 +3956,8 @@
                                                     "operator": "==",
                                                     "left": {
                                                         "type": "Identifier",
-                                                        "name": "wave",
-                                                        "raw": "wave"
+                                                        "name": "shape",
+                                                        "raw": "shape"
                                                     },
                                                     "right": {
                                                         "type": "Literal",
@@ -2467,8 +4043,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -2482,8 +4058,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -2603,8 +4179,8 @@
                                             "operator": "==",
                                             "left": {
                                                 "type": "Identifier",
-                                                "name": "wave",
-                                                "raw": "wave"
+                                                "name": "shape",
+                                                "raw": "shape"
                                             },
                                             "right": {
                                                 "type": "Literal",
@@ -2670,13 +4246,13 @@
                                                                                     "operator": "*",
                                                                                     "left": {
                                                                                         "type": "Identifier",
-                                                                                        "name": "width",
-                                                                                        "raw": "width"
+                                                                                        "name": "mod",
+                                                                                        "raw": "mod"
                                                                                     },
                                                                                     "right": {
                                                                                         "type": "Identifier",
-                                                                                        "name": "width",
-                                                                                        "raw": "width"
+                                                                                        "name": "mod",
+                                                                                        "raw": "mod"
                                                                                     }
                                                                                 },
                                                                                 "right": {
@@ -2721,8 +4297,8 @@
                                     "operator": "==",
                                     "left": {
                                         "type": "Identifier",
-                                        "name": "wave",
-                                        "raw": "wave"
+                                        "name": "shape",
+                                        "raw": "shape"
                                     },
                                     "right": {
                                         "type": "Literal",
@@ -2781,8 +4357,8 @@
                                                     },
                                                     "right": {
                                                         "type": "Identifier",
-                                                        "name": "width",
-                                                        "raw": "width"
+                                                        "name": "mod",
+                                                        "raw": "mod"
                                                     }
                                                 }
                                             }
@@ -2853,8 +4429,8 @@
                                         "operator": ">",
                                         "left": {
                                             "type": "Identifier",
-                                            "name": "wave",
-                                            "raw": "wave"
+                                            "name": "shape",
+                                            "raw": "shape"
                                         },
                                         "right": {
                                             "type": "Literal",
@@ -2891,17 +4467,36 @@
                                                 "type": "IfStatement",
                                                 "test": {
                                                     "type": "BinaryExpression",
-                                                    "operator": "==",
+                                                    "operator": "||",
                                                     "left": {
-                                                        "type": "Identifier",
-                                                        "name": "wave",
-                                                        "raw": "wave"
+                                                        "type": "BinaryExpression",
+                                                        "operator": "==",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "shape",
+                                                            "raw": "shape"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 7,
+                                                            "raw": "7",
+                                                            "gen_kind": "integer"
+                                                        }
                                                     },
                                                     "right": {
-                                                        "type": "Literal",
-                                                        "value": 7,
-                                                        "raw": "7",
-                                                        "gen_kind": "integer"
+                                                        "type": "BinaryExpression",
+                                                        "operator": "==",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "shape",
+                                                            "raw": "shape"
+                                                        },
+                                                        "right": {
+                                                            "type": "Literal",
+                                                            "value": 8,
+                                                            "raw": "8",
+                                                            "gen_kind": "integer"
+                                                        }
                                                     }
                                                 },
                                                 "consequent": {
@@ -2941,32 +4536,6 @@
                                                                 "operator": "=",
                                                                 "left": {
                                                                     "type": "Identifier",
-                                                                    "name": "sr20",
-                                                                    "raw": "sr20"
-                                                                },
-                                                                "right": {
-                                                                    "type": "BinaryExpression",
-                                                                    "operator": "+",
-                                                                    "left": {
-                                                                        "type": "Identifier",
-                                                                        "name": "sr10",
-                                                                        "raw": "sr10"
-                                                                    },
-                                                                    "right": {
-                                                                        "type": "Identifier",
-                                                                        "name": "sr10",
-                                                                        "raw": "sr10"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "ExpressionStatement",
-                                                            "expression": {
-                                                                "type": "AssignmentExpression",
-                                                                "operator": "=",
-                                                                "left": {
-                                                                    "type": "Identifier",
                                                                     "name": "lfo",
                                                                     "raw": "lfo"
                                                                 },
@@ -2993,40 +4562,221 @@
                                                             }
                                                         },
                                                         {
-                                                            "type": "ExpressionStatement",
-                                                            "expression": {
-                                                                "type": "AssignmentExpression",
-                                                                "operator": "=",
+                                                            "type": "IfStatement",
+                                                            "test": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "==",
                                                                 "left": {
                                                                     "type": "Identifier",
-                                                                    "name": "lfo",
-                                                                    "raw": "lfo"
+                                                                    "name": "shape",
+                                                                    "raw": "shape"
                                                                 },
                                                                 "right": {
-                                                                    "type": "CallExpression",
-                                                                    "arguments": [
-                                                                        {
-                                                                            "type": "Identifier",
-                                                                            "name": "lfo",
-                                                                            "raw": "lfo"
-                                                                        },
-                                                                        {
-                                                                            "type": "Identifier",
-                                                                            "name": "sr10",
-                                                                            "raw": "sr10"
-                                                                        },
-                                                                        {
-                                                                            "type": "Identifier",
-                                                                            "name": "sr20",
-                                                                            "raw": "sr20"
-                                                                        }
-                                                                    ],
-                                                                    "callee": {
-                                                                        "type": "Identifier",
-                                                                        "name": "evi_rampsmooth",
-                                                                        "raw": "evi_rampsmooth"
-                                                                    }
+                                                                    "type": "Literal",
+                                                                    "value": 8,
+                                                                    "raw": "8",
+                                                                    "gen_kind": "integer"
                                                                 }
+                                                            },
+                                                            "consequent": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "sr20",
+                                                                                "raw": "sr20"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "+",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr10",
+                                                                                        "raw": "sr10"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr20",
+                                                                                        "raw": "sr20"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "evi_rampsmooth",
+                                                                                    "raw": "evi_rampsmooth"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "alternate": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "sr05",
+                                                                                "raw": "sr05"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "*",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "sr10",
+                                                                                    "raw": "sr10"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 0.5,
+                                                                                    "raw": "0.5",
+                                                                                    "gen_kind": "float"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": ">",
+                                                                                "left": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "lfo",
+                                                                                    "raw": "lfo"
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 0,
+                                                                                    "raw": "0",
+                                                                                    "gen_kind": "integer"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "BinaryExpression",
+                                                                                "operator": "-",
+                                                                                "left": {
+                                                                                    "type": "BinaryExpression",
+                                                                                    "operator": "+",
+                                                                                    "left": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    "right": {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    }
+                                                                                },
+                                                                                "right": {
+                                                                                    "type": "Literal",
+                                                                                    "value": 1,
+                                                                                    "raw": "1",
+                                                                                    "gen_kind": "integer"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "lfo",
+                                                                                        "raw": "lfo"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr05",
+                                                                                        "raw": "sr05"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "sr05",
+                                                                                        "raw": "sr05"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "evi_rampsmooth",
+                                                                                    "raw": "evi_rampsmooth"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
                                                             }
                                                         }
                                                     ]
@@ -3035,17 +4785,36 @@
                                                     "type": "IfStatement",
                                                     "test": {
                                                         "type": "BinaryExpression",
-                                                        "operator": "==",
+                                                        "operator": "||",
                                                         "left": {
-                                                            "type": "Identifier",
-                                                            "name": "wave",
-                                                            "raw": "wave"
+                                                            "type": "BinaryExpression",
+                                                            "operator": "==",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "shape",
+                                                                "raw": "shape"
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 9,
+                                                                "raw": "9",
+                                                                "gen_kind": "integer"
+                                                            }
                                                         },
                                                         "right": {
-                                                            "type": "Literal",
-                                                            "value": 8,
-                                                            "raw": "8",
-                                                            "gen_kind": "integer"
+                                                            "type": "BinaryExpression",
+                                                            "operator": "==",
+                                                            "left": {
+                                                                "type": "Identifier",
+                                                                "name": "shape",
+                                                                "raw": "shape"
+                                                            },
+                                                            "right": {
+                                                                "type": "Literal",
+                                                                "value": 10,
+                                                                "raw": "10",
+                                                                "gen_kind": "integer"
+                                                            }
                                                         }
                                                     },
                                                     "consequent": {
@@ -3057,9 +4826,19 @@
                                                                     "type": "AssignmentExpression",
                                                                     "operator": "=",
                                                                     "left": {
-                                                                        "type": "Identifier",
-                                                                        "name": "lfo",
-                                                                        "raw": "lfo"
+                                                                        "type": "ArrayPattern",
+                                                                        "elements": [
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "linear",
+                                                                                "raw": "linear"
+                                                                            },
+                                                                            {
+                                                                                "type": "Identifier",
+                                                                                "name": "cosine",
+                                                                                "raw": "cosine"
+                                                                            }
+                                                                        ]
                                                                     },
                                                                     "right": {
                                                                         "type": "CallExpression",
@@ -3077,8 +4856,48 @@
                                                                         ],
                                                                         "callee": {
                                                                             "type": "Identifier",
-                                                                            "name": "eviRandN",
-                                                                            "raw": "eviRandN"
+                                                                            "name": "eviRandCN",
+                                                                            "raw": "eviRandCN"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "ExpressionStatement",
+                                                                "expression": {
+                                                                    "type": "AssignmentExpression",
+                                                                    "operator": "=",
+                                                                    "left": {
+                                                                        "type": "Identifier",
+                                                                        "name": "lfo",
+                                                                        "raw": "lfo"
+                                                                    },
+                                                                    "right": {
+                                                                        "type": "ConditionalExpression",
+                                                                        "test": {
+                                                                            "type": "BinaryExpression",
+                                                                            "operator": "==",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "shape",
+                                                                                "raw": "shape"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "Literal",
+                                                                                "value": 9,
+                                                                                "raw": "9",
+                                                                                "gen_kind": "integer"
+                                                                            }
+                                                                        },
+                                                                        "consequent": {
+                                                                            "type": "Identifier",
+                                                                            "name": "linear",
+                                                                            "raw": "linear"
+                                                                        },
+                                                                        "alternate": {
+                                                                            "type": "Identifier",
+                                                                            "name": "cosine",
+                                                                            "raw": "cosine"
                                                                         }
                                                                     }
                                                                 }
@@ -3092,13 +4911,13 @@
                                                             "operator": "==",
                                                             "left": {
                                                                 "type": "Identifier",
-                                                                "name": "wave",
-                                                                "raw": "wave"
+                                                                "name": "shape",
+                                                                "raw": "shape"
                                                             },
                                                             "right": {
                                                                 "type": "Literal",
-                                                                "value": 9,
-                                                                "raw": "9",
+                                                                "value": 11,
+                                                                "raw": "11",
                                                                 "gen_kind": "integer"
                                                             }
                                                         },
@@ -3140,26 +4959,81 @@
                                                             ]
                                                         },
                                                         "alternate": {
-                                                            "type": "BlockStatement",
-                                                            "body": [
-                                                                {
-                                                                    "type": "ExpressionStatement",
-                                                                    "expression": {
-                                                                        "type": "AssignmentExpression",
-                                                                        "operator": "=",
-                                                                        "left": {
-                                                                            "type": "Identifier",
-                                                                            "name": "lfo",
-                                                                            "raw": "lfo"
-                                                                        },
-                                                                        "right": {
-                                                                            "type": "Identifier",
-                                                                            "name": "n",
-                                                                            "raw": "n"
+                                                            "type": "IfStatement",
+                                                            "test": {
+                                                                "type": "BinaryExpression",
+                                                                "operator": "==",
+                                                                "left": {
+                                                                    "type": "Identifier",
+                                                                    "name": "shape",
+                                                                    "raw": "shape"
+                                                                },
+                                                                "right": {
+                                                                    "type": "Literal",
+                                                                    "value": 12,
+                                                                    "raw": "12",
+                                                                    "gen_kind": "integer"
+                                                                }
+                                                            },
+                                                            "consequent": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "CallExpression",
+                                                                                "arguments": [
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "phase",
+                                                                                        "raw": "phase"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "Identifier",
+                                                                                        "name": "n",
+                                                                                        "raw": "n"
+                                                                                    }
+                                                                                ],
+                                                                                "callee": {
+                                                                                    "type": "Identifier",
+                                                                                    "name": "glideLfoBipolarN",
+                                                                                    "raw": "glideLfoBipolarN"
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
-                                                                }
-                                                            ]
+                                                                ]
+                                                            },
+                                                            "alternate": {
+                                                                "type": "BlockStatement",
+                                                                "body": [
+                                                                    {
+                                                                        "type": "ExpressionStatement",
+                                                                        "expression": {
+                                                                            "type": "AssignmentExpression",
+                                                                            "operator": "=",
+                                                                            "left": {
+                                                                                "type": "Identifier",
+                                                                                "name": "lfo",
+                                                                                "raw": "lfo"
+                                                                            },
+                                                                            "right": {
+                                                                                "type": "Identifier",
+                                                                                "name": "n",
+                                                                                "raw": "n"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
                                                     }
                                                 }

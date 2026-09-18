@@ -115,6 +115,8 @@ simpleZerox(x, threshold=0.1)
 	return periodCount, voiced, crossing;			 // -voiced ?
 }
 
+// ---
+
 // like [rand~] (linear)
 // very predictable and gives exact notches
 eviRand(p) {										// phasor input, not frequency
@@ -151,6 +153,18 @@ eviRandC(p) {										// phasor input, not frequency
 	return nv, nw, n;
 }
 
+// like 'eviRandN()' but with additional cosine output
+eviRandCN(p, n) {									// phasor input, not frequency, and external noise source
+	History prev(0);
+	rr = (delta(p)) < 0;                    		// assumes positive freq only
+	a  = latch(prev, rr);
+	b  = latch(n, rr);
+	nv = mix(a, b, p);
+    nw = interp(p, a, b, mode="cosine");    		// additional cosine output
+	prev = b;
+	return nv, nw;
+}
+
 // like [rand~] but ready for cubic interpolation
 eviRands(d0, x2)									// delta input, not frequency; x2 is source
 {
@@ -182,7 +196,7 @@ eviRandyN(p, n)										// phasor input not frequency, and external noise sourc
 	History randyn(0);
 	d = (delta(p)) < 0;                            	// assumes positive freq only
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
-    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" (tri) does not work for eviRandy() anyway
+    r = interp(p, ym1, y0, y1, y2, mode="fastcubic");// & "cubic" (tri) does not work for eviRandyN() anyway
     return r;
 }
 
@@ -223,6 +237,49 @@ eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 	dynamicAtten = catmullRomSplineDynamic(p, ym1, y0, y1, y2, bias, tension) * 0.834251;
 
 	return 	(dynamicAtten / attenuate), x;
+}
+
+// a beautiful random LFO based on Iftah / Ableton LFO
+/*
+	usage:
+	myLfo = eviWindowLfo([buffer], phase, distribution, density);
+	where [buffer] is a gen buffer containing a window function 0..1,
+		only really works with a blackman-like window or a kaiser window with alpha > 8
+	where phase is 0..1 running positive only
+	where distribution is 0..1, default 0.5
+	where density is halfpi..twopi, default halfpi
+*/
+eviWindowLfo(window, phase, distribution, density)
+{
+    History next(0), current(0);
+
+    rng = noise(); // should really put this in the branch
+    rng4 = rng+rng+rng+rng;
+    phaseCurrent = wrap(phase+0.5, 0, 1);
+
+    aNext = latch(rng4, (delta(phase) < 0));
+    aCurrent = latch(rng4, (delta(phaseCurrent) < 0));
+
+    yNext = nearest(window, phase) * aNext * (phase+phase-1);
+    yCurrent = nearest(window, phaseCurrent) * aCurrent * (phaseCurrent+phaseCurrent-1);
+
+    return fastsin(interp(distribution, yCurrent, yNext, mode="cosine") * density), rng;
+}
+
+eviWindowLfoN(window, rng, phase, distribution, density)	// with external noise source
+{
+    History next(0), current(0);
+
+    rng4 = rng+rng+rng+rng;
+    phaseCurrent = wrap(phase+0.5, 0, 1);
+
+    aNext = latch(rng4, (delta(phase) < 0));
+    aCurrent = latch(rng4, (delta(phaseCurrent) < 0));
+
+    yNext = nearest(window, phase) * aNext * (phase+phase-1);
+    yCurrent = nearest(window, phaseCurrent) * aCurrent * (phaseCurrent+phaseCurrent-1);
+
+    return fastsin(interp(distribution, yCurrent, yNext, mode="cosine") * density);
 }
 
 // ---

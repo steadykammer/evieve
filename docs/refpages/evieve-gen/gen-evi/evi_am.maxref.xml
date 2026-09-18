@@ -98,10 +98,10 @@
         </attribute>
         <attribute name='lfowave' type='int' get='0' set='1'>
             <digest>
-                @min 0, @max 10
+                @min 0, @max 13
             </digest>
             <description>
-                The shape of the LFOs driving the modulation. 0&#x3D;bypass, 1&#x3D;up, 2&#x3D;down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand step, 8&#x3D;rand linear, 9&#x3D;rand cubic, 10&#x3D;noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.
+                The shape of the LFOs driving the modulation. 0&#x3D;off, 1&#x3D;up, 2&#x3D;down, 3&#x3D;tri, 4&#x3D;sine (default), 5&#x3D;tanh, 6&#x3D;square, 7&#x3D;rand bin, 8&#x3D;rand step, 9&#x3D;rand linear, 10&#x3D;rand cosine, 11&#x3D;rand cubic, 12&#x3D;rand walk, 13&#x3D;noise. Switching LFO wave is synchronised to zero crossing phase. LFOs are always slightly smoothed, even hard edges such as square and random.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='4' />

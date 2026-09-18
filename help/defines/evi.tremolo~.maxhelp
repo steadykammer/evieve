@@ -509,7 +509,7 @@
                             {
                                 "box": {
                                     "id": "obj-12",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -518,11 +518,11 @@
                                     "patching_rect": [ 375.0, 243.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
                                             "parameter_initial": [ 4.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[2]",
-                                            "parameter_mmax": 10,
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -1629,7 +1629,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1927,7 +1927,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 617.0, 235.0, 71.0, 23.0 ],
-                                    "text": "random 10"
+                                    "text": "random 13"
                                 }
                             },
                             {
@@ -3117,7 +3117,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3351,7 +3351,7 @@
                             {
                                 "box": {
                                     "id": "obj-12",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -3360,11 +3360,11 @@
                                     "patching_rect": [ 443.0, 191.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
                                             "parameter_initial": [ 4.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu[1]",
-                                            "parameter_mmax": 10,
+                                            "parameter_longname": "umenu[3]",
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -3723,7 +3723,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 399.0, 221.0, 196.0, 22.0 ],
-                                                    "text": "param lfowave 4 @min 0 @max 10"
+                                                    "text": "param lfowave 4 @min 0 @max 13"
                                                 }
                                             },
                                             {
@@ -4093,7 +4093,7 @@
             "obj-10::obj-45": [ "live.dial[2]", "Rate", 0 ],
             "obj-10::obj-61": [ "live.dial[3]", "Skew", 0 ],
             "obj-10::obj-62": [ "live.dial[4]", "Drive", 0 ],
-            "obj-11::obj-12": [ "umenu[1]", "umenu", 0 ],
+            "obj-11::obj-12": [ "umenu[3]", "umenu", 0 ],
             "obj-2::obj-33": [ "number", "number", 0 ],
             "obj-6::obj-12": [ "umenu[2]", "umenu", 0 ],
             "obj-6::obj-22": [ "toggle[1]", "toggle", 0 ],

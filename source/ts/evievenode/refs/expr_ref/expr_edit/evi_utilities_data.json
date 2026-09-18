@@ -516,6 +516,32 @@
         },
         {
             "document": true,
+            "digest": "Exponential shaper, mirrored exponent ± 1, unlike 'evi_fastskew.genexpr' or the various Max [scale]-like objects",
+            "name": "warpExp",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "x",
+                    "digest": "Must be clamped 0..1"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "warp",
+                    "digest": "Amount -1..1 around 0"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Shape",
+                    "digest": "Phase shaped exponential output"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Sine approx, 5 muls 3 plus, terrible accuracy but cheap, for lfos etc only",
             "name": "sin7",
             "inputs": [

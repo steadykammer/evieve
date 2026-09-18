@@ -376,7 +376,7 @@
                             {
                                 "box": {
                                     "id": "obj-29",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -385,11 +385,11 @@
                                     "patching_rect": [ 478.0, 229.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
                                             "parameter_initial": [ 4.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu[3]",
-                                            "parameter_mmax": 10,
+                                            "parameter_longname": "umenu[8]",
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -521,7 +521,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\nParam   lfowave(4, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\nParam   lfomode(0, min=0, max=1);\r\n\r\nlfoMode = int(lfomode);\r\n\r\nreset = (delta(change(lfoMode)) < 0) + in3;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR \r\n    = eviPhasorTwo0(in1, in2, reset, minimumhz=0.125, mode=lfoMode);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\nmodOsc1 = lfoShapes11(phaseL, syncL, lfowidth, waveL);\r\nmodOsc2 = lfoShapes11(phaseR, syncR, lfowidth, waveR);\r\n\r\n\r\n\r\nout1 = modOsc1 * 24;    // db\r\nout2 = modOsc2 * 20;    // db\r\n\r\nout3 = modOsc1 * modOsc2 * 500 + 2000;  // hz\r\n\r\n",
+                                                    "code": "\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\n// off, ramp up, ramp down, tri, sine (default), tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(4, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\nParam   lfomode(0, min=0, max=1);\r\n\r\nlfoMode = int(lfomode);\r\n\r\nreset = (delta(change(lfoMode)) < 0) + in3;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR \r\n    = eviPhasorTwo0(in1, in2, reset, minimumhz=0.125, mode=lfoMode);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\nmodOsc1 = lfoShapes11(phaseL, syncL, lfowidth, waveL);\r\nmodOsc2 = lfoShapes11(phaseR, syncR, lfowidth, waveR);\r\n\r\n\r\n\r\nout1 = modOsc1 * 24;    // db\r\nout2 = modOsc2 * 20;    // db\r\n\r\nout3 = modOsc1 * modOsc2 * 500 + 2000;  // hz\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -3371,7 +3371,7 @@
                             {
                                 "box": {
                                     "id": "obj-29",
-                                    "items": [ "bypass", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cubic", ",", "noise" ],
+                                    "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -3380,11 +3380,11 @@
                                     "patching_rect": [ 428.0, 199.0, 100.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_enum": [ "bypass", "up", "down", "tri", "sine", "tanh", "square", "rand step", "rand linear", "rand cubic", "noise" ],
+                                            "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
                                             "parameter_initial": [ 4.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "umenu[4]",
-                                            "parameter_mmax": 10,
+                                            "parameter_longname": "umenu[9]",
+                                            "parameter_mmax": 13,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "umenu",
                                             "parameter_type": 2
@@ -3842,7 +3842,7 @@
                                                             },
                                                             {
                                                                 "box": {
-                                                                    "code": "\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\nParam   lfowave(4, min=0, max=10);\r\nParam   lfowidth(0.5, min=0, max=1);\r\nParam   lfomode(0, min=0, max=1);\r\n\r\nlfoMode = int(lfomode);\r\n\r\nreset = (delta(change(lfoMode)) < 0) + in3;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR \r\n    = eviPhasorTwo0(in1, in2, reset, minimumhz=0.125, mode=lfoMode);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\nmodOsc1 = lfoShapes11(phaseL, syncL, lfowidth, waveL);\r\nmodOsc2 = lfoShapes11(phaseR, syncR, lfowidth, waveR);\r\n\r\n\r\n\r\nout1 = modOsc1 * 24;    // db\r\nout2 = modOsc2 * 20;    // db\r\n\r\nout3 = modOsc1 * modOsc2 * 500 + 2000;  // hz\r\n\r\n",
+                                                                    "code": "\r\nrequire(\"evi_counting.genexpr\");\r\nrequire(\"evi_lfo.genexpr\");\r\n\r\n// off, ramp up, ramp down, tri, sine (default), tanh, square, rand bin,\r\n// rand step, rand linear, rand cosine, rand cubic, rand walk, noise\r\nParam   lfowave(4, min=0, max=13);\r\nParam   lfowidth(0.5, min=0, max=1);\r\nParam   lfomode(0, min=0, max=1);\r\n\r\nlfoMode = int(lfomode);\r\n\r\nreset = (delta(change(lfoMode)) < 0) + in3;\r\nphaseL, phaseR, currentHz, currentSpread, syncL, syncR \r\n    = eviPhasorTwo0(in1, in2, reset, minimumhz=0.125, mode=lfoMode);\r\n\r\nwaveL = latch(lfowave, syncL);\r\nwaveR = latch(lfowave, syncR);\r\nmodOsc1 = lfoShapes11(phaseL, syncL, lfowidth, waveL);\r\nmodOsc2 = lfoShapes11(phaseR, syncR, lfowidth, waveR);\r\n\r\n\r\n\r\nout1 = modOsc1 * 24;    // db\r\nout2 = modOsc2 * 20;    // db\r\n\r\nout3 = modOsc1 * modOsc2 * 500 + 2000;  // hz\r\n\r\n",
                                                                     "fontface": 0,
                                                                     "fontname": "<Monospaced>",
                                                                     "fontsize": 12.0,
@@ -4255,7 +4255,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4981,7 +4981,7 @@
         "parameters": {
             "obj-10::obj-12": [ "number[17]", "number[12]", 0 ],
             "obj-10::obj-24": [ "number[18]", "number[4]", 0 ],
-            "obj-10::obj-29": [ "umenu[4]", "umenu", 0 ],
+            "obj-10::obj-29": [ "umenu[9]", "umenu", 0 ],
             "obj-10::obj-31": [ "number[16]", "number[8]", 0 ],
             "obj-10::obj-32": [ "number[15]", "number[13]", 0 ],
             "obj-10::obj-36": [ "number[14]", "number[11]", 0 ],
@@ -5002,7 +5002,7 @@
             "obj-2::obj-92": [ "Freq1", "live.numbox", 0 ],
             "obj-5::obj-12": [ "number[12]", "number[12]", 0 ],
             "obj-5::obj-24": [ "number[9]", "number[4]", 0 ],
-            "obj-5::obj-29": [ "umenu[3]", "umenu", 0 ],
+            "obj-5::obj-29": [ "umenu[8]", "umenu", 0 ],
             "obj-5::obj-31": [ "number[10]", "number[8]", 0 ],
             "obj-5::obj-32": [ "number[13]", "number[13]", 0 ],
             "obj-5::obj-36": [ "number[11]", "number[11]", 0 ],

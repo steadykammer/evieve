@@ -113,6 +113,18 @@
 
       </description>
     </entry>
+    <entry name="eviRandCN ( )">
+      <description>
+        like 'eviRandN()' but with additional cosine interpolated output <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />
+
+        <b>Return 1</b>: nv, <i>Linear rand oscillator output</i> <br />
+        <b>Return 2</b>: nw, <i>Cosine rand oscillator output</i> <br />
+
+      </description>
+    </entry>
     <entry name="eviRands ( )">
       <description>
         Like 'eviRand()' but ready for cubic interpolation, called by 'eviRandy()' <br />
@@ -175,6 +187,34 @@
 
         <b>Return 1</b>: r, <i>Random LFO -1..1</i> <br />
         <b>Return 2</b>: x, <i>Internal white noise source sync</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eviWindowLfo ( )">
+      <description>
+        A beautiful random LFO based on Iftah / Ableton LFO, using an external windowing function to produce a sine-like random walk algorithm. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: window, <i>A gen buffer reference containing a window function 0..1, only really works with a blackman-like window or a kaiser window with alpha &gt; 8</i> <br />
+        <b>In 2</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+        <b>In 3</b>: type=<i>input</i>: distribution, <i>Default should be 0.5, towards extremes (0 or 1) becomes less random and more regular in output</i> <br />
+        <b>In 4</b>: type=<i>input</i>: density, <i>Default should be 0, 0..1 increasingly folds over the wave shape by increasing the internal radians, making the LFO dense and busy</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random walk output</i> <br />
+        <b>Return 2</b>: Noise, <i>The internal noise source output for driving downstream processes</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eviWindowLfoN ( )">
+      <description>
+        The same as 'eviWindowLfo()' but with external noise source input <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: window, <i>A gen buffer reference containing a window function 0..1, only really works with a blackman-like window or a kaiser window with alpha &gt; 8</i> <br />
+        <b>In 2</b>: type=<i>input</i>: rng, <i>External (white) noise source to drive the random algorithm</i> <br />
+        <b>In 3</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
+        <b>In 4</b>: type=<i>input</i>: distribution, <i>Default should be 0.5, towards extremes (0 or 1) becomes less random and more regular in output</i> <br />
+        <b>In 5</b>: type=<i>input</i>: density, <i>Default should be 0, 0..1 increasingly folds over the wave shape by increasing the internal radians, making the LFO dense and busy</i> <br />
+
+        <b>Return 1</b>: LFO, <i>Quasi random walk output</i> <br />
 
       </description>
     </entry>

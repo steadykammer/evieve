@@ -16,7 +16,7 @@
     See the GNU General Public License for more details.
 */
 
-require("evi_sources.genexpr");
+require("evi_sources.genexpr"); // includes many more LFOs
 
 // ---
 
@@ -71,6 +71,78 @@ lfoSkew(phase, skew)
 
 // ---
 
+// are these 'glide' lfos what Ableton calls 'wander' ??
+// either way i modified them from Iftah's Ableton stuff, thanks, they are beautiful
+
+// phase 0..1 in, bipolar -1..1 out
+glideLfoBipolar(phase)
+{
+    History Rng(0), prevRng(0);
+
+	if (delta(phase) < 0)
+	{
+        signed = noise();
+	    prevRng = Rng;
+	    Rng = abs(signed + signed);
+	}
+
+    cosDrive = 1 + fastsin(phase*PI - HALFPI);
+	lfo = ((cosDrive * Rng + (2 - cosDrive) * prevRng) * 0.5) - 1;
+    
+    return lfo;
+}
+
+glideLfoBipolarN(phase, n)  // with external noise source
+{
+    History Rng(0), prevRng(0);
+
+	if (delta(phase) < 0)
+	{
+	    prevRng = Rng;
+	    Rng = abs(n + n);
+	}
+
+    cosDrive = 1 + fastsin(phase*PI - HALFPI);
+	lfo = ((cosDrive * Rng + (2 - cosDrive) * prevRng) * 0.5) - 1;
+    
+    return lfo;
+}
+
+// phase 0..1 in, unipolar 0..1 out
+glideLfoUnipolar(phase)
+{
+    History Rng(0), prevRng(0);
+
+	if (delta(phase) < 0)
+	{
+	    prevRng = Rng;
+	    Rng = abs(noise());
+	}
+
+    cosDrive = 0.5 + (0.5 * fastsin(phase*PI - HALFPI));
+	lfo = (cosDrive * Rng + (1 - cosDrive) * prevRng);
+    
+    return lfo;
+}
+
+glideLfoUnipolarN(phase, n) // with external noise source
+{
+    History Rng(0), prevRng(0);
+
+	if (delta(phase) < 0)
+	{
+	    prevRng = Rng;
+	    Rng = abs(n);
+	}
+
+    cosDrive = 0.5 + (0.5 * fastsin(phase*PI - HALFPI));
+	lfo = (cosDrive * Rng + (1 - cosDrive) * prevRng);
+    
+    return lfo;
+}
+
+// ---
+
 // cheap and dirty approx, good enough for lfos
 tanhC(x)
 {
@@ -78,50 +150,68 @@ tanhC(x)
 	return x * ((27 + (x * x)) / (27 + (9 * (x * x))));
 }
 
+// stupid
 triC(phase, pwm, times, plus)
 {
     return (triangle(phase, pwm) * times) + plus;
 }
 
 // computed LFOs, phase 0..1 in, wave 0..1 out
-lfoShapes01(phase, sync, width, wave)
+lfoShapes01(phase, sync, mod, shape)
 {
     History ls01dummy(0);
     lfo = 0;
-    if ((wave >= 1) && (wave <= 3)) {
-        pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
+    if ((shape >= 1) && (shape <= 3)) {
+        pwm = shape == 3 ? mod : (shape == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
         lfo = triC(phase, pwm, 1, 0);
     }
-    else if ((wave == 4) || (wave == 5)) {
+    else if ((shape == 4) || (shape == 5)) {
         p = wrap(phase, -0.5, 0.5);
-        if (wave == 4) {        // sine
+        if (shape == 4) {       // sine
             lfo = p * (4 - (abs(p) * 8)) + 0.5;
         }
         else {                  // 5=tanh
             sine = (8 - (abs(p) * 16)) * p;
-            lfo = (tanhC(sine * maximum(((width * width) * 8), 0.999999)) * 0.5) + 0.5;
+            lfo = (tanhC(sine * maximum(((mod * mod) * 8), 0.999999)) * 0.5) + 0.5;
         }
     }
-    else if (wave == 6) {       // square
+    else if (shape == 6) {      // square
         sr10 = samplerate * 0.01;
-        lfo = phase > width;
+        lfo = phase > mod;
         lfo = evi_rampsmooth(lfo, sr10, sr10);
     }
-    else if (wave > 6) {
+    else if (shape > 6) {
         n = noise();
-        if (wave == 7) {        // random step
+        if ((shape == 7) || (shape == 8)) {
             sr10 = samplerate * 0.01;
-            sr20 = sr10 + sr10;
-            lfo = (latch(n, sync) * 0.5) + 0.5;
-            lfo = evi_rampsmooth(lfo, sr10, sr20);
+            lfo = latch(n, sync);
+            if (shape == 8) {   // 8=random step
+                sr20 = sr10 + sr10;
+                lfo = (lfo * 0.5) + 0.5;
+                lfo = evi_rampsmooth(lfo, sr10, sr20);
+            }
+            else {              // 7=random binary
+                sr05 = sr10 * 0.5;
+                lfo = lfo > 0;
+                lfo = evi_rampsmooth(lfo, sr05, sr05);
+            }
         }
-        else if (wave == 8) {   // random linear
-            lfo = (eviRandN(phase, n) * 0.5) + 0.5;
+        else if ((shape == 9) || (shape == 10)) {
+            linear, cosine = eviRandCN(phase, n);
+            if (shape == 9) {   // random linear
+                lfo = (linear * 0.5) + 0.5;
+            }
+            else {              // random cosine
+                lfo = (cosine * 0.5) + 0.5;
+            }
         }
-        else if (wave == 9) {   // random cubic
+        else if (shape == 11) { // random cubic
             lfo = (eviRandyN(phase, n) * 0.5) + 0.5;
         }
-        else {                  // 10=white noise
+        else if (shape == 12) { // random walk
+            lfo = glideLfoUnipolarN(phase, n);
+        }
+        else {                  // 13=white noise
             lfo = (n * 0.5) + 0.5;
         }
     }
@@ -133,44 +223,57 @@ lfoShapes01(phase, sync, width, wave)
 }
 
 // computed LFOs, phase 0..1 in, wave -1..1 out
-lfoShapes11(phase, sync, width, wave)  //  width 0..1
+lfoShapes11(phase, sync, mod, shape)  //  mod 0..1
 {
     History ls11dummy(0);
     lfo = 0;
-    if ((wave >= 1) && (wave <= 3)) {
-        pwm = wave == 3 ? width : (wave == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
+    if ((shape >= 1) && (shape <= 3)) {
+        pwm = shape == 3 ? mod : (shape == 2 ? 0.04 : 0.96); // 3=triangle, 2=ramp down, 1=ramp up
         lfo = triC(phase, pwm, 2, -1);
     }
-    else if ((wave == 4) || (wave == 5)) {
+    else if ((shape == 4) || (shape == 5)) {
         p = wrap(phase, -0.5, 0.5);
         sine = (8 - (abs(p) * 16)) * p;
-        if (wave == 4) {        // sine
+        if (shape == 4) {       // sine
             lfo = sine;
         }
         else {                  // 5=tanh
-            lfo = tanhC(sine * maximum(((width * width) * 8), 0.999999));
+            lfo = tanhC(sine * maximum(((mod * mod) * 8), 0.999999));
         }
     }
-    else if (wave == 6) {       // square
+    else if (shape == 6) {      // square
         sr10 = samplerate * 0.01;
-        lfo = phase > width;
+        lfo = phase > mod;
         lfo = (evi_rampsmooth(lfo, sr10, sr10) * 2) - 1;
     }
-    else if (wave > 6) {
+    else if (shape > 6) {
         n = noise();
-        if (wave == 7) {        // random step
+        if ((shape == 7) || (shape == 8)) {
             sr10 = samplerate * 0.01;
-            sr20 = sr10 + sr10;
             lfo = latch(n, sync);
-            lfo = evi_rampsmooth(lfo, sr10, sr20);
+            if (shape == 8) {   // 8=random step
+                sr20 = sr10 + sr10;
+                lfo = evi_rampsmooth(lfo, sr10, sr20);
+            }
+            else {              // 7=random binary
+                sr05 = sr10 * 0.5;
+                lfo = lfo > 0;
+                lfo = (lfo + lfo) - 1;
+                lfo = evi_rampsmooth(lfo, sr05, sr05);
+            }
         }
-        else if (wave == 8) {   // random linear
-            lfo = eviRandN(phase, n);
+        else if ((shape == 9) || (shape == 10)) {
+            linear, cosine = eviRandCN(phase, n);
+                                // random 9=linear / 10=cosine
+            lfo = (shape == 9) ? linear : cosine;
         }
-        else if (wave == 9) {   // random cubic
+        else if (shape == 11) { // random cubic
             lfo = eviRandyN(phase, n);
         }
-        else {                  // 10=white noise
+        else if (shape == 12) { // random walk
+            lfo = glideLfoBipolarN(phase, n);
+        }
+        else {                  // 13=white noise
             lfo = n;
         }
     }

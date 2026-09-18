@@ -202,6 +202,17 @@
 
       </description>
     </entry>
+    <entry name="warpExp ( )">
+      <description>
+        Exponential shaper, mirrored exponent ± 1, unlike 'evi_fastskew.genexpr' or the various Max [scale]-like objects <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: x, <i>Must be clamped 0..1</i> <br />
+        <b>In 2</b>: type=<i>input</i>: warp, <i>Amount -1..1 around 0</i> <br />
+
+        <b>Return 1</b>: Shape, <i>Phase shaped exponential output</i> <br />
+
+      </description>
+    </entry>
     <entry name="sin7 ( )">
       <description>
         Sine approx, 5 muls 3 plus, terrible accuracy but cheap, for lfos etc only <br />
