@@ -229,9 +229,13 @@ eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 	d	= delta(p) < 0;			// assumes positive freq only
 	x	= noise();
 
-	bias = skew * 4;
-	tension = skew * -3;
-	attenuate = fastpow(7, abs(skew));
+	bias, tension = 0;
+	attenuate = 0.971348;
+	if (skew != 0) {
+		bias = skew * 4;
+		tension = skew * -3;
+		attenuate = fastpow(7, abs(skew));
+	}
 
 	ym1, y0, y1, y2	= eviRands(d, x);
 	dynamicAtten = catmullRomSplineDynamic(p, ym1, y0, y1, y2, bias, tension) * 0.834251;

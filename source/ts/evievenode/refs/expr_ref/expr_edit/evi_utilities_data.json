@@ -516,7 +516,7 @@
         },
         {
             "document": true,
-            "digest": "Exponential shaper, mirrored exponent ± 1, unlike 'evi_fastskew.genexpr' or the various Max [scale]-like objects",
+            "digest": "Exponential shaper, mirrored exponent ± 1, unlike 'evi_fastskew.genexpr' or the various Max [scale]-like objects; it seems this is roughly the same as [abl.dsp.expshaper~].",
             "name": "warpExp",
             "inputs": [
                 {

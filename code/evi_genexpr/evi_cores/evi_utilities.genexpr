@@ -199,7 +199,8 @@ kinky(p, k)
 	return pk05 ? pk : slope;
 }
 
-// mirror exponent, unlike evi_fastskew.genexpr or the various [scale] like objects
+// mirror exponent, unlike evi_fastskew.genexpr or the various Max [scale] like objects
+// basically like [abl.dsp.expshaper~]
 // x must be clamped 0..1, warp = -1..1 around 0
 // (there must be a better way to do this)
 warpExp(x, warp)

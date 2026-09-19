@@ -57,7 +57,6 @@ lfoMix(phase, duty, shape, skew)	// input phase must be wrapped 0..1 (for tri ph
    	sine = (sphase > 0.5) ? sphase - 1 : sphase;
     sine = sine * (4 - (abs(sine) * 8)) + 0.5;
 
-    // return fastskewlfo052ar(interp(shape, tri, sine), skew);
     return fastskewlfo052ar(mix(tri, sine, shape), skew);
 }
 
@@ -245,6 +244,7 @@ lfoShapes11(phase, sync, mod, shape)  //  mod 0..1
         sr10 = samplerate * 0.01;
         lfo = phase > mod;
         lfo = (evi_rampsmooth(lfo, sr10, sr10) * 2) - 1;
+        // lfo = (evi_cfsmooth(lfo, 6, hz=10) * 2) - 1; // this does not work well at all
     }
     else if (shape > 6) {
         n = noise();
@@ -254,12 +254,14 @@ lfoShapes11(phase, sync, mod, shape)  //  mod 0..1
             if (shape == 8) {   // 8=random step
                 sr20 = sr10 + sr10;
                 lfo = evi_rampsmooth(lfo, sr10, sr20);
+                // lfo = evi_cfsmooth(lfo, 6, hz=10); // this is actually interesting
             }
             else {              // 7=random binary
                 sr05 = sr10 * 0.5;
                 lfo = lfo > 0;
                 lfo = (lfo + lfo) - 1;
                 lfo = evi_rampsmooth(lfo, sr05, sr05);
+                // lfo = evi_cfsmooth(lfo, 3, hz=10); // this does actually work well
             }
         }
         else if ((shape == 9) || (shape == 10)) {

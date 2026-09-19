@@ -8245,8 +8245,9 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
+                                    "inputmode": 2,
                                     "maxclass": "kslider",
-                                    "mode": 1,
+                                    "mode": 2,
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "int", "int" ],
@@ -8269,7 +8270,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 1
+                                            "parameter_type": 3
                                         }
                                     },
                                     "varname": "kslider"
@@ -11066,7 +11067,7 @@
                     "presentation": 1,
                     "presentation_linecount": 3,
                     "presentation_rect": [ 10.0, 70.0, 660.0, 53.0 ],
-                    "text": "Here is a basic sort-of Minimoog starter patcher using evieve abstractions.  The modulation system is basic, there is no keyboard tracking and the pitch logic is all message rate, but it is an OK starter. Try the presets, and don't forget the Mod Wheel !",
+                    "text": "Here is a basic sort-of Minimoog starter patcher using evieve abstractions.  The modulation system is simple, there is no keyboard tracking and the pitch logic is all message rate, but it is an OK starter. Try the presets, and don't forget the Mod Wheel !",
                     "varname": "digest_comment"
                 }
             },

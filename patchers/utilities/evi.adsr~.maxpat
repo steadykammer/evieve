@@ -100,7 +100,6 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 49.0, 231.0, 286.0, 22.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "$1 is not yet implemented in the current evi.adsr~ :-("
                                 }
                             },
@@ -391,7 +390,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "bang" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 64.0, 147.0, 30.0, 30.0 ]
                 }
             },
@@ -591,18 +590,6 @@
                     "numoutlets": 0,
                     "patching_rect": [ 575.0, 378.0, 225.0, 20.0 ],
                     "text": "segment # (0, 1, 2, 3, 4, 5, 6, 7, 8, 0)"
-                }
-            },
-            {
-                "box": {
-                    "hidden": 1,
-                    "id": "obj-16",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 30.0, 8.0, 126.0, 33.0 ],
-                    "text": "this bang is because of a gen~ bug ?"
                 }
             },
             {

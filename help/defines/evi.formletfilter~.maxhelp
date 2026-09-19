@@ -194,7 +194,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 585.0, 401.0, 152.0, 40.0 ],
-                                    "text": "optionally smooth the frequency inlet",
+                                    "text": "optionally smooth the frequency inlet in ms",
                                     "textjustification": 1
                                 }
                             },
@@ -2996,7 +2996,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
