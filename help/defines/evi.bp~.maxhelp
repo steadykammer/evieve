@@ -613,24 +613,14 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 562.0, 349.0, 91.0, 21.0 ],
+                                    "patching_rect": [ 536.0, 364.0, 91.0, 21.0 ],
                                     "text": "gain filter ?"
                                 }
                             },
                             {
                                 "box": {
-                                    "id": "obj-6",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 536.0, 347.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "attr": "filter",
+                                    "displaymode": 8,
                                     "id": "obj-1",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1101,12 +1091,6 @@
                                     "destination": [ "obj-3", 0 ],
                                     "order": 1,
                                     "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-1", 0 ],
-                                    "source": [ "obj-6", 0 ]
                                 }
                             }
                         ],

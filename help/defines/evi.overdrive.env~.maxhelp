@@ -715,6 +715,7 @@
                             {
                                 "box": {
                                     "attr": "aa",
+                                    "displaymode": 1,
                                     "id": "obj-20",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -730,6 +731,7 @@
                             {
                                 "box": {
                                     "attr": "hfcompensate",
+                                    "displaymode": 1,
                                     "id": "obj-21",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -745,6 +747,7 @@
                             {
                                 "box": {
                                     "attr": "follow",
+                                    "displaymode": 1,
                                     "id": "obj-12",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -979,6 +982,7 @@
                             {
                                 "box": {
                                     "attr": "follow",
+                                    "displaymode": 1,
                                     "id": "obj-1",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1421,6 +1425,7 @@
                             {
                                 "box": {
                                     "attr": "aa",
+                                    "displaymode": 1,
                                     "id": "obj-20",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1436,6 +1441,7 @@
                             {
                                 "box": {
                                     "attr": "hfcompensate",
+                                    "displaymode": 1,
                                     "id": "obj-21",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -4663,7 +4669,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4719,6 +4725,7 @@
                             {
                                 "box": {
                                     "attr": "follow",
+                                    "displaymode": 1,
                                     "id": "obj-1",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -5065,6 +5072,7 @@
                             {
                                 "box": {
                                     "attr": "aa",
+                                    "displaymode": 1,
                                     "id": "obj-20",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -5080,6 +5088,7 @@
                             {
                                 "box": {
                                     "attr": "hfcompensate",
+                                    "displaymode": 1,
                                     "id": "obj-21",
                                     "ignoreclick": 1,
                                     "lock": 1,

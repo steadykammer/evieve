@@ -691,7 +691,9 @@
                             {
                                 "box": {
                                     "attr": "oversample",
+                                    "displaymode": 1,
                                     "id": "obj-3",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -1109,7 +1111,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 437.0, 610.0, 150.0, 21.0 ],
-                                    "text": "Notch",
+                                    "text": "MSP Notch",
                                     "textjustification": 2
                                 }
                             },
@@ -1130,7 +1132,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 437.0, 559.0, 150.0, 21.0 ],
-                                    "text": "Bandpass",
+                                    "text": "MSP Bandpass",
                                     "textjustification": 2
                                 }
                             },
@@ -1141,7 +1143,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 437.0, 508.0, 150.0, 21.0 ],
-                                    "text": "Highpass",
+                                    "text": "MSP Highpass",
                                     "textjustification": 2
                                 }
                             },
@@ -1152,7 +1154,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 436.0, 457.0, 150.0, 21.0 ],
-                                    "text": "Lowpass",
+                                    "text": "MSP Lowpass",
                                     "textjustification": 2
                                 }
                             },
@@ -1193,7 +1195,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 265.0, 610.0, 150.0, 21.0 ],
-                                    "text": "Notch",
+                                    "text": "evieve Notch",
                                     "textjustification": 2
                                 }
                             },
@@ -1228,7 +1230,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 265.0, 559.0, 150.0, 21.0 ],
-                                    "text": "Bandpass",
+                                    "text": "evieve Bandpass",
                                     "textjustification": 2
                                 }
                             },
@@ -1239,7 +1241,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 265.0, 508.0, 150.0, 21.0 ],
-                                    "text": "Highpass",
+                                    "text": "evieve Highpass",
                                     "textjustification": 2
                                 }
                             },
@@ -1250,7 +1252,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 264.0, 457.0, 150.0, 21.0 ],
-                                    "text": "Lowpass",
+                                    "text": "evieve Lowpass",
                                     "textjustification": 2
                                 }
                             },
@@ -2023,7 +2025,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2140,7 +2142,6 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 638.0, 242.0, 132.0, 23.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "deviate $1 offset 110."
                                 }
                             },
@@ -2700,7 +2701,9 @@
                             {
                                 "box": {
                                     "attr": "oversample",
+                                    "displaymode": 1,
                                     "id": "obj-41",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4094,7 +4097,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

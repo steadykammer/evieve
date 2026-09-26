@@ -3200,7 +3200,9 @@
                             {
                                 "box": {
                                     "attr": "oversample",
+                                    "displaymode": 1,
                                     "id": "obj-20",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -6937,7 +6939,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -7717,7 +7719,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -8529,7 +8531,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -13468,7 +13470,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 321.0, 583.0, 93.0, 22.0 ],
+                                    "patching_rect": [ 321.0, 595.0, 93.0, 22.0 ],
                                     "text_width": 70.0
                                 }
                             },

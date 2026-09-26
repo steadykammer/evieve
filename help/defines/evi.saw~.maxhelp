@@ -1649,19 +1649,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 583.0, 275.0, 135.0, 36.0 ],
+                                    "patching_rect": [ 557.0, 307.0, 150.0, 36.0 ],
                                     "text": "high frequency compensation filter ?"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-19",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 557.0, 281.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -1933,6 +1922,7 @@
                             {
                                 "box": {
                                     "attr": "hfcompensate",
+                                    "displaymode": 8,
                                     "id": "obj-17",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1940,7 +1930,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 557.0, 328.0, 150.0, 23.0 ]
+                                    "patching_rect": [ 557.0, 282.0, 150.0, 23.0 ]
                                 }
                             }
                         ],
@@ -1975,12 +1965,6 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-17", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "source": [ "obj-19", 0 ]
                                 }
                             },
                             {
@@ -2037,7 +2021,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

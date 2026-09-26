@@ -288,7 +288,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -763,19 +763,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 370.0, 558.0, 74.0, 21.0 ],
+                                    "patching_rect": [ 344.0, 556.0, 74.0, 21.0 ],
                                     "text": "Tri phase"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-24",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 344.0, 556.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -1021,6 +1010,7 @@
                             {
                                 "box": {
                                     "attr": "zerosync",
+                                    "displaymode": 8,
                                     "id": "obj-22",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1029,7 +1019,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 344.0, 531.0, 100.0, 23.0 ],
-                                    "text_width": 65.0
+                                    "text_width": 77.0
                                 }
                             }
                         ],
@@ -1086,13 +1076,6 @@
                                     "hidden": 1,
                                     "midpoints": [ 353.5, 614.296875, 117.8984375, 614.296875, 117.8984375, 326.0, 149.5, 326.0 ],
                                     "source": [ "obj-22", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-22", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-24", 0 ]
                                 }
                             },
                             {
@@ -1462,7 +1445,7 @@
                                 "box": {
                                     "calccount": 16,
                                     "displaychan": 3,
-                                    "frozen_box_attributes": [ "displaychan", "calccount" ],
+                                    "frozen_box_attributes": [ "calccount", "displaychan" ],
                                     "id": "obj-1",
                                     "maxclass": "scope~",
                                     "numinlets": 2,

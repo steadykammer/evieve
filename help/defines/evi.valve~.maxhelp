@@ -432,6 +432,7 @@
                             {
                                 "box": {
                                     "attr": "samples",
+                                    "displaymode": 1,
                                     "id": "obj-29",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -671,6 +672,7 @@
                             {
                                 "box": {
                                     "attr": "samples",
+                                    "displaymode": 1,
                                     "id": "obj-42",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2989,6 +2991,7 @@
                                 "box": {
                                     "attr": "detection",
                                     "bgcolor": [ 0.44751874980617684, 0.44751863973454015, 0.4475186684980173, 1.0 ],
+                                    "displaymode": 1,
                                     "id": "obj-8",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -3029,6 +3032,7 @@
                                 "box": {
                                     "attr": "interval",
                                     "bgcolor": [ 0.44751874980617684, 0.44751863973454015, 0.4475186684980173, 1.0 ],
+                                    "displaymode": 1,
                                     "id": "obj-12",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -3067,6 +3071,7 @@
                                 "box": {
                                     "attr": "type",
                                     "bgcolor": [ 0.44751874980617684, 0.44751863973454015, 0.4475186684980173, 1.0 ],
+                                    "displaymode": 1,
                                     "id": "obj-14",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -3617,7 +3622,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -5778,6 +5783,7 @@
                             {
                                 "box": {
                                     "attr": "samples",
+                                    "displaymode": 1,
                                     "id": "obj-21",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -8362,6 +8368,7 @@
                             {
                                 "box": {
                                     "attr": "diode",
+                                    "displaymode": 1,
                                     "id": "obj-23",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -9509,7 +9516,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

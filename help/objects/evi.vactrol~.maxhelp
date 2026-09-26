@@ -1101,6 +1101,7 @@
                             {
                                 "box": {
                                     "attr": "rise",
+                                    "displaymode": 1,
                                     "id": "obj-17",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1115,6 +1116,7 @@
                             {
                                 "box": {
                                     "attr": "fall",
+                                    "displaymode": 1,
                                     "id": "obj-18",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -3084,6 +3086,30 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-10",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 298.0, 202.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "bubble": 1,
                                     "bubbleside": 0,
                                     "id": "obj-19",
@@ -3158,13 +3184,12 @@
                                     "dontreplace": 1,
                                     "id": "obj-14",
                                     "ignoreclick": 1,
-                                    "linecount": 2,
                                     "maxclass": "message",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 285.0, 281.0, 199.0, 38.0 ],
-                                    "text": "0.119799 0.219374 0.597536 0.641421 0.776408 0.970954"
+                                    "patching_rect": [ 285.0, 281.0, 199.0, 23.0 ],
+                                    "text": "0.02375 0.509568 0.955452"
                                 }
                             },
                             {
@@ -4482,7 +4507,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

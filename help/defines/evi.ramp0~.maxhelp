@@ -44,6 +44,18 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-18",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 260.0, 117.0, 75.0, 23.0 ],
+                                    "text": "loadmess 1"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-74",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -79,7 +91,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 647.0, 245.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 716.0, 271.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -104,7 +116,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 483.0, 245.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 483.0, 271.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -169,11 +181,11 @@
                                     "hidden": 1,
                                     "id": "obj-31",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 2,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 260.0, 244.0, 93.0, 23.0 ],
-                                    "text": "loadmess 900."
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 260.0, 244.0, 45.0, 23.0 ],
+                                    "text": "+ 899."
                                 }
                             },
                             {
@@ -207,7 +219,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 588.0, 186.0, 90.0, 55.0 ],
+                                    "patching_rect": [ 637.0, 212.0, 90.0, 55.0 ],
                                     "text": "curve output ramp",
                                     "textjustification": 1
                                 }
@@ -221,140 +233,9 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 464.0, 186.0, 107.0, 55.0 ],
+                                    "patching_rect": [ 512.0, 212.0, 107.0, 55.0 ],
                                     "text": "pause / resume phasor ramp",
                                     "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-25",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 505.0, 243.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-23",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 260.0, 192.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[6]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[6]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[3]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-21",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 621.0, 243.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[7]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[7]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[4]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-19",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 25.0, 141.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[5]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[5]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[2]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-17",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 25.0, 192.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[4]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[4]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[1]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-14",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 25.0, 243.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[3]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[3]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle"
                                 }
                             },
                             {
@@ -454,8 +335,8 @@
                             {
                                 "box": {
                                     "attr": "curve",
+                                    "displaymode": 8,
                                     "id": "obj-3",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -483,8 +364,8 @@
                             {
                                 "box": {
                                     "attr": "loop",
+                                    "displaymode": 8,
                                     "id": "obj-6",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -498,8 +379,8 @@
                             {
                                 "box": {
                                     "attr": "pause",
+                                    "displaymode": 8,
                                     "id": "obj-7",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -513,8 +394,8 @@
                             {
                                 "box": {
                                     "attr": "restingstate",
+                                    "displaymode": 8,
                                     "id": "obj-8",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -528,8 +409,8 @@
                             {
                                 "box": {
                                     "attr": "retrigger",
+                                    "displaymode": 8,
                                     "id": "obj-10",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -543,8 +424,8 @@
                             {
                                 "box": {
                                     "attr": "zeroreset",
+                                    "displaymode": 8,
                                     "id": "obj-12",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -577,38 +458,26 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-8", 0 ],
-                                    "source": [ "obj-14", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-10", 0 ],
-                                    "source": [ "obj-17", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-12", 0 ],
-                                    "source": [ "obj-19", 0 ]
+                                    "hidden": 1,
+                                    "order": 2,
+                                    "source": [ "obj-18", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "source": [ "obj-21", 0 ]
+                                    "destination": [ "obj-31", 0 ],
+                                    "hidden": 1,
+                                    "order": 0,
+                                    "source": [ "obj-18", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "source": [ "obj-23", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-7", 0 ],
-                                    "source": [ "obj-25", 0 ]
+                                    "hidden": 1,
+                                    "order": 1,
+                                    "source": [ "obj-18", 0 ]
                                 }
                             },
                             {
@@ -1250,6 +1119,7 @@
                             {
                                 "box": {
                                     "attr": "restingstate",
+                                    "displaymode": 1,
                                     "id": "obj-22",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1490,6 +1360,7 @@
                             {
                                 "box": {
                                     "attr": "retrigger",
+                                    "displaymode": 1,
                                     "id": "obj-6",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -2052,6 +1923,7 @@
                             {
                                 "box": {
                                     "attr": "restingstate",
+                                    "displaymode": 1,
                                     "id": "obj-18",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -2186,7 +2058,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4009,7 +3881,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 543.0, 272.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 659.0, 298.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -4033,7 +3905,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 426.0, 272.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 426.0, 298.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -4057,7 +3929,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 426.0, 140.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 426.0, 166.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -4173,68 +4045,9 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-25",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 448.0, 270.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-23",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 448.0, 138.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[9]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[6]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[3]"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-21",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 564.0, 270.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[10]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[7]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle[4]"
-                                }
-                            },
-                            {
-                                "box": {
                                     "attr": "curve",
+                                    "displaymode": 8,
                                     "id": "obj-3",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4262,8 +4075,8 @@
                             {
                                 "box": {
                                     "attr": "loop",
+                                    "displaymode": 8,
                                     "id": "obj-6",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4277,8 +4090,8 @@
                             {
                                 "box": {
                                     "attr": "pause",
+                                    "displaymode": 8,
                                     "id": "obj-13",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4532,24 +4345,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "source": [ "obj-21", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-6", 0 ],
-                                    "source": [ "obj-23", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-13", 0 ],
-                                    "source": [ "obj-25", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-3", 0 ]
                                 }
@@ -4607,16 +4402,9 @@
         ],
         "parameters": {
             "obj-10::obj-23": [ "toggle[8]", "toggle[6]", 0 ],
-            "obj-11::obj-21": [ "toggle[10]", "toggle[7]", 0 ],
-            "obj-11::obj-23": [ "toggle[9]", "toggle[6]", 0 ],
             "obj-12::obj-21": [ "toggle[1]", "toggle", 0 ],
             "obj-12::obj-26": [ "toggle[2]", "toggle[2]", 0 ],
             "obj-12::obj-8": [ "toggle[11]", "toggle[11]", 0 ],
-            "obj-13::obj-14": [ "toggle[3]", "toggle[3]", 0 ],
-            "obj-13::obj-17": [ "toggle[4]", "toggle[4]", 0 ],
-            "obj-13::obj-19": [ "toggle[5]", "toggle[5]", 0 ],
-            "obj-13::obj-21": [ "toggle[7]", "toggle[7]", 0 ],
-            "obj-13::obj-23": [ "toggle[6]", "toggle[6]", 0 ],
             "obj-2::obj-20": [ "toggle", "toggle", 0 ],
             "obj-9::obj-60": [ "toggle[12]", "toggle[4]", 0 ],
             "parameterbanks": {

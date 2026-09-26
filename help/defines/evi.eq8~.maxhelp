@@ -570,7 +570,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2542,6 +2542,7 @@
                             {
                                 "box": {
                                     "attr": "band4filter",
+                                    "displaymode": 1,
                                     "id": "obj-19",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2598,6 +2599,7 @@
                             {
                                 "box": {
                                     "attr": "band3filter",
+                                    "displaymode": 1,
                                     "id": "obj-15",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2654,6 +2656,7 @@
                             {
                                 "box": {
                                     "attr": "band2filter",
+                                    "displaymode": 1,
                                     "id": "obj-10",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2868,6 +2871,7 @@
                             {
                                 "box": {
                                     "attr": "band1filter",
+                                    "displaymode": 1,
                                     "id": "obj-1",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -3066,7 +3070,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

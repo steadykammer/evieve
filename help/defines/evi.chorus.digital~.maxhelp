@@ -97,17 +97,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-60",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 626.0, 340.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "bubble": 1,
                                     "bubblepoint": 0.01,
                                     "id": "obj-58",
@@ -202,16 +191,16 @@
                             {
                                 "box": {
                                     "attr": "invert",
+                                    "displaymode": 8,
                                     "id": "obj-41",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 537.0, 340.0, 87.0, 23.0 ],
-                                    "text_width": 49.0
+                                    "patching_rect": [ 537.0, 340.0, 113.0, 23.0 ],
+                                    "text_width": 66.0
                                 }
                             },
                             {
@@ -872,6 +861,7 @@
                             {
                                 "box": {
                                     "attr": "stages",
+                                    "displaymode": 1,
                                     "id": "obj-16",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1183,12 +1173,6 @@
                                     "hidden": 1,
                                     "source": [ "obj-6", 0 ]
                                 }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-41", 0 ],
-                                    "source": [ "obj-60", 0 ]
-                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -1217,7 +1201,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1446,28 +1430,17 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-42",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 513.0, 250.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "attr": "zeroreset",
+                                    "displaymode": 8,
                                     "id": "obj-43",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 407.0, 250.0, 100.0, 23.0 ],
-                                    "text_width": 67.0
+                                    "patching_rect": [ 407.0, 250.0, 113.0, 23.0 ],
+                                    "text_width": 90.0
                                 }
                             },
                             {
@@ -1939,6 +1912,7 @@
                             {
                                 "box": {
                                     "attr": "stages",
+                                    "displaymode": 1,
                                     "id": "obj-16",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2147,12 +2121,6 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-31", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-43", 0 ],
-                                    "source": [ "obj-42", 0 ]
                                 }
                             },
                             {
@@ -2887,6 +2855,7 @@
                             {
                                 "box": {
                                     "attr": "stages",
+                                    "displaymode": 1,
                                     "id": "obj-16",
                                     "lock": 1,
                                     "maxclass": "attrui",

@@ -2782,7 +2782,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 193.0, 306.0, 309.0, 23.0 ],
+                                    "patching_rect": [ 193.0, 306.0, 285.0, 23.0 ],
                                     "text": "gen~ @title using_evi.wavefolder~_inside_gen~",
                                     "varname": "evieveObjectGen"
                                 }
@@ -2908,7 +2908,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

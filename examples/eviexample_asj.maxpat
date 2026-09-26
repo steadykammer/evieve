@@ -1964,6 +1964,7 @@
             {
                 "box": {
                     "attr": "samples",
+                    "displaymode": 1,
                     "id": "obj-8",
                     "lock": 1,
                     "maxclass": "attrui",

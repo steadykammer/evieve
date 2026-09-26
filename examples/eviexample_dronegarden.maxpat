@@ -343,6 +343,7 @@
             {
                 "box": {
                     "attr": "samples",
+                    "displaymode": 1,
                     "id": "obj-42",
                     "lock": 1,
                     "maxclass": "attrui",
@@ -8357,7 +8358,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "rat_hypodpen3"
+                                                    "text": "stearns3"
                                                 }
                                             },
                                             {
@@ -9242,7 +9243,7 @@
                                 "box": {
                                     "id": "obj-5",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "multichannelsignal", "multichannelsignal" ],
                                     "patching_rect": [ 685.0, 308.0, 148.0, 22.0 ],

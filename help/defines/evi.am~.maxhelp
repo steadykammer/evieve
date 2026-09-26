@@ -568,6 +568,7 @@
                             {
                                 "box": {
                                     "attr": "lfoout",
+                                    "displaymode": 1,
                                     "id": "obj-31",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1516,30 +1517,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-18",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 604.0, 369.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 0.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle"
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-39",
                                     "maxclass": "newobj",
                                     "numinlets": 6,
@@ -2289,8 +2266,8 @@
                             {
                                 "box": {
                                     "attr": "lfoout",
+                                    "displaymode": 8,
                                     "id": "obj-16",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -2298,7 +2275,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 604.0, 413.0, 72.0, 23.0 ],
-                                    "text_width": 43.0
+                                    "text_width": 48.0
                                 }
                             }
                         ],
@@ -2348,12 +2325,6 @@
                                     "hidden": 1,
                                     "midpoints": [ 613.5, 446.0, 493.52734375, 446.0, 493.52734375, 330.5390625, 149.5, 330.5390625 ],
                                     "source": [ "obj-16", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-16", 0 ],
-                                    "source": [ "obj-18", 0 ]
                                 }
                             },
                             {
@@ -3297,7 +3268,6 @@
         ],
         "parameters": {
             "obj-10::obj-14": [ "live.numbox[3]", "live.numbox", 0 ],
-            "obj-10::obj-18": [ "toggle", "toggle", 0 ],
             "obj-10::obj-29": [ "rslider", "rslider", 0 ],
             "obj-10::obj-32": [ "rslider[1]", "rslider", 0 ],
             "obj-10::obj-35": [ "live.numbox", "live.numbox", 0 ],

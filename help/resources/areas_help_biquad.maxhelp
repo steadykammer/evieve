@@ -407,6 +407,7 @@
             {
                 "box": {
                     "attr": "filter",
+                    "displaymode": 1,
                     "id": "obj-73",
                     "lock": 1,
                     "maxclass": "attrui",

@@ -1232,6 +1232,7 @@
                             {
                                 "box": {
                                     "attr": "mode",
+                                    "displaymode": 8,
                                     "id": "obj-5",
                                     "lock": 1,
                                     "maxclass": "attrui",

@@ -458,7 +458,9 @@
                             {
                                 "box": {
                                     "attr": "lfoout",
+                                    "displaymode": 1,
                                     "id": "obj-31",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -629,6 +631,7 @@
                             {
                                 "box": {
                                     "attr": "lfowave",
+                                    "displaymode": 1,
                                     "id": "obj-15",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -2663,30 +2666,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-22",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 658.0, 405.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[2]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle"
-                                }
-                            },
-                            {
-                                "box": {
                                     "calccount": 64,
                                     "id": "obj-20",
                                     "maxclass": "scope~",
@@ -2710,6 +2689,7 @@
                             {
                                 "box": {
                                     "attr": "lfoout",
+                                    "displaymode": 8,
                                     "id": "obj-31",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -2717,7 +2697,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 658.0, 439.0, 100.0, 23.0 ],
+                                    "patching_rect": [ 658.0, 439.0, 81.0, 23.0 ],
                                     "text_width": 57.0
                                 }
                             },
@@ -2847,12 +2827,6 @@
                                     "midpoints": [ 244.5, 549.5, 289.5, 549.5 ],
                                     "order": 0,
                                     "source": [ "obj-17", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-31", 0 ],
-                                    "source": [ "obj-22", 0 ]
                                 }
                             },
                             {
@@ -3432,7 +3406,9 @@
                             {
                                 "box": {
                                     "attr": "lfowave",
+                                    "displaymode": 1,
                                     "id": "obj-16",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4086,7 +4062,6 @@
             }
         ],
         "parameters": {
-            "obj-10::obj-22": [ "toggle[2]", "toggle", 0 ],
             "obj-10::obj-33": [ "number[2]", "number", 0 ],
             "obj-10::obj-41": [ "live.dial", "Depth", 0 ],
             "obj-10::obj-42": [ "live.dial[1]", "Spread", 0 ],

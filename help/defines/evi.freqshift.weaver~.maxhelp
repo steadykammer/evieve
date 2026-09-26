@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1449,6 +1449,7 @@
                             {
                                 "box": {
                                     "attr": "select",
+                                    "displaymode": 1,
                                     "id": "obj-51",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1712,7 +1713,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -2896,7 +2897,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -3809,6 +3810,7 @@
                             {
                                 "box": {
                                     "attr": "select",
+                                    "displaymode": 1,
                                     "id": "obj-51",
                                     "ignoreclick": 1,
                                     "lock": 1,

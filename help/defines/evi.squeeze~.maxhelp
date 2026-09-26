@@ -646,6 +646,7 @@
                             {
                                 "box": {
                                     "attr": "harmonics",
+                                    "displaymode": 1,
                                     "id": "obj-40",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -1178,7 +1179,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1966,6 +1967,7 @@
                             {
                                 "box": {
                                     "attr": "harmonics",
+                                    "displaymode": 1,
                                     "id": "obj-40",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -2183,7 +2185,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2302,6 +2304,7 @@
                             {
                                 "box": {
                                     "attr": "harmonics",
+                                    "displaymode": 1,
                                     "id": "obj-40",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -3172,7 +3175,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3210,31 +3213,6 @@
                                     "rounded": 1.0,
                                     "samples": 1000.0,
                                     "vertical_divisions": 4
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-10",
-                                    "maxclass": "number",
-                                    "maximum": 3,
-                                    "minimum": 0,
-                                    "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 295.0, 117.0, 36.0, 23.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_initial": [ 2.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "number[4]",
-                                            "parameter_mmax": 3.0,
-                                            "parameter_modmode": 3,
-                                            "parameter_shortname": "number[4]",
-                                            "parameter_type": 0
-                                        }
-                                    },
-                                    "varname": "number"
                                 }
                             },
                             {
@@ -3416,6 +3394,7 @@
                             {
                                 "box": {
                                     "attr": "harmonics",
+                                    "displaymode": 1,
                                     "id": "obj-5",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -3451,12 +3430,6 @@
                                     "midpoints": [ 73.5, 447.03515625, 232.5, 447.03515625 ],
                                     "order": 2,
                                     "source": [ "obj-1", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-5", 0 ],
-                                    "source": [ "obj-10", 0 ]
                                 }
                             },
                             {
@@ -3642,7 +3615,6 @@
             "obj-11::obj-14": [ "number[3]", "number", 0 ],
             "obj-11::obj-17": [ "number[2]", "number[1]", 0 ],
             "obj-11::obj-39": [ "radiogroup[2]", "radiogroup", 0 ],
-            "obj-12::obj-10": [ "number[4]", "number[4]", 0 ],
             "obj-14::obj-13": [ "number", "number", 0 ],
             "obj-14::obj-17": [ "number[1]", "number[1]", 0 ],
             "obj-14::obj-39": [ "radiogroup[1]", "radiogroup", 0 ],

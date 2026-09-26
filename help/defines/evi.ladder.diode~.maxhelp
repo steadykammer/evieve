@@ -210,7 +210,7 @@
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 418.0, 472.0, 300.0, 23.0 ],
-                                    "text_width": 76.0
+                                    "text_width": 81.0
                                 }
                             },
                             {
@@ -389,6 +389,7 @@
                             {
                                 "box": {
                                     "attr": "oversample",
+                                    "displaymode": 1,
                                     "id": "obj-20",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -1335,7 +1336,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2610,7 +2611,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

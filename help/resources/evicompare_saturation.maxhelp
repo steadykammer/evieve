@@ -3872,6 +3872,7 @@
                             {
                                 "box": {
                                     "attr": "aa",
+                                    "displaymode": 1,
                                     "id": "obj-77",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -4806,6 +4807,7 @@
                             {
                                 "box": {
                                     "attr": "hfcompensate",
+                                    "displaymode": 1,
                                     "id": "obj-27",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -5663,6 +5665,7 @@
                             {
                                 "box": {
                                     "attr": "aa",
+                                    "displaymode": 1,
                                     "id": "obj-15",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -5895,6 +5898,7 @@
                             {
                                 "box": {
                                     "attr": "clip",
+                                    "displaymode": 1,
                                     "id": "obj-73",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -5910,6 +5914,7 @@
                             {
                                 "box": {
                                     "attr": "oversampling",
+                                    "displaymode": 1,
                                     "id": "obj-84",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -8151,7 +8156,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -8945,7 +8950,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -16787,6 +16792,7 @@
                             {
                                 "box": {
                                     "attr": "samples",
+                                    "displaymode": 1,
                                     "id": "obj-48",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -23431,7 +23437,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 693.0, 185.0, 39.0, 22.0 ],
-                                    "text": "1000."
+                                    "text": "1000"
                                 }
                             },
                             {
@@ -23442,7 +23448,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 659.0, 185.0, 32.0, 22.0 ],
-                                    "text": "100."
+                                    "text": "100"
                                 }
                             },
                             {
@@ -23453,7 +23459,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 627.0, 185.0, 30.0, 22.0 ],
-                                    "text": "10."
+                                    "text": "10"
                                 }
                             },
                             {
@@ -23505,6 +23511,7 @@
                             {
                                 "box": {
                                     "attr": "samples",
+                                    "displaymode": 1,
                                     "id": "obj-21",
                                     "lock": 1,
                                     "maxclass": "attrui",

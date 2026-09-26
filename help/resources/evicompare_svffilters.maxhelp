@@ -1564,7 +1564,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 1,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1843,7 +1843,7 @@
                                         }
                                     },
                                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness": 2.0
+                                    "thickness3": 2.0
                                 }
                             },
                             {
@@ -2918,7 +2918,7 @@
                                                 "box": {
                                                     "id": "obj-44",
                                                     "maxclass": "newobj",
-                                                    "numinlets": 1,
+                                                    "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 323.0, 149.0, 61.0, 22.0 ],
@@ -6729,30 +6729,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-52",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 1,
-                                    "patching_rect": [ 76.0, 194.0, 24.0, 24.0 ],
-                                    "saved_attribute_attributes": {
-                                        "valueof": {
-                                            "parameter_enum": [ "off", "on" ],
-                                            "parameter_initial": [ 1.0 ],
-                                            "parameter_initial_enable": 1,
-                                            "parameter_longname": "toggle[10]",
-                                            "parameter_mmax": 1,
-                                            "parameter_modmode": 0,
-                                            "parameter_shortname": "toggle[10]",
-                                            "parameter_type": 2
-                                        }
-                                    },
-                                    "varname": "toggle"
-                                }
-                            },
-                            {
-                                "box": {
                                     "bubble": 1,
                                     "bubbleside": 3,
                                     "id": "obj-50",
@@ -7396,6 +7372,7 @@
                             {
                                 "box": {
                                     "attr": "cutoffmode",
+                                    "displaymode": 8,
                                     "id": "obj-32",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -7436,6 +7413,7 @@
                             {
                                 "box": {
                                     "attr": "oversample",
+                                    "displaymode": 8,
                                     "id": "obj-35",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -7502,6 +7480,7 @@
                             {
                                 "box": {
                                     "attr": "cutoffmode",
+                                    "displaymode": 8,
                                     "id": "obj-41",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -7559,6 +7538,7 @@
                             {
                                 "box": {
                                     "attr": "cutoffmode",
+                                    "displaymode": 8,
                                     "id": "obj-45",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -7772,12 +7752,6 @@
                                 "patchline": {
                                     "destination": [ "obj-9", 0 ],
                                     "source": [ "obj-5", 2 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-35", 0 ],
-                                    "source": [ "obj-52", 0 ]
                                 }
                             },
                             {
@@ -8858,7 +8832,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 321.0, 583.0, 93.0, 22.0 ],
+                                    "patching_rect": [ 321.0, 595.0, 93.0, 22.0 ],
                                     "text_width": 70.0
                                 }
                             },
@@ -10158,7 +10132,6 @@
             "obj-41::obj-41": [ "live.tab", "live.tab", 0 ],
             "obj-41::obj-48": [ "toggle[5]", "toggle[2]", 0 ],
             "obj-41::obj-56": [ "toggle[6]", "toggle[6]", 0 ],
-            "obj-42::obj-52": [ "toggle[10]", "toggle[10]", 0 ],
             "obj-43::obj-104": [ "toggle[14]", "toggle", 0 ],
             "obj-43::obj-109": [ "toggle[13]", "toggle[1]", 0 ],
             "obj-43::obj-11": [ "live.dial[6]", "Morph", 0 ],

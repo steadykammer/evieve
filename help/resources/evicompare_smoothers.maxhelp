@@ -650,18 +650,6 @@
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
-                                                    "id": "obj-14",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 279.0, 95.0, 65.0, 22.0 ],
-                                                    "text": "clamp -1 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
                                                     "id": "obj-8",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
@@ -1937,7 +1925,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -5833,6 +5821,7 @@
                             {
                                 "box": {
                                     "attr": "choose",
+                                    "displaymode": 1,
                                     "id": "obj-38",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -8110,7 +8099,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

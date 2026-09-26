@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -3399,6 +3399,7 @@
                                 "box": {
                                     "attr": "HZ",
                                     "id": "obj-9",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -3413,6 +3414,7 @@
                                 "box": {
                                     "attr": "DB",
                                     "id": "obj-10",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -3427,6 +3429,7 @@
                                 "box": {
                                     "attr": "Q",
                                     "id": "obj-5",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4319,6 +4322,7 @@
                                 "box": {
                                     "attr": "cutoff",
                                     "id": "obj-51",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4345,6 +4349,7 @@
                                 "box": {
                                     "attr": "tilt",
                                     "id": "obj-54",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -4359,6 +4364,7 @@
                                 "box": {
                                     "attr": "Q",
                                     "id": "obj-55",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -6867,7 +6873,9 @@
                             {
                                 "box": {
                                     "attr": "filter",
+                                    "displaymode": 1,
                                     "id": "obj-2",
+                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
@@ -7427,17 +7435,6 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-40",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 765.0, 123.0, 24.0, 24.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -7967,6 +7964,7 @@
                             {
                                 "box": {
                                     "attr": "adaptive",
+                                    "displaymode": 8,
                                     "id": "obj-93",
                                     "lock": 1,
                                     "maxclass": "attrui",
@@ -7974,7 +7972,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 765.0, 156.0, 92.0, 22.0 ],
+                                    "patching_rect": [ 765.0, 156.0, 84.0, 22.0 ],
                                     "text_width": 59.0
                                 }
                             },
@@ -8009,7 +8007,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 791.0, 119.0, 181.0, 33.0 ],
+                                    "patching_rect": [ 765.0, 119.0, 181.0, 33.0 ],
                                     "text": "(the 'bell' filter has an option to switch to 'Adaptive Q' mode)"
                                 }
                             },
@@ -8370,12 +8368,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-93", 0 ],
-                                    "source": [ "obj-40", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-25", 0 ],
                                     "midpoints": [ 989.5, 355.0, 442.5, 355.0 ],
                                     "order": 5,
@@ -8521,7 +8513,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

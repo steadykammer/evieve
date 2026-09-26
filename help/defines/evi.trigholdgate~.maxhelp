@@ -176,8 +176,8 @@
                                     "id": "obj-18",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 520.0, 326.0, 156.0, 23.0 ],
                                     "text": "evi.trigholdgate~ @hold 5",
                                     "varname": "evieveObject[1]"
@@ -348,8 +348,8 @@
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 80.0, 366.0, 171.0, 23.0 ],
                                     "text": "evi.trigholdgate~ @hold 100",
                                     "varname": "evieveObject"
@@ -434,6 +434,7 @@
                             {
                                 "box": {
                                     "attr": "trigger",
+                                    "displaymode": 1,
                                     "id": "obj-8",
                                     "ignoreclick": 1,
                                     "lock": 1,
@@ -829,8 +830,8 @@
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "signal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "signal", "signal" ],
                                     "patching_rect": [ 140.0, 366.0, 104.0, 23.0 ],
                                     "text": "evi.trigholdgate~",
                                     "varname": "evieveObject"
@@ -958,7 +959,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1306,8 +1307,8 @@
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "multichannelsignal" ],
+                                    "numoutlets": 2,
+                                    "outlettype": [ "multichannelsignal", "multichannelsignal" ],
                                     "patching_rect": [ 215.0, 291.0, 188.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "color": {
@@ -1819,8 +1820,8 @@
                                                     "id": "obj-5",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
                                                     "patching_rect": [ 176.0, 187.0, 93.0, 22.0 ],
                                                     "text": "evi_trigholdgate"
                                                 }
@@ -2248,6 +2249,7 @@
                             {
                                 "box": {
                                     "attr": "trigger",
+                                    "displaymode": 1,
                                     "id": "obj-5",
                                     "lock": 1,
                                     "maxclass": "attrui",

@@ -2622,7 +2622,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 500.0, 365.0, 59.0, 35.0 ],
-                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "sig": 0.0
                                 }
                             },
                             {
@@ -3016,7 +3016,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 302.0, 188.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 452.0, 253.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3040,7 +3040,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 178.0, 229.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 215.0, 253.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3113,19 +3113,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 326.0, 212.0, 124.0, 21.0 ],
+                                    "patching_rect": [ 302.0, 229.0, 124.0, 21.0 ],
                                     "text": "syncy or chirpy"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-8",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 300.0, 210.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -3585,15 +3574,16 @@
                             {
                                 "box": {
                                     "attr": "source",
+                                    "displaymode": 8,
                                     "id": "obj-3",
-                                    "ignoreclick": 1,
                                     "lock": 1,
                                     "maxclass": "attrui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 300.0, 251.0, 150.0, 23.0 ]
+                                    "patching_rect": [ 300.0, 251.0, 150.0, 23.0 ],
+                                    "text_width": 127.0
                                 }
                             }
                         ],
@@ -3642,12 +3632,6 @@
                                     "destination": [ "obj-9", 0 ],
                                     "order": 3,
                                     "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "source": [ "obj-8", 0 ]
                                 }
                             }
                         ],

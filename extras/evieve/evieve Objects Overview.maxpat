@@ -21,7 +21,7 @@
         "toolbars_unpinned_last_save": 15,
         "devicewidth": 967.0,
         "subpatcher_template": "sub",
-        "cluebar": 2,
+        "cluebar": 1,
         "integercoordinates": 1,
         "title": "evieve Objects Overview",
         "boxes": [
