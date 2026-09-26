@@ -118,7 +118,7 @@
                 @min -1, @max 1
             </digest>
             <description>
-                Exponentially shape the main internal phasor so that with positive values the phasor slope is concave and with negative values the phasor slope is convex. The overall timing of eash phasor ramp remains identical to if it were linear, but this has the effect of squashing or expanding the LFO interpolators around the random value points. It is a cool shaping effect.
+                Exponentially shape the main internal phasor so that with positive values the phasor slope is concave and with negative values the phasor slope is convex. The overall timing of each phasor ramp remains identical to if it were linear, but this has the effect of squashing or expanding the LFO interpolators around the random value points. It is a cool shaping effect.
             </description>
             <attributelist>
                 <attribute name='default' type='float' value='0.' />
@@ -140,7 +140,7 @@
                 @min 0, @max 1
             </digest>
             <description>
-                Select whether the main internal phase is zero-reset (1) or free running (0, the default). If zero-reset is on, phase frequency only gets updated on phase synchronous boundaries (like MSP [phasor~ @syncupdate 1]). This can have a smooth effect if gradually changing input Hz continuously at higher frequencies, however may be undesirable if using exclusively low frequency input as the phasor could get stuck at long time intervals. Note that if the @mod attribute is greater than 0, @zero is automatically disabled anyway.
+                Select whether the main internal phase is zero-reset (1) or free running (0, the default). If zero-reset is on, phase frequency only gets updated on phase synchronous boundaries (like MSP [phasor~ @syncupdate 1]). This can have a smooth effect if gradually changing input Hz continuously at higher frequencies, however this may be undesirable if using exclusively low frequency input as the phasor could get stuck at long time intervals. Note that if the @mod attribute is greater than 0, @zero is automatically disabled anyway.
             </description>
             <attributelist>
                 <attribute name='default' type='int' value='0' />

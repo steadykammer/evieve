@@ -79,6 +79,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Note that in a normal distribution the gaussian outlet (outlet 1) should give output in the range approximately -HALFPI..HALFPI. However, because of the approximations used here, the given output is approximately in the range -1.11..1.11. In the 'evi_approx.genexpr' source file this is NOT accounted for, but in this 'evi_gaussiannoise' / 'evi.gaussiannoise~' abstraction it is accounted for so that, like the other outputs, gaussian noise outputs in range -1..1 <br />
+        Note that in a normal distribution the gaussian outlet (outlet 1) should give output in the range approximately -HALFPI..HALFPI. However, because of the approximations used here, the given output is approximately in the range -1.11..1.11. In the <o>evi_approx</o>.genexpr source file this is NOT accounted for, but in this <o>evi_gaussiannoise</o>.gendsp / <o>evi.gaussiannoise~</o> abstraction it is accounted for so that, like the other outputs, gaussian noise outputs in range -1..1 <br />
 	</discussion>
 </c74object>
