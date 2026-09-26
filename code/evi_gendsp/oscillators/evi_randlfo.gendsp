@@ -1,0 +1,171 @@
+{
+    "patcher": {
+        "fileversion": 1,
+        "appversion": {
+            "major": 9,
+            "minor": 2,
+            "revision": 0,
+            "architecture": "x64",
+            "modernui": 1
+        },
+        "classnamespace": "dsp.gen",
+        "rect": [ 431.0, 58.0, 931.0, 848.0 ],
+        "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 1,
+        "toolbars_unpinned_last_save": 7,
+        "subpatcher_template": "sub",
+        "integercoordinates": 1,
+        "boxes": [
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 805.0, 807.0, 108.0, 22.0 ],
+                    "text": "out 6 (signal) Sync"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-10",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 654.0, 807.0, 136.0, 22.0 ],
+                    "text": "out 5 (signal) Step Sync"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-9",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 503.0, 807.0, 149.0, 22.0 ],
+                    "text": "out 4 (signal) Phasor Sync"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 351.0, 807.0, 142.0, 22.0 ],
+                    "text": "out 3 (signal) Noise Sync"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 200.0, 807.0, 128.0, 22.0 ],
+                    "text": "out 2 (signal) Aux LFO"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 49.0, 19.0, 214.0, 22.0 ],
+                    "text": "in 1 (signal/float) LFO Frequency in Hz"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-2",
+                    "linecount": 2,
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 805.0, 13.0, 78.0, 35.0 ],
+                    "text": "in 2 (signal) Reset Naive"
+                }
+            },
+            {
+                "box": {
+                    "code": "\r\nrequire(\"evi_smooth.genexpr\");\r\nrequire(\"evi_fastskew.genexpr\");\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nParam   wave(2, min=0, max=3); // rand lfo wave type: 0=bins, 1=steps, 2=lines (default), 3=curves\r\nParam   mod(0., min=0, max=40); // random FM base frequency in Hz\r\nParam   warp(0., min=-1, max=1); // exponential phase warp -1..1\r\nParam   skew(0., min=-1, max=1); // skew lfo shapes -1..1\r\nParam   depth(1., min=-1, max=1); // lfos amplitude, including neg, -1..1\r\nParam   offset(0., min=-1, max=1); // lfos offset, -1..1\r\nParam   aux(0, min=0, max=1); // use aux lfo? (outlet 2) off/on (default off)\r\nParam   phaseout(1, min=0, max=1); // phase signal (output 4) is pre or post warp (default post) ?\r\nParam   zero(0, min=0, max=1); // main phase is zero-reset or free running (default free) ?\r\nParam\tresetauto(1, min=0, max=1); // use auto reset phase at 0 Hz, off / on (default on) ?\r\n\r\nHistory autoreset(1), resettime(4800), init(1);\r\n\r\nsmooth = 0.1; // seconds\r\nsmoothsamps = smooth * samplerate;\r\n//smoothshort = smoothsamps * 0.1;\r\n//smoothshorter = smoothshort * 0.5;\r\n\r\ndpth, ofst = logsmoothBank2(depth, offset, smooth);\r\nskoo = skew * 0.88;\r\nwoo = warp * sqrt1_2; // <<^^ gen bug have to declare here not inline\r\nskw = eviLine(skoo, smoothsamps);\r\nwarper = eviLine(woo, smoothsamps);\r\n\r\ngn, wn, cn = gaussianNoiseNormal(); // gaussian (out of bounds!), white, cosine\r\n\r\nzmod = (mod == 0) && bool(zero); // only possible to turn on zero reset if mod @ 0\r\nreset = in2;\r\nfrequency = in1;\r\nfreq = minimum(frequency, 40); // max +40 Hz\r\nmodrand = 0; // FM\r\nif (mod > 0) {\r\n    // separate process, and out of bounds does not matter here\n    modrand = eviRandyN(phasor(freq * sqrt2), gn);\r\n}\r\nhz = freq + (modrand * mod);\r\nrate = abs(hz);\r\n\r\nph, _hz, hsync = evi_phasor0(rate, reset+autoreset, minimumhz=0.1, mode=zmod);\r\nphd = delta(ph);\r\np = warpExp(ph, warper); // exponential warping\r\n\r\n// auto reset phase\r\nstatic = phd != 0; // phasor is / is not moving\r\nresetramp, rrn = eviLine(static, resettime);\r\n// end of down ramp only, not up\r\nautoreset = int(resetauto) ? ((change(rrn == 1) > 0) * (static == 0)) : 0;\r\np = p * resetramp; // this is debatable\r\n\r\n// main lfo\r\nlinear, cosine, step, sync = eviRandOuts(p, wn);\r\nstepsamples = latch(samplerate / rate, sync);\r\nbin = step > 0;\r\nresettime = maximum(smoothsamps, stepsamples+stepsamples+stepsamples);\r\n\r\nsel = latch(int(wave), sync);\r\nsel1 = sel == 1;\r\nax = eviLine(bool(aux), resettime);\r\npo = latch(int(phaseout), sync);\r\n\r\nlfo1 = 0;\r\nif ((sel == 0) || (sel1)) {\r\n    lfo1 = sel1 ? step : (bin + bin - 1);\r\n//  lfo1 = eviRamplimit(lfo1, smoothshorter, smoothshort); // it can be good\r\n}\r\nelse if (sel == 2) {\r\n    lfo1 = linear * (1 - init); // + init\r\n}\r\nelse { // (sel == 3)\r\n    lfo1 = cosine;\r\n}\ninit = 0;\r\n\r\n// really annoying, if only i could work out a skew algo for bipolar signals\r\nlfo1 = (lfo1 + 1) * 0.5;\r\n//lfo1 = fastskew110254ar(lfo1, skw);  // it sometimes breaks\r\nlfo1 = fastskew11052ar(lfo1, skw);\r\nlfo1 = lfo1 + lfo1 - 1;\r\n\r\nlfo1 = lfo1 * resetramp;\r\n\r\n// main shape\r\nlfo1 = cfSmoothLinear(lfo1, 9, 0.003); // hz & seconds, could be dynamic here\r\nlfo1 = (lfo1 * dpth) + ofst;\r\n\r\nout1 = clip(lfo1, -1, 1);\r\n\r\nlfo2 = 0; // optional aux lfo\r\n// differently tuned to version in 'evi_sources.genexpr'\r\nif (ax > 0) {\r\n    bias, tension = 0;\n    attenuate = 0.971348;\r\n    if (skw != 0) {\r\n        askw = abs(skw);\r\n\t    bias = skw * 4;\n\t    tension = skw * -3;\r\n        attenuate = fastpow(((1 - askw) + 8), (((skw > 0) * 0.4 + 0.48) * askw));\r\n    }\n\r\n    ym1, y0, y1, y2\t= eviRands(hsync, cn);\n    dynamicAtten = catmullRomSplineDynamic(p, ym1, y0, y1, y2, bias, tension) * 0.819462;\n\r\n    lfo2 = (dynamicAtten / attenuate) * dpth * ax * resetramp;\n}\r\nout2 = clip(lfo2 + ofst, -1, 1);\r\n\r\nout3 = wn;              // white noise source\r\nout4 = po ? p : ph;     // main phasor pre or post warp, always post mod\r\nout5 = step * static;   // main step\r\nout6 = sync;            // main sync\r\n\r\n",
+                    "fontface": 0,
+                    "fontname": "<Monospaced>",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "codebox",
+                    "numinlets": 2,
+                    "numoutlets": 6,
+                    "outlettype": [ "", "", "", "", "", "" ],
+                    "patching_rect": [ 49.0, 58.0, 775.0, 732.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 49.0, 807.0, 137.0, 22.0 ],
+                    "text": "out 1 (signal) Rand LFO"
+                }
+            }
+        ],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-10", 0 ],
+                    "source": [ "obj-3", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "source": [ "obj-3", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-3", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-8", 0 ],
+                    "source": [ "obj-3", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 0 ],
+                    "source": [ "obj-3", 3 ]
+                }
+            }
+        ]
+    }
+}

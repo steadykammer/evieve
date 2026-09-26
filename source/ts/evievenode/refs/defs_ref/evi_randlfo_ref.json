@@ -1,0 +1,240 @@
+{
+    "object": {
+        "name": "evi.randlfo~",
+        "parent": "evi_randlfo",
+        "category": "evieve",
+        "tilde": "~",
+        "digest": "Phase synchronous discontinuity-free random LFO waves with FM and morphing capabilities",
+        "description": "An indulgent (but simple) random LFO modulation source. The main LFO output is slightly curved, and all random wave shapes are phase synchronous and share the same random number generator, so that LFO types can be switched in real time without discontinuities. Various modulation and warping attributes control and shape the output in a smoothly updating manner so that the modulation source can be 'performed'. Various additional data outlets provide synchronous downstream processing options.",
+        "discussion": ""
+    },
+    "metadata": {
+        "author": "Pete Dowling",
+        "tags": [
+            "evieve Oscillator",
+            "evieve Control",
+            "evieve Modulation",
+            "evieve Source",
+            "evieve Utility",
+            "evieve Map"
+        ]
+    },
+    "includes": [
+        "evi_smooth.genexpr",
+        "evi_fastskew.genexpr",
+        "evi_sources.genexpr"
+    ],
+    "inlets": [
+        {
+            "id": 1,
+            "type": "signal/float",
+            "digest": "LFO Frequency in Hz",
+            "description": "Base frequency of internal LFOs, in Hz 0..40"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Reset Naive",
+            "description": "Naive reset of internal phase"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "type": "signal",
+            "digest": "Rand LFO",
+            "description": "The main shape-switching random LFO"
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Aux LFO",
+            "description": "An auxilliary LFO based on the same random distributions and affected by the same controls as the main LFO, but with it's own single shape. Only active if the @aux attribute is on."
+        },
+        {
+            "id": 3,
+            "type": "signal",
+            "digest": "Noise Sync",
+            "description": "White noise sync used in the random distribution"
+        },
+        {
+            "id": 4,
+            "type": "signal",
+            "digest": "Phasor Sync",
+            "description": "Internal Phasor sync, pre or post warping effect via the @phaseout attribute"
+        },
+        {
+            "id": 5,
+            "type": "signal",
+            "digest": "Step Sync",
+            "description": "Synchronous hard steps used in the random algorithm"
+        },
+        {
+            "id": 6,
+            "type": "signal",
+            "digest": "Sync",
+            "description": "Internal phasor sync signal for downstream synchronous processing"
+        }
+    ],
+    "messages": [
+        {
+            "name": "history",
+            "arg": [
+                {
+                    "name": "autoreset",
+                    "type": "int",
+                    "units": "default: 1",
+                    "optional": 1
+                },
+                {
+                    "name": "init",
+                    "type": "int",
+                    "units": "default: 1",
+                    "optional": 1
+                },
+                {
+                    "name": "resettime",
+                    "type": "int",
+                    "units": "default: 4800",
+                    "optional": 1
+                }
+            ],
+            "digest": "Top level gen~ [history] / History() declarations can be reset by messages to the object",
+            "description": false
+        }
+    ],
+    "attributes": [
+        {
+            "name": "aux",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "If on, auxilliary LFO is available at outlet 2, if off (default), aux LFO is off and so is the CPU required to process it",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        },
+        {
+            "name": "depth",
+            "get": 1,
+            "type": "float",
+            "digest": "Depth -1..1",
+            "description": "The final linear output amplitude 0..1 of both LFOs, negative values also available for inversion",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "1."
+            }
+        },
+        {
+            "name": "mod",
+            "get": 1,
+            "type": "float",
+            "digest": "Modulation 0..40 Hz",
+            "description": "Hz amount to frequency modulate the base LFOs frequency (set at inlet 1), this expands and contracts the main phase ramp time segments, modulating the resulting LFOs in a time-slice contraction and expansion. If 0, modulation is (CPU) off.",
+            "default": {
+                "min": "0",
+                "max": "40",
+                "value": "0."
+            }
+        },
+        {
+            "name": "offset",
+            "get": 1,
+            "type": "float",
+            "digest": "Offset -1..1",
+            "description": "The final linear output offset -1..1 of both LFOs. LFOs clip at bipolar boundaries.",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "0."
+            }
+        },
+        {
+            "name": "phaseout",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Select whether or not the 4th phasor outlet is sent out pre-warp or post-warp. Warping exponentially shapes the phasor, so if this attribute is off, the phasor outlet will be linear only (but always post modulation (@mod) effect).",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "resetauto",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "If on (the default) phase will be automatically and smoothly reset (to 0) whenever the sum of inlet 1 (main frequency) and @mod attribute is 0 Hz. When Hz is again greater than 0, the LFOs will smoothly ramp up.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "1"
+            }
+        },
+        {
+            "name": "skew",
+            "get": 1,
+            "type": "float",
+            "digest": "Skew -1..1",
+            "description": "Logarithmic shaping of LFO shapes. At extremes, the LFOs will 'hug' one of the bipolar boundaries, as well as favour concave or convex shaping.",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "0."
+            }
+        },
+        {
+            "name": "warp",
+            "get": 1,
+            "type": "float",
+            "digest": "Warp -1..1",
+            "description": "Exponentially shape the main internal phasor so that with positive values the phasor slope is concave and with negative values the phasor slope is convex. The overall timing of eash phasor ramp remains identical to if it were linear, but this has the effect of squashing or expanding the LFO interpolators around the random value points. It is a cool shaping effect.",
+            "default": {
+                "min": "-1",
+                "max": "1",
+                "value": "0."
+            }
+        },
+        {
+            "name": "wave",
+            "get": 1,
+            "type": "int",
+            "digest": "Select 0, 1, 2, 3",
+            "description": "Select the LFO wave shape for the main LFO outlet (outlet 1). 0=binary LFO, 1=stepped LFO, 2=linear segments LFO (the default), 3=curved segments LFO. Notes that all waves are phase synchronous and share the same random number generator, as well as set up to avoid hard discontinuities, which means the wave can be switched in real time in a performance oriented way.",
+            "default": {
+                "min": "0",
+                "max": "3",
+                "value": "2"
+            }
+        },
+        {
+            "name": "zero",
+            "get": 1,
+            "type": "int",
+            "digest": "Flag 0/1",
+            "description": "Select whether the main internal phase is zero-reset (1) or free running (0, the default). If zero-reset is on, phase frequency only gets updated on phase synchronous boundaries (like MSP [phasor~ @syncupdate 1]). This can have a smooth effect if gradually changing input Hz continuously at higher frequencies, however may be undesirable if using exclusively low frequency input as the phasor could get stuck at long time intervals. Note that if the @mod attribute is greater than 0, @zero is automatically disabled anyway.",
+            "default": {
+                "min": "0",
+                "max": "1",
+                "value": "0"
+            }
+        }
+    ],
+    "example": {
+        "caption": "",
+        "image": ""
+    },
+    "seealso": [
+        "evi.phasor0~",
+        "evi.ramp0~",
+        "evi.randy~",
+        "evi.zeroxcount~",
+        "evi.gaussiannoise~",
+        "evi.modosc~"
+    ]
+}

@@ -181,7 +181,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 44.0, 370.0, 495.0, 434.0 ],
+                        "rect": [ 42.0, 332.0, 495.0, 434.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
@@ -193,7 +193,7 @@
                                     "numinlets": 5,
                                     "numoutlets": 6,
                                     "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 79.0, 365.0, 107.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 364.0, 107.0, 22.0 ],
                                     "text": "evi_zeroxoscnoise"
                                 }
                             },
@@ -204,7 +204,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 79.0, 259.25, 55.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 204.0, 55.0, 22.0 ],
                                     "text": "evi_rand"
                                 }
                             },
@@ -212,10 +212,10 @@
                                 "box": {
                                     "id": "obj-14",
                                     "maxclass": "newobj",
-                                    "numinlets": 1,
+                                    "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 79.0, 311.0, 61.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 256.0, 61.0, 22.0 ],
                                     "text": "evi_randy"
                                 }
                             },
@@ -225,7 +225,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 255.0, 365.0, 169.0, 22.0 ],
+                                    "patching_rect": [ 255.0, 364.0, 169.0, 22.0 ],
                                     "text": "out 1 Cosine interpolated rand"
                                 }
                             },
@@ -236,7 +236,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 79.0, 207.5, 107.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 152.0, 107.0, 22.0 ],
                                     "text": "evi_gaussiannoise"
                                 }
                             },
@@ -247,7 +247,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 79.0, 155.75, 91.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 101.0, 91.0, 22.0 ],
                                     "text": "evi_velvetnoise"
                                 }
                             },
@@ -258,7 +258,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 79.0, 104.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 49.0, 83.0, 22.0 ],
                                     "text": "evi_audiodust"
                                 }
                             },
@@ -269,8 +269,19 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 255.0, 35.0, 190.0, 22.0 ],
+                                    "patching_rect": [ 255.0, 49.0, 190.0, 22.0 ],
                                     "text": "in 1 Frequency in Hz @default 57."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 6,
+                                    "outlettype": [ "", "", "", "", "", "" ],
+                                    "patching_rect": [ 79.0, 310.0, 72.0, 22.0 ],
+                                    "text": "evi_randlfo"
                                 }
                             }
                         ],
@@ -278,14 +289,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-2", 0 ],
-                                    "midpoints": [ 264.5, 241.9921875, 88.5, 241.9921875 ],
+                                    "midpoints": [ 264.5, 186.9921875, 88.5, 186.9921875 ],
                                     "source": [ "obj-1", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
-                                    "midpoints": [ 106.5, 298.58203125, 264.5, 298.58203125 ],
+                                    "midpoints": [ 106.5, 243.58203125, 264.5, 243.58203125 ],
                                     "source": [ "obj-2", 1 ]
                                 }
                             }
@@ -476,7 +487,7 @@
                             },
                             {
                                 "box": {
-                                    "code": "\r\n// noise sources live here:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nphase = phasor(in1);\r\n\r\nout1 = audioDust(in1);\r\nout2 = sparseVelvetNoise(in1, in2);\r\nout3 = gaussianNoise(0.6403882032022076);\r\nout4 = eviRandy(phase); // brown-ish noise\r\n\r\n",
+                                    "code": "\r\n// most noise sources live here:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nphase = phasor(in1);\r\n\r\nout1 = audioDust(in1);\r\nout2 = sparseVelvetNoise(in1, in2);\r\nout3 = gaussianNoise(0.6403882032022076); // legacy\r\nout4 = eviRandy(phase); // brown-ish noise\r\n\r\n",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,

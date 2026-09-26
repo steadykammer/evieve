@@ -27,6 +27,12 @@
             "type": "signal/float",
             "digest": "Frequency in Hz @min 0.",
             "description": "Frequency at which to sample new values internally, controlling the speed of the segments."
+        },
+        {
+            "id": 2,
+            "type": "signal",
+            "digest": "Reset Phase",
+            "description": ""
         }
     ],
     "outlets": [
@@ -50,6 +56,7 @@
         "image": ""
     },
     "seealso": [
+        "evi.randlfo~",
         "evi.audiodust~",
         "evi.gaussiannoise~",
         "evi.velvetnoise~",

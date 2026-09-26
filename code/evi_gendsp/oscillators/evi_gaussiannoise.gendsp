@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 39.0, 110.0, 841.0, 406.0 ],
+        "rect": [ 235.0, 119.0, 629.0, 329.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -20,8 +20,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 718.0, 366.0, 94.0, 22.0 ],
-                    "text": "out 3 Cos Noise"
+                    "patching_rect": [ 475.0, 281.0, 137.0, 22.0 ],
+                    "text": "out 3 Cosine Noise -1..1"
                 }
             },
             {
@@ -30,8 +30,8 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 414.0, 366.0, 133.0, 22.0 ],
-                    "text": "out 2 Sync White Noise"
+                    "patching_rect": [ 255.0, 281.0, 161.0, 22.0 ],
+                    "text": "out 2 Sync White Noise -1..1"
                 }
             },
             {
@@ -47,7 +47,7 @@
             },
             {
                 "box": {
-                    "code": "\r\n// not really box-muller gaussian noise distribution estimation, thanks to andy farnell\r\n\r\ngaussianNoise(gain)\r\n{\r\n\tXoshiro256\t= noise();\n\tcosXos\t\t= cycle(noise(), index=\"phase\");\n\tgaussian \t= sqrt(log((abs(Xoshiro256) * gain) + (1 - gain)) * -2) * (cosXos * LN2);\n\treturn\t\tgaussian, Xoshiro256, cosXos;\n}\r\n\r\n// default (alpha 0.6403882032022076) gives very close to unity amplitude (-1..1) output\r\nParam\tamplitude(0.6403882032022076, min=0, max=1);\t// this is not really \"amplitude\" :-)\r\n\r\nout1, out2, out3\t= gaussianNoise(amplitude);\r\n\r\n",
+                    "code": "\r\nrequire(\"evi_approx.genexpr\");\r\n\r\ngauss, out2, out3 = gaussianNoiseNormal();\r\n// bring into -1..1 bounds, use\r\n// 'gaussianNoiseNormal()' in 'evi_approx.genexpr'\r\n// if you do not want this bounds constraint\r\nout1 = gauss * 0.900917;\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,
@@ -56,17 +56,18 @@
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "" ],
-                    "patching_rect": [ 34.0, 58.0, 778.0, 291.0 ]
+                    "patching_rect": [ 34.0, 58.0, 460.0, 199.0 ]
                 }
             },
             {
                 "box": {
                     "id": "obj-4",
+                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 34.0, 366.0, 255.0, 22.0 ],
-                    "text": "out 1 (Box Muller) Gaussian Noise Distribution"
+                    "patching_rect": [ 34.0, 274.0, 161.0, 35.0 ],
+                    "text": "out 1 (Box Muller) Gaussian Noise Distribution -1..1"
                 }
             }
         ],
@@ -92,11 +93,9 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 0 ],
-                    "midpoints": [ 802.5, 357.5, 727.5, 357.5 ],
                     "source": [ "obj-3", 2 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

@@ -42,9 +42,9 @@
     </entry>
     <entry name="gaussianNoise ( )">
       <description>
-        Not-really box-muller gaussian noise distribution implementation <br />
+        Not-really Box-Muller gaussian noise distribution implementation. Note that this does not have good distribution and has been retired in evieve. See 'gaussianNoiseNormal()' in 'evi_approx.genexpr' for a replacement function. <br />
         <br />
-        <b>In 1</b>: type=<i>input</i>: gain, <i></i> <br />
+        <b>In 1</b>: type=<i>input</i>: gain, <i>0.6403882032022076 gives very close to unity amplitude (-1..1) output</i> <br />
 
         <b>Return 1</b>: gaussian, <i>The gaussian noise output</i> <br />
         <b>Return 2</b>: Xoshiro256, <i>Synchronised white noise output</i> <br />
@@ -115,13 +115,27 @@
     </entry>
     <entry name="eviRandCN ( )">
       <description>
-        like 'eviRandN()' but with additional cosine interpolated output <br />
+        Like 'eviRandN()' but with additional cosine interpolated output <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
         <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />
 
         <b>Return 1</b>: nv, <i>Linear rand oscillator output</i> <br />
         <b>Return 2</b>: nw, <i>Cosine rand oscillator output</i> <br />
+
+      </description>
+    </entry>
+    <entry name="eviRandOuts ( )">
+      <description>
+        Like 'eviRandCN()' but with additional step and sync outputs <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
+        <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />
+
+        <b>Return 1</b>: nv, <i>Linear rand oscillator output</i> <br />
+        <b>Return 2</b>: nw, <i>Cosine rand oscillator output</i> <br />
+        <b>Return 3</b>: a, <i>Step sync output (previous step)</i> <br />
+        <b>Return 4</b>: rr, <i>Sync output (of phasor input)</i> <br />
 
       </description>
     </entry>

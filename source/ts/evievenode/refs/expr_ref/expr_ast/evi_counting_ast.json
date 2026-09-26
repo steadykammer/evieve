@@ -7787,6 +7787,1520 @@
             },
             "generator": false,
             "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "eviRamp1",
+                "raw": "eviRamp1"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "trig",
+                    "raw": "trig"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "duration",
+                    "raw": "duration"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "jump",
+                                    "raw": "jump"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0.",
+                                            "gen_kind": "float"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "zeroreset",
+                                    "raw": "zeroreset"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "retrigger",
+                                    "raw": "retrigger"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "loop",
+                                    "raw": "loop"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "restingstate",
+                                    "raw": "restingstate"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "curve",
+                                    "raw": "curve"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "pause",
+                                    "raw": "pause"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "Param",
+                                        "raw": "Param"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "min",
+                                                "raw": "min"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        },
+                                        {
+                                            "type": "AssignmentExpression",
+                                            "operator": "=",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "max",
+                                                "raw": "max"
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "gen_kind": "attribute"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "zr",
+                                "raw": "zr"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "zeroreset",
+                                        "raw": "zeroreset"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rt",
+                                "raw": "rt"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "retrigger",
+                                        "raw": "retrigger"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "lp",
+                                "raw": "lp"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "loop",
+                                        "raw": "loop"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rs",
+                                "raw": "rs"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "restingstate",
+                                        "raw": "restingstate"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cv",
+                                "raw": "cv"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "curve",
+                                        "raw": "curve"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "powsah",
+                                "raw": "powsah"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "pause",
+                                        "raw": "pause"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "int",
+                                    "raw": "int"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "trigger",
+                                "raw": "trigger"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "trig",
+                                            "raw": "trig"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "thisphase",
+                                "raw": "thisphase"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "jump",
+                                        "raw": "jump"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 0,
+                                        "raw": "0",
+                                        "gen_kind": "integer"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "value": 1,
+                                        "raw": "1",
+                                        "gen_kind": "integer"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "wrap",
+                                    "raw": "wrap"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ramp",
+                                "raw": "ramp"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "powsah",
+                                    "raw": "powsah"
+                                },
+                                "consequent": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "thisphase",
+                                            "raw": "thisphase"
+                                        },
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": ">",
+                                            "left": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "powsah",
+                                                        "raw": "powsah"
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "delta",
+                                                    "raw": "delta"
+                                                }
+                                            },
+                                            "right": {
+                                                "type": "Literal",
+                                                "value": 0,
+                                                "raw": "0",
+                                                "gen_kind": "integer"
+                                            }
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "latch",
+                                        "raw": "latch"
+                                    }
+                                },
+                                "alternate": {
+                                    "type": "Identifier",
+                                    "name": "thisphase",
+                                    "raw": "thisphase"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "syncstart",
+                                "raw": "syncstart"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "ramp",
+                                            "raw": "ramp"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "incr",
+                                "raw": "incr"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "duration",
+                                    "raw": "duration"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "SAMPLERATE",
+                                    "raw": "SAMPLERATE"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "incrlatch",
+                                "raw": "incrlatch"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "incr",
+                                        "raw": "incr"
+                                    },
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "syncstart",
+                                            "raw": "syncstart"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "trigger",
+                                            "raw": "trigger"
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "latch",
+                                    "raw": "latch"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "firsttrig",
+                                "raw": "firsttrig"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": ">",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "trigger",
+                                            "raw": "trigger"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "accum",
+                                        "raw": "accum"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "firstgate",
+                                "raw": "firstgate"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "firsttrig",
+                                        "raw": "firsttrig"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "incr",
+                                        "raw": "incr"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "gate",
+                                    "raw": "gate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "increment",
+                                "raw": "increment"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "zr",
+                                            "raw": "zr"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "firstgate",
+                                        "raw": "firstgate"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "incrlatch",
+                                        "raw": "incrlatch"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "selector",
+                                    "raw": "selector"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "end",
+                                "raw": "end"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "ramp",
+                                    "raw": "ramp"
+                                },
+                                "right": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "BinaryExpression",
+                                            "operator": "-",
+                                            "left": {
+                                                "type": "Literal",
+                                                "value": 1,
+                                                "raw": "1",
+                                                "gen_kind": "integer"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "increment",
+                                                "raw": "increment"
+                                            }
+                                        },
+                                        {
+                                            "type": "Literal",
+                                            "value": 0.999,
+                                            "raw": "0.999",
+                                            "gen_kind": "float"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "minimum",
+                                        "raw": "minimum"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "end0",
+                                "raw": "end0"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "==",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "end",
+                                    "raw": "end"
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "syncend",
+                                "raw": "syncend"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "<",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "end",
+                                            "raw": "end"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "delta",
+                                        "raw": "delta"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ramptrigger",
+                                "raw": "ramptrigger"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "||",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "end0",
+                                            "raw": "end0"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "rt",
+                                            "raw": "rt"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "trigger",
+                                        "raw": "trigger"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "gate",
+                                    "raw": "gate"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "carrycount",
+                                "raw": "carrycount"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "syncstart",
+                                            "raw": "syncstart"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "ramptrigger",
+                                            "raw": "ramptrigger"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "accum",
+                                        "raw": "accum"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "jump",
+                                "raw": "jump"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "ramptrigger",
+                                    "raw": "ramptrigger"
+                                },
+                                "consequent": {
+                                    "type": "Literal",
+                                    "value": 0,
+                                    "raw": "0",
+                                    "gen_kind": "integer"
+                                },
+                                "alternate": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "ConditionalExpression",
+                                        "test": {
+                                            "type": "Identifier",
+                                            "name": "powsah",
+                                            "raw": "powsah"
+                                        },
+                                        "consequent": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        },
+                                        "alternate": {
+                                            "type": "ConditionalExpression",
+                                            "test": {
+                                                "type": "CallExpression",
+                                                "arguments": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "lp",
+                                                        "raw": "lp"
+                                                    },
+                                                    {
+                                                        "type": "BinaryExpression",
+                                                        "operator": "+",
+                                                        "left": {
+                                                            "type": "Identifier",
+                                                            "name": "syncstart",
+                                                            "raw": "syncstart"
+                                                        },
+                                                        "right": {
+                                                            "type": "Identifier",
+                                                            "name": "syncend",
+                                                            "raw": "syncend"
+                                                        }
+                                                    }
+                                                ],
+                                                "callee": {
+                                                    "type": "Identifier",
+                                                    "name": "latch",
+                                                    "raw": "latch"
+                                                }
+                                            },
+                                            "consequent": {
+                                                "type": "Identifier",
+                                                "name": "increment",
+                                                "raw": "increment"
+                                            },
+                                            "alternate": {
+                                                "type": "BinaryExpression",
+                                                "operator": "*",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "increment",
+                                                    "raw": "increment"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "end",
+                                                    "raw": "end"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "thisphase",
+                                        "raw": "thisphase"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rest",
+                                "raw": "rest"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "rs",
+                                    "raw": "rs"
+                                },
+                                "consequent": {
+                                    "type": "Identifier",
+                                    "name": "ramp",
+                                    "raw": "ramp"
+                                },
+                                "alternate": {
+                                    "type": "BinaryExpression",
+                                    "operator": "-",
+                                    "left": {
+                                        "type": "Identifier",
+                                        "name": "ramp",
+                                        "raw": "ramp"
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "end0",
+                                        "raw": "end0"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rtrt",
+                                "raw": "rtrt"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "rest",
+                                    "raw": "rest"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "rest",
+                                    "raw": "rest"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rtinv",
+                                "raw": "rtinv"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "-",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "rest",
+                                    "raw": "rest"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rtirti",
+                                "raw": "rtirti"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "rtinv",
+                                    "raw": "rtinv"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "rtinv",
+                                    "raw": "rtinv"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "outramp",
+                                "raw": "outramp"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "cv",
+                                            "raw": "cv"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "syncstart",
+                                            "raw": "syncstart"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "latch",
+                                        "raw": "latch"
+                                    }
+                                },
+                                "consequent": {
+                                    "type": "ConditionalExpression",
+                                    "test": {
+                                        "type": "BinaryExpression",
+                                        "operator": "<",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "rest",
+                                            "raw": "rest"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0.5,
+                                            "raw": "0.5",
+                                            "gen_kind": "float"
+                                        }
+                                    },
+                                    "consequent": {
+                                        "type": "BinaryExpression",
+                                        "operator": "+",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "rtrt",
+                                            "raw": "rtrt"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "rtrt",
+                                            "raw": "rtrt"
+                                        }
+                                    },
+                                    "alternate": {
+                                        "type": "BinaryExpression",
+                                        "operator": "-",
+                                        "left": {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        },
+                                        "right": {
+                                            "type": "BinaryExpression",
+                                            "operator": "+",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "rtirti",
+                                                "raw": "rtirti"
+                                            },
+                                            "right": {
+                                                "type": "Identifier",
+                                                "name": "rtirti",
+                                                "raw": "rtirti"
+                                            }
+                                        }
+                                    }
+                                },
+                                "alternate": {
+                                    "type": "Identifier",
+                                    "name": "rest",
+                                    "raw": "rest"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "outramp",
+                                    "raw": "outramp"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "carrycount",
+                                    "raw": "carrycount"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "syncstart",
+                                    "raw": "syncstart"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "syncend",
+                                    "raw": "syncend"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
         }
     ],
     "decls": [],

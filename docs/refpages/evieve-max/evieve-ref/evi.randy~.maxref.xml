@@ -34,6 +34,14 @@
 				Frequency at which to sample new values internally, controlling the speed of the segments.
 			</description>
 		</inlet>
+		<inlet id="2" type="signal">
+			<digest>
+				Inlet #2: Reset Phase
+			</digest>
+			<description>
+				
+			</description>
+		</inlet>
 	</inletlist>
 	<!--OUTLETS-->
 	<outletlist>
@@ -66,6 +74,7 @@
 	</examplelist>
 	<!--SEEALSO-->
 	<seealsolist>
+		<seealso name="evi.randlfo~"> </seealso>
 		<seealso name="evi.audiodust~"> </seealso>
 		<seealso name="evi.gaussiannoise~"> </seealso>
 		<seealso name="evi.velvetnoise~"> </seealso>

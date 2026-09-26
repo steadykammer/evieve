@@ -291,38 +291,7 @@ cfSmoothLinearFilter(x0, g0, s0)
 	return	  low2;
 }
 
-/*
-// for cfSmoothLinear()
-// init in filter, but we do not need this
-cfSmoothLinearFilter(x0, g0, s0)
-{
-	History	low1(0), low2(0), g(1); // 'g' init means low2 == low1 == x0 on 1st sample pass
-
-	low1z	= low1;
-	low2z	= low2;
-
-	bandz	= low1z - low2z;
-
-	low1	= low1z + g * (x0 - low1z);
-	low2	= low2z + g * (low1 - low2z);
-
-	g		= minimum(g0 + s0 * abs(bandz), 1); // but cos of this min, we could init in caller using 'g0' ?
-
-	return	  low2;
-}
-*/
-
-/*
-cfSmoothLinear(x1, hz, s)
-{
-	History	  cfsl1dummy(0);
-	g0, s0	= cfSmoothLinearCoeff(hz, s);
-	y1		= cfSmoothLinearFilter(x1, g0, s0);
-	return	  y1;
-}
-*/
-
-// inits in the callers
+// inits are g0/s0 states
 
 cfSmoothLinear(x1, hz, s)
 {
@@ -351,30 +320,8 @@ cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
 	return	  wc, s0;
 }
 
-/*
 // for cfSmoothCubic()
-// naive no init
-cfSmoothCubicFilter(x0, wc, s0)
-{
-	History	low1(0), low2(0), inz(0);
-
-	low1z	= low1;
-	low2z	= low2;
-
-	bandz	= low1z - low2z;
-	wd		= wc + s0 * abs(bandz);
-	g		= minimum(wd * (5.9948827 + wd * (-11.969296 + wd * 15.959062)), 1);
-
-	low1	= low1z + g * (0.5 * (x0 + inz) - low1z);
-	low2	= low2z + g * (0.5 * (low1 + low1z) - low2z);
-	inz		= x0;
-
-	return	  low2;
-}
-*/
-
-// for cfSmoothCubic()
-// cannot init in caller as in 'cfSmoothLinear()' :-(
+// cannot init in caller as in 'cfSmoothLinear()' so init is here :-(
 cfSmoothCubicFilter(x0, wc, s0)
 {
 	History	low1(0), low2(0), inz(0), g(2); // 'g' init means low2 behaves as x0 on 1st sample pass
@@ -440,25 +387,6 @@ logso(x, ad)
 	z = y;
 	return y;
 }
-
-/*
-// :-( for proper init version, really do not want to use this...
-logsoR(x, ad)
-{
-	History z(0);
-	History init(1);
-	y = 0;
-	if (init) {
-		y = x;
-	} else {
-		y = ((x - z) * ad) + z;
-	}
-	// z = fixdenorm(y); // for C++ export
-	z = y;
-	init = 0;
-	return y;
-}
-*/
 
 logsmoothBank2(x1, x2, s)
 {
@@ -785,6 +713,21 @@ eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in
 
 	init = 0;
 	return value, notify;
+}
+
+// a bit like the linear [go.slewlimit2] by graham wakefield (thanks).
+// a bit like 'eviRampsmooth()', but not exactly the same,
+// but much much cheaper than all the MSP-like functions here.
+// (to make almost the same as 'eviRampsmooth()' you need to double the input sample times here).
+eviRamplimit(target, upsamples, downsamples)
+{
+    History slew(0), init(1);
+    up   = 1 / upsamples;
+    down = 1 / downsamples;
+    ramp = (init * target) + ((clip((target - slew), -down, up) + slew) * (1 - init));
+    slew = ramp;
+	init = 0;
+    return ramp;
 }
 
 // like MSP [curve~], exact destination

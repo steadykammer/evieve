@@ -1,0 +1,116 @@
+
+require("evi_smooth.genexpr");
+require("evi_fastskew.genexpr");
+require("evi_sources.genexpr");
+
+Param   wave(2, min=0, max=3); // rand lfo wave type: 0=bins, 1=steps, 2=lines (default), 3=curves
+Param   mod(0., min=0, max=40); // random FM base frequency in Hz
+Param   warp(0., min=-1, max=1); // exponential phase warp -1..1
+Param   skew(0., min=-1, max=1); // skew lfo shapes -1..1
+Param   depth(1., min=-1, max=1); // lfos amplitude, including neg, -1..1
+Param   offset(0., min=-1, max=1); // lfos offset, -1..1
+Param   aux(0, min=0, max=1); // use aux lfo? (outlet 2) off/on (default off)
+Param   phaseout(1, min=0, max=1); // phase signal (output 4) is pre or post warp (default post) ?
+Param   zero(0, min=0, max=1); // main phase is zero-reset or free running (default free) ?
+Param	resetauto(1, min=0, max=1); // use auto reset phase at 0 Hz, off / on (default on) ?
+
+History autoreset(1), resettime(4800), init(1);
+
+smooth = 0.1; // seconds
+smoothsamps = smooth * samplerate;
+//smoothshort = smoothsamps * 0.1;
+//smoothshorter = smoothshort * 0.5;
+
+dpth, ofst = logsmoothBank2(depth, offset, smooth);
+skoo = skew * 0.88;
+woo = warp * sqrt1_2; // <<^^ gen bug have to declare here not inline
+skw = eviLine(skoo, smoothsamps);
+warper = eviLine(woo, smoothsamps);
+
+gn, wn, cn = gaussianNoiseNormal(); // gaussian (out of bounds!), white, cosine
+
+zmod = (mod == 0) && bool(zero); // only possible to turn on zero reset if mod @ 0
+reset = in2;
+frequency = in1;
+freq = minimum(frequency, 40); // max +40 Hz
+modrand = 0; // FM
+if (mod > 0) {
+    // separate process, and out of bounds does not matter here
+    modrand = eviRandyN(phasor(freq * sqrt2), gn);
+}
+hz = freq + (modrand * mod);
+rate = abs(hz);
+
+ph, _hz, hsync = evi_phasor0(rate, reset+autoreset, minimumhz=0.1, mode=zmod);
+phd = delta(ph);
+p = warpExp(ph, warper); // exponential warping
+
+// auto reset phase
+static = phd != 0; // phasor is / is not moving
+resetramp, rrn = eviLine(static, resettime);
+// end of down ramp only, not up
+autoreset = int(resetauto) ? ((change(rrn == 1) > 0) * (static == 0)) : 0;
+p = p * resetramp; // this is debatable
+
+// main lfo
+linear, cosine, step, sync = eviRandOuts(p, wn);
+stepsamples = latch(samplerate / rate, sync);
+bin = step > 0;
+resettime = maximum(smoothsamps, stepsamples+stepsamples+stepsamples);
+
+sel = latch(int(wave), sync);
+sel1 = sel == 1;
+ax = eviLine(bool(aux), resettime);
+po = latch(int(phaseout), sync);
+
+lfo1 = 0;
+if ((sel == 0) || (sel1)) {
+    lfo1 = sel1 ? step : (bin + bin - 1);
+//  lfo1 = eviRamplimit(lfo1, smoothshorter, smoothshort); // it can be good
+}
+else if (sel == 2) {
+    lfo1 = linear * (1 - init); // + init
+}
+else { // (sel == 3)
+    lfo1 = cosine;
+}
+init = 0;
+
+// really annoying, if only i could work out a skew algo for bipolar signals
+lfo1 = (lfo1 + 1) * 0.5;
+//lfo1 = fastskew110254ar(lfo1, skw);  // it sometimes breaks
+lfo1 = fastskew11052ar(lfo1, skw);
+lfo1 = lfo1 + lfo1 - 1;
+
+lfo1 = lfo1 * resetramp;
+
+// main shape
+lfo1 = cfSmoothLinear(lfo1, 9, 0.003); // hz & seconds, could be dynamic here
+lfo1 = (lfo1 * dpth) + ofst;
+
+out1 = clip(lfo1, -1, 1);
+
+lfo2 = 0; // optional aux lfo
+// differently tuned to version in 'evi_sources.genexpr'
+if (ax > 0) {
+    bias, tension = 0;
+    attenuate = 0.971348;
+    if (skw != 0) {
+        askw = abs(skw);
+	    bias = skw * 4;
+	    tension = skw * -3;
+        attenuate = fastpow(((1 - askw) + 8), (((skw > 0) * 0.4 + 0.48) * askw));
+    }
+
+    ym1, y0, y1, y2	= eviRands(hsync, cn);
+    dynamicAtten = catmullRomSplineDynamic(p, ym1, y0, y1, y2, bias, tension) * 0.819462;
+
+    lfo2 = (dynamicAtten / attenuate) * dpth * ax * resetramp;
+}
+out2 = clip(lfo2 + ofst, -1, 1);
+
+out3 = wn;              // white noise source
+out4 = po ? p : ph;     // main phasor pre or post warp, always post mod
+out5 = step * static;   // main step
+out6 = sync;            // main sync
+

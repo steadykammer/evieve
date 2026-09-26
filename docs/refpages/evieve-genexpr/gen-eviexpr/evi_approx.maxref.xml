@@ -339,7 +339,7 @@
     </entry>
     <entry name="tauA ( )">
       <description>
-        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum must be 0.001 seconds (1ms) <br />
+        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum input must be 0.001 seconds (1ms) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
@@ -349,7 +349,7 @@
     </entry>
     <entry name="tauAm ( )">
       <description>
-        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping. <br />
+        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe but more expensive clamping. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
@@ -438,10 +438,31 @@
         Approximation of one cosine quarter of 'poltocar()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: al, <i></i> <br />
-        <b>In 2</b>: type=<i>input</i>: th, <i></i> <br />
+        <b>In 2</b>: type=<i>input</i>: th, <i>input2</i> <br />
 
         <b>Return 1</b>: real, <i>multiplier 1</i> <br />
         <b>Return 2</b>: imag, <i>multiplier 2</i> <br />
+
+      </description>
+    </entry>
+    <entry name="gaussianNoiseNormal ( )">
+      <description>
+        Approximated Box-Muller gaussian noise distribution with linked outputs. Used in the 'evi_gaussiannoise.gendsp' abstraction. <br />
+        <br />
+
+        <b>Return 1</b>: gaussian, <i>Real gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation.</i> <br />
+        <b>Return 2</b>: white, <i>White noise sync source.</i> <br />
+        <b>Return 3</b>: cos, <i>Cosine noise sync source.</i> <br />
+
+      </description>
+    </entry>
+    <entry name="gaussianNoiseNormalRI ( )">
+      <description>
+        Approximated Box-Muller gaussian noise distribution with real/imag outputs. <br />
+        <br />
+
+        <b>Return 1</b>: real, <i>Real gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation.</i> <br />
+        <b>Return 2</b>: imag, <i>Imaginary gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation.</i> <br />
 
       </description>
     </entry>

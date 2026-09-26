@@ -5,8 +5,8 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Gaussian distributed noise approximation",
-        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution.",
-        "discussion": "Thanks to Andy Farnell."
+        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution (see the helpfile for details).",
+        "discussion": "Note that in a normal distribution the gaussian outlet (outlet 1) should give output in the range approximately -HALFPI..HALFPI. However, because of the approximations used here, the given output is approximately in the range -1.11..1.11. In the 'evi_approx.genexpr' source file this is NOT accounted for, but in this 'evi_gaussiannoise' / 'evi.gaussiannoise~' abstraction it is accounted for so that, like the other outputs, gaussian noise outputs in range -1..1"
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -16,7 +16,9 @@
             "evieve Utility"
         ]
     },
-    "includes": [],
+    "includes": [
+        "evi_approx.genexpr"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -29,37 +31,24 @@
         {
             "id": 1,
             "type": "signal",
-            "digest": "(Box Muller) Gaussian Noise Distribution",
+            "digest": "(Box Muller) Gaussian Noise Distribution -1..1",
             "description": "The gaussian noise output."
         },
         {
             "id": 2,
             "type": "signal",
-            "digest": "Sync White Noise",
+            "digest": "Sync White Noise -1..1",
             "description": "Synchronised to the gaussian process."
         },
         {
             "id": 3,
             "type": "signal",
-            "digest": "Cos Noise",
+            "digest": "Cosine Noise -1..1",
             "description": "Synchronised to the gaussian process."
         }
     ],
     "messages": [],
-    "attributes": [
-        {
-            "name": "amplitude",
-            "get": 1,
-            "type": "float",
-            "digest": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
-            "description": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
-            "default": {
-                "min": "0",
-                "max": "1",
-                "value": "0.6403882032022076"
-            }
-        }
-    ],
+    "attributes": [],
     "example": {
         "caption": "",
         "image": ""
@@ -69,6 +58,7 @@
         "evi.velvetnoise~",
         "evi.zeroxcount~",
         "evi.zeroxoscnoise~",
+        "evi.randlfo~",
         "evi.randy~"
     ]
 }

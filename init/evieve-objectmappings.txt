@@ -99,6 +99,7 @@ max objectfile mc.evi.phaser.classic~ mc.wrapper~ evi.phaser.classic~ mc;
 max objectfile mc.evi.phaseshift~ mc.wrapper~ evi.phaseshift~ mc;
 max objectfile mc.evi.phasor0~ mc.wrapper~ evi.phasor0~ mc;
 max objectfile mc.evi.ramp0~ mc.wrapper~ evi.ramp0~ mc;
+max objectfile mc.evi.randlfo~ mc.wrapper~ evi.randlfo~ mc;
 max objectfile mc.evi.randy~ mc.wrapper~ evi.randy~ mc;
 max objectfile mc.evi.rcfilter~ mc.wrapper~ evi.rcfilter~ mc;
 max objectfile mc.evi.rect.select~ mc.wrapper~ evi.rect.select~ mc;

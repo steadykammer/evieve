@@ -12,7 +12,6 @@
      <br />
     The <b>evi_dfm_lib.genexpr</b> file also requires: <br />
     evi_smooth.genexpr <br />
-    evi_sources.genexpr <br />
     evi_interp.genexpr <br />
     <br />
     <b>About this File</b>: <br />

@@ -2352,6 +2352,278 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "ramplimit",
+                "raw": "ramplimit"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "target",
+                    "raw": "target"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "upsamples",
+                    "raw": "upsamples"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "downsamples",
+                    "raw": "downsamples"
+                }
+            ],
+            "defaults": [
+                null,
+                null,
+                null
+            ],
+            "decls": [
+                [
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "slew",
+                                    "raw": "slew"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "VariableDeclaration",
+                        "kind": "let",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "init": {
+                                    "type": "NewExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "History",
+                                        "raw": "History"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 1,
+                                            "raw": "1",
+                                            "gen_kind": "integer"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "up",
+                                "raw": "up"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "upsamples",
+                                    "raw": "upsamples"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "down",
+                                "raw": "down"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "/",
+                                "left": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "downsamples",
+                                    "raw": "downsamples"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "ramp",
+                                "raw": "ramp"
+                            },
+                            "right": {
+                                "type": "ConditionalExpression",
+                                "test": {
+                                    "type": "Identifier",
+                                    "name": "init",
+                                    "raw": "init"
+                                },
+                                "consequent": {
+                                    "type": "Identifier",
+                                    "name": "target",
+                                    "raw": "target"
+                                },
+                                "alternate": {
+                                    "type": "BinaryExpression",
+                                    "operator": "+",
+                                    "left": {
+                                        "type": "CallExpression",
+                                        "arguments": [
+                                            {
+                                                "type": "BinaryExpression",
+                                                "operator": "-",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "target",
+                                                    "raw": "target"
+                                                },
+                                                "right": {
+                                                    "type": "Identifier",
+                                                    "name": "slew",
+                                                    "raw": "slew"
+                                                }
+                                            },
+                                            {
+                                                "type": "UnaryExpression",
+                                                "operator": "-",
+                                                "argument": {
+                                                    "type": "Identifier",
+                                                    "name": "down",
+                                                    "raw": "down"
+                                                },
+                                                "prefix": true
+                                            },
+                                            {
+                                                "type": "Identifier",
+                                                "name": "up",
+                                                "raw": "up"
+                                            }
+                                        ],
+                                        "callee": {
+                                            "type": "Identifier",
+                                            "name": "clip",
+                                            "raw": "clip"
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "Identifier",
+                                        "name": "slew",
+                                        "raw": "slew"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "slew",
+                                "raw": "slew"
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "ramp",
+                                "raw": "ramp"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "init",
+                                "raw": "init"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "Identifier",
+                            "name": "ramp",
+                            "raw": "ramp"
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "lfoShapes01",
                 "raw": "lfoShapes01"
             },
@@ -3018,8 +3290,8 @@
                                                     ],
                                                     "callee": {
                                                         "type": "Identifier",
-                                                        "name": "evi_rampsmooth",
-                                                        "raw": "evi_rampsmooth"
+                                                        "name": "ramplimit",
+                                                        "raw": "ramplimit"
                                                     }
                                                 }
                                             }
@@ -3279,8 +3551,8 @@
                                                                                 ],
                                                                                 "callee": {
                                                                                     "type": "Identifier",
-                                                                                    "name": "evi_rampsmooth",
-                                                                                    "raw": "evi_rampsmooth"
+                                                                                    "name": "ramplimit",
+                                                                                    "raw": "ramplimit"
                                                                                 }
                                                                             }
                                                                         }
@@ -3375,8 +3647,8 @@
                                                                                 ],
                                                                                 "callee": {
                                                                                     "type": "Identifier",
-                                                                                    "name": "evi_rampsmooth",
-                                                                                    "raw": "evi_rampsmooth"
+                                                                                    "name": "ramplimit",
+                                                                                    "raw": "ramplimit"
                                                                                 }
                                                                             }
                                                                         }
@@ -4400,8 +4672,8 @@
                                                             ],
                                                             "callee": {
                                                                 "type": "Identifier",
-                                                                "name": "evi_rampsmooth",
-                                                                "raw": "evi_rampsmooth"
+                                                                "name": "ramplimit",
+                                                                "raw": "ramplimit"
                                                             }
                                                         },
                                                         "right": {
@@ -4638,8 +4910,8 @@
                                                                                 ],
                                                                                 "callee": {
                                                                                     "type": "Identifier",
-                                                                                    "name": "evi_rampsmooth",
-                                                                                    "raw": "evi_rampsmooth"
+                                                                                    "name": "ramplimit",
+                                                                                    "raw": "ramplimit"
                                                                                 }
                                                                             }
                                                                         }
@@ -4770,8 +5042,8 @@
                                                                                 ],
                                                                                 "callee": {
                                                                                     "type": "Identifier",
-                                                                                    "name": "evi_rampsmooth",
-                                                                                    "raw": "evi_rampsmooth"
+                                                                                    "name": "ramplimit",
+                                                                                    "raw": "ramplimit"
                                                                                 }
                                                                             }
                                                                         }

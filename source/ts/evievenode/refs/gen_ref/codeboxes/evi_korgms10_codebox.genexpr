@@ -9,7 +9,6 @@
 // "evi_korgms20_select.gendsp". Thanks to Will Pirkle.
 
 require("evi_tanh.genexpr");
-require("evi_sources.genexpr");
 require("evi_interp.genexpr");
 
 // skew nonlin
@@ -66,7 +65,7 @@ SandKone(x0, hz, k0, load, noiz)
 
 	ng1	= 0;
 	if (noiz > 0) {                   		// only compute if required
-		ng0		= gaussianNoise(noiz);
+		ng0		= gaussianNoiseNormal() * noiz;
 		ng1     = ng0 * (k1 + g0);
 	//  N.B. - noise injection not required for self-oscillation, just for noise :-)
 	}
@@ -154,7 +153,7 @@ SandKtwo(x0, x1, hz, k0, load, noiz)
 
 	ng1	= 0;
 	if (noiz > 0) {                   		// only compute if required
-		ng0		= gaussianNoise(noiz);
+		ng0		= gaussianNoiseNormal() * noiz;
 		ng1     = ng0 * (k1 + g0) * 0.5;    // os here
 	//  N.B. - noise injection not required for self-oscillation, just for noise :-)
 	}
@@ -319,9 +318,10 @@ SandKtwo_2x4point( XIN, hz, res, load, noiz )
 Param   load(1.333333333333, min=0.25, max=4);			// do not change
 Param   oversample(0, min=0, max=1);                    // default 1x
 
-// amplitude level of noise in filter, 0..1 remapped 0.. 10% of gaussian level
-Param	noiselevel(0.05, min=0, max=1); // default 0.05 = gaussian level of 0.000008
-noiz	= (noiselevel * noiselevel * noiselevel) * 0.064038820320221;
+// amplitude level of noise in filter
+Param	noiselevel(0.05, min=0, max=1);
+// this stupid mapping is to match the curve of the old evieve gaussian distribution
+noiz	= sqrt(noiselevel * noiselevel * noiselevel) * 0.314159265358979;
 
 os      = int(oversample);
 

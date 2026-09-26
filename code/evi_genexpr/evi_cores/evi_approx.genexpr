@@ -182,6 +182,8 @@ atan2Approx(y, x)
 	return at2a;
 }
 
+// 
+
 acosT(x)			// for x 1..0.2 only, fine for certain specific usages
 {
 	onediveleven = 0.09090909090909091;
@@ -233,8 +235,8 @@ coshApprox(x)
 }
 
 // 1.7 to 2 x faster than library log2()
-log2Approx(x) // sorry
-{
+log2Approx(x)
+{	// sorry
 	return (-0.2119568027628040757e-1 + (-0.38815224340108325886 + (-0.8900051141728954376 + (0.4001641794691007527
 			+ (0.79615191430677253059 + 0.10303694407435362078*x)*x)*x)*x)*x)
 				/ (0.298115002929551095e-2 + (0.1066700361116609290 + (0.6070463053447878628 + (0.8584931203106122717
@@ -269,7 +271,7 @@ transratioApprox(pitch)				// pitch default = 0
 }
 
 // maximum error at pitch 127 = -0.501315 Hz
-mtofApprox(pitch, base=440.)		// 'base' should be 440 (hz) for default operation
+mtofApprox(pitch, base=440.)		// 'base' optional
 {
 	mtofA = base * expA(0.05776226504666 * (pitch - 69));
 	return mtofA + 0.120906;		// + offset = accurate for input 48..69
@@ -319,6 +321,14 @@ ftomApproxAccurate(frequency)
 	return log(frequency) * TWELVEDIVLOGTWO + FREQPITCH;
 }
 
+ftomApproxAccurate0(frequency)
+{
+	TWELVEDIVLOGTWO = 17.3123404906675609;
+	FREQPITCH = -36.3763165622959152;
+
+	return logApprox(frequency) * TWELVEDIVLOGTWO + FREQPITCH; // it sort of works
+}
+
 // excellent accuracy to about +36 dB, after which you are on your own
 dbtoaApprox(db)
 {
@@ -344,7 +354,7 @@ dbtosqrt2Approx(db)
 atodbApprox(amplitude)
 {
 	TWENTYDIVLOGTEN	= 8.685889638065036553;
-	return TWENTYDIVLOGTEN * logApprox(abs(amplitude)); // is abs() really needed?
+	return TWENTYDIVLOGTEN * logApprox(abs(amplitude)); // is abs() really needed :-( ?
 }
 
 // 'exp(-1 / (seconds * samplerate))'
@@ -355,7 +365,7 @@ tauA(t)									// t = seconds, CAREFUL: must be minimum 1ms
 }										// ...0.01 seconds input
 
 // for when we cannot control the minimum 1ms, absolutely horrid
-tauAm(t)								// t = seconds, must be minimum 1ms
+tauAm(t)								// t = seconds
 {
 	y = expA(-1 / (maximum(t, 0.001) * samplerate));
 	return y + 0.000128;
@@ -420,6 +430,43 @@ p2cApproxQuart(al, th)					// al is depth, th is mix must be clamped 0..1
 	return	(al * re), (al * im);		// out mul 1, out mul 2
 }
 
+// Box-Müller noise distribution, used in 'evi_gaussiannoise.gendsp'
+// @see 'evi_sources.genexpr' for an alternative (but worse distribution) function 'gaussianNoise()'
+// @see below 'gaussianNoiseNormalRI()' for strict real/imag outputs
+// @see also note below regards bounds
+gaussianNoiseNormal()
+{
+	Xoshiro256	= noise();
+	alpha 		= sqrt(logApprox(abs(Xoshiro256)) * -0.25);
+	theta		= noise() * PI;
+	cosXos		= cos73a(theta);
+	rgauss		= alpha * cosXos;
+	return		rgauss, Xoshiro256, cosXos; // gaussian, white, cosine
+}
+// same as above but with strict real/imag gaussian outputs
+// @see also note below regards bounds
+gaussianNoiseNormalRI()
+{
+	alpha 		= sqrt(logApprox(abs(noise())) * -0.25);
+	theta		= noise() * PI;
+	rgauss, igauss = p2cApprox(alpha, theta);
+	return		rgauss, igauss; // real, imaginary
+}
+/*
+	Note about above gaussian noise functions:
+	Note that in a normal distribution the gaussian return (return value 1) will give output
+	in the range approximately -HALFPI..HALFPI. However, because of the approximations used above,
+	the given return is approximately in the range -1.11..1.11. In this 'evi_approx.genexpr'
+	source file this is NOT accounted for, but in the [evi_gaussiannoise] / [evi.gaussiannoise~]
+	abstractions it is accounted for so that, like the other outputs, gaussian noise outputs
+	in range -1..1. evieve uses both the functions and the abstractions in different places.
+	N.B. - to constrain 'rgauss' return value to -1..1 bounds, multiply by 0.900917. To
+	return the approximations version to bounds of real log() and real cos(), multiply
+	'rgauss' by 1.542342, but this breaks the gaussian distribution and you should not do it.
+	All of the above info is approximate but measured.
+	All complaints go to the management.
+*/
+
 // for adaa etc
 
 // not an approx :-(
@@ -442,7 +489,7 @@ eviLog1p(value)
  * Implemented as an economized Pade approximation with a
  * maximum error of 4.16e-18 <<-- definitely worse with pete's implementation :-)
  */
-Li2Approx(x) // this is really stupid in gen~, & N.B. - cannot use Approxes in negative branches
+Li2Approx(x) // this is really stupid in gen~, & N.B. cannot use Approxes in negative branches
 {
 	MPIPI6	= -1.6449340668482264;	// -PI*PI/6
 	MPIPI12	= -0.8224670334241132;	// -PI*PI/12

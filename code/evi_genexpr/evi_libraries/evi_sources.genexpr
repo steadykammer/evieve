@@ -54,8 +54,11 @@ sparseVelvetNoise(freq, mixN, amp=1.)
 	return		mixNoise, sparseNoise, velvetNoise;
 }
 
+// legacy
 // not-really box-muller gaussian noise distribution estimation, thanks to Andy Farnell
 // default (gain 0.6403882032022076) gives very close to unity amplitude (-1..1) output
+// sadly this is really not very good as it gives a more welch-like distribution, so it is being retired
+// @see 'gaussianNoiseNormal()' in 'evi_approx.genexpr' for more 'normal' (successful) normal distribution function
 gaussianNoise(gain)
 {
 	Xoshiro256	= noise();
@@ -125,7 +128,7 @@ eviRand(p) {										// phasor input, not frequency
 	a  = latch(prev, rr);
 	n  = noise();
 	b  = latch(n, rr);
-	nv = mix(a, b, p);								// interp(p, a, b, mode="cosine") for more fun
+	nv = mix(a, b, p);								// see 'eviRandC()' below for cosine version
 	prev = b;
 	return nv, n;
 }
@@ -165,8 +168,20 @@ eviRandCN(p, n) {									// phasor input, not frequency, and external noise sou
 	return nv, nw;
 }
 
+// more useful version of above
+eviRandOuts(p, n) {									// phasor input, not frequency, and external noise source
+	History prev(0);
+	rr = (delta(p)) < 0;                    		// assumes positive freq only
+	a  = latch(prev, rr);
+	b  = latch(n, rr);
+	nv = mix(a, b, p);
+    nw = interp(p, a, b, mode="cosine");
+	prev = b;
+	return nv, nw, a, rr;							// lin, cos, step, sync
+}
+
 // like [rand~] but ready for cubic interpolation
-eviRands(d0, x2)									// delta input, not frequency; x2 is source
+eviRands(d0, x2)									// delta input (sync), not frequency; x2 is source
 {
 	History	xm1(0), x0(0), x1(0);
 	vm1	= latch(xm1, d0);
@@ -223,6 +238,7 @@ catmullRomSplineDynamic(f, y0, y1, y2, y3, bias, tension)
 }
 
 // a very (and needlessly) expensive random LFO
+// @see 'evi_randlfo.gendsp' for an alternative version
 eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 {
 	p	= phasor(hz, reset);
@@ -232,9 +248,10 @@ eviRandLfo(hz, skew, reset)		// skew must be clamped -1..1
 	bias, tension = 0;
 	attenuate = 0.971348;
 	if (skew != 0) {
+		divider = (skew > 0) ? 7 : 4;
 		bias = skew * 4;
 		tension = skew * -3;
-		attenuate = fastpow(7, abs(skew));
+		attenuate = fastpow(divider, abs(skew));
 	}
 
 	ym1, y0, y1, y2	= eviRands(d, x);

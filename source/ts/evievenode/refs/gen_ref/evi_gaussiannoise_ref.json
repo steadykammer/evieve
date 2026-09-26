@@ -4,12 +4,14 @@
         "child": "evi.gaussiannoise~",
         "category": "evieve",
         "digest": "Gaussian distributed noise approximation",
-        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution."
+        "description": "An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution (see the helpfile for details)."
     },
     "constructor": {
         "inlets": "dummy"
     },
-    "includes": [],
+    "includes": [
+        "evi_approx"
+    ],
     "inlets": [
         {
             "id": 1,
@@ -25,7 +27,7 @@
             "name": "(box",
             "type": "float",
             "optional": 1,
-            "digestauto": "Muller) Gaussian Noise Distribution",
+            "digestauto": "Muller) Gaussian Noise Distribution -1..1",
             "digest": "The gaussian noise output."
         },
         {
@@ -33,30 +35,19 @@
             "name": "sync",
             "type": "float",
             "optional": 1,
-            "digestauto": "White Noise",
+            "digestauto": "White Noise -1..1",
             "digest": "Synchronised to the gaussian process."
         },
         {
             "id": 3,
-            "name": "cos",
+            "name": "cosine",
             "type": "float",
             "optional": 1,
-            "digestauto": "Noise",
+            "digestauto": "Noise -1..1",
             "digest": "Synchronised to the gaussian process."
         }
     ],
-    "attributes": [
-        {
-            "name": "amplitude",
-            "type": "float",
-            "digest": "@min 0, @max 1",
-            "description": "Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.",
-            "default": {
-                "type": "float",
-                "value": "0.6403882032022076"
-            }
-        }
-    ],
+    "attributes": [],
     "seealso": [
         {
             "name": "evi_audiodust",
@@ -77,6 +68,10 @@
         {
             "name": "evi_randy",
             "display": "evi_randy"
+        },
+        {
+            "name": "evi_randlfo",
+            "display": "evi_randlfo"
         }
     ]
 }

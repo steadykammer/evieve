@@ -134,6 +134,10 @@
         {
             "name": "evi_tremolo",
             "display": "evi_tremolo"
+        },
+        {
+            "name": "evi_randlfo",
+            "display": "evi_randlfo"
         }
     ]
 }

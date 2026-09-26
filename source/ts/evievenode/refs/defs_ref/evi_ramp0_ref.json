@@ -150,6 +150,7 @@
     "seealso": [
         "evi.phasor0~",
         "evi.randy~",
+        "evi.randlfo~",
         "evi.zeroxcount~"
     ]
 }

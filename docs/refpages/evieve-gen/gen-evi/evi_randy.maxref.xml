@@ -16,7 +16,7 @@
     <constructorlist>
         <constructor name='1'>
             <digest>
-                { arguments={}, inlets={ frequency } }
+                { arguments={}, inlets={ frequency, reset } }
             </digest>
         </constructor>
     </constructorlist>
@@ -24,6 +24,11 @@
         <geninlet name='frequency' type='float' optional='1'>
             <digest>
                 in Hz @min 0.. Frequency at which to sample new values internally, controlling the speed of the segments.
+            </digest>
+        </geninlet>
+        <geninlet name='reset' type='float' optional='1'>
+            <digest>
+                Phase. 
             </digest>
         </geninlet>
     </geninletlist>
@@ -36,6 +41,7 @@
     </metadatalist>
     <seealsolist>
         <seealso name='evi_rand' display='evi_rand' type='genrefpage' />
+        <seealso name='evi_randlfo' display='evi_randlfo' type='genrefpage' />
         <seealso name='evi_audiodust' display='evi_audiodust' type='genrefpage' />
         <seealso name='evi_gaussiannoise' display='evi_gaussiannoise' type='genrefpage' />
         <seealso name='evi_velvetnoise' display='evi_velvetnoise' type='genrefpage' />

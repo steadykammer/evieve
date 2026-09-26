@@ -87,6 +87,7 @@ max classnamehelpcategory evi.formantosc~ evioscillator;
 max classnamehelpcategory evi.quadosc~ evioscillator;
 max classnamehelpcategory evi.audiodust~ evinoise;
 max classnamehelpcategory evi.gaussiannoise~ evinoise;
+max classnamehelpcategory evi.randlfo~ evinoise;
 max classnamehelpcategory evi.randy~ evinoise;
 max classnamehelpcategory evi.velvetnoise~ evinoise;
 max classnamehelpcategory evi.zeroxoscnoise~ evinoise;

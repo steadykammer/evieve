@@ -307,7 +307,7 @@
     "evi.gaussiannoise~": {
         "type": "define",
         "digest": "Gaussian distributed noise approximation",
-        "description": "evi.gaussiannoise~ is a 'max define' for the evi_gaussiannoise.gendsp gen~ abstraction. Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a scope~. In a histogram one can see the distribution. The point is the gaussian random number distribution."
+        "description": "evi.gaussiannoise~ is a 'max define' for the evi_gaussiannoise.gendsp gen~ abstraction. Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, slightly different in a scope~. In a histogram one can see the distribution. The point is the gaussian random number distribution (see the helpfile for details)."
     },
     "evi.gigaverb~": {
         "type": "abstraction",
@@ -518,6 +518,11 @@
         "type": "define",
         "digest": "Ramp generator, with options for zero-reset, loop, restingstate, curve and pause",
         "description": "evi.ramp0~ is a 'max define' for the evi_ramp0.gendsp gen~ abstraction. Because evi.ramp0~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA bit like MSP ramp~, with options for zero-reset, loop, restingstate, curve and pause."
+    },
+    "evi.randlfo~": {
+        "type": "define",
+        "digest": "Phase synchronous discontinuity-free random LFO waves with FM and morphing capabilities",
+        "description": "evi.randlfo~ is a 'max define' for the evi_randlfo.gendsp gen~ abstraction. Because evi.randlfo~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nAn indulgent (but simple) random LFO modulation source. The main LFO output is slightly curved, and all random wave shapes are phase synchronous and share the same random number generator, so that LFO types can be switched in real time without discontinuities. Various modulation and warping attributes control and shape the output in a smoothly updating manner so that the modulation source can be 'performed'. Various additional data outlets provide synchronous downstream processing options."
     },
     "evi.randy~": {
         "type": "define",

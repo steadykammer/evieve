@@ -297,6 +297,38 @@
             ]
         },
         {
+            "document": false,
+            "digest": "Copied here, @see 'eviRamplimit()' in 'evi_smooth.genexpr' for details",
+            "name": "ramplimit",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "target",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "upsamples",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "downsamples",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
             "document": true,
             "digest": "Collection of computed switchable LFOs, all wave selections in output range 0..1",
             "name": "lfoShapes01",

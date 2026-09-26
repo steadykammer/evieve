@@ -3454,6 +3454,30 @@
                 "auto": false
             }
         },
+        "evi_randlfo.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.randlfo~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": true
+            },
+            "helpfile": {
+                "msp": true,
+                "gentab": true,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": [
+                    "noise"
+                ]
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi_randy.gendsp": {
             "define": {
                 "object": true,

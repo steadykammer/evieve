@@ -95,7 +95,7 @@ noiseSources(ZeroxEnv, MixNoise, pitchLow, pitchHigh)
     }
 
     dustVelvet = sparseVelvetNoise(tpqmHz, mixSq);
-    gaussian = gaussianNoise(0.6403882032022076);
+    gaussian = gaussianNoiseNormal();
     interpNoise = interp(tpqmAmp, dustVelvet, gaussian, mode="linear");
 
     g, k	= rcDampCoeffs0b(freqDamp, dynamicDamp);

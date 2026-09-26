@@ -1942,6 +1942,38 @@
         },
         {
             "document": true,
+            "digest": "Cheaper than and similar too 'eviRampsmooth()' etc, slew limiter with linear ramps set in sample time",
+            "name": "eviRamplimit",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "target",
+                    "digest": "Value to slew limit"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "upsamples",
+                    "digest": "Ramp up time in samples"
+                },
+                {
+                    "id": 3,
+                    "kind": "input",
+                    "name": "downsamples",
+                    "digest": "Ramp down time in samples"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Slew",
+                    "digest": "Linear slew limiter ramped output"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Reimplementation of MSP [curve~] algorithm. Exact destination ramp. Note, this is expensive in gen~.",
             "name": "eviCurve",
             "inputs": [

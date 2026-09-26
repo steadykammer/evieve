@@ -21,10 +21,10 @@ eviRandy(p)                                         // phasor input, not frequen
 	d = (delta(p)) < 0;                            	// assumes positive freq only
 	n = noise();
     ym1, y0, y1, y2 = eviRands(d, n * sqrt1_2);
-    // 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()
+    // the 'tri-cubic-like' 'mode=cubic' does not work for eviRandy()
     r = interp(p, ym1, y0, y1, y2, mode="fastcubic");
     return r, n;
 }
 
-out1, out2 = eviRandy(phasor(in1));
+out1, out2 = eviRandy(phasor(in1, in2));
 

@@ -27,7 +27,7 @@
 // for better (?) 'emulations' of the Korg MS-10 / MS-20 filter chips.
 
 require("evi_smooth.genexpr");				// incl. "_utilities" & _approx"
-require("evi_sources.genexpr");
+// require("evi_sources.genexpr");			// legacy
 require("evi_interp.genexpr");
 
 // noise...
@@ -38,7 +38,8 @@ gaussnoise(ngain)
 	History noisedummy(0);
 	nc = 0.00001;
 	ng = (ngain < nc) ? nc : (ngain * 0.05);
-	return ng * gaussianNoise(0.6403882032022076);
+	// return ng * gaussianNoise(0.6403882032022076); // legacy
+	return ng * gaussianNoiseNormal();
 }
 
 // nonlinear...

@@ -360,3 +360,57 @@ eviRamp0(trig)
     return  outramp, carrycount, syncstart, syncend;
 }
 
+// i needed a version of 'eviRamp0()' with duration as inlet and in samples...
+eviRamp1(trig, duration)    // duration = ramp duration IN SAMPLES in 'eviRamp1()' !!
+{
+	History jump(0.);
+
+    // !! defaults are slightly different in 'eviRamp1()' !!
+	Param   zeroreset(0, min=0, max=1);         // zero reset phase off/on 0/1
+	Param   retrigger(0, min=0, max=1);         // allow retriggering of ramp during ramp off/on 0/1
+	Param   loop(0, min=0, max=1);              // loop ramp off/on 0/1 (@loop 1 = a phasor)
+	Param   restingstate(0, min=0, max=1);      // oneshot mode (@loop=0) 'rests' at zero or one 0/1
+	Param   curve(0, min=0, max=1);             // make ramp s-curve off/on 0/1
+	Param   pause(0, min=0, max=1);             // pause ramp output 0/1
+
+	zr      = int(zeroreset);
+	rt      = int(retrigger);
+	lp      = int(loop);
+	rs      = int(restingstate);
+	cv      = int(curve);
+	powsah  = int(pause);
+
+	trigger = delta(trig) < 0;   // can be blocked by @retrigger 0
+
+	thisphase = wrap(jump, 0, 1);
+	ramp = powsah ? latch(thisphase, (delta(powsah) > 0)) : thisphase;
+	syncstart = delta(ramp) < 0;
+
+	// increment
+	incr = duration / SAMPLERATE; // !!
+	incrlatch = latch(incr, (syncstart + trigger)); // is zero on load
+	// init & zero reset, before the reset gate, in case user sets retrigger to zero on load
+	firsttrig = accum(trigger) > 0; // # of triggers in object lifetime
+	firstgate = gate(firsttrig, incr);  // is zero on load
+	increment = selector((zr + 1), firstgate, incrlatch);
+
+	// this minimum() 0.999 is a horrid hack gen~ bug fix
+	// if SR <= 44.1kHz (works fine without @ SR >= 48kHz)
+	end = ramp < minimum((1 - increment), 0.999);   // if not loop, stop phase at end
+	end0 = end == 0;
+	syncend = delta(end) < 0;
+
+	ramptrigger = gate((end0 || rt), trigger);
+	carrycount = accum(syncstart, ramptrigger) - 1;
+
+	jump = ramptrigger ? 0 : (powsah ? 0 : (latch(lp, (syncstart + syncend)) ? increment : (increment * end))) + thisphase;
+
+	rest = rs ? ramp : (ramp - end0);
+	rtrt = rest * rest;
+	rtinv = 1 - rest;
+	rtirti = rtinv * rtinv;
+	outramp = latch(cv, syncstart) ? ((rest < 0.5) ? (rtrt + rtrt) : 1 - (rtirti + rtirti)) : rest;   // s-curve or linear
+
+    return  outramp, carrycount, syncstart, syncend;
+}
+

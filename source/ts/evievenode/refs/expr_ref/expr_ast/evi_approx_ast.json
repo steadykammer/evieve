@@ -4708,6 +4708,110 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "ftomApproxAccurate0",
+                "raw": "ftomApproxAccurate0"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "frequency",
+                    "raw": "frequency"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "TWELVEDIVLOGTWO",
+                                "raw": "TWELVEDIVLOGTWO"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 17.312340490667562,
+                                "raw": "17.3123404906675609",
+                                "gen_kind": "float"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "FREQPITCH",
+                                "raw": "FREQPITCH"
+                            },
+                            "right": {
+                                "type": "UnaryExpression",
+                                "operator": "-",
+                                "argument": {
+                                    "type": "Literal",
+                                    "value": 36.37631656229591,
+                                    "raw": "36.3763165622959152",
+                                    "gen_kind": "float"
+                                },
+                                "prefix": true
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "frequency",
+                                            "raw": "frequency"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "logApprox",
+                                        "raw": "logApprox"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "TWELVEDIVLOGTWO",
+                                    "raw": "TWELVEDIVLOGTWO"
+                                }
+                            },
+                            "right": {
+                                "type": "Identifier",
+                                "name": "FREQPITCH",
+                                "raw": "FREQPITCH"
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "dbtoaApprox",
                 "raw": "dbtoaApprox"
             },
@@ -6066,6 +6170,389 @@
                                         "name": "im",
                                         "raw": "im"
                                     }
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "gaussianNoiseNormal",
+                "raw": "gaussianNoiseNormal"
+            },
+            "params": [],
+            "defaults": [],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "Xoshiro256",
+                                "raw": "Xoshiro256"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "noise",
+                                    "raw": "noise"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "alpha",
+                                "raw": "alpha"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "Xoshiro256",
+                                                            "raw": "Xoshiro256"
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "abs",
+                                                        "raw": "abs"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "logApprox",
+                                                "raw": "logApprox"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 0.25,
+                                                "raw": "0.25",
+                                                "gen_kind": "float"
+                                            },
+                                            "prefix": true
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "theta",
+                                "raw": "theta"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "noise",
+                                        "raw": "noise"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "PI",
+                                    "raw": "PI"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "cosXos",
+                                "raw": "cosXos"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "theta",
+                                        "raw": "theta"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "cos73a",
+                                    "raw": "cos73a"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "rgauss",
+                                "raw": "rgauss"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "alpha",
+                                    "raw": "alpha"
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "cosXos",
+                                    "raw": "cosXos"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "rgauss",
+                                    "raw": "rgauss"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "Xoshiro256",
+                                    "raw": "Xoshiro256"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "cosXos",
+                                    "raw": "cosXos"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
+                "name": "gaussianNoiseNormalRI",
+                "raw": "gaussianNoiseNormalRI"
+            },
+            "params": [],
+            "defaults": [],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "alpha",
+                                "raw": "alpha"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "BinaryExpression",
+                                        "operator": "*",
+                                        "left": {
+                                            "type": "CallExpression",
+                                            "arguments": [
+                                                {
+                                                    "type": "CallExpression",
+                                                    "arguments": [
+                                                        {
+                                                            "type": "CallExpression",
+                                                            "arguments": [],
+                                                            "callee": {
+                                                                "type": "Identifier",
+                                                                "name": "noise",
+                                                                "raw": "noise"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "callee": {
+                                                        "type": "Identifier",
+                                                        "name": "abs",
+                                                        "raw": "abs"
+                                                    }
+                                                }
+                                            ],
+                                            "callee": {
+                                                "type": "Identifier",
+                                                "name": "logApprox",
+                                                "raw": "logApprox"
+                                            }
+                                        },
+                                        "right": {
+                                            "type": "UnaryExpression",
+                                            "operator": "-",
+                                            "argument": {
+                                                "type": "Literal",
+                                                "value": 0.25,
+                                                "raw": "0.25",
+                                                "gen_kind": "float"
+                                            },
+                                            "prefix": true
+                                        }
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "sqrt",
+                                    "raw": "sqrt"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "theta",
+                                "raw": "theta"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "*",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "noise",
+                                        "raw": "noise"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Identifier",
+                                    "name": "PI",
+                                    "raw": "PI"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "rgauss",
+                                        "raw": "rgauss"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "igauss",
+                                        "raw": "igauss"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "alpha",
+                                        "raw": "alpha"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "theta",
+                                        "raw": "theta"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "p2cApprox",
+                                    "raw": "p2cApprox"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "rgauss",
+                                    "raw": "rgauss"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "igauss",
+                                    "raw": "igauss"
                                 }
                             ]
                         },

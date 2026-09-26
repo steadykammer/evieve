@@ -78,14 +78,14 @@
         },
         {
             "document": true,
-            "digest": "Not-really box-muller gaussian noise distribution implementation",
+            "digest": "Not-really Box-Muller gaussian noise distribution implementation. Note that this does not have good distribution and has been retired in evieve. See 'gaussianNoiseNormal()' in 'evi_approx.genexpr' for a replacement function.",
             "name": "gaussianNoise",
             "inputs": [
                 {
                     "id": 1,
                     "kind": "input",
                     "name": "gain",
-                    "digest": ""
+                    "digest": "0.6403882032022076 gives very close to unity amplitude (-1..1) output"
                 }
             ],
             "returns": [
@@ -273,7 +273,7 @@
         },
         {
             "document": true,
-            "digest": "like 'eviRandN()' but with additional cosine interpolated output",
+            "digest": "Like 'eviRandN()' but with additional cosine interpolated output",
             "name": "eviRandCN",
             "inputs": [
                 {
@@ -299,6 +299,47 @@
                     "id": 2,
                     "name": "nw",
                     "digest": "Cosine rand oscillator output"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Like 'eviRandCN()' but with additional step and sync outputs",
+            "name": "eviRandOuts",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "p",
+                    "digest": "Phasor driver 0..1 (not frequency)"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "n",
+                    "digest": "External noise source from which rand is derived"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "nv",
+                    "digest": "Linear rand oscillator output"
+                },
+                {
+                    "id": 2,
+                    "name": "nw",
+                    "digest": "Cosine rand oscillator output"
+                },
+                {
+                    "id": 3,
+                    "name": "a",
+                    "digest": "Step sync output (previous step)"
+                },
+                {
+                    "id": 4,
+                    "name": "rr",
+                    "digest": "Sync output (of phasor input)"
                 }
             ]
         },

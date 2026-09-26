@@ -107,6 +107,10 @@
         {
             "name": "evi_trigholdgate",
             "display": "evi_trigholdgate"
+        },
+        {
+            "name": "evi_randlfo",
+            "display": "evi_randlfo"
         }
     ]
 }

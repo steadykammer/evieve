@@ -31,25 +31,6 @@
                 "arguments": [
                     {
                         "type": "Literal",
-                        "value": "evi_sources.genexpr",
-                        "raw": "\"evi_sources.genexpr\"",
-                        "gen_kind": "string"
-                    }
-                ]
-            },
-            "gen_kind": "compiler_command"
-        },
-        {
-            "type": "ExpressionStatement",
-            "expression": {
-                "type": "CallExpression",
-                "callee": {
-                    "type": "Identifier",
-                    "name": "require"
-                },
-                "arguments": [
-                    {
-                        "type": "Literal",
                         "value": "evi_interp.genexpr",
                         "raw": "\"evi_interp.genexpr\"",
                         "gen_kind": "string"
@@ -193,18 +174,11 @@
                             },
                             "right": {
                                 "type": "CallExpression",
-                                "arguments": [
-                                    {
-                                        "type": "Literal",
-                                        "value": 0.6403882032022076,
-                                        "raw": "0.6403882032022076",
-                                        "gen_kind": "float"
-                                    }
-                                ],
+                                "arguments": [],
                                 "callee": {
                                     "type": "Identifier",
-                                    "name": "gaussianNoise",
-                                    "raw": "gaussianNoise"
+                                    "name": "gaussianNoiseNormal",
+                                    "raw": "gaussianNoiseNormal"
                                 }
                             }
                         },

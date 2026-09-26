@@ -602,6 +602,107 @@
                     "digest": "Sync trigger at end of a ramp"
                 }
             ]
+        },
+        {
+            "document": false,
+            "digest": "",
+            "name": "eviRamp1",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "trig",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "duration",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "kind": "Param",
+                    "name": "zeroreset",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "kind": "Param",
+                    "name": "retrigger",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 5,
+                    "kind": "Param",
+                    "name": "loop",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 6,
+                    "kind": "Param",
+                    "name": "restingstate",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 7,
+                    "kind": "Param",
+                    "name": "curve",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                },
+                {
+                    "id": 8,
+                    "kind": "Param",
+                    "name": "pause",
+                    "default": 0,
+                    "min": 0,
+                    "max": 1,
+                    "type": "integer",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 2,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 3,
+                    "name": "",
+                    "digest": ""
+                },
+                {
+                    "id": 4,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
         }
     ],
     "seealso": [

@@ -431,7 +431,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Source", "evieve Noise", "evieve Utility" ],
         "keywords": [],
-        "seealso": [ "evi.audiodust~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randy~" ]
+        "seealso": [ "evi.audiodust~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~", "evi.randlfo~", "evi.randy~" ]
     },
     "evi.gigaverb~": {
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
@@ -697,7 +697,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": [ "evi.ramp0~", "evi.randy~", "evi.zeroxcount~" ]
+        "seealso": [ "evi.ramp0~", "evi.randy~", "evi.randlfo~", "evi.zeroxcount~" ]
     },
     "evi.plateverb~": {
         "digest": "Plate reverb based on yafr2 with additional filtering and smoothing \n",
@@ -725,14 +725,21 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": [ "evi.phasor0~", "evi.randy~", "evi.zeroxcount~" ]
+        "seealso": [ "evi.phasor0~", "evi.randy~", "evi.randlfo~", "evi.zeroxcount~" ]
+    },
+    "evi.randlfo~": {
+        "digest": "Phase synchronous discontinuity-free random LFO waves with FM and morphing capabilities",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map" ],
+        "keywords": [],
+        "seealso": [ "evi.phasor0~", "evi.ramp0~", "evi.randy~", "evi.zeroxcount~", "evi.gaussiannoise~", "evi.modosc~" ]
     },
     "evi.randy~": {
         "digest": "Cubic interpolated version of the linear MSP rand~",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Oscillator", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility", "evieve Map", "evieve Noise" ],
         "keywords": [],
-        "seealso": [ "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~" ]
+        "seealso": [ "evi.randlfo~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxcount~", "evi.zeroxoscnoise~" ]
     },
     "evi.rcfilter~": {
         "digest": "Trapezoidal nonliner onepole rc filter emulation",
@@ -1019,7 +1026,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Gen Abstractions", "evieve Control", "evieve Modulation", "evieve Source", "evieve Utility" ],
         "keywords": [],
-        "seealso": [ "evi.trigholdgate~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.phasor0~", "evi.ramp0~" ]
+        "seealso": [ "evi.trigholdgate~", "evi.audiodust~", "evi.gaussiannoise~", "evi.velvetnoise~", "evi.zeroxoscnoise~", "evi.randy~", "evi.randlfo~", "evi.phasor0~", "evi.ramp0~" ]
     },
     "evi.zeroxoscnoise~": {
         "digest": "An automatic crossfading oscillators / noise source via audio analysis, e.g. used in vocoders",

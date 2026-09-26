@@ -9,7 +9,7 @@
 		<b>evi.gaussiannoise~</b> is a 'max define' for the <o>evi_gaussiannoise</o>.gendsp gen~ abstraction.
 		Because evi.gaussiannoise~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, very slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution. <br />
+		An approximate 'Box-Muller' gaussian noise distribution. It looks roughly the same as white noise in a spectral view, slightly different in a <o>scope~</o>. In a histogram one can see the distribution. The point is the gaussian random number distribution (see the helpfile for details). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>
@@ -35,7 +35,7 @@
 	<outletlist>
 		<outlet id="1" type="signal">
 			<digest>
-				Outlet #1: (Box Muller) Gaussian Noise Distribution
+				Outlet #1: (Box Muller) Gaussian Noise Distribution -1..1
 			</digest>
 			<description>
 				The gaussian noise output.
@@ -43,7 +43,7 @@
 		</outlet>
 		<outlet id="2" type="signal">
 			<digest>
-				Outlet #2: Sync White Noise
+				Outlet #2: Sync White Noise -1..1
 			</digest>
 			<description>
 				Synchronised to the gaussian process.
@@ -51,7 +51,7 @@
 		</outlet>
 		<outlet id="3" type="signal">
 			<digest>
-				Outlet #3: Cos Noise
+				Outlet #3: Cosine Noise -1..1
 			</digest>
 			<description>
 				Synchronised to the gaussian process.
@@ -63,17 +63,6 @@
 	</methodlist>
 	<!--ATTRIBUTES-->
 	<attributelist>
-		<attribute name="amplitude" get="1" set="1" type="float" min="0" max="1">
-			<digest>
-				Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.
-			</digest>
-			<description>
-				Not-really-amplitude (linear). This should be 0.6403882032022076 for normal use as this gives -1..1 output.
-			</description>
-			<attributelist>
-				<attribute name="default" get="0" set="0" size="1" value="0.6403882032022076" />
-			</attributelist>
-		</attribute>
 	</attributelist>
 	<!--EXAMPLE-->
 	<examplelist>
@@ -85,10 +74,11 @@
 		<seealso name="evi.velvetnoise~"> </seealso>
 		<seealso name="evi.zeroxcount~"> </seealso>
 		<seealso name="evi.zeroxoscnoise~"> </seealso>
+		<seealso name="evi.randlfo~"> </seealso>
 		<seealso name="evi.randy~"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Thanks to Andy Farnell. <br />
+        Note that in a normal distribution the gaussian outlet (outlet 1) should give output in the range approximately -HALFPI..HALFPI. However, because of the approximations used here, the given output is approximately in the range -1.11..1.11. In the 'evi_approx.genexpr' source file this is NOT accounted for, but in this 'evi_gaussiannoise' / 'evi.gaussiannoise~' abstraction it is accounted for so that, like the other outputs, gaussian noise outputs in range -1..1 <br />
 	</discussion>
 </c74object>

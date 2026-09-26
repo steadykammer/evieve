@@ -622,6 +622,26 @@
             ]
         },
         {
+            "document": false,
+            "digest": "",
+            "name": "ftomApproxAccurate0",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "frequency",
+                    "digest": ""
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "",
+                    "digest": ""
+                }
+            ]
+        },
+        {
             "document": true,
             "digest": "Approximation of 'dbtoa()'",
             "name": "dbtoaApprox",
@@ -703,7 +723,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum must be 0.001 seconds (1ms)",
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations; NOTE: minimum input must be 0.001 seconds (1ms)",
             "name": "tauA",
             "inputs": [
                 {
@@ -723,7 +743,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping.",
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe but more expensive clamping.",
             "name": "tauAm",
             "inputs": [
                 {
@@ -929,7 +949,7 @@
                     "id": 2,
                     "kind": "input",
                     "name": "th",
-                    "digest": ""
+                    "digest": "input2"
                 }
             ],
             "returns": [
@@ -942,6 +962,47 @@
                     "id": 2,
                     "name": "imag",
                     "digest": "multiplier 2"
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Approximated Box-Muller gaussian noise distribution with linked outputs. Used in the 'evi_gaussiannoise.gendsp' abstraction.",
+            "name": "gaussianNoiseNormal",
+            "inputs": [],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "gaussian",
+                    "digest": "Real gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation."
+                },
+                {
+                    "id": 2,
+                    "name": "white",
+                    "digest": "White noise sync source."
+                },
+                {
+                    "id": 3,
+                    "name": "cos",
+                    "digest": "Cosine noise sync source."
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "Approximated Box-Muller gaussian noise distribution with real/imag outputs.",
+            "name": "gaussianNoiseNormalRI",
+            "inputs": [],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "real",
+                    "digest": "Real gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation."
+                },
+                {
+                    "id": 2,
+                    "name": "imag",
+                    "digest": "Imaginary gaussian noise output. Note this has output greater than +/- 1, see source file for lengthy explanation."
                 }
             ]
         },
