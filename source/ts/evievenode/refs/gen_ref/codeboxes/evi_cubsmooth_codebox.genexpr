@@ -21,7 +21,7 @@ cfSmoothCubicCoeff(hz, s)		// freq, seconds (minimum 0.001 seconds !!)
 
 cfSmoothCubicFilter(x0, wc, s0)
 {
-	History	low1(0), low2(0), inz(0), g(2);
+	History	low1(0), low2(0), inz(0), g(2); // init g() on load
 
 	low1z	= low1;
 	low2z	= low2;

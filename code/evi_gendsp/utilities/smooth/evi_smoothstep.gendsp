@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 243.0, 100.0, 675.0, 164.0 ],
+        "rect": [ 243.0, 100.0, 749.0, 164.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
@@ -21,8 +21,8 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 469.0, 34.0, 165.0, 22.0 ],
-                    "text": "in 3 (signal/float) Smooth 0..1"
+                    "patching_rect": [ 469.0, 34.0, 258.0, 22.0 ],
+                    "text": "in 3 (signal/float) Smooth 0..1 @min 0 @max 1"
                 }
             },
             {

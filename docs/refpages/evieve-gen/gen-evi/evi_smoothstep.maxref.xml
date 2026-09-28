@@ -31,7 +31,7 @@
         </geninlet>
         <geninlet name='smooth' type='float' optional='1'>
             <digest>
-                0..1. The phase input to be smoothed. When the value of the left edge (x) is less that of (y), a fade transition will start with the left edge value being 1 and fall to the right edge value of 0. When the value of the left edge (x) is greater that the right edge (y), a fade transition will start with the right edge value being 0 and rise to the left edge value of 1
+                0..1 @min 0 @max 1. The phase input to be smoothed. When the value of the left edge (x) is less that of (y), a fade transition will start with the left edge value being 1 and fall to the right edge value of 0. When the value of the left edge (x) is greater that the right edge (y), a fade transition will start with the right edge value being 0 and rise to the left edge value of 1
             </digest>
         </geninlet>
     </geninletlist>

@@ -42,7 +42,7 @@ cfSmoothLinearFilter(x0, g0, s0)
 
 cfSmoothLinear(x1, hz, s)
 {
-	History	  g0(1), s0(0);
+	History	  g0(1), s0(0);     // init on load
 	y1		= cfSmoothLinearFilter(x1, g0, s0);
 	g0, s0	= cfSmoothLinearCoeff(hz, s);
 	return	  y1;

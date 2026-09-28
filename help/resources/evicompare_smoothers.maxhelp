@@ -2063,7 +2063,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 332.0, 279.0, 207.0, 22.0 ],
-                                                    "text": "list.reg \"evieve _Package _Overview\""
+                                                    "text": "list.reg \"evieve _Package_ Overview\""
                                                 }
                                             },
                                             {

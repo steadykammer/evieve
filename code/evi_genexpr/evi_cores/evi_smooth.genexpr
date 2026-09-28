@@ -57,7 +57,7 @@ expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum sh
 
 /*
 // excellent cheap generic smoother, fast(er) response
-// naive (no init)
+// naive (no init), cheaper
 expsmooth(x, t)		// x = value			// t is smooth time in seconds, NOTE: minimum should be 1ms
 {
 	History w(0);
@@ -81,7 +81,7 @@ logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 
 /*
 // excellent & cheapest generic smoother, slow(er) response
-// naive no init
+// naive (no init), cheaper
 logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 {
 	History z(0);
@@ -111,48 +111,6 @@ expso(x, z)									// z is pole
 	return y;
 }
 
-/*
-// for proper initialisation, shitty branched pete version
-expsoR(x, z)
-{
-	History w(0);
-	History	init(1);
-	y = 0;
-	if (init) {
-		y = x;
-	} else {
-		y = (z * w) + (x * (1 - z));
-	}
-	// w = fixdenorm(y); // for C++ export
-	w = y;
-	init = 0;
-	return y;
-}
-
-// for single '...smooth()' version ? 2 extra multipliers :-( but better than a branch ?
-expsoI(x, z)
-{
-	History w(0);
-	History init(1);
-	y = (z * w) + (x * (1 - z));
-	w = (init * x) + ((1 - init) * y);
-	init = 0;
-	return w; // must be 'w'
-}
-
-// wrap into z term, for '...BankX()' logic
-expsoB(x, z0)
-{
-	History w(0);
-	History init(1);
-	z = z0 * (1 - init);
-	y = (z * w) + (x * (1 - z));
-	w = y;
-	init = 0;
-	return w; // could be 'y'
-}
-*/
-
 expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum should be 1ms (0.001 seconds)
 {
 	History	init2(1);
@@ -166,7 +124,7 @@ expsmoothBank2(x1, x2, t)					// t is smooth time in seconds, NOTE: minimum shou
 }
 
 /*
-// naive (no init)
+// naive (no init), cheaper
 expsmoothBank2(x1, x2, t)
 {
 	History	expsdummy2(0);
@@ -614,7 +572,7 @@ eviSline(target, duration)				// target, duration in samples
 }
 
 /*
-// a version of 'eviLine()' for when ONLY flag 0/1 smooths are required
+// a version of 'eviLine()' for when only flag 0/1 smooths are required
 toggleLine(toggle, rampsamples)			// toggle == flag 0/1, time in samples
 {	// there must be a way to get rid of 'timelatch' & 'direction' ?!
 	History		phase(0), timelatch(0), direction(0), inlatch(1);

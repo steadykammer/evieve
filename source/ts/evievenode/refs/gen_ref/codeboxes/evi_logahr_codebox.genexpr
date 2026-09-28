@@ -4,7 +4,7 @@ logsad(s)									// s = time to drop 6dB (in seconds)
 	return	LN2 / (s * samplerate);
 }
 
-// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')
+// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version' ?)
 logattackholdrelease(x, a, h, r)			// a/h/r = attack/hold/release times (to 6dB) in seconds
 {
 	History	z(0), g(0);

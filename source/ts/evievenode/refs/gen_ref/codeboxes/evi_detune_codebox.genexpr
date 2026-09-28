@@ -76,7 +76,8 @@ semi	= evi_line((3 * detune * detune), smsamps);
 dpos2	= pow(laura, semi);				                // dpos2 (must be accurate = use 'pow()')
 dpos1	= 1 / dpos2;
 //dryMix, wetMix = logsmoothBank2((1 - (mix * mix)), ((2 - mix) * mix), smsecs); // original, this does not work well
-dryMix, wetMix = logsmoothBank2(1 - mix, mix, smsecs);  // note, you think this is wrong, but linear is correct here
+// note, you think dryMix & wetMix are wrong, but linear is correct here
+dw, dryMix, wetMix = logsmoothBank3(drywet, 1 - mix, mix, smsecs);
 
 // PHASES
 
@@ -138,7 +139,7 @@ wetL    = lowSumL + preSumL;
 wetR    = lowSumR + preSumR;
 
 // xfade dry / wet & output
-outputL, outputR = stereoXfadePar(dryL, dryR, wetL, wetR, drywet);
+outputL, outputR = stereoXfadePar(dryL, dryR, wetL, wetR, dw);
 
 out1 = outputL;
 out2 = outputR;

@@ -7,7 +7,7 @@
         "seealso": [ "evi.saw~", "evi.rect~", "evi.tri~", "evi.blitwaves~" ]
     },
     "evi.adsr~": {
-        "digest": "ADSR envelope generator, similar features to adsr~ but with logarithmic segments \n",
+        "digest": "ADSR envelope generator, similar features to adsr~ but with RC curved segments \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility" ],
         "keywords": [],

@@ -69,7 +69,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 135.0, 605.0, 249.0, 22.0 ],
-                    "text": "list.reg \"evieve _Package _Overview.maxpat\""
+                    "text": "list.reg \"evieve _Package_ Overview.maxpat\""
                 }
             },
             {

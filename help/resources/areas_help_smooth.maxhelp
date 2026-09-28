@@ -3,7 +3,7 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
+            "minor": 2,
             "revision": 0,
             "architecture": "x64",
             "modernui": 1
@@ -225,7 +225,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 31.0, 347.0, 195.0, 26.0 ],
+                    "patching_rect": [ 31.0, 356.0, 195.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -460,7 +460,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "multichannelsignal" ],
-                    "patching_rect": [ 32.0, 325.0, 102.0, 22.0 ],
+                    "patching_rect": [ 32.0, 334.0, 102.0, 22.0 ],
                     "text": "mc.evi.logdecay~"
                 }
             },
@@ -592,7 +592,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 32.0, 295.0, 82.0, 22.0 ],
+                    "patching_rect": [ 32.0, 304.0, 82.0, 22.0 ],
                     "text": "evi.logdecay~"
                 }
             },

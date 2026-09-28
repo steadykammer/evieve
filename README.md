@@ -106,5 +106,5 @@ Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vi
 
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| GenExpr | 54 | 16,757 | 6,308 | 4,229 | 27,294 |
+| GenExpr | 54 | 16,977 | 6,229 | 4,273 | 27,479 |
 

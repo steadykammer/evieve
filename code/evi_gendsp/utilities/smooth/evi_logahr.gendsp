@@ -34,7 +34,7 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 312.0, 13.0, 162.0, 35.0 ],
+                    "patching_rect": [ 312.0, 13.0, 165.0, 35.0 ],
                     "text": "in 2 (signal/float) Attack Time in milliseconds @min 0"
                 }
             },
@@ -57,13 +57,13 @@
                     "numinlets": 0,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 683.0, 13.0, 173.0, 35.0 ],
+                    "patching_rect": [ 683.0, 13.0, 177.0, 35.0 ],
                     "text": "in 4 (signal/float) Release Time in milliseconds @min 0"
                 }
             },
             {
                 "box": {
-                    "code": "\r\nlogsad(s)\t\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\treturn\tLN2 / (s * samplerate);\n}\n\r\n// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version')\nlogattackholdrelease(x, a, h, r)\t\t\t// a/h/r = attack/hold/release times (to 6dB) in seconds\n{\n\tHistory\tz(0), g(0);\n\tff\t\t= x - z;\n\thh, env\t= 0;\n\tif (ff > 0)\t{\n\t\thh\t= maximum((h * samplerate), 1) - 1; // no max ??\n\t\tenv\t= logsad(a);\n\t} else {\n\t\thh\t= g - 1;\n\t\tenv\t= (hh > 0.000001) ? 0 : logsad(r);\n\t}\n\ty\t\t= (ff * env) + z;\n\tg\t\t= hh;\n\tz\t\t= y;\n\treturn\ty;\n}\n\r\nout1    = logattackholdrelease(in1, in2*0.001, in3*0.001, in4*0.001);\r\n\r\n",
+                    "code": "\r\nlogsad(s)\t\t\t\t\t\t\t\t\t// s = time to drop 6dB (in seconds)\n{\n\treturn\tLN2 / (s * samplerate);\n}\n\r\n// log smooth (AHR) envelope follower (branching version, cheaper than 'simultaneous version' ?)\nlogattackholdrelease(x, a, h, r)\t\t\t// a/h/r = attack/hold/release times (to 6dB) in seconds\n{\n\tHistory\tz(0), g(0);\n\tff\t\t= x - z;\n\thh, env\t= 0;\n\tif (ff > 0)\t{\n\t\thh\t= maximum((h * samplerate), 1) - 1; // no max ??\n\t\tenv\t= logsad(a);\n\t} else {\n\t\thh\t= g - 1;\n\t\tenv\t= (hh > 0.000001) ? 0 : logsad(r);\n\t}\n\ty\t\t= (ff * env) + z;\n\tg\t\t= hh;\n\tz\t\t= y;\n\treturn\ty;\n}\n\r\nout1    = logattackholdrelease(in1, in2*0.001, in3*0.001, in4*0.001);\r\n\r\n",
                     "fontface": 0,
                     "fontname": "<Monospaced>",
                     "fontsize": 12.0,

@@ -39,7 +39,7 @@ simpleScale(x, outlo, curve)					// implementation: f(x) = log||lin||exp(ax+b)
 
 calcCoeff(rate, targetRatio)
 {
-	return	(rate <= 0) ? 0 : exp(-log((1 + targetRatio) / targetRatio) / rate);		// !! do NOT use 'expA()' !!
+	return	(rate <= 0) ? 0 : exp(-log((1 + targetRatio) / targetRatio) / rate);		// !! do NOT use exp approx !!
 }
 
 retrigRatio(rise, fall)
