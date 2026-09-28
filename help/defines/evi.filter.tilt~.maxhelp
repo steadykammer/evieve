@@ -1442,8 +1442,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 377.0, 175.0, 102.0, 22.0 ],
-                                                    "text": "param smooth 33"
+                                                    "patching_rect": [ 377.0, 175.0, 208.0, 22.0 ],
+                                                    "text": "param smooth 33 @min 0 @max 333"
                                                 }
                                             },
                                             {

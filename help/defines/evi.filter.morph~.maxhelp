@@ -1326,7 +1326,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1701,7 +1701,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 630.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1722,8 +1722,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 387.0, 210.0, 125.0, 22.0 ],
-                                                    "text": "param smooth 22.666"
+                                                    "patching_rect": [ 387.0, 210.0, 232.0, 22.0 ],
+                                                    "text": "param smooth 22.666 @min 0 @max 333"
                                                 }
                                             },
                                             {

@@ -1620,7 +1620,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 59.0, 119.0, 645.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1630,8 +1630,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 409.0, 188.0, 102.0, 22.0 ],
-                                                    "text": "param smooth 15"
+                                                    "patching_rect": [ 409.0, 188.0, 208.0, 22.0 ],
+                                                    "text": "param smooth 15 @min 0 @max 333"
                                                 }
                                             },
                                             {
@@ -2550,7 +2550,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

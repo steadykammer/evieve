@@ -45,6 +45,18 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-12",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 112.0, 238.0, 34.0, 23.0 ],
+                                    "text": "t 0.4"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-32",
                                     "items": [ "off", ",", "up", ",", "down", ",", "tri", ",", "sine", ",", "tanh", ",", "square", ",", "rand", "bin", ",", "rand", "step", ",", "rand", "linear", ",", "rand", "cosine", ",", "rand", "cubic", ",", "rand", "walk", ",", "noise" ],
                                     "maxclass": "umenu",
@@ -56,7 +68,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "off", "up", "down", "tri", "sine", "tanh", "square", "rand bin", "rand step", "rand linear", "rand cosine", "rand cubic", "rand walk", "noise" ],
-                                            "parameter_initial": [ 3.0 ],
+                                            "parameter_initial": [ 5.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[3]",
                                             "parameter_mmax": 13,
@@ -673,6 +685,13 @@
                         "lines": [
                             {
                                 "patchline": {
+                                    "destination": [ "obj-16", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-12", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "midpoints": [ 403.5, 356.5, 239.5, 356.5 ],
                                     "source": [ "obj-13", 0 ]
@@ -717,8 +736,17 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
+                                    "source": [ "obj-29", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-17", 0 ],
                                     "hidden": 1,
+                                    "order": 0,
                                     "source": [ "obj-29", 0 ]
                                 }
                             },
@@ -2835,7 +2863,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 59.0, 119.0, 600.0, 450.0 ],
+                                        "rect": [ 767.0, 169.0, 600.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -2900,8 +2928,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 399.0, 111.0, 79.0, 22.0 ],
-                                                    "text": "param gain 0"
+                                                    "patching_rect": [ 399.0, 111.0, 178.0, 22.0 ],
+                                                    "text": "param gain 0 @min 0 @max 20"
                                                 }
                                             },
                                             {
@@ -2922,8 +2950,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 44.0, 221.0, 103.0, 22.0 ],
-                                                    "text": "param spread 0.7"
+                                                    "patching_rect": [ 44.0, 221.0, 196.0, 22.0 ],
+                                                    "text": "param spread 0.7 @min 0 @max 1"
                                                 }
                                             },
                                             {
@@ -2933,8 +2961,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 44.0, 166.0, 96.0, 22.0 ],
-                                                    "text": "param depth 0.8"
+                                                    "patching_rect": [ 44.0, 166.0, 189.0, 22.0 ],
+                                                    "text": "param depth 0.8 @min 0 @max 1"
                                                 }
                                             },
                                             {
@@ -2944,8 +2972,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 44.0, 111.0, 82.0, 22.0 ],
-                                                    "text": "param rate 11"
+                                                    "patching_rect": [ 44.0, 111.0, 189.0, 22.0 ],
+                                                    "text": "param rate 11 @min 1 @max 100"
                                                 }
                                             },
                                             {
@@ -3142,6 +3170,7 @@
                             {
                                 "box": {
                                     "attr": "lfowave",
+                                    "displaymode": 1,
                                     "id": "obj-20",
                                     "ignoreclick": 1,
                                     "lock": 1,

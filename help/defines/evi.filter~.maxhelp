@@ -1620,7 +1620,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 154.0, 115.0, 600.0, 450.0 ],
+                                        "rect": [ 154.0, 115.0, 646.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1630,8 +1630,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 409.0, 188.0, 102.0, 22.0 ],
-                                                    "text": "param smooth 22"
+                                                    "patching_rect": [ 409.0, 188.0, 208.0, 22.0 ],
+                                                    "text": "param smooth 22 @min 0 @max 333"
                                                 }
                                             },
                                             {

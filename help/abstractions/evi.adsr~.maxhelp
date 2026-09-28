@@ -59,7 +59,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 148.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -700,7 +700,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 517.0, 195.0, 225.0, 55.0 ],
+                                    "patching_rect": [ 533.0, 195.0, 195.0, 55.0 ],
                                     "text": "shape of the segments, higher numbers become more linear",
                                     "textjustification": 1
                                 }
@@ -908,7 +908,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ]
+                                    "patching_rect": [ 338.0, 352.0, 55.0, 23.0 ],
+                                    "text": "mute 1"
                                 }
                             },
                             {
@@ -1708,8 +1709,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 398.0, 295.0, 89.0, 22.0 ],
-                                                    "text": "79 0"
+                                                    "patching_rect": [ 398.0, 295.0, 89.0, 22.0 ]
                                                 }
                                             },
                                             {
@@ -2444,8 +2444,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 398.0, 295.0, 89.0, 22.0 ],
-                                                    "text": "72 0"
+                                                    "patching_rect": [ 398.0, 295.0, 89.0, 22.0 ]
                                                 }
                                             },
                                             {
@@ -3395,7 +3394,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3991,12 +3990,12 @@
                                     "bubblepoint": 0.9,
                                     "bubbleside": 0,
                                     "id": "obj-62",
-                                    "linecount": 4,
+                                    "linecount": 3,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 521.0, 110.0, 84.0 ],
-                                    "text": "trigger is not affected by @delay, @hold1 or @hold2",
+                                    "patching_rect": [ 10.0, 521.0, 110.0, 69.0 ],
+                                    "text": "trigger down does not follow @hold2",
                                     "textjustification": 1
                                 }
                             },
@@ -4085,7 +4084,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 44100,
+                                    "numpoints": 48000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 395.0, 432.0, 266.0, 130.0 ],
                                     "prototypename": "Audio Scope - Light",

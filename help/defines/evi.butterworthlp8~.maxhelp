@@ -1129,7 +1129,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1456,8 +1456,8 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 357.0, 49.0, 63.0, 22.0 ],
-                                                    "text": "in 1 Cutoff"
+                                                    "patching_rect": [ 357.0, 49.0, 145.0, 22.0 ],
+                                                    "text": "in 1 Cutoff @default 4000"
                                                 }
                                             },
                                             {

@@ -2169,7 +2169,7 @@
                     "patching_rect": [ 352.0, 112.0, 78.0, 25.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 2.0, 256.0, 79.0, 25.0 ],
-                    "text": "Function:",
+                    "text": "Function",
                     "textjustification": 1
                 }
             },
@@ -2216,7 +2216,7 @@
                     "patching_rect": [ 44.0, 250.0, 72.0, 25.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 29.0, 41.0, 52.0, 25.0 ],
-                    "text": "File:",
+                    "text": "File",
                     "textjustification": 1
                 }
             },
