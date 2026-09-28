@@ -22,7 +22,7 @@
         "enablehscroll": 0,
         "devicewidth": 796.0,
         "subpatcher_template": "sub",
-        "cluebar": 2,
+        "cluebar": 1,
         "integercoordinates": 1,
         "title": "evieve GenExpr Index",
         "boxes": [
