@@ -2,9 +2,9 @@
     "object": {
         "name": "evi.adsr~",
         "category": "evieve",
-        "digest": "ADSR envelope generator, similar features to <o>adsr~</o> but with logarithmic segments",
-        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. Logarithmic segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>.",
-        "discussion": ""
+        "digest": "ADSR envelope generator, similar features to <o>adsr~</o> but with RC curved segments",
+        "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. RC curved segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>.",
+        "discussion": "Because the internal trigger is always signal rate, <o>evi.adsr~</o> cannot control voice retriggering of <o>poly~</o>. Therefore there is an additional abstraction in evieve called <o>evi.adsrpoly~</o> which also wraps the core <o>gen~</o> code but can control <o>thispoly~</o> perfectly. However this abstraction cannot accept any signal inlets."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -50,7 +50,7 @@
             "id": 1,
             "type": "signal",
             "digest": "adsr+ envelope",
-            "description": "dAhDShR envelope with logarithmic segments"
+            "description": "dAhDShR envelope with RC curved segments"
         },
         {
             "id": 2,
@@ -62,7 +62,7 @@
             "id": 3,
             "type": "signal",
             "digest": "active state 0/1 (inverse of 'mute') for example to [thispoly~ @automute 1]",
-            "description": "Attach to 'thispoly~ @automute 1' to control 'poly~' voice state"
+            "description": "Attach to 'thispoly~ @automute 1' to control 'poly~' state"
         },
         {
             "id": 4,
@@ -167,7 +167,7 @@
             "get": 0,
             "type": "float",
             "digest": "Ratio 0..10, minimum -120dB",
-            "description": "Ratio 0..10, very exponential..almost linear",
+            "description": "Controls the RC curve of downward envelope segments. Ratio 0..10 = very exponential..almost linear",
             "default": {
                 "get": 0,
                 "value": "0.05"
@@ -277,7 +277,7 @@
             "get": 0,
             "type": "float",
             "digest": "Ratio 0..10, minimum -120dB",
-            "description": "Ratio 0..10, very logarithmic..almost linear",
+            "description": "Controls the RC curve of upward envelope segments. Ratio 0..10 = very logarithmic..almost linear",
             "default": {
                 "get": 0,
                 "value": "0.3"

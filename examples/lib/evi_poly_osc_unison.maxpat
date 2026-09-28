@@ -266,6 +266,7 @@
             },
             {
                 "box": {
+                    "hidden": 1,
                     "id": "obj-7",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -705,8 +706,7 @@
                                     "source": [ "obj-5", 0 ]
                                 }
                             }
-                        ],
-                        "autosave": 0
+                        ]
                     },
                     "patching_rect": [ 186.0, 274.0, 315.0, 22.0 ],
                     "text": "gen~ @title evi_morph_trap_osc"

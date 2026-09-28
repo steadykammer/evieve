@@ -328,11 +328,11 @@
                     "id": "obj-46",
                     "linecount": 2,
                     "maxclass": "newobj",
-                    "numinlets": 9,
-                    "numoutlets": 9,
-                    "outlettype": [ "", "", "", "", "", "", "", "", "" ],
+                    "numinlets": 10,
+                    "numoutlets": 10,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "", "" ],
                     "patching_rect": [ 702.0, 190.0, 286.0, 35.0 ],
-                    "text": "routepass riseratio fallratio envmax velocitysense velocitycurve retrigger legato wait"
+                    "text": "routepass riseratio fallratio envmax velocitysense velocitycurve retrigger legato wait enable"
                 }
             },
             {
@@ -522,7 +522,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 609.0, 98.0, 191.0, 20.0 ],
+                    "patching_rect": [ 609.0, 98.0, 199.0, 20.0 ],
                     "text": "@attributes win out over args"
                 }
             },
@@ -588,7 +588,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 575.0, 378.0, 225.0, 20.0 ],
+                    "patching_rect": [ 575.0, 378.0, 233.0, 20.0 ],
                     "text": "segment # (0, 1, 2, 3, 4, 5, 6, 7, 8, 0)"
                 }
             },
@@ -601,6 +601,18 @@
                     "numoutlets": 0,
                     "patching_rect": [ 450.0, 398.0, 165.0, 33.0 ],
                     "text": "|\nto [thispoly~ @automute 1]"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-15",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 588.0, 289.0, 220.0, 47.0 ],
+                    "text": "See: [evi.adsrpoly~] for a crazy version that also wraps a native [adsr~] object for proper 'mute' outlet behaviour"
                 }
             },
             {
@@ -782,49 +794,56 @@
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 945.125, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 948.8333333333334, 268.4765625, 246.5, 268.4765625 ],
+                    "source": [ "obj-46", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "midpoints": [ 919.1666666666666, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 7 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 911.75, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 889.5, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 6 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 878.375, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 859.8333333333334, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 5 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 845.0, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 830.1666666666667, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 4 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 811.625, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 800.5, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 3 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 778.25, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 770.8333333333334, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 2 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
-                    "midpoints": [ 744.875, 268.5, 246.5, 268.5 ],
+                    "midpoints": [ 741.1666666666666, 268.5, 246.5, 268.5 ],
                     "source": [ "obj-46", 1 ]
                 }
             },
@@ -839,7 +858,7 @@
                 "patchline": {
                     "destination": [ "obj-23", 0 ],
                     "hidden": 1,
-                    "source": [ "obj-46", 8 ]
+                    "source": [ "obj-46", 9 ]
                 }
             },
             {

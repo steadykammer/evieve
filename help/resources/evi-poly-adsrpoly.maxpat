@@ -9,20 +9,20 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 681.0, 205.0, 766.0, 602.0 ],
+        "rect": [ 162.0, 236.0, 766.0, 615.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "integercoordinates": 1,
         "boxes": [
             {
                 "box": {
-                    "id": "obj-21",
-                    "linecount": 4,
-                    "maxclass": "comment",
+                    "id": "obj-34",
+                    "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 472.0, 419.0, 203.0, 60.0 ],
-                    "text": "To make this work more like the [adsr~] helpfile you would not use @automute and manage muting manually via the logic in the patcher"
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 617.0, 453.0, 100.0, 22.0 ],
+                    "text": "loadmess mute 1"
                 }
             },
             {
@@ -77,12 +77,12 @@
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "id": "obj-16",
-                    "linecount": 3,
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 427.0, 516.0, 248.0, 66.0 ],
-                    "text": "evi.adsr~ is designed to work with [thispoly~ @automute 1] rather than the more usual MSP 'mute' message of [adsr~].",
+                    "patching_rect": [ 358.0, 489.0, 171.0, 52.0 ],
+                    "text": "gain signal also works to set voice's busy state.",
                     "textjustification": 1
                 }
             },
@@ -100,12 +100,12 @@
             {
                 "box": {
                     "id": "obj-17",
-                    "linecount": 5,
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 264.0, 29.0, 382.0, 74.0 ],
-                    "text": "this is a copy of \"adsr-synth.maxpat\" from the [adsr~] helpfile to show that [evi.adsr~] does not work the same as [adsr~] when it comes to voice control because it's internal trigger is always a signal and therefore cannot retrigger the signal gate properly on voice steal (see the helpfile for an alternative)."
+                    "patching_rect": [ 264.0, 29.0, 335.0, 33.0 ],
+                    "text": "this is a copy of \"adsr-synth.maxpat\" from the [adsr~] helpfile to show that [evi.adsrpoly~] can work the same"
                 }
             },
             {
@@ -119,7 +119,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 248.0, 308.0, 141.0, 66.0 ],
+                    "patching_rect": [ 248.0, 323.0, 141.0, 66.0 ],
                     "text": "trigger signal gets new voice parameters when output gain is 0.",
                     "textjustification": 1
                 }
@@ -134,8 +134,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 556.0, 323.0, 184.0, 37.0 ],
-                    "text": "active state turns voice audio processing on and off.",
+                    "patching_rect": [ 556.0, 338.0, 184.0, 37.0 ],
+                    "text": "mute messages turn voice audio processing on and off.",
                     "textjustification": 1
                 }
             },
@@ -161,8 +161,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 19.0, 295.0, 100.0, 74.0 ],
-                    "text": "sah~ passes the new frequency when evi.adsr~ signals a new envelope",
+                    "patching_rect": [ 6.0, 310.0, 115.0, 74.0 ],
+                    "text": "sah~ passes the new frequency when evi.adsrpoly~ signals a new envelope",
                     "textjustification": 2
                 }
             },
@@ -175,11 +175,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 617.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 617.0, 243.0, 29.0, 22.0 ],
                     "text": "in 5"
                 }
             },
@@ -192,11 +188,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 562.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 562.0, 243.0, 29.0, 22.0 ],
                     "text": "in 4"
                 }
             },
@@ -209,11 +201,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 507.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 507.0, 243.0, 29.0, 22.0 ],
                     "text": "in 3"
                 }
             },
@@ -226,11 +214,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 451.0, 228.0, 29.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
+                    "patching_rect": [ 451.0, 243.0, 29.0, 22.0 ],
                     "text": "in 2"
                 }
             },
@@ -240,7 +224,11 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 120.0, 546.0, 42.0, 22.0 ],
+                    "patching_rect": [ 120.0, 561.0, 42.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "out~ 1"
                 }
             },
@@ -250,9 +238,9 @@
                     "maxclass": "newobj",
                     "numinlets": 5,
                     "numoutlets": 4,
-                    "outlettype": [ "signal", "signal", "signal", "signal" ],
-                    "patching_rect": [ 396.0, 267.0, 240.0, 22.0 ],
-                    "text": "evi.adsr~ 10. 100. 0.6 300."
+                    "outlettype": [ "signal", "signal", "", "signal" ],
+                    "patching_rect": [ 396.0, 282.0, 240.0, 22.0 ],
+                    "text": "evi.adsrpoly~ 10. 100. 0.6 300."
                 }
             },
             {
@@ -264,8 +252,8 @@
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "int", "int", "int" ],
-                    "patching_rect": [ 543.0, 492.0, 132.0, 22.0 ],
-                    "text": "thispoly~ @automute 1"
+                    "patching_rect": [ 543.0, 507.0, 56.0, 22.0 ],
+                    "text": "thispoly~"
                 }
             },
             {
@@ -277,7 +265,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 120.0, 492.0, 35.0, 22.0 ],
+                    "patching_rect": [ 120.0, 507.0, 35.0, 22.0 ],
                     "text": "*~"
                 }
             },
@@ -290,7 +278,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 120.0, 438.0, 45.0, 22.0 ],
+                    "patching_rect": [ 120.0, 453.0, 45.0, 22.0 ],
                     "text": "*~ 0.5"
                 }
             },
@@ -303,7 +291,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 179.0, 360.0, 53.0, 22.0 ],
+                    "patching_rect": [ 179.0, 375.0, 53.0, 22.0 ],
                     "text": "*~ 0.75"
                 }
             },
@@ -316,7 +304,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 179.0, 399.0, 50.0, 22.0 ],
+                    "patching_rect": [ 179.0, 414.0, 50.0, 22.0 ],
                     "text": "rect~"
                 }
             },
@@ -329,7 +317,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 120.0, 399.0, 42.0, 22.0 ],
+                    "patching_rect": [ 120.0, 414.0, 42.0, 22.0 ],
                     "text": "saw~"
                 }
             },
@@ -340,7 +328,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 120.0, 321.0, 55.0, 22.0 ],
+                    "patching_rect": [ 120.0, 336.0, 55.0, 22.0 ],
                     "text": "sah~ 0.5"
                 }
             },
@@ -362,7 +350,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 120.0, 228.0, 31.0, 22.0 ],
+                    "patching_rect": [ 120.0, 243.0, 31.0, 22.0 ],
                     "text": "sig~"
                 }
             },
@@ -396,6 +384,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 72.0, 34.0, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 1"
                 }
             }
@@ -471,7 +463,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-22", 0 ],
-                    "midpoints": [ 188.5, 429.5, 129.5, 429.5 ],
+                    "midpoints": [ 188.5, 444.5, 129.5, 444.5 ],
                     "source": [ "obj-26", 0 ]
                 }
             },
@@ -489,6 +481,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "midpoints": [ 626.5, 488.62109375, 552.5, 488.62109375 ],
+                    "source": [ "obj-34", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-6", 0 ],
                     "source": [ "obj-4", 0 ]
                 }
@@ -502,7 +501,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-25", 0 ],
-                    "midpoints": [ 129.5, 351.5, 188.5, 351.5 ],
+                    "midpoints": [ 129.5, 366.5, 188.5, 366.5 ],
                     "order": 0,
                     "source": [ "obj-6", 0 ]
                 }
@@ -524,7 +523,7 @@
                 "patchline": {
                     "color": [ 0.9994240403, 0.8905452806122449, 0.0, 1.0 ],
                     "destination": [ "obj-6", 1 ],
-                    "midpoints": [ 479.1666666666667, 305.0, 165.5, 305.0 ],
+                    "midpoints": [ 479.1666666666667, 320.0, 165.5, 320.0 ],
                     "source": [ "obj-9", 1 ]
                 }
             },
@@ -536,8 +535,17 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-7", 0 ],
+                    "midpoints": [ 405.5, 487.5234375, 552.5, 487.5234375 ],
+                    "order": 0,
+                    "source": [ "obj-9", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-8", 1 ],
-                    "midpoints": [ 405.5, 473.5859375, 145.5, 473.5859375 ],
+                    "midpoints": [ 405.5, 488.5859375, 145.5, 488.5859375 ],
+                    "order": 1,
                     "source": [ "obj-9", 0 ]
                 }
             }

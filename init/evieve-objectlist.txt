@@ -137,6 +137,7 @@ max oblist "evieve Gen Abstractions" evi.wavefolder~;
 max oblist "evieve Gen Abstractions" evi.zeroxcount~;
 max oblist "evieve Gen Abstractions" evi.zeroxoscnoise~;
 max oblist "evieve Abstractions" evi.adsr~;
+max oblist "evieve Abstractions" evi.adsrpoly~;
 max oblist "evieve Abstractions" evi.algoverb~;
 max oblist "evieve Abstractions" evi.atodb;
 max oblist "evieve Abstractions" evi.backverb~;

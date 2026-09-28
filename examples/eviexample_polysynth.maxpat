@@ -115,9 +115,9 @@
                     "outlettype": [ "", "", "", "" ],
                     "patching_rect": [ 268.0, 340.0, 56.0, 22.0 ],
                     "restore": {
-                        "synthGlide": [ 20.0 ],
-                        "synthReverb": [ 10.0 ],
-                        "synthVolume": [ -9.0 ]
+                        "synthGlide": [ 29.999999999999993 ],
+                        "synthReverb": [ 54.97104618195141 ],
+                        "synthVolume": [ -6.401387099090202 ]
                     },
                     "restore_extra": {
                         "synthGlide": {
@@ -827,7 +827,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "signal", "", "" ],
                                     "patching_rect": [ 134.0, 205.0, 319.0, 22.0 ],
-                                    "text": "poly~ evi_poly_voice 12 up 2 @steal 0",
+                                    "text": "poly~ evi_poly_voice 8 up 2 @steal 1",
                                     "varname": "poly~_AA"
                                 }
                             },
@@ -887,18 +887,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 134.0, 338.0, 30.0, 30.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-2",
-                                    "linecount": 12,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 262.0, 24.5, 150.0, 167.0 ],
-                                    "text": "About @steal: of course this should be '@steal 1', but it seems it is impossible to do sample accurate triggering of custom envelopes (evi.adsr~) with cpu and voice management, without @steal 1 clicking. I tried every hack I could think of. If you can fix it, please get in touch."
                                 }
                             },
                             {
@@ -1028,11 +1016,11 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 506.0, 274.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "synthEnvAttack": [ 10.000000000000002 ],
-                                        "synthEnvDecay": [ 100.0 ],
+                                        "synthEnvAttack": [ 16.106104567759886 ],
+                                        "synthEnvDecay": [ 108.30902108904213 ],
                                         "synthEnvHold": [ 0.0 ],
-                                        "synthEnvRelease": [ 299.99999999999994 ],
-                                        "synthEnvSustain": [ 70.7107 ]
+                                        "synthEnvRelease": [ 148.8622977245961 ],
+                                        "synthEnvSustain": [ 86.71613537202909 ]
                                     },
                                     "restore_extra": {
                                         "synthEnvAttack": {
@@ -1520,6 +1508,7 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 13.0,
                                     "gradient": 1,
+                                    "hidden": 1,
                                     "hint": "Velocity of last pressed key",
                                     "id": "obj-21",
                                     "ignoreclick": 1,
@@ -1598,6 +1587,7 @@
                             {
                                 "box": {
                                     "arrows": 3,
+                                    "hidden": 1,
                                     "hint": "Mouse click on keyboard keys for variable Velocity",
                                     "id": "obj-12",
                                     "justification": 1,
@@ -1613,7 +1603,6 @@
                                 "box": {
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
-                                    "hidden": 1,
                                     "hint": "Static Velocity for Computer Keyboard Keys",
                                     "id": "obj-11",
                                     "maxclass": "live.slider",
@@ -2367,7 +2356,6 @@
                                     "bgfillcolor_type": "gradient",
                                     "fontsize": 14.0,
                                     "gradient": 1,
-                                    "hidden": 1,
                                     "hint": "Octave z/x",
                                     "id": "obj-97",
                                     "ignoreclick": 1,
@@ -2694,7 +2682,6 @@
                                     "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
-                                    "inputmode": 2,
                                     "maxclass": "kslider",
                                     "mode": 1,
                                     "numinlets": 2,
@@ -3224,15 +3211,15 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 960.0, 35.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "filterCutoff": [ 56.37795275590554 ],
-                                        "filterCutoffKeytrack": [ 50.0 ],
-                                        "filterEnvAttack": [ 100.0 ],
-                                        "filterEnvDecay": [ 199.99999999999997 ],
-                                        "filterEnvDelay": [ 0.0 ],
-                                        "filterEnvRange": [ 33.0 ],
-                                        "filterEnvSustain": [ 49.99999999999999 ],
-                                        "filterResonance": [ 58.0 ],
-                                        "filterTypeMorph": [ 0.0 ]
+                                        "filterCutoff": [ 40.15748031496075 ],
+                                        "filterCutoffKeytrack": [ 16.535433070866134 ],
+                                        "filterEnvAttack": [ 147.6261376368086 ],
+                                        "filterEnvDecay": [ 74.05582886596055 ],
+                                        "filterEnvDelay": [ 80.35216070432132 ],
+                                        "filterEnvRange": [ 28.275590551181118 ],
+                                        "filterEnvSustain": [ 82.81903262370881 ],
+                                        "filterResonance": [ 67.71653543307096 ],
+                                        "filterTypeMorph": [ 50.0 ]
                                     },
                                     "restore_extra": {
                                         "filterCutoff": {
@@ -4362,12 +4349,12 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 157.0, 49.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "oscEnv": [ 99.99999999999999 ],
-                                        "oscMod": [ 33.0 ],
-                                        "oscShape": [ 66.0 ],
-                                        "oscUnisonAmount": [ 10.000000000000002 ],
-                                        "oscUnisonType": [ 1.0 ],
-                                        "oscUnisonVoices": [ 2.0 ]
+                                        "oscEnv": [ 382.42766892965915 ],
+                                        "oscMod": [ 27.559055118110297 ],
+                                        "oscShape": [ 33.0 ],
+                                        "oscUnisonAmount": [ 50.000000000000014 ],
+                                        "oscUnisonType": [ 0.0 ],
+                                        "oscUnisonVoices": [ 1.0 ]
                                     },
                                     "restore_extra": {
                                         "oscEnv": {
@@ -5202,8 +5189,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 254.0, 385.0, 95.0, 60.0 ],
-                    "text": "(i messed up this scaling before tuning presets, sorry)"
+                    "patching_rect": [ 254.0, 385.0, 97.0, 60.0 ],
+                    "text": "(i messed up this dial scaling before tuning presets, sorry)"
                 }
             },
             {

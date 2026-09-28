@@ -38,6 +38,25 @@
                 "auto": true
             }
         },
+        "evi.adsrpoly~": {
+            "object": true,
+            "ref": false,
+            "qlookup": true,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": true,
+                "auto": true
+            }
+        },
         "evi.algoverb.factorypresetsmenu": {
             "object": false,
             "ref": false,
