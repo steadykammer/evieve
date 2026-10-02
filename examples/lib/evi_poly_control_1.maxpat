@@ -15,6 +15,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-17",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 7.0, 188.0, 40.0, 20.0 ],
+                    "text": "do it",
+                    "textjustification": 2
+                }
+            },
+            {
+                "box": {
                     "id": "obj-38",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -67,6 +78,10 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 498.0, 763.0, 42.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "out~ 3"
                 }
             },
@@ -237,10 +252,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 143.0, 79.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 5"
                 }
             },
@@ -261,10 +272,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1209.0, 763.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 6"
                 }
             },
@@ -275,10 +282,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 672.0, 763.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 7"
                 }
             },
@@ -289,10 +292,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 604.0, 763.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 5"
                 }
             },
@@ -304,10 +303,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 604.0, 79.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 6"
                 }
             },
@@ -319,10 +314,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 387.0, 79.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 1"
                 }
             },
@@ -333,10 +324,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 387.0, 763.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 4"
                 }
             },
@@ -361,10 +348,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 49.0, 763.0, 42.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~ 1"
                 }
             },
@@ -376,6 +359,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1209.0, 79.0, 28.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in 4"
                 }
             },
@@ -387,10 +374,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 49.0, 79.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 3"
                 }
             },
@@ -402,10 +385,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 84.0, 79.0, 28.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "in 2"
                 }
             },
@@ -426,7 +405,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 750.0, 244.0, 1035.0, 584.0 ],
+                        "rect": [ 443.0, 244.0, 1035.0, 584.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -757,7 +736,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 717.0, 193.5, 132.0, 47.0 ],
+                                    "patching_rect": [ 717.0, 193.5, 134.0, 47.0 ],
                                     "text": "we should use this, but there are tiny clicks sometimes"
                                 }
                             }
@@ -921,7 +900,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 509.0, 296.0, 49.5, 20.0 ],
-                    "text": "do it"
+                    "text": "trigger"
                 }
             },
             {

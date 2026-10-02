@@ -207,7 +207,7 @@
         },
         {
             "document": true,
-            "digest": "The greater the harmonics ('a') the more diode like in shape, but retains a very smooth curve",
+            "digest": "The greater the harmonics ('a') the more diode like in shape, but retains a very smooth curve. Cheaper alternative to 'atanSat()' in terms of shape.",
             "name": "jongShaper",
             "inputs": [
                 {

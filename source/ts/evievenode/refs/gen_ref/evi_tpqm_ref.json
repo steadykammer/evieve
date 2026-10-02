@@ -158,6 +158,10 @@
             "display": "evi_map"
         },
         {
+            "name": "evi_transratio",
+            "display": "evi_transratio"
+        },
+        {
             "name": "evi_utilities",
             "display": "evi_utilities.genexpr"
         }

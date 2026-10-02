@@ -41,6 +41,18 @@
 
       </description>
     </entry>
+    <entry name="oneTrigger ( )">
+      <description>
+        Like [onebang] but for sample rate triggers. Let only the first trigger through, until a reset comes in the second inlet. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: triggerInput, <i>Trigger one trigger</i> <br />
+        <b>In 2</b>: type=<i>input</i>: triggerReset, <i>Reset the trigger count</i> <br />
+
+        <b>Return 1</b>: First, <i>Only the first trigger comes out here</i> <br />
+        <b>Return 2</b>: Subsequent, <i>All subsequent triggers come out here</i> <br />
+
+      </description>
+    </entry>
     <entry name="varDcblock ( )">
       <description>
         Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...) <br />

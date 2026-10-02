@@ -60,6 +60,22 @@ triggerHoldGate(X, hold=10., trigger=1)
     return      gate;
 }
 
+// onebang but for sample triggers
+oneTrigger(triggerInput, triggerReset)
+{
+    gateCondition = (accum(triggerInput, triggerReset) == 1);
+    first, subsequent = 0;
+    if (gateCondition) {
+        first = triggerInput;
+        subsequent = 0;
+    }
+    else {
+        subsequent = triggerInput;
+        first = 0;
+    }
+    return first, subsequent;
+}
+
 // variable dcblock() so that effect can be bypassed (a0 = 1) 
 // or active (a0 = 0.9997) or heavy (a0 = ...)
 varDcblock(x0, a0)

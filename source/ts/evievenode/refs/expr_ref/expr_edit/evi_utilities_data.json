@@ -72,6 +72,37 @@
         },
         {
             "document": true,
+            "digest": "Like [onebang] but for sample rate triggers. Let only the first trigger through, until a reset comes in the second inlet.",
+            "name": "oneTrigger",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "triggerInput",
+                    "digest": "Trigger one trigger"
+                },
+                {
+                    "id": 2,
+                    "kind": "input",
+                    "name": "triggerReset",
+                    "digest": "Reset the trigger count"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "First",
+                    "digest": "Only the first trigger comes out here"
+                },
+                {
+                    "id": 2,
+                    "name": "Subsequent",
+                    "digest": "All subsequent triggers come out here"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Variable dcblock() so that effect can be bypassed (a0 = 1) or active (a0 = 0.9997) or heavy (a0 = ...)",
             "name": "varDcblock",
             "inputs": [

@@ -4299,6 +4299,28 @@
                 "auto": false
             }
         },
+        "evi_transratio.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_tremolo.gendsp": {
             "define": {
                 "object": true,

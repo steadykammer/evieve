@@ -845,6 +845,215 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "oneTrigger",
+                "raw": "oneTrigger"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "triggerInput",
+                    "raw": "triggerInput"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "triggerReset",
+                    "raw": "triggerReset"
+                }
+            ],
+            "defaults": [
+                null,
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "gateCondition",
+                                "raw": "gateCondition"
+                            },
+                            "right": {
+                                "type": "BinaryExpression",
+                                "operator": "==",
+                                "left": {
+                                    "type": "CallExpression",
+                                    "arguments": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "triggerInput",
+                                            "raw": "triggerInput"
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "name": "triggerReset",
+                                            "raw": "triggerReset"
+                                        }
+                                    ],
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "accum",
+                                        "raw": "accum"
+                                    }
+                                },
+                                "right": {
+                                    "type": "Literal",
+                                    "value": 1,
+                                    "raw": "1",
+                                    "gen_kind": "integer"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "ArrayPattern",
+                                "elements": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "first",
+                                        "raw": "first"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "subsequent",
+                                        "raw": "subsequent"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 0,
+                                "raw": "0",
+                                "gen_kind": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfStatement",
+                        "test": {
+                            "type": "Identifier",
+                            "name": "gateCondition",
+                            "raw": "gateCondition"
+                        },
+                        "consequent": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "first",
+                                            "raw": "first"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "triggerInput",
+                                            "raw": "triggerInput"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "subsequent",
+                                            "raw": "subsequent"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "alternate": {
+                            "type": "BlockStatement",
+                            "body": [
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "subsequent",
+                                            "raw": "subsequent"
+                                        },
+                                        "right": {
+                                            "type": "Identifier",
+                                            "name": "triggerInput",
+                                            "raw": "triggerInput"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "ExpressionStatement",
+                                    "expression": {
+                                        "type": "AssignmentExpression",
+                                        "operator": "=",
+                                        "left": {
+                                            "type": "Identifier",
+                                            "name": "first",
+                                            "raw": "first"
+                                        },
+                                        "right": {
+                                            "type": "Literal",
+                                            "value": 0,
+                                            "raw": "0",
+                                            "gen_kind": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "ArrayExpression",
+                            "elements": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "first",
+                                    "raw": "first"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "subsequent",
+                                    "raw": "subsequent"
+                                }
+                            ]
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "varDcblock",
                 "raw": "varDcblock"
             },

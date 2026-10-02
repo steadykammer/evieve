@@ -100,7 +100,7 @@
     </entry>
     <entry name="jongShaper ( )">
       <description>
-        The greater the harmonics ('a') the more diode like in shape, but retains a very smooth curve <br />
+        The greater the harmonics ('a') the more diode like in shape, but retains a very smooth curve. Cheaper alternative to 'atanSat()' in terms of shape. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: a, <i>1++, add harmonics</i> <br />

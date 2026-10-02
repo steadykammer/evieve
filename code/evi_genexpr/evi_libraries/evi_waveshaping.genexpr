@@ -123,6 +123,7 @@ tarrabiaShaper(x, a)	// clip a @ < ±1
 
 // by Bram de Jong
 // thanks to raja
+// cheaper alternative to 'atanSat()'
 jongShaper(x, a)	// a >= 1
 {
 	bx = abs(x);

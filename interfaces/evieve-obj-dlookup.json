@@ -657,7 +657,7 @@
     "evi.transratio": {
         "type": "abstraction",
         "digest": "Convert semitones to pitch and vica versa \n",
-        "description": "Like the transratio abstraction but with multiple choices for input/output conversion."
+        "description": "Like the transratio abstraction but with multiple choices for input/output conversion. Clamps internally so that output never produces -inf or nan."
     },
     "evi.tremolo~": {
         "type": "define",

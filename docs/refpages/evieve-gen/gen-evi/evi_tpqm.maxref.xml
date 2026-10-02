@@ -141,6 +141,7 @@
     </metadatalist>
     <seealsolist>
         <seealso name='evi_map' display='evi_map' type='genrefpage' />
+        <seealso name='evi_transratio' display='evi_transratio' type='genrefpage' />
         <seealso name='evi_utilities' display='evi_utilities.genexpr' type='genrefpage' />
     </seealsolist>
 </c74object>

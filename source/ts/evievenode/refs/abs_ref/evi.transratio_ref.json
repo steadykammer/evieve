@@ -3,7 +3,7 @@
         "name": "evi.transratio",
         "category": "evieve",
         "digest": "Convert semitones to pitch and vica versa",
-        "description": "Like the <o>transratio</o> abstraction but with multiple choices for input/output conversion.",
+        "description": "Like the <o>transratio</o> abstraction but with multiple choices for input/output conversion. Clamps internally so that output never produces -inf or nan.",
         "discussion": ""
     },
     "metadata": {
@@ -30,7 +30,24 @@
             "description": "Set the output type with the @out attribute or the second argument to the object."
         }
     ],
-    "arguments": [],
+    "arguments": [
+        {
+            "name": "",
+            "type": "int",
+            "default": "2",
+            "optional": 1,
+            "digest": "arg#1: ",
+            "description": ""
+        },
+        {
+            "name": "",
+            "type": "int",
+            "default": "0",
+            "optional": 1,
+            "digest": "arg#2: ",
+            "description": ""
+        }
+    ],
     "messages": [],
     "attributes": [
         {
@@ -53,17 +70,6 @@
             "default": {
                 "get": 0,
                 "value": "semitones"
-            }
-        },
-        {
-            "name": "init",
-            "get": 0,
-            "type": "int",
-            "digest": "Flag 0/1",
-            "description": "Init 1 will trigger a conversion of 0. and output on load. Quite pointless.",
-            "default": {
-                "get": 0,
-                "value": "0"
             }
         },
         {

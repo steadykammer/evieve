@@ -146,8 +146,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 54.0, 560.0, 101.0, 23.0 ],
-                                    "text": "1.35035"
+                                    "patching_rect": [ 54.0, 560.0, 101.0, 23.0 ]
                                 }
                             },
                             {
@@ -289,7 +288,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 396.0, 409.0, 101.0, 23.0 ],
-                                    "text": "1.751187"
+                                    "text": "1."
                                 }
                             },
                             {
@@ -329,7 +328,6 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
-                                            "parameter_initial_enable": 1,
                                             "parameter_longname": "number",
                                             "parameter_mmax": 12.0,
                                             "parameter_mmin": -12.0,
@@ -350,7 +348,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 171.0, 409.0, 101.0, 23.0 ],
-                                    "text": "1.35035"
+                                    "text": "1."
                                 }
                             },
                             {
@@ -361,8 +359,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 54.0, 409.0, 101.0, 23.0 ],
-                                    "text": "1.35035"
+                                    "patching_rect": [ 54.0, 409.0, 101.0, 23.0 ]
                                 }
                             },
                             {

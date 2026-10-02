@@ -1,0 +1,105 @@
+{
+    "object": {
+        "name": "evi_transratio",
+        "child": "",
+        "category": "evieve",
+        "digest": "Convert semitones to pitch and vica versa",
+        "description": "Like the Max <o>transratio</o> abstraction but with multiple choices for input/output conversion. Clamps internally so that output never produces -inf or nan."
+    },
+    "constructor": {
+        "inlets": "input"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "input",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "value in either pitch\\, octave\\, semitones\\, cents or ratio",
+            "digest": "Input to be converted"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "output",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "value in either ratio\\, semitones\\, hz or pitch",
+            "digest": "Output from the convertor"
+        },
+        {
+            "id": 2,
+            "name": "always",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "just ratio",
+            "digest": "Constant ratio reference output"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "base",
+            "type": "int",
+            "digest": "@min 415, @max 467",
+            "description": "Set the tuning for the conversion around A = 440.",
+            "default": {
+                "type": "int",
+                "value": "440"
+            }
+        },
+        {
+            "name": "input",
+            "type": "int",
+            "digest": "@min 0, @max 4",
+            "description": "int, one of: 0=pitch, 1=octave, 2=semitones, 3=cents, 4=ratio. Sets the input to the convertor.",
+            "default": {
+                "type": "int",
+                "value": "2"
+            }
+        },
+        {
+            "name": "offset",
+            "type": "int",
+            "digest": "@min 0, @max 120",
+            "description": "Hz and pitch convertion assume middle C = 60. Via @offset you can change this to anything you need.",
+            "default": {
+                "type": "int",
+                "value": "60"
+            }
+        },
+        {
+            "name": "output",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "int, one of: 0=ratio, 1=semitones, 2=hz, 3=pitch. Sets the output from the convertor.",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_mtofapprox",
+            "display": "evi_mtofapprox"
+        },
+        {
+            "name": "evi_dbtoapprox",
+            "display": "evi_dbtoapprox"
+        },
+        {
+            "name": "evi_tpqm",
+            "display": "evi_tpqm"
+        },
+        {
+            "name": "evi_map",
+            "display": "evi_map"
+        },
+        {
+            "name": "evi_utilities",
+            "display": "evi_utilities.genexpr"
+        }
+    ]
+}
