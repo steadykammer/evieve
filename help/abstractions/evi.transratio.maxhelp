@@ -116,6 +116,29 @@
             },
             {
                 "box": {
+                    "background": 1,
+                    "border": 0,
+                    "embed": 0,
+                    "filename": "evi.helpname.js",
+                    "id": "obj-6",
+                    "ignoreclick": 1,
+                    "jsarguments": [ "evi.transratio" ],
+                    "maxclass": "v8ui",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 10.0, 10.0, 284.7279968261719, 57.599853515625 ],
+                    "textfile": {
+                        "filename": "evi.helpname.js",
+                        "flags": 0,
+                        "embed": 0,
+                        "autowatch": 1
+                    }
+                }
+            },
+            {
+                "box": {
                     "id": "obj-2",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -136,7 +159,6 @@
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
-                        "integercoordinates": 1,
                         "boxes": [
                             {
                                 "box": {
@@ -146,7 +168,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 54.0, 560.0, 101.0, 23.0 ]
+                                    "patching_rect": [ 54.0, 560.0, 101.0, 23.0 ],
+                                    "text": "1."
                                 }
                             },
                             {
@@ -155,7 +178,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "float" ],
                                     "patching_rect": [ 136.0, 520.0, 236.0, 23.0 ],
                                     "text": "evi.transratio @in semitones @out ratio",
                                     "varname": "evieveObject[3]"
@@ -178,7 +201,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "float" ],
                                     "patching_rect": [ 478.0, 520.0, 220.0, 23.0 ],
                                     "text": "evi.transratio @offset 59 @base 443",
                                     "varname": "evieveObject[2]"
@@ -297,7 +320,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "float" ],
                                     "patching_rect": [ 478.0, 354.0, 83.0, 23.0 ],
                                     "text": "evi.transratio",
                                     "varname": "evieveObject[1]"
@@ -347,8 +370,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 171.0, 409.0, 101.0, 23.0 ],
-                                    "text": "1."
+                                    "patching_rect": [ 171.0, 409.0, 101.0, 23.0 ]
                                 }
                             },
                             {
@@ -375,13 +397,25 @@
                             },
                             {
                                 "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "float" ],
+                                    "patching_rect": [ 136.0, 354.0, 83.0, 23.0 ],
+                                    "text": "evi.transratio",
+                                    "varname": "evieveObject[4]"
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "border": 0,
                                     "embed": 0,
                                     "filename": "evi.helpdetails.js",
                                     "id": "obj-2",
                                     "ignoreclick": 1,
-                                    "jsarguments": [ "evi.transratio", "pants:/Users/stkr/Dev/evieve/help/abstractions/evi.transratio.maxhelp" ],
+                                    "jsarguments": [ "evi.transratio", "Macintosh", "HD:/Users/stkr/Dev/evieve/help/abstractions/evi.transratio.maxhelp" ],
                                     "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
@@ -418,14 +452,25 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-5",
-                                    "maxclass": "newobj",
+                                    "background": 1,
+                                    "border": 0,
+                                    "embed": 0,
+                                    "filename": "evi.helpargs.js",
+                                    "id": "obj-7",
+                                    "ignoreclick": 1,
+                                    "jsarguments": [ "evi.transratio" ],
+                                    "maxclass": "v8ui",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 136.0, 354.0, 83.0, 23.0 ],
-                                    "text": "evi.transratio",
-                                    "varname": "evieveObject"
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 564.9254989624023, 355.0, 152.07450103759766, 54.0 ],
+                                    "textfile": {
+                                        "filename": "evi.helpargs.js",
+                                        "flags": 0,
+                                        "embed": 0,
+                                        "autowatch": 1
+                                    }
                                 }
                             }
                         ],
@@ -454,7 +499,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-5", 0 ],
+                                    "destination": [ "obj-9", 0 ],
                                     "order": 2,
                                     "source": [ "obj-10", 0 ]
                                 }
@@ -504,11 +549,10 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 1 ],
-                                    "source": [ "obj-5", 0 ]
+                                    "source": [ "obj-9", 0 ]
                                 }
                             }
-                        ],
-                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                        ]
                     },
                     "patching_rect": [ 34.0, 336.0, 50.0, 23.0 ],
                     "saved_object_attributes": {
@@ -524,7 +568,7 @@
                     "border": 0,
                     "embed": 0,
                     "filename": "evi.helpname.js",
-                    "id": "obj-6",
+                    "id": "obj-9",
                     "ignoreclick": 1,
                     "jsarguments": [ "evi.transratio" ],
                     "maxclass": "v8ui",
@@ -532,7 +576,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 10.0, 10.0, 500.0, 50.0 ],
+                    "patching_rect": [ 10.0, 10.0, 284.7279968261719, 57.599853515625 ],
                     "textfile": {
                         "filename": "evi.helpname.js",
                         "flags": 0,

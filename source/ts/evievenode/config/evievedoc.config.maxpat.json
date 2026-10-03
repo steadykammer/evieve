@@ -158,6 +158,63 @@
                 "auto": true
             }
         },
+        "evi.butterworthbp~": {
+            "object": true,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi.butterworthbs~": {
+            "object": true,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
+        "evi.butterworthbw": {
+            "object": true,
+            "ref": false,
+            "qlookup": false,
+            "helpfile": {
+                "generate": false,
+                "mctab": false,
+                "mcstab": false,
+                "mcparent": "",
+                "mcchild": "",
+                "gentab": false,
+                "genexprtab": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi.dbtoa": {
             "object": true,
             "ref": false,

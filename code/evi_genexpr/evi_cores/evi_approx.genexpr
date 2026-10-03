@@ -264,7 +264,7 @@ log1pApprox(x)
 // with mtof & dbtoa etc style converters, it is better to use localised 'curve fitting'
 // techniques, unless you really do need a very large range of operation
 
-// transpose semitones input (0=none), like [transratio] & [evi.transratio]
+// transpose semitones input (0=none), like [transratio], [evi.transratio] & [evi_transratio]
 transratioApprox(pitch)				// pitch default = 0
 {
 	return expA(0.05776226504666 * pitch) + 0.000128;
@@ -299,6 +299,13 @@ mtofApproxAccurate0(pitch)			// no 'base'
 	mtofAdd	= 2.10117843869262;		// N.B.	mtofAdd = log(440) - (log(2) * 69 / 12)
 
 	return	expApprox((mtofMul * pitch) + mtofAdd);	// it still works
+}
+
+// transpose ratio input (1=none), like [evi.transratio] & [evi_transratio]
+ratiotransApprox(ratio)				// ratio default = 1
+{
+	TWELVEDIVLOGTWO = 17.3123404906675609;
+	return TWELVEDIVLOGTWO * logApprox(ratio);		// transposed semitones output
 }
 
 // very accurate from approx 20..5000 Hz input,

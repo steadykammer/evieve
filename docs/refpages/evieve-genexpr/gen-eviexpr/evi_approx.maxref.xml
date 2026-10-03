@@ -238,7 +238,7 @@
     </entry>
     <entry name="transratioApprox ( )">
       <description>
-        Transpose semitones input (0=none), like [transratio] and [evi.transratio] <br />
+        Transpose semitones input (0=none) to ratio, like [transratio], [evi.transratio] and [evi_transratio]. See also 'ratiotransApprox()'. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>pitch</i> <br />
 
@@ -274,6 +274,16 @@
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
         <b>Return 1</b>: frequency, <i>Hz</i> <br />
+
+      </description>
+    </entry>
+    <entry name="ratiotransApprox ( )">
+      <description>
+        The inverse of 'transratioApprox()', transpose ratio input (1=none) to semitones, like [evi.transratio] and [evi_transratio]. <br />
+        <br />
+        <b>In 1</b>: type=<i>input</i>: ratio, <i>ratio</i> <br />
+
+        <b>Return 1</b>: pitch, <i>pitch</i> <br />
 
       </description>
     </entry>

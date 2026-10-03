@@ -921,7 +921,7 @@
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
-        "seealso": [ "transratio" ]
+        "seealso": [ "transratio", "evi.tpqm" ]
     },
     "evi.tremolo~": {
         "digest": "Basic Tremolo effect with saturation and choice of LFO shapes",

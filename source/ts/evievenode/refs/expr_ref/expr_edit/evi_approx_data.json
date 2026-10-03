@@ -475,7 +475,7 @@
         },
         {
             "document": true,
-            "digest": "Transpose semitones input (0=none), like [transratio] and [evi.transratio]",
+            "digest": "Transpose semitones input (0=none) to ratio, like [transratio], [evi.transratio] and [evi_transratio]. See also 'ratiotransApprox()'.",
             "name": "transratioApprox",
             "inputs": [
                 {
@@ -578,6 +578,26 @@
                     "id": 1,
                     "name": "",
                     "digest": ""
+                }
+            ]
+        },
+        {
+            "document": true,
+            "digest": "The inverse of 'transratioApprox()', transpose ratio input (1=none) to semitones, like [evi.transratio] and [evi_transratio].",
+            "name": "ratiotransApprox",
+            "inputs": [
+                {
+                    "id": 1,
+                    "kind": "input",
+                    "name": "ratio",
+                    "digest": "ratio"
+                }
+            ],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "pitch",
+                    "digest": "pitch"
                 }
             ]
         },

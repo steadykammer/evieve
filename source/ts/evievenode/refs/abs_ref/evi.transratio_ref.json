@@ -32,20 +32,20 @@
     ],
     "arguments": [
         {
-            "name": "",
+            "name": "input",
             "type": "int",
             "default": "2",
             "optional": 1,
-            "digest": "arg#1: ",
-            "description": ""
+            "digest": "arg#1: int or symbol, one of: 0=pitch, 1=octave, 2=semitones, 3=cents, 4=ratio.",
+            "description": "Sets the input to the convertor."
         },
         {
-            "name": "",
+            "name": "output",
             "type": "int",
             "default": "0",
             "optional": 1,
-            "digest": "arg#2: ",
-            "description": ""
+            "digest": "arg#2: int or symbol, one of: 0=ratio, 1=semitones, 2=hz, 3=pitch.",
+            "description": "Sets the output from the convertor."
         }
     ],
     "messages": [],
@@ -100,6 +100,7 @@
         "image": ""
     },
     "seealso": [
-        "transratio"
+        "transratio",
+        "evi.tpqm"
     ]
 }

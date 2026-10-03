@@ -16,7 +16,7 @@
             "name": "input",
             "type": "float",
             "optional": 1,
-            "digestauto": "value in either pitch\\, octave\\, semitones\\, cents or ratio",
+            "digestauto": "value in either pitch octave semitones cents or ratio",
             "digest": "Input to be converted"
         }
     ],
@@ -26,7 +26,7 @@
             "name": "output",
             "type": "float",
             "optional": 1,
-            "digestauto": "value in either ratio\\, semitones\\, hz or pitch",
+            "digestauto": "value in either ratio semitones hz or pitch",
             "digest": "Output from the convertor"
         },
         {
@@ -84,10 +84,6 @@
         {
             "name": "evi_mtofapprox",
             "display": "evi_mtofapprox"
-        },
-        {
-            "name": "evi_dbtoapprox",
-            "display": "evi_dbtoapprox"
         },
         {
             "name": "evi_tpqm",

@@ -4495,6 +4495,78 @@
             "type": "FunctionDeclaration",
             "id": {
                 "type": "Identifier",
+                "name": "ratiotransApprox",
+                "raw": "ratiotransApprox"
+            },
+            "params": [
+                {
+                    "type": "Identifier",
+                    "name": "ratio",
+                    "raw": "ratio"
+                }
+            ],
+            "defaults": [
+                null
+            ],
+            "decls": [],
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                            "type": "AssignmentExpression",
+                            "operator": "=",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "TWELVEDIVLOGTWO",
+                                "raw": "TWELVEDIVLOGTWO"
+                            },
+                            "right": {
+                                "type": "Literal",
+                                "value": 17.312340490667562,
+                                "raw": "17.3123404906675609",
+                                "gen_kind": "float"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ReturnStatement",
+                        "argument": {
+                            "type": "BinaryExpression",
+                            "operator": "*",
+                            "left": {
+                                "type": "Identifier",
+                                "name": "TWELVEDIVLOGTWO",
+                                "raw": "TWELVEDIVLOGTWO"
+                            },
+                            "right": {
+                                "type": "CallExpression",
+                                "arguments": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "ratio",
+                                        "raw": "ratio"
+                                    }
+                                ],
+                                "callee": {
+                                    "type": "Identifier",
+                                    "name": "logApprox",
+                                    "raw": "logApprox"
+                                }
+                            }
+                        },
+                        "isjump": true
+                    }
+                ]
+            },
+            "generator": false,
+            "expression": false
+        },
+        {
+            "type": "FunctionDeclaration",
+            "id": {
+                "type": "Identifier",
                 "name": "ftomApproxBaseless",
                 "raw": "ftomApproxBaseless"
             },

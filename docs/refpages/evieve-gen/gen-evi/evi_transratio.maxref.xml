@@ -21,7 +21,7 @@
     <geninletlist>
         <geninlet name='input' type='float' optional='1'>
             <digest>
-                value in either pitch\, octave\, semitones\, cents or ratio. Input to be converted
+                value in either pitch octave semitones cents or ratio. Input to be converted
             </digest>
         </geninlet>
     </geninletlist>
@@ -78,7 +78,6 @@
     </metadatalist>
     <seealsolist>
         <seealso name='evi_mtofapprox' display='evi_mtofapprox' type='genrefpage' />
-        <seealso name='evi_dbtoapprox' display='evi_dbtoapprox' type='genrefpage' />
         <seealso name='evi_tpqm' display='evi_tpqm' type='genrefpage' />
         <seealso name='evi_map' display='evi_map' type='genrefpage' />
         <seealso name='evi_utilities' display='evi_utilities.genexpr' type='genrefpage' />

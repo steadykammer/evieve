@@ -41,20 +41,20 @@
 	</outletlist>
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="" type="int" default="2" optional="1">
+		<objarg name="input" type="int" default="2" optional="1">
 			<digest>
-				arg#1: 
+				arg#1: int or symbol, one of: 0&#x3D;pitch, 1&#x3D;octave, 2&#x3D;semitones, 3&#x3D;cents, 4&#x3D;ratio.
 			</digest>
 			<description>
-				
+				Sets the input to the convertor.
 			</description>
 		</objarg>
-		<objarg name="" type="int" default="0" optional="1">
+		<objarg name="output" type="int" default="0" optional="1">
 			<digest>
-				arg#2: 
+				arg#2: int or symbol, one of: 0&#x3D;ratio, 1&#x3D;semitones, 2&#x3D;hz, 3&#x3D;pitch.
 			</digest>
 			<description>
-				
+				Sets the output from the convertor.
 			</description>
 		</objarg>
 	</objarglist>
@@ -115,6 +115,7 @@
 	<!--SEEALSO-->
 	<seealsolist>
 		<seealso name="transratio"> </seealso>
+		<seealso name="evi.tpqm"> </seealso>
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
