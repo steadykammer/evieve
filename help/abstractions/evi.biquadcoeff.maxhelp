@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -231,7 +231,7 @@
                                     "edit_gainmode": 1,
                                     "edit_mode": 3,
                                     "fontface": 0,
-                                    "frozen_box_attributes": [ "edit_analog", "edit_mode", "edit_gainmode" ],
+                                    "frozen_box_attributes": [ "edit_mode", "edit_gainmode", "edit_analog" ],
                                     "id": "obj-3",
                                     "ignoreclick": 1,
                                     "maxclass": "filtergraph~",
@@ -241,7 +241,7 @@
                                     "outlettype": [ "list", "float", "float", "float", "float", "list", "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 112.0, 275.0, 256.0, 128.0 ],
-                                    "setfilter": [ 0, 3, 1, 1, 0, 2000.0, 3.981071710586548, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+                                    "setfilter": [ 0, 3, 1, 1, 0, 2339.0, 6.309573650360107, 3.869999885559082, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -942,7 +942,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "lowpass", "highpass", "bandpass", "bandstop", "peaknotch", "lowshelf", "lowshelfcookbook", "highshelf", "highshelfcookbook", "resonant", "bp", "allpass", "gainlpass", "gainhpass", "gainbpass", "gainbstop", "gainresonant", "gainbp", "gainapass", "lowpassanalog1", "lowpassanalog2", "highpassanalog", "bandpassanalog", "gainbpassanalog", "notchanalog", "peaknotchanalog1", "peaknotchanalog2", "lowshelfanalog1", "lowshelfanalog2", "highshelfanalog1", "highshelfanalog2", "resonantanalog", "butterlowpass", "butterhighpass", "butterbandpass", "butterbandreject", "buttergainlpass", "buttergainhpass", "buttergainbpass", "buttergainbreject" ],
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ 13.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu",
                                             "parameter_mmax": 40,
@@ -1369,7 +1369,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 719.0, 257.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 725.0, 257.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1408,7 +1408,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 588.0, 232.0, 129.0, 21.0 ],
+                                    "patching_rect": [ 588.0, 232.0, 135.0, 21.0 ],
                                     "text": "Filter",
                                     "textjustification": 1
                                 }
@@ -1542,11 +1542,11 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 588.0, 255.0, 129.0, 23.0 ],
+                                    "patching_rect": [ 588.0, 255.0, 135.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "lowpass", "highpass", "bandpass", "bandstop", "peaknotch", "lowshelf", "lowshelfcookbook", "highshelf", "highshelfcookbook", "resonant", "bp", "allpass", "gainlpass", "gainhpass", "gainbpass", "gainbstop", "gainresonant", "gainbp", "gainapass", "lowpassanalog1", "lowpassanalog2", "highpassanalog", "bandpassanalog", "gainbpassanalog", "notchanalog", "peaknotchanalog1", "peaknotchanalog2", "lowshelfanalog1", "lowshelfanalog2", "highshelfanalog1", "highshelfanalog2", "resonantanalog", "butterlowpass", "butterhighpass", "butterbandpass", "butterbandreject", "buttergainlpass", "buttergainhpass", "buttergainbpass", "buttergainbreject" ],
-                                            "parameter_initial": [ 13.0 ],
+                                            "parameter_initial": [ 26.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[1]",
                                             "parameter_mmax": 40,
@@ -1582,7 +1582,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 471.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0.831006"
+                                    "text": "0.960876"
                                 }
                             },
                             {
@@ -1595,7 +1595,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 396.0, 500.0, 72.0, 23.0 ],
-                                    "text": "-1.815341"
+                                    "text": "-1.945702"
                                 }
                             },
                             {
@@ -1608,7 +1608,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 321.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0.003916"
+                                    "text": "0.960876"
                                 }
                             },
                             {
@@ -1621,7 +1621,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 245.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0.007832"
+                                    "text": "-1.945702"
                                 }
                             },
                             {
@@ -1634,7 +1634,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 170.0, 500.0, 72.0, 23.0 ],
-                                    "text": "0.003916"
+                                    "text": "1."
                                 }
                             },
                             {

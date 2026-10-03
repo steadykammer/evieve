@@ -2060,11 +2060,11 @@
                                                 "box": {
                                                     "id": "obj-6",
                                                     "maxclass": "newobj",
-                                                    "numinlets": 0,
+                                                    "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 159.0, 225.0, 37.0, 22.0 ],
-                                                    "text": "noise"
+                                                    "patching_rect": [ 143.0, 225.0, 53.0, 22.0 ],
+                                                    "text": "evi_pink"
                                                 }
                                             },
                                             {
@@ -2584,7 +2584,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// for an exact evi_lores inside GenExpr,\r\n// just copy the code inside the abstraction\r\n\r\n// the closest the evieve GenExpr library comes to the filter is\r\n// in the 'evi_svfs_lto_extras.genexpr' require file:\r\nrequire(\"evi_svfs_lto_extras.genexpr\");\r\n\r\n// low, band, high, peak, notch\r\nParam   filter(0, min=0, max=4);\r\nfilt    = int(filter);\r\n\r\nX = noise();\r\n\r\n\r\n// the 'svfSinSingle()' is closest to evi_lores:\r\nout1 = svfSinSingle(X, in1, in2*0.95, filt);\r\n\r\n\r\n// there is also a multimode version:\r\nout2, out3, out4, out5, out6 = svfSinMulti(X, in1, in2*0.95);\r\n// low, band, high, peak, notch\r\n\r\n\r\n",
+                                                    "code": "\r\n// for an exact evi_lores inside GenExpr,\r\n// just copy the code inside the abstraction\r\n\r\n// the closest the evieve GenExpr library comes to the filter is\r\n// in the 'evi_svfs_lto_extras.genexpr' require file:\r\nrequire(\"evi_svfs_lto_extras.genexpr\");\r\n\r\n// low, band, high, peak, notch\r\nParam   filter(0, min=0, max=4);\r\nfilt    = int(filter);\r\n\r\nX = evi_pink();\r\n\r\n\r\n// the 'svfSinSingle()' is closest to evi_lores:\r\nout1 = svfSinSingle(X, in1, in2*0.95, filt);\r\n\r\n\r\n// there is also a multimode version:\r\nout2, out3, out4, out5, out6 = svfSinMulti(X, in1, in2*0.95);\r\n// low, band, high, peak, notch\r\n\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -2765,7 +2765,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

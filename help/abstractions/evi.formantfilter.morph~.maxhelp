@@ -176,7 +176,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "float" ],
-                                    "patching_rect": [ 63.0, 482.0, 56.0, 23.0 ],
+                                    "patching_rect": [ 48.0, 482.0, 56.0, 23.0 ],
                                     "sig": 0.0
                                 }
                             },
@@ -187,8 +187,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 121.0, 427.0, 439.0, 23.0 ],
-                                    "text": "gen~ @expr latch(evi_mtofapprox(floor((noise() * 24) + 36))\\, delta(in1) < 0)"
+                                    "patching_rect": [ 106.0, 427.0, 456.0, 23.0 ],
+                                    "text": "gen~ @expr latch(evi_mtofapprox(floor((evi_pink() * 24) + 36))\\, delta(in1) < 0)"
                                 }
                             },
                             {
@@ -650,7 +650,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 121.0, 482.0, 59.0, 23.0 ],
+                                    "patching_rect": [ 106.0, 482.0, 59.0, 23.0 ],
                                     "text": "rect~ 55."
                                 }
                             },

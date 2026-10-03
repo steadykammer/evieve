@@ -1564,7 +1564,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 31.0, 482.0, 47.0, 23.0 ],
+                                    "patching_rect": [ 32.0, 482.0, 47.0, 23.0 ],
                                     "text": "noise~"
                                 }
                             },
@@ -3480,11 +3480,11 @@
                                                 "box": {
                                                     "id": "obj-14",
                                                     "maxclass": "newobj",
-                                                    "numinlets": 0,
+                                                    "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 109.0, 396.0, 37.0, 22.0 ],
-                                                    "text": "noise"
+                                                    "patching_rect": [ 109.0, 396.0, 53.0, 22.0 ],
+                                                    "text": "evi_pink"
                                                 }
                                             },
                                             {

@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -742,8 +742,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "signal", "signal" ],
-                                                    "patching_rect": [ 50.0, 100.0, 590.0, 22.0 ],
-                                                    "text": "gen~ @expr evi_sline(evi_mtofapprox(latch(trunc(noise() * 12 + 12)\\, delta(phasor(in1)) < 0))\\, mstosamps(33))"
+                                                    "patching_rect": [ 50.0, 100.0, 605.0, 22.0 ],
+                                                    "text": "gen~ @expr evi_sline(evi_mtofapprox(latch(trunc(evi_pink() * 12 + 12)\\, delta(phasor(in1)) < 0))\\, mstosamps(33))"
                                                 }
                                             },
                                             {
@@ -1058,7 +1058,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1885,7 +1885,7 @@
                                     "maxclass": "plot~",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "numpoints": 48000,
+                                    "numpoints": 3000,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 412.0, 539.0, 198.0, 89.0 ],
                                     "prototypename": "Audio Scope - Light",

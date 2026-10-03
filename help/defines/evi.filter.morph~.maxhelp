@@ -452,8 +452,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 31.0, 427.0, 47.0, 23.0 ],
-                                    "text": "noise~"
+                                    "patching_rect": [ 40.0, 427.0, 40.0, 23.0 ],
+                                    "text": "pink~"
                                 }
                             },
                             {
@@ -716,7 +716,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1104,8 +1104,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 59.0, 343.0, 130.0, 23.0 ],
-                                    "text": "mc.noise~ @chans 2"
+                                    "patching_rect": [ 59.0, 343.0, 123.0, 23.0 ],
+                                    "text": "mc.pink~ @chans 2"
                                 }
                             },
                             {
@@ -1326,7 +1326,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1741,11 +1741,11 @@
                                                 "box": {
                                                     "id": "obj-9",
                                                     "maxclass": "newobj",
-                                                    "numinlets": 0,
+                                                    "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 80.0, 210.0, 37.0, 22.0 ],
-                                                    "text": "noise"
+                                                    "patching_rect": [ 80.0, 210.0, 53.0, 22.0 ],
+                                                    "text": "evi_pink"
                                                 }
                                             },
                                             {
@@ -2472,7 +2472,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// linear morphing filters are all inside this .genexpr file:\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\n\nParam   smooth(200., min=0, max=1000); // in ms\r\n\r\nX       = noise();\r\ncutoff  = in1;  // Hz\r\ndB      = in2;  // dB\r\nbw      = in3 * 0.5 + 0.5;  // 0..1 -> 0.5..1\r\nmorph   = evi_line(in4, mstosamps(100));  // 0..1 % LP..BP..HP..NOTCH..LP\r\n\r\n// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP\r\n// gain in dB, bandwidth 0..1, smooth in ms\r\nout1    = eviFilterMorph(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// there is also a stereo version:\r\nout2, out3 = eviFilterMorphStereo(X, X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// there is also a version which is just a morphing of LP..BP..HP:\r\nout4    = eviFilterMorphLpBpHp(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// ...and a version which is just LP..NOTCH..HP:\r\nout5    = eviFilterMorphLpBrHp(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// for nonlinear morphing SVFs @see:\r\n// [evi.arpnotch~]\r\n// [evi.svfsmooth~]\r\n// [evi.svfsynth~]\r\n\r\n",
+                                                    "code": "\r\n// linear morphing filters are all inside this .genexpr file:\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\n\nParam   smooth(200., min=0, max=1000); // in ms\r\n\r\nX       = evi_pink();\r\ncutoff  = in1;  // Hz\r\ndB      = in2;  // dB\r\nbw      = in3 * 0.5 + 0.5;  // 0..1 -> 0.5..1\r\nmorph   = evi_line(in4, mstosamps(100));  // 0..1 % LP..BP..HP..NOTCH..LP\r\n\r\n// 'morph' 0..1 interpolates LP..BP..HP..NOTCH..LP\r\n// gain in dB, bandwidth 0..1, smooth in ms\r\nout1    = eviFilterMorph(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// there is also a stereo version:\r\nout2, out3 = eviFilterMorphStereo(X, X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// there is also a version which is just a morphing of LP..BP..HP:\r\nout4    = eviFilterMorphLpBpHp(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// ...and a version which is just LP..NOTCH..HP:\r\nout5    = eviFilterMorphLpBrHp(X, cutoff, dB, bw, morph, smooth=smooth);\r\n\r\n\r\n// for nonlinear morphing SVFs @see:\r\n// [evi.arpnotch~]\r\n// [evi.svfsmooth~]\r\n// [evi.svfsynth~]\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
