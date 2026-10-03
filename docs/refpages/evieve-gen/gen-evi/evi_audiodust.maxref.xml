@@ -37,6 +37,7 @@
     <seealsolist>
         <seealso name='evi_gaussiannoise' display='evi_gaussiannoise' type='genrefpage' />
         <seealso name='evi_velvetnoise' display='evi_velvetnoise' type='genrefpage' />
+        <seealso name='evi_pink' display='evi_pink' type='genrefpage' />
         <seealso name='evi_zeroxcount' display='evi_zeroxcount' type='genrefpage' />
         <seealso name='evi_zeroxoscnoise' display='evi_zeroxoscnoise' type='genrefpage' />
         <seealso name='evi_randy' display='evi_randy' type='genrefpage' />

@@ -3192,6 +3192,28 @@
                 "auto": false
             }
         },
+        "evi_pink.gendsp": {
+            "define": {
+                "object": false,
+                "msp": "",
+                "mcwrapper": false
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_plateverb_lite.gendsp": {
             "define": {
                 "object": false,

@@ -1201,7 +1201,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1967,12 +1967,13 @@
                             },
                             {
                                 "box": {
+                                    "arrows": 1,
                                     "id": "obj-46",
                                     "justification": 4,
                                     "maxclass": "live.line",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 430.0, 227.0, 35.0, 197.0 ]
+                                    "patching_rect": [ 430.0, 229.0, 35.0, 197.0 ]
                                 }
                             },
                             {

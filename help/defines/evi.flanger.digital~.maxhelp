@@ -1715,6 +1715,7 @@
                             },
                             {
                                 "box": {
+                                    "arrows": 1,
                                     "id": "obj-46",
                                     "justification": 4,
                                     "maxclass": "live.line",

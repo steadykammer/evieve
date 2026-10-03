@@ -1,0 +1,56 @@
+{
+    "object": {
+        "name": "evi_pink",
+        "child": "",
+        "category": "evieve",
+        "digest": "Pink noise",
+        "description": "Pink noise distribution as a gen~ abstraction. Very similar to MSP <o>pink~</o>."
+    },
+    "constructor": {
+        "inlets": "dummy"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "dummy",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "Ignore this inlet"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "pink",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Noise",
+            "digest": "Pink noise"
+        }
+    ],
+    "attributes": [],
+    "seealso": [
+        {
+            "name": "evi_rand",
+            "display": "evi_rand"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_audiodust",
+            "display": "evi_audiodust"
+        },
+        {
+            "name": "evi_gaussiannoise",
+            "display": "evi_gaussiannoise"
+        },
+        {
+            "name": "evi_velvetnoise",
+            "display": "evi_velvetnoise"
+        }
+    ]
+}

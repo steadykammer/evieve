@@ -52,6 +52,15 @@
 
       </description>
     </entry>
+    <entry name="eviPink ( )">
+      <description>
+        Pink noise distribution in gen~, very similar to MSP [pink~] <br />
+        <br />
+
+        <b>Return 1</b>: Pink, <i>Pink noise</i> <br />
+
+      </description>
+    </entry>
     <entry name="likeZerox ( )">
       <description>
         Zero crossing detector, like [zerox~] from RNBO or MSP <br />

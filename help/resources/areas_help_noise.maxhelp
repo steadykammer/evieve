@@ -181,11 +181,22 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 42.0, 332.0, 495.0, 434.0 ],
+                        "rect": [ 62.0, 255.0, 495.0, 479.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-8",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 79.0, 206.0, 53.0, 22.0 ],
+                                    "text": "evi_pink"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-4",
@@ -193,7 +204,7 @@
                                     "numinlets": 5,
                                     "numoutlets": 6,
                                     "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 79.0, 364.0, 107.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 420.0, 107.0, 22.0 ],
                                     "text": "evi_zeroxoscnoise"
                                 }
                             },
@@ -204,7 +215,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 79.0, 204.0, 55.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 260.0, 55.0, 22.0 ],
                                     "text": "evi_rand"
                                 }
                             },
@@ -215,7 +226,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 79.0, 256.0, 61.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 312.0, 61.0, 22.0 ],
                                     "text": "evi_randy"
                                 }
                             },
@@ -225,7 +236,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 255.0, 364.0, 169.0, 22.0 ],
+                                    "patching_rect": [ 254.0, 420.0, 169.0, 22.0 ],
                                     "text": "out 1 Cosine interpolated rand"
                                 }
                             },
@@ -280,7 +291,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 6,
                                     "outlettype": [ "", "", "", "", "", "" ],
-                                    "patching_rect": [ 79.0, 310.0, 72.0, 22.0 ],
+                                    "patching_rect": [ 79.0, 366.0, 72.0, 22.0 ],
                                     "text": "evi_randlfo"
                                 }
                             }
@@ -289,14 +300,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-2", 0 ],
-                                    "midpoints": [ 264.5, 186.9921875, 88.5, 186.9921875 ],
+                                    "midpoints": [ 264.5, 243.03125, 88.5, 243.03125 ],
                                     "source": [ "obj-1", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
-                                    "midpoints": [ 106.5, 243.58203125, 264.5, 243.58203125 ],
+                                    "midpoints": [ 106.5, 299.58203125, 263.5, 299.58203125 ],
                                     "source": [ "obj-2", 1 ]
                                 }
                             }
@@ -427,8 +438,8 @@
                     "id": "obj-20",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 4,
-                    "outlettype": [ "signal", "signal", "signal", "signal" ],
+                    "numoutlets": 5,
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal" ],
                     "patcher": {
                         "fileversion": 1,
                         "appversion": {
@@ -439,11 +450,21 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 44.0, 370.0, 885.0, 434.0 ],
+                        "rect": [ 44.0, 303.0, 885.0, 500.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-2",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 507.0, 427.0, 35.0, 22.0 ],
+                                    "text": "out 4"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-13",
@@ -461,7 +482,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 472.0, 380.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 403.0, 427.0, 35.0, 22.0 ],
                                     "text": "out 3"
                                 }
                             },
@@ -471,7 +492,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 334.0, 380.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 299.0, 427.0, 35.0, 22.0 ],
                                     "text": "out 2"
                                 }
                             },
@@ -481,22 +502,22 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 195.0, 380.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 195.0, 427.0, 35.0, 22.0 ],
                                     "text": "out 1"
                                 }
                             },
                             {
                                 "box": {
-                                    "code": "\r\n// most noise sources live here:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nphase = phasor(in1);\r\n\r\nout1 = audioDust(in1);\r\nout2 = sparseVelvetNoise(in1, in2);\r\nout3 = gaussianNoise(0.6403882032022076); // legacy\r\nout4 = eviRandy(phase); // brown-ish noise\r\n\r\n",
+                                    "code": "\r\n// most noise sources live here:\r\nrequire(\"evi_sources.genexpr\");\r\n\r\nphase = phasor(in1);\r\n\r\nout1 = audioDust(in1);\r\nout2 = sparseVelvetNoise(in1, in2);\r\nout3 = gaussianNoise(0.6403882032022076); // legacy\r\nout4 = eviPink();\r\nout5 = eviRandy(phase); // brown-ish noise\r\n\r\n",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
                                     "id": "obj-9",
                                     "maxclass": "codebox",
                                     "numinlets": 2,
-                                    "numoutlets": 4,
-                                    "outlettype": [ "", "", "", "" ],
-                                    "patching_rect": [ 195.0, 104.0, 435.0, 229.0 ]
+                                    "numoutlets": 5,
+                                    "outlettype": [ "", "", "", "", "" ],
+                                    "patching_rect": [ 195.0, 119.0, 435.0, 246.0 ]
                                 }
                             },
                             {
@@ -516,8 +537,8 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 611.0, 380.0, 126.0, 22.0 ],
-                                    "text": "out 4 Brown-ish Noise"
+                                    "patching_rect": [ 611.0, 427.0, 126.0, 22.0 ],
+                                    "text": "out 5 Brown-ish Noise"
                                 }
                             }
                         ],
@@ -554,8 +575,14 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-4", 0 ],
+                                    "destination": [ "obj-2", 0 ],
                                     "source": [ "obj-9", 3 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-4", 0 ],
+                                    "source": [ "obj-9", 4 ]
                                 }
                             }
                         ]
@@ -759,7 +786,7 @@
                 "patchline": {
                     "destination": [ "obj-21", 0 ],
                     "midpoints": [ 351.5, 446.97265625, 558.5, 446.97265625 ],
-                    "source": [ "obj-20", 3 ]
+                    "source": [ "obj-20", 4 ]
                 }
             },
             {

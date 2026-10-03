@@ -108,6 +108,19 @@
         },
         {
             "document": true,
+            "digest": "Pink noise distribution in gen~, very similar to MSP [pink~]",
+            "name": "eviPink",
+            "inputs": [],
+            "returns": [
+                {
+                    "id": 1,
+                    "name": "Pink",
+                    "digest": "Pink noise"
+                }
+            ]
+        },
+        {
+            "document": true,
             "digest": "Zero crossing detector, like [zerox~] from RNBO or MSP",
             "name": "likeZerox",
             "inputs": [
