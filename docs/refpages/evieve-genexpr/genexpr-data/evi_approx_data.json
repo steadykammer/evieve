@@ -495,7 +495,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'mtof()'",
+            "digest": "Approximation of 'mtof()' with optional 'base' tuning param",
             "name": "mtofApprox",
             "inputs": [
                 {
@@ -523,7 +523,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'mtof()'",
+            "digest": "Approximation of 'mtof()' (fixed base of 440)",
             "name": "mtofApproxBaseless",
             "inputs": [
                 {
@@ -603,7 +603,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'ftom()'",
+            "digest": "Approximation of 'ftom()' (fixed base of 440)",
             "name": "ftomApproxBaseless",
             "inputs": [
                 {
@@ -763,7 +763,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe but more expensive clamping.",
+            "digest": "Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping but more expensive than 'tauA()'.",
             "name": "tauAm",
             "inputs": [
                 {
@@ -1028,7 +1028,7 @@
         },
         {
             "document": true,
-            "digest": "Not an approximation, full range implementation of 'log1p()'",
+            "digest": "Not an approximation, full range implementation of 'log1p()' for use in 'Li2Approx()'",
             "name": "eviLog1p",
             "inputs": [
                 {
@@ -1048,7 +1048,7 @@
         },
         {
             "document": true,
-            "digest": "Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3",
+            "digest": "Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3; for use in antiderivative antialiasing of tanh-like functions (@see: 'evi_adaa.genexpr')",
             "name": "Li2Approx",
             "inputs": [
                 {

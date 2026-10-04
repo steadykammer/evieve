@@ -8,7 +8,7 @@
   <description>
     <b>evi_sources.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_sources.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_sources.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     A collection of non-oscillator sources and related code. Different types of noise as well as novel random LFOs. <br />
@@ -124,7 +124,7 @@
     </entry>
     <entry name="eviRandCN ( )">
       <description>
-        Like 'eviRandN()' but with additional cosine interpolated output <br />
+        Like 'eviRandN()' (external noise source) but with additional cosine interpolated output <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: p, <i>Phasor driver 0..1 (not frequency)</i> <br />
         <b>In 2</b>: type=<i>input</i>: n, <i>External noise source from which rand is derived</i> <br />

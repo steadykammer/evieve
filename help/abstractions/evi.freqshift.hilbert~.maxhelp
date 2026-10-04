@@ -1172,6 +1172,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 417.0, 351.0, 154.0, 54.0 ],
+                                    "presentation_linecount": 3,
                                     "text": "both float & signal, and have different meanings !",
                                     "textjustification": 1
                                 }

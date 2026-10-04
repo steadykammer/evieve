@@ -8,7 +8,7 @@
   <description>
     <b>evi_ptr.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_ptr.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_ptr.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     3rd order PTR ('Polynomial Transition Region') Oscillators. In evieve these are better than the polyblep 2-point, but not as good as the polyblep 4-point. <br />

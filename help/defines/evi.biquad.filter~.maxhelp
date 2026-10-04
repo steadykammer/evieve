@@ -659,7 +659,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1387,7 +1387,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1654,7 +1654,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "lowpass", "highpass", "bandpass", "bandstop", "peaknotch", "lowshelf", "lowshelfcookbook", "highshelf", "highshelfcookbook", "resonant", "bp", "allpass", "gainlpass", "gainhpass", "gainbpass", "gainbstop", "gainresonant", "gainbp", "gainapass", "lowpassanalog1", "lowpassanalog2", "highpassanalog", "bandpassanalog", "gainbpassanalog", "notchanalog", "peaknotchanalog1", "peaknotchanalog2", "lowshelfanalog1", "lowshelfanalog2", "highshelfanalog1", "highshelfanalog2", "resonantanalog", "butterlowpass", "butterhighpass", "butterbandpass", "butterbandreject", "buttergainlpass", "buttergainhpass", "buttergainbpass", "buttergainbreject" ],
-                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial": [ 13.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "umenu[1]",
                                             "parameter_mmax": 40,

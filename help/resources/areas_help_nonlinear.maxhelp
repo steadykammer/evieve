@@ -79,36 +79,33 @@
                             {
                                 "box": {
                                     "id": "obj-50",
-                                    "linecount": 2,
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 111.0, 123.0, 202.0, 22.0 ],
+                                    "patching_rect": [ 111.0, 123.0, 208.0, 22.0 ],
                                     "text": "list.reg evicompare_svffilters.maxhelp"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-48",
-                                    "linecount": 2,
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 146.0, 176.0, 221.0, 22.0 ],
+                                    "patching_rect": [ 146.0, 176.0, 227.0, 22.0 ],
                                     "text": "list.reg evicompare_ladderfilters.maxhelp"
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-57",
-                                    "linecount": 2,
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 181.0, 214.0, 211.0, 22.0 ],
+                                    "patching_rect": [ 181.0, 214.0, 217.0, 22.0 ],
                                     "text": "list.reg evicompare_korgfilters.maxhelp"
                                 }
                             },
@@ -705,6 +702,7 @@
             {
                 "box": {
                     "border": 0,
+                    "evaluatehref": 1,
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
@@ -728,6 +726,7 @@
             {
                 "box": {
                     "border": 0,
+                    "evaluatehref": 1,
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
@@ -751,6 +750,7 @@
             {
                 "box": {
                     "border": 0,
+                    "evaluatehref": 1,
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,

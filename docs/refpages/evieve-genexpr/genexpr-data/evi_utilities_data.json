@@ -993,7 +993,7 @@
         },
         {
             "document": true,
-            "digest": "",
+            "digest": "Dual cosine approx panner",
             "name": "panQuartApproxDual",
             "inputs": [
                 {

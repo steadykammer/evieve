@@ -8,7 +8,7 @@
   <description>
     <b>evi_evieve.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_evieve.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_evieve.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_evieve.genexpr</b> file also requires: <br />
     evi_approx.genexpr <br />

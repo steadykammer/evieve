@@ -8,7 +8,7 @@
   <description>
     <b>evi_rcfilters.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_rcfilters.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_rcfilters.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_rcfilters.genexpr</b> file also requires: <br />
     evi_approx.genexpr <br />
@@ -73,7 +73,7 @@
     </entry>
     <entry name="rcFilterLpApHp ( )">
       <description>
-        Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs <br />
+        Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs, @see: [evi.onepole~] and [evi_onepole] <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />
@@ -223,7 +223,7 @@
     </entry>
     <entry name="rcOnePole ( )">
       <description>
-        Nonlinear Onepole RC filter via Newton iteration <br />
+        Nonlinear Onepole RC filter via Newton iteration, @see: [evi.rcfilter~] and [evi_rcfilter] <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: Vin, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: g, <i>Normalised frequency coefficient</i> <br />

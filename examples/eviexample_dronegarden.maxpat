@@ -6538,7 +6538,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 256.0, 95.0, 415.0, 368.0 ],
+                                        "rect": [ 134.0, 168.0, 415.0, 368.0 ],
                                         "gridonopen": 2,
                                         "subpatcher_template": "sub",
                                         "boxes": [
@@ -8358,7 +8358,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "stearns3"
+                                                    "text": "pentatetra1"
                                                 }
                                             },
                                             {
@@ -8430,7 +8430,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\nfunction bang()\r\n{\r\n//  getarchive(\"/Applications/Max.app/Contents/Resources/C74/scales/scalaarchive.json\");\r\n    getarchive(\"C74:/scales/scalaarchive.json\");\r\n}\r\n\r\nfunction getarchive(path)\r\n{\r\n    let d = new Dict();\r\n    d.import_json(path);\r\n    let sclaes = d.get(\"scales\");\r\n    if (sclaes) {\r\n        outlet(0, \"menu\", \"clear\");\r\n    }\r\n    let archiveconfig = sclaes.getkeys();\r\n    outlet(0, \"random\", (archiveconfig.length + 1));\r\n    outlet(0, \"menu\", \"append\", \"none\");\r\n\r\n    for (const thisname of archiveconfig) {\r\n        let thisscale = sclaes.get(`${thisname}::filename`);\r\n        thisscale = thisscale.replace('.scl', '');\r\n        outlet(0, \"menu\", \"append\", thisscale);\r\n    }\r\n}\r\ngetarchive.local = 1;\r\n\r\n",
+                                                    "code": "\r\nfunction bang()\r\n{\r\n    getarchive(\"C74:/scales/scalaarchive.json\");\r\n}\r\n\r\nfunction getarchive(path)\r\n{\r\n    let d = new Dict();\r\n    d.import_json(path);\r\n    let sclaes = d.get(\"scales\");\r\n    if (sclaes) {\r\n        outlet(0, \"menu\", \"clear\");\r\n    }\r\n    let archiveconfig = sclaes.getkeys();\r\n    outlet(0, \"random\", (archiveconfig.length + 1));\r\n    outlet(0, \"menu\", \"append\", \"none\");\r\n\r\n    for (const thisname of archiveconfig) {\r\n        let thisscale = sclaes.get(`${thisname}::filename`);\r\n        thisscale = thisscale.replace('.scl', '');\r\n        outlet(0, \"menu\", \"append\", thisscale);\r\n    }\r\n}\r\ngetarchive.local = 1;\r\n\r\n",
                                                     "filename": "none",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",

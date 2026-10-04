@@ -129,7 +129,7 @@
         },
         {
             "document": true,
-            "digest": "Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs",
+            "digest": "Linear OnePole RC filter with simultaneous Lowpass/Allpass/Highpass outputs, @see: [evi.onepole~] and [evi_onepole]",
             "name": "rcFilterLpApHp",
             "inputs": [
                 {
@@ -620,7 +620,7 @@
         },
         {
             "document": true,
-            "digest": "Nonlinear Onepole RC filter via Newton iteration",
+            "digest": "Nonlinear Onepole RC filter via Newton iteration, @see: [evi.rcfilter~] and [evi_rcfilter]",
             "name": "rcOnePole",
             "inputs": [
                 {

@@ -862,8 +862,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "b0",
-                                    "raw": "b0"
+                                    "name": "p0",
+                                    "raw": "p0"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -892,8 +892,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "b1",
-                                    "raw": "b1"
+                                    "name": "p1",
+                                    "raw": "p1"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -922,8 +922,8 @@
                                 "type": "VariableDeclarator",
                                 "id": {
                                     "type": "Identifier",
-                                    "name": "b2",
-                                    "raw": "b2"
+                                    "name": "p2",
+                                    "raw": "p2"
                                 },
                                 "init": {
                                     "type": "NewExpression",
@@ -977,8 +977,8 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "b0",
-                                "raw": "b0"
+                                "name": "p0",
+                                "raw": "p0"
                             },
                             "right": {
                                 "type": "BinaryExpression",
@@ -994,8 +994,8 @@
                                     },
                                     "right": {
                                         "type": "Identifier",
-                                        "name": "b0",
-                                        "raw": "b0"
+                                        "name": "p0",
+                                        "raw": "p0"
                                     }
                                 },
                                 "right": {
@@ -1023,8 +1023,8 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "b1",
-                                "raw": "b1"
+                                "name": "p1",
+                                "raw": "p1"
                             },
                             "right": {
                                 "type": "BinaryExpression",
@@ -1040,8 +1040,8 @@
                                     },
                                     "right": {
                                         "type": "Identifier",
-                                        "name": "b1",
-                                        "raw": "b1"
+                                        "name": "p1",
+                                        "raw": "p1"
                                     }
                                 },
                                 "right": {
@@ -1069,8 +1069,8 @@
                             "operator": "=",
                             "left": {
                                 "type": "Identifier",
-                                "name": "b2",
-                                "raw": "b2"
+                                "name": "p2",
+                                "raw": "p2"
                             },
                             "right": {
                                 "type": "BinaryExpression",
@@ -1086,8 +1086,8 @@
                                     },
                                     "right": {
                                         "type": "Identifier",
-                                        "name": "b2",
-                                        "raw": "b2"
+                                        "name": "p2",
+                                        "raw": "p2"
                                     }
                                 },
                                 "right": {
@@ -1132,19 +1132,19 @@
                                             "operator": "+",
                                             "left": {
                                                 "type": "Identifier",
-                                                "name": "b0",
-                                                "raw": "b0"
+                                                "name": "p0",
+                                                "raw": "p0"
                                             },
                                             "right": {
                                                 "type": "Identifier",
-                                                "name": "b1",
-                                                "raw": "b1"
+                                                "name": "p1",
+                                                "raw": "p1"
                                             }
                                         },
                                         "right": {
                                             "type": "Identifier",
-                                            "name": "b2",
-                                            "raw": "b2"
+                                            "name": "p2",
+                                            "raw": "p2"
                                         }
                                     },
                                     "right": {

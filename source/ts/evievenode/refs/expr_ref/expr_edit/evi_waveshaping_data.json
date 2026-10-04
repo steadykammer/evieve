@@ -90,7 +90,7 @@
         },
         {
             "document": true,
-            "digest": "Another cheaper alternative to tanh, behaves differently at very high gain",
+            "digest": "Another cheaper alternative to tanh, behaves differently at high gain",
             "name": "tanhPoly",
             "inputs": [
                 {
@@ -110,7 +110,7 @@
         },
         {
             "document": true,
-            "digest": "Atan() approximation, excellent sonic and mathematical closeness to library atan()",
+            "digest": "Atan() approximation, excellent sonic and mathematical closeness to library atan(), used in 'atanDrive()'",
             "name": "atanApprox",
             "inputs": [
                 {
@@ -130,7 +130,7 @@
         },
         {
             "document": true,
-            "digest": "Gain wrapping for 'atanApprox()'",
+            "digest": "Gain wrapping of 'atanApprox()' for use in 'atanSat()'",
             "name": "atanDrive",
             "inputs": [
                 {
@@ -273,7 +273,7 @@
         },
         {
             "document": true,
-            "digest": "A lovely polynomial from Reaktor, unbounded",
+            "digest": "A lovely polynomial from Reaktor, unbounded, used in 'polySat()'",
             "name": "polyNom",
             "inputs": [
                 {
@@ -482,7 +482,7 @@
         },
         {
             "document": true,
-            "digest": "Sine shaping saturation, gain wrapped",
+            "digest": "Sine shaping saturation, gain wrapped using 'localSinParam()'",
             "name": "sinSat",
             "inputs": [
                 {
@@ -592,7 +592,7 @@
         },
         {
             "document": true,
-            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras, but it is very hard to anti-alias",
+            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras, but it is very hard to antialias",
             "name": "gloubiBoulga",
             "inputs": [
                 {
@@ -618,7 +618,7 @@
         },
         {
             "document": true,
-            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras but in a static version slightly easier to anti-alias",
+            "digest": "The famous 'Gloubi Boulga' by Laurent de Soras but in a static version slightly easier to antialias",
             "name": "boulgaStatic",
             "inputs": [
                 {

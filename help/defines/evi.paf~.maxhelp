@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3073,7 +3073,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 60.0, 386.0, 74.0, 35.0 ],
-                                    "sig": 0.0
+                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -3355,7 +3355,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 646.0, 386.0, 74.0, 35.0 ],
-                                    "sig": 0.0
+                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -3370,7 +3370,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 570.0, 346.0, 74.0, 35.0 ],
-                                    "sig": 0.0
+                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -3385,7 +3385,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
                                     "patching_rect": [ 496.0, 306.0, 74.0, 35.0 ],
-                                    "sig": 0.0
+                                    "sig": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -5053,7 +5053,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 369.0, 313.0, 71.0, 22.0 ],
-                                                    "text": "1."
+                                                    "text": "0.177828"
                                                 }
                                             },
                                             {
@@ -5064,7 +5064,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 294.0, 313.0, 71.0, 22.0 ],
-                                                    "text": "60."
+                                                    "text": "90."
                                                 }
                                             },
                                             {
@@ -5075,7 +5075,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 218.0, 313.0, 72.0, 22.0 ],
-                                                    "text": "600."
+                                                    "text": "1870."
                                                 }
                                             },
                                             {
@@ -6623,7 +6623,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 778.0, 465.0, 600.0, 450.0 ],
+                                        "rect": [ 778.0, 465.0, 628.0, 450.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -6762,8 +6762,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 33.0, 156.0, 547.0, 22.0 ],
-                                                    "text": "expr evi_sline(evi_mtofapprox(latch(trunc(noise() * 12 + 12)\\, delta(phasor(in1)) < 0))\\, mstosamps(33))"
+                                                    "patching_rect": [ 33.0, 156.0, 563.0, 22.0 ],
+                                                    "text": "expr evi_sline(evi_mtofapprox(latch(trunc(evi_pink() * 12 + 12)\\, delta(phasor(in1)) < 0))\\, mstosamps(33))"
                                                 }
                                             },
                                             {
@@ -7018,7 +7018,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

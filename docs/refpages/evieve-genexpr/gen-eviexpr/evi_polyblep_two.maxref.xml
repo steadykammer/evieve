@@ -8,7 +8,7 @@
   <description>
     <b>evi_polyblep_two.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_polyblep_two.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_polyblep_two.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     Two-point PolyBLEP bandlimited oscillators, classic waveform shapes. This file also includes novel morphing oscillator types. When calling any of these functions you must deal with gain and dc yourself. <br />

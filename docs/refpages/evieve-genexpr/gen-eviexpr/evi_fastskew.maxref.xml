@@ -8,7 +8,7 @@
   <description>
     <b>evi_fastskew.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_fastskew.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_fastskew.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     Very specific routines for approximations of pow(x, 0.5..2) or pow(x, 0.25..4), although also just an interesting curvature in its own right. Not accurate at all for very large 'x' in terms of pow(). Available in either param rate ('cr') or audio rate ('ar') versions (optimising for gen~ while loop). Also available with exponent set in real values (0.5..2 or 0.25..4) or as normalised input (-1..1 through 0==1). <br />

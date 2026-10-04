@@ -59,7 +59,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1310,7 +1310,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "the A, D, S & R are the same as the native adsr~, but evi.adsr~ has RC curves. Increasing @riseratio & @fallratio to almost linear does not result in the same envelope though.",
+                                    "text": "The A, D, S & R are the same as the native adsr~, but evi.adsr~ has RC curves. Increasing @riseratio & @fallratio to almost linear does not result in the same envelope though.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1660,7 +1660,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 724.0, 92.0, 781.0, 645.0 ],
+                                        "rect": [ 134.0, 168.0, 781.0, 645.0 ],
                                         "boxes": [
                                             {
                                                 "box": {
@@ -2395,7 +2395,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 34.0, 92.0, 781.0, 645.0 ],
+                                        "rect": [ 134.0, 168.0, 781.0, 645.0 ],
                                         "boxes": [
                                             {
                                                 "box": {

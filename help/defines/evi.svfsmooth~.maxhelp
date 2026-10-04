@@ -1785,7 +1785,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2229,7 +2229,7 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 3.333333,
-                                            "parameter_initial": [ 1.0 ],
+                                            "parameter_initial": [ 113.72830188516026 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[5]",
                                             "parameter_mmax": 1000.0,
@@ -2324,7 +2324,7 @@
                                     "patching_rect": [ 355.0, 106.0, 82.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ 37.795275590551135 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[8]",
                                             "parameter_mmax": 100.0,

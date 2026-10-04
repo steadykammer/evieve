@@ -8,7 +8,7 @@
     "functions": [
         {
             "document": true,
-            "digest": "No lookahead crunchy fast limiter, almost the same as 'evi_limiterfast.gendsp'",
+            "digest": "No lookahead crunchy fast limiter, almost the same as [evi_limiterfast.gendsp]",
             "name": "limiterHardSoft",
             "inputs": [
                 {

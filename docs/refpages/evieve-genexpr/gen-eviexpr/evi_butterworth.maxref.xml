@@ -8,10 +8,10 @@
   <description>
     <b>evi_butterworth.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_butterworth.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_butterworth.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
-    A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including all-in-one selector. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js' <br />
+    A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including an all-in-one selector version. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js' <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="fWarp ( )">

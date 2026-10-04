@@ -269,7 +269,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-12",
@@ -283,7 +283,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[1]",
+                                            "parameter_longname": "live.numbox[16]",
                                             "parameter_mmax": 30.0,
                                             "parameter_mmin": -30.0,
                                             "parameter_modmode": 3,
@@ -933,7 +933,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-18",
@@ -1383,7 +1383,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-12",
@@ -1397,7 +1397,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[4]",
+                                            "parameter_longname": "live.numbox[10]",
                                             "parameter_mmax": 30.0,
                                             "parameter_mmin": -30.0,
                                             "parameter_modmode": 3,
@@ -2077,7 +2077,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-12",
@@ -2091,7 +2091,7 @@
                                         "valueof": {
                                             "parameter_initial": [ 10.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[9]",
+                                            "parameter_longname": "live.numbox[17]",
                                             "parameter_mmax": 30.0,
                                             "parameter_mmin": -30.0,
                                             "parameter_modmode": 3,
@@ -2664,15 +2664,15 @@
         ],
         "parameters": {
             "obj-10::obj-1": [ "umenu[1]", "umenu", 0 ],
-            "obj-10::obj-12": [ "live.numbox[4]", "Frequency", 0 ],
+            "obj-10::obj-12": [ "live.numbox[10]", "Frequency", 0 ],
             "obj-10::obj-14": [ "live.numbox[3]", "Frequency", 0 ],
             "obj-10::obj-16": [ "live.numbox[2]", "Frequency", 0 ],
             "obj-11::obj-1": [ "umenu[2]", "umenu", 0 ],
-            "obj-11::obj-12": [ "live.numbox[9]", "Frequency", 0 ],
+            "obj-11::obj-12": [ "live.numbox[17]", "Frequency", 0 ],
             "obj-11::obj-14": [ "live.numbox[8]", "Frequency", 0 ],
             "obj-11::obj-16": [ "live.numbox[7]", "Frequency", 0 ],
             "obj-2::obj-1": [ "umenu", "umenu", 0 ],
-            "obj-2::obj-12": [ "live.numbox[1]", "Frequency", 0 ],
+            "obj-2::obj-12": [ "live.numbox[16]", "Frequency", 0 ],
             "obj-2::obj-14": [ "live.numbox[6]", "Frequency", 0 ],
             "obj-2::obj-16": [ "live.numbox[5]", "Frequency", 0 ],
             "obj-9::obj-15": [ "live.numbox[14]", "Frequency", 0 ],

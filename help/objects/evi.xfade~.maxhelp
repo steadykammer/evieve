@@ -1153,7 +1153,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1466,7 +1466,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1629,7 +1629,7 @@
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// There are a few simple utilities for mixing sources in the 'evi_utilities.genexpr' file:\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n\r\n// This 'xfadeQuartApproxMono()' function is the equivalent of [evi.xfade~ @mode 0]\r\nout1 = xfadeQuartApproxMono(noise(), cycle(110), in5);\r\n\r\n// This 'xfadeQuartApproxSwap()' function is the equivalent of [evi.xfade~ @mode 1]\r\nout2, out3 = xfadeQuartApproxSwap(noise(), cycle(110), in5);\r\n\r\n// This 'xfadeQuartApproxStereo()' function is the equivalent of [evi.xfade~ @mode 2]\r\nout4, out5 = xfadeQuartApproxStereo(in1, in2, in3, in4, in5);\r\n\r\n\r\n// There are also panning functions in 'evi_utilities' as well:\r\nout6, out7 = panQuartApproxMono(in1, in5);\r\n\r\n",
+                                                    "code": "\r\n// There are a few simple utilities for mixing sources in the 'evi_utilities.genexpr' file:\r\nrequire(\"evi_utilities.genexpr\");\r\n\r\n\r\n// This 'xfadeQuartApproxMono()' function is the equivalent of [evi.xfade~ @mode 0]\r\nout1 = xfadeQuartApproxMono(noise(), cycle(110), in5);\r\n\r\n// This 'xfadeQuartApproxSwap()' function is the equivalent of [evi.xfade~ @mode 1]\r\nout2, out3 = xfadeQuartApproxSwap(noise(), cycle(110), in5);\r\n\r\n// This 'xfadeQuartApproxStereo()' function is the equivalent of [evi.xfade~ @mode 2]\r\nout4, out5 = xfadeQuartApproxStereo(in1, in2, in3, in4, in5);\r\n\r\n\r\n// There are also panning functions in 'evi_utilities' as well, e.g.:\r\nout6, out7 = panQuartApproxMono(in1, in5);\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -1795,7 +1795,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 71.0, 170.0, 150.0, 21.0 ],
-                                    "text": "like the 'modes' tab"
+                                    "text": "a bit like the 'modes' tab"
                                 }
                             },
                             {
@@ -2180,7 +2180,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 21.0, 15.0, 150.0, 20.0 ],
-                                                    "text": "like the 'modes' tab"
+                                                    "text": "a bit like the 'modes' tab"
                                                 }
                                             },
                                             {

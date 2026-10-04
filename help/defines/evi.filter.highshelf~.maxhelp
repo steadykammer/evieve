@@ -1077,7 +1077,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1215,7 +1215,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-30",
@@ -1229,7 +1229,7 @@
                                         "valueof": {
                                             "parameter_initial": [ -20.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[9]",
+                                            "parameter_longname": "live.numbox[16]",
                                             "parameter_mmax": 30.0,
                                             "parameter_mmin": -30.0,
                                             "parameter_modmode": 3,
@@ -1665,7 +1665,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1803,7 +1803,7 @@
                             },
                             {
                                 "box": {
-                                    "appearance": 2,
+                                    "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-30",
@@ -2320,7 +2320,7 @@
         "parameters": {
             "obj-10::obj-24": [ "live.numbox[7]", "Frequency", 0 ],
             "obj-10::obj-28": [ "live.numbox[8]", "Frequency", 0 ],
-            "obj-10::obj-30": [ "live.numbox[9]", "Frequency", 0 ],
+            "obj-10::obj-30": [ "live.numbox[16]", "Frequency", 0 ],
             "obj-11::obj-24": [ "live.numbox[10]", "Frequency", 0 ],
             "obj-11::obj-28": [ "live.numbox[11]", "Frequency", 0 ],
             "obj-11::obj-30": [ "live.numbox[12]", "Frequency", 0 ],

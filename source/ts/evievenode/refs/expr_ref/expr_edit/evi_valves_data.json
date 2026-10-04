@@ -1,5 +1,5 @@
 {
-    "description": "Functions required for the evieve valve distortion emulation evi.valve~, but full of useful nonlinear and enveloping building blocks.",
+    "description": "Functions required for the evieve valve distortion emulation [evi.valve~] / [evi_valve], but full of useful nonlinear and enveloping building blocks.",
     "requires": [
         "evi_saturators.genexpr",
         "evi_env.genexpr",
@@ -228,7 +228,7 @@
         },
         {
             "document": true,
-            "digest": "Circuit modelled coefficients calculator for the evieve Diode emulation, for use in 'diodeV()'",
+            "digest": "Circuit modelled coefficients calculator for the evieve Diode emulation, for use in 'diodeV()' etc. Technically this only ever needs updating if the samplerate changes.",
             "name": "diodeCoeffsV",
             "inputs": [
                 {

@@ -6126,7 +6126,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 318.0, 23.0, 292.0, 24.0 ],
-                                                    "text": "like the \"modulate\" tab of the helpfile"
+                                                    "text": "like the \"modulate\" tab of this helpfile"
                                                 }
                                             },
                                             {

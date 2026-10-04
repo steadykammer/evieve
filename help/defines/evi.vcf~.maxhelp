@@ -1040,7 +1040,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 10.0, 10.0, 660.0, 230.0 ],
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 240.0 ],
                                     "textfile": {
                                         "filename": "evi.helpdetails.js",
                                         "flags": 0,
@@ -2094,8 +2094,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 223.0, 441.0, 57.0, 23.0 ],
-                                    "text": "*~ 0.125"
+                                    "patching_rect": [ 223.0, 441.0, 50.0, 23.0 ],
+                                    "text": "*~ 0.25"
                                 }
                             },
                             {
@@ -2491,7 +2491,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

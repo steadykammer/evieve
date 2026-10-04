@@ -8,7 +8,7 @@
   <description>
     <b>evi_valves.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_valves.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_valves.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_valves.genexpr</b> file also requires: <br />
     evi_saturators.genexpr <br />
@@ -17,7 +17,7 @@
     evi_rcfilters.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    Functions required for the evieve valve distortion emulation evi.valve~, but full of useful nonlinear and enveloping building blocks. <br />
+    Functions required for the evieve valve distortion emulation [evi.valve~] / [evi_valve], but full of useful nonlinear and enveloping building blocks. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="safe20dB ( )">
@@ -85,7 +85,7 @@
     </entry>
     <entry name="diodeCoeffsV ( )">
       <description>
-        Circuit modelled coefficients calculator for the evieve Diode emulation, for use in 'diodeV()' <br />
+        Circuit modelled coefficients calculator for the evieve Diode emulation, for use in 'diodeV()' etc. Technically this only ever needs updating if the samplerate changes. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: SR, <i>SAMPLERATE</i> <br />
         <b>In 2</b>: type=<i>Param</i> (optional): CR, default: <b>0.000022</b>, min: 0, max: 0, <i>Constant, do not change</i> <br />

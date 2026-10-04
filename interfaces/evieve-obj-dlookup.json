@@ -587,7 +587,7 @@
     "evi.sinfold~": {
         "type": "define",
         "digest": "An antialiased sine folding waveshaper",
-        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ focusses on mid/high harmonics. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean antialiased saturation."
+        "description": "evi.sinfold~ is a 'max define' for the evi_sinfold.gendsp gen~ abstraction. Because evi.sinfold~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nUnlike other evieve waveshapers, evi.sinfold~ is a pure clean folding algorithm. By increasing the @drive attribute the input gradually folds over. Can be driven hard with clean antialiased saturation."
     },
     "evi.skfinputmix~": {
         "type": "define",

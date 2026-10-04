@@ -1496,7 +1496,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1607,7 +1607,7 @@
                                     "patching_rect": [ 307.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1.74 ],
+                                            "parameter_initial": [ 1.03 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[5]",
                                             "parameter_mmax": 20.0,
@@ -1633,7 +1633,7 @@
                                     "patching_rect": [ 389.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.04 ],
+                                            "parameter_initial": [ 0.027 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[6]",
                                             "parameter_mmax": 1.0,
@@ -1659,7 +1659,7 @@
                                     "patching_rect": [ 225.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.12 ],
+                                            "parameter_initial": [ 0.1 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[7]",
                                             "parameter_mmax": 1.0,
@@ -1682,7 +1682,7 @@
                                     "patching_rect": [ 178.0, 137.0, 336.0, 53.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 45 ],
+                                            "parameter_initial": [ 38 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_invisible": 1,
                                             "parameter_longname": "kslider[1]",
@@ -2908,7 +2908,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

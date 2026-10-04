@@ -3378,6 +3378,8 @@
                                     "format": 6,
                                     "id": "obj-3",
                                     "maxclass": "flonum",
+                                    "maximum": 1000.0,
+                                    "minimum": 0.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -3389,6 +3391,7 @@
                                             "parameter_initial_enable": 1,
                                             "parameter_invisible": 1,
                                             "parameter_longname": "number",
+                                            "parameter_mmax": 1000.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "number",
                                             "parameter_type": 3

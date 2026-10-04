@@ -8,10 +8,10 @@
   <description>
     <b>evi_biquads_no_tilde.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_biquads_no_tilde.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_biquads_no_tilde.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
-    The first section of this file is identical to the 40 filter types available in 'evi_biquads_coeffs.genexpr', but with all coefficients calculators adjusted to accept audio samplerate as a parameter so that all of these coefficients calculators can be used at schedular rate in gen (no tilde) for huge efficiency savings when circumstances allow. @see the [evi.biquadcoeff] abstraction for the example of how this is done. The rest of this file is a repeat of 'evi_biquads_selectors', similarly adjusted for gen (no tilde) usage. All functions are named identically to their ~ equivelents, but have an additional 'AUDIO_SR' parameter so audio samplerate can be passed in. <br />
+    The first section of this file is identical to the 40 filter types available in 'evi_biquads_coeffs.genexpr', but with all coefficients calculators adjusted to accept audio samplerate as a parameter so that all of these coefficients calculators can be used at schedular rate in gen (no tilde) for huge efficiency savings when circumstances allow. @see the [evi.biquadcoeff] (no tilde) abstraction for the example of how this is done. The rest of this file is a repeat of 'evi_biquads_selectors', similarly adjusted for gen (no tilde) usage. All functions are named identically to their ~ equivelents, but have an additional 'AUDIO_SR' parameter so audio samplerate can be passed in. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="eviBiquadCoeffLowpass ( )">

@@ -1025,7 +1025,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1223,8 +1223,20 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 256.0, 50.0, 23.0 ]
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 140.0, 256.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 37.54 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_invisible": 1,
+                                            "parameter_longname": "number[7]",
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "number[7]",
+                                            "parameter_type": 3
+                                        }
+                                    },
+                                    "varname": "number[1]"
                                 }
                             },
                             {
@@ -1719,7 +1731,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -2572,6 +2584,7 @@
             "obj-2::obj-13": [ "number", "number", 0 ],
             "obj-5::obj-17": [ "number[1]", "number", 0 ],
             "obj-5::obj-22": [ "number[2]", "number[2]", 0 ],
+            "obj-9::obj-10": [ "number[7]", "number[7]", 0 ],
             "obj-9::obj-12": [ "number[6]", "number[6]", 0 ],
             "parameterbanks": {
                 "0": {

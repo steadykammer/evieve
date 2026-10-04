@@ -263,8 +263,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 156.0, 245.0, 114.0, 36.0 ],
-                                    "text": "Allpass alignment pre or post ?"
+                                    "patching_rect": [ 147.0, 246.0, 127.0, 36.0 ],
+                                    "text": "Allpass alignment pre (1) or post (0) ?"
                                 }
                             },
                             {
@@ -952,7 +952,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 507.0, 380.0, 152.0 ],
-                                    "text": "As opposed to 2-band crossovers, 3-band crossovers require additional allpass alignment in order to provide flat summing. The purists will say this must be done at the recombination stage. In evieve this can be achieved with the evi.crossover.sum~ object, which is designed to sum the end of processing chain from a evi.crossover.3band~ object. However, it does not matter that much, so evi.crossover.sum~ includes an 'align' attribute which lets you do allpass alignment in the split or sum stage. It is on by default, so should be switched off if using the pre summing allpass alignment."
+                                    "text": "As opposed to 2-band crossovers, 3-band crossovers require additional allpass alignment in order to provide flat summing. The purists will say this must be done at the recombination stage. In evieve this can be achieved with the evi.crossover.sum~ object, which is designed to sum the end of processing chain from a evi.crossover.3band~ object. However, it does not matter that much, so evi.crossover.sum~ includes an 'align' attribute which lets you do allpass alignment in the split or sum stage. It is off by default, so should be switched on if using the pre summing allpass alignment."
                                 }
                             },
                             {
@@ -2582,8 +2582,8 @@
                                                     "numinlets": 3,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 377.0, 199.0, 123.0, 22.0 ],
-                                                    "text": "evi_crossover_3band"
+                                                    "patching_rect": [ 377.0, 199.0, 173.0, 22.0 ],
+                                                    "text": "evi_crossover_3band @align 0"
                                                 }
                                             },
                                             {
@@ -2828,7 +2828,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3003,7 +3003,7 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 230.0, 499.0, 63.0, 24.0 ],
+                                                    "patching_rect": [ 237.0, 499.0, 63.0, 24.0 ],
                                                     "text": "Out 2",
                                                     "textjustification": 1
                                                 }
@@ -3015,7 +3015,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 336.0, 39.0, 56.0, 22.0 ],
+                                                    "patching_rect": [ 345.0, 39.0, 56.0, 22.0 ],
                                                     "text": "in 3 High"
                                                 }
                                             },
@@ -3037,13 +3037,13 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 197.0, 39.0, 51.0, 22.0 ],
+                                                    "patching_rect": [ 202.0, 39.0, 51.0, 22.0 ],
                                                     "text": "in 2 Mid"
                                                 }
                                             },
                                             {
                                                 "box": {
-                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hzLow(250, min=10, max=20000);\r\nParam   hzHigh(2000, min=10, max=20000);\r\n\r\n\r\n// 'eviXover2pole3bandSum()' is the same as [evi.crossover.sum~ @order 0]\r\n//                          Low, Mid, High\r\nout1 = eviXover2pole3bandSum(in1, in2, in3, hzHigh);\r\n// Low, Mid, High\r\n\r\n// 'eviXover4pole3bandSum()' is the same as [evi.crossover.sum~ @order 1]\r\n//                          Low, Mid, High\r\nout2 = eviXover4pole3bandSum(in1, in2, in3, hzHigh); // aligned by default\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXover2pole3bandSumStereo(in1, in4, in2, in5, in3, in6, hzHigh);\r\n// L R\r\n\r\n",
+                                                    "code": "\r\n// all linkwitz-riley crossovers code lives in this .genexpr file:\r\nrequire(\"evi_crossovers.genexpr\");\r\n\r\n\r\nParam   hzLow(250, min=10, max=20000);\r\nParam   hzHigh(2000, min=10, max=20000);\r\n\r\n\r\n// 'eviXover2pole3bandSum()' is the same as [evi.crossover.sum~ @order 0]\r\n//                          Low, Mid, High\r\nout1 = eviXover2pole3bandSum(in1, in2, in3, hzHigh); // only aligned by default in GenExpr !!\r\n// Low, Mid, High\r\n\r\n// 'eviXover4pole3bandSum()' is the same as [evi.crossover.sum~ @order 1]\r\n//                          Low, Mid, High\r\nout2 = eviXover4pole3bandSum(in1, in2, in3, hzHigh); // only aligned by default in GenExpr !!\r\n\r\n\r\n// the .genexpr file also includes stereo versions:\r\nout3, out4 = eviXover2pole3bandSumStereo(in1, in4, in2, in5, in3, in6, hzHigh);\r\n// L R\r\n\r\n",
                                                     "fontface": 0,
                                                     "fontname": "<Monospaced>",
                                                     "fontsize": 12.0,
@@ -3052,7 +3052,7 @@
                                                     "numinlets": 6,
                                                     "numoutlets": 4,
                                                     "outlettype": [ "", "", "", "" ],
-                                                    "patching_rect": [ 58.0, 89.0, 715.0, 408.0 ]
+                                                    "patching_rect": [ 58.0, 89.0, 737.0, 408.0 ]
                                                 }
                                             },
                                             {
@@ -3061,7 +3061,7 @@
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 290.0, 532.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 297.0, 532.0, 35.0, 22.0 ],
                                                     "text": "out 1"
                                                 }
                                             }

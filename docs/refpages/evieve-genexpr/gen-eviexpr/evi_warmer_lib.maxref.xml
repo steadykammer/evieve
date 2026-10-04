@@ -8,7 +8,7 @@
   <description>
     <b>evi_warmer_lib.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_warmer_lib.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_warmer_lib.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_warmer_lib.genexpr</b> file also requires: <br />
     evi_smooth.genexpr <br />
@@ -16,7 +16,7 @@
     evi_butterworth.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    This file is mainly here as a catch all for the require files it inherits for building the evieve [evi.warmer~] abstraction. It also contains core functions for that abstraction. <br />
+    This file is mainly here as a catch all for the require files it inherits for building the evieve [evi.warmer~] / [evi_warmer] abstractions. It also contains core functions for that abstraction. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="D ( )">

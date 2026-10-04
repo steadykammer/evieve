@@ -8,7 +8,7 @@
   <description>
     <b>evi_biquads_selectors.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_biquads_selectors.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_biquads_selectors.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     Higher level filter type selectors for all 40 filter coefficient calculators included in 'evi_biquads_coeffs.genexpr'. Note, this file on it's own is not very useful as it needs 'evi_biquads_coeffs.genexpr' to function properly inside gen~. Use the require file 'evi_biquads_union.genexpr' in most situations. <br />

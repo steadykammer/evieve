@@ -8,7 +8,7 @@
   <description>
     <b>evi_lfo.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_lfo.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_lfo.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_lfo.genexpr</b> file also requires: <br />
     evi_sources.genexpr <br />
@@ -68,7 +68,7 @@
         <br />
         <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
 
-        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO 0..1</i> <br />
 
       </description>
     </entry>
@@ -79,7 +79,7 @@
         <b>In 1</b>: type=<i>input</i>: phase, <i>Phase driver 0..1</i> <br />
         <b>In 2</b>: type=<i>input</i>: n, <i>External noise sync source input</i> <br />
 
-        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO -1..1</i> <br />
+        <b>Return 1</b>: LFO, <i>Quasi random sinus-like LFO 0..1</i> <br />
 
       </description>
     </entry>

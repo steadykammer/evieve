@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 0.0, 61.0, 1319.0, 788.0 ],
+        "rect": [ 0.0, 62.0, 1319.0, 788.0 ],
         "bglocked": 1,
         "gridonopen": 2,
         "toolbarvisible": 0,
@@ -214,7 +214,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 1145.0, 741.0, 67.0, 26.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "minimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 0, 61, 1319, 849, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "minimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 0, 62, 1319, 850, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -1330,12 +1330,12 @@
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
                                                         "outlettype": [ "", "" ],
-                                                        "fontface": 0,
                                                         "id": "obj-3",
                                                         "fontsize": 12.0,
-                                                        "numinlets": 2,
-                                                        "numoutlets": 2,
                                                         "fontname": "<Monospaced>",
+                                                        "numinlets": 2,
+                                                        "fontface": 0,
+                                                        "numoutlets": 2,
                                                         "code": "\r\n// this is an antialiased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no antialiasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are antialiased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);           // must smooth in2 externally\r\nataninput = in1 * ingain;// + bias;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain;// * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                     }
                                                 },
@@ -1393,103 +1393,96 @@
                                         "needsInstanceInfo": 1,
                                         "argnames": {
                                             "in1": {
-                                                "attrOrProp": 1,
+                                                "kind": 1,
                                                 "digest": "in1",
                                                 "isalias": 0,
                                                 "aliases": [],
+                                                "settable": 0,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "inlet": 1,
                                                 "type": "number"
                                             },
                                             "reset": {
-                                                "attrOrProp": 1,
+                                                "kind": 1,
                                                 "digest": "Reset all param and history objects to initial values",
                                                 "isalias": 0,
                                                 "aliases": [],
+                                                "settable": 0,
                                                 "attachable": 1,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "bang"
                                             },
                                             "expr": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a gen expression",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "file": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "gendsp file to load",
                                                 "isalias": 0,
                                                 "aliases": [ "gen" ],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "gen": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "gendsp file to load",
                                                 "isalias": 1,
-                                                "aliasOf": "file",
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "aliasOf": "file",
                                                 "type": "symbol"
                                             },
                                             "title": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a title",
-                                                "defaultarg": 1,
                                                 "isalias": 0,
                                                 "aliases": [ "t" ],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "defaultarg": 1,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "t": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a title",
-                                                "defaultarg": 1,
                                                 "isalias": 1,
-                                                "aliasOf": "title",
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "aliasOf": "title",
                                                 "type": "symbol"
                                             },
                                             "exposeparams": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "Expose gen params as RNBO params.",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "bool",
@@ -1501,8 +1494,7 @@
                                                 "name": "in1",
                                                 "type": "auto",
                                                 "digest": "in1",
-                                                "hot": 1,
-                                                "docked": 0
+                                                "hot": 1
                                             },
                                             {
                                                 "name": "in2",
@@ -1520,10 +1512,9 @@
                                             }
                                         ],
                                         "helpname": "gen~",
-                                        "aliasOf": "gen~",
                                         "classname": "gen~",
-                                        "operator": 0,
-                                        "versionId": 403863964,
+                                        "digest": "gen~",
+                                        "versionId": 1955946750,
                                         "objectversion": 0,
                                         "changesPatcherIO": 0,
                                         "hasPatcherArgs": 0
@@ -1866,52 +1857,48 @@
                                         "needsInstanceInfo": 1,
                                         "argnames": {
                                             "in1": {
-                                                "attrOrProp": 1,
+                                                "kind": 1,
                                                 "digest": "signal sent to outlet with index 1",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 0,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "inlet": 1,
                                                 "type": "signal"
                                             },
                                             "index": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "outlet number",
-                                                "defaultarg": 1,
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "defaultarg": 1,
                                                 "type": "number",
-                                                "mandatory": 1
+                                                "defaultValue": "0"
                                             },
                                             "comment": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "mouse over comment",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol"
                                             },
                                             "meta": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "A JSON formatted string containing metadata for use by the exported code",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol",
@@ -1926,18 +1913,17 @@
                                                 "type": "signal",
                                                 "digest": "signal sent to outlet with index 1",
                                                 "displayName": "",
-                                                "hot": 1,
-                                                "docked": 0
+                                                "hot": 1
                                             }
                                         ],
                                         "outputs": [],
                                         "helpname": "out~",
-                                        "aliasOf": "out~",
                                         "classname": "out~",
-                                        "operator": 0,
-                                        "versionId": 1989326771,
+                                        "digest": "signal outlet",
+                                        "versionId": -605335439,
                                         "objectversion": 0,
-                                        "changesPatcherIO": 1
+                                        "changesPatcherIO": 1,
+                                        "hasPatcherArgs": 0
                                     },
                                     "text": "out~ 1"
                                 }
@@ -2034,12 +2020,12 @@
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
                                                         "outlettype": [ "" ],
-                                                        "fontface": 0,
                                                         "id": "obj-3",
                                                         "fontsize": 12.0,
-                                                        "numinlets": 4,
-                                                        "numoutlets": 1,
                                                         "fontname": "<Monospaced>",
+                                                        "numinlets": 4,
+                                                        "fontface": 0,
+                                                        "numoutlets": 1,
                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                     }
                                                 }
@@ -2092,103 +2078,96 @@
                                         "needsInstanceInfo": 1,
                                         "argnames": {
                                             "in1": {
-                                                "attrOrProp": 1,
+                                                "kind": 1,
                                                 "digest": "in1",
                                                 "isalias": 0,
                                                 "aliases": [],
+                                                "settable": 0,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "inlet": 1,
                                                 "type": "number"
                                             },
                                             "reset": {
-                                                "attrOrProp": 1,
+                                                "kind": 1,
                                                 "digest": "Reset all param and history objects to initial values",
                                                 "isalias": 0,
                                                 "aliases": [],
+                                                "settable": 0,
                                                 "attachable": 1,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "bang"
                                             },
                                             "expr": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a gen expression",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "file": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "gendsp file to load",
                                                 "isalias": 0,
                                                 "aliases": [ "gen" ],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "gen": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "gendsp file to load",
                                                 "isalias": 1,
-                                                "aliasOf": "file",
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "aliasOf": "file",
                                                 "type": "symbol"
                                             },
                                             "title": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a title",
-                                                "defaultarg": 1,
                                                 "isalias": 0,
                                                 "aliases": [ "t" ],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "defaultarg": 1,
                                                 "type": "symbol",
                                                 "doNotShowInMaxInspector": 1
                                             },
                                             "t": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "a title",
-                                                "defaultarg": 1,
                                                 "isalias": 1,
-                                                "aliasOf": "title",
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
+                                                "aliasOf": "title",
                                                 "type": "symbol"
                                             },
                                             "exposeparams": {
-                                                "attrOrProp": 2,
+                                                "kind": 2,
                                                 "digest": "Expose gen params as RNBO params.",
                                                 "isalias": 0,
                                                 "aliases": [],
                                                 "settable": 1,
                                                 "attachable": 0,
-                                                "isparam": 0,
                                                 "deprecated": 0,
                                                 "touched": 0,
                                                 "type": "bool",
@@ -2200,8 +2179,7 @@
                                                 "name": "in1",
                                                 "type": "auto",
                                                 "digest": "in1",
-                                                "hot": 1,
-                                                "docked": 0
+                                                "hot": 1
                                             },
                                             {
                                                 "name": "in2",
@@ -2223,10 +2201,9 @@
                                             }
                                         ],
                                         "helpname": "gen~",
-                                        "aliasOf": "gen~",
                                         "classname": "gen~",
-                                        "operator": 0,
-                                        "versionId": 403863964,
+                                        "digest": "gen~",
+                                        "versionId": 1955946750,
                                         "objectversion": 0,
                                         "changesPatcherIO": 0,
                                         "hasPatcherArgs": 0
@@ -2303,7 +2280,7 @@
                             "type": 0
                         }
                     },
-                    "rnboversion": "1.5.0-dev.130",
+                    "rnboversion": "1.5.0-dev.133",
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_invisible": 1,
@@ -3392,6 +3369,7 @@
                             },
                             {
                                 "box": {
+                                    "hint": "Double-Click to See Inside...",
                                     "id": "obj-5",
                                     "maxclass": "newobj",
                                     "numinlets": 4,

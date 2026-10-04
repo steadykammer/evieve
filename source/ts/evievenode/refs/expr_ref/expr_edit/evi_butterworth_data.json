@@ -1,5 +1,5 @@
 {
-    "description": "A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including all-in-one selector. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js'",
+    "description": "A collection of Linear TPT Lowpass Butterworth filters orders 1..8, including an all-in-one selector version. These are surgical filters but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains. For the constants calculations @see: 'evi_butterworth8_coeffs.js'",
     "requires": [],
     "functions": [
         {

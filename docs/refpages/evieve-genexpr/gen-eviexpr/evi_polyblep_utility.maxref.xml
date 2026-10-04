@@ -8,7 +8,7 @@
   <description>
     <b>evi_polyblep_utility.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_polyblep_utility.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_polyblep_utility.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     This file is not very interesting on it's own and simply contains code found elsewhere in the evieve Package. It is for making the evieve polyblep requires more manageable when building gen~ or MSP abstractions. <br />

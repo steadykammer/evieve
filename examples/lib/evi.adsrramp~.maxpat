@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 79.0, 126.0, 840.0, 840.0 ],
+        "rect": [ 79.0, 108.0, 840.0, 840.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "boxes": [
@@ -32,7 +32,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 49.0, 14.0, 763.0, 74.0 ],
-                    "text": "This abstraction wraps an [adsr~] object and synchronously creates a new piecewise ramped segments envelope which is optionally curved. There are no dependencies and it is all in MSP. Because it wraps [adsr~] we can use the [adsr~] outputs to perfectly control [thispoly~] etc. Various compromises mean that it cannot do everything [adsr~] can do, bit it is still usable (sadly no @legato, @retrigger, @maxsustain at the moment). See: [evi.adsrcurve~] and [evi.adsrpoly~] for alternative solutions. See: [evi.adsr~] for a proper envelope (and one that can be used in gen~)."
+                    "text": "This abstraction wraps an [adsr~] object and synchronously creates a new piecewise ramped segments envelope which is optionally curved. There are no dependencies and it is all in MSP. Because it wraps [adsr~] we can use the [adsr~] outputs to control [thispoly~] etc. Various compromises mean that it cannot do everything [adsr~] can do, bit it is still usable (sadly no @legato, @retrigger, @maxsustain at the moment). See: [evi.adsrcurve~] and [evi.adsrpoly~] for alternative solutions. See: [evi.adsr~] for a proper envelope (and one that can be used in gen~)."
                 }
             },
             {
@@ -94,7 +94,7 @@
                 "box": {
                     "comment": "dumpout",
                     "id": "obj-202",
-                    "index": 0,
+                    "index": 4,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -105,7 +105,7 @@
                 "box": {
                     "comment": "(message) mute outlet",
                     "id": "obj-201",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -116,7 +116,7 @@
                 "box": {
                     "comment": "(signal) new env trigger",
                     "id": "obj-200",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1260,7 +1260,7 @@
                 "box": {
                     "comment": "(signal) adsr envelope",
                     "id": "obj-172",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "outlet",
                     "numinlets": 1,
                     "numoutlets": 0,
@@ -1392,7 +1392,7 @@
                 "box": {
                     "comment": "(float) release",
                     "id": "obj-36",
-                    "index": 0,
+                    "index": 5,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -1404,7 +1404,7 @@
                 "box": {
                     "comment": "(float) sustain",
                     "id": "obj-35",
-                    "index": 0,
+                    "index": 4,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -1416,7 +1416,7 @@
                 "box": {
                     "comment": "(float) decay",
                     "id": "obj-34",
-                    "index": 0,
+                    "index": 3,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -1428,7 +1428,7 @@
                 "box": {
                     "comment": "(signal/float) trigger/gate",
                     "id": "obj-33",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -1440,7 +1440,7 @@
                 "box": {
                     "comment": "(float) attack",
                     "id": "obj-32",
-                    "index": 0,
+                    "index": 2,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -2078,7 +2078,6 @@
                     "source": [ "obj-9", 1 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }

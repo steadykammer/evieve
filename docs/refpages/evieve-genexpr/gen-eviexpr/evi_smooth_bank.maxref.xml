@@ -8,7 +8,7 @@
   <description>
     <b>evi_smooth_bank.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_smooth_bank.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_smooth_bank.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     This file contains a subset extracted from the 'evi_smooth.genexpr' file but with no dependencies, for when you need basic smoothing banks and do not wish to require more than is needed. This can be useful in complex require situations and is used by some of the evieve examples. <br />

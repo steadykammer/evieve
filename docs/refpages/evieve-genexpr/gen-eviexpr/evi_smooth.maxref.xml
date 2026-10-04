@@ -8,13 +8,13 @@
   <description>
     <b>evi_smooth.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_smooth.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_smooth.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_smooth.genexpr</b> file also requires: <br />
     evi_utilities.genexpr <br />
     <br />
     <b>About this File</b>: <br />
-    A large collection of param rate and audio rate smoothing functions used all over evieve. Many are efficient inexact destination smoothers, others are more expensive exact destination smoothers. There is enough variety here to suit all the situations evieve needs from a technical and also creative (sound design) point of view. This .genexpr file also inherits 'evi_utilities.genexpr' and therefore 'evi_approx.genexpr' as well, so it gets required in many evieve abstractions and is a very useful all-in-one require for a lot of what we need to do in GenExpr. <br />
+    A large collection of param rate and audio rate smoothing functions used all over evieve. Many are efficient inexact destination smoothers, others are more expensive exact destination smoothers. There is enough variety here to suit all the situations evieve needs from a technical and also creative (sound design) point of view. This .genexpr file also inherits 'evi_utilities.genexpr' and therefore 'evi_approx.genexpr' as well, so it gets required in many evieve abstractions and is a very useful all-in-one require for a lot of what we need to do in GenExpr. @see the 'Smoothers' 'Comparison Patcher' for a thorough explanation. <br />
   </description>
   <misc name="GenExpr Functions">
     <entry name="stepsmooth ( )">
@@ -542,7 +542,7 @@
     </entry>
     <entry name="eviRamplimit ( )">
       <description>
-        Cheaper than and similar too 'eviRampsmooth()' etc, slew limiter with linear ramps set in sample time <br />
+        Cheaper than and similar to 'eviRampsmooth()' etc, slew limiter with linear ramps set in sample time <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: target, <i>Value to slew limit</i> <br />
         <b>In 2</b>: type=<i>input</i>: upsamples, <i>Ramp up time in samples</i> <br />

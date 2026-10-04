@@ -8,7 +8,7 @@
   <description>
     <b>evi_utilities.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_utilities.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_utilities.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
      <br />
     The <b>evi_utilities.genexpr</b> file also requires: <br />
     evi_approx.genexpr <br />
@@ -378,6 +378,8 @@
     </entry>
     <entry name="panQuartApproxDual ( )">
       <description>
+        Dual cosine approx panner <br />
+        <br />
         <b>In 1</b>: type=<i>input</i>: xL, <i>Left input</i> <br />
         <b>In 2</b>: type=<i>input</i>: xR, <i>Right input</i> <br />
         <b>In 3</b>: type=<i>input</i>: pL, <i>Left panning 0..1</i> <br />

@@ -8,7 +8,7 @@
   <description>
     <b>evi_waveshaping.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_waveshaping.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_waveshaping.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     A very long time ago this was called 'stkr.waveshaping.genexpr'. A collection of memoryless nonlinearities for waveshaping etc. Note: all of these functions are naive and need antialiasing / resampling to be of any use. @see: 'evi_adaa.genexpr' for antiderivative antialiasing and 'evi_saturators.genexpr' for quasi oversampling. <br />
@@ -47,7 +47,7 @@
     </entry>
     <entry name="tanhPoly ( )">
       <description>
-        Another cheaper alternative to tanh, behaves differently at very high gain <br />
+        Another cheaper alternative to tanh, behaves differently at high gain <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
@@ -57,7 +57,7 @@
     </entry>
     <entry name="atanApprox ( )">
       <description>
-        Atan() approximation, excellent sonic and mathematical closeness to library atan() <br />
+        Atan() approximation, excellent sonic and mathematical closeness to library atan(), used in 'atanDrive()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
@@ -67,7 +67,7 @@
     </entry>
     <entry name="atanDrive ( )">
       <description>
-        Gain wrapping for 'atanApprox()' <br />
+        Gain wrapping of 'atanApprox()' for use in 'atanSat()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: drive, <i>Linear drive control, 1++</i> <br />
 
@@ -131,7 +131,7 @@
     </entry>
     <entry name="polyNom ( )">
       <description>
-        A lovely polynomial from Reaktor, unbounded <br />
+        A lovely polynomial from Reaktor, unbounded, used in 'polySat()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
 
@@ -206,7 +206,7 @@
     </entry>
     <entry name="sinSat ( )">
       <description>
-        Sine shaping saturation, gain wrapped <br />
+        Sine shaping saturation, gain wrapped using 'localSinParam()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: drive, <i>Drive amount % 0..1.. up to 2 is pretty safe, up to 4 be careful</i> <br />
@@ -251,7 +251,7 @@
     </entry>
     <entry name="gloubiBoulga ( )">
       <description>
-        The famous 'Gloubi Boulga' by Laurent de Soras, but it is very hard to anti-alias <br />
+        The famous 'Gloubi Boulga' by Laurent de Soras, but it is very hard to antialias <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x2, <i>Audio input</i> <br />
         <b>In 2</b>: type=<i>input</i>: drive, <i>Linear gain 1..40 -ish</i> <br />
@@ -262,7 +262,7 @@
     </entry>
     <entry name="boulgaStatic ( )">
       <description>
-        The famous 'Gloubi Boulga' by Laurent de Soras but in a static version slightly easier to anti-alias <br />
+        The famous 'Gloubi Boulga' by Laurent de Soras but in a static version slightly easier to antialias <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: xin, <i>Audio input</i> <br />
 

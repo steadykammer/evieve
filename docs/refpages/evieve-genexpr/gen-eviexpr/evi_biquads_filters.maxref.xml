@@ -8,7 +8,7 @@
   <description>
     <b>evi_biquads_filters.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_biquads_filters.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_biquads_filters.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     A collection of different biquad filters for use with the evieve biquad coefficient calculators or other calculations. Usage, e.g.: 'out1 = biquadDf2(in1, eviBiquadCoeffLowpassGain(cutoffHz, linearGain, Q))'. <br />

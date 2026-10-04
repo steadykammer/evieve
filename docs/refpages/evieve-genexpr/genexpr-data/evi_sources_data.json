@@ -286,7 +286,7 @@
         },
         {
             "document": true,
-            "digest": "Like 'eviRandN()' but with additional cosine interpolated output",
+            "digest": "Like 'eviRandN()' (external noise source) but with additional cosine interpolated output",
             "name": "eviRandCN",
             "inputs": [
                 {

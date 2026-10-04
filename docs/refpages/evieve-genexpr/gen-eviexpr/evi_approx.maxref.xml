@@ -8,7 +8,7 @@
   <description>
     <b>evi_approx.genexpr</b> is a <m>.genexpr</m> file and is part of the <b>'evieve' Package</b>. <br />
     It is for using in a <o>gen.codebox~</o> or in another <m>.genexpr</m> file via the <m>require()</m> command. <br />
-    By declaring <m>require("evi_approx.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file. <br />
+    By declaring <m>require("evi_approx.genexpr");</m> at the top of a codebox you can then access all of the functions included in this file (and functions from any other <m>.genexpr</m> files itself requires). <br />
         <br />
     <b>About this File</b>: <br />
     Numeric approximations used all over evieve. Approximations are faster than library functions but less accurate. You should be careful using approximations - they can break your code. In evieve all approximations are tested to work on the code in which they are used. <br />
@@ -248,7 +248,7 @@
     </entry>
     <entry name="mtofApprox ( )">
       <description>
-        Approximation of 'mtof()' <br />
+        Approximation of 'mtof()' with optional 'base' tuning param <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
         <b>In 2</b>: type=<i>param</i> (optional): base, default: <b>440</b>, <i>Hz 415..467</i> <br />
@@ -259,7 +259,7 @@
     </entry>
     <entry name="mtofApproxBaseless ( )">
       <description>
-        Approximation of 'mtof()' <br />
+        Approximation of 'mtof()' (fixed base of 440) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: pitch, <i>MIDI Pitch</i> <br />
 
@@ -289,7 +289,7 @@
     </entry>
     <entry name="ftomApproxBaseless ( )">
       <description>
-        Approximation of 'ftom()' <br />
+        Approximation of 'ftom()' (fixed base of 440) <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: frequency, <i>Hz</i> <br />
 
@@ -359,7 +359,7 @@
     </entry>
     <entry name="tauAm ( )">
       <description>
-        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe but more expensive clamping. <br />
+        Approximation of 'exp(-1 / (seconds * samplerate))' for time..pole calculations. With safe clamping but more expensive than 'tauA()'. <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: t, <i>seconds, &gt; 0.01 for best accuracy</i> <br />
 
@@ -478,7 +478,7 @@
     </entry>
     <entry name="eviLog1p ( )">
       <description>
-        Not an approximation, full range implementation of 'log1p()' <br />
+        Not an approximation, full range implementation of 'log1p()' for use in 'Li2Approx()' <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: value, <i>float</i> <br />
 
@@ -488,7 +488,7 @@
     </entry>
     <entry name="Li2Approx ( )">
       <description>
-        Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3 <br />
+        Approximation of real dilogarithm mathrm{Li}_2(x), Alexander Voigt, @license GPL v3; for use in antiderivative antialiasing of tanh-like functions (@see: 'evi_adaa.genexpr') <br />
         <br />
         <b>In 1</b>: type=<i>input</i>: x, <i>real argument</i> <br />
 

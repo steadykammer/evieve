@@ -2576,7 +2576,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3265,7 +3265,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
@@ -3626,11 +3626,11 @@
                                                 "box": {
                                                     "id": "obj-16",
                                                     "maxclass": "newobj",
-                                                    "numinlets": 0,
+                                                    "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 509.0, 215.0, 37.0, 22.0 ],
-                                                    "text": "noise"
+                                                    "patching_rect": [ 509.0, 215.0, 53.0, 22.0 ],
+                                                    "text": "evi_pink"
                                                 }
                                             },
                                             {

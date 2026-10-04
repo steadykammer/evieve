@@ -126,7 +126,7 @@
         },
         {
             "document": true,
-            "digest": "'Transposed Direct Form 2' section, with a1, a2, b1 and b2 factored out as per Hilbert allpass",
+            "digest": "'Transposed Direct Form 2' biquad filter section, with a1, a2, b1 and b2 factored out as per Hilbert allpass",
             "name": "hilbertTdf2",
             "inputs": [
                 {
@@ -152,7 +152,7 @@
         },
         {
             "document": true,
-            "digest": "Hilbert transform 90º phase shifting filter cascade, @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js', @see: [evi.freqshift.hilbert~] abstraction for an example.",
+            "digest": "Hilbert transform 90º phase shifting filter cascade, @see: [evi.polyphaseiirhilbertcoeffs] and 'evi_hilbert_coefficients.js', @see: [evi.hilbert~] and [evi.freqshift.hilbert~] abstractions for examples.",
             "name": "eviHilbertCascade",
             "inputs": [
                 {
@@ -269,7 +269,7 @@
         },
         {
             "document": true,
-            "digest": "'Direct Form 2' but with coefficients reduced rather than repeated for allpass usage, in gen~ cascade form with History()s written out to / read from Data()",
+            "digest": "'Direct Form 2' biquad filter but with coefficients reduced rather than repeated for allpass usage, in gen~ cascade form with History()s written out to / read from Data()",
             "name": "biquadDf2cascadeAllpass",
             "inputs": [
                 {
