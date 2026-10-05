@@ -409,25 +409,6 @@ morph_pulsebipulse_trirect(t, dt, morph)			// morph controls pwm, zero crossing 
 	}
 	return	morph_osc;
 }
-/*
-// this was here to attempt to avoid require hell
-poly_half20(t, dt, pw)
-{
-	h	= 0;
-	fdp	= 1.2732395447351628;		// 4 / PI
-	t6	= (pw * 0.5 + t + 0.75) - pw;
-	t7	= t6;
-	t6	= wrap(t6, 0, 1);
-	t77	= t7 - wrap(t7, 0, 1);
-	if (t6 < pw) {
-		h	= (sin73(t6 / pw * PI) * 2) - pw * fdp;
-	} else {
-		h	= 0 - pw * fdp;
-	}
-	h2	= (poly_blamp(t7 - t77, dt) + poly_blamp(t6, dt)) / pw * PI * dt + h;
-	return	h2;
-}
-*/
 
 // !! if you call any of the above functions independently you must deal with gain & dc yourself !!
 

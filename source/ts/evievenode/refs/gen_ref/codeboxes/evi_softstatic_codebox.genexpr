@@ -3,7 +3,8 @@ require("evi_adaa.genexpr");
 
 // antialiased soft clipping
 
-// it is strongly advised that you never change these 'constants':
+// we could say: "it is strongly advised to never change these 'constants'",
+// but also we could say: "if you feel confident (lucky), go ahead"
 Param   softH(sqrt1_2, min=0.01, max=2);
 Param   softRatio(sqrt1_2, min=0, max=1);
 Param   softC(sqrt1_2, min=0.64, max=1.4);

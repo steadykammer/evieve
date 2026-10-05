@@ -15,12 +15,13 @@
         "boxes": [
             {
                 "box": {
+                    "fontsize": 11.0,
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
-                    "patching_rect": [ 90.4, 236.0, 29.5, 22.0 ],
+                    "patching_rect": [ 90.4, 237.0, 25.0, 21.0 ],
                     "text": "f 0."
                 }
             },
@@ -1350,7 +1351,7 @@
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
-                    "outlettype": [ "int" ],
+                    "outlettype": [ "" ],
                     "patching_rect": [ 64.0, 147.0, 30.0, 30.0 ]
                 }
             },
@@ -1560,8 +1561,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 370.0, 451.0, 235.0, 47.0 ],
-                    "text": "in this abstraction, new envelope trigger does not include initial delay or 'hold2' - use 'segment #' outlet for those sections",
-                    "textjustification": 0
+                    "text": "in this abstraction, new envelope trigger does not include initial delay or 'hold2' - use 'segment #' outlet for those sections"
                 }
             }
         ],

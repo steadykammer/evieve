@@ -16,8 +16,8 @@
     See the GNU General Public License for more details.
 */
 
-// two W=3 (e)ptr oscillators (W any less is pointless)
-// in evieve, better than polyblep 2-point, but not as good as polyblep 4-point
+// two W=3 (e)ptr oscillators (W any less is pointless) in evieve,
+// better than polyblep 2-point, but not as good as polyblep 4-point
 
 ptr3_saw(p, T0, P0)			// p = normalised phase 0..1
 {

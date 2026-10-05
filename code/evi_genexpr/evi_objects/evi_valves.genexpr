@@ -78,7 +78,8 @@ atanDriveV(drive)
 
 
 //	//	//	Diode Clip	//	//	//
-// here we remake what we already have in the 'evi_clipping.genexpr' to expose gain and bias as inlets
+// here we remake what we already have in the 'evi_clipping.genexpr'
+// to expose gain and bias as inlets and improve resampling
 
 // Copyright (C) 2022-2024 Orastron Srl unipersonale
 // Stefano D'Angelo, GPL v3
@@ -148,132 +149,6 @@ diodeV(Vin, k1, k2, k3, k4, k5, k6, VT, reset) // audio rate
 	p1 = k6 * Vout - p1;
   
 	return Vout;
-}
-
-// for gain & bias as params, @see: 'evi_clipping.genexpr'
-
-// naive wrap
-// todo: fix dc on initialisation
-diodeWrapGB(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
-{
-	History didu(0);
-	d0 = gain * Vin + bias;
-	d1 = diodeV(d0, k1, k2, k3, k4, k5, k6, VT, reset);
-	return dcblock(d1 - w4v(bias));
-}
-
-// naive 2x quasi oversampling (cubic4)
-diodeGB_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
-{	// up 2
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x2_0	= umT1_0 + 0;
-
-	// process 2x
-	y1_0	= diodeWrapGB(x1_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-	y2_0	= diodeWrapGB(x2_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return (y0_0);
-}
-
-// naive 4x quasi oversampling (cubic4)
-diodeGB_4x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
-{	// up 2
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x2_0	= umT1_0 + 0;
-
-	// process 2x
-	y1_0	= diodeGB_2x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-	y2_0	= diodeGB_2x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return (y0_0);
-}
-
-// naive 8x quasi oversampling (cubic4)
-diodeGB_8x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
-{	// up 2
-	History	umTm1_0(0), umT0_0(0), umT1_0(0);
-	// down 2
-	History	dmT2_1(0), dmT1_1(0), dmT0_1(0);
-	// align
-	History	doX0(0);
-
-	// up 2x
-	x0_0_a	= XIN + 0;
-	x1_0	= cubic_hermite_interp(0.5,	umTm1_0, umT0_0, umT1_0, x0_0_a);
-	x2_0	= umT1_0 + 0;
-
-	// process 8x
-	y1_0	= diodeGB_4x_4POINT(x1_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-	y2_0	= diodeGB_4x_4POINT(x2_0, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset);
-
-	// down 2x
-	y2_0_a	= y2_0 + 0;
-	y2_1	= cubic_hermite_interp(0.5,	y2_0_a,	dmT0_1, dmT1_1, dmT2_1);
-
-	y0_0	= (doX0 + y2_1) * 0.5;
-
-	// update
-	umTm1_0	= umT0_0;
-	umT0_0	= umT1_0;
-	umT1_0	= x0_0_a;
-
-	doX0	= y1_0;
-
-	dmT2_1	= dmT1_1;
-	dmT1_1	= dmT0_1;
-	dmT0_1	= y2_0;
-
-	return (y0_0);
 }
 
 //	//	//
@@ -637,6 +512,8 @@ diodeV8_8x(XIN, k1, k2, k3, k4, k5, k6, VT, reset)
 
 //	//	//
 
+// for gain & bias as params, @see: 'evi_clipping.genexpr'
+
 diodeWrapGB_2x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History didu2(0);
@@ -653,7 +530,7 @@ diodeWrapGB_4x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 	return dcblock(d1 - w4v(bias));
 }
 
-// massive dc on initialisation problem
+// dc on initialisation problem
 diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History didu8(0);
@@ -666,7 +543,7 @@ diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 diodeWrapGB_8x(Vin, k1, k2, k3, k4, k5, k6, VT, gain, bias, reset)
 {
 	History init(1);
-    // f0 is SO HORRIBLE I WANT TO DIE, AND CRY, AND DIE AGAIN, SORRY FOR f0 :-( please help if you can
+    // f0 is HORRIBLE
     f0 = 1 - evi_logsmooth(init, 666);
 	d0 = gain * Vin + bias;
 	d1 = diodeV8_8x(d0, k1, k2, k3, k4, k5, k6, VT, reset);

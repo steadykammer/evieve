@@ -583,8 +583,8 @@ eviFilterEq4(x, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smooth time in 
 	History 	efe4dummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
@@ -602,8 +602,8 @@ eviFilterEq4Reset(x, cutoff, db, Q, filter, reset, smooth=0.)	// gain in dB, smo
 	History 	efe4rdummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);
@@ -633,8 +633,8 @@ eviFilterEq4Stereo(xL, xR, cutoff, db, Q, filter, smooth=0.)	// gain in dB, smoo
 	History 	efes4dummy(0);
 	smoothsecs	= smooth * 0.001;
 	gain 		= dbtoaApprox(db);
-	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);//0.666666);//sqrt2);
-	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);//0.333333);//sqrt1_2);
+	a11, a21, a31, m01, m11, m21	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.5);
+	a12, a22, a32, m02, m12, m22	= svfSectionCoeffEq(filter, cutoff, gain, Q * 0.25);
 	if (smooth > 0) {
 		m01, m11, m21	= expsmoothBank3(m01, m11, m21, smoothsecs);
 		m02, m12, m22	= expsmoothBank3(m02, m12, m22, smoothsecs);

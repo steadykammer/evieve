@@ -214,7 +214,7 @@ firOrder12(x0, a0=1, a1=2, a2=1)	// defaults for lowpass @ nyquist
 	y1	= y0 + x2 * a20;
 	x2	= x1;
 	x1	= x0;
-	return	y0, y1;		// 1st order, 2nd order
+	return	y0, y1;			// 1st order, 2nd order
 }
 
 

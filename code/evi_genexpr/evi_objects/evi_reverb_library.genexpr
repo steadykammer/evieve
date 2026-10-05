@@ -68,7 +68,7 @@ sizeParams(size)					// a(n almost) faithful matt's macroisation homage
 	return sizeL, sizeR, diff, rt60dB, modAmount, modSpread;
 }
 
-// sadly this is a repeat from "evi_fastskew.genexpr" to avoid another require in "evi_majorverb"
+// sadly this is a repeat from "evi_fastskew.genexpr" to avoid another require in "evi_backverb"
 
 // negative only
 fastskewlfo052neg(x, skewneg)				// !! skewneg must be clamped 0.5..1 !!
@@ -394,7 +394,7 @@ delayReadZero1mod(x0, dTime, dRamp, mDepth)
 	return	x1;
 }
 
-delayReadZero2(x0, dTime1, dTime2, dRamp)// this is stupid
+delayReadZero2(x0, dTime1, dTime2, dRamp)
 {
 	History	pdv2dummy(0);
 	Delay	zeroDel4(49153,	4,	feedback=0);
@@ -638,7 +638,7 @@ allpassDiffuseDamp(x, time, diffusion, g0, k0, g1, k1, damp)
 	fb		= AllpassDiffuseD.read(time, interp="spline");
 	if ((damp) && ((k0 != 0) || (k1 != 0))) {
 		fb	= rcFilterDamp(fb, g0, k0);
-		fb	= rcFilterDampHp(fb, g1, k1); // !! bug was here !!
+		fb	= rcFilterDampHp(fb, g1, k1);
 	}
 	y		= (x * -(diffusion)) + fb;
 	AllpassDiffuseD.write(x + (fixdenorm(y) * diffusion));

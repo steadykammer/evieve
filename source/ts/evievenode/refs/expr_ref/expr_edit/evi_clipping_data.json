@@ -481,6 +481,12 @@
                 },
                 {
                     "id": 10,
+                    "kind": "input",
+                    "name": "reset",
+                    "digest": ""
+                },
+                {
+                    "id": 11,
                     "kind": "param",
                     "name": "gain",
                     "default": 0.999999,
@@ -488,7 +494,7 @@
                     "digest": ""
                 },
                 {
-                    "id": 11,
+                    "id": 12,
                     "kind": "param",
                     "name": "bias",
                     "default": 0.000001,

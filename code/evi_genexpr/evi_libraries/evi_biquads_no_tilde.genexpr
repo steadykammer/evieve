@@ -84,7 +84,7 @@
 
 eviBiquadCoeffLowpass(cutoff, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		c0  =  cos(w0);
@@ -102,7 +102,7 @@ eviBiquadCoeffLowpass(cutoff, Q, AUDIO_SR=48000)
 
 eviBiquadCoeffHighpass(cutoff, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		c0  =  cos(w0);
@@ -122,7 +122,7 @@ eviBiquadCoeffHighpass(cutoff, Q, AUDIO_SR=48000)
 // this is a real bandpass - same resonant peak as low- & high- passes
 eviBiquadCoeffBandpass(cutoff, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  alpha;
@@ -137,9 +137,9 @@ eviBiquadCoeffBandpass(cutoff, Q, AUDIO_SR=48000)
 	return  (b0 * a0m), (b1 * a0m), (b2 * a0m), (a1 * a0m), (a2 * a0m);	// a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffNotch(cutoff, Q, AUDIO_SR=48000)              // "Bandstop"
+eviBiquadCoeffNotch(cutoff, Q, AUDIO_SR=48000)		// "Bandstop"
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  1;
@@ -156,7 +156,7 @@ eviBiquadCoeffNotch(cutoff, Q, AUDIO_SR=48000)              // "Bandstop"
 
 eviBiquadCoeffPeakNotch(cutoff, gain, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
     G       = sqrt(maximum(gain, 0.001));
 //  G       = pow(10, (gain * 0.025));      // if gain in dB directly
@@ -178,7 +178,7 @@ eviBiquadCoeffPeakNotch(cutoff, gain, Q, AUDIO_SR=48000)
 // I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook
 eviBiquadCoeffLowshelfMSP(cutoff, gain, Q, AUDIO_SR=48000)	// like MSP (see below for RBJ)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
     A       = sqrt(maximum(gain, 0.001));
 //  A       = pow(10, (gain * 0.025));      // if gain in dB directly
 
@@ -204,7 +204,7 @@ eviBiquadCoeffLowshelfMSP(cutoff, gain, Q, AUDIO_SR=48000)	// like MSP (see belo
 
 eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q, AUDIO_SR=48000) // RBJ (see above for MSP style)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
     A       = sqrt(maximum(gain, 0.001));
 //  A       = pow(10, (gain * 0.025));      // if gain in dB directly
 
@@ -232,7 +232,7 @@ eviBiquadCoeffLowshelfCookbook(cutoff, gain, Q, AUDIO_SR=48000) // RBJ (see abov
 // I am not sure who made this MSP version - it has much nicer Q scaling than the cookbook
 eviBiquadCoeffHighshelfMSP(cutoff, gain, Q, AUDIO_SR=48000)	// like MSP (see below for RBJ)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
     A       = sqrt(maximum(gain, 0.001));
 //  A       = pow(10, (gain * 0.025));      // if gain in dB directly
 
@@ -258,7 +258,7 @@ eviBiquadCoeffHighshelfMSP(cutoff, gain, Q, AUDIO_SR=48000)	// like MSP (see bel
 
 eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q, AUDIO_SR=48000)	// RBJ (see above for MSP style)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
     A       = sqrt(maximum(gain, 0.001));
 //  A       = pow(10, (gain * 0.025));      // if gain in dB directly
 
@@ -284,7 +284,7 @@ eviBiquadCoeffHighshelfCookbook(cutoff, gain, Q, AUDIO_SR=48000)	// RBJ (see abo
 }
 
 // this is incorrectly called "bandpass" in [filtercoeff~] & [filtergraph~]
-eviBiquadCoeffResonant(cutoff, Q, AUDIO_SR=48000)			// "Resonant" (similar to [reson~])
+eviBiquadCoeffResonant(cutoff, Q, AUDIO_SR=48000)		// "Resonant" (similar to [reson~])
 {
 	omega   = TWOPI / AUDIO_SR;
 	bw      = cutoff / Q;
@@ -299,9 +299,9 @@ eviBiquadCoeffResonant(cutoff, Q, AUDIO_SR=48000)			// "Resonant" (similar to [r
 	return  b0, b1, b2, a1, a2;             // a0, a1, a2, b1, b2
 }
 
-eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                 // [bp~] from Pd
+eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)             // [bp~] from Pd
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	qw      = minimum((w0 / Q), 1);
 	r2      = 1 - qw;
 
@@ -316,7 +316,7 @@ eviBiquadCoeffBp(cutoff, Q, AUDIO_SR=48000)                 // [bp~] from Pd
 
 eviBiquadCoeffAllpass(cutoff, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  1 - alpha;
@@ -333,7 +333,7 @@ eviBiquadCoeffAllpass(cutoff, Q, AUDIO_SR=48000)
 
 eviBiquadCoeffLowpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		c0  =  cos(w0);
@@ -353,7 +353,7 @@ eviBiquadCoeffLowpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 
 eviBiquadCoeffHighpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		c0  =  cos(w0);
@@ -375,7 +375,7 @@ eviBiquadCoeffHighpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 // this is a real bandpass - same resonant peak as low- & high- passes
 eviBiquadCoeffBandpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  alpha;
@@ -394,7 +394,7 @@ eviBiquadCoeffBandpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 
 eviBiquadCoeffNotchGain(cutoff, gain, Q, AUDIO_SR=48000)    // "Bandstop"
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  gain;
@@ -430,7 +430,7 @@ eviBiquadCoeffResonantGain(cutoff, gain, Q, AUDIO_SR=48000)	// "Resonant" (simil
 
 eviBiquadCoeffBpGain(cutoff, gain, Q, AUDIO_SR=48000)       // [bp~] from Pd
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	qw      = minimum((w0 / Q), 1);
 	r2      = 1 - qw;
 
@@ -446,7 +446,7 @@ eviBiquadCoeffBpGain(cutoff, gain, Q, AUDIO_SR=48000)       // [bp~] from Pd
 
 eviBiquadCoeffAllpassGain(cutoff, gain, Q, AUDIO_SR=48000)
 {
-	w0      = TWOPI * cutoff / AUDIO_SR;  // omega0
+	w0      = TWOPI * cutoff / AUDIO_SR;  	// omega0
 	alpha   = sin(w0) / (Q + Q);            // r0
 
 		b0  =  1 - alpha;
@@ -651,7 +651,7 @@ eviBiquadCoeffHighpassAnalog(cutoff, fullQ, AUDIO_SR=48000)
 // this is incorrectlly named, is actually a "Resonant" filter
 eviBiquadCoeffBandpassAnalog(cutoff, Q, AUDIO_SR=48000)
 {
-    w 		= TWOPI * cutoff / AUDIO_SR;      // omega0
+    w 		= TWOPI * cutoff / AUDIO_SR;	// omega0
 	bw		= w/Q;			    // bw in rads/sample
 	GB		= sqrt1_2;			// gain at bw: sqrt((G*G)/2) works best for bandpass
 	w2		= w*w;
@@ -697,8 +697,8 @@ eviBiquadCoeffBandpassAnalog(cutoff, Q, AUDIO_SR=48000)
 // this is incorrectlly named, is actually a "Resonant" filter
 eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q, AUDIO_SR=48000)
 {
-    w 		= TWOPI * cutoff / AUDIO_SR;      // omega0
-	bw		= w/Q; 		// bw in rads/sample
+    w 		= TWOPI * cutoff / AUDIO_SR;      	// omega0
+	bw		= w/Q; 				// bw in rads/sample
 	G2		= gain*gain;
 	GB		= sqrt(G2*0.5);		// gain at bw: sqrt((G*G)/2) works best for bandpass
 	w2		= w*w;
@@ -782,7 +782,7 @@ eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q, AUDIO_SR=48000)
 {
 	a0				= 1;
 	a1, a2, b1, b2	= 0;
-    w 		        = TWOPI * cutoff / AUDIO_SR;          // omega0
+    w 		        = TWOPI * cutoff / AUDIO_SR;          	// omega0
 	bw				= w/(Q+1);	    // bw in rads/sample	// w/Q
 	
 	if (gain == 1) {
@@ -790,7 +790,7 @@ eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q, AUDIO_SR=48000)
 		B	= tan(bw * 0.5);
 		b0	= 1 / (1 + B);
 		a0	= 1;					// b0*(1+beta) = (1+beta)/(1+beta) = 1
-		b1	= b0 * -2 * cos(w);// 
+		b1	= b0 * -2 * cos(w);
 		a1	= b1;
 		b2	= b0 * (1 - B);
 		a2	= b2;
@@ -843,7 +843,7 @@ eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q, AUDIO_SR=48000)
 }
 
 // Martin Vicanek matched method
-// this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus Notch
+// this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus quasi Notch
 eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, fullQ, AUDIO_SR=48000)
 {
 	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
@@ -946,7 +946,7 @@ eviBiquadCoeffLowshelfAnalog1(cutoff, gain, fullQ, AUDIO_SR=48000)
 }
 
 // Martin Vicanek analog matched Butterworth Lowshelf
-eviBiquadCoeffLowshelfAnalog2(cutoff, gain, AUDIO_SR=48000) // !! no Q, cutoff @ high (yes, high) gain
+eviBiquadCoeffLowshelfAnalog2(cutoff, gain, AUDIO_SR=48000) // !! no Q, cutoff @ high (yes, high) gain (surely wrong?)
 {
     // (center frequency / Nyquist frequency)
     fc   = cutoff / AUDIO_SR*0.5;
@@ -1127,7 +1127,7 @@ eviBiquadCoeffHighshelfAnalog2(cutoff, gain, AUDIO_SR=48000) // !! no Q, cutoff 
 }
 
 // Martin Vicanek matched method
-// incoreectly called "Bandpass" in the paper
+// dubiously called "Bandpass" in the paper
 eviBiquadCoeffResonantAnalog(cutoff, fullQ, AUDIO_SR=48000)
 {
 	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog

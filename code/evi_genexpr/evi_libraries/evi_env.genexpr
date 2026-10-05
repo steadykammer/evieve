@@ -153,6 +153,8 @@ envRawDetect(x, attack, release)	// clamp attack / release to 0..1
 	return state;
 }
 
+// the following 4 functions are copies from the envs section of 'evi_smooth.genexpr'
+
 envSad(s)									// s = time to drop 6dB (in seconds)
 {
 //	return	LN2 / (s * samplerate);

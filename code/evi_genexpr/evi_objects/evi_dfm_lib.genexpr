@@ -22,8 +22,10 @@
 // Thanks to Jonny Stutters for his SuperCollider port, 2011.
 // Dirty MSP/gen~ reworking by fat Pete, 2013 (thanks to Matt Jackson for the LUT assistance).
 // LICENSE: GPLv2.
+// used in [evi.dfm~]
 
 // @see: "evi_korgms10.gendsp", "evi_korgms20.gendsp" & "evi_korgms20_select.gendsp"
+// or [evi.korgms10~], [evi.korgms20~] & [evi.korgms20.select~]
 // for better (?) 'emulations' of the Korg MS-10 / MS-20 filter chips.
 
 require("evi_smooth.genexpr");				// incl. "_utilities" & _approx"

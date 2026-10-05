@@ -691,7 +691,7 @@ eviBiquadCoeffBandpassAnalog(cutoff, Q)
 eviBiquadCoeffBandpassGainAnalog(cutoff, gain, Q)
 {
     w 		= TWOPI * cutoff / SAMPLERATE;      // omega0
-	bw		= w/Q; 		// bw in rads/sample
+	bw		= w/Q; 				// bw in rads/sample
 	G2		= gain*gain;
 	GB		= sqrt(G2*0.5);		// gain at bw: sqrt((G*G)/2) works best for bandpass
 	w2		= w*w;
@@ -783,7 +783,7 @@ eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q)
 		B	= tan(bw * 0.5);
 		b0	= 1 / (1 + B);
 		a0	= 1;					// b0*(1+beta) = (1+beta)/(1+beta) = 1
-		b1	= b0 * -2 * cos(w);// 
+		b1	= b0 * -2 * cos(w);
 		a1	= b1;
 		b2	= b0 * (1 - B);
 		a2	= b2;
@@ -836,7 +836,7 @@ eviBiquadCoeffPeakNotchAnalog1(cutoff, gain, Q)
 }
 
 // Martin Vicanek matched method
-// this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus Notch
+// this is not really a 'PeakNotch', it is a 'Peaking' filter with bonus quasi Notch
 eviBiquadCoeffPeakNotchAnalog2(cutoff, gain, fullQ)
 {
 	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog
@@ -939,7 +939,7 @@ eviBiquadCoeffLowshelfAnalog1(cutoff, gain, fullQ)
 }
 
 // Martin Vicanek analog matched Butterworth Lowshelf
-eviBiquadCoeffLowshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high (yes, high) gain
+eviBiquadCoeffLowshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high (yes, high) gain (surely this is wrong?)
 {
     // (center frequency / Nyquist frequency)
     fc   = cutoff / SAMPLERATE*0.5;
@@ -1120,7 +1120,7 @@ eviBiquadCoeffHighshelfAnalog2(cutoff, gain) // !! no Q, cutoff @ high gain
 }
 
 // Martin Vicanek matched method
-// incorrectly called "Bandpass" in the paper
+// dubiously called "Bandpass" in the paper
 eviBiquadCoeffResonantAnalog(cutoff, fullQ)
 {
 	Q 	= maximum(fullQ, 0.5);	// empirical for vicanek analog

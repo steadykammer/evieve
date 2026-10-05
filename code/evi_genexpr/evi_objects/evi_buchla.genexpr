@@ -29,7 +29,7 @@ tanhLapprox(x)									// tanh lambert
 	return clamp((a / b), -1, 1);
 }
 /*
-// this is total crap, no idea why i was considering it
+// this is rubbish, no idea why i was considering it
 cubicClip(x)									// cubic addition
 {
 	x05 = x * 0.5;
@@ -345,8 +345,8 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 	History	xo0(0), xo1(0), xo2(0);
 	nl1 = nl - 1;
 	nls = clamp(nl1, 0, 1);
-	thing = 1;// - (nls * (1 - sqrt1_2));
-	thong = resist;// * (1 - nls);
+	thing = 1;
+	thong = resist;
 
 	// constants
 	c1 = 0.000000001;
@@ -397,7 +397,6 @@ buchlaLpg3(x0, x1, x2, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	//rf1d1 = rf1*d1;
 
     // pass 1
 
@@ -483,8 +482,8 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 	History	xo0(0), xo1(0), xo2(0), xo3(0);
 	nl1 = nl - 1;
 	nls = clamp(nl1, 0, 1);
-	thing = 1;// - (nls * (1 - sqrt1_2));
-	thong = resist;// * (1 - nls);
+	thing = 1;
+	thong = resist;
 
 	// constants
 	c1 = 0.000000001;
@@ -535,7 +534,6 @@ buchlaLpg4(x0, x1, x2, x3, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	//rf1d1 = rf1*d1;
 
     // pass 1
 
@@ -646,8 +644,8 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 	History	xo0(0), xo1(0), xo2(0), xo3(0), xo4(0), xo5(0);
 	nl1 = nl - 1;
 	nls = clamp(nl1, 0, 1);
-	thing = 1;// - (nls * (1 - sqrt1_2));
-	thong = resist;// * (1 - nls);
+	thing = 1;
+	thong = resist;
 
 	// constants
 	c1 = 0.000000001;
@@ -698,7 +696,6 @@ buchlaLpg6(x0, x1, x2, x3, x4, x5, rf, res, resist, vcamode, lpgmode, nl)
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	//rf1d1 = rf1*d1;
 
     // pass 1
 
@@ -859,8 +856,8 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 	History	xo0(0), xo1(0), xo2(0), xo3(0), xo4(0), xo5(0), xo6(0), xo7(0);
 	nl1 = nl - 1;
 	nls = clamp(nl1, 0, 1);
-	thing = 1;// - (nls * (1 - sqrt1_2));
-	thong = resist;// * (1 - nls);
+	thing = 1;
+	thong = resist;
 
 	// constants
 	c1 = 0.000000001;
@@ -911,7 +908,6 @@ buchlaLpg8(x0, x1, x2, x3, x4, x5, x6, x7, rf, res, resist, vcamode, lpgmode, nl
 	Do = 1/(1 - a2*f);
 	fb3d = f*b3*Do;
 	fb4 = b4*f;
-	//rf1d1 = rf1*d1;
 
     // pass 1
 
@@ -1234,7 +1230,6 @@ buchlaLpg4_4x(XIN, rf, res, resist, vcamode, lpgmode, nl)
 	y4_0_a	= y4_0 + 0;
 	y4_1	= cubic_hermite_interp(0.75,	y4_0_a,	dmT0_3, dmT1_3, dmT2_3);
 
-    // this seems the wrong way to sum to me
 	y0_0	= (((doX0 + y2_1) + y3_1) + y4_1) * 0.25;
 
 	// update
@@ -1305,7 +1300,6 @@ buchlaLpg6_6x(XIN, rf, res, resist, vcamode, lpgmode, nl)
 	y6_0_a	= y6_0 + 0;
 	y6_1	= cubic_hermite_interp(ODW,	y6_0_a,	dmT0_5, dmT1_5, dmT2_5);
 
-    // this seems the wrong way to sum to me
 	y0_0	= (((((doX0 + y2_1) + y3_1) + y4_1) + y5_1) + y6_1) * ODS;
 
 	// update
@@ -1389,7 +1383,6 @@ buchlaLpg8_8x(XIN, rf, res, resist, vcamode, lpgmode, nl)
 	y8_0_a	= y8_0 + 0;
 	y8_1	= cubic_hermite_interp(0.875,	y8_0_a,	dmT0_7, dmT1_7, dmT2_7);
 
-    // this seems the wrong way to sum to me
 	y0_0	= (((((((doX0 + y2_1) + y3_1) + y4_1) + y5_1) + y6_1) + y7_1) + y8_1) * 0.125;
 
 	// update

@@ -311,6 +311,8 @@ adHc2_4x_4POINT(XIN, reset)
 // Copyright (C) 2022-2024 Orastron Srl unipersonale
 // Stefano D'Angelo, GPL v3
 
+// @see: 'evi_valves.genexpr' for better (but more expensive|) diode resampling
+
 w3(x)
 {
 	// x = minimum(x0, 0.909136);	// do we really need this clamp here (precision) ?
@@ -378,29 +380,13 @@ diode(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset) // audio rate
 
 // todo: expose gain & bias
 // todo: fix dc on initialisation
-diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, gain=0.999999, bias=0.000001)
+diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset, gain=0.999999, bias=0.000001)
 {
 	History didu(0);
 	d0 = gain * Vin + bias;
-	d1 = diode(d0, k1, k2, k3, k4, k5, k6, VT, A1);
+	d1 = diode(d0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
 	return dcblock(d1 - w4(bias));
 }
-/*
-diodeWrap(Vin, k1, k2, k3, k4, k5, k6, VT, A1, reset, gain=0.999999, bias=0.000001)
-{
-	History init(1);
-	if (reset) {
-		init = 1;
-	}
-    // f0 is SO HORRIBLE I WANT TO DIE, AND CRY, AND DIE AGAIN, SORRY FOR f0 :-( please help if you can
-    f0 = 1 - evi_logsmooth(init, 999);
-	d0 = gain * Vin + bias;
-	d1 = diode(d0, k1, k2, k3, k4, k5, k6, VT, A1, reset);
-	d2 = (d1 - (f0 * w4(bias)));
-	init = 0;
-	return dcblock(d2);
-}
-*/
 
 // fixed 2x quasi oversampling (cubic4)
 diode_2x_4POINT(XIN, k1, k2, k3, k4, k5, k6, VT, A1, reset)

@@ -6845,6 +6845,11 @@
                 },
                 {
                     "type": "Identifier",
+                    "name": "reset",
+                    "raw": "reset"
+                },
+                {
+                    "type": "Identifier",
                     "name": "gain",
                     "raw": "gain"
                 },
@@ -6855,6 +6860,7 @@
                 }
             ],
             "defaults": [
+                null,
                 null,
                 null,
                 null,
@@ -7006,6 +7012,11 @@
                                         "type": "Identifier",
                                         "name": "A1",
                                         "raw": "A1"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "reset",
+                                        "raw": "reset"
                                     }
                                 ],
                                 "callee": {

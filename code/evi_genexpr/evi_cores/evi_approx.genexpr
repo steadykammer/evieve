@@ -116,7 +116,7 @@ tanA2(x)
 	return	a / b;
 }
 
-// tan approx valid for -HALFPI..HALFPI input
+// 'best' tan approx valid for -HALFPI..HALFPI input
 tanA3(x)
 {
 	x2		= x * x;
@@ -155,7 +155,7 @@ atanT(x)		// third order using atanIT
 	return y;
 }
 
-// atan2 approximation
+// famous atan2 approximation
 // more than 2 x faster than library atan2()
 atan2Approx(y, x)
 {
@@ -215,7 +215,7 @@ expA(x0)
 	return x;
 }
 
-// slightly more accurate
+// slightly more accurate than 'expA()'
 // about 1.5 x faster than library exp()
 expApprox(x)
 {
@@ -496,7 +496,7 @@ eviLog1p(value)
  * Implemented as an economized Pade approximation with a
  * maximum error of 4.16e-18 <<-- definitely worse with pete's implementation :-)
  */
-Li2Approx(x) // this is really stupid in gen~, & N.B. cannot use Approxes in negative branches
+Li2Approx(x) // this is really stupid in gen~, & N.B. cannot use approxes in negative branches
 {
 	MPIPI6	= -1.6449340668482264;	// -PI*PI/6
 	MPIPI12	= -0.8224670334241132;	// -PI*PI/12

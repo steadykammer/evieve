@@ -108,7 +108,7 @@ syDAdaa2(x0)
 	History x1(0), x2(0), s1(0);
 	eps = 000000000001;
 
-	s0 = x0;//0;
+	s0 = x0;
 	d0 = x0 - x1;
 	f2_x1 = syDF2(x1); // func2
 	if (abs(d0) < eps) {  // ill condition
@@ -117,7 +117,7 @@ syDAdaa2(x0)
 		s0 = (syDF2(x0) - f2_x1) / d0; // func2
 	}
 
-	y1 = x0;//0;
+	y1 = x0;
 	d1 = x0 - x2;
 	if (x1 == 0 && x2 == 0) { // ill condition
 		y1 = syDF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -193,7 +193,7 @@ szilagyiAdaa2(x0)
 	History x1(0), x2(0), s1(0);
 	eps = 0.00001;
 
-	s0 = x0;//0;
+	s0 = x0;
 	d0 = x0 - x1;
 	f2_x1 = szilagyiF2(x1); // func2
 	if (abs(d0) < eps) {  // ill condition
@@ -202,7 +202,7 @@ szilagyiAdaa2(x0)
 		s0 = (szilagyiF2(x0) - f2_x1) / d0; // func2
 	}
 
-	y1 = x0;//0;
+	y1 = x0;
 	d1 = x0 - x2;
 	if (x1 == 0 && x2 == 0) { // ill condition
 		y1 = szilagyiF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -326,6 +326,6 @@ boost(x, s, m, g)
 	y = saturateAdaa2_2x_6POINT((x + (c0 * m)) * g, -gn, gn*0.9886);  // audio
 
 	c1 = c0;
-	return y;//dcblock(y);
+	return y;
 }
 

@@ -22,6 +22,7 @@
 require("evi_approx.genexpr");
 
 
+// a bit like [click~]
 logicalClicks(x)
 {
 	History clik(0);				// store
@@ -103,7 +104,6 @@ eviCopysign(y, x) // <<-- HA HA !!
   return (x >= 0) ? y : -y;
 }
 
-// i cannot remember where i used this
 runningMax(current, reset)
 {
     History prev(0);
@@ -204,6 +204,7 @@ eviZmap(valueIn, inLow, inHigh, outLow, outHigh)
 	return (value - inLow) * multiplier + outLow;
 }
 
+// like MSP [kink~]
 // todo: we need a (soft) knee version
 kinky(p, k)
 {
@@ -254,7 +255,7 @@ parabolWrap(phase)
 	return	y;
 }
 
-windowCoeffs(choice) {		// choice = which windowing function to use
+windowCoeffs(choice) {			// choice = which windowing function to use
 	a0, a1, a2 = 0;
 	if (choice == 1) {			// "Blackman"
 		a0 = 0.42;
@@ -281,7 +282,7 @@ windowCoeffs(choice) {		// choice = which windowing function to use
 		a1 = 0;
 		a2 = 0;
 	}
-	return a0, a1, a2;			// return three coefficients for 'winman()'
+	return a0, a1, a2;			// return three coefficients for 'winMan()'
 }
 
 // w = loop iterator

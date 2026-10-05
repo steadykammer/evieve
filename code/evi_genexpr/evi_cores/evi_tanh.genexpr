@@ -198,7 +198,7 @@ tanhAdaa1(x, reset)
 
 // this works near perfectly for input audio above -90dB & less than +40dB
 // but the lower the input below -90dB the noise floor rises.
-// this is acceptable to about -100dB input where the noise floor is at about -900dB
+// this is acceptable to about -100dB input where the noise floor is at about -90dB
 // but is affected by frequency content of the input material anyway
 // like the Adaa1, blows up above +50dB input
 // the short version: it works fine

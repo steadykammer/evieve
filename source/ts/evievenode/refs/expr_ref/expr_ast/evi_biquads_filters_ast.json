@@ -3524,26 +3524,16 @@
                         "type": "ReturnStatement",
                         "argument": {
                             "type": "BinaryExpression",
-                            "operator": "*",
+                            "operator": "+",
                             "left": {
-                                "type": "BinaryExpression",
-                                "operator": "+",
-                                "left": {
-                                    "type": "Identifier",
-                                    "name": "y0",
-                                    "raw": "y0"
-                                },
-                                "right": {
-                                    "type": "Identifier",
-                                    "name": "y1",
-                                    "raw": "y1"
-                                }
+                                "type": "Identifier",
+                                "name": "y0",
+                                "raw": "y0"
                             },
                             "right": {
-                                "type": "Literal",
-                                "value": 0.5,
-                                "raw": "0.5",
-                                "gen_kind": "float"
+                                "type": "Identifier",
+                                "name": "y1",
+                                "raw": "y1"
                             }
                         },
                         "isjump": true

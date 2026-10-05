@@ -354,7 +354,7 @@ log1pAdaa2(x0)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, check precision
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = log1pF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -363,7 +363,7 @@ log1pAdaa2(x0)
     s0 = (log1pF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = log1pF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -390,7 +390,7 @@ log1pAdaa2(x0)
 //  //  //  atan, used in evi.overdrive.wrap~ etc, works great
 
 atanF00(x)
-{   // 2/PI
+{		 // 2/PI
   return 0.636619772367581 * atanA(x);
 }
 
@@ -411,7 +411,7 @@ atanF1(x)
 
 atanF2(x)
 {
-//  x2 = x * x; <<-- NO !!                // /PI
+//  x2 = x * x; <<-- NO !!                				 // /PI
   return (x - x * eviLog1p(x*x) + (x*x - 1) * atan(x)) * 0.3183098861837907;
 }
 
@@ -524,7 +524,7 @@ algebraicAdaa2(x0)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, check precision
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = algebraicF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -533,7 +533,7 @@ algebraicAdaa2(x0)
     s0 = (algebraicF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = algebraicF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -636,16 +636,15 @@ altTanhAdaa1(x, reset)
 
 // this works near perfectly for input audio above -90dB & less than +40dB
 // but the lower the input below -90dB the noise floor rises.
-// this is acceptable to about -100dB input where the noise floor is at about -900dB
+// this is acceptable to about -100dB input where the noise floor is at about -90dB
 // but is affected by frequency content of the input material anyway
 // like the Adaa1, blows up above +50dB input
 // the short version: it works ok
 altTanhAdaa2(x, reset, f=1)
 {
 	History x1(0), x2(0), s1(0);
-	// 0.00000000001
-  // 0.00000001 // best across largest frequency ranges
-  // 0.000001 // ok across largest frequency ranges, favour low frequency / transient input
+	// 0.00000001 // best across largest frequency ranges
+	// 0.000001 // ok across largest frequency ranges, favour low frequency / transient input
 	eps = (f) ? 0.00000001 : 0.000001; // precision
 	if (reset) {
 		x1 = 0; x2 = 0; s1 = 0;
@@ -702,7 +701,7 @@ altTanhSqrtF1(x)
 
 altTanhSqrtF2(x)
 {
-//  return (asinh(x) + x * sqrt(1 + (x*x))) * 0.5; // check
+//  return (asinh(x) + x * sqrt(1 + (x*x))) * 0.5; // TODO, check
     xs = sqrt(1 + (x*x));
     return (log(abs(xs + x)) + x * xs) * 0.5;
 }
@@ -731,7 +730,7 @@ altTanhSqrtAdaa2(x0)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, check precision
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = altTanhSqrtF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -740,7 +739,7 @@ altTanhSqrtAdaa2(x0)
     s0 = (altTanhSqrtF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = altTanhSqrtF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -777,7 +776,7 @@ foldPolyF1(x)
 }
 
 foldPolyF2(x)
-{                                   // atanA() does not work here, regardless of precision
+{                                   									// atanA() does not work here, regardless of precision
   return (25 * (x * log(7 * x*x + 25) - 14 * (x * 0.142857142857143 - (5 * atan((2.645751311064591 * x) * 0.2)) * 0.053994924715604))) * 0.071428571428571;
 }
 
@@ -805,7 +804,7 @@ foldPolyAdaa2(x0)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, check precision
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = foldPolyF2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -814,7 +813,7 @@ foldPolyAdaa2(x0)
     s0 = (foldPolyF2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = foldPolyF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -922,11 +921,6 @@ eCubicF0(x)
 //  x = clip(x, -1, 1);
   return x * (1 - 0.333333333333 * x * x);
 }
-
-// eCubicF0(x)
-// {
-//   return x - x*x*x/3;
-// }
 
 eCubicF1(x)
 {
@@ -1141,7 +1135,7 @@ szilagyiAdaa2(x0)
 	History x1(0), x2(0), s1(0);
 	eps = 0.00001;
 
-	s0 = x0;//0;
+	s0 = x0;
 	d0 = x0 - x1;
 	f2_x1 = szilagyiF2(x1); // func2
 	if (abs(d0) < eps) {  // ill condition
@@ -1150,7 +1144,7 @@ szilagyiAdaa2(x0)
 		s0 = (szilagyiF2(x0) - f2_x1) / d0; // func2
 	}
 
-	y1 = x0;//0;
+	y1 = x0;
 	d1 = x0 - x2;
 	if (x1 == 0 && x2 == 0) { // ill condition
 		y1 = szilagyiF0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -1452,7 +1446,7 @@ softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=4., S=0.01)
   History x1(0), x2(0), s1(0);
   eps = 0.000001;  // TODO, check precision
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = softclipNF2(x1, C=C, R=R, beta=beta, S=S); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -1461,7 +1455,7 @@ softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=4., S=0.01)
     s0 = (softclipNF2(x0, C=C, R=R, beta=beta, S=S) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = softclipNF0(x0 + (x1 + x1) + x2, C=C, R=R, beta=beta, S=S) * 0.25; // func0
@@ -1486,7 +1480,7 @@ softclipNAdaa2(x0, C=0.707107, R=0.707107, beta=4., S=0.01)
 
 
 // the Adaa templates
-// these are just like the previous evieve and the Chowdry, but the adaa2 is cleverer
+// these are just like the previous evieve and the Chowdry, but Endo's adaa2 is cleverer
 
 /*
 F0(x) { return x + 0; }
@@ -1498,7 +1492,7 @@ F2(x) { return x + 0; }
 adaa_1_template(x0)
 {
   History x1(0), s1(0);
-  eps = 0.00001;  // TODO, check precision
+  eps = 0.00001;
 
   y1 = 0;
   d0 = x0 - x1;
@@ -1517,9 +1511,9 @@ adaa_1_template(x0)
 adaa_2_template(x0)
 {
   History x1(0), x2(0), s1(0);
-  eps = 0.00001;  // TODO, check precision
+  eps = 0.00001;
 
-  s0 = x0;//0;
+  s0 = x0;
   d0 = x0 - x1;
   f2_x1 = F2(x1); // func2
   if (abs(d0) < eps) {  // ill condition
@@ -1528,7 +1522,7 @@ adaa_2_template(x0)
     s0 = (F2(x0) - f2_x1) / d0; // func2
   }
 
-  y1 = x0;//0;
+  y1 = x0;
   d1 = x0 - x2;
   if (x1 == 0 && x2 == 0) { // ill condition
     y1 = F0(x0 + (x1 + x1) + x2) * 0.25; // func0
@@ -1559,79 +1553,79 @@ adaa_2_template(x0)
 // Lambert-W function
 wavefoldLambertW(x, ln1, loop, thresh)
 {
-  // initial guess (use previous value)
-  w   = ln1;
-    err     = 1;
+	// initial guess (use previous value)
+	w   	= ln1;
+	err     = 1;
     i       = 0;
 
-  // Haley's method (section 4.2 of the paper)
-  while ( (i < loop) && (abs(err) > thresh) ) {
-//    expw  = expApprox(w);
-    expw  = exp(w);       // :-(
-        w1      = w + 1;
+	// Haley's method (section 4.2 of the paper)
+	while ( (i < loop) && (abs(err) > thresh) ) {
+		// expw  = expApprox(w);
+		expw  = exp(w);       // :-(
+        w1    = w + 1;
 
-    p   = (w * expw) - x;
-    r   = w1 * expw;
-    s   = (w + 2) / (w1 + w1);
-    err   = (p / (r - (p * s)));
+		p   = (w * expw) - x;
+		r   = w1 * expw;
+		s   = (w + 2) / (w1 + w1);
+		err = (p / (r - (p * s)));
 
-    w    -= err;
-        i      += 1;
-  }
+		w  -= err;
+        i  += 1;
+	}
 
-  return  w;
+	return  w;
 }
 
 // Antialiased wavefolder with Lambert-W function
 wavefoldAA(Xo, loop=1000)
 {
-  // declare previous state
-  History Ln1(0), Fn1(0), Xn1(0);
+	// declare previous state
+	History Ln1(0), Fn1(0), Xn1(0);
 
-  // constants, only VT used
-    // but play with these values and calcs to hack the sound :-)
-  RL  = 7.5e3;    R = 15e3;     VT  = 26e-3;    Is  = 10e-16;
-  a = 1; // not used        //  2 * RL / R;
-  b = 76.923076923076923;   // (R + 2 * RL) / (VT * R);
-  d = 0.000000000288462;    // (RL * Is) / VT;
-    VTb = 0.000169;       //  0.5 * VT / b
+	// constants, only VT used
+	// but play with these values and calcs to hack the sound :-)
+	RL  = 7.5e3;    R = 15e3;     VT  = 26e-3;    Is  = 10e-16;
+	a = 1; // not used      //  2 * RL / R;
+	b = 76.923076923076923;	// (R + 2 * RL) / (VT * R);
+	d = 0.000000000288462;	// (RL * Is) / VT;
+    VTb = 0.000169;       	//  0.5 * VT / b
 
-  // antialiasing (adaa) error threshold
-  epsilon = 10e-10;
+	// antialiasing (adaa) error threshold
+	epsilon = 10e-10;
 
-  // input
-  l = sign(Xo); 
+	// input
+	l = sign(Xo); 
 
-  // compute antiderivative (adaa, 1st order)
-//  u = d * expApprox(l * b * Xo);
-  u = d * exp(l * b * Xo);  // :-(
-  Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
-    Lp1 = 1 + Ln;
-//  Fn  = (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
-  Fn  = VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
+	// compute antiderivative (adaa, 1st order)
+	// u = d * expApprox(l * b * Xo);
+	u = d * exp(l * b * Xo);  // :-(
+	Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
+	Lp1 = 1 + Ln;
+	// Fn  = (0.5 * VT / b) * (1 + Ln) * (1 + Ln) - 0.5 * a * Xo * Xo;
+	Fn  = VTb * Lp1 * Lp1 - 0.5 * Xo * Xo;
 
-  Yn  = 0;
-  // check for ill-conditioning
-  if (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely it doesn't need to contain the lambetW()
-    // compute averaged wavefolder output
-    Xn  = 0.5 * (Xo + Xn1);
-    //  !! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
-    u = d * expApprox(l * b * Xn);
-//    u = d * exp(l * b * Xn);
-    Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
-//    Yn  = (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
-    Yn  = (l * VT * Ln) - Xn;
-  } else {
-    // apply antialiased form
-    Yn  = (Fn - Fn1) / (Xo - Xn1);
-  }
+	Yn  = 0;
+	// check for ill-conditioning
+	if (abs(Xo - Xn1) < epsilon) { // pete not convinced by this, surely this if block doesn't need to contain the lambetW()
+    	// compute averaged wavefolder output
+    	Xn  = 0.5 * (Xo + Xn1);
+    	//  !! original "d * pow(e, (l * b * Xo))" code from the paper is wrong <<-- Xn !!
+    	u = d * expApprox(l * b * Xn);
+		// u = d * exp(l * b * Xn);
+		Ln  = wavefoldLambertW(u, Ln1, loop, epsilon);
+		// Yn  = (l * VT * Ln) - (a * Xo); // ?? "(l * VT * Ln) - (a * Xn)" <<-- Xn ??
+		Yn  = (l * VT * Ln) - Xn;
+	} else {
+		// apply antialiased form
+		Yn  = (Fn - Fn1) / (Xo - Xn1);
+	}
 
-  // update state
-  Ln1 = Ln;
-    Fn1 = Fn;
-    Xn1 = Xo;
+	// update state
+	Ln1 = Ln;
+	Fn1 = Fn;
+	Xn1 = Xo;
 
-  return  dcblock(Yn);
+	return  dcblock(Yn);
 }
 
 

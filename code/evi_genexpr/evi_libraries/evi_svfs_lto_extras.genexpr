@@ -125,7 +125,7 @@ svfLtoBell(v00, cutoff, gain, Q)	// gain in dB !
 //	//	//	Sin
 
 // Solved for SIN (theoretically more stable low-end response when modulating
-// but in always-64-bit-doubles environment of Gen should not make much difference.
+// but in always-64-bit-doubles environment of Gen should not make much difference).
 // But these filters are different and interesting and support easy non-linear
 // behaviour in a simple way
 

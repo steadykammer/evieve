@@ -342,7 +342,7 @@ eviFilterBandpassStereo(xL, xR, cutoff, db, Q, smooth=0.)
 }
 
 // oops! 'LTO'
-eviFilterPeak(x, cutoff, db, Q, smooth=0.)
+eviFilterPeak(x, cutoff, db, Q, smooth=0.)		// db in dB, smooth time in ms
 {
 	History efpdummy(0);
 	smoothsecs	= smooth * 0.001;

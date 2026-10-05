@@ -157,7 +157,7 @@ logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 	History z(0), ad1(1);
 	y  = ((x - z) * ad1) + z;
 	z  = y;									// 1st sample pass z == y == x
-	ad1 = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually very dangerous ?
+	ad1 = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually dangerous ?
 	return y;
 }
 

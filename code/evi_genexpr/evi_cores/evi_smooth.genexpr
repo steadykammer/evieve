@@ -75,7 +75,7 @@ logsmooth(x, s)		// x = value			// s = time to drop 6dB (in seconds)
 	History z(0), ad(1);
 	y  = ((x - z) * ad) + z;
 	z  = y;									// 1st sample pass z == y == x
-	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually very dangerous ?
+	ad = LN2 / (s * samplerate);			// (0.69314718056 / samples), no minimum check is actually dangerous ?
 	return y;
 }
 
@@ -268,7 +268,7 @@ cfSmoothLinear2(x1, x2, hz, s)
 	return	  y1, y2;
 }
 
-// the cubic version is quite a lot more expensive and very rarely worth it
+// the cubic version is quite a lot more expensive and rarely worth it
 
 // for cfSmoothCubic()
 cfSmoothCubicCoeff(hz, s)		// freq, seconds (NOTE: minimum should be 1ms)
@@ -774,7 +774,7 @@ eviSlide(x, u, d)							// input, samples up, samples down
 likeAvactrol(V, up, down)
 {
 	History	s0(0);
-    aV = abs(V);                        // in case bipolar plugged in
+    aV = abs(V);                        // in case bipolar plugged in :-(
 
 	F  = clip(((s0 > aV) * down) + up, 0.01, HALFPI); // evieve fix
 	w2 = tanA2(F * PI / SAMPLERATE);
@@ -801,7 +801,7 @@ likeAvactrol(V, up, down)
 // to the [Buchla] vactrol with correct setting of parameter values"
 
 // but here in evieve quite different, with setable rise, fall & base
-// defaults are for the buchla setup though
+// defaults are for the buchla setup though, @see: [evi.lpg~]
 
 vactrolSection(x, a)						// trigger, time
 {
