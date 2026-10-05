@@ -4,7 +4,7 @@ A library of **GenExpr** audio code for [Cycling 74's Max/gen~](https://cycling7
 
 By Pete Dowling a.k.a. 'stkr'. **© Peter Dowling 2026,  GPL v3**. Contact: evieve at steadykammer dot net
 
-This repo is *not* the 'Max Package'. It is the source for the 'Max Package'. If you want to use `evieve` in `Max`, do not download this repo. Simply go to the 'File' menu in `Max`, choose 'Show Package Manager' and search for `evieve`. Then use the 'Install' button.
+This repo is *not* the 'Max Package'. It is the source for the 'Max Package'. It will not work as expected in 'Max Package' format. If you want to use `evieve` in `Max`, do not download this repo. Simply go to the 'File' menu in `Max`, choose 'Show Package Manager' and search for `evieve`. Then use the 'Install' button.
 
 ---
 
@@ -16,7 +16,7 @@ About 50% of the code in `evieve` is original, the rest is ported from various o
 
 ## Build
 
-The repo is organised in 'Max Package' format so can be cloned to /Documents/Max 9/Packages/ or via alias or junction and worked with as if the actual package in `Max`.
+The repo is organised in 'Max Package' like format so can be cloned to /Documents/Max 9/Packages/ or via alias or junction and worked with as if the actual package in `Max`.
 
 Important folders:
 * `code` : all .gendsp and .genexpr source code
@@ -95,7 +95,7 @@ Documentation is built via the `/source/ts/evievenode/doc/evievedoc.maxpat` `Max
 
 Instructions are in the patcher. #1 parses all files and creates entries in the JSONs at the `/source/ts/evievenode/config/` folder. These are then used to create documentation based on preferences per object in those files. Various JSON files can be human edited for content, but rebuilding always leaves edited data in place.
 
-Building the package itself is also done via a script run from this Patcher. Package building takes care of only needed content ending up in the Max Package.
+Building the package itself is also done via a script run from this Patcher. Package building takes care of only needed content ending up in the Max Package for distribution.
 
 
 ### Thanks to...
@@ -106,5 +106,5 @@ Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vi
 
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| GenExpr | 54 | 16,996 | 6,232 | 4,275 | 27,503 |
+| GenExpr | 54 | 16,933 | 6,170 | 4,251 | 27,354 |
 

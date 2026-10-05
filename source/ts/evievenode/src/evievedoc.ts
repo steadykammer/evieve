@@ -239,73 +239,6 @@ max.addHandler('make_externals_refpages', (force = false) => {
 
 // ---
 
-// the 'contents.xml' pages for package refpage folders, final metadata
-
-max.addHandler('make_refpages_contents', () => {
-    makeDocRefpagesXmlContents();
-})
-
-// NO ?
-max.addHandler('make_refpages_gen_contents', () => {
-    makeGenRefpagesXmlContents();
-})
-
-// NO ?
-max.addHandler('make_refpages_expr_contents', () => {
-    makeGenExprRefpagesXmlContents();
-})
-
-// ---
-
-// init folder .txt files creation, final metadata
-
-max.addHandler('make_gendsp_defines', () => {
-    createGendspDefines();
-	// manuallyCreateGendspDefines();
-})
-
-max.addHandler('make_object_mappings', (gendsp = true) => {
-	createMxoObjectmappings(gendsp);
-	// manuallyCreateMxoObjectmappings();
-})
-
-max.addHandler('make_object_list', () => {
-	createMaxObjectList();
-})
-
-max.addHandler('make_key_commands', () => {
-	createMaxKeyCommands();
-})
-
-max.addHandler('make_help_config', () => {
-	createHelpconfigFile();
-})
-
-// ---
-
-// interface folder creation, final metadata
-
-max.addHandler('make_maxdb_json', () => {
-	createMaxDbFle();
-})
-
-max.addHandler('make_qlookup_json', () => {
-	parseDataForQlookup();
-})
-
-max.addHandler('make_dlookup_json', () => {
-	parseDataForDlookup();
-})
-
-// or:
-max.addHandler('make_lookup_jsons', () => {
-	parseDataForDlookup();
-	parseDataForQlookup();
-	void max.outlet('lookup', 'done'); // to [v8] hack for 'max.getrefdict()'
-})
-
-// ---
-
 // stage 1 creates one page per object for editing data
 
 max.addHandler('make_abs_ref_jsons', () => {
@@ -399,7 +332,72 @@ max.addHandler('make_externals_ref_xml', () => {
 
 // ---
 
-// final, helpfiles creation
+// the 'contents.xml' pages for package refpage folders, final metadata
+
+max.addHandler('make_refpages_contents', () => {
+    makeDocRefpagesXmlContents();
+})
+
+// NO ?
+max.addHandler('make_refpages_gen_contents', () => {
+    makeGenRefpagesXmlContents();
+})
+
+// NO ?
+max.addHandler('make_refpages_expr_contents', () => {
+    makeGenExprRefpagesXmlContents();
+})
+
+// ---
+
+// init folder .txt files creation, final metadata
+
+max.addHandler('make_gendsp_defines', () => {
+    createGendspDefines();
+})
+
+max.addHandler('make_object_mappings', (gendsp = true) => {
+	createMxoObjectmappings(gendsp);
+})
+
+max.addHandler('make_object_list', () => {
+	createMaxObjectList();
+})
+
+max.addHandler('make_key_commands', () => {
+	createMaxKeyCommands();
+})
+
+max.addHandler('make_help_config', () => {
+	createHelpconfigFile();
+})
+
+// ---
+
+// interface folder creation, final metadata
+
+max.addHandler('make_maxdb_json', () => {
+	createMaxDbFle();
+})
+
+max.addHandler('make_qlookup_json', () => {
+	parseDataForQlookup();
+})
+
+max.addHandler('make_dlookup_json', () => {
+	parseDataForDlookup();
+})
+
+// or:
+max.addHandler('make_lookup_jsons', () => {
+	parseDataForDlookup();
+	parseDataForQlookup();
+	void max.outlet('lookup', 'done'); // to [v8] hack for 'max.getrefdict()'
+})
+
+// ---
+
+// final, helpfiles creation (does not overwrite!)
 
 max.addHandler('create_helpfiles_externals', () => {
 	createHelpFilesExternals();
@@ -460,9 +458,7 @@ function testGetXml(prefix?: string)
 	};
 	const parser = new XMLParser(options);
 
-	// const xmlData = fs.readFileSync('../test/msp_delay~.maxref.xml', 'utf8');
 	const xmlData = fs.readFileSync('../test/evi.cfsmooth~.maxref.xml', 'utf8');
-	// const xmlData = fs.readFileSync('../test/irsweeps~.maxref.xml', 'utf8');
 	const result = parser.parse(xmlData);
 	fs.writeFileSync('../test/pete_testing_3.json', JSON.stringify(result, null, 4));
 }
@@ -2718,6 +2714,7 @@ function createExternalsRefpagesLoop(external: string, force: boolean) {
 	return CREATE
 }
 
+/*
 // not used anymore
 function externalsRefpagesRename() {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
@@ -2731,6 +2728,7 @@ function externalsRefpagesRename() {
 		void max.post(`Renamed ${file} to ${newName}`, max.POST_LEVELS.INFO);
 	}
 }
+*/
 
 function makeDocRefpagesXmlContents() {
 	let refDir = `${cwd()}/${config.referenceFiles.externals.output}`;
@@ -2808,7 +2806,7 @@ async function makeDocRefpagesGendsps() {
 		const thisConfigObject = JSON.parse(thisConfigJson);
 		const writeName = refFile.replace('_ref.json', '.maxref.xml');
 		// const writePath = `${outDir}/gen_dsp_${writeName}`; // is this correct? (taken from native gen refs)
-		const writePath = `${outDir}/${writeName}`; // experiment without for ordinary links
+		const writePath = `${outDir}/${writeName}`; // experiment without for ordinary links in docs system
 		renderFromTemplate('../templates/refpage_gendsp.handlebars', thisConfigObject, writePath);
 	}
 }
@@ -3047,7 +3045,7 @@ function extractParam(node: any, name: string)
 		}
 	}
 
-	return param;	// 'name' is grabbed external to this function
+	return param;	// 'name' is grabbed externally to this function
 }
 
 // called from Max {extract_genexpr_asts}
@@ -3335,7 +3333,7 @@ function mergeFunctionsArrayFromAst(newData: any, currentData: any, mergeTemplat
 	return mergeArray;
 }
 
-// genexpr xml ref, also copies _data files to package for use in 'GenExpr Index'
+// genexpr xml ref, also copies _data files to package for use in the 'evieve GenExpr Index'
 async function makeGenExprRefpages()
 {
 	let dataDir = `${cwd()}/${config.referenceFiles.genExpr.configedit}`;
@@ -3343,8 +3341,6 @@ async function makeGenExprRefpages()
 	const copyDir = `${cwd()}/${config.referenceFiles.genExpr.copyto}`;
 	const catDir = `${cwd()}/${config.referenceFiles.genExpr.config}`;
 	const dataFiles = getFileNamesFromPath(dataDir, 'json');
-	// const IGNORE = //;
-	// refFiles = refFiles.filter((str) => !IGNORE.test(str));
 	const categories = fs.readFileSync(`${catDir}/_expr_data_categories.json`, 'utf8');
 	const catObj = JSON.parse(categories);
 

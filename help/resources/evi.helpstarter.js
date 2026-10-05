@@ -133,7 +133,6 @@ function init() {
         "newobject",
         "newobj",
         "@text",
-        // cannot get my [v8ui] working for now, use Cyling '74 code instead...
         `v8ui @filename evi.helpargs.js @jsarguments ${objectNameArgument} @patching_position ${argsPos[0]} ${argsPos[1]} @background 1 @embed 0`
       );
     }
