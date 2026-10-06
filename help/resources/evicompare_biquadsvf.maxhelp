@@ -85,7 +85,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1921,7 +1921,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 668.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 686.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1945,7 +1945,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 543.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 578.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1969,7 +1969,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 449.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 477.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1993,7 +1993,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 327.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 348.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2017,7 +2017,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 247.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 261.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2041,7 +2041,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 180.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 25.0, 187.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -3422,8 +3422,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 670.0, 401.0, 44.0, 21.0 ],
-                                    "text": "Gain",
-                                    "textjustification": 0
+                                    "text": "Gain"
                                 }
                             },
                             {
@@ -3433,7 +3432,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 65.0, 388.0, 277.0, 20.0 ],
+                                    "patching_rect": [ 65.0, 416.0, 277.0, 20.0 ],
                                     "text": "Leave the 'OUTPUT' selector~ on 'SVF'.",
                                     "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
                                 }
@@ -3522,7 +3521,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 63.0, 294.0, 368.0, 33.0 ],
+                                    "patching_rect": [ 63.0, 315.0, 368.0, 33.0 ],
                                     "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters.",
                                     "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
                                 }
@@ -3534,7 +3533,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 63.0, 227.0, 164.0, 20.0 ],
+                                    "patching_rect": [ 63.0, 241.0, 164.0, 20.0 ],
                                     "text": "Do not listen to the audio yet.",
                                     "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
                                 }
@@ -3548,7 +3547,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 49.0, 535.0, 294.0, 37.0 ],
+                                    "patching_rect": [ 49.0, 570.0, 294.0, 37.0 ],
                                     "text": "You can compare the internal DSP of each filter in the [p compareDSP] subpatch."
                                 }
                             },
@@ -3561,7 +3560,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 158.0, 383.0, 64.0 ],
+                                    "patching_rect": [ 47.0, 165.0, 383.0, 64.0 ],
                                     "text": "Now turn on audio. You will see the Red [reson~] curve and you might just be able to see a little bit of the Blue [evi.reson~] curve poking out the top of the peak - the filters are almost identical but the evieve filter is a little tiny bit more peaky."
                                 }
                             },
@@ -3574,7 +3573,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 632.0, 295.0, 91.0 ],
+                                    "patching_rect": [ 47.0, 650.0, 295.0, 91.0 ],
                                     "text": "Summary: the [reson~] object cannot manage any audio rate modulation (because it is a Direct Form Biquad) and with fast modulation it blows up, whereas the [evi.reson~] object can handle it fine, even though it is a linear filter. TPT filters are good, Direct Form filters are bad."
                                 }
                             },
@@ -3601,7 +3600,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 353.0, 581.0, 93.0, 24.0 ],
+                                    "patching_rect": [ 353.0, 580.0, 93.0, 24.0 ],
                                     "text": "CAREFUL",
                                     "textjustification": 1
                                 }
@@ -3615,7 +3614,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 292.0, 384.0, 91.0 ],
+                                    "patching_rect": [ 47.0, 313.0, 384.0, 91.0 ],
                                     "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters. Switch to 'Biquad' in the selector~. You will hear grungy bassy mess. Switch to the 'SVF' selector~. You will hear FM-ed noise with a peak. Now switch the 'INPUT' selector~ to 'Osc'. A/B the filters at the 'OUTPUT'. The 'Osc' source makes the problem much clearer."
                                 }
                             },
@@ -3628,7 +3627,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 225.0, 383.0, 64.0 ],
+                                    "patching_rect": [ 47.0, 239.0, 383.0, 64.0 ],
                                     "text": "Do not listen to the audio yet. Very slowly raise the 'FM Hz' control (with the shift key). Watch the Red and Blue curves diverge. You should be able to reach about 1kHz in this control and the Red Biquad curve will still be present, bouncing a lot in the bass."
                                 }
                             },
@@ -3642,7 +3641,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 49.0, 386.0, 293.0, 145.0 ],
+                                    "patching_rect": [ 49.0, 414.0, 293.0, 145.0 ],
                                     "text": "Leave the 'OUTPUT' selector~ on 'SVF'. Increase the 'Resonance' dial to a high value. The SVF blue curve will remain stable. The Biquad red curve will gradually explode. Do NOT listen to the 'Biquad' selector~, play around with the 'FM' and 'Resonance' and 'Frequency' controls. The SVF is stable under audio rate modulation. After exploring, return all controls to lower values. The red curve might return. If it does not, use the 'clear' message to the [reson~] object."
                                 }
                             }
@@ -3916,6 +3915,40 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "fontsize": 13.0,
+                                    "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "id": "obj-43",
+                                    "maxclass": "tab",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "parameter_mappable": 0,
+                                    "patching_rect": [ 27.0, 161.0, 374.0, 24.0 ],
+                                    "rounded": 0.0,
+                                    "saved_attribute_attributes": {
+                                        "htabcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        },
+                                        "valueof": {
+                                            "parameter_enum": [ "1", "2", "3", "4", "5", "6", "7" ],
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "tab[1]",
+                                            "parameter_mmax": 6,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "tab",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "segmented": 1,
+                                    "tabs": [ "1", "2", "3", "4", "5", "6", "7" ],
+                                    "truncate": 0,
+                                    "varname": "tab"
+                                }
+                            },
+                            {
+                                "box": {
                                     "hidden": 1,
                                     "id": "obj-20",
                                     "maxclass": "newobj",
@@ -4162,30 +4195,6 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "id": "obj-146",
-                                    "linecount": 9,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 640.0, 253.0, 131.0 ],
-                                    "text": "In summary: we can smooth both filters at audio rate, which improves the behaviour, but it is expensive and complex. Using the internal @smooth attribute of the evieve filters can help a bit if controlling with the mouse. Smoothing the Biquad at audio rate is fine for human interaction, but as we will learn in the next 'modulation' tab, this only gets us so far..."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-145",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 599.0, 215.0, 37.0 ],
-                                    "text": "Next, try different smoothing times (in milliseconds) including 0 ms."
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -4206,18 +4215,6 @@
                                     },
                                     "text": "6",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-143",
-                                    "linecount": 17,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 357.0, 263.0, 238.0 ],
-                                    "text": "Now let's listen to the three filters. Turn on the 'Biquad audio' selector~ choice. You can hear the result is far better than in the previous 'control' tab example because we are audio rate smoothing. However, as we learnt in #1 of this patcher (the [p whereToSmoothTheCoefficients] subpatch) this is expensive. Now switch to the 'SVF control' selector~ choice. You can hear it is quite good but with fast control changes the high frequencies are a bit grainy. It is still pretty good though. Finally, switch to the 'SVF audio' selector~ choice. A/B with the Biquad. The SVF is ever so slightly smoother in the high frequency sweep, and a little more bass is present, but it is almost the same."
                                 }
                             },
                             {
@@ -4272,18 +4269,6 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "id": "obj-137",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 289.0, 359.0, 64.0 ],
-                                    "text": "Next, turn on the event rate modulation. You will see our three parameter dials move around and our filters responding. Note, you can see all three curves now, because the SVFs behaviours under control are different to the Biquad."
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -4304,42 +4289,6 @@
                                     },
                                     "text": "4",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-135",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 248.0, 406.0, 37.0 ],
-                                    "text": "If you wiggle around the three parameter controls you will see that the three filters behave slightly differently under manual control changes."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-134",
-                                    "linecount": 5,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 166.0, 468.0, 78.0 ],
-                                    "text": "Now turn on audio and you will see three filters in the spectral display being fed by white noise. As with the previous 'control' tab, you will only see the Red Biquad curve at first as it is rendered on top of the Green and Blue curves and the impulse responses of the filters are identical. You can verify the three curves are present by turning on and off the curve displays with the toggles."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-133",
-                                    "linecount": 3,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 46.0, 111.0, 354.0, 51.0 ],
-                                    "text": "Smoothing Biquads is expensive, smoothing the TPT SVF has different options (and is cheaper). See the [p whereToSmoothTheCoefficients] subpatch for an explanation."
                                 }
                             },
                             {
@@ -6530,7 +6479,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 464.0, 125.0, 188.0, 22.0 ],
+                                    "patching_rect": [ 120.0, 607.0, 188.0, 22.0 ],
                                     "text": "p whereToSmoothTheCoefficients"
                                 }
                             },
@@ -6636,174 +6585,6 @@
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
-                                    "id": "obj-41",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 696.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "7",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-39",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 607.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "6",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-34",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 466.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "5",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-33",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 311.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "4",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-32",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 257.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "3",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-31",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 195.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "2",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-22",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 126.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "1",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
                                     "id": "obj-82",
                                     "ignoreclick": 1,
                                     "legacytextcolor": 1,
@@ -6812,7 +6593,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 442.0, 126.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 98.0, 608.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -7360,7 +7141,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 687.0, 28.0, 109.0, 22.0 ],
+                                    "patching_rect": [ 160.0, 675.0, 109.0, 22.0 ],
                                     "text": "p compareBiquads"
                                 }
                             },
@@ -7416,6 +7197,639 @@
                             {
                                 "box": {
                                     "background": 1,
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "embed": 1,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-38",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "offset": [ 0.0, 0.0 ],
+                                    "outlettype": [ "" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 34.0, 93.0, 1487.0, 588.0 ],
+                                        "bglocked": 1,
+                                        "openinpresentation": 1,
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-20",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 496.0, 523.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-19",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 496.0, 444.0, 92.0, 22.0 ],
+                                                    "text": "prepend hidden"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-18",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 496.0, 372.0, 30.0, 22.0 ],
+                                                    "text": "!= 0"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 172.0, 234.66666666666669, 98.0, 22.0 ],
+                                                    "text": "prepend offset 0."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 172.0, 192.33333333333334, 44.0, 22.0 ],
+                                                    "text": "* -271."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 172.0, 277.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 172.0, 142.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-51",
+                                                    "linecount": 11,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 300.0, 347.0, 166.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 11,
+                                                    "presentation_rect": [ 15.0, 1656.0, 347.0, 166.0 ],
+                                                    "text": "In summary:\n\nwe can smooth both filters at audio rate, which improves the behaviour, but it is expensive and complex.\n\nUsing the internal @smooth attribute of the evieve filters can help a bit if controlling with the mouse.\n\nSmoothing the Biquad at audio rate is fine for human interaction, but as we will learn in the next 'modulation' tab, this only gets us so far..."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-50",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 300.0, 344.0, 36.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 2,
+                                                    "presentation_rect": [ 15.0, 1415.0, 344.0, 36.0 ],
+                                                    "text": "Next, try different smoothing times (in milliseconds) including 0 ms."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-49",
+                                                    "linecount": 17,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 300.0, 344.0, 253.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 17,
+                                                    "presentation_rect": [ 15.0, 1092.0, 344.0, 253.0 ],
+                                                    "text": "Now let's listen to the three filters.\n\nTurn on the 'Biquad audio' selector~ choice. You can hear the result is far better than in the previous 'control' tab example because we are audio rate smoothing. However, as we learnt in #1 of this patcher (the [p whereToSmoothTheCoefficients] subpatch) this is expensive.\n\nNow switch to the 'SVF control' selector~ choice. You can hear it is quite good but with fast control changes the high frequencies are a bit grainy. It is still pretty good though.\n\nFinally, switch to the 'SVF audio' selector~ choice. A/B with the Biquad. The SVF is ever so slightly smoother in the high frequency sweep, and a little more bass is present, but it is almost the same."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-46",
+                                                    "linecount": 8,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 1098.0, 45.0, 351.0, 123.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 8,
+                                                    "presentation_rect": [ 15.0, 843.0, 351.0, 123.0 ],
+                                                    "text": "Next, turn on the event rate modulation.\n\nYou will see our three parameter dials move around and our filters responding.\n\nNote, you can see all three curves now, because the SVFs behaviours under control are different to the Biquad (and each other)."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-45",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 45.0, 344.0, 50.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 3,
+                                                    "presentation_rect": [ 15.0, 602.0, 344.0, 50.0 ],
+                                                    "text": "If you wiggle around the three parameter controls you will see that the three filters behave slightly differently under manual control changes."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-44",
+                                                    "linecount": 10,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 45.0, 344.0, 152.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 10,
+                                                    "presentation_rect": [ 15.0, 301.0, 344.0, 152.0 ],
+                                                    "text": "Now turn on audio and you will see three filters in the spectral display being fed by white noise.\n\nAs with the previous 'control' tab, you will only see the Red Biquad curve at first as it is rendered on top of the Green and Blue curves and the impulse responses of the filters are identical.\n\nYou can verify the three curves are present by turning on and off the curve displays with the toggles."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-43",
+                                                    "linecount": 5,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 45.0, 344.0, 79.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 5,
+                                                    "presentation_rect": [ 15.0, 45.0, 344.0, 79.0 ],
+                                                    "text": "Smoothing Biquads is expensive, smoothing the TPT SVF has different options (and is cheaper).\n\nSee the [p whereToSmoothTheCoefficients] subpatch for an explanation."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-41",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1872.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "7",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-39",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1601.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "6",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-34",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1330.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "5",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-33",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 1098.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1059.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "4",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-32",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 788.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "3",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-31",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 517.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "2",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-22",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 246.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "1",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-11",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1355.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-10",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1084.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-9",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 542.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-8",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 271.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-7",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 0.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-42",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 813.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-6",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1626.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-18", 0 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-4", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-19", 0 ],
+                                                    "source": [ "obj-18", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-20", 0 ],
+                                                    "source": [ "obj-19", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 27.0, 184.0, 374.0, 269.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "id": "obj-51",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 57.0, 118.0, 314.0, 39.0 ],
+                                    "text": "Click through the numbered tabs to follow the tutorial",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
                                     "bubble": 1,
                                     "bubblepoint": 0.99,
                                     "bubbleside": 3,
@@ -7444,6 +7858,18 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 716.0, 392.0, 92.0, 22.0 ],
                                     "text_width": 52.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "arrows": 2,
+                                    "background": 1,
+                                    "id": "obj-9",
+                                    "justification": 1,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 209.0, 457.0, 10.0, 147.0 ]
                                 }
                             }
                         ],
@@ -7657,6 +8083,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-38", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-116", 3 ],
                                     "order": 1,
                                     "source": [ "obj-4", 0 ]
@@ -7667,6 +8100,13 @@
                                     "destination": [ "obj-3", 2 ],
                                     "order": 0,
                                     "source": [ "obj-4", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-38", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-43", 0 ]
                                 }
                             },
                             {
@@ -7802,7 +8242,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,
@@ -7810,6 +8250,40 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "fontsize": 13.0,
+                                    "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "id": "obj-43",
+                                    "maxclass": "tab",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "parameter_mappable": 0,
+                                    "patching_rect": [ 46.0, 229.0, 374.0, 24.0 ],
+                                    "rounded": 0.0,
+                                    "saved_attribute_attributes": {
+                                        "htabcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        },
+                                        "valueof": {
+                                            "parameter_enum": [ "1", "2", "3", "4", "5", "6", "7" ],
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "tab",
+                                            "parameter_mmax": 6,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "tab",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "segmented": 1,
+                                    "tabs": [ "1", "2", "3", "4", "5", "6", "7" ],
+                                    "truncate": 0,
+                                    "varname": "tab"
+                                }
+                            },
                             {
                                 "box": {
                                     "hidden": 1,
@@ -8074,114 +8548,6 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "id": "obj-51",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 668.0, 336.0, 91.0 ],
-                                    "text": "In summary: the SVF is smoother and more stable and better behaved under any message rate control, even though it has an identical static state impulse response to the Biquad filter. We can use the SVF for tasks such as parametric EQ-ing without having to expensively smooth it. Go to the next 'audio' tab for more..."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-50",
-                                    "linecount": 5,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 587.0, 336.0, 78.0 ],
-                                    "text": "The last thing to take into account is the coefficients calculations. It turns out that the Biquad coefficients are much more expensive to compute than the SVF coefficients. Look inside the [p compareCalculators] subpatch for an explanation."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-49",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 493.0, 336.0, 91.0 ],
-                                    "text": "Now switch the input selector~ to the 'Osc'. An oscillator input is far less forgiving than noise. You will hear the Biquad cannot manage this at all. The performance of the SVF is not quite as good as with the noise input, but it is pretty good, and the curve shows us it is still completely stable."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-46",
-                                    "linecount": 11,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 332.0, 338.0, 158.0 ],
-                                    "text": "Now let's listen to the filters. Switch the selector~ to 'Biquad'. Biquad is the red curve. You will hear noise through the modulated frequency of the filter. Note how bad this sounds - it is zippering and more, because there is no audio rate smoothing on our modulation. But now switch the selector~ to the 'SVF' output - the filter is smooth, even though there is no audio rate smoothing. Notice the display, too. the blue curve SVF is stable and maintains the filter shape up and down the spectrum, whereas the red Biquad curve is clicking up to nyquist and cannot handle the movement, especially low down."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-45",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 265.0, 336.0, 64.0 ],
-                                    "text": "Next, turn on the event rate modulation. You will see our 'Freq' dial move around and our filters responding. Note, you can see the blue curve now, because the SVF behaviour under control is different to the Biquad."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-44",
-                                    "linecount": 7,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 158.0, 336.0, 104.0 ],
-                                    "text": "Next, turn on audio and look at the spectral display. You should see noise going through two filters. The Biquad curve is red, the SVF curve is blue. But wait, you cannot see the blue curve - that is because it is visually rendered below the red curve, and this shows us the first important point - the two filters have identical impulse responses - this is good news if we are to substitute one for the other."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-43",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 118.0, 336.0, 37.0 ],
-                                    "text": "Firstly, let's be clear what we are using as our Biquad. Look inside the [p compareBiquads] subpatch to check."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-41",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 704.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "7",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -8193,7 +8559,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 896.0, 119.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 149.0, 704.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -8201,150 +8567,6 @@
                                         }
                                     },
                                     "text": "6",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-39",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 616.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "6",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-34",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 529.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "5",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-33",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 401.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "4",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-32",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 287.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "3",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-31",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 207.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "2",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-22",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 25.0, 126.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "1",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -8486,7 +8708,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 494.0, 119.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 157.0, 576.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -8966,7 +9188,7 @@
                                         ],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 516.0, 118.0, 109.0, 22.0 ],
+                                    "patching_rect": [ 179.0, 575.0, 109.0, 22.0 ],
                                     "text": "p compareBiquads"
                                 }
                             },
@@ -9117,7 +9339,7 @@
                                         "lines": [],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 918.0, 118.0, 125.0, 22.0 ],
+                                    "patching_rect": [ 171.0, 703.0, 125.0, 22.0 ],
                                     "text": "p compareCalculators"
                                 }
                             },
@@ -9698,6 +9920,587 @@
                                     "text": "There are 4 tabs in this comparison patcher. In this first tab we compare the linear Direct Form (Biquad) two pole filters with the linear TPT (SVF) two pole filters.",
                                     "varname": "digest_comment"
                                 }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "embed": 1,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-38",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "offset": [ 0.0, 0.0 ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 59.0, 112.0, 1470.0, 494.0 ],
+                                        "bglocked": 1,
+                                        "openinpresentation": 1,
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 172.0, 234.66666666666669, 98.0, 22.0 ],
+                                                    "text": "prepend offset 0."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 172.0, 192.33333333333334, 44.0, 22.0 ],
+                                                    "text": "* -271."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 172.0, 277.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 172.0, 142.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-51",
+                                                    "linecount": 10,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 300.0, 347.0, 152.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 10,
+                                                    "presentation_rect": [ 15.0, 1656.0, 347.0, 152.0 ],
+                                                    "text": "In summary:\n\nThe SVF is smoother and more stable and better behaved under any message rate control, even though it has an identical static state impulse response to the Biquad filter.\n\nWe can use the SVF for tasks such as parametric EQ-ing without having to expensively smooth it.\n\nGo to the next 'audio' tab for more..."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-50",
+                                                    "linecount": 8,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 300.0, 344.0, 123.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 8,
+                                                    "presentation_rect": [ 15.0, 1385.0, 344.0, 123.0 ],
+                                                    "text": "The last thing to take into account is the coefficients calculations.\n\nIt turns out that the Biquad coefficients are much more expensive to compute than the SVF coefficients.\n\nLook inside the [p compareCalculators] subpatch for an explanation."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-49",
+                                                    "linecount": 8,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 300.0, 344.0, 123.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 8,
+                                                    "presentation_rect": [ 15.0, 1114.0, 344.0, 123.0 ],
+                                                    "text": "Now switch the input selector~ to the 'Osc'.\n\nAn oscillator input is far less forgiving than noise. You will hear the Biquad cannot manage this at all.\n\nThe performance of the SVF is not quite as good as with the noise input, but it is pretty good, and the curve shows us it is still completely stable."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-46",
+                                                    "linecount": 15,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 1098.0, 45.0, 347.0, 224.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 15,
+                                                    "presentation_rect": [ 15.0, 828.0, 347.0, 224.0 ],
+                                                    "text": "Now let's listen to the filters.\n\nSwitch the selector~ to 'Biquad'. Biquad is the red curve. You will hear noise through the modulated frequency of the filter. Note how bad this sounds - it is zippering and more, because there is no audio rate smoothing on our modulation.\n\nBut now switch the selector~ to the 'SVF' output - the filter is smooth, even though there is no audio rate smoothing.\n\nNotice the display, too. The blue curve SVF is stable and maintains the filter shape up and down the spectrum, whereas the red Biquad curve is clicking up to nyquist and cannot handle the movement, especially low down."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-45",
+                                                    "linecount": 7,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 45.0, 344.0, 108.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 7,
+                                                    "presentation_rect": [ 15.0, 572.0, 344.0, 108.0 ],
+                                                    "text": "Next, turn on the event rate modulation.\n\nYou will see our 'Freq' dial move around and our filters responding.\n\nNote, you can see the blue curve now, because the SVF behaviour under control is different to the Biquad."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-44",
+                                                    "linecount": 11,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 45.0, 344.0, 166.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 11,
+                                                    "presentation_rect": [ 15.0, 301.0, 344.0, 166.0 ],
+                                                    "text": "Next, turn on audio and look at the spectral display.\n\nYou should see noise going through two filters. The Biquad curve is red, the SVF curve is blue.\n\nBut wait, you cannot see the blue curve - that is because it is visually rendered below the red curve, and this shows us the first important point - the two filters have identical impulse responses.\n\nThis is good news if we are to substitute one for the other."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-43",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 45.0, 344.0, 50.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 3,
+                                                    "presentation_rect": [ 15.0, 45.0, 344.0, 50.0 ],
+                                                    "text": "Firstly, let's be clear what we are using as our Biquad.\n\nLook inside the [p compareBiquads] subpatch to check."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-41",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1872.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "7",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-39",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1601.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "6",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-34",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1330.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "5",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-33",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 1098.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1059.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "4",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-32",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 788.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "3",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-31",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 517.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "2",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-22",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 246.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "1",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-11",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1355.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-10",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1084.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-9",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 542.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-8",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 271.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-7",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 0.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-42",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 813.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-6",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1626.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-4", 0 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 46.0, 252.0, 374.0, 269.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubblepoint": 0.7,
+                                    "bubbleside": 2,
+                                    "id": "obj-51",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 86.0, 145.0, 145.0, 66.0 ],
+                                    "text": "Click through the numbered tabs to follow the tutorial",
+                                    "textjustification": 1
+                                }
                             }
                         ],
                         "lines": [
@@ -9871,6 +10674,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-38", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-43", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-11", 0 ],
                                     "source": [ "obj-48", 0 ]
                                 }
@@ -9967,6 +10777,7 @@
             "obj-1::obj-19": [ "live.dial[9]", "Freq", 0 ],
             "obj-1::obj-25": [ "radiogroup", "radiogroup", 0 ],
             "obj-1::obj-28": [ "live.numbox[3]", "live.numbox", 0 ],
+            "obj-1::obj-43": [ "tab", "tab", 0 ],
             "obj-1::obj-6::obj-10": [ "number[2]", "number[2]", 0 ],
             "obj-1::obj-6::obj-12": [ "number[1]", "number[1]", 0 ],
             "obj-1::obj-6::obj-15": [ "number", "number", 0 ],
@@ -9978,6 +10789,7 @@
             "obj-2::obj-141": [ "number[9]", "number[9]", 0 ],
             "obj-2::obj-16": [ "live.dial[6]", "Q", 0 ],
             "obj-2::obj-19": [ "live.dial[10]", "Freq", 0 ],
+            "obj-2::obj-43": [ "tab[1]", "tab", 0 ],
             "obj-2::obj-84::obj-14": [ "number[7]", "number[1]", 0 ],
             "obj-2::obj-84::obj-56": [ "number[6]", "number[2]", 0 ],
             "obj-2::obj-84::obj-57": [ "number[8]", "number", 0 ],

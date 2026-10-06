@@ -8950,7 +8950,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -22519,13 +22519,47 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1350.0, 764.0 ],
+                        "rect": [ 32.0, 126.0, 1350.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "fontsize": 13.0,
+                                    "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "id": "obj-32",
+                                    "maxclass": "tab",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "int", "", "" ],
+                                    "parameter_enable": 1,
+                                    "parameter_mappable": 0,
+                                    "patching_rect": [ 34.0, 262.0, 374.0, 24.0 ],
+                                    "rounded": 0.0,
+                                    "saved_attribute_attributes": {
+                                        "htabcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        },
+                                        "valueof": {
+                                            "parameter_enum": [ "1", "2", "3", "4", "5", "6", "7", "8" ],
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "tab[15]",
+                                            "parameter_mmax": 7,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "tab",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "segmented": 1,
+                                    "tabs": [ "1", "2", "3", "4", "5", "6", "7", "8" ],
+                                    "truncate": 0,
+                                    "varname": "tab"
+                                }
+                            },
                             {
                                 "box": {
                                     "fontsize": 16.0,
@@ -22538,7 +22572,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 34.0, 720.0, 22.0, 26.0 ],
+                                    "patching_rect": [ 34.0, 660.0, 22.0, 26.0 ],
                                     "triangle": 0
                                 }
                             },
@@ -22592,19 +22626,6 @@
                             },
                             {
                                 "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-26",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 673.0, 30.0, 23.0 ],
-                                    "text": "7",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -22650,42 +22671,6 @@
                                     "text": "Green = evi.softclip~",
                                     "textcolor": [ 0.0, 0.502, 0.0, 1.0 ],
                                     "textjustification": 2
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-10",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 665.0, 259.0, 37.0 ],
-                                    "text": "Switch between the naive tanh~ (Red) and the evieve antialiased evi.softclip~ (Green)"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-9",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 674.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "7",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
                             {
@@ -22757,182 +22742,6 @@
                             },
                             {
                                 "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-103",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 585.0, 32.0, 23.0 ],
-                                    "text": "6",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-102",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 462.0, 32.0, 23.0 ],
-                                    "text": "5",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-101",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 366.0, 32.0, 23.0 ],
-                                    "text": "4",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-100",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 296.0, 32.0, 23.0 ],
-                                    "text": "3",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-99",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 247.0, 32.0, 23.0 ],
-                                    "text": "2",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-98",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 30.0, 205.0, 32.0, 23.0 ],
-                                    "text": "1",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "bubblepoint": 0.8,
-                                    "bubbleside": 3,
-                                    "id": "obj-96",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 888.0, 40.0, 88.0, 24.0 ],
-                                    "text": "Summary",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-93",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 943.0, 102.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "8",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-88",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 586.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "6",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-87",
-                                    "linecount": 10,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 965.0, 40.0, 365.0, 145.0 ],
-                                    "text": "The closer the frequencies are to nyquist, and the greater gain they are, the more foldback aliasing will occur. If you cannot hear it, it does not mean that it is not bad. Aliasing stays in your audio chain and there is nothing you can do to get rid of it, not even filtering, and it will greatly affect your final output, masking the audio you actually want. In this tab we chose some unrealistic extreme cases to demonstrate the effect. But your audio will likely have many more harmonics in it than a cosine wave! In the next tab we compare aliasing with antialiased saturation..."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-85",
-                                    "linecount": 9,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 530.0, 246.0, 131.0 ],
-                                    "text": "Select the 6th preset. Our spectral display is linear, focussing on high frequencies. Our frequency and gain are high. There should be just one additional harmonic here, but as you can see there are hundreds of artifacts filling the audio spectrum, both above and below our fundamental frequency. Switch between lin and log display."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-84",
-                                    "linecount": 7,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 421.0, 339.0, 104.0 ],
-                                    "text": "Select the 5th preset. Our cycle~ frequency increased to over 6kHz, our gain at +20dB. We can see the waveshape and the aliasing and it is difficult to tell which are harmonics and which are aliased foldover. And we can hear it. It sounds horrible and grainy. Move the gain number box up and down to see and hear the effect. Do not listen for too long, it is bad for your ears."
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -22945,30 +22754,6 @@
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 856.0, 262.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "5",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-82",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 463.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -23001,54 +22786,6 @@
                                     },
                                     "text": "4",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-80",
-                                    "linecount": 5,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 338.0, 432.0, 78.0 ],
-                                    "text": "Select the 4th preset. Our spectral display is back to log, our cycle~ frequency increased to about 1kHz, our gain at +20dB. We can see the waveshape and the aliasing folding back into the signal. And we can hear it. It sounds not too bad. Move the gain number box up and down. We can see and hear when the aliasing is most obvious."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-79",
-                                    "linecount": 3,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 282.0, 425.0, 51.0 ],
-                                    "text": "Select the 3rd preset. Here we switch the spectral display to @linear mode to focus on the high frequencies. Now you can see it is actually folding back (aliasing) from about -60dB down to about 2kHz."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-78",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 240.0, 300.0, 37.0 ],
-                                    "text": "Select the 2nd preset. Here we turn gain up to full (+40dB). We can see beautiful waveshaped audio."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-77",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 89.0, 198.0, 425.0, 37.0 ],
-                                    "text": "Turn audio on. Select the 1st preset. Our spectral display is showing down to -80dB. We can see three additional harmonics in the red (tanh~) curve."
                                 }
                             },
                             {
@@ -23089,102 +22826,6 @@
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 497.0, 664.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "1",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-89",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 367.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "4",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-90",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 297.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "3",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-91",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 248.0, 20.0, 20.0 ],
-                                    "rounded": 60.0,
-                                    "saved_attribute_attributes": {
-                                        "bgcolor": {
-                                            "expression": "themecolor.live_key_assignment"
-                                        }
-                                    },
-                                    "text": "2",
-                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
-                                    "fontname": "Arial Bold",
-                                    "hint": "",
-                                    "id": "obj-92",
-                                    "ignoreclick": 1,
-                                    "legacytextcolor": 1,
-                                    "maxclass": "textbutton",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 67.0, 206.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -23606,7 +23247,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -23624,14 +23265,13 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubbleside": 2,
                                     "fontsize": 13.0,
                                     "id": "obj-41",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 17.0, 153.0, 57.0, 40.0 ],
-                                    "text": "Presets",
+                                    "patching_rect": [ 58.0, 661.0, 122.0, 25.0 ],
+                                    "text": "current Preset",
                                     "textjustification": 1
                                 }
                             },
@@ -23644,7 +23284,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 5,
                                     "outlettype": [ "preset", "int", "preset", "int", "" ],
-                                    "patching_rect": [ 67.0, 732.0, 113.0, 16.0 ],
+                                    "patching_rect": [ 34.0, 718.0, 113.0, 16.0 ],
                                     "preset_data": [
                                         {
                                             "number": 1,
@@ -23698,7 +23338,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 627.0, 577.0, 130.0, 33.0 ],
+                                    "patching_rect": [ 627.0, 576.0, 130.0, 33.0 ],
                                     "text": "many harmonics waveshaped -1..1"
                                 }
                             },
@@ -24039,7 +23679,7 @@
                                     "freqrange": [ 10.0, 24000.0 ],
                                     "id": "obj-1",
                                     "maxclass": "spectrumdraw~",
-                                    "mode3": 0,
+                                    "mode": 0,
                                     "mousedatapos": 2,
                                     "numinlets": 4,
                                     "numoutlets": 1,
@@ -24114,13 +23754,727 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-37",
-                                    "linecount": 4,
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 69.0 ],
+                                    "patching_rect": [ 10.0, 70.0, 1169.0, 38.0 ],
                                     "text": "Saturation is good. Aliasing is bad. Saturation adds harmonics to your audio. Adding harmonics to your audio causes aliasing. Aliasing is a mathematical fact, not an aesthetic. It is just bad. It destroys your audio and will destroy your music especially if performing through a full range PA. In this first tab we just listen to and look at some aliasing. In further tabs we look at antialiased saturation in evieve.",
                                     "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bgmode": 0,
+                                    "border": 0,
+                                    "clickthrough": 0,
+                                    "embed": 1,
+                                    "enablehscroll": 0,
+                                    "enablevscroll": 0,
+                                    "id": "obj-35",
+                                    "lockeddragscroll": 0,
+                                    "lockedsize": 0,
+                                    "maxclass": "bpatcher",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "offset": [ 0.0, -1897.0 ],
+                                    "outlettype": [ "" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 69.0, 115.0, 1487.0, 590.0 ],
+                                        "bglocked": 1,
+                                        "openinpresentation": 1,
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-20",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "" ],
+                                                    "patching_rect": [ 518.0, 235.0, 34.0, 22.0 ],
+                                                    "text": "sel 8"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-17",
+                                                    "linecount": 16,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 1100.0, 300.0, 347.0, 239.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 16,
+                                                    "presentation_rect": [ 14.0, 1912.0, 347.0, 239.0 ],
+                                                    "text": "Summary:\n\nThe closer the frequencies are to nyquist, and the greater gain they are, the more foldback aliasing will occur.\n\nIf you cannot hear it, it does not mean that it is not bad. Aliasing stays in your audio chain and there is nothing you can do to get rid of it, not even filtering, and it will greatly affect your final output, masking the audio you actually want.\n\nIn this patcher tab we chose some unrealistic extreme cases to demonstrate the effect. But your audio will likely have many more harmonics in it than a cosine wave! In the next patcher tab ('adaa basic') we compare aliasing with antialiased saturation..."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-18",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 1100.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 2143.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "8",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-15",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 395.0, 347.0, 21.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 14.0, 1826.0, 347.0, 21.0 ],
+                                                    "text": "Click the next # (8) for a Summary..."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-14",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 533.0, 273.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-13",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 518.0, 192.0, 30.0, 22.0 ],
+                                                    "text": "+ 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 172.0, 234.66666666666669, 98.0, 22.0 ],
+                                                    "text": "prepend offset 0."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 172.0, 192.33333333333334, 44.0, 22.0 ],
+                                                    "text": "* -271."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 172.0, 277.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 172.0, 142.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-51",
+                                                    "linecount": 8,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 300.0, 347.0, 123.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 8,
+                                                    "presentation_rect": [ 15.0, 1656.0, 347.0, 123.0 ],
+                                                    "text": "The 7th preset is selected now.\n\nSwitch between the naive tanh~ (Red) and the evieve antialiased evi.softclip~ (Green) using the toggle next to the #7.\n\nThe evi.softclip~ object is what a waveshaped cosine wave should sound (and look) like."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-50",
+                                                    "linecount": 12,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 300.0, 344.0, 181.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 12,
+                                                    "presentation_rect": [ 15.0, 1385.0, 344.0, 181.0 ],
+                                                    "text": "The 6th preset is selected.\n\nOur spectral display is linear, focussing on high frequencies. Our frequency and gain are high.\n\nThere should be just one additional harmonic here, but as you can see there are hundreds of artifacts filling the audio spectrum (red), both above and below our fundamental frequency (blue).\n\nSwitch between lin and log display using the @linearmode attrui."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-49",
+                                                    "linecount": 14,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 300.0, 344.0, 210.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 14,
+                                                    "presentation_rect": [ 15.0, 1099.0, 344.0, 210.0 ],
+                                                    "text": "The 5th preset is selected.\n\nOur cycle~ frequency increased to over 6kHz, our gain is at +20dB.\n\nWe can see the waveshape and the aliasing and it is difficult to tell which are harmonics and which are aliased foldover.\n\nAnd we can hear it. It sounds horrible and grainy. Move the gain number box up and down to see and hear the effect.\n\nDo not listen for too long, it is bad for your ears."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-46",
+                                                    "linecount": 11,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 1098.0, 45.0, 351.0, 166.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 11,
+                                                    "presentation_rect": [ 15.0, 843.0, 351.0, 166.0 ],
+                                                    "text": "The 4th preset is selected.\n\nOur spectral display is back to log, our cycle~ frequency increased to about 1kHz, our gain is at +20dB.\n\nWe can see the waveshape and the aliasing folding back into the signal.\n\nAnd we can hear it. It sounds not too bad. Move the gain number box up and down. We can see and hear when the aliasing is most obvious."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-45",
+                                                    "linecount": 7,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 737.0, 45.0, 344.0, 108.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 7,
+                                                    "presentation_rect": [ 15.0, 587.0, 344.0, 108.0 ],
+                                                    "text": "The 3rd preset is selected.\n\nHere we switch the spectral display to @linearmode to focus on the high frequencies.\n\nNow you can see it is actually folding back (aliasing) from about -60dB at Nyquist down to about 2kHz."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-44",
+                                                    "linecount": 4,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 376.0, 45.0, 344.0, 65.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 4,
+                                                    "presentation_rect": [ 15.0, 316.0, 344.0, 65.0 ],
+                                                    "text": "The 2nd preset is selected.\n\nHere we turn gain up to full (+40dB). We can see beautiful waveshaped audio in our spectral display."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontsize": 13.0,
+                                                    "id": "obj-43",
+                                                    "linecount": 6,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 45.0, 344.0, 94.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 6,
+                                                    "presentation_rect": [ 15.0, 45.0, 344.0, 94.0 ],
+                                                    "text": "Turn audio on.\n\nThe 1st preset is selected.\n\nOur spectral display is showing down to -80dB. We can see three additional harmonics in the red (tanh~) curve."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-41",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1872.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "7",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-39",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1601.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "6",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-34",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 278.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1330.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "5",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-33",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 1098.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 1059.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "4",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-32",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 737.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 788.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "3",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-31",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 376.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 517.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "2",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                                    "fontname": "Arial Bold",
+                                                    "hint": "",
+                                                    "id": "obj-22",
+                                                    "ignoreclick": 1,
+                                                    "legacytextcolor": 1,
+                                                    "maxclass": "textbutton",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "", "", "int" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 15.0, 23.0, 20.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 351.0, 246.0, 20.0, 20.0 ],
+                                                    "rounded": 60.0,
+                                                    "saved_attribute_attributes": {
+                                                        "bgcolor": {
+                                                            "expression": "themecolor.live_key_assignment"
+                                                        }
+                                                    },
+                                                    "text": "1",
+                                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-19",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1897.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-11",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1355.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-10",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1084.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-9",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 542.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-8",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 271.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-7",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 0.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-42",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 813.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "angle": 270.0,
+                                                    "background": 1,
+                                                    "border": 2,
+                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                                    "id": "obj-6",
+                                                    "maxclass": "panel",
+                                                    "mode": 1,
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 0.0, 0.0, 374.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 0.0, 1626.0, 374.0, 269.0 ],
+                                                    "proportion": 0.5,
+                                                    "rounded": 0,
+                                                    "saved_attribute_attributes": {
+                                                        "bordercolor": {
+                                                            "expression": "themecolor.theme_textcolor_inverse"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-13", 0 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-4", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-20", 0 ],
+                                                    "source": [ "obj-13", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-14", 0 ],
+                                                    "source": [ "obj-20", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 34.0, 285.0, 374.0, 269.0 ],
+                                    "viewvisibility": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubblepoint": 0.7,
+                                    "bubbleside": 2,
+                                    "id": "obj-51",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 74.0, 178.0, 145.0, 66.0 ],
+                                    "text": "Click through the numbered tabs to follow the tutorial",
+                                    "textjustification": 1
                                 }
                             },
                             {
@@ -24148,34 +24502,6 @@
                             }
                         ],
                         "lines": [
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-100", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-101", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-102", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-103", 0 ]
-                                }
-                            },
                             {
                                 "patchline": {
                                     "destination": [ "obj-15", 1 ],
@@ -24271,13 +24597,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-26", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-21", 0 ],
                                     "source": [ "obj-27", 0 ]
                                 }
@@ -24299,6 +24618,20 @@
                                     "destination": [ "obj-39", 0 ],
                                     "hidden": 1,
                                     "source": [ "obj-30", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-35", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-32", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-30", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-35", 0 ]
                                 }
                             },
                             {
@@ -24439,20 +24772,6 @@
                                     "hidden": 1,
                                     "source": [ "obj-75", 0 ]
                                 }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-98", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-30", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-99", 0 ]
-                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -24541,6 +24860,7 @@
             "obj-12::obj-79": [ "live.dial[8]", "In Gain", 0 ],
             "obj-1::obj-11": [ "number", "number", 0 ],
             "obj-1::obj-25": [ "number[1]", "number[1]", 0 ],
+            "obj-1::obj-32": [ "tab[15]", "tab", 0 ],
             "obj-1::obj-43": [ "radiogroup", "radiogroup", 0 ],
             "obj-2::obj-104": [ "toggle", "toggle", 0 ],
             "obj-2::obj-109": [ "toggle[1]", "toggle[1]", 0 ],
