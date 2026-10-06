@@ -296,7 +296,7 @@
                                     "patching_rect": [ 508.0, 617.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[3]",
                                             "parameter_mmax": 6.0,
@@ -1427,7 +1427,7 @@
                                     "patching_rect": [ 141.0, 481.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[2]",
                                             "parameter_mmax": 6.0,
@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -3045,7 +3045,7 @@
                                     "patching_rect": [ 201.0, 605.0, 174.0, 53.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -18.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[5]",
                                             "parameter_mmax": 6.0,
@@ -5027,7 +5027,7 @@
                                     "patching_rect": [ 140.0, 618.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[4]",
                                             "parameter_mmax": 6.0,
@@ -7649,7 +7649,7 @@
                                     "patching_rect": [ 244.0, 572.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -8513,7 +8513,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -8926,7 +8926,7 @@
                                     "patching_rect": [ 171.0, 582.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -70.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~",
                                             "parameter_mmax": 6.0,

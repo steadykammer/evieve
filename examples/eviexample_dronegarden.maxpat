@@ -8358,7 +8358,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "pentatetra1"
+                                                    "text": "weiss_mandal"
                                                 }
                                             },
                                             {
@@ -9738,6 +9738,22 @@
                     "presentation": 1,
                     "presentation_rect": [ 712.0, 27.0, 192.0, 23.0 ],
                     "viewvisibility": 1
+                }
+            },
+            {
+                "box": {
+                    "arrows": 2,
+                    "background": 1,
+                    "border": 5.0,
+                    "id": "obj-24",
+                    "justification": 1,
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "orientation": 0,
+                    "patching_rect": [ 75.0, 627.0, 18.0, 23.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 98.0, 694.0, 18.0, 23.0 ]
                 }
             },
             {

@@ -8270,7 +8270,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 3
+                                            "parameter_type": 1
                                         }
                                     },
                                     "varname": "kslider"
@@ -11026,6 +11026,22 @@
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[3]"
+                }
+            },
+            {
+                "box": {
+                    "arrows": 2,
+                    "background": 1,
+                    "border": 5.0,
+                    "id": "obj-24",
+                    "justification": 1,
+                    "maxclass": "live.line",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "orientation": 0,
+                    "patching_rect": [ 96.0, 668.0, 18.0, 23.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 98.0, 699.0, 18.0, 17.0 ]
                 }
             },
             {

@@ -85,13 +85,67 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
+                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-38",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 40.0, 195.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "channels": 1,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-25",
+                                    "lastchannelcount": 0,
+                                    "maxclass": "live.gain~",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "orientation": 1,
+                                    "outlettype": [ "signal", "", "float", "list" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 62.0, 183.0, 174.0, 47.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ -70.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "live.gain~",
+                                            "parameter_mmax": 6.0,
+                                            "parameter_mmin": -70.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "Output",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 4
+                                        }
+                                    },
+                                    "varname": "live.gain~"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-3",
@@ -211,7 +265,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 62.0, 188.0, 138.0, 22.0 ],
+                                    "patching_rect": [ 62.0, 154.0, 138.0, 22.0 ],
                                     "text": "receive~ usecasesaudio"
                                 }
                             },
@@ -1620,22 +1674,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "order": 0,
-                                    "source": [ "obj-108", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-41", 1 ],
-                                    "order": 1,
-                                    "source": [ "obj-108", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-41", 0 ],
-                                    "order": 2,
+                                    "destination": [ "obj-25", 0 ],
                                     "source": [ "obj-108", 0 ]
                                 }
                             },
@@ -1703,6 +1742,27 @@
                                 "patchline": {
                                     "destination": [ "obj-9", 1 ],
                                     "source": [ "obj-22", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-25", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-41", 1 ],
+                                    "order": 1,
+                                    "source": [ "obj-25", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-41", 0 ],
+                                    "order": 2,
+                                    "source": [ "obj-25", 0 ]
                                 }
                             },
                             {
@@ -1925,7 +1985,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 29.0, 123.0, 1325.0, 831.0 ],
+                        "rect": [ 0.0, 26.0, 1325.0, 831.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -9635,6 +9695,7 @@
         "parameters": {
             "obj-2::obj-34": [ "live.dial[3]", "Ramp", 0 ],
             "obj-3::obj-20": [ "live.numbox", "live.numbox", 0 ],
+            "obj-3::obj-25": [ "live.gain~", "Output", 0 ],
             "obj-3::obj-27::obj-21::obj-6": [ "live.tab[4]", "live.tab[1]", 0 ],
             "obj-3::obj-27::obj-35": [ "[6]", "Level", 0 ],
             "obj-3::obj-34": [ "live.dial[4]", "Dry/Wet", 0 ],
