@@ -11,6 +11,7 @@
         "classnamespace": "box",
         "rect": [ 34.0, 100.0, 1139.0, 820.0 ],
         "gridonopen": 2,
+        "toolbarvisible": 0,
         "lefttoolbarpinned": 2,
         "toptoolbarpinned": 2,
         "righttoolbarpinned": 2,
@@ -84,7 +85,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1001,30 +1002,6 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "id": "obj-74",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 49.0, 535.0, 294.0, 37.0 ],
-                                    "text": "You can compare the internal DSP of each filter in the [p compareDSP] subpatch."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-73",
-                                    "linecount": 10,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 49.0, 386.0, 293.0, 145.0 ],
-                                    "text": "Leave the 'OUTPUT' selector~ on 'SVF'. Increase the 'Resonance' dial to a high value. The SVF blue curve will remain stable. The Biquad red curve will gradually explode. Do NOT listen to the 'Biquad' selector~, play around with the 'FM' and 'Resonance' and 'Frequency' controls. The SVF is stable under audio rate modulation. After exploring, return all controls to lower values. The red curve might return. If it does not, use the 'clear' message to the [reson~] object."
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -1050,18 +1027,6 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "id": "obj-69",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 292.0, 384.0, 91.0 ],
-                                    "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters. Switch to 'Biquad' in the selector~. You will hear grungy bassy mess. Switch to the 'SVF' selector~. You will hear FM-ed noise with a peak. Now switch the 'INPUT' selector~ to 'Osc'. A/B the filters at the 'OUTPUT'. The 'Osc' source makes the problem much clearer."
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
                                     "bubbleside": 3,
                                     "id": "obj-67",
                                     "maxclass": "comment",
@@ -1070,18 +1035,6 @@
                                     "patching_rect": [ 819.0, 217.0, 68.0, 24.0 ],
                                     "text": "FM Hz",
                                     "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-65",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 225.0, 383.0, 64.0 ],
-                                    "text": "Do not listen to the audio yet. Very slowly raise the 'FM Hz' control (with the shift key). Watch the Red and Blue curves diverge. You should be able to reach about 1kHz in this control and the Red Biquad curve will still be present, bouncing a lot in the bass."
                                 }
                             },
                             {
@@ -1130,18 +1083,6 @@
                                     },
                                     "text": "3",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-48",
-                                    "linecount": 4,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 158.0, 383.0, 64.0 ],
-                                    "text": "Now turn on audio. You will see the Red [reson~] curve and you might just be able to see a little bit of the Blue [evi.reson~] curve poking out the top of the peak - the filters are almost identical but the evieve filter is a little tiny bit more peaky."
                                 }
                             },
                             {
@@ -1461,6 +1402,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 1,
                                     "id": "obj-54",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1571,18 +1513,6 @@
                                     "patching_rect": [ 435.0, 497.0, 150.0, 37.0 ],
                                     "text": "You will need this, because it will blow up",
                                     "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-45",
-                                    "linecount": 6,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 632.0, 295.0, 91.0 ],
-                                    "text": "Summary: the [reson~] object cannot manage any audio rate modulation (because it is a Direct Form Biquad) and with fast modulation it blows up, whereas the [evi.reson~] object can handle it fine, even though it is a linear filter. TPT filters are good, Direct Form filters are bad."
                                 }
                             },
                             {
@@ -1719,6 +1649,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 1,
                                     "id": "obj-53",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1851,30 +1782,6 @@
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 541.0, 366.0, 44.0, 22.0 ],
                                     "text": "noise~"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "fontsize": 13.0,
-                                    "id": "obj-14",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 670.0, 397.0, 44.0, 21.0 ],
-                                    "text": "Gain",
-                                    "textjustification": 1
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bubble": 1,
-                                    "id": "obj-43",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 118.0, 383.0, 37.0 ],
-                                    "text": "A [reson~] filter is a Biquad, and an [evi.reson~] filter is a TPT SVF. Look inside the [p reson~Biquad] subpatch for an explanation."
                                 }
                             },
                             {
@@ -3509,30 +3416,26 @@
                             },
                             {
                                 "box": {
-                                    "bubble": 1,
-                                    "bubbleside": 3,
-                                    "id": "obj-19",
+                                    "fontsize": 13.0,
+                                    "id": "obj-14",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 353.0, 581.0, 93.0, 24.0 ],
-                                    "text": "CAREFUL",
-                                    "textjustification": 1
+                                    "patching_rect": [ 670.0, 401.0, 44.0, 21.0 ],
+                                    "text": "Gain",
+                                    "textjustification": 0
                                 }
                             },
                             {
                                 "box": {
                                     "background": 1,
-                                    "fontname": "Lato",
-                                    "fontsize": 13.0,
-                                    "id": "obj-37",
-                                    "linecount": 2,
+                                    "id": "obj-85",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 715.0, 38.0 ],
-                                    "text": "In this tab we compare how the Biquad and the TPT SVF handle audio rate modulation very differently. Be very careful to follow the instructions exactly as we dangerously blow up a filter (spoiler alert, the Biquad) and we must protect our ears.",
-                                    "varname": "digest_comment"
+                                    "patching_rect": [ 65.0, 388.0, 277.0, 20.0 ],
+                                    "text": "Leave the 'OUTPUT' selector~ on 'SVF'.",
+                                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
                             {
@@ -3565,6 +3468,182 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1011.0, 504.0, 107.0, 22.0 ],
                                     "text_width": 76.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "border": 0,
+                                    "fontface": 0,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "hint": "",
+                                    "id": "obj-77",
+                                    "linkbold": 1,
+                                    "linkcolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "maxclass": "markup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 14.0, 69.0, 711.0, 43.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 944.0, 251.0, 298.0, 42.0 ],
+                                    "preservehref": 1,
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "text": "In this tab we compare how the Biquad and the TPT SVF handle audio rate modulation very differently. <link href=\"; max openhelp doesnotexist\">Be very careful to follow the instructions exactly as we dangerously blow up a filter</link> (spoiler alert, the Biquad) <b>and we must protect our ears</b>.",
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubble_outlinecolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "bubblepoint": 0.2,
+                                    "bubbleside": 3,
+                                    "id": "obj-82",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 883.0, 342.0, 93.0, 24.0 ],
+                                    "text": "CAREFUL",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-81",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 63.0, 294.0, 368.0, 33.0 ],
+                                    "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters.",
+                                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-79",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 63.0, 227.0, 164.0, 20.0 ],
+                                    "text": "Do not listen to the audio yet.",
+                                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-74",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 49.0, 535.0, 294.0, 37.0 ],
+                                    "text": "You can compare the internal DSP of each filter in the [p compareDSP] subpatch."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-48",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 47.0, 158.0, 383.0, 64.0 ],
+                                    "text": "Now turn on audio. You will see the Red [reson~] curve and you might just be able to see a little bit of the Blue [evi.reson~] curve poking out the top of the peak - the filters are almost identical but the evieve filter is a little tiny bit more peaky."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-45",
+                                    "linecount": 6,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 47.0, 632.0, 295.0, 91.0 ],
+                                    "text": "Summary: the [reson~] object cannot manage any audio rate modulation (because it is a Direct Form Biquad) and with fast modulation it blows up, whereas the [evi.reson~] object can handle it fine, even though it is a linear filter. TPT filters are good, Direct Form filters are bad."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-43",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 47.0, 118.0, 383.0, 37.0 ],
+                                    "text": "A [reson~] filter is a Biquad, and an [evi.reson~] filter is a TPT SVF. Look inside the [p reson~Biquad] subpatch for an explanation."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubble_outlinecolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "bubbleside": 3,
+                                    "id": "obj-19",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 353.0, 581.0, 93.0, 24.0 ],
+                                    "text": "CAREFUL",
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-69",
+                                    "linecount": 6,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 47.0, 292.0, 384.0, 91.0 ],
+                                    "text": "CAREFUL. As long as you can see both Red and Blue curves, you can listen to the filters. Switch to 'Biquad' in the selector~. You will hear grungy bassy mess. Switch to the 'SVF' selector~. You will hear FM-ed noise with a peak. Now switch the 'INPUT' selector~ to 'Osc'. A/B the filters at the 'OUTPUT'. The 'Osc' source makes the problem much clearer."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "id": "obj-65",
+                                    "linecount": 4,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 47.0, 225.0, 383.0, 64.0 ],
+                                    "text": "Do not listen to the audio yet. Very slowly raise the 'FM Hz' control (with the shift key). Watch the Red and Blue curves diverge. You should be able to reach about 1kHz in this control and the Red Biquad curve will still be present, bouncing a lot in the bass."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubble_outlinecolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "id": "obj-73",
+                                    "linecount": 10,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 49.0, 386.0, 293.0, 145.0 ],
+                                    "text": "Leave the 'OUTPUT' selector~ on 'SVF'. Increase the 'Resonance' dial to a high value. The SVF blue curve will remain stable. The Biquad red curve will gradually explode. Do NOT listen to the 'Biquad' selector~, play around with the 'FM' and 'Resonance' and 'Frequency' controls. The SVF is stable under audio rate modulation. After exploring, return all controls to lower values. The red curve might return. If it does not, use the 'clear' message to the [reson~] object."
                                 }
                             }
                         ],
@@ -7723,7 +7802,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 34.0, 126.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,

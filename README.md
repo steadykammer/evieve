@@ -8,7 +8,7 @@ This repo is *not* the 'Max Package'. It is the source for the 'Max Package'. It
 
 ---
 
-The `evieve` package aims to be as boring as possible - generic and easily reusable audio code but for using directly inside of '**.genexpr**' & **codebox** etc, organised into source files for usage via *require()*.
+The `evieve` package aims to be as ordinary as possible - generic and easily reusable audio code but for using directly inside of '**.genexpr**' & **codebox** etc, organised into source files for usage via *require()*.
 
 Some of the code has been (largely automatically) extrapolated to `gen~` and `MSP` abstractions and therefore might be useful in those environments as well.
 

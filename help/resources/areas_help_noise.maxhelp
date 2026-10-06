@@ -131,20 +131,6 @@
             },
             {
                 "box": {
-                    "hidden": 1,
-                    "id": "obj-30",
-                    "ignoreclick": 1,
-                    "linecount": 3,
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 257.0, 609.0, 210.0, 49.0 ],
-                    "text": ";\rmax launchbrowser https://github.com/testcase/gen_noise"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-7",
                     "maxclass": "scope~",
                     "numinlets": 2,
@@ -404,6 +390,7 @@
             {
                 "box": {
                     "border": 0,
+                    "evaluatehref": 1,
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
@@ -415,6 +402,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 127.0, 532.0, 338.0, 24.0 ],
+                    "preservehref": 1,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
@@ -794,13 +782,6 @@
                     "destination": [ "obj-34", 0 ],
                     "hidden": 1,
                     "source": [ "obj-26", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-30", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-27", 0 ]
                 }
             },
             {

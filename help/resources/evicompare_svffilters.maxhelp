@@ -50,12 +50,39 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "border": 2.0,
+                                    "id": "obj-45",
+                                    "justification": 1,
+                                    "linecolor": [ 0.0, 0.0, 0.0, 1.0 ],
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 458.0, 577.0, 608.0, 10.0 ],
+                                    "saved_attribute_attributes": {
+                                        "linecolor": {
+                                            "expression": ""
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-56",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 1087.0, 573.0, 35.0, 20.0 ],
+                                    "text": "0"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-9",
                                     "maxclass": "live.meter~",
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
-                                    "patching_rect": [ 1069.0, 574.0, 18.0, 203.0 ],
+                                    "patching_rect": [ 1069.0, 572.0, 18.0, 205.0 ],
                                     "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
@@ -1564,7 +1591,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1801,68 +1828,6 @@
                             },
                             {
                                 "box": {
-                                    "amprange": [ -100.0, 10.0 ],
-                                    "bgcolor": [ 1.0, 1.0, 1.0, 0.0 ],
-                                    "bordercolor": [ 0.0, 0.0, 0.0, 0.0 ],
-                                    "color": [ 1.0, 0.5019607843137255, 0.0, 1.0 ],
-                                    "displaytextcolor": [ 0.0, 0.0, 0.0, 0.0 ],
-                                    "fontface": 0,
-                                    "fontname": "Arial",
-                                    "fontsize": 12.0,
-                                    "gridcolor": [ 0.4, 0.4, 0.4, 0.0 ],
-                                    "id": "obj-15",
-                                    "indicatorcolor": [ 1.0, 0.0, 0.0, 0.0 ],
-                                    "markercolor": [ 1.0, 0.0, 0.0, 0.0 ],
-                                    "maxclass": "spectrumdraw~",
-                                    "numinlets": 4,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 427.0, 544.0, 640.0, 240.0 ],
-                                    "selectcolor": [ 0.4, 0.4, 0.4, 0.0 ],
-                                    "textboxcolor": [ 1.0, 1.0, 1.0, 0.0 ],
-                                    "textcolor": [ 0.0, 0.0, 0.0, 0.0 ],
-                                    "thickness": 3.0,
-                                    "tickcolor": [ 1.0, 1.0, 1.0, 0.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "amprange": [ -100.0, 10.0 ],
-                                    "fontface": 0,
-                                    "fontname": "Arial",
-                                    "fontsize": 12.0,
-                                    "id": "obj-8",
-                                    "maxclass": "spectrumdraw~",
-                                    "numinlets": 4,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 427.0, 544.0, 640.0, 240.0 ],
-                                    "saved_attribute_attributes": {
-                                        "textcolor": {
-                                            "expression": "themecolor.theme_textcolor"
-                                        }
-                                    },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness3": 2.0
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
-                                    "fontname": "Lato",
-                                    "fontsize": 13.0,
-                                    "id": "obj-37",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 860.0, 38.0 ],
-                                    "text": "For completeness sake, here we compare a nonlinear TPT SVF with a linear TPT SVF. Both are excellent filters but have very different use cases. Note that by default, when you start this patch, the large white toggle at #2 is automatically switching between linear and nonlinear every 2 seconds.",
-                                    "varname": "digest_comment"
-                                }
-                            },
-                            {
-                                "box": {
                                     "background": 1,
                                     "border": 0,
                                     "embed": 0,
@@ -1991,6 +1956,53 @@
                             },
                             {
                                 "box": {
+                                    "amprange": [ -100.0, 10.0 ],
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
+                                    "id": "obj-8",
+                                    "maxclass": "spectrumdraw~",
+                                    "numinlets": 4,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 427.0, 544.0, 640.0, 240.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "thickness": 2.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "amprange": [ -100.0, 10.0 ],
+                                    "bgcolor": [ 1.0, 1.0, 1.0, 0.0 ],
+                                    "bordercolor": [ 0.0, 0.0, 0.0, 0.0 ],
+                                    "color": [ 1.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "displaytextcolor": [ 0.0, 0.0, 0.0, 0.0 ],
+                                    "fontface": 0,
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
+                                    "gridcolor": [ 0.4, 0.4, 0.4, 0.0 ],
+                                    "id": "obj-15",
+                                    "indicatorcolor": [ 1.0, 0.0, 0.0, 0.0 ],
+                                    "markercolor": [ 1.0, 0.0, 0.0, 0.0 ],
+                                    "maxclass": "spectrumdraw~",
+                                    "numinlets": 4,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 427.0, 544.0, 640.0, 240.0 ],
+                                    "selectcolor": [ 0.4, 0.4, 0.4, 0.0 ],
+                                    "textboxcolor": [ 1.0, 1.0, 1.0, 0.0 ],
+                                    "textcolor": [ 0.0, 0.0, 0.0, 0.0 ],
+                                    "thickness": 3.0,
+                                    "tickcolor": [ 1.0, 1.0, 1.0, 0.0 ]
+                                }
+                            },
+                            {
+                                "box": {
                                     "attr": "active",
                                     "id": "obj-44",
                                     "lock": 1,
@@ -2015,6 +2027,41 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 147.0, 383.0, 114.0, 22.0 ],
                                     "text_width": 49.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "id": "obj-21",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 250.0, 85.0, 620.0, 22.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.live_key_assignment"
+                                        }
+                                    },
+                                    "text": "the large white toggle at #2 is automatically switching between linear and nonlinear every 2 seconds",
+                                    "textcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "varname": "digest_comment[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "id": "obj-37",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 70.0, 860.0, 38.0 ],
+                                    "text": "For completeness sake, here we compare a nonlinear TPT SVF with a linear TPT SVF. Both are excellent filters but have very different use cases. Note that by default, when you start this patch, the large white toggle at #2 is automatically switching between linear and nonlinear every 2 seconds.",
+                                    "varname": "digest_comment"
                                 }
                             }
                         ],
@@ -2297,7 +2344,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -3991,7 +4038,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -5073,7 +5120,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 3,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -6305,7 +6352,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 704.0, 53.0 ],
-                                    "text": "evi.svfsynth~ is the most robust in terms of modulation as it is a conservative tuning and is oversampled by default. evi.svfsmooth~ can alias with FM high, but in lower ranges is responsive. Be sure to test evi.arpnotch~ modulation with low resonance and morphing filter for it's special resonance.",
+                                    "text": "evi.svfsynth~ is the most robust in terms of modulation as it is a conservative tuning and is oversampled by default. evi.svfsmooth~ can alias with FM high, but in lower ranges is responsive. Be sure to test evi.arpnotch~ modulation with low resonance and morphing filter for it's special sound.",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -6859,13 +6906,13 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 1061.0, 292.0, 120.0, 21.0 ],
+                                    "patching_rect": [ 1061.0, 292.0, 115.0, 61.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link>",
+                                    "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> features a Notch, not a Bandpass",
                                     "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
@@ -8528,11 +8575,12 @@
                             {
                                 "box": {
                                     "id": "obj-70",
+                                    "linecount": 3,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 173.0, 246.0, 189.0, 20.0 ],
-                                    "text": "boomy and dirty but robust tuning"
+                                    "patching_rect": [ 173.0, 246.0, 189.0, 47.0 ],
+                                    "text": "boomy and dirty but robust tuning (and it has a notch, not a bandpass)"
                                 }
                             },
                             {

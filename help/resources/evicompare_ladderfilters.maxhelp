@@ -3158,7 +3158,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 868.0, 470.0, 156.0, 33.0 ],
-                                    "text": "(if @cutoffmode == 0, 'FM Pitch' inlet is ignored)"
+                                    "text": "(if @cutoffmode == 0, the 'FM Pitch' inlet is ignored)"
                                 }
                             },
                             {
@@ -3222,7 +3222,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 840.0, 431.0, 227.0, 37.0 ],
-                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff inlet",
+                                    "text": "@cutoffmode sets Hz (0, the default) or pitch (1) for the cutoff (2nd) inlet",
                                     "textjustification": 1
                                 }
                             },
@@ -3774,7 +3774,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -6125,6 +6125,32 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "bubble": 1,
+                                                    "id": "obj-33",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 330.0, 452.0, 131.0, 37.0 ],
+                                                    "text": "the same as [evi.ladder.moog~]",
+                                                    "textjustification": 1
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bubbleside": 3,
+                                                    "id": "obj-30",
+                                                    "linecount": 2,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 130.0, 166.0, 123.0, 33.0 ],
+                                                    "text": "'adsr' differently named inside gen~",
+                                                    "textjustification": 2
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "hidden": 1,
                                                     "id": "obj-31",
                                                     "linecount": 7,
@@ -6939,7 +6965,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

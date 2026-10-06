@@ -26,6 +26,421 @@
         "boxes": [
             {
                 "box": {
+                    "border": 0,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "hint": "",
+                    "id": "obj-74",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 944.0, 251.0, 298.0, 42.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 944.0, 251.0, 298.0, 42.0 ],
+                    "preservehref": 1,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "By Pete Dowling a.k.a. 'stkr'. © Peter Dowling 2026, <link href=\"; max openhelp doesnotexist\">license: GPLv3</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-78",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 0,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 1005.0, 93.0, 207.0, 270.0 ],
+                        "gridonopen": 2,
+                        "subpatcher_template": "sub",
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-76",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "open" ],
+                                    "patching_rect": [ 50.0, 90.66666666666667, 42.0, 22.0 ],
+                                    "text": "t open"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-75",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 50.0, 133.33333333333334, 51.0, 22.0 ],
+                                    "text": "pcontrol"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-73",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 0,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "openrect": [ 526.0, 213.0, 526.0, 213.0 ],
+                                        "openrectmode": 0,
+                                        "openinpresentation": 1,
+                                        "gridonopen": 2,
+                                        "lefttoolbarpinned": 2,
+                                        "toptoolbarpinned": 2,
+                                        "righttoolbarpinned": 2,
+                                        "bottomtoolbarpinned": 2,
+                                        "toolbars_unpinned_last_save": 15,
+                                        "subpatcher_template": "<none>",
+                                        "cluebar": 2,
+                                        "title": "evieve License",
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-70",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 459.0, 142.0, 19.0, 22.0 ],
+                                                    "text": "0"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-69",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 439.0, 142.0, 19.0, 22.0 ],
+                                                    "text": "1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-72",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patcher": {
+                                                        "fileversion": 1,
+                                                        "appversion": {
+                                                            "major": 9,
+                                                            "minor": 2,
+                                                            "revision": 0,
+                                                            "architecture": "x64",
+                                                            "modernui": 1
+                                                        },
+                                                        "classnamespace": "box",
+                                                        "rect": [ 175.0, 245.0, 880.0, 521.0 ],
+                                                        "subpatcher_template": "<none>",
+                                                        "integercoordinates": 1,
+                                                        "boxes": [
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-69",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 409.0, 268.0, 415.0, 22.0 ],
+                                                                    "text": "window flags zoom, window flags minimize, window flags grow, window exec"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-68",
+                                                                    "maxclass": "newobj",
+                                                                    "numinlets": 3,
+                                                                    "numoutlets": 3,
+                                                                    "outlettype": [ "bang", "bang", "" ],
+                                                                    "patching_rect": [ 396.0, 86.0, 44.0, 22.0 ],
+                                                                    "text": "sel 1 0"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-67",
+                                                                    "maxclass": "newobj",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 2,
+                                                                    "outlettype": [ "bang", "bang" ],
+                                                                    "patching_rect": [ 53.0, 170.0, 32.0, 22.0 ],
+                                                                    "text": "t b b"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-66",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 53.0, 209.0, 84.0, 22.0 ],
+                                                                    "text": "savewindow 1"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-63",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 149.0, 208.0, 455.0, 22.0 ],
+                                                                    "text": "window flags nozoom, window flags nominimize, window flags nogrow, window exec"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "comment": "",
+                                                                    "id": "obj-70",
+                                                                    "index": 1,
+                                                                    "maxclass": "inlet",
+                                                                    "numinlets": 0,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 396.0, 40.0000005, 30.0, 30.0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "comment": "",
+                                                                    "id": "obj-71",
+                                                                    "index": 1,
+                                                                    "maxclass": "outlet",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 0,
+                                                                    "patching_rect": [ 149.0, 443.0, 30.0, 30.0 ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "lines": [
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-63", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-66", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-63", 0 ],
+                                                                    "source": [ "obj-67", 1 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-66", 0 ],
+                                                                    "source": [ "obj-67", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-67", 0 ],
+                                                                    "source": [ "obj-68", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-69", 0 ],
+                                                                    "source": [ "obj-68", 1 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-69", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-68", 0 ],
+                                                                    "source": [ "obj-70", 0 ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                                                    },
+                                                    "patching_rect": [ 439.0, 164.0, 59.0, 22.0 ],
+                                                    "text": "p window"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-59",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "linecount": 8,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 15.0, 83.0, 491.0, 127.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_linecount": 8,
+                                                    "presentation_rect": [ 15.0, 83.0, 491.0, 127.0 ],
+                                                    "text": "evieve is free software: you can redistribute it and/or modify it under the terms\nof the GNU General Public License as published by the Free Software Foundation,\neither version 3 of the License, or (at your option) any later version.\n\nevieve is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nSee the GNU General Public License for more details.\n"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "...or launch the 'Read Me' from the Max Package Manager",
+                                                    "id": "obj-74",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 19.0, 19.0, 487.0, 75.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 19.0, 19.0, 487.0, 75.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "evieve is released under the <b>GPLv3 license</b>, copyright © Peter Dowling 2026.\nThis means that it is licensed for non-commercial use only.\nFor license details see 'license.txt' in the root of the Package, or access it via the Max 'Package Manager' <link href=\"; max packagebrowser evieve\">entry for evieve</link>. Otherwise see <link href=\"; max launchbrowser https://www.gnu.org/licenses/\">https://www.gnu.org/licenses/</link>.",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "hidden": 1,
+                                                    "id": "obj-6",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 476.0, 83.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-72", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-69", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-72", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-70", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-59", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-72", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 50.0, 176.0, 56.0, 22.0 ],
+                                    "text": "p license"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-77",
+                                    "index": 1,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-73", 0 ],
+                                    "source": [ "obj-75", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-75", 0 ],
+                                    "source": [ "obj-76", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-76", 0 ],
+                                    "source": [ "obj-77", 0 ]
+                                }
+                            }
+                        ]
+                    },
+                    "patching_rect": [ 944.0, 284.0, 56.0, 26.0 ],
+                    "text": "p license"
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-70",
                     "maxclass": "message",
@@ -1077,29 +1492,17 @@
             },
             {
                 "box": {
-                    "id": "obj-54",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 940.0, 238.0, 327.0, 33.0 ],
-                    "presentation": 1,
-                    "presentation_linecount": 2,
-                    "presentation_rect": [ 940.0, 238.0, 327.0, 33.0 ],
-                    "text": "By Pete Dowling a.k.a. 'stkr'. © Peter Dowling 2026,  GPLv3."
-                }
-            },
-            {
-                "box": {
                     "fontface": 1,
                     "id": "obj-52",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 940.0, 72.0, 327.0, 20.0 ],
+                    "patching_rect": [ 940.0, 72.0, 327.0, 47.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 940.0, 72.0, 327.0, 20.0 ],
-                    "text": "A library of GenExpr audio code."
+                    "presentation_linecount": 3,
+                    "presentation_rect": [ 940.0, 72.0, 327.0, 47.0 ],
+                    "text": "A library of GenExpr audio code with a particular focus on linear and nonlinear filtering, antialiased saturation and signal smoothing."
                 }
             },
             {
@@ -1109,11 +1512,11 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 940.0, 108.0, 331.0, 114.0 ],
+                    "patching_rect": [ 940.0, 126.0, 331.0, 114.0 ],
                     "presentation": 1,
                     "presentation_linecount": 8,
-                    "presentation_rect": [ 940.0, 108.0, 331.0, 114.0 ],
-                    "text": "The evieve package aims to be as boring as possible - generic and easily reusable audio code but for using directly inside of '.genexpr' & 'codebox' etc, organised into source files for usage via 'require()'.\n\nSome of the code has been (largely automatically) extrapolated to 'gen~' and 'MSP' abstractions and therefore may be useful in those environments as well."
+                    "presentation_rect": [ 940.0, 126.0, 331.0, 114.0 ],
+                    "text": "The evieve package aims to be as ordinary as possible - generic and easily reusable audio code but for using directly inside of '.genexpr' & 'codebox' etc, organised into source files for usage via 'require()'.\n\nSome of the code has been (largely automatically) extrapolated to 'gen~' and 'MSP' abstractions and therefore may be useful in those environments as well."
                 }
             },
             {
@@ -1311,8 +1714,8 @@
                                                         "text": "out 2 Reset (Param has changed)",
                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
                                                         "id": "obj-7",
-                                                        "numoutlets": 0,
-                                                        "numinlets": 1
+                                                        "numinlets": 1,
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
@@ -1320,10 +1723,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
-                                                        "id": "obj-5",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-5",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1331,23 +1734,23 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 1 (signal) Input Signal",
                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
-                                                        "id": "obj-1",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-1",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
+                                                        "fontname": "<Monospaced>",
+                                                        "outlettype": [ "", "" ],
+                                                        "fontface": 0,
                                                         "id": "obj-3",
+                                                        "numinlets": 2,
                                                         "fontsize": 12.0,
                                                         "numoutlets": 2,
-                                                        "outlettype": [ "", "" ],
-                                                        "fontname": "<Monospaced>",
-                                                        "fontface": 0,
-                                                        "numinlets": 2,
                                                         "code": "\r\n// this is an antialiased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no antialiasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are antialiased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);           // must smooth in2 externally\r\nataninput = in1 * ingain;// + bias;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain;// * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                     }
                                                 },
@@ -1357,8 +1760,8 @@
                                                         "text": "out 1 (signal) Atan(x) Output - antialiased for your audio not for Maths",
                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
                                                         "id": "obj-4",
-                                                        "numoutlets": 0,
-                                                        "numinlets": 1
+                                                        "numinlets": 1,
+                                                        "numoutlets": 0
                                                     }
                                                 }
                                             ],
@@ -1976,10 +2379,10 @@
                                                         "text": "in 4 (signal/float) Q @default 0.707107",
                                                         "linecount": 2,
                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
-                                                        "id": "obj-6",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-6",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1988,10 +2391,10 @@
                                                         "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0",
                                                         "linecount": 2,
                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
-                                                        "id": "obj-5",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-5",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -1999,10 +2402,10 @@
                                                         "maxclass": "newobj",
                                                         "text": "in 1 (signal) Input",
                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
-                                                        "id": "obj-1",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-1",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -2011,10 +2414,10 @@
                                                         "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5",
                                                         "linecount": 2,
                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
-                                                        "id": "obj-2",
-                                                        "numoutlets": 1,
                                                         "outlettype": [ "" ],
-                                                        "numinlets": 0
+                                                        "id": "obj-2",
+                                                        "numinlets": 0,
+                                                        "numoutlets": 1
                                                     }
                                                 },
                                                 {
@@ -2023,21 +2426,21 @@
                                                         "text": "out 1 (signal) Filter Output",
                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
                                                         "id": "obj-4",
-                                                        "numoutlets": 0,
-                                                        "numinlets": 1
+                                                        "numinlets": 1,
+                                                        "numoutlets": 0
                                                     }
                                                 },
                                                 {
                                                     "box": {
                                                         "maxclass": "codebox",
                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
+                                                        "fontname": "<Monospaced>",
+                                                        "outlettype": [ "" ],
+                                                        "fontface": 0,
                                                         "id": "obj-3",
+                                                        "numinlets": 4,
                                                         "fontsize": 12.0,
                                                         "numoutlets": 1,
-                                                        "outlettype": [ "" ],
-                                                        "fontname": "<Monospaced>",
-                                                        "fontface": 0,
-                                                        "numinlets": 4,
                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                     }
                                                 }
@@ -2279,20 +2682,20 @@
                     "presentation": 1,
                     "presentation_rect": [ 1145.0, 424.0, 104.0, 26.0 ],
                     "rnboattrcache": {
-                        "evi_filter/smooth": {
-                            "label": "smooth",
-                            "isEnum": 0,
-                            "parsestring": "",
-                            "type": 0
-                        },
                         "evi_filter/filter": {
                             "label": "filter",
                             "isEnum": 0,
                             "parsestring": "",
                             "type": 0
+                        },
+                        "evi_filter/smooth": {
+                            "label": "smooth",
+                            "isEnum": 0,
+                            "parsestring": "",
+                            "type": 0
                         }
                     },
-                    "rnboversion": "1.5.0-dev.133",
+                    "rnboversion": "1.5.0-dev.136",
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_invisible": 1,
@@ -3996,6 +4399,13 @@
                     "destination": [ "obj-59", 0 ],
                     "hidden": 1,
                     "source": [ "obj-72", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-78", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-74", 0 ]
                 }
             }
         ],
