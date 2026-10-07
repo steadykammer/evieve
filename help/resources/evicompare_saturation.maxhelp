@@ -3600,7 +3600,7 @@
                                         }
                                     },
                                     "size": 7,
-                                    "value": 6,
+                                    "value": 0,
                                     "varname": "radiogroup[5]"
                                 }
                             },
@@ -6061,7 +6061,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 2,
-                                    "bordercolor": [ 0.0, 0.0, 0.502, 1.0 ],
+                                    "bordercolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-106",
@@ -6914,7 +6914,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 2,
-                                    "offset": [ 0.0, -74.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "float", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -7563,7 +7563,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[1]"
                                 }
@@ -14388,7 +14388,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 3,
-                                    "offset": [ 0.0, -75.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "", "", "" ],
                                     "patcher": {
                                         "fileversion": 1,
@@ -17122,7 +17122,7 @@
                                         }
                                     },
                                     "size": 5,
-                                    "value": 2,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[4]"
@@ -17239,7 +17239,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 1,
+                                    "value": 0,
                                     "valuepopup": 1,
                                     "valuepopuplabel": 1,
                                     "varname": "radiogroup[1]"
@@ -17643,7 +17643,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 2,
-                                    "bordercolor": [ 0.0, 0.502, 0.0, 1.0 ],
+                                    "bordercolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-62",
@@ -17776,8 +17776,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness2": 2.0
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -22731,7 +22730,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 327.0, 597.0, 221.0, 37.0 ],
-                                    "presentation_linecount": 2,
                                     "saved_attribute_attributes": {
                                         "bubble_outlinecolor": {
                                             "expression": "themecolor.live_key_assignment"
@@ -22743,6 +22741,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 1,
                                     "fontsize": 13.0,
                                     "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "id": "obj-32",
@@ -24173,10 +24172,10 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 376.0, 300.0, 348.0, 181.0 ],
+                                                    "patching_rect": [ 376.0, 300.0, 350.0, 181.0 ],
                                                     "presentation": 1,
                                                     "presentation_linecount": 12,
-                                                    "presentation_rect": [ 15.0, 1385.0, 348.0, 181.0 ],
+                                                    "presentation_rect": [ 15.0, 1385.0, 350.0, 181.0 ],
                                                     "text": "The 6th preset is selected.\n\nOur spectral display is linear, focussing on high frequencies. Our frequency and gain are high.\n\nThere should be just one additional harmonic here, but as you can see there are hundreds of artifacts filling the audio spectrum (red), both above and below our fundamental frequency (blue).\n\nSwitch between lin and log display using the @linearmode attrui."
                                                 }
                                             },

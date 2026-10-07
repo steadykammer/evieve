@@ -704,7 +704,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 120, 160, 960, 820, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -1516,7 +1516,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
+                        "rect": [ 31.0, 107.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1948,7 +1948,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 815.0, 29.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 673.0, 127.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2107,7 +2107,7 @@
                                         "lines": [],
                                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                                     },
-                                    "patching_rect": [ 837.0, 28.0, 90.0, 22.0 ],
+                                    "patching_rect": [ 695.0, 126.0, 90.0, 22.0 ],
                                     "text": "p compareDSP"
                                 }
                             },
@@ -4386,12 +4386,12 @@
                                     "background": 1,
                                     "bubble": 1,
                                     "id": "obj-45",
-                                    "linecount": 6,
+                                    "linecount": 7,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 47.0, 650.0, 295.0, 91.0 ],
-                                    "text": "Summary: the [reson~] object cannot manage any audio rate modulation (because it is a Direct Form Biquad) and with fast modulation it blows up, whereas the [evi.reson~] object can handle it fine, even though it is a linear filter. TPT filters are good, Direct Form filters are bad."
+                                    "patching_rect": [ 47.0, 650.0, 295.0, 104.0 ],
+                                    "text": "Summary: the [reson~] object cannot manage any audio rate modulation (because it is a Direct Form Biquad) and with fast modulation it blows up, whereas the [evi.reson~] object can handle it fine, even though it is presented as a linear filter here. TPT filters are the modern way, Direct Form filters should be considered legacy."
                                 }
                             },
                             {
@@ -4776,6 +4776,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 1,
                                     "fontsize": 13.0,
                                     "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "id": "obj-43",
@@ -9072,7 +9073,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 31.0, 107.0, 1139.0, 794.0 ],
+                        "rect": [ 0.0, 26.0, 1139.0, 794.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "toolbarvisible": 0,
@@ -9137,6 +9138,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 1,
                                     "fontsize": 13.0,
                                     "htabcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
                                     "id": "obj-43",
@@ -10799,7 +10801,7 @@
                                     "maxclass": "bpatcher",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "offset": [ 0.0, -1626.0 ],
+                                    "offset": [ 0.0, 0.0 ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {

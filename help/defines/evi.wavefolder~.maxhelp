@@ -1677,7 +1677,7 @@
                                     "patching_rect": [ 307.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 1.03 ],
+                                            "parameter_initial": [ 0.97 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[5]",
                                             "parameter_mmax": 20.0,
@@ -1703,7 +1703,7 @@
                                     "patching_rect": [ 389.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.027 ],
+                                            "parameter_initial": [ 0.023 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[6]",
                                             "parameter_mmax": 1.0,
@@ -1729,7 +1729,7 @@
                                     "patching_rect": [ 225.0, 237.0, 50.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.1 ],
+                                            "parameter_initial": [ 0.08 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "number[7]",
                                             "parameter_mmax": 1.0,
@@ -1885,8 +1885,8 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 179.0, 450.0, 108.0, 22.0 ],
-                                                    "text": "mc.sig~ @chans 4"
+                                                    "patching_rect": [ 179.0, 450.0, 121.0, 22.0 ],
+                                                    "text": "mc.sig~ 0. @chans 4"
                                                 }
                                             },
                                             {

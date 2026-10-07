@@ -10,34 +10,7 @@ expApprox(x)
 	x *= x; x *= x; x *= x;
 	return x*x;
 }
-/*
-// Lambert-W function
-lambertW(x, ln1, loop, thresh)
-{
-	// initial guess (use previous value)
-	w		= ln1;
 
-	// Haley's method (section 4.2 of the paper)
-	for (i = 0; i < loop; i += 1) {
-//		expw	= expApprox(w);
-		expw	= exp(w);       // :-(
-        w1      = w + 1;
-
-		p		= (w * expw) - x;
-		r		= w1 * expw;
-		s		= (w + 2) / (w1 + w1);
-		err		= (p / (r - (p * s)));
-
-		if (abs(err) < thresh) {
-    		break;
-		}
-
-		w	   -= err;
-	}
-
-	return	w;
-}
-*/
 // Lambert-W function
 lambertW(x, ln1, loop, thresh)
 {
@@ -116,10 +89,12 @@ lockhartAA(Xo, loop=1000)
 	return	dcblock(Yn);
 }
 
-W		= lockhartAA(in1, loop=111);
+//A       = fixdenorm(in1);
+
+W		= lockhartAA(in1, loop=222);
 X		= lockhartAA(W, loop=333);
-Y		= lockhartAA(X, loop=666);
-Z		= lockhartAA(Y, loop=999);
+Y		= lockhartAA(X, loop=444);
+Z		= lockhartAA(Y, loop=555);
 
 out1    = Z;
 
