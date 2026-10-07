@@ -417,6 +417,8 @@
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
                                     "id": "obj-27",
                                     "lastchannelcount": 0,
                                     "maxclass": "live.gain~",
@@ -425,7 +427,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 140.0, 421.0, 121.0, 36.0 ],
+                                    "patching_rect": [ 140.0, 421.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -200 ],
@@ -826,7 +828,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-27", 1 ],
-                                    "midpoints": [ 149.5, 405.0, 251.5, 405.0 ],
+                                    "midpoints": [ 149.5, 405.0, 253.5, 405.0 ],
                                     "order": 1,
                                     "source": [ "obj-5", 0 ]
                                 }
@@ -888,7 +890,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -978,6 +980,8 @@
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
                                     "id": "obj-10",
                                     "lastchannelcount": 2,
                                     "maxclass": "mc.live.gain~",
@@ -985,7 +989,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 140.0, 380.0, 48.0, 136.0 ],
+                                    "patching_rect": [ 140.0, 380.0, 59.0, 136.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -70.0 ],
@@ -999,6 +1003,7 @@
                                             "parameter_unitstyle": 4
                                         }
                                     },
+                                    "showname": 0,
                                     "varname": "mc.live.gain~"
                                 }
                             },
@@ -1193,6 +1198,8 @@
                             },
                             {
                                 "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
                                     "id": "obj-27",
                                     "lastchannelcount": 0,
                                     "maxclass": "live.gain~",
@@ -1201,7 +1208,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 223.0, 391.0, 121.0, 36.0 ],
+                                    "patching_rect": [ 223.0, 391.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -200 ],

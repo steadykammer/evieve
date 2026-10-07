@@ -77,7 +77,7 @@
     "evi.butterworthlp8~": {
         "type": "define",
         "digest": "Variable order TPT Butterworth Lowpass filter",
-        "description": "evi.butterworthlp8~ is a 'max define' for the evi_butterworthlp8.gendsp gen~ abstraction. Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
+        "description": "evi.butterworthlp8~ is a 'max define' for the evi_butterworthlp8.gendsp gen~ abstraction. Because evi.butterworthlp8~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nThis is a clean, linear, surgical filter but is TPT and can be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains."
     },
     "evi.cfsmooth~": {
         "type": "external",

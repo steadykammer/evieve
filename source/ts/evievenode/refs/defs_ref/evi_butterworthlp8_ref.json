@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Variable order TPT Butterworth Lowpass filter",
-        "description": "This is a clean, linear, surgical filter but can still be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains.",
+        "description": "This is a clean, linear, surgical filter but is TPT and can be updated alias-free at audio rate if required. Very useful for clean top and tail of audio chains.",
         "discussion": "For the constants calculations @see: 'evi_butterworth8_coeffs.js'."
     },
     "metadata": {
