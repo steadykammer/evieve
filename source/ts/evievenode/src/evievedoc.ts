@@ -3446,6 +3446,7 @@ function buildPackage(dest?: string, zip = false)
 			// (src.indexOf('source') > -1)
 			return !(src.search(/\bsource\b/) > -1) &&  // whole source folder
 			!(src.search(/\bbuild\b/) > -1) &&  // whole build folder
+			!(src.search(/\bevieve-notarisation\b/) > -1) &&  // in case failure
 			!(src.indexOf('package-info.json.in') > -1) && 
 			!(src.indexOf('CMakeLists.txt') > -1) &&
 			!(src.indexOf('.git') > -1) &&

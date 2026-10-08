@@ -9,7 +9,7 @@
         <b>evi_am</b> is an abstraction for using inside <o>gen~</o> or <b>GenExpr</b>. <br />
          <br />
         evi_am.gendsp requires the GenExpr file(s): <br />
-        <o>evi_counting</o>.genexpr, <o>evi_smooth_bank</o>.genexpr, <o>evi_adaa</o>.genexpr, <o>evi_lfo</o>.genexpr <br />
+        <o>evi_counting</o>.genexpr, <o>evi_smooth_bank</o>.genexpr, <o>evi_adaa</o>.genexpr, <o>evi_lfo</o>.genexpr, <o>evi_saturators</o>.genexpr <br />
          <br />
         evi_am is also available in MSP as: <o>evi.am~</o>. <br />
          <br />

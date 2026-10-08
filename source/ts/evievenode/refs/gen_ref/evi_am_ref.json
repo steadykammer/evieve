@@ -13,7 +13,8 @@
         "evi_counting",
         "evi_smooth_bank",
         "evi_adaa",
-        "evi_lfo"
+        "evi_lfo",
+        "evi_saturators"
     ],
     "inlets": [
         {

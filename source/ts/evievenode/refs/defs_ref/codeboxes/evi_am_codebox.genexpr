@@ -3,7 +3,7 @@
 
 require("evi_counting.genexpr");
 require("evi_smooth_bank.genexpr");
-require("evi_adaa.genexpr");
+require("evi_saturators.genexpr");
 require("evi_lfo.genexpr");
 
 Param   rate(9., min=1, max=100);       // Hz
@@ -59,8 +59,10 @@ inR = stro ? in2 : inL;
 ammL = dcblock(inL * amL);
 ammR = dcblock(inR * amR);
 
-mainL = eCubicAdaa2(ammL * driveOut);
-mainR = eCubicAdaa2(ammR * driveOut);
+//mainL = eCubicAdaa2(ammL * driveOut);
+//mainR = eCubicAdaa2(ammR * driveOut);
+mainL = eCubicAdaa1_2x_6POINT(ammL * driveOut);
+mainR = eCubicAdaa1_2x_6POINT(ammR * driveOut);
 
 out1 = mainL;
 out2 = mainR;

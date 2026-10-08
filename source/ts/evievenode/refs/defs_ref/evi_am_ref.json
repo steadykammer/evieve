@@ -21,8 +21,8 @@
     "includes": [
         "evi_counting.genexpr",
         "evi_smooth_bank.genexpr",
-        "evi_adaa.genexpr",
-        "evi_lfo.genexpr"
+        "evi_lfo.genexpr",
+        "evi_saturators.genexpr"
     ],
     "inlets": [
         {
