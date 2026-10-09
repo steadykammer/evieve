@@ -176,10 +176,11 @@
                                                             "modernui": 1
                                                         },
                                                         "classnamespace": "box",
-                                                        "openrect": [ 526.0, 213.0, 840.2734375, 660.37109375 ],
+                                                        "openrect": [ 526.0, 213.0, 840.0, 660.0 ],
                                                         "openrectmode": 0,
                                                         "openinpresentation": 1,
                                                         "gridonopen": 2,
+                                                        "toolbarvisible": 0,
                                                         "lefttoolbarpinned": 2,
                                                         "toptoolbarpinned": 2,
                                                         "righttoolbarpinned": 2,

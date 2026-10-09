@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1797,10 +1797,11 @@
                                                             "modernui": 1
                                                         },
                                                         "classnamespace": "box",
-                                                        "openrect": [ 526.0, 213.0, 840.2734375, 660.37109375 ],
+                                                        "openrect": [ 526.0, 213.0, 840.0, 660.0 ],
                                                         "openrectmode": 0,
                                                         "openinpresentation": 1,
                                                         "gridonopen": 2,
+                                                        "toolbarvisible": 0,
                                                         "lefttoolbarpinned": 2,
                                                         "toptoolbarpinned": 2,
                                                         "righttoolbarpinned": 2,
@@ -1809,6 +1810,7 @@
                                                         "subpatcher_template": "<none>",
                                                         "cluebar": 2,
                                                         "title": "TPT Bibliography",
+                                                        "visible": 1,
                                                         "boxes": [
                                                             {
                                                                 "box": {
@@ -2325,7 +2327,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -5350,7 +5352,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",

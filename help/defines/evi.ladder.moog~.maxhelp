@@ -1966,9 +1966,17 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "hidden": 1,
+                                    "order": 0,
+                                    "source": [ "obj-17", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "hidden": 1,
-                                    "order": 1,
+                                    "order": 2,
                                     "source": [ "obj-17", 2 ]
                                 }
                             },
@@ -1976,7 +1984,7 @@
                                 "patchline": {
                                     "destination": [ "obj-7", 0 ],
                                     "hidden": 1,
-                                    "order": 0,
+                                    "order": 1,
                                     "source": [ "obj-17", 2 ]
                                 }
                             },
