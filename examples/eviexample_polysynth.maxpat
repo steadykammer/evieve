@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -115,8 +115,8 @@
                     "outlettype": [ "", "", "", "" ],
                     "patching_rect": [ 268.0, 340.0, 56.0, 22.0 ],
                     "restore": {
-                        "synthGlide": [ 20.0 ],
-                        "synthReverb": [ 10.0 ],
+                        "synthGlide": [ 0.0 ],
+                        "synthReverb": [ 2.0 ],
                         "synthVolume": [ -9.0 ]
                     },
                     "restore_extra": {
@@ -372,7 +372,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -381,6 +381,19 @@
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
+                            {
+                                "box": {
+                                    "attr": "parallel",
+                                    "id": "obj-2",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 494.0, 334.0, 123.0, 22.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-8",
@@ -404,7 +417,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -891,14 +904,13 @@
                             },
                             {
                                 "box": {
-                                    "hidden": 1,
                                     "id": "obj-68",
-                                    "linecount": 8,
+                                    "linecount": 9,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 490.0, 205.0, 151.0, 114.0 ],
-                                    "text": "Note: '@parallel 1' works great for reducing CPU, but there is a bug with @parallel & resampling which means there is crazy distortion caused on all voices. Has been reported."
+                                    "patching_rect": [ 494.0, 205.0, 207.0, 127.0 ],
+                                    "text": "NOTE 1: '@parallel 1' works quite well for reducing CPU, but raises the CPU cost for idle state. Your use case will determine what you choose, but both are viable.\n\nNOTE 2: @parallel 1 will only work on this specific [poly~] if you are running Max 9.2.1 or later!"
                                 }
                             }
                         ],
@@ -917,7 +929,15 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-65", 0 ],
+                                    "midpoints": [ 503.5, 366.0, 463.4609375, 366.0, 463.4609375, 195.0, 143.5, 195.0 ],
+                                    "source": [ "obj-2", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-39", 0 ],
+                                    "midpoints": [ 620.5, 135.0, 443.5, 135.0 ],
                                     "source": [ "obj-29", 0 ]
                                 }
                             },
@@ -998,7 +1018,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1017,9 +1037,9 @@
                                     "patching_rect": [ 506.0, 274.0, 56.0, 22.0 ],
                                     "restore": {
                                         "synthEnvAttack": [ 10.000000000000002 ],
-                                        "synthEnvDecay": [ 100.0 ],
+                                        "synthEnvDecay": [ 68.17825234187256 ],
                                         "synthEnvHold": [ 0.0 ],
-                                        "synthEnvRelease": [ 299.99999999999994 ],
+                                        "synthEnvRelease": [ 107.09263878871963 ],
                                         "synthEnvSustain": [ 70.7107 ]
                                     },
                                     "restore_extra": {
@@ -1475,7 +1495,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1702,7 +1722,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2707,7 +2727,7 @@
                                             "parameter_mmin": 36.0,
                                             "parameter_modmode": 0,
                                             "parameter_shortname": "kslider",
-                                            "parameter_type": 3
+                                            "parameter_type": 1
                                         }
                                     },
                                     "varname": "kslider"
@@ -3194,7 +3214,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3212,15 +3232,15 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 960.0, 35.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "filterCutoff": [ 56.37795275590554 ],
-                                        "filterCutoffKeytrack": [ 50.0 ],
-                                        "filterEnvAttack": [ 100.0 ],
-                                        "filterEnvDecay": [ 199.99999999999997 ],
-                                        "filterEnvDelay": [ 0.0 ],
-                                        "filterEnvRange": [ 33.0 ],
-                                        "filterEnvSustain": [ 49.99999999999999 ],
-                                        "filterResonance": [ 58.0 ],
-                                        "filterTypeMorph": [ 0.0 ]
+                                        "filterCutoff": [ 59.842519685039406 ],
+                                        "filterCutoffKeytrack": [ 100.0 ],
+                                        "filterEnvAttack": [ 195.55146885066813 ],
+                                        "filterEnvDecay": [ 0.0 ],
+                                        "filterEnvDelay": [ 167.64833529667018 ],
+                                        "filterEnvRange": [ -99.99999999999999 ],
+                                        "filterEnvSustain": [ 100.0 ],
+                                        "filterResonance": [ 100.0 ],
+                                        "filterTypeMorph": [ 100.0 ]
                                     },
                                     "restore_extra": {
                                         "filterCutoff": {
@@ -3457,7 +3477,7 @@
                                     "patching_rect": [ 577.0, 245.0, 32.0, 24.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 239.0, 37.0, 32.0, 24.0 ],
-                                    "text": "+",
+                                    "text": "-",
                                     "textjustification": 1
                                 }
                             },
@@ -4273,7 +4293,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4350,12 +4370,12 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 157.0, 49.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "oscEnv": [ 99.99999999999999 ],
-                                        "oscMod": [ 33.0 ],
-                                        "oscShape": [ 66.0 ],
-                                        "oscUnisonAmount": [ 10.000000000000002 ],
-                                        "oscUnisonType": [ 1.0 ],
-                                        "oscUnisonVoices": [ 2.0 ]
+                                        "oscEnv": [ 463.9578399156797 ],
+                                        "oscMod": [ 100.0 ],
+                                        "oscShape": [ 0.0 ],
+                                        "oscUnisonAmount": [ 100.0 ],
+                                        "oscUnisonType": [ 3.0 ],
+                                        "oscUnisonVoices": [ 8.0 ]
                                     },
                                     "restore_extra": {
                                         "oscEnv": {

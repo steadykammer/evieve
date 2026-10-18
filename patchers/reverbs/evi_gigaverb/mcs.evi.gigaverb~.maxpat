@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 154.0, 193.0, 826.0, 480.0 ],
+        "rect": [ 105.0, 209.0, 826.0, 480.0 ],
         "bglocked": 1,
         "gridonopen": 2,
         "lefttoolbarpinned": 2,
@@ -147,7 +147,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 100.0, 138.0, 1258.0, 463.0 ],
+                        "rect": [ 232.0, 304.0, 1258.0, 463.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "lefttoolbarpinned": 2,
@@ -1844,18 +1844,18 @@
                                     "maxclass": "outlet",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 840.0, 395.0, 30.0, 30.0 ]
+                                    "patching_rect": [ 845.0, 395.0, 30.0, 30.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "id": "obj-50",
                                     "maxclass": "newobj",
-                                    "numinlets": 17,
-                                    "numoutlets": 17,
-                                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-                                    "patching_rect": [ 49.0, 81.0, 810.0, 22.0 ],
-                                    "text": "route bandwidth damping size reverb decay spread early late dry bypass stereo smoothtime highfrequency highgain lowfrequency lowgain"
+                                    "numinlets": 18,
+                                    "numoutlets": 18,
+                                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+                                    "patching_rect": [ 49.0, 81.0, 815.0, 22.0 ],
+                                    "text": "route bandwidth damping size reverb decay spread early late wet dry bypass stereo smoothtime highfrequency highgain lowfrequency lowgain"
                                 }
                             },
                             {
@@ -2233,21 +2233,21 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-1", 0 ],
-                                    "source": [ "obj-50", 16 ]
+                                    "source": [ "obj-50", 17 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-16", 0 ],
-                                    "midpoints": [ 750.625, 141.5, 1092.5, 141.5 ],
-                                    "source": [ "obj-50", 14 ]
+                                    "midpoints": [ 760.8529411764706, 141.5, 1092.5, 141.5 ],
+                                    "source": [ "obj-50", 15 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-18", 0 ],
-                                    "midpoints": [ 651.75, 157.5, 961.5, 157.5 ],
-                                    "source": [ "obj-50", 12 ]
+                                    "midpoints": [ 667.2058823529412, 157.5, 961.5, 157.5 ],
+                                    "source": [ "obj-50", 13 ]
                                 }
                             },
                             {
@@ -2271,15 +2271,15 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-30", 0 ],
-                                    "midpoints": [ 701.1875, 152.5, 977.5, 152.5 ],
-                                    "source": [ "obj-50", 13 ]
+                                    "midpoints": [ 714.0294117647059, 152.5, 977.5, 152.5 ],
+                                    "source": [ "obj-50", 14 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-32", 0 ],
-                                    "midpoints": [ 800.0625, 136.5, 1123.5, 136.5 ],
-                                    "source": [ "obj-50", 15 ]
+                                    "midpoints": [ 807.6764705882352, 136.5, 1123.5, 136.5 ],
+                                    "source": [ "obj-50", 16 ]
                                 }
                             },
                             {
@@ -2291,25 +2291,31 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-43", 0 ],
+                                    "source": [ "obj-50", 8 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-43", 0 ],
                                     "source": [ "obj-50", 7 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-44", 0 ],
-                                    "source": [ "obj-50", 8 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-46", 0 ],
                                     "source": [ "obj-50", 9 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-49", 0 ],
+                                    "destination": [ "obj-46", 0 ],
                                     "source": [ "obj-50", 10 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-49", 0 ],
+                                    "source": [ "obj-50", 11 ]
                                 }
                             },
                             {
@@ -2327,7 +2333,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-54", 0 ],
-                                    "source": [ "obj-50", 11 ]
+                                    "source": [ "obj-50", 12 ]
                                 }
                             },
                             {

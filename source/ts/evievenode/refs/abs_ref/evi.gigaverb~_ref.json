@@ -44,7 +44,7 @@
             "id": 3,
             "type": "",
             "digest": "dumpout (pattrstorage)",
-            "description": "Recieve output from internal pattrstorage"
+            "description": "Receive output from internal pattrstorage"
         }
     ],
     "arguments": [],
@@ -146,7 +146,7 @@
             "get": 0,
             "type": "float",
             "digest": "In dB -90..0",
-            "description": "'The level of the classic reverb tail reflections.'",
+            "description": "'The level of the classic reverb tail reflections.' Can also use the name 'wet'.",
             "default": {
                 "get": 0,
                 "value": "-11."
@@ -179,7 +179,7 @@
             "get": 0,
             "type": "float",
             "digest": "Decay time in seconds, 0.1..360",
-            "description": "'Reverb decay time, in seconds. 7 is a good place to start. 0.1..360 seconds'",
+            "description": "'Reverb decay time, in seconds. 7 is a good place to start. 0.1..360 seconds'. Can also use the name 'decay'.",
             "default": {
                 "get": 0,
                 "value": "4.85"

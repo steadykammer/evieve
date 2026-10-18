@@ -107,7 +107,6 @@
                 }
             }
         ],
-        "autosave": 0,
         "toolbarexclusions": [ "lessonbrowser" ]
     }
 }

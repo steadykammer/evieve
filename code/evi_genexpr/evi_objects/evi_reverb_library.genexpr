@@ -270,13 +270,13 @@ preDelayVar(x0, pdTime, pdRamp)
 			}
 			x1			= xfadeQuartApproxMono(mixa, mixb, delayramp);
 		} else if		(delayramp == 1) {
-			mixb = x0;
+			mixb		= x0;
 			if (pDelB > 0) {
 				mixb	= preDel.read(pDelB, 1, interp="fastcubic");
 			}
 			x1			= mixb;
 		} else {	//	(delayramp == 0)
-			mixa = x0;
+			mixa		= x0;
 			if (pDelA > 0) {
 				mixa	= preDel.read(pDelA, 0, interp="fastcubic");
 			}
@@ -500,7 +500,7 @@ fbAllpass(aIn, aFeedback, aTime)
 	return	aIn - aRead;
 }
 
-// not currently used ?
+// not currently used ? does not work ?
 fbAllpass3(aIn, aFeedback, aTime)
 {
 	History	ap3dummy(0);

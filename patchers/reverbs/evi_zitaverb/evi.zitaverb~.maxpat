@@ -1833,20 +1833,6 @@
                                                                     "fontface": 0,
                                                                     "fontname": "Arial",
                                                                     "fontsize": 12.0,
-                                                                    "id": "obj-6",
-                                                                    "linecount": 4,
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 1085.15152, 338.5, 104.0, 60.0 ],
-                                                                    "text": "@cutoff1 315 @gain1 0 @cutoff2 1260 @gain2 0"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "fontface": 0,
-                                                                    "fontname": "Arial",
-                                                                    "fontsize": 12.0,
                                                                     "id": "obj-66",
                                                                     "linecount": 16,
                                                                     "maxclass": "comment",
