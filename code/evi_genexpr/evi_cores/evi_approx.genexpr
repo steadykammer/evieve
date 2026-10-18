@@ -156,7 +156,7 @@ atanT(x)		// third order using atanIT
 }
 
 // famous atan2 approximation
-// more than 2 x faster than library atan2()
+// more than 2x faster than library atan2()
 atan2Approx(y, x)
 {
 	onequarterpi = 0.785398163397448;
@@ -224,7 +224,7 @@ expApprox(x)
 	return x*x;
 }
 
-pow2Approx(y) // approx pow(2, y)
+pow2Approx(y) // approx pow(2, y), or exp2()
 {
 	return expApprox(y * LN2);
 }

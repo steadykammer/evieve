@@ -551,7 +551,7 @@ eviLine(target, duration)				// target, duration in samples
 {
 	History val(0), init(1);
     trigger	= change(target);
-    ramp	= clamp(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+    ramp	= clamp(accum((1 / latch(duration, trigger)), trigger, resetmode="pre"), 0, 1);
     lin 	= eviMap(ramp, 0, 1, latch((val + (target * init)), trigger), latch(target, trigger));
     val 	= lin;
 	init	= 0;
@@ -563,7 +563,7 @@ eviSline(target, duration)				// target, duration in samples
 {
 	History	value(0), init(1);
 	trigger	= change(target);
-	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger, resetmode="pre"), 0, 1);
 	cramp	= eviScurve(ramp);
 	curve	= eviMap(cramp, 0, 1, latch((value + (target * init)), trigger), latch(target, trigger));
 	value	= curve;
@@ -601,6 +601,7 @@ toggleLine(toggle, rampsamples)			// toggle == flag 0/1, time in samples
 */
 
 // like MSP [rampsmooth~] if fed by signals at ramp inlets, exact destination
+// original port by Maurizio Giri, Graham Wakefield
 eviRampsmooth(input, frampup, frampdown)		// input, up in samples, down in samples
 {
 	History init(1);
@@ -674,9 +675,8 @@ eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in
 }
 
 // a bit like the linear [go.slewlimit2] by graham wakefield (thanks).
-// a bit like 'eviRampsmooth()', but not exactly the same,
-// but much much cheaper than all the MSP-like functions here.
-// (to make almost the same as 'eviRampsmooth()' you need to double the input sample times here).
+// a bit like 'eviRampsmooth()', but not exactly the same (time is not constant),
+// but much much cheaper than all the MSP-like functions in this file.
 eviRamplimit(target, upsamples, downsamples)
 {
     History slew(0), init(1);

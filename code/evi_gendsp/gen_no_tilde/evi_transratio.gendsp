@@ -4,12 +4,12 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "dsp.gen",
-        "rect": [ 434.0, 92.0, 900.0, 824.0 ],
+        "rect": [ 134.0, 165.0, 900.0, 824.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "boxes": [
@@ -65,7 +65,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 428.0, 20.0, 417.0, 20.0 ],
-                    "text": "this is intended for gen (no tilde), not gen~",
+                    "text": "this is intended for gen (no tilde), not gen~, but could be used in either",
                     "textjustification": 1
                 }
             }
