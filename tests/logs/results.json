@@ -1,0 +1,13 @@
+{
+  "state": "Failed",
+  "passCount": 0,
+  "failCount": 0,
+  "skipCount": 0,
+  "results": [],
+  "errors": [
+    "no asserts registered"
+  ],
+  "consoleErrors": [],
+  "startedAt": "2026-10-20T08:51:15.264Z",
+  "durationMs": 1002
+}

@@ -1,0 +1,6 @@
+{
+  "rules": [
+    "mUnit:recommended",
+    "mUnit:tests"
+  ]
+}
