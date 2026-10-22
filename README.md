@@ -4,7 +4,7 @@ A library of **GenExpr** audio code for [Cycling 74's Max/gen~](https://cycling7
 
 By Pete Dowling a.k.a. 'stkr'. **© Peter Dowling 2026,  GPL v3**. Contact: evieve at steadykammer dot net
 
-This repo is *not* the 'Max Package'. It is the source for the 'Max Package'. It will not work as expected in 'Max Package' format. If you want to use `evieve` in `Max`, do not download this repo. Simply go to the 'File' menu in `Max`, choose 'Show Package Manager' and search for `evieve`. Then use the 'Install' button.
+This repo is *not* the 'Max Package'. It is the source for the 'Max Package'. It will not work as expected in 'Max Package' format. If you want to use `evieve` in `Max`, do not download this repo. Simply go to the 'File' menu in `Max`, choose 'Show Package Manager' and search for `evieve`. Then use the 'Install' button. For bleeding edge builds of the user facing 'Max Package', contact me.
 
 ---
 
@@ -12,7 +12,7 @@ The `evieve` package aims to be as ordinary as possible - generic and easily reu
 
 Some of the code has been (largely automatically) extrapolated to `gen~` and `MSP` abstractions and therefore might be useful in those environments as well.
 
-About 50% of the code in `evieve` is original, the rest is ported from various other well known sources. Credits and code-specific licenses are given locally in code. Please respect the licencing. Otherwise defer to the `evieve` **GPL v3** license.
+About 50% of the code in `evieve` is original, the rest is ported from various other well known sources. Credits and code-specific licenses are given locally in code. Please respect the licensing. Otherwise defer to the `evieve` **GPL v3** license. If you want to discuss alternative licensing for (parts of) the Package, contact me.
 
 ## Build
 

@@ -10896,6 +10896,22 @@
                                                 "type": "Identifier",
                                                 "name": "trigger",
                                                 "raw": "trigger"
+                                            },
+                                            {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "resetmode",
+                                                    "raw": "resetmode"
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": "pre",
+                                                    "raw": "\"pre\"",
+                                                    "gen_kind": "string"
+                                                },
+                                                "gen_kind": "attribute"
                                             }
                                         ],
                                         "callee": {
@@ -11258,6 +11274,22 @@
                                                 "type": "Identifier",
                                                 "name": "trigger",
                                                 "raw": "trigger"
+                                            },
+                                            {
+                                                "type": "AssignmentExpression",
+                                                "operator": "=",
+                                                "left": {
+                                                    "type": "Identifier",
+                                                    "name": "resetmode",
+                                                    "raw": "resetmode"
+                                                },
+                                                "right": {
+                                                    "type": "Literal",
+                                                    "value": "pre",
+                                                    "raw": "\"pre\"",
+                                                    "gen_kind": "string"
+                                                },
+                                                "gen_kind": "attribute"
                                             }
                                         ],
                                         "callee": {

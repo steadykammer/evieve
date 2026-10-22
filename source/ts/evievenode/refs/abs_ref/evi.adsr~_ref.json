@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "ADSR envelope generator, similar features to <o>adsr~</o> but with RC curved segments",
         "description": "ADSR by default, but actually DAHDSHR capabale generator via attributes. RC curved segment shapes but still capable of controlling <o>poly~</o> and <o>thispoly~</o>.",
-        "discussion": "Because the internal trigger is always signal rate, <o>evi.adsr~</o> cannot control voice retriggering of <o>poly~</o>. Therefore there is an additional abstraction in evieve called <o>evi.adsrpoly~</o> which also wraps the core <o>gen~</o> code but can control <o>thispoly~</o> perfectly. However this abstraction cannot accept any signal inlets."
+        "discussion": "Because the internal trigger is always signal rate, <o>evi.adsr~</o> cannot control voice retriggering of <o>poly~</o> (but can control <o>poly~</o> DSP state via the third 'active' outlet). Therefore there is an additional abstraction in evieve called <o>evi.adsrpoly~</o> which also wraps the core <o>gen~</o> code but can control <o>thispoly~</o> voice retriggering perfectly. However the trade off is that this additional abstraction cannot accept any signal inlets."
     },
     "metadata": {
         "author": "Pete Dowling",

@@ -6,14 +6,14 @@ The `evieve` package aims to be as ordinary as possible - generic and easily reu
 Some of the code has been (largely automatically) extrapolated to `gen~` and `MSP` abstractions and therefore might be useful in those environments as well.
 
 By Pete Dowling a.k.a. 'stkr'. **© Peter Dowling 2026,  GPL v3**.
-About 50% of the code in `evieve` is original, the rest is ported from various other well known sources. Credits and code-specific licenses are given locally in code. Please respect the licencing. Otherwise defer to the `evieve` **GPL v3** license.
+About 50% of the code in `evieve` is original, the rest is ported from various other well known sources. Credits and code-specific licenses are given locally in code. Please respect the licensing. Otherwise defer to the `evieve` **GPL v3** license. If you want to discuss alternative licensing for (parts of) the Package, contact me.
 
 ### Disclaimer
 This is part of my personal **GenExpr** library but organised and documented for the masses. I am not and do not claim to be a DSP developer. I am just a creative hacker. Any mistakes, bugs or bad code are mine and mine alone.
 
 Please consider helping to make `evieve` better by contributing via the Github or by getting in touch, evieve@steadykammer.net
 
-`evieve` is in a state of constant development and some parts are marked as experimental. But the aim is to support the release and not make breaking changes to the core code.
+`evieve` is in a state of constant development and some parts are marked as experimental. But the aim is to support the public release and not make breaking changes to the core code.
 
 ### Thanks to...
 Alex Harker, Rodrigo Constanzo, James Bradbury, Michael Hartung, Tom Whiston, Vincent Goudard, Matt Jackson, Maurizio Giri, Volker Böhm, Martijn Zwartjes, Martin Vicanek, Richard Dudas, Graham Wakefield, Joshua Kit Clayton.

@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -36,7 +36,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -61,7 +61,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -618,7 +618,7 @@
                                     "patching_rect": [ 695.0, 245.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.5 ],
+                                            "parameter_initial": [ 0.75 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.dial[17]",
                                             "parameter_mmax": 1.0,
@@ -1045,7 +1045,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1070,7 +1070,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1701,7 +1701,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1750,7 +1750,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1792,7 +1792,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -2174,7 +2174,7 @@
                                                                         "appversion": {
                                                                             "major": 9,
                                                                             "minor": 2,
-                                                                            "revision": 0,
+                                                                            "revision": 1,
                                                                             "architecture": "x64",
                                                                             "modernui": 1
                                                                         },
@@ -2489,7 +2489,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2673,7 +2673,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2705,7 +2705,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -3120,7 +3120,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3347,7 +3347,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4262,7 +4262,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4378,7 +4378,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4730,7 +4730,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5347,7 +5347,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5975,7 +5975,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6228,7 +6228,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6829,7 +6829,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -7337,7 +7337,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -7953,7 +7953,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -7978,7 +7978,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9229,7 +9229,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -9254,7 +9254,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9406,7 +9406,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 248.0, 375.0, 159.0, 22.0 ],
+                                    "patching_rect": [ 248.0, 390.0, 159.0, 22.0 ],
                                     "text": "clearchecks, checkitem $1 1"
                                 }
                             },
@@ -9419,7 +9419,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 705.0, 375.0, 159.0, 22.0 ],
+                                    "patching_rect": [ 705.0, 390.0, 159.0, 22.0 ],
                                     "text": "clearchecks, checkitem $1 1"
                                 }
                             },
@@ -9433,7 +9433,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 281.0, 541.0, 93.0, 22.0 ],
+                                    "patching_rect": [ 281.0, 556.0, 93.0, 22.0 ],
                                     "text_width": 70.0
                                 }
                             },
@@ -9443,7 +9443,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 910.0, 445.0, 103.0, 20.0 ],
+                                    "patching_rect": [ 910.0, 460.0, 103.0, 20.0 ],
                                     "text": "in ms",
                                     "textjustification": 1
                                 }
@@ -9457,7 +9457,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 871.0, 267.0, 181.0, 146.0 ],
+                                    "patching_rect": [ 871.0, 282.0, 181.0, 146.0 ],
                                     "text": "As demonstrated in the \"evieve Compare: Biquads/SVFs\" patcher, the filters behave very well without any audio rate smoothing of inlets. The embedded @smooth attribute smooths the internal gain coefficients which can help when using floats at the inlets.",
                                     "textjustification": 1
                                 }
@@ -9475,7 +9475,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 774.0, 289.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 774.0, 304.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9499,7 +9499,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 191.0, 496.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 191.0, 511.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9523,7 +9523,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 317.0, 289.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 317.0, 304.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9547,7 +9547,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 541.0, 277.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 541.0, 292.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9571,7 +9571,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 136.0, 591.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 136.0, 606.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9595,7 +9595,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 136.0, 669.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 136.0, 684.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -9613,7 +9613,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 412.0, 539.0, 164.0, 20.0 ],
+                                    "patching_rect": [ 412.0, 554.0, 164.0, 20.0 ],
                                     "text": "evi.filter~",
                                     "textcolor": [ 0.502, 0.0, 0.0, 1.0 ]
                                 }
@@ -9625,7 +9625,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 619.0, 539.0, 161.0, 20.0 ],
+                                    "patching_rect": [ 619.0, 554.0, 161.0, 20.0 ],
                                     "text": "evi.filter.eq~",
                                     "textcolor": [ 0.0, 0.0, 0.5019607843137255, 1.0 ],
                                     "textjustification": 2
@@ -9644,7 +9644,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "signal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 171.0, 582.0, 174.0, 47.0 ],
+                                    "patching_rect": [ 171.0, 597.0, 174.0, 47.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -70.0 ],
@@ -9669,7 +9669,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 76.0, 289.0, 128.0, 39.0 ],
+                                    "patching_rect": [ 76.0, 304.0, 128.0, 39.0 ],
                                     "text": "Try different sources",
                                     "textjustification": 1
                                 }
@@ -9684,7 +9684,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 171.0, 481.0, 18.0, 50.0 ],
+                                    "patching_rect": [ 171.0, 496.0, 18.0, 50.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0", "1", "2" ],
@@ -9709,7 +9709,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 171.0, 541.0, 78.0, 22.0 ],
+                                    "patching_rect": [ 171.0, 556.0, 78.0, 22.0 ],
                                     "text": "selector~ 2 1"
                                 }
                             },
@@ -9730,7 +9730,7 @@
                                     "numoutlets": 1,
                                     "offset": [ -4.0, -3.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 30.0, 324.0, 219.0, 89.0 ],
+                                    "patching_rect": [ 30.0, 339.0, 219.0, 89.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -9741,7 +9741,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 158.0, 656.0, 45.0, 45.0 ]
+                                    "patching_rect": [ 158.0, 671.0, 45.0, 45.0 ]
                                 }
                             },
                             {
@@ -9753,7 +9753,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 451.0, 302.0, 199.0, 52.0 ],
+                                    "patching_rect": [ 451.0, 317.0, 199.0, 52.0 ],
                                     "text": "All evi.filter.* objects take Freq in Hz, Gain in dB and Q as input",
                                     "textjustification": 1
                                 }
@@ -9769,7 +9769,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 522.0, 358.0, 57.0, 55.0 ],
+                                    "patching_rect": [ 522.0, 373.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -9796,7 +9796,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 579.0, 358.0, 57.0, 55.0 ],
+                                    "patching_rect": [ 579.0, 373.0, 57.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -9824,7 +9824,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 469.0, 358.0, 51.0, 55.0 ],
+                                    "patching_rect": [ 469.0, 373.0, 51.0, 55.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -9849,7 +9849,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 709.0, 465.0, 125.0, 24.0 ],
+                                    "patching_rect": [ 709.0, 480.0, 125.0, 24.0 ],
                                     "text": "EQ type Filters",
                                     "textjustification": 1
                                 }
@@ -9862,7 +9862,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 279.0, 465.0, 102.0, 24.0 ],
+                                    "patching_rect": [ 279.0, 480.0, 102.0, 24.0 ],
                                     "text": "All Filters",
                                     "textjustification": 1
                                 }
@@ -9879,7 +9879,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 381.0, 520.0, 400.0, 188.0 ],
+                                    "patching_rect": [ 381.0, 535.0, 400.0, 188.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
@@ -9897,7 +9897,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 468.0, 458.0, 150.0, 37.0 ],
+                                    "patching_rect": [ 468.0, 473.0, 150.0, 37.0 ],
                                     "text": "Coefficients and Filter all in one object",
                                     "textjustification": 1
                                 }
@@ -9910,7 +9910,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 454.0, 458.0, 150.0, 37.0 ],
+                                    "patching_rect": [ 454.0, 473.0, 150.0, 37.0 ],
                                     "text": "Coefficients and Filter all in one object",
                                     "textjustification": 1
                                 }
@@ -9922,7 +9922,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 228.0, 760.0, 33.0 ],
+                                    "patching_rect": [ 10.0, 243.0, 760.0, 33.0 ],
                                     "text": "When you are not sure which filter you need, it is sometimes useful to have an object with multiple filters available. In evieve there are two generic utility objects for this. These are the evieve equivalents of [filtercoeff~] + [biquad~]."
                                 }
                             },
@@ -9934,7 +9934,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 736.0, 315.0, 96.0, 39.0 ],
+                                    "patching_rect": [ 736.0, 330.0, 96.0, 39.0 ],
                                     "text": "Select Filter",
                                     "textjustification": 1
                                 }
@@ -9946,7 +9946,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 734.0, 391.0, 84.0, 22.0 ],
+                                    "patching_rect": [ 734.0, 406.0, 84.0, 22.0 ],
                                     "text": "prepend filter"
                                 }
                             },
@@ -9959,7 +9959,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 734.0, 351.0, 100.0, 22.0 ],
+                                    "patching_rect": [ 734.0, 366.0, 100.0, 22.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0 Bypass", "1 Highpass", "2 Lowshelf", "3 Bell", "4 BellAdaptiveQ", "5 Notch", "6 Highshelf", "7 Lowpass" ],
@@ -9982,7 +9982,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 635.0, 466.0, 73.0, 22.0 ],
+                                    "patching_rect": [ 635.0, 481.0, 73.0, 22.0 ],
                                     "text": "evi.filter.eq~"
                                 }
                             },
@@ -9994,7 +9994,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 279.0, 315.0, 96.0, 39.0 ],
+                                    "patching_rect": [ 279.0, 330.0, 96.0, 39.0 ],
                                     "text": "Select Filter",
                                     "textjustification": 1
                                 }
@@ -10006,7 +10006,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 277.0, 391.0, 84.0, 22.0 ],
+                                    "patching_rect": [ 277.0, 406.0, 84.0, 22.0 ],
                                     "text": "prepend filter"
                                 }
                             },
@@ -10019,7 +10019,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 277.0, 351.0, 100.0, 22.0 ],
+                                    "patching_rect": [ 277.0, 366.0, 100.0, 22.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "0 Bypass", "1 Lowpass", "2 Highpass", "3 Bandpass", "4 Peak", "5 Notch", "6 Resonant", "7 Bell", "8 BellAdaptiveQ", "9 Lowshelf", "10 Highshelf", "11 Tilt", "12 Allpass" ],
@@ -10042,7 +10042,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 381.0, 466.0, 57.0, 22.0 ],
+                                    "patching_rect": [ 381.0, 481.0, 57.0, 22.0 ],
                                     "text": "evi.filter~"
                                 }
                             },
@@ -10058,7 +10058,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -10071,12 +10071,11 @@
                                             {
                                                 "box": {
                                                     "id": "obj-57",
-                                                    "linecount": 2,
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 50.0, 100.0, 210.0, 22.0 ],
+                                                    "patching_rect": [ 50.0, 100.0, 220.0, 22.0 ],
                                                     "text": "list.reg evicompare_biquadsvf.maxhelp"
                                                 }
                                             },
@@ -10087,7 +10086,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 178.0, 51.0, 22.0 ],
+                                                    "patching_rect": [ 50.0, 178.0, 55.0, 22.0 ],
                                                     "text": "pcontrol"
                                                 }
                                             },
@@ -10098,7 +10097,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 139.0, 79.0, 22.0 ],
+                                                    "patching_rect": [ 50.0, 139.0, 83.0, 22.0 ],
                                                     "text": "prepend load"
                                                 }
                                             },
@@ -10143,6 +10142,7 @@
                             },
                             {
                                 "box": {
+                                    "fontface": 2,
                                     "id": "obj-2",
                                     "linecount": 2,
                                     "maxclass": "comment",
@@ -10172,7 +10172,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 88.0, 483.0, 81.0, 47.0 ],
+                                    "patching_rect": [ 88.0, 498.0, 81.0, 47.0 ],
                                     "text": "Off\nevi.filter~\nevi.filter.eq~",
                                     "textjustification": 2
                                 }
@@ -10190,7 +10190,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 51.0, 292.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 51.0, 307.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -10249,7 +10249,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 910.0, 421.0, 103.0, 22.0 ],
+                                    "patching_rect": [ 910.0, 436.0, 103.0, 22.0 ],
                                     "text_width": 52.0
                                 }
                             }
@@ -10344,7 +10344,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "midpoints": [ 39.5, 439.5, 390.5, 439.5 ],
+                                    "midpoints": [ 39.5, 454.5, 390.5, 454.5 ],
                                     "order": 1,
                                     "source": [ "obj-27", 0 ]
                                 }
@@ -10352,7 +10352,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-7", 0 ],
-                                    "midpoints": [ 39.5, 439.5, 644.5, 439.5 ],
+                                    "midpoints": [ 39.5, 454.5, 644.5, 454.5 ],
                                     "order": 0,
                                     "source": [ "obj-27", 0 ]
                                 }
@@ -10392,7 +10392,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-6", 0 ],
-                                    "midpoints": [ 919.5, 454.5, 390.5, 454.5 ],
+                                    "midpoints": [ 919.5, 469.5, 390.5, 469.5 ],
                                     "order": 1,
                                     "source": [ "obj-49", 0 ]
                                 }
@@ -10400,7 +10400,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-7", 0 ],
-                                    "midpoints": [ 919.5, 454.5, 644.5, 454.5 ],
+                                    "midpoints": [ 919.5, 469.5, 644.5, 469.5 ],
                                     "order": 0,
                                     "source": [ "obj-49", 0 ]
                                 }
@@ -10428,7 +10428,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 1 ],
-                                    "midpoints": [ 390.5, 497.73046875, 210.0, 497.73046875 ],
+                                    "midpoints": [ 390.5, 512.73046875, 210.0, 512.73046875 ],
                                     "order": 1,
                                     "source": [ "obj-6", 0 ]
                                 }
@@ -10443,7 +10443,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 2 ],
-                                    "midpoints": [ 644.5, 505.546875, 239.5, 505.546875 ],
+                                    "midpoints": [ 644.5, 520.546875, 239.5, 520.546875 ],
                                     "order": 1,
                                     "source": [ "obj-7", 0 ]
                                 }

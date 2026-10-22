@@ -13,7 +13,7 @@ eviLineAbs(target, duration)				// target, duration in samples
 {
 	History	value(0), init(1);
 	trigger	= change(target);
-	ramp	= clip(accum((1 / latch(duration, trigger)), trigger), 0, 1);
+	ramp	= clip(accum((1 / latch(duration, trigger)), trigger, resetmode="pre"), 0, 1);
 	line	= lineMap(ramp, 0, 1, latch((value + (target * init)), trigger), latch(target, trigger));
 	value	= line;
     init    = 0;
