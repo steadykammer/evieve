@@ -4,13 +4,14 @@
         "category": "evieve",
         "digest": "16x16 FDN reverb with smooth sustaining effect",
         "description": "This is just Miller Puckette's 'rev3~' but with additional reverb features such as early reflections, filtering improvements and smoothing of parameters whilst maintaining the ability to forever-sustain like the original. <o>evi.sustainverb~</o> also includes multichannel taps of the FDN which can be very useful for surround-ish effects processing.",
-        "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile."
+        "discussion": "Tips: 1) turn early and highpass OFF, drywet to 100%, feedback to or very near 100% and damp low or 0% for 'forever sustain' effects. 2) turn early and maybe highpass ON and feedback between about 0.77..0.93 and drywet % to taste for more obvious reverb (room) type effects. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.sustainverb~]</m>."
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": [
             "evieve Reverb",
-            "evieve Effect"
+            "evieve Effect",
+            "evieve RNBO"
         ]
     },
     "inlets": [

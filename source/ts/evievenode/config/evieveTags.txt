@@ -2,6 +2,7 @@ evieve
 evieve Externals
 evieve Abstractions
 evieve Gen Abstractions
+evieve RNBO
 
 evieve Oscillator
 evieve Control

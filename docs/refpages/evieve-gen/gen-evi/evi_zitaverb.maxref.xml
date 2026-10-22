@@ -11,7 +11,7 @@
         evi_zitaverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    A famous open source reverb algorithm with excellent room realness. GPL v2. The evieve version increases the available RT60 times for special effects, and smooths all parameters, as well as improving the internal filtering. In gen~ alone (as opposed to the MSP <o>evi.zitaverb~</o> abstraction) this is tricky to use as it requires external coefficients, but it is possible to calculate them locally. All default coefficients are for running at 48kHz samplerate. <br />
+	    A famous open source reverb algorithm with excellent room realness. GPL v2. The evieve version increases the available RT60 times for special effects, and smooths all parameters, as well as improving the internal filtering. In gen~ alone (as opposed to the MSP <o>evi.zitaverb~</o> abstraction) this is tricky to use as it requires external coefficients, but it is possible to calculate them locally. All default coefficients are for running at 48kHz samplerate. A fully functional wrapped abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.zitaverb~]</m>. <br />
     </description>
     <methodlist />
     <constructorlist>

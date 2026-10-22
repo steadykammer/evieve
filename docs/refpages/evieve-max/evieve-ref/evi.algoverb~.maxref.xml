@@ -15,6 +15,7 @@
 		<metadata name="tag">evieve Abstractions</metadata>
 		<metadata name="tag">evieve Reverb</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -395,6 +396,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so if using the gen~ abstraction study the internal Param declarations as many are different. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
+        Loosely based on a Martijn Zwartjes Reaktor ensemble. The MSP abstraction does a lot of massaging of the input parameters, so if using the gen~ abstraction study the internal Param declarations as many are different. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.algoverb~]</m>. <br />
 	</discussion>
 </c74object>

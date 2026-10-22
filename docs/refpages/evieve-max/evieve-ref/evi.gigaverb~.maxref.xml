@@ -15,6 +15,7 @@
 		<metadata name="tag">evieve Abstractions</metadata>
 		<metadata name="tag">evieve Reverb</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -58,7 +59,7 @@
 				dumpout (pattrstorage)
 			</digest>
 			<description>
-				Recieve output from internal pattrstorage
+				Receive output from internal pattrstorage
 			</description>
 		</outlet>
 	</outletlist>
@@ -163,7 +164,7 @@
 				In dB -90..0
 			</digest>
 			<description>
-				&#x27;The level of the classic reverb tail reflections.&#x27;
+				&#x27;The level of the classic reverb tail reflections.&#x27; Can also use the name &#x27;wet&#x27;.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="-11." />
@@ -196,7 +197,7 @@
 				Decay time in seconds, 0.1..360
 			</digest>
 			<description>
-				&#x27;Reverb decay time, in seconds. 7 is a good place to start. 0.1..360 seconds&#x27;
+				&#x27;Reverb decay time, in seconds. 7 is a good place to start. 0.1..360 seconds&#x27;. Can also use the name &#x27;decay&#x27;.
 			</description>
 			<attributelist>
 				<attribute name="default" get="0" set="1" type="float" size="1" value="4.85" />
@@ -263,6 +264,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
+        Note, in this evieve version there are slight differences in sound from the various Max versions, but this version is closer to the original (Sadeharju) and with slightly more diffuseness in the early taps and low-mid. Attribute descriptions in this documentation are mainly from the Olaf Matthes originals. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.gigaverb~]</m>. <br />
 	</discussion>
 </c74object>

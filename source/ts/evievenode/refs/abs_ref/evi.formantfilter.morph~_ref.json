@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types.",
         "description": "While the alternative <o>evi.formantfilter~</o> uses a bank of resonant filters, this <o>evi.formantfilter.morph~</o> uses a bank of morphing EQ filters. The formant effect is lesser, but the morphing ability creates new sonic possibilities. The far right 'Morph' inlet allows for morphing the internal bank of filters between LP..BP..HP..NOTCH..LP 0..1, and adds another dimension along with the voice and vowel morphing to shape the sound. All inputs can be audio rate modulated.",
-        "discussion": ""
+        "discussion": "The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.formantfilter.morph~]</m>."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -13,7 +13,8 @@
             "evieve Filter Linear",
             "evieve Filter TPT",
             "evieve Modulation",
-            "evieve Effect"
+            "evieve Effect",
+            "evieve RNBO"
         ]
     },
     "inlets": [

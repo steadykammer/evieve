@@ -181,10 +181,10 @@ fdnR	= (tapOut3 + tapOut4) * sqrt1_2;
 /*
 // comment out if bullshit
 if (highpassactive > 0) {
-	fdnLHP,	llbp	= rcFilterHpLp(fdnL, fbhp0);
-	fdnRHP,	rlbp	= rcFilterHpLp(fdnR, fbhp0);
-	fdnL			= interp(	highpassactive,		fdnL, fdnLHP,	mode="linear");
-	fdnR			= interp(	highpassactive,		fdnR, fdnRHP,	mode="linear");
+	fdnLHP	= rcFilterHp(fdnL, fbhp0);
+	fdnRHP	= rcFilterHp(fdnR, fbhp0);
+	fdnL	= interp(	highpassactive,		fdnL, fdnLHP,	mode="linear");
+	fdnR	= interp(	highpassactive,		fdnR, fdnRHP,	mode="linear");
 }
 */
 // add dry/wet...

@@ -11,7 +11,7 @@
         evi_mattaverb.gendsp requires the GenExpr file(s): <br />
         <o>evi_reverb_library</o>.genexpr <br />
          <br />
-	    A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable. Unlike other evieve reverbs, this reverb has no external dependencies and can be operated in gen~ alone the same as in MSP. <br />
+	    A simple allpass diffusion reverb with minimal controls interaction. True stereo input/output, no early reflections, designed wet and spacey but very dampable. Unlike other evieve reverbs, this reverb has no external dependencies and can be operated in gen~ alone (<o>evi_mattaverb</o>) the same as in MSP (<o>evi.mattaverb~</o>). The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.mattaverb~]</m>. <br />
     </description>
     <methodlist />
     <constructorlist>

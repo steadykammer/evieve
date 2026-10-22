@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "A classic formant filter which can smoothly morph singing voice type and sung vowel sounds for voxy filtering effects on your audio streams",
         "description": "evi.formantfilter~ uses a bank of resonant filters (the same TPT filters as in <o>evi.reson~</o>) for each formant. Interpolation and warping controls allow for a wide variety of effects, as well as controlling the filters themselves.",
-        "discussion": ""
+        "discussion": "The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.formantfilter~]</m>."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -13,7 +13,8 @@
             "evieve Filter Linear",
             "evieve Filter TPT",
             "evieve Modulation",
-            "evieve Effect"
+            "evieve Effect",
+            "evieve RNBO"
         ]
     },
     "inlets": [

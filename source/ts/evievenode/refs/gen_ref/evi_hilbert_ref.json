@@ -4,7 +4,7 @@
         "child": "",
         "category": "evieve",
         "digest": "Hilbert quadrature (phase shift) filter",
-        "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.hilbert~</o> abstraction for an example."
+        "description": "Hilbert quadrature (phase shift) filter using an 8th order polyphase IIR halfband allpass cascade. If using in gen~ alone the samplerate must be 48kHz, or if running at a different samplerate the hilbert filter coefficients must be fed in externally. See the <o>evi.hilbert~</o> abstraction for an example. A fully functional wrapped abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.hilbert~]</m>."
     },
     "constructor": {
         "inlets": "input"

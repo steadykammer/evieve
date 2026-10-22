@@ -44,6 +44,46 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-12",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 770.0, 371.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 465.0, 371.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 465.0, 321.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-17",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 556.0, 513.0, 150.0, 21.0 ],
+                                    "text": "*) not in preset"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-29",
                                     "maxclass": "toggle",
                                     "numinlets": 1,
@@ -466,13 +506,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 126.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "polyphony": -1.0,
                                                         "notecontroller": 0,
-                                                        "exposevoiceparams": 0,
                                                         "args": [],
-                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0,
                                                         "uidstyle": "auto",
-                                                        "voicecontrol": "simple"
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1227,28 +1267,13 @@
                                     },
                                     "patching_rect": [ 250.0, 450.0, 289.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/mattaverb/size": {
-                                            "label": "mattaverb/size",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/mattaverb/space": {
-                                            "label": "mattaverb/space",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/mattaverb/damp": {
-                                            "label": "mattaverb/damp",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/mattaverb/high": {
-                                            "label": "mattaverb/high",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/drywet": {
                                             "label": "drywet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/mattaverb/size": {
+                                            "label": "mattaverb/size",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1257,8 +1282,23 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
+                                        "evi_reverb/mattaverb/high": {
+                                            "label": "mattaverb/high",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/mattaverb/drywet": {
                                             "label": "mattaverb/drywet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/mattaverb/damp": {
+                                            "label": "mattaverb/damp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/mattaverb/space": {
+                                            "label": "mattaverb/space",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1272,9 +1312,9 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
-                                            "parameter_longname": "evieveObjectGen",
+                                            "parameter_longname": "evieveObjectRnbo",
                                             "parameter_modmode": 0,
-                                            "parameter_shortname": "evieveObjectGen",
+                                            "parameter_shortname": "evieveObjectRnbo",
                                             "parameter_type": 3
                                         }
                                     },
@@ -1301,26 +1341,23 @@
                                                     "mattaverb/size": {
                                                         "value": 0.5000000000000001
                                                     },
+                                                    "mattaverb/high": {
+                                                        "value": 0.666666
+                                                    },
+                                                    "mattaverb/space": {
+                                                        "value": 1.0
+                                                    },
                                                     "mattaverb/drywet": {
                                                         "value": 0.7071067811865476
                                                     },
                                                     "mattaverb/damp": {
                                                         "value": 0.0
                                                     },
-                                                    "mattaverb/space": {
-                                                        "value": 1.0
-                                                    },
-                                                    "mattaverb/high": {
-                                                        "value": 0.666666
-                                                    },
                                                     "mattaverb/low": {
                                                         "value": 0.333333
                                                     },
                                                     "drywet": {
                                                         "value": 0.707107
-                                                    },
-                                                    "bypass": {
-                                                        "value": 0.0
                                                     }
                                                 }
                                             },
@@ -1347,26 +1384,23 @@
                                                                 "mattaverb/size": {
                                                                     "value": 0.5000000000000001
                                                                 },
+                                                                "mattaverb/high": {
+                                                                    "value": 0.666666
+                                                                },
+                                                                "mattaverb/space": {
+                                                                    "value": 1.0
+                                                                },
                                                                 "mattaverb/drywet": {
                                                                     "value": 0.7071067811865476
                                                                 },
                                                                 "mattaverb/damp": {
                                                                     "value": 0.0
                                                                 },
-                                                                "mattaverb/space": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "mattaverb/high": {
-                                                                    "value": 0.666666
-                                                                },
                                                                 "mattaverb/low": {
                                                                     "value": 0.333333
                                                                 },
                                                                 "drywet": {
                                                                     "value": 0.707107
-                                                                },
-                                                                "bypass": {
-                                                                    "value": 0.0
                                                                 }
                                                             }
                                                         },
@@ -1384,7 +1418,7 @@
                                         }
                                     },
                                     "text": "rnbo~ @title using_evi.mattaverb~_inside_rnbo~",
-                                    "varname": "evieveObjectGen"
+                                    "varname": "evieveObjectRnbo"
                                 }
                             },
                             {
@@ -4585,7 +4619,7 @@
             "obj-10::obj-6": [ "live.gain~[2]", "live.gain~", 0 ],
             "obj-12::obj-26": [ "live.gain~[4]", "live.gain~", 0 ],
             "obj-12::obj-29": [ "toggle", "toggle", 0 ],
-            "obj-12::obj-5": [ "evieveObjectGen", "evieveObjectGen", 0 ],
+            "obj-12::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
             "obj-2::obj-1": [ "live.gain~[6]", "live.gain~", 0 ],
             "obj-2::obj-13": [ "Size", "Reverb", 0 ],
             "obj-2::obj-5::obj-54::obj-10": [ "dryWet", "dryWet", 0 ],

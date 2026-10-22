@@ -44,6 +44,46 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-27",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 479.0, 381.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-25",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 764.0, 231.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-10",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 764.0, 331.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-21",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 550.0, 498.0, 150.0, 21.0 ],
+                                    "text": "*) not in preset"
+                                }
+                            },
+                            {
+                                "box": {
                                     "attr": "evi_reverb/predelay",
                                     "id": "obj-18",
                                     "lock": 1,
@@ -496,13 +536,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "polyphony": -1.0,
                                                         "notecontroller": 0,
-                                                        "exposevoiceparams": 0,
                                                         "args": [],
-                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0,
                                                         "uidstyle": "auto",
-                                                        "voicecontrol": "simple"
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1317,18 +1357,23 @@
                                     },
                                     "patching_rect": [ 265.0, 435.0, 276.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/middecay": {
-                                            "label": "middecay",
+                                        "evi_reverb/lowdecay": {
+                                            "label": "lowdecay",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/eq1cutoff": {
-                                            "label": "eq1cutoff",
+                                        "evi_reverb/drywet": {
+                                            "label": "drywet",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/predelay": {
-                                            "label": "predelay",
+                                        "evi_reverb/eq2cutoff": {
+                                            "label": "eq2cutoff",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/eq1gain": {
+                                            "label": "eq1gain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1342,8 +1387,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/eq2cutoff": {
-                                            "label": "eq2cutoff",
+                                        "evi_reverb/eq1cutoff": {
+                                            "label": "eq1cutoff",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1352,18 +1397,13 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/drywet": {
-                                            "label": "drywet",
+                                        "evi_reverb/predelay": {
+                                            "label": "predelay",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/lowdecay": {
-                                            "label": "lowdecay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/eq1gain": {
-                                            "label": "eq1gain",
+                                        "evi_reverb/middecay": {
+                                            "label": "middecay",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1387,9 +1427,9 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
-                                            "parameter_longname": "evieveObjectGen",
+                                            "parameter_longname": "evieveObjectRnbo",
                                             "parameter_modmode": 0,
-                                            "parameter_shortname": "evieveObjectGen",
+                                            "parameter_shortname": "evieveObjectRnbo",
                                             "parameter_type": 3
                                         }
                                     },
@@ -1410,48 +1450,39 @@
                                         "snapshot": {
                                             "__sps": {
                                                 "evi_reverb": {
-                                                    "eq2gain": {
-                                                        "value": 0.0
-                                                    },
-                                                    "eq1gain": {
-                                                        "value": 0.0
-                                                    },
-                                                    "eq1cutoff": {
-                                                        "value": 315.0
-                                                    },
-                                                    "eq1type": {
-                                                        "value": 0.0
-                                                    },
-                                                    "drywet": {
-                                                        "value": 0.8060000000000002
-                                                    },
-                                                    "bypass": {
-                                                        "value": 0.0
-                                                    },
-                                                    "predelay": {
-                                                        "value": 0.0
-                                                    },
-                                                    "lowdecay": {
-                                                        "value": 0.06
-                                                    },
-                                                    "middecay": {
-                                                        "value": 2.222222
-                                                    },
                                                     "__sps": {
                                                         "zita_coefficients": {                                                        },
                                                         "EQ_coefficients": {                                                        }
                                                     },
+                                                    "eq2gain": {
+                                                        "value": 0.0
+                                                    },
                                                     "eq2cutoff": {
                                                         "value": 1260.0
                                                     },
-                                                    "crossover": {
-                                                        "value": 487.0
+                                                    "eq1cutoff": {
+                                                        "value": 315.0
                                                     },
-                                                    "eq2type": {
+                                                    "eq1gain": {
                                                         "value": 0.0
                                                     },
+                                                    "drywet": {
+                                                        "value": 0.8666
+                                                    },
+                                                    "predelay": {
+                                                        "value": 19.0
+                                                    },
+                                                    "lowdecay": {
+                                                        "value": 3.333333
+                                                    },
+                                                    "middecay": {
+                                                        "value": 2.222222
+                                                    },
+                                                    "crossover": {
+                                                        "value": 315.0
+                                                    },
                                                     "damp": {
-                                                        "value": 500.0
+                                                        "value": 3780.0
                                                     }
                                                 }
                                             },
@@ -1472,48 +1503,39 @@
                                                     "snapshot": {
                                                         "__sps": {
                                                             "evi_reverb": {
-                                                                "eq2gain": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "eq1gain": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "eq1cutoff": {
-                                                                    "value": 315.0
-                                                                },
-                                                                "eq1type": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "drywet": {
-                                                                    "value": 0.8060000000000002
-                                                                },
-                                                                "bypass": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "predelay": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "lowdecay": {
-                                                                    "value": 0.06
-                                                                },
-                                                                "middecay": {
-                                                                    "value": 2.222222
-                                                                },
                                                                 "__sps": {
                                                                     "zita_coefficients": {                                                                    },
                                                                     "EQ_coefficients": {                                                                    }
                                                                 },
+                                                                "eq2gain": {
+                                                                    "value": 0.0
+                                                                },
                                                                 "eq2cutoff": {
                                                                     "value": 1260.0
                                                                 },
-                                                                "crossover": {
-                                                                    "value": 487.0
+                                                                "eq1cutoff": {
+                                                                    "value": 315.0
                                                                 },
-                                                                "eq2type": {
+                                                                "eq1gain": {
                                                                     "value": 0.0
                                                                 },
+                                                                "drywet": {
+                                                                    "value": 0.8666
+                                                                },
+                                                                "predelay": {
+                                                                    "value": 19.0
+                                                                },
+                                                                "lowdecay": {
+                                                                    "value": 3.333333
+                                                                },
+                                                                "middecay": {
+                                                                    "value": 2.222222
+                                                                },
+                                                                "crossover": {
+                                                                    "value": 315.0
+                                                                },
                                                                 "damp": {
-                                                                    "value": 500.0
+                                                                    "value": 3780.0
                                                                 }
                                                             }
                                                         },
@@ -1531,7 +1553,7 @@
                                         }
                                     },
                                     "text": "rnbo~ @title using_evi.zitaverb~_inside_rnbo~",
-                                    "varname": "evieveObjectGen"
+                                    "varname": "evieveObjectRnbo"
                                 }
                             },
                             {
@@ -8758,7 +8780,7 @@
             "obj-10::obj-70": [ "textbutton[3]", "textbutton", 0 ],
             "obj-10::obj-72": [ "textbutton[2]", "textbutton[1]", 0 ],
             "obj-13::obj-26": [ "live.gain~[4]", "live.gain~", 0 ],
-            "obj-13::obj-5": [ "evieveObjectGen", "evieveObjectGen", 0 ],
+            "obj-13::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
             "obj-2::obj-11": [ "live.gain~[6]", "live.gain~", 0 ],
             "obj-2::obj-49": [ "number[9]", "number", 0 ],
             "obj-2::obj-5::obj-54::obj-10": [ "damp", "damp", 0 ],

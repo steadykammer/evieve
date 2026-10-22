@@ -44,6 +44,36 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-38",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 779.0, 491.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-32",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 779.0, 516.0, 19.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-37",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 565.0, 588.0, 150.0, 21.0 ],
+                                    "text": "*) not in preset"
+                                }
+                            },
+                            {
+                                "box": {
                                     "attr": "evi_reverb/drywet",
                                     "id": "obj-36",
                                     "lock": 1,
@@ -664,13 +694,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "polyphony": -1.0,
                                                         "notecontroller": 0,
-                                                        "exposevoiceparams": 0,
                                                         "args": [],
-                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0,
                                                         "uidstyle": "auto",
-                                                        "voicecontrol": "simple"
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1629,98 +1659,13 @@
                                     },
                                     "patching_rect": [ 265.0, 465.0, 281.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/presymmetry": {
-                                            "label": "presymmetry",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/highdampfrequency": {
-                                            "label": "highdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlysize": {
-                                            "label": "earlysize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/loweqfrequency": {
-                                            "label": "loweqfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/modrate": {
-                                            "label": "modrate",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowdampgain": {
-                                            "label": "lowdampgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlydiffusion": {
-                                            "label": "earlydiffusion",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlylate": {
-                                            "label": "earlylate",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/predelay": {
-                                            "label": "predelay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/moddepth": {
-                                            "label": "moddepth",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowdampfrequency": {
-                                            "label": "lowdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/latesize": {
-                                            "label": "latesize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlylatehysterisis": {
-                                            "label": "earlylatehysterisis",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/higheqgain": {
                                             "label": "higheqgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/latesymmetry": {
-                                            "label": "latesymmetry",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/absorbtion": {
-                                            "label": "absorbtion",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/decay": {
-                                            "label": "decay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/higheqfrequency": {
-                                            "label": "higheqfrequency",
+                                        "evi_reverb/earlysize": {
+                                            "label": "earlysize",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1734,13 +1679,43 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/highdampgain": {
-                                            "label": "highdampgain",
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/earlysymmetry": {
-                                            "label": "earlysymmetry",
+                                        "evi_reverb/highdampfrequency": {
+                                            "label": "highdampfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/higheqfrequency": {
+                                            "label": "higheqfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/moddepth": {
+                                            "label": "moddepth",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylatehysterisis": {
+                                            "label": "earlylatehysterisis",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/presymmetry": {
+                                            "label": "presymmetry",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/decay": {
+                                            "label": "decay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylate": {
+                                            "label": "earlylate",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1749,13 +1724,68 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/mute": {
-                                            "label": "mute",
-                                            "isEnum": 1,
-                                            "parsestring": "\"off\" \"on\""
+                                        "evi_reverb/latesize": {
+                                            "label": "latesize",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/modrate": {
+                                            "label": "modrate",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/absorbtion": {
+                                            "label": "absorbtion",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/predelay": {
+                                            "label": "predelay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlysymmetry": {
+                                            "label": "earlysymmetry",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/lowdampfrequency": {
+                                            "label": "lowdampfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/loweqfrequency": {
+                                            "label": "loweqfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/latesymmetry": {
+                                            "label": "latesymmetry",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/lowdampgain": {
+                                            "label": "lowdampgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlydiffusion": {
+                                            "label": "earlydiffusion",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/highdampgain": {
+                                            "label": "highdampgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
                                         },
                                         "evi_reverb/bypass": {
                                             "label": "bypass",
+                                            "isEnum": 1,
+                                            "parsestring": "\"off\" \"on\""
+                                        },
+                                        "evi_reverb/mute": {
+                                            "label": "mute",
                                             "isEnum": 1,
                                             "parsestring": "\"off\" \"on\""
                                         }
@@ -1764,9 +1794,9 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
-                                            "parameter_longname": "evieveObjectGen",
+                                            "parameter_longname": "evieveObjectRnbo",
                                             "parameter_modmode": 0,
-                                            "parameter_shortname": "evieveObjectGen",
+                                            "parameter_shortname": "evieveObjectRnbo",
                                             "parameter_type": 3
                                         }
                                     },
@@ -1787,11 +1817,8 @@
                                         "snapshot": {
                                             "__sps": {
                                                 "evi_reverb": {
-                                                    "highdampgain": {
-                                                        "value": 0.0
-                                                    },
-                                                    "highdampfrequency": {
-                                                        "value": 1108.7
+                                                    "lowdampfrequency": {
+                                                        "value": 69.3
                                                     },
                                                     "higheqgain": {
                                                         "value": -7.0
@@ -1799,11 +1826,8 @@
                                                     "loweqgain": {
                                                         "value": -3.5
                                                     },
-                                                    "earlylatehysterisis": {
-                                                        "value": 5016.5
-                                                    },
                                                     "presymmetry": {
-                                                        "value": 1.0
+                                                        "value": 0.33
                                                     },
                                                     "loweqfrequency": {
                                                         "value": 92.5
@@ -1814,17 +1838,17 @@
                                                     "smoothtime": {
                                                         "value": 50.0
                                                     },
-                                                    "drywet": {
-                                                        "value": 0.7200000000000002
-                                                    },
-                                                    "bypass": {
+                                                    "highdampgain": {
                                                         "value": 0.0
+                                                    },
+                                                    "drywet": {
+                                                        "value": 0.4
                                                     },
                                                     "higheqfrequency": {
                                                         "value": 2217.5
                                                     },
                                                     "earlydiffusion": {
-                                                        "value": 0.5
+                                                        "value": 0.7
                                                     },
                                                     "latediffusion": {
                                                         "value": 0.7
@@ -1833,25 +1857,16 @@
                                                         "value": 1.7
                                                     },
                                                     "moddepth": {
-                                                        "value": 0.0
+                                                        "value": 0.15
                                                     },
                                                     "latesize": {
-                                                        "value": -24.0
+                                                        "value": 0.984
                                                     },
-                                                    "lowdampgain": {
-                                                        "value": -0.7
+                                                    "latesymmetry": {
+                                                        "value": -3.0
                                                     },
-                                                    "earlysize": {
-                                                        "value": 31.992
-                                                    },
-                                                    "decay": {
-                                                        "value": 0.4700000000000001
-                                                    },
-                                                    "earlylate": {
-                                                        "value": 0.5
-                                                    },
-                                                    "modrate": {
-                                                        "value": 0.23
+                                                    "highdampfrequency": {
+                                                        "value": 1108.7
                                                     },
                                                     "__sps": {
                                                         "EQ_Damp_coefficients": {                                                        },
@@ -1859,16 +1874,22 @@
                                                         "drywetbypass": {                                                        }
                                                     },
                                                     "predelay": {
-                                                        "value": 0.0
+                                                        "value": 16.0
                                                     },
-                                                    "latesymmetry": {
-                                                        "value": -3.0
+                                                    "earlysize": {
+                                                        "value": 31.992
                                                     },
-                                                    "lowdampfrequency": {
-                                                        "value": 69.3
+                                                    "lowdampgain": {
+                                                        "value": -0.7
                                                     },
-                                                    "mute": {
-                                                        "value": 0.0
+                                                    "decay": {
+                                                        "value": 0.475
+                                                    },
+                                                    "earlylate": {
+                                                        "value": 0.46
+                                                    },
+                                                    "modrate": {
+                                                        "value": 0.23
                                                     }
                                                 }
                                             },
@@ -1889,11 +1910,8 @@
                                                     "snapshot": {
                                                         "__sps": {
                                                             "evi_reverb": {
-                                                                "highdampgain": {
-                                                                    "value": 0.0
-                                                                },
-                                                                "highdampfrequency": {
-                                                                    "value": 1108.7
+                                                                "lowdampfrequency": {
+                                                                    "value": 69.3
                                                                 },
                                                                 "higheqgain": {
                                                                     "value": -7.0
@@ -1901,11 +1919,8 @@
                                                                 "loweqgain": {
                                                                     "value": -3.5
                                                                 },
-                                                                "earlylatehysterisis": {
-                                                                    "value": 5016.5
-                                                                },
                                                                 "presymmetry": {
-                                                                    "value": 1.0
+                                                                    "value": 0.33
                                                                 },
                                                                 "loweqfrequency": {
                                                                     "value": 92.5
@@ -1916,17 +1931,17 @@
                                                                 "smoothtime": {
                                                                     "value": 50.0
                                                                 },
-                                                                "drywet": {
-                                                                    "value": 0.7200000000000002
-                                                                },
-                                                                "bypass": {
+                                                                "highdampgain": {
                                                                     "value": 0.0
+                                                                },
+                                                                "drywet": {
+                                                                    "value": 0.4
                                                                 },
                                                                 "higheqfrequency": {
                                                                     "value": 2217.5
                                                                 },
                                                                 "earlydiffusion": {
-                                                                    "value": 0.5
+                                                                    "value": 0.7
                                                                 },
                                                                 "latediffusion": {
                                                                     "value": 0.7
@@ -1935,25 +1950,16 @@
                                                                     "value": 1.7
                                                                 },
                                                                 "moddepth": {
-                                                                    "value": 0.0
+                                                                    "value": 0.15
                                                                 },
                                                                 "latesize": {
-                                                                    "value": -24.0
+                                                                    "value": 0.984
                                                                 },
-                                                                "lowdampgain": {
-                                                                    "value": -0.7
+                                                                "latesymmetry": {
+                                                                    "value": -3.0
                                                                 },
-                                                                "earlysize": {
-                                                                    "value": 31.992
-                                                                },
-                                                                "decay": {
-                                                                    "value": 0.4700000000000001
-                                                                },
-                                                                "earlylate": {
-                                                                    "value": 0.5
-                                                                },
-                                                                "modrate": {
-                                                                    "value": 0.23
+                                                                "highdampfrequency": {
+                                                                    "value": 1108.7
                                                                 },
                                                                 "__sps": {
                                                                     "EQ_Damp_coefficients": {                                                                    },
@@ -1961,16 +1967,22 @@
                                                                     "drywetbypass": {                                                                    }
                                                                 },
                                                                 "predelay": {
-                                                                    "value": 0.0
+                                                                    "value": 16.0
                                                                 },
-                                                                "latesymmetry": {
-                                                                    "value": -3.0
+                                                                "earlysize": {
+                                                                    "value": 31.992
                                                                 },
-                                                                "lowdampfrequency": {
-                                                                    "value": 69.3
+                                                                "lowdampgain": {
+                                                                    "value": -0.7
                                                                 },
-                                                                "mute": {
-                                                                    "value": 0.0
+                                                                "decay": {
+                                                                    "value": 0.475
+                                                                },
+                                                                "earlylate": {
+                                                                    "value": 0.46
+                                                                },
+                                                                "modrate": {
+                                                                    "value": 0.23
                                                                 }
                                                             }
                                                         },
@@ -1988,7 +2000,7 @@
                                         }
                                     },
                                     "text": "rnbo~ @title using_evi.algoverb~_inside_rnbo~",
-                                    "varname": "evieveObjectGen"
+                                    "varname": "evieveObjectRnbo"
                                 }
                             },
                             {
@@ -2459,7 +2471,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 627.0, 180.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 627.0, 195.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2483,7 +2495,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 448.0, 113.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 478.0, 128.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -2532,23 +2544,25 @@
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
                                     "id": "obj-56",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 524.0, 158.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 554.0, 168.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
                             {
                                 "box": {
+                                    "hidden": 1,
                                     "id": "obj-58",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 470.0, 158.0, 43.0, 23.0 ],
+                                    "patching_rect": [ 500.0, 168.0, 43.0, 23.0 ],
                                     "text": "*~ 0.5"
                                 }
                             },
@@ -2586,7 +2600,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 470.0, 94.0, 234.0, 57.0 ],
+                                    "patching_rect": [ 500.0, 109.0, 234.0, 57.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -2620,8 +2634,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 569.0, 159.0, 154.0, 21.0 ],
-                                    "text": "because duduk :-("
+                                    "patching_rect": [ 599.0, 169.0, 154.0, 21.0 ],
+                                    "text": "<< because duduk :-("
                                 }
                             },
                             {
@@ -2640,7 +2654,7 @@
                                     "numoutlets": 4,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "bang", "int", "", "" ],
-                                    "patching_rect": [ 651.0, 178.0, 126.0, 24.0 ],
+                                    "patching_rect": [ 651.0, 193.0, 126.0, 24.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -2688,7 +2702,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 499.0, 340.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 514.0, 340.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -2704,7 +2718,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 521.0, 339.0, 50.0, 22.0 ]
+                                    "patching_rect": [ 536.0, 339.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -2716,7 +2730,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 521.0, 364.0, 112.0, 22.0 ],
+                                    "patching_rect": [ 536.0, 364.0, 112.0, 22.0 ],
                                     "text": "prepend absorbtion"
                                 }
                             },
@@ -2765,7 +2779,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 439.0, 525.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 454.0, 525.0, 83.0, 22.0 ],
                                     "text": "s testalgoverb"
                                 }
                             },
@@ -2902,7 +2916,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 499.0, 460.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 514.0, 460.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -2913,7 +2927,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 355.0, 460.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 370.0, 460.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -2946,7 +2960,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 499.0, 400.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 514.0, 400.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -2957,7 +2971,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 355.0, 400.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 370.0, 400.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -3001,7 +3015,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 355.0, 340.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 370.0, 340.0, 20.0, 20.0 ]
                                 }
                             },
                             {
@@ -3259,7 +3273,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 521.0, 459.0, 50.0, 22.0 ]
+                                    "patching_rect": [ 536.0, 459.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -3271,7 +3285,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 521.0, 484.0, 91.0, 22.0 ],
+                                    "patching_rect": [ 536.0, 484.0, 91.0, 22.0 ],
                                     "text": "prepend drywet"
                                 }
                             },
@@ -3375,7 +3389,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 521.0, 399.0, 50.0, 22.0 ]
+                                    "patching_rect": [ 536.0, 399.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -3387,7 +3401,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 521.0, 424.0, 101.0, 22.0 ],
+                                    "patching_rect": [ 536.0, 424.0, 101.0, 22.0 ],
                                     "text": "prepend earlylate"
                                 }
                             },
@@ -3404,7 +3418,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 377.0, 399.0, 50.0, 22.0 ]
+                                    "patching_rect": [ 392.0, 399.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -3416,7 +3430,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 377.0, 424.0, 100.0, 22.0 ],
+                                    "patching_rect": [ 392.0, 424.0, 100.0, 22.0 ],
                                     "text": "prepend modrate"
                                 }
                             },
@@ -3433,7 +3447,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 377.0, 459.0, 50.0, 22.0 ]
+                                    "patching_rect": [ 392.0, 459.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -3445,7 +3459,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 377.0, 484.0, 109.0, 22.0 ],
+                                    "patching_rect": [ 392.0, 484.0, 109.0, 22.0 ],
                                     "text": "prepend moddepth"
                                 }
                             },
@@ -3462,7 +3476,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 377.0, 339.0, 75.0, 22.0 ]
+                                    "patching_rect": [ 392.0, 339.0, 75.0, 22.0 ]
                                 }
                             },
                             {
@@ -3474,7 +3488,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 377.0, 364.0, 88.0, 22.0 ],
+                                    "patching_rect": [ 392.0, 364.0, 88.0, 22.0 ],
                                     "text": "prepend decay"
                                 }
                             },
@@ -4864,8 +4878,25 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.algoverb~ has many tweakable parameters as well as optional presets",
+                                    "text": "evi.algoverb~ has many tweakable parameters as well as optional factory presets",
                                     "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-82",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 38.0, 306.0, 150.0, 21.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
+                                    "text": "SIZE",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
                                 }
                             },
                             {
@@ -4895,6 +4926,7 @@
                                 "box": {
                                     "background": 1,
                                     "bubble": 1,
+                                    "bubblepoint": 0.1,
                                     "bubbleside": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4902,10 +4934,189 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 604.0, 535.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 607.0, 559.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "angle": 270.0,
+                                    "background": 1,
+                                    "border": 2,
+                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "id": "obj-79",
+                                    "maxclass": "panel",
+                                    "mode": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 337.0, 554.0, 215.0, 100.0 ],
+                                    "proportion": 0.5,
+                                    "rounded": 2,
+                                    "saved_attribute_attributes": {
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "angle": 270.0,
+                                    "background": 1,
+                                    "border": 2,
+                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "id": "obj-78",
+                                    "maxclass": "panel",
+                                    "mode": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 363.0, 332.0, 292.0, 220.0 ],
+                                    "proportion": 0.5,
+                                    "rounded": 2,
+                                    "saved_attribute_attributes": {
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "angle": 270.0,
+                                    "background": 1,
+                                    "border": 2,
+                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "id": "obj-77",
+                                    "maxclass": "panel",
+                                    "mode": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 7.0, 495.0, 328.0, 159.0 ],
+                                    "proportion": 0.5,
+                                    "rounded": 2,
+                                    "saved_attribute_attributes": {
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "angle": 270.0,
+                                    "background": 1,
+                                    "border": 2,
+                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "id": "obj-62",
+                                    "maxclass": "panel",
+                                    "mode": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 7.0, 332.0, 354.0, 161.0 ],
+                                    "proportion": 0.5,
+                                    "rounded": 2,
+                                    "saved_attribute_attributes": {
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "angle": 270.0,
+                                    "background": 1,
+                                    "border": 2,
+                                    "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
+                                    "id": "obj-61",
+                                    "maxclass": "panel",
+                                    "mode": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 35.0, 113.0, 428.0, 217.0 ],
+                                    "proportion": 0.5,
+                                    "rounded": 2,
+                                    "saved_attribute_attributes": {
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-87",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 454.0, 627.0, 93.0, 21.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
+                                    "text": "STATE",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
+                                    "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-86",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 367.0, 527.0, 150.0, 21.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
+                                    "text": "REVERB",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-85",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 630.0, 150.0, 21.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
+                                    "text": "EQ",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "id": "obj-83",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 468.0, 150.0, 21.0 ],
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_color"
+                                        }
+                                    },
+                                    "text": "DAMP",
+                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
                                 }
                             }
                         ],
@@ -5484,7 +5695,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-63", 2 ],
-                                    "midpoints": [ 767.5, 387.0, 789.4453125, 387.0, 789.4453125, 167.015625, 767.5, 167.015625 ],
+                                    "midpoints": [ 767.5, 387.0, 789.4453125, 387.0, 789.4453125, 181.546875, 767.5, 181.546875 ],
                                     "order": 1,
                                     "source": [ "obj-5", 2 ]
                                 }
@@ -5561,12 +5772,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-56", 0 ],
+                                    "hidden": 1,
                                     "source": [ "obj-59", 1 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-58", 0 ],
+                                    "hidden": 1,
                                     "source": [ "obj-59", 0 ]
                                 }
                             },
@@ -10264,7 +10477,7 @@
             "obj-10::obj-50": [ "number[5]", "number[5]", 0 ],
             "obj-10::obj-53": [ "number[1]", "number[1]", 0 ],
             "obj-14::obj-26": [ "live.gain~[4]", "live.gain~", 0 ],
-            "obj-14::obj-5": [ "evieveObjectGen", "evieveObjectGen", 0 ],
+            "obj-14::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
             "obj-2::obj-11": [ "live.gain~[6]", "live.gain~", 0 ],
             "obj-2::obj-13": [ "DryWet", "Dry/Wet", 0 ],
             "obj-2::obj-5::obj-120::obj-20": [ "preTime", "preTime", 0 ],

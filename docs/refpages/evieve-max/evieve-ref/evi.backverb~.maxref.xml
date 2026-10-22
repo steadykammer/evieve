@@ -15,6 +15,7 @@
 		<metadata name="tag">evieve Abstractions</metadata>
 		<metadata name="tag">evieve Reverb</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -263,6 +264,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
+        For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.backverb~]</m>. <br />
 	</discussion>
 </c74object>

@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -30,7 +30,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -397,7 +397,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -426,13 +426,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 133.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "receivemode": "local",
+                                                        "notecontroller": 0,
+                                                        "args": [],
                                                         "polyphony": -1.0,
                                                         "exposevoiceparams": 0,
-                                                        "voicecontrol": "simple",
                                                         "uidstyle": "auto",
-                                                        "args": [],
-                                                        "notecontroller": 0
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1313,23 +1313,8 @@
                                     },
                                     "patching_rect": [ 296.0, 435.0, 297.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/feedback": {
-                                            "label": "feedback",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/crossover": {
-                                            "label": "crossover",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/late": {
-                                            "label": "late",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/damp": {
-                                            "label": "damp",
+                                        "evi_reverb/drywet": {
+                                            "label": "drywet",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1338,13 +1323,13 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
+                                        "evi_reverb/late": {
+                                            "label": "late",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/highpass": {
-                                            "label": "highpass",
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1353,19 +1338,34 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/drywet": {
-                                            "label": "drywet",
+                                        "evi_reverb/highpass": {
+                                            "label": "highpass",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/feedback": {
+                                            "label": "feedback",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/damp": {
+                                            "label": "damp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/crossover": {
+                                            "label": "crossover",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         }
                                     },
-                                    "rnboversion": "1.4.6-beta.0",
+                                    "rnboversion": "1.4.6-beta.1",
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
-                                            "parameter_longname": "evieveObjectGen",
+                                            "parameter_longname": "evieveObjectRnbo",
                                             "parameter_modmode": 0,
-                                            "parameter_shortname": "evieveObjectGen",
+                                            "parameter_shortname": "evieveObjectRnbo",
                                             "parameter_type": 3
                                         }
                                     },
@@ -1386,9 +1386,6 @@
                                         "snapshot": {
                                             "__sps": {
                                                 "evi_reverb": {
-                                                    "late": {
-                                                        "value": 0.707107
-                                                    },
                                                     "__sps": {
                                                         "coefficients": {                                                        }
                                                     },
@@ -1435,9 +1432,6 @@
                                                     "snapshot": {
                                                         "__sps": {
                                                             "evi_reverb": {
-                                                                "late": {
-                                                                    "value": 0.707107
-                                                                },
                                                                 "__sps": {
                                                                     "coefficients": {                                                                    }
                                                                 },
@@ -1481,7 +1475,7 @@
                                         }
                                     },
                                     "text": "rnbo~ @title using_evi.sustainverb~_inside_rnbo~",
-                                    "varname": "evieveObjectGen"
+                                    "varname": "evieveObjectRnbo"
                                 }
                             },
                             {
@@ -1687,7 +1681,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1764,7 +1758,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2128,7 +2122,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3195,7 +3189,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3780,7 +3774,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4770,7 +4764,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4828,7 +4822,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5263,7 +5257,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5571,7 +5565,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5697,7 +5691,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5929,7 +5923,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6851,7 +6845,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -6987,7 +6981,7 @@
             "obj-12::obj-31": [ "live.gain~[8]", "live.gain~", 0 ],
             "obj-12::obj-42": [ "number[1]", "number", 0 ],
             "obj-13::obj-26": [ "live.gain~[4]", "live.gain~", 0 ],
-            "obj-13::obj-5": [ "evieveObjectGen", "evieveObjectGen", 0 ],
+            "obj-13::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
             "obj-2::obj-5::obj-54::obj-10": [ "highPass[5]", "highPass", 0 ],
             "obj-2::obj-5::obj-54::obj-12": [ "fdnGain[5]", "fdnGain", 0 ],
             "obj-2::obj-5::obj-54::obj-2": [ "early[1]", "early", 0 ],

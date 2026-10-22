@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -21,6 +21,2785 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-15",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 1,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "bglocked": 1,
+                        "default_fontsize": 13.0,
+                        "gridonopen": 2,
+                        "showontab": 1,
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-33",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "float" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 34.0, 96.0, 184.0, 407.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-30",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 52.0, 245.0, 55.0, 22.0 ],
+                                                    "text": "pipe 333"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-27",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "float", "float" ],
+                                                    "patching_rect": [ 52.0, 179.0, 45.0, 22.0 ],
+                                                    "text": "t 33. 0."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-25",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "" ],
+                                                    "patching_rect": [ 52.0, 114.0, 36.0, 22.0 ],
+                                                    "text": "sel 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-18",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "int", "float", "int", "int" ],
+                                                    "patching_rect": [ 52.0, 48.0, 65.0, 22.0 ],
+                                                    "text": "dspstate~"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-32",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 52.0, 310.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-25", 0 ],
+                                                    "source": [ "obj-18", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-27", 0 ],
+                                                    "source": [ "obj-25", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-30", 0 ],
+                                                    "source": [ "obj-27", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-32", 0 ],
+                                                    "source": [ "obj-27", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-32", 0 ],
+                                                    "source": [ "obj-30", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 337.0, 334.0, 74.0, 23.0 ],
+                                    "text": "p rnbo_bug"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-37",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 389.0, 441.0, 48.0, 21.0 ],
+                                    "text": "Pitch"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-35",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 290.0, 184.0, 75.0, 23.0 ],
+                                    "text": "loadmess 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "format": 6,
+                                    "id": "obj-31",
+                                    "maxclass": "flonum",
+                                    "maximum": 108.0,
+                                    "minimum": 0.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 337.0, 440.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 33.0 ],
+                                            "parameter_longname": "number[2]",
+                                            "parameter_mmax": 108.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[2]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number[2]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-29",
+                                    "maxclass": "number",
+                                    "minimum": 0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 550.0, 159.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_invisible": 1,
+                                            "parameter_longname": "number[1]",
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "number[1]",
+                                            "parameter_type": 3
+                                        }
+                                    },
+                                    "varname": "number[1]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-28",
+                                    "maxclass": "number",
+                                    "maximum": 5,
+                                    "minimum": 1,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 550.0, 134.0, 50.0, 23.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ 5.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "number[10]",
+                                            "parameter_mmax": 5.0,
+                                            "parameter_mmin": 1.0,
+                                            "parameter_modmode": 3,
+                                            "parameter_shortname": "number[10]",
+                                            "parameter_type": 0
+                                        }
+                                    },
+                                    "varname": "number"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/zerophasor",
+                                    "id": "obj-24",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 234.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/fundfreqmode",
+                                    "id": "obj-23",
+                                    "ignoreclick": 1,
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 209.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/highpass",
+                                    "displaymode": 1,
+                                    "id": "obj-22",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 384.0, 242.0, 23.0 ],
+                                    "text_width": 164.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/formantsoffset",
+                                    "displaymode": 1,
+                                    "id": "obj-21",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 159.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-13",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 187.0, 259.0, 86.0, 23.0 ],
+                                    "text": "loadmess 0.1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/formants",
+                                    "displaymode": 1,
+                                    "id": "obj-1",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 134.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/datatype",
+                                    "id": "obj-15",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 309.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/gain",
+                                    "id": "obj-16",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 359.0, 242.0, 23.0 ],
+                                    "text_width": 164.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/paramsmooth",
+                                    "id": "obj-17",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 409.0, 242.0, 23.0 ],
+                                    "text_width": 164.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/datainterp",
+                                    "id": "obj-19",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 290.0, 284.0, 242.0, 23.0 ],
+                                    "text_width": 163.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-66",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 655.0, 282.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "2",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-12",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "float", "float" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 59.0, 119.0, 1000.0, 755.0 ],
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "bang" ],
+                                                    "patching_rect": [ 291.0, 391.0, 58.0, 22.0 ],
+                                                    "text": "loadbang"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-40",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 519.0, 431.0, 30.0, 22.0 ],
+                                                    "text": "* 4."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-42",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 639.0, 431.0, 30.0, 22.0 ],
+                                                    "text": "* 4."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-118",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 291.0, 431.0, 41.0, 22.0 ],
+                                                    "text": "64 64"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-116",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 519.0, 391.0, 41.0, 22.0 ],
+                                                    "text": "/ 127."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-115",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 639.0, 391.0, 41.0, 22.0 ],
+                                                    "text": "/ 127."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-3",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 406.0, 174.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-6",
+                                                    "index": 2,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 519.0, 174.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-8",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 291.0, 485.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-10",
+                                                    "index": 3,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 639.0, 485.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-11",
+                                                    "index": 2,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 519.0, 485.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-118", 0 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-42", 0 ],
+                                                    "source": [ "obj-115", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-40", 0 ],
+                                                    "source": [ "obj-116", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-8", 0 ],
+                                                    "source": [ "obj-118", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-115", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-11", 0 ],
+                                                    "source": [ "obj-40", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-10", 0 ],
+                                                    "source": [ "obj-42", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-116", 0 ],
+                                                    "source": [ "obj-6", 0 ]
+                                                }
+                                            }
+                                        ],
+                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                                    },
+                                    "patching_rect": [ 550.0, 359.0, 103.0, 23.0 ],
+                                    "text": "p"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-108",
+                                    "maxclass": "pictslider",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "int", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 550.0, 242.0, 103.0, 100.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-88",
+                                    "maxclass": "live.dial",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "float" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 634.0, 400.0, 37.0, 55.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "A", "E", "I", "O", "U" ],
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_longname": "live.dial[11]",
+                                            "parameter_mmax": 4.0,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "Vowel",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 1
+                                        }
+                                    },
+                                    "varname": "live.dial[4]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-92",
+                                    "maxclass": "live.dial",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "float" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 592.0, 400.0, 37.0, 55.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "Bass", "Tenor", "Countertenor", "Alto", "Soprano" ],
+                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_longname": "live.dial[12]",
+                                            "parameter_mmax": 4.0,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "Voice",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 1
+                                        }
+                                    },
+                                    "varname": "live.dial[3]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "channels": 1,
+                                    "fontname": "Arial",
+                                    "fontsize": 12.0,
+                                    "id": "obj-26",
+                                    "lastchannelcount": 0,
+                                    "maxclass": "live.gain~",
+                                    "numinlets": 1,
+                                    "numoutlets": 4,
+                                    "orientation": 1,
+                                    "outlettype": [ "signal", "", "float", "list" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 290.0, 527.0, 123.0, 32.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "live.gain~[7]",
+                                            "parameter_mmax": 6.0,
+                                            "parameter_mmin": -70.0,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "live.gain~",
+                                            "parameter_type": 0,
+                                            "parameter_unitstyle": 4
+                                        }
+                                    },
+                                    "showname": 0,
+                                    "varname": "live.gain~[4]"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "fontname": "Arial Bold",
+                                    "hint": "",
+                                    "id": "obj-20",
+                                    "ignoreclick": 1,
+                                    "legacytextcolor": 1,
+                                    "maxclass": "textbutton",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "int" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 268.0, 604.0, 20.0, 20.0 ],
+                                    "rounded": 60.0,
+                                    "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.lesson_step_circle"
+                                        }
+                                    },
+                                    "text": "1",
+                                    "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "border": 0,
+                                    "embed": 0,
+                                    "filename": "evi.helpname.js",
+                                    "id": "obj-2",
+                                    "ignoreclick": 1,
+                                    "jsarguments": [ "evi.formantosc~", 660 ],
+                                    "maxclass": "v8ui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 10.0, 10.0, 660.0, 57.599853515625 ],
+                                    "textfile": {
+                                        "filename": "evi.helpname.js",
+                                        "flags": 0,
+                                        "embed": 0,
+                                        "autowatch": 1
+                                    },
+                                    "varname": "v8ui_AA"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "id": "obj-4",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
+                                    "text": "An evi.formantosc~ abstraction is also available inside the rnbo~ environment",
+                                    "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "autosave": 1,
+                                    "id": "obj-5",
+                                    "inletInfo": {
+                                        "IOInfo": [
+                                            {
+                                                "type": "event",
+                                                "index": 1,
+                                                "tag": "in1",
+                                                "comment": "Fundamental Frequency"
+                                            },
+                                            {
+                                                "type": "event",
+                                                "index": 2,
+                                                "tag": "in2",
+                                                "comment": "Voice Interpolator 0..1"
+                                            },
+                                            {
+                                                "type": "event",
+                                                "index": 3,
+                                                "tag": "in3",
+                                                "comment": "Vowel Interpolator 0..1"
+                                            }
+                                        ]
+                                    },
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 2,
+                                    "outletInfo": {
+                                        "IOInfo": [
+                                            {
+                                                "type": "signal",
+                                                "index": 1,
+                                                "tag": "out1",
+                                                "comment": ""
+                                            }
+                                        ]
+                                    },
+                                    "outlettype": [ "signal", "list" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "rnbo",
+                                        "rect": [ 112.0, 170.0, 783.0, 630.0 ],
+                                        "default_fontname": "Lato",
+                                        "title": "using_evi.formantosc~_inside_rnbo~",
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-9",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 137.0, 49.0, 220.0, 23.0 ],
+                                                    "rnbo_classname": "in",
+                                                    "rnbo_extra_attributes": {
+                                                        "meta": ""
+                                                    },
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "in_obj-9",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "index": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "inlet number",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "mandatory": 1
+                                                            },
+                                                            "comment": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "mouse over comment",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol"
+                                                            },
+                                                            "meta": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "A JSON formatted string containing metadata for use by the exported code",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "defaultValue": "",
+                                                                "label": "Metadata",
+                                                                "displayorder": 3
+                                                            }
+                                                        },
+                                                        "inputs": [],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out1",
+                                                                "type": [ "bang", "number", "list" ],
+                                                                "digest": "value from inlet with index 1",
+                                                                "displayName": "Fundamental Frequency",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "in",
+                                                        "aliasOf": "in",
+                                                        "classname": "in",
+                                                        "operator": 0,
+                                                        "versionId": 475235762,
+                                                        "changesPatcherIO": 1
+                                                    },
+                                                    "text": "in 1 @comment Fundamental Frequency"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "signal", "" ],
+                                                    "patching_rect": [ 137.0, 324.0, 146.0, 23.0 ],
+                                                    "rnbo_classname": "line~",
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "line~_obj-4",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "segments": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 0,
+                                                                "aliases": [ "dest" ],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "dest": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 1,
+                                                                "aliasOf": "segments",
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "time": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            },
+                                                            "keepramp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Keep last ramp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "bool",
+                                                                "defaultValue": "false"
+                                                            },
+                                                            "out": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp out",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "target": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Bang when ramp has finished",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "bang"
+                                                            },
+                                                            "value": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Initial value.",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            }
+                                                        },
+                                                        "inputs": [
+                                                            {
+                                                                "name": "segments",
+                                                                "type": "list",
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "time",
+                                                                "type": "number",
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out",
+                                                                "type": "signal",
+                                                                "digest": "Ramp out",
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "target",
+                                                                "type": "bang",
+                                                                "digest": "Bang when ramp has finished",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "line~",
+                                                        "aliasOf": "line~",
+                                                        "classname": "line~",
+                                                        "operator": 0,
+                                                        "versionId": 2134689829,
+                                                        "changesPatcherIO": 0
+                                                    },
+                                                    "text": "line~ 33. 11 @keepramp 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bufsize": 128.0,
+                                                    "calccount": 256.0,
+                                                    "id": "obj-11",
+                                                    "maxclass": "scope~",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 418.0, 464.0, 130.0, 130.0 ],
+                                                    "rnbo_classname": "scope~",
+                                                    "rnbo_extra_attributes": {
+                                                        "calccount": 256.0,
+                                                        "bufsize": 128.0
+                                                    },
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "scope~_obj-11"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "bufsize": 128.0,
+                                                    "calccount": 256.0,
+                                                    "id": "obj-10",
+                                                    "maxclass": "scope~",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 279.5, 464.0, 130.0, 130.0 ],
+                                                    "rnbo_classname": "scope~",
+                                                    "rnbo_extra_attributes": {
+                                                        "calccount": 256.0,
+                                                        "bufsize": 128.0
+                                                    },
+                                                    "rnbo_serial": 2,
+                                                    "rnbo_uniqueid": "scope~_obj-10"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-5",
+                                                    "maxclass": "button",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "bang" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 418.0, 324.0, 24.0, 24.0 ],
+                                                    "rnbo_classname": "button",
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "button_obj-5"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "signal" ],
+                                                    "patching_rect": [ 362.0, 324.0, 39.0, 23.0 ],
+                                                    "rnbo_classname": "click~",
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "click~_obj-1",
+                                                    "text": "click~"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "signal", "" ],
+                                                    "patching_rect": [ 307.0, 214.0, 146.0, 23.0 ],
+                                                    "rnbo_classname": "line~",
+                                                    "rnbo_serial": 2,
+                                                    "rnbo_uniqueid": "line~_obj-8",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "segments": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 0,
+                                                                "aliases": [ "dest" ],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "dest": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 1,
+                                                                "aliasOf": "segments",
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "time": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            },
+                                                            "keepramp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Keep last ramp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "bool",
+                                                                "defaultValue": "false"
+                                                            },
+                                                            "out": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp out",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "target": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Bang when ramp has finished",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "bang"
+                                                            },
+                                                            "value": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Initial value.",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            }
+                                                        },
+                                                        "inputs": [
+                                                            {
+                                                                "name": "segments",
+                                                                "type": "list",
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "time",
+                                                                "type": "number",
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out",
+                                                                "type": "signal",
+                                                                "digest": "Ramp out",
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "target",
+                                                                "type": "bang",
+                                                                "digest": "Bang when ramp has finished",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "line~",
+                                                        "aliasOf": "line~",
+                                                        "classname": "line~",
+                                                        "operator": 0,
+                                                        "versionId": 2134689829,
+                                                        "changesPatcherIO": 0
+                                                    },
+                                                    "text": "line~ 0.5 33 @keepramp 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-7",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "signal", "" ],
+                                                    "patching_rect": [ 252.0, 269.0, 146.0, 23.0 ],
+                                                    "rnbo_classname": "line~",
+                                                    "rnbo_serial": 3,
+                                                    "rnbo_uniqueid": "line~_obj-7",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "segments": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 0,
+                                                                "aliases": [ "dest" ],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "dest": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "isalias": 1,
+                                                                "aliasOf": "segments",
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "list",
+                                                                "defaultValue": ""
+                                                            },
+                                                            "time": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            },
+                                                            "keepramp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Keep last ramp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "bool",
+                                                                "defaultValue": "false"
+                                                            },
+                                                            "out": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Ramp out",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "target": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "Bang when ramp has finished",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "bang"
+                                                            },
+                                                            "value": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Initial value.",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            }
+                                                        },
+                                                        "inputs": [
+                                                            {
+                                                                "name": "segments",
+                                                                "type": "list",
+                                                                "digest": "Target value or target value/ramp time pairs",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "time",
+                                                                "type": "number",
+                                                                "digest": "Ramp time",
+                                                                "defaultarg": 2,
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out",
+                                                                "type": "signal",
+                                                                "digest": "Ramp out",
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "target",
+                                                                "type": "bang",
+                                                                "digest": "Bang when ramp has finished",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "line~",
+                                                        "aliasOf": "line~",
+                                                        "classname": "line~",
+                                                        "operator": 0,
+                                                        "versionId": 2134689829,
+                                                        "changesPatcherIO": 0
+                                                    },
+                                                    "text": "line~ 0.5 33 @keepramp 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 418.0, 380.0, 208.0, 21.0 ],
+                                                    "text": "evi.formantosc~.rnbopat"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 307.0, 159.0, 214.0, 23.0 ],
+                                                    "rnbo_classname": "in",
+                                                    "rnbo_extra_attributes": {
+                                                        "meta": ""
+                                                    },
+                                                    "rnbo_serial": 2,
+                                                    "rnbo_uniqueid": "in_obj-3",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "index": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "inlet number",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "mandatory": 1
+                                                            },
+                                                            "comment": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "mouse over comment",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol"
+                                                            },
+                                                            "meta": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "A JSON formatted string containing metadata for use by the exported code",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "defaultValue": "",
+                                                                "label": "Metadata",
+                                                                "displayorder": 3
+                                                            }
+                                                        },
+                                                        "inputs": [],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out1",
+                                                                "type": [ "bang", "number", "list" ],
+                                                                "digest": "value from inlet with index 3",
+                                                                "displayName": "Vowel Interpolator 0..1",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "in",
+                                                        "aliasOf": "in",
+                                                        "classname": "in",
+                                                        "operator": 0,
+                                                        "versionId": 475235762,
+                                                        "changesPatcherIO": 1
+                                                    },
+                                                    "text": "in 3 @comment Vowel Interpolator 0..1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 4,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "signal", "signal", "signal" ],
+                                                    "patching_rect": [ 197.0, 379.0, 184.00000000000006, 23.0 ],
+                                                    "rnbo_classname": "p",
+                                                    "rnbo_extra_attributes": {
+                                                        "uidstyle": "auto",
+                                                        "voicecontrol": "simple",
+                                                        "args": [],
+                                                        "notecontroller": 0,
+                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0
+                                                    },
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "evi_formant",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "zerophasor": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "zerophasor",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "gainnorm": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "gainnorm",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "gainwarp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "gainwarp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "bwwarp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "bwwarp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "cfwarp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "cfwarp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "warpsmooth": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "warpsmooth",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "gain": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "gain",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "datatype": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "datatype",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "datainterp": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "datainterp",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "fundfreqmode": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "fundfreqmode",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "formants": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "formants",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "paramsmooth": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "paramsmooth",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "formantsoffset": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "formantsoffset",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "highpass": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "highpass",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "target": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "target",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "defaultValue": "0"
+                                                            },
+                                                            "mute": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "mute",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 1,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number"
+                                                            },
+                                                            "in1": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "in1",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "in2": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "in2",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "in3": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "in3",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "in4": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "in4",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "__probingout1": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "__probingout1",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "signal"
+                                                            },
+                                                            "out1": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "out1",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "out2": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "out2",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "out3": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "out3",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "outlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "polyphony": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Polyphony of the subpatcher.",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "defaultValue": "-1"
+                                                            },
+                                                            "exposevoiceparams": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Expose per voice versions of the contained parameters (only valid in polyphonic subpatchers).",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "bool",
+                                                                "defaultValue": "false"
+                                                            },
+                                                            "title": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Title of the subpatcher",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "doNotShowInMaxInspector": 1
+                                                            },
+                                                            "file": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "rnbo file to load",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "doNotShowInMaxInspector": 1
+                                                            },
+                                                            "voicecontrol": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Chooses the way that polyphonic voices are controlled. 'simple' (or 'midi') will automatically allocate voices for \tincoming MIDI notes. Setting it to 'user' (or 'none') will switch off MIDI \tvoice allocation and start with all voices unmuted.",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "enum": [ "simple", "user" ],
+                                                                "type": "enum",
+                                                                "defaultValue": "simple"
+                                                            },
+                                                            "notecontroller": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "DEPRECATED. Use voicecontrol instead.",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "doNotShowInMaxInspector": 1
+                                                            },
+                                                            "receivemode": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Do receive~ objects get the signal from a send~ inside the patcher directly (without latency), or compensated (with latency, aligned with all other voices).",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "enum": [ "local", "compensated" ],
+                                                                "type": "enum",
+                                                                "defaultValue": "local"
+                                                            },
+                                                            "args": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Replacement args for the subpatcher, everything named #1, #2 etc. will be replaced with the according argument.",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "doNotShowInMaxInspector": 1
+                                                            },
+                                                            "uidstyle": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "Behavior of #0 unique ID. auto (default) means abstractions get a local UID, local: start a new local UID, parent: use the one from the parent patcher",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "enum": [ "auto", "local", "parent", "global" ],
+                                                                "type": "enum",
+                                                                "defaultValue": "auto"
+                                                            }
+                                                        },
+                                                        "inputs": [
+                                                            {
+                                                                "name": "in1",
+                                                                "type": "signal",
+                                                                "digest": "in1",
+                                                                "displayName": "Fundamental Frequency",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "in2",
+                                                                "type": "signal",
+                                                                "digest": "in2",
+                                                                "displayName": "Voice Interpolator 0..1",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "in3",
+                                                                "type": "signal",
+                                                                "digest": "in3",
+                                                                "displayName": "Vowel Interpolator 0..1",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "in4",
+                                                                "type": "signal",
+                                                                "digest": "in4",
+                                                                "displayName": "Naive Reset (do not use)",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out1",
+                                                                "type": "signal",
+                                                                "digest": "out1",
+                                                                "displayName": "Osc",
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "out2",
+                                                                "type": "signal",
+                                                                "digest": "out2",
+                                                                "displayName": "Phase 0",
+                                                                "docked": 0
+                                                            },
+                                                            {
+                                                                "name": "out3",
+                                                                "type": "signal",
+                                                                "digest": "out3",
+                                                                "displayName": "Phase 180",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "patcher",
+                                                        "aliasOf": "rnbo",
+                                                        "classname": "p",
+                                                        "operator": 0,
+                                                        "versionId": 426236520,
+                                                        "changesPatcherIO": 0
+                                                    },
+                                                    "text": "p @file evi.formantosc~",
+                                                    "varname": "evi_formant"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-17",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 252.0, 104.0, 210.0, 23.0 ],
+                                                    "rnbo_classname": "in",
+                                                    "rnbo_extra_attributes": {
+                                                        "meta": ""
+                                                    },
+                                                    "rnbo_serial": 3,
+                                                    "rnbo_uniqueid": "in_obj-17",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "index": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "inlet number",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "mandatory": 1
+                                                            },
+                                                            "comment": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "mouse over comment",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol"
+                                                            },
+                                                            "meta": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "A JSON formatted string containing metadata for use by the exported code",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "defaultValue": "",
+                                                                "label": "Metadata",
+                                                                "displayorder": 3
+                                                            }
+                                                        },
+                                                        "inputs": [],
+                                                        "outputs": [
+                                                            {
+                                                                "name": "out1",
+                                                                "type": [ "bang", "number", "list" ],
+                                                                "digest": "value from inlet with index 2",
+                                                                "displayName": "Voice Interpolator 0..1",
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "helpname": "in",
+                                                        "aliasOf": "in",
+                                                        "classname": "in",
+                                                        "operator": 0,
+                                                        "versionId": 475235762,
+                                                        "changesPatcherIO": 1
+                                                    },
+                                                    "text": "in 2 @comment Voice Interpolator 0..1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-15",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 197.0, 464.0, 43.0, 23.0 ],
+                                                    "rnbo_classname": "out~",
+                                                    "rnbo_extra_attributes": {
+                                                        "meta": "",
+                                                        "comment": ""
+                                                    },
+                                                    "rnbo_serial": 1,
+                                                    "rnbo_uniqueid": "out~_obj-15",
+                                                    "rnboinfo": {
+                                                        "needsInstanceInfo": 1,
+                                                        "argnames": {
+                                                            "in1": {
+                                                                "attrOrProp": 1,
+                                                                "digest": "signal sent to outlet with index 1",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 0,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "inlet": 1,
+                                                                "type": "signal"
+                                                            },
+                                                            "index": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "outlet number",
+                                                                "defaultarg": 1,
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "number",
+                                                                "mandatory": 1
+                                                            },
+                                                            "comment": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "mouse over comment",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol"
+                                                            },
+                                                            "meta": {
+                                                                "attrOrProp": 2,
+                                                                "digest": "A JSON formatted string containing metadata for use by the exported code",
+                                                                "isalias": 0,
+                                                                "aliases": [],
+                                                                "settable": 1,
+                                                                "attachable": 0,
+                                                                "isparam": 0,
+                                                                "deprecated": 0,
+                                                                "touched": 0,
+                                                                "type": "symbol",
+                                                                "defaultValue": "",
+                                                                "label": "Metadata",
+                                                                "displayorder": 3
+                                                            }
+                                                        },
+                                                        "inputs": [
+                                                            {
+                                                                "name": "in1",
+                                                                "type": "signal",
+                                                                "digest": "signal sent to outlet with index 1",
+                                                                "displayName": "",
+                                                                "hot": 1,
+                                                                "docked": 0
+                                                            }
+                                                        ],
+                                                        "outputs": [],
+                                                        "helpname": "out~",
+                                                        "aliasOf": "out~",
+                                                        "classname": "out~",
+                                                        "operator": 0,
+                                                        "versionId": 1989326771,
+                                                        "changesPatcherIO": 1
+                                                    },
+                                                    "text": "out~ 1"
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 3 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-7", 0 ],
+                                                    "source": [ "obj-17", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-10", 0 ],
+                                                    "source": [ "obj-2", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-11", 0 ],
+                                                    "midpoints": [ 371.50000000000006, 433.0, 427.5, 433.0 ],
+                                                    "source": [ "obj-2", 2 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-15", 0 ],
+                                                    "source": [ "obj-2", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-8", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 0 ],
+                                                    "midpoints": [ 146.5, 363.0, 206.5, 363.0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-1", 0 ],
+                                                    "source": [ "obj-5", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 1 ],
+                                                    "source": [ "obj-7", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-2", 2 ],
+                                                    "source": [ "obj-8", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-4", 0 ],
+                                                    "source": [ "obj-9", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 290.0, 472.0, 381.0, 23.0 ],
+                                    "rnboattrcache": {
+                                        "evi_formant/paramsmooth": {
+                                            "label": "paramsmooth",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/gainwarp": {
+                                            "label": "gainwarp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/formantsoffset": {
+                                            "label": "formantsoffset",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/cfwarp": {
+                                            "label": "cfwarp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/gain": {
+                                            "label": "gain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/formants": {
+                                            "label": "formants",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/bwwarp": {
+                                            "label": "bwwarp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/highpass": {
+                                            "label": "highpass",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_formant/zerophasor": {
+                                            "label": "zerophasor",
+                                            "isEnum": 1,
+                                            "parsestring": "\"fm\" \"free\" \"zero\""
+                                        },
+                                        "evi_formant/gainnorm": {
+                                            "label": "gainnorm",
+                                            "isEnum": 1,
+                                            "parsestring": "\"off\" \"on\""
+                                        },
+                                        "evi_formant/warpsmooth": {
+                                            "label": "warpsmooth",
+                                            "isEnum": 1,
+                                            "parsestring": "\"off\" \"on\""
+                                        },
+                                        "evi_formant/datatype": {
+                                            "label": "datatype",
+                                            "isEnum": 1,
+                                            "parsestring": "\"hz/amp\" \"pitch/db\""
+                                        },
+                                        "evi_formant/datainterp": {
+                                            "label": "datainterp",
+                                            "isEnum": 1,
+                                            "parsestring": "\"clip\" \"wrap\""
+                                        },
+                                        "evi_formant/fundfreqmode": {
+                                            "label": "fundfreqmode",
+                                            "isEnum": 1,
+                                            "parsestring": "\"hz\" \"pitch\""
+                                        }
+                                    },
+                                    "rnboversion": "1.4.6-beta.1",
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_invisible": 1,
+                                            "parameter_longname": "evieveObjectRnbo",
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "evieveObjectRnbo",
+                                            "parameter_type": 3
+                                        }
+                                    },
+                                    "saved_object_attributes": {
+                                        "optimization": "O1",
+                                        "parameter_enable": 1,
+                                        "uuid": "e55382e3-c800-11f1-82e3-f2763d8d8369"
+                                    },
+                                    "snapshot": {
+                                        "filetype": "C74Snapshot",
+                                        "version": 2,
+                                        "minorversion": 0,
+                                        "name": "snapshotlist",
+                                        "origin": "rnbo~",
+                                        "type": "list",
+                                        "subtype": "Undefined",
+                                        "embed": 1,
+                                        "snapshot": {
+                                            "__sps": {
+                                                "evi_formant": {
+                                                    "highpass": {
+                                                        "value": 15.625
+                                                    },
+                                                    "paramsmooth": {
+                                                        "value": 15.111
+                                                    },
+                                                    "formantsoffset": {
+                                                        "value": 0.0
+                                                    },
+                                                    "datatype": {
+                                                        "value": 0.0
+                                                    },
+                                                    "fundfreqmode": {
+                                                        "value": 1.0
+                                                    },
+                                                    "datainterp": {
+                                                        "value": 1.0
+                                                    },
+                                                    "warpsmooth": {
+                                                        "value": 1.0
+                                                    },
+                                                    "cfwarp": {
+                                                        "value": 1.0
+                                                    },
+                                                    "bwwarp": {
+                                                        "value": 0.1
+                                                    },
+                                                    "formants": {
+                                                        "value": 5.0
+                                                    },
+                                                    "gainnorm": {
+                                                        "value": 0.0
+                                                    },
+                                                    "gain": {
+                                                        "value": 0.0
+                                                    },
+                                                    "gainwarp": {
+                                                        "value": 1.0
+                                                    },
+                                                    "zerophasor": {
+                                                        "value": 1.0
+                                                    }
+                                                }
+                                            },
+                                            "__presetid": "using_evi.formantosc~_inside_rnbo~"
+                                        },
+                                        "snapshotlist": {
+                                            "current_snapshot": 0,
+                                            "entries": [
+                                                {
+                                                    "filetype": "C74Snapshot",
+                                                    "version": 2,
+                                                    "minorversion": 0,
+                                                    "name": "using_evi.freezeverb~_inside_rnbo~",
+                                                    "origin": "using_evi.formantosc~_inside_rnbo~",
+                                                    "type": "rnbo",
+                                                    "subtype": "",
+                                                    "embed": 0,
+                                                    "snapshot": {
+                                                        "__sps": {
+                                                            "evi_formant": {
+                                                                "highpass": {
+                                                                    "value": 15.625
+                                                                },
+                                                                "paramsmooth": {
+                                                                    "value": 15.111
+                                                                },
+                                                                "formantsoffset": {
+                                                                    "value": 0.0
+                                                                },
+                                                                "datatype": {
+                                                                    "value": 0.0
+                                                                },
+                                                                "fundfreqmode": {
+                                                                    "value": 1.0
+                                                                },
+                                                                "datainterp": {
+                                                                    "value": 1.0
+                                                                },
+                                                                "warpsmooth": {
+                                                                    "value": 1.0
+                                                                },
+                                                                "cfwarp": {
+                                                                    "value": 1.0
+                                                                },
+                                                                "bwwarp": {
+                                                                    "value": 0.1
+                                                                },
+                                                                "formants": {
+                                                                    "value": 5.0
+                                                                },
+                                                                "gainnorm": {
+                                                                    "value": 0.0
+                                                                },
+                                                                "gain": {
+                                                                    "value": 0.0
+                                                                },
+                                                                "gainwarp": {
+                                                                    "value": 1.0
+                                                                },
+                                                                "zerophasor": {
+                                                                    "value": 1.0
+                                                                }
+                                                            }
+                                                        },
+                                                        "__presetid": "using_evi.formantosc~_inside_rnbo~"
+                                                    },
+                                                    "fileref": {
+                                                        "name": "using_evi.freezeverb~_inside_rnbo~",
+                                                        "filename": "using_evi.freezeverb~_inside_rnbo~_20261022_2.maxsnap",
+                                                        "filepath": "~/Documents/Max 9/Snapshots",
+                                                        "filepos": -1,
+                                                        "snapshotfileid": "4d445fc8f9ba187aa74c5cd1ebf1cd88"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "text": "rnbo~ @title using_evi.formantosc~_inside_rnbo~",
+                                    "varname": "evieveObjectRnbo"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "bubbleside": 3,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-7",
+                                    "linecount": 2,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 164.0, 464.0, 124.0, 40.0 ],
+                                    "text": "Double-Click to see the example",
+                                    "textjustification": 1,
+                                    "varname": "comment_gen"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "local": 1,
+                                    "maxclass": "ezdac~",
+                                    "numinlets": 2,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 290.0, 591.0, 45.0, 45.0 ],
+                                    "varname": "rnbo_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
+                                    "bubble": 1,
+                                    "fontname": "Arial",
+                                    "fontsize": 13.0,
+                                    "id": "obj-11",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 337.0, 601.0, 86.0, 25.0 ],
+                                    "text": "Audio On",
+                                    "textjustification": 1,
+                                    "varname": "comment_dac"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/cfwarp",
+                                    "id": "obj-3",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 55.0, 284.0, 218.0, 23.0 ],
+                                    "text_width": 153.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/bwwarp",
+                                    "id": "obj-6",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 55.0, 309.0, 218.0, 23.0 ],
+                                    "text_width": 153.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/gainwarp",
+                                    "id": "obj-8",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 55.0, 334.0, 218.0, 23.0 ],
+                                    "text_width": 153.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/gainnorm",
+                                    "id": "obj-10",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 55.0, 359.0, 218.0, 23.0 ],
+                                    "text_width": 153.0
+                                }
+                            },
+                            {
+                                "box": {
+                                    "attr": "evi_formant/warpsmooth",
+                                    "id": "obj-14",
+                                    "lock": 1,
+                                    "maxclass": "attrui",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 55.0, 234.0, 218.0, 23.0 ],
+                                    "text_width": 153.0
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-1", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-10", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 1 ],
+                                    "source": [ "obj-108", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-12", 0 ],
+                                    "source": [ "obj-108", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-108", 0 ],
+                                    "midpoints": [ 559.5, 392.0, 538.3984375, 392.0, 538.3984375, 232.0, 559.5, 232.0 ],
+                                    "source": [ "obj-12", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-88", 0 ],
+                                    "source": [ "obj-12", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-92", 0 ],
+                                    "source": [ "obj-12", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-6", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-13", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-16", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-17", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-19", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-21", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-22", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-23", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-24", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 1 ],
+                                    "order": 0,
+                                    "source": [ "obj-26", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-26", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-1", 0 ],
+                                    "source": [ "obj-28", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-21", 0 ],
+                                    "source": [ "obj-29", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-3", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "midpoints": [ 346.5, 467.5, 299.5, 467.5 ],
+                                    "source": [ "obj-31", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-31", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-33", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-23", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-35", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 0 ],
+                                    "source": [ "obj-8", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 2 ],
+                                    "source": [ "obj-88", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-5", 1 ],
+                                    "midpoints": [ 619.5, 463.5, 480.5, 463.5 ],
+                                    "source": [ "obj-92", 1 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 443.0, 336.0, 53.0, 23.0 ],
+                    "saved_object_attributes": {
+                        "fontsize": 13.0
+                    },
+                    "text": "p rnbo~",
+                    "varname": "rnbo_tab"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-12",
                     "maxclass": "newobj",
                     "numinlets": 0,
@@ -30,7 +2809,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -462,7 +3241,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1076,7 +3855,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 407.0, 336.0, 34.0, 23.0 ],
+                    "patching_rect": [ 360.25, 336.0, 34.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -1095,7 +3874,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1410,7 +4189,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2022,7 +4801,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 281.0, 336.0, 70.0, 23.0 ],
+                    "patching_rect": [ 241.5, 336.0, 70.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -2041,7 +4820,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2478,7 +5257,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2658,7 +5437,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3253,7 +6032,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 169.0, 336.0, 60.0, 23.0 ],
+                    "patching_rect": [ 132.75, 336.0, 60.0, 23.0 ],
                     "saved_object_attributes": {
                         "fontsize": 13.0
                     },
@@ -3309,7 +6088,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3380,7 +6159,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3606,7 +6385,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4078,7 +6857,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4196,6 +6975,13 @@
             "obj-12::obj-30": [ "live.dial[5]", "BW Warp", 0 ],
             "obj-12::obj-88": [ "live.dial[1]", "Vowel", 0 ],
             "obj-12::obj-92": [ "live.dial[2]", "Voice", 0 ],
+            "obj-15::obj-26": [ "live.gain~[7]", "live.gain~", 0 ],
+            "obj-15::obj-28": [ "number[10]", "number[10]", 0 ],
+            "obj-15::obj-29": [ "number[1]", "number[1]", 0 ],
+            "obj-15::obj-31": [ "number[2]", "number[2]", 0 ],
+            "obj-15::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
+            "obj-15::obj-88": [ "live.dial[11]", "Vowel", 0 ],
+            "obj-15::obj-92": [ "live.dial[12]", "Voice", 0 ],
             "obj-2::obj-17": [ "toggle", "toggle", 0 ],
             "obj-2::obj-22": [ "live.gain~[4]", "live.gain~", 0 ],
             "obj-2::obj-3": [ "number", "number", 0 ],

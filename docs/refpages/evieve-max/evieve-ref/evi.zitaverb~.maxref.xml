@@ -15,6 +15,7 @@
 		<metadata name="tag">evieve Abstractions</metadata>
 		<metadata name="tag">evieve Reverb</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -241,6 +242,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        Zitaverb's character is more 'hall' than 'plate', but it can be used on a wide variety of instruments or voices. It is not a spatialiser - the early reflections are different for the L and R inputs, but do not correspond to any real room. They have been tuned to match left and right sources to some extent. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. <br />
+        Zitaverb's character is more 'hall' than 'plate', but it can be used on a wide variety of instruments or voices. It is not a spatialiser - the early reflections are different for the L and R inputs, but do not correspond to any real room. They have been tuned to match left and right sources to some extent. For more information about other reverbs in evieve, see the 'evieve reverb' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.zitaverb~]</m>. <br />
 	</discussion>
 </c74object>

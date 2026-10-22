@@ -4,14 +4,15 @@
         "category": "evieve",
         "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types",
         "description": "evi.biquadcoeff is an efficient message rate coefficients calculator for the <o>biquad~</o> (or <o>evi.biquad~</o>) object. It is intended to replace <o>filtergraph~</o> for when you do not need a UI or you want to take advantage of the more filter types available. High level filter parameters are frequency, gain and Q. The units used for frequency and gain can be set via attributes.",
-        "discussion": "For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile."
+        "discussion": "For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.biquadcoeff]</m>."
     },
     "metadata": {
         "author": "Pete Dowling",
         "tags": [
             "evieve Filter",
             "evieve Filter Linear",
-            "evieve Coefficients"
+            "evieve Coefficients",
+            "evieve RNBO"
         ]
     },
     "inlets": [

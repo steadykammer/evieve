@@ -14,7 +14,7 @@ let numCoefs = 8;					// Number of coefficients, must be even (8 for Hilbert)
 let bandwidth = 40.0;				// Hz
 let transition = 0.000833333333333;	// bandwidth / sampleRate (default 40Hz / 48kHz)
 
-// why is this global ?
+// why did i make this global ?
 let coefs = new Array;				// coefs[numCoefs]
 
 let localName = "0_polyphaseiir";   // [buffer~] & [dict]
@@ -73,6 +73,7 @@ function polyphaseIir2HilbertDesigner ()	// thanks to Olli Niemitalo, @see: http
 	}
 	hilbertDict.replace("Phase reference path c coefficients", coefsPhase);
 	hilbertDict.replace("+90 degrees path c coefficients", coefs90deg);
+	hilbertDict.replace("Hilbert coefficients", coefsHilbert);
 	hilbertDict.replace("Interleaved sqrt(c) coefficients (pole locations)", coefsSqrt);
 }
 polyphaseIir2HilbertDesigner.local = 1;
@@ -133,6 +134,9 @@ function update_coefficients ()
 	hilbertDict.clear();
 	hilbertBuffer.send("sizeinsamps", numCoefs);
 	hilbertDict.replace("Current samplerate", sampleRate);
+	hilbertDict.replace("Current bandwidth", bandwidth);
+	hilbertDict.replace("Current transition", transition);
+	hilbertDict.replace("Current # coefficients", numCoefs);
 	polyphaseIir2HilbertDesigner();
 }
 update_coefficients.local = 1;

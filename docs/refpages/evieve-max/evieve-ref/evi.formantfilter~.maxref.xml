@@ -18,6 +18,7 @@
 		<metadata name="tag">evieve Filter TPT</metadata>
 		<metadata name="tag">evieve Modulation</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -207,6 +208,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-         <br />
+        The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.formantfilter~]</m>. <br />
 	</discussion>
 </c74object>

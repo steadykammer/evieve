@@ -16,6 +16,7 @@
 		<metadata name="tag">evieve Filter</metadata>
 		<metadata name="tag">evieve Filter Linear</metadata>
 		<metadata name="tag">evieve Coefficients</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -162,6 +163,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile. <br />
+        For a complete list of available filter names or equivalent index number, @see: 'evieve/misc/data/evi.biquadcoeff.filters.txt' or look at the helpfile. For more information about biquads and other filter types in evieve see the 'evieve biquad' tab of the helpfile. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.biquadcoeff]</m>. <br />
 	</discussion>
 </c74object>

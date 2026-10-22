@@ -4,7 +4,7 @@
         "category": "evieve",
         "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects.",
         "description": "evi.formantosc~ allows for smoothly interpolating vowels and voices over a fundamental frequency. It gives the classic lofi physical model effect but with many attributes to modify the output, and to audio rate modulate it for an interesting source.",
-        "discussion": "For filter versions of this code see <o>evi.formantfilter~</o> and <o>evi.formantfilter.morph~</o>."
+        "discussion": "For filter versions of this code see <o>evi.formantfilter~</o> and <o>evi.formantfilter.morph~</o>. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.formantosc~]</m>."
     },
     "metadata": {
         "author": "Pete Dowling",
@@ -12,7 +12,8 @@
             "evieve Oscillator",
             "evieve Source",
             "evieve Modulation",
-            "evieve Effect"
+            "evieve Effect",
+            "evieve RNBO"
         ]
     },
     "inlets": [

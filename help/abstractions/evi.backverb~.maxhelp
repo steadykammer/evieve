@@ -36,12 +36,91 @@
                         },
                         "classnamespace": "box",
                         "rect": [ 55.0, 126.0, 802.0, 669.0 ],
-                        "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-36",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 756.0, 461.0, 27.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-35",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 778.0, 356.0, 20.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-34",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 778.0, 331.0, 20.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-33",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 778.0, 306.0, 20.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-32",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 487.0, 381.0, 27.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-31",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 487.0, 356.0, 27.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-29",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 487.0, 331.0, 27.0, 21.0 ],
+                                    "text": "*)"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-24",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 542.0, 558.0, 150.0, 21.0 ],
+                                    "text": "*) not in preset"
+                                }
+                            },
                             {
                                 "box": {
                                     "attr": "evi_reverb/modulationduty",
@@ -52,7 +131,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 380.0, 245.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 380.0, 245.0, 23.0 ],
                                     "text_width": 188.0
                                 }
                             },
@@ -66,7 +145,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 230.0, 229.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 230.0, 229.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -80,7 +159,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 205.0, 229.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 205.0, 229.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -94,7 +173,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 180.0, 229.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 180.0, 229.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -108,7 +187,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 155.0, 229.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 155.0, 229.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -122,7 +201,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 550.0, 435.0, 214.0, 23.0 ],
+                                    "patching_rect": [ 542.0, 435.0, 214.0, 23.0 ],
                                     "text_width": 142.0
                                 }
                             },
@@ -136,7 +215,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 330.0, 245.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 330.0, 245.0, 23.0 ],
                                     "text_width": 188.0
                                 }
                             },
@@ -150,7 +229,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 19.0, 355.0, 214.0, 23.0 ],
+                                    "patching_rect": [ 11.0, 355.0, 214.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -164,7 +243,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 19.0, 330.0, 214.0, 23.0 ],
+                                    "patching_rect": [ 11.0, 330.0, 214.0, 23.0 ],
                                     "text_width": 157.0
                                 }
                             },
@@ -178,7 +257,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 355.0, 245.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 355.0, 245.0, 23.0 ],
                                     "text_width": 188.0
                                 }
                             },
@@ -192,7 +271,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 280.0, 245.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 280.0, 245.0, 23.0 ],
                                     "text_width": 188.0
                                 }
                             },
@@ -206,7 +285,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 305.0, 245.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 305.0, 245.0, 23.0 ],
                                     "text_width": 188.0
                                 }
                             },
@@ -220,7 +299,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 550.0, 460.0, 214.0, 23.0 ],
+                                    "patching_rect": [ 542.0, 460.0, 214.0, 23.0 ],
                                     "text_width": 142.0
                                 }
                             },
@@ -234,7 +313,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 355.0, 251.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 355.0, 251.0, 23.0 ],
                                     "text_width": 195.0
                                 }
                             },
@@ -248,7 +327,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 330.0, 251.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 330.0, 251.0, 23.0 ],
                                     "text_width": 195.0
                                 }
                             },
@@ -262,7 +341,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 305.0, 251.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 305.0, 251.0, 23.0 ],
                                     "text_width": 195.0
                                 }
                             },
@@ -277,7 +356,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 535.0, 280.0, 229.0, 23.0 ],
+                                    "patching_rect": [ 527.0, 280.0, 229.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "textcolor": {
                                             "expression": "themecolor.theme_syntax_objectcolor"
@@ -299,7 +378,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 250.0, 481.0, 123.0, 38.0 ],
+                                    "patching_rect": [ 242.0, 481.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -6.0 ],
@@ -330,7 +409,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 228.0, 163.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 220.0, 163.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -354,7 +433,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 228.0, 559.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 220.0, 559.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -372,7 +451,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 306.0, 225.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 298.0, 225.0, 50.0, 23.0 ],
                                     "text": "*~ 0.55"
                                 }
                             },
@@ -383,7 +462,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 250.0, 225.0, 50.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 225.0, 50.0, 23.0 ],
                                     "text": "*~ 0.55"
                                 }
                             },
@@ -421,7 +500,7 @@
                                     "numoutlets": 5,
                                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 250.0, 138.0, 242.0, 70.0 ],
+                                    "patching_rect": [ 242.0, 138.0, 242.0, 70.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -559,13 +638,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "polyphony": -1.0,
                                                         "notecontroller": 0,
-                                                        "exposevoiceparams": 0,
                                                         "args": [],
-                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0,
                                                         "uidstyle": "auto",
-                                                        "voicecontrol": "simple"
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1426,8 +1505,43 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 250.0, 435.0, 284.0, 23.0 ],
+                                    "patching_rect": [ 242.0, 435.0, 284.0, 23.0 ],
                                     "rnboattrcache": {
+                                        "evi_reverb/modulationskew": {
+                                            "label": "modulationskew",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/feedbackdamphigh": {
+                                            "label": "feedbackdamphigh",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/modulationduty": {
+                                            "label": "modulationduty",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/drymix": {
+                                            "label": "drymix",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/feedback": {
+                                            "label": "feedback",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/feedbackdamplow": {
+                                            "label": "feedbackdamplow",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/modulationdepth": {
+                                            "label": "modulationdepth",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/modulationrate": {
                                             "label": "modulationrate",
                                             "isEnum": 0,
@@ -1438,8 +1552,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/feedback": {
-                                            "label": "feedback",
+                                        "evi_reverb/feedbackhzhigh": {
+                                            "label": "feedbackhzhigh",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1455,41 +1569,6 @@
                                         },
                                         "evi_reverb/feedbackhzlow": {
                                             "label": "feedbackhzlow",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/modulationskew": {
-                                            "label": "modulationskew",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/feedbackhzhigh": {
-                                            "label": "feedbackhzhigh",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/modulationduty": {
-                                            "label": "modulationduty",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/drymix": {
-                                            "label": "drymix",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/feedbackdamplow": {
-                                            "label": "feedbackdamplow",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/modulationdepth": {
-                                            "label": "modulationdepth",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/feedbackdamphigh": {
-                                            "label": "feedbackdamphigh",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1518,9 +1597,9 @@
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
-                                            "parameter_longname": "evieveObjectGen",
+                                            "parameter_longname": "evieveObjectRnbo",
                                             "parameter_modmode": 0,
-                                            "parameter_shortname": "evieveObjectGen",
+                                            "parameter_shortname": "evieveObjectRnbo",
                                             "parameter_type": 3
                                         }
                                     },
@@ -1545,38 +1624,11 @@
                                                         "coefficients": {                                                        },
                                                         "bypasslogic": {                                                        }
                                                     },
-                                                    "drymix": {
-                                                        "value": 1.0
-                                                    },
-                                                    "bypass": {
-                                                        "value": 0.0
-                                                    },
                                                     "modulationdepth": {
-                                                        "value": 16.0
-                                                    },
-                                                    "modulationrate": {
-                                                        "value": 0.125
-                                                    },
-                                                    "modulationshape": {
-                                                        "value": 1.0
-                                                    },
-                                                    "modulationskew": {
-                                                        "value": 0.5
+                                                        "value": 4.0
                                                     },
                                                     "feedback": {
-                                                        "value": 4.260000000000001
-                                                    },
-                                                    "outputnonlinear": {
-                                                        "value": 1.0
-                                                    },
-                                                    "feedbacknonlinear": {
-                                                        "value": 1.0
-                                                    },
-                                                    "modulationduty": {
-                                                        "value": 1.0
-                                                    },
-                                                    "feedbackdamphigh": {
-                                                        "value": 0.8666
+                                                        "value": 2.4
                                                     },
                                                     "feedbackdamplow": {
                                                         "value": 0.707107
@@ -1584,14 +1636,20 @@
                                                     "feedbackhzhigh": {
                                                         "value": 2000.0
                                                     },
+                                                    "drymix": {
+                                                        "value": 0.707107
+                                                    },
                                                     "feedbackhzlow": {
                                                         "value": 250.0
                                                     },
-                                                    "outputnonlineargains": {
-                                                        "value": 0.0
+                                                    "feedbackdamphigh": {
+                                                        "value": 0.8666
                                                     },
                                                     "inputhzlow": {
                                                         "value": 125.0
+                                                    },
+                                                    "modulationrate": {
+                                                        "value": 1.0
                                                     },
                                                     "inputhzhigh": {
                                                         "value": 4000.0
@@ -1619,38 +1677,11 @@
                                                                     "coefficients": {                                                                    },
                                                                     "bypasslogic": {                                                                    }
                                                                 },
-                                                                "drymix": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "bypass": {
-                                                                    "value": 0.0
-                                                                },
                                                                 "modulationdepth": {
-                                                                    "value": 16.0
-                                                                },
-                                                                "modulationrate": {
-                                                                    "value": 0.125
-                                                                },
-                                                                "modulationshape": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "modulationskew": {
-                                                                    "value": 0.5
+                                                                    "value": 4.0
                                                                 },
                                                                 "feedback": {
-                                                                    "value": 4.260000000000001
-                                                                },
-                                                                "outputnonlinear": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "feedbacknonlinear": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "modulationduty": {
-                                                                    "value": 1.0
-                                                                },
-                                                                "feedbackdamphigh": {
-                                                                    "value": 0.8666
+                                                                    "value": 2.4
                                                                 },
                                                                 "feedbackdamplow": {
                                                                     "value": 0.707107
@@ -1658,14 +1689,20 @@
                                                                 "feedbackhzhigh": {
                                                                     "value": 2000.0
                                                                 },
+                                                                "drymix": {
+                                                                    "value": 0.707107
+                                                                },
                                                                 "feedbackhzlow": {
                                                                     "value": 250.0
                                                                 },
-                                                                "outputnonlineargains": {
-                                                                    "value": 0.0
+                                                                "feedbackdamphigh": {
+                                                                    "value": 0.8666
                                                                 },
                                                                 "inputhzlow": {
                                                                     "value": 125.0
+                                                                },
+                                                                "modulationrate": {
+                                                                    "value": 1.0
                                                                 },
                                                                 "inputhzhigh": {
                                                                     "value": 4000.0
@@ -1686,7 +1723,7 @@
                                         }
                                     },
                                     "text": "rnbo~ @title using_evi.backverb~_inside_rnbo~",
-                                    "varname": "evieveObjectGen"
+                                    "varname": "evieveObjectRnbo"
                                 }
                             },
                             {
@@ -1701,7 +1738,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 124.0, 427.0, 124.0, 40.0 ],
+                                    "patching_rect": [ 116.0, 427.0, 124.0, 40.0 ],
                                     "text": "Double-Click to see the example",
                                     "textjustification": 1,
                                     "varname": "comment_gen"
@@ -1714,7 +1751,7 @@
                                     "maxclass": "ezdac~",
                                     "numinlets": 2,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 250.0, 546.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 242.0, 546.0, 45.0, 45.0 ],
                                     "varname": "mcs_dac"
                                 }
                             },
@@ -1728,7 +1765,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 297.0, 556.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 289.0, 556.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1853,7 +1890,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-26", 1 ],
-                                    "midpoints": [ 392.0, 469.5, 363.5, 469.5 ],
+                                    "midpoints": [ 384.0, 469.5, 355.5, 469.5 ],
                                     "source": [ "obj-5", 1 ]
                                 }
                             },
@@ -1872,7 +1909,7 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-5", 1 ],
-                                    "midpoints": [ 315.5, 262.015625, 524.5, 262.015625 ],
+                                    "midpoints": [ 307.5, 262.015625, 516.5, 262.015625 ],
                                     "source": [ "obj-51", 0 ]
                                 }
                             },
@@ -7054,7 +7091,7 @@
         "parameters": {
             "obj-10::obj-13": [ "live.gain~[2]", "live.gain~", 0 ],
             "obj-12::obj-26": [ "live.gain~[4]", "live.gain~", 0 ],
-            "obj-12::obj-5": [ "evieveObjectGen", "evieveObjectGen", 0 ],
+            "obj-12::obj-5": [ "evieveObjectRnbo", "evieveObjectRnbo", 0 ],
             "obj-2::obj-13": [ "live.gain~[6]", "live.gain~", 0 ],
             "obj-2::obj-5::obj-54::obj-12": [ "inputLow", "inputLow", 0 ],
             "obj-2::obj-5::obj-54::obj-15": [ "inputHigh", "inputHigh", 0 ],

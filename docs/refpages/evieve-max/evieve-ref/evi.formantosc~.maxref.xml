@@ -17,6 +17,7 @@
 		<metadata name="tag">evieve Source</metadata>
 		<metadata name="tag">evieve Modulation</metadata>
 		<metadata name="tag">evieve Effect</metadata>
+		<metadata name="tag">evieve RNBO</metadata>
 	</metadatalist>
 	<!--INLETS-->
 	<inletlist>
@@ -256,6 +257,6 @@
 	</seealsolist>
     <!--DISCUSSION-->
 	<discussion>
-        For filter versions of this code see <o>evi.formantfilter~</o> and <o>evi.formantfilter.morph~</o>. <br />
+        For filter versions of this code see <o>evi.formantfilter~</o> and <o>evi.formantfilter.morph~</o>. The abstraction is also available inside <o>rnbo~</o> instantiated as <m>[p @file evi.formantosc~]</m>. <br />
 	</discussion>
 </c74object>
