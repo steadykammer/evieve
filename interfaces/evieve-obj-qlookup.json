@@ -16,7 +16,7 @@
     "evi.algoverb~": {
         "digest": "True stereo algorithmic reverb \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -51,7 +51,7 @@
     "evi.backverb~": {
         "digest": "Ursa Major reverb unit with saturating feedback \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -72,7 +72,7 @@
     "evi.biquadcoeff": {
         "digest": "Message rate biquad coefficients calculator with selection of 40 different filter types \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Coefficients" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Coefficients", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.biquadcoeff~", "evi.biquad.filter~", "evi.biquad.eqfilter~", "evi.biquad.butterworth~", "evi.biquad.analog~", "evi.biquad~", "evi.weightingcoeffs", "evi.filter~" ]
     },
@@ -380,21 +380,21 @@
     "evi.formantfilter.morph~": {
         "digest": "A formant filter with smoothly morphing singing voice type, sung vowel sounds and filter types. \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.formantfilter~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantfilter~": {
         "digest": "A classic formant filter which can smoothly morph singing voice type and sung vowel sounds for voxy filtering effects on your audio streams \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve Filter TPT", "evieve Modulation", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.formantfilter.morph~", "evi.formletfilter~", "evi.formantosc~" ]
     },
     "evi.formantosc~": {
         "digest": "A classic formant oscillator which can smoothly morph singing voice type and sung vowel sounds for voxy effects. \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Oscillator", "evieve Source", "evieve Modulation", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Oscillator", "evieve Source", "evieve Modulation", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.paf~", "evi.vosim.basic~", "evi.formantfilter~", "evi.formantfilter.morph~" ]
     },
@@ -408,7 +408,7 @@
     "evi.freezeverb~": {
         "digest": "Classic freeverb reverb algorithm with buttery smooth freezing effect \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -436,7 +436,7 @@
     "evi.gigaverb~": {
         "digest": "Classic gigaverb reverb algorithm, mono in / stereo out, fdn / allpass \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -450,7 +450,7 @@
     "evi.hilbert~": {
         "digest": "Hilbert quadrature (phase shift) filter \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Utility", "evieve Modulation" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Filter", "evieve Filter Linear", "evieve MSP Substitution", "evieve Utility", "evieve Modulation", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.polyphaseiirhilbertcoeffs", "evi.freqshift.hilbert~", "evi.phaseshift~", "evi.cross~" ]
     },
@@ -583,7 +583,7 @@
     "evi.mattaverb~": {
         "digest": "True stereo one knob allpass diffuse reverb \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.plateverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -702,7 +702,7 @@
     "evi.plateverb~": {
         "digest": "Plate reverb based on yafr2 with additional filtering and smoothing \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.sustainverb~", "evi.zitaverb~" ]
     },
@@ -863,7 +863,7 @@
     "evi.sustainverb~": {
         "digest": "16x16 FDN reverb with smooth sustaining effect \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.zitaverb~" ]
     },
@@ -1038,7 +1038,7 @@
     "evi.zitaverb~": {
         "digest": "True stereo FDN/algorithmic reverb based on 'zitaverb' by Fons Adriaensen \n",
         "module": "evieve-ref",
-        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect" ],
+        "category": [ "evieve", "evieve Abstractions", "evieve Reverb", "evieve Effect", "evieve RNBO" ],
         "keywords": [],
         "seealso": [ "evi.algoverb~", "evi.backverb~", "evi.freezeverb~", "evi.gigaverb~", "evi.mattaverb~", "evi.plateverb~", "evi.sustainverb~" ]
     },

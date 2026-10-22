@@ -1,6 +1,6 @@
 {
     "object": {
-        "name": "evi_sinesync",
+        "name": "evi_sinesync_simple",
         "child": "",
         "category": "evieve",
         "digest": "A dubious simplified sine sync",
