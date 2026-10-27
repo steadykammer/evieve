@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -30,7 +30,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -43,6 +43,129 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "frozen_box_attributes": [ "patching_rect" ],
+                                    "hidden": 1,
+                                    "id": "obj-51",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 59.0, 112.0, 583.0, 249.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-29",
+                                                    "ignoreclick": 1,
+                                                    "linecount": 2,
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 100.0, 377.0, 35.0 ],
+                                                    "text": ";\rmax packagebrowser \"HISSTools Impulse Response Toolbox (HIRT)\""
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-50",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-2",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 50.0, 162.0, 401.0, 20.0 ],
+                                                    "text": "because pete cannot make [markup] do package names with spaces"
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-29", 0 ],
+                                                    "source": [ "obj-50", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 513.0, 134.0, 19.0, 23.0 ],
+                                    "text": "p"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "border": 0,
+                                    "fontface": 0,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "frozen_box_attributes": [ "patching_rect" ],
+                                    "hint": "",
+                                    "id": "obj-49",
+                                    "linkbold": 1,
+                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                    "maxclass": "markup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 513.0, 105.0, 185.0, 27.0 ],
+                                    "preservehref": 1,
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "text": "from the <link href=\"; max openhelp hirt\">HISSTools</link> package.",
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "border": 0,
+                                    "evaluatehref": 1,
+                                    "fontface": 0,
+                                    "fontname": "Lato",
+                                    "fontsize": 13.0,
+                                    "frozen_box_attributes": [ "patching_rect" ],
+                                    "hint": "",
+                                    "id": "obj-74",
+                                    "linkbold": 1,
+                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                    "maxclass": "markup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 14.0, 73.0, 667.0, 50.0 ],
+                                    "preservehref": 1,
+                                    "saved_attribute_attributes": {
+                                        "textcolor": {
+                                            "expression": "themecolor.theme_textcolor"
+                                        }
+                                    },
+                                    "text": "It is common to downsample for the sake of analysis. Here we match octave band center frequencies to A-weighting dB values over an A-weighted spectral display. Sadly we cannot get the <link href=\"; max openhelp spectroscope~\">spectroscope~</link> object to display the same as the <link href=\"; max openhelp multislider\">multislider</link> object. You will have better results if you use the <link href=\"; max openhelp spectrumdraw~\">spectrumdraw~</link> object",
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-7",
@@ -526,21 +649,6 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "fontname": "Lato",
-                                    "fontsize": 13.0,
-                                    "id": "obj-22",
-                                    "linecount": 3,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 671.0, 53.0 ],
-                                    "text": "It is common to downsample for the sake of analysis. Here we match octave band center frequencies to A-weighting dB values over an A-weighted spectral display. Sadly we cannot get the [spectroscope~] object to display the same as the multisliders. You will have better results if you use the HISSTools [spectrumdraw~] object.",
-                                    "varname": "digest_comment"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "background": 1,
                                     "border": 0,
                                     "embed": 0,
                                     "filename": "evi.helpname.js",
@@ -670,6 +778,13 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-51", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-49", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "midpoints": [ 70.5, 305.0, 189.5, 305.0 ],
                                     "order": 0,
@@ -712,7 +827,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -923,7 +1038,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 140.0, 416.0, 221.0, 67.0 ],
-                                    "text": "0.234302 0.468604 0.234302 -1.89387 0.89516 1. -2. 1.000157 -0.224558 0.012607 1. -1.999843 0.999843 -1.994614 0.994622"
+                                    "text": "0.255741 -0.511482 0.255741 -1.884901 0.886421 1. 2. 1. -0.140536 0.004938 1. -2. 1. -1.994139 0.994147"
                                 }
                             },
                             {
@@ -1108,7 +1223,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1166,7 +1281,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1303,7 +1418,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 140.0, 416.0, 221.0, 67.0 ],
-                                    "text": "0.234302 0.468604 0.234302 -1.89387 0.89516 1. -2. 1.000157 -0.224558 0.012607 1. -1.999843 0.999843 -1.994614 0.994622"
+                                    "text": "0.255741 -0.511482 0.255741 -1.884901 0.886421 1. 2. 1. -0.140536 0.004938 1. -2. 1. -1.994139 0.994147"
                                 }
                             },
                             {

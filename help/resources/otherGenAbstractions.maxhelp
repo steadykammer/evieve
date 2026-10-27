@@ -12,9 +12,15 @@
         "rect": [ 34.0, 93.0, 526.0, 136.0 ],
         "bglocked": 1,
         "gridonopen": 2,
+        "lefttoolbarpinned": 2,
+        "toptoolbarpinned": 2,
+        "righttoolbarpinned": 2,
+        "bottomtoolbarpinned": 2,
+        "toolbars_unpinned_last_save": 15,
         "tallnewobj": 1,
         "subpatcher_template": "<none>",
         "helpsidebarclosed": 1,
+        "cluebar": 2,
         "title": "evieve: Additional Gen Abstractions",
         "boxes": [
             {
@@ -34,7 +40,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 34.0, 326.0, 885.0, 496.0 ],
+                        "rect": [ 34.0, 292.0, 885.0, 496.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -455,7 +461,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 94.0, 68.0, 431.0, 20.0 ],
+                                    "patching_rect": [ 94.0, 83.0, 431.0, 20.0 ],
                                     "text": "Right-click for reference pages."
                                 }
                             },
@@ -508,7 +514,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 675.0, 14.0, 133.0, 93.0 ],
-                                    "text": "Don't use biquads, they are bad, use the evieve TPT [evi_filter_...] objects instead",
+                                    "text": "Try to avoid using biquads, use the evieve TPT [evi_filter_...] objects instead",
                                     "textjustification": 1
                                 }
                             }

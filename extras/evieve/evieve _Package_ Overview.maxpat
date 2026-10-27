@@ -389,8 +389,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 2 Reset (Param has changed)",
                                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
-                                                                        "numinlets": 1,
                                                                         "numoutlets": 0,
+                                                                        "numinlets": 1,
                                                                         "id": "obj-7"
                                                                     }
                                                                 },
@@ -399,10 +399,10 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-5",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-5"
                                                                     }
                                                                 },
                                                                 {
@@ -410,22 +410,22 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal) Input Signal",
                                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-1",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-1"
                                                                     }
                                                                 },
                                                                 {
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                                        "fontname": "<Monospaced>",
-                                                                        "numinlets": 2,
-                                                                        "fontface": 0,
                                                                         "numoutlets": 2,
-                                                                        "id": "obj-3",
                                                                         "outlettype": [ "", "" ],
+                                                                        "fontname": "<Monospaced>",
+                                                                        "fontface": 0,
+                                                                        "numinlets": 2,
+                                                                        "id": "obj-3",
                                                                         "fontsize": 12.0,
                                                                         "code": "\r\n// this is an antialiased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no antialiasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are antialiased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);           // must smooth in2 externally\r\nataninput = in1 * ingain;// + bias;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain;// * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                                     }
@@ -435,8 +435,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 (signal) Atan(x) Output - antialiased for your audio not for Maths",
                                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
-                                                                        "numinlets": 1,
                                                                         "numoutlets": 0,
+                                                                        "numinlets": 1,
                                                                         "id": "obj-4"
                                                                     }
                                                                 }
@@ -620,8 +620,8 @@
                                                     "patching_rect": [ 359.0, 68.0, 28.0, 23.0 ],
                                                     "rnbo_classname": "in",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in_obj-8",
@@ -701,8 +701,8 @@
                                                     "patching_rect": [ 245.0, 68.0, 28.0, 23.0 ],
                                                     "rnbo_classname": "in",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in_obj-7",
@@ -782,8 +782,8 @@
                                                     "patching_rect": [ 142.0, 68.0, 28.0, 23.0 ],
                                                     "rnbo_classname": "in",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 3,
                                                     "rnbo_uniqueid": "in_obj-6",
@@ -863,8 +863,8 @@
                                                     "patching_rect": [ 46.0, 68.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-5",
@@ -956,8 +956,8 @@
                                                     "patching_rect": [ 69.0, 397.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-4",
@@ -1076,10 +1076,10 @@
                                                                         "text": "in 4 (signal/float) Q @default 0.707107",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-6",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-6"
                                                                     }
                                                                 },
                                                                 {
@@ -1088,10 +1088,10 @@
                                                                         "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-5",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-5"
                                                                     }
                                                                 },
                                                                 {
@@ -1099,10 +1099,10 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal) Input",
                                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-1",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-1"
                                                                     }
                                                                 },
                                                                 {
@@ -1111,10 +1111,10 @@
                                                                         "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
-                                                                        "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-2",
-                                                                        "outlettype": [ "" ]
+                                                                        "outlettype": [ "" ],
+                                                                        "numinlets": 0,
+                                                                        "id": "obj-2"
                                                                     }
                                                                 },
                                                                 {
@@ -1122,8 +1122,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 (signal) Filter Output",
                                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
-                                                                        "numinlets": 1,
                                                                         "numoutlets": 0,
+                                                                        "numinlets": 1,
                                                                         "id": "obj-4"
                                                                     }
                                                                 },
@@ -1131,12 +1131,12 @@
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                                        "fontname": "<Monospaced>",
-                                                                        "numinlets": 4,
-                                                                        "fontface": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-3",
                                                                         "outlettype": [ "" ],
+                                                                        "fontname": "<Monospaced>",
+                                                                        "fontface": 0,
+                                                                        "numinlets": 4,
+                                                                        "id": "obj-3",
                                                                         "fontsize": 12.0,
                                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                                     }
@@ -1147,9 +1147,9 @@
                                                                         "text": "^^ note, Q is clamped in core code for this generalised filter",
                                                                         "linecount": 5,
                                                                         "patching_rect": [ 658.0, 58.0, 93.0, 74.0 ],
-                                                                        "numinlets": 1,
-                                                                        "hidden": 1,
                                                                         "numoutlets": 0,
+                                                                        "hidden": 1,
+                                                                        "numinlets": 1,
                                                                         "id": "obj-8"
                                                                     }
                                                                 }
@@ -3344,7 +3344,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 191.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 224, 1052, 448, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -4824,7 +4824,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1052, 426, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                     "text": "thispatcher"
                                                 }
                                             },
