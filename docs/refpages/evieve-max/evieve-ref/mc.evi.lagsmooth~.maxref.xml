@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+<c74object name="mc.evi.lagsmooth~" module="evieve-ref" category="evieve">
+  <digest>Smooth signal ramp generator with logarithmic curve</digest>
+  <description>Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB.</description>
+  <metadatalist>
+    <metadata name="author">Pete Dowling</metadata>
+    <metadata name="tag">evieve</metadata>
+    <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Smooth</metadata>
+  </metadatalist>
+  <inletlist>
+    <inlet id="0" type="signal/float">
+      <digest>Destination Value</digest>
+      <description>Can take signal or float or int values to pass through the smoother.</description>
+    </inlet>
+    <inlet id="1" type="signal/float">
+      <digest>Ramp Time in milliseconds</digest>
+      <description>Amount of time the value takes to reach it's destination. evi.lagsmooth~ is logarithmic and does not reach it's destination exactly.</description>
+    </inlet>
+  </inletlist>
+  <outletlist>
+    <outlet id="0" type="signal">
+      <digest>Output Ramp</digest>
+      <description>Smoothed output ramp, or target value if ramp is complete.</description>
+    </outlet>
+  </outletlist>
+  <objarglist>
+    <objarg id="0" name="initial" type="float/int" optional="1">
+      <digest>Initial value</digest>
+      <description>Set the initial value of the output</description>
+    </objarg>
+    <objarg id="1" name="ms" type="float/int" optional="1">
+      <digest>Ramp time</digest>
+      <description>Initial ramp time in ms</description>
+    </objarg>
+  </objarglist>
+  <methodlist>
+    <method name="int">
+      <arglist>
+        <arg name="int" type="int" optional="1"></arg>
+      </arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
+    </method>
+    <method name="float">
+      <arglist>
+        <arg name="float" type="float" optional="1"></arg>
+      </arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
+    </method>
+    <method name="clear">
+      <arglist></arglist>
+      <digest>Clears the internal filter state</digest>
+      <description>This clears the state of the filter. This should never be needed :-)</description>
+    </method>
+    <method name="signal">
+      <arglist></arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the destination value.
+				In the right inlet, smoothing time in ms.</description>
+    </method>
+  </methodlist>
+  <attributelist>
+    <attribute name="time" get="1" set="1" type="float" size="1" alias="ms, smooth">
+      <digest>Smoothing Time in ms</digest>
+      <description>The ramp time in ms. Because evi.lagsmooth~ is an inexact smoother, the destination cannot be guaranteed to reach it's value exactly in the allotted time.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Smoothing Time in ms"></attribute>
+      </attributelist>
+    </attribute>
+  </attributelist>
+  <examplelist>
+    <example caption="" img=""></example>
+  </examplelist>
+  <seealsolist>
+    <seealso name="evi.lagsmooth~"></seealso>
+    <seealso name="mc.evi.logsmooth~"></seealso>
+    <seealso name="mc.evi.expsmooth~"></seealso>
+    <seealso name="mc.evi.cfsmooth~"></seealso>
+    <seealso name="evi.cfsmooth~"></seealso>
+    <seealso name="evi.expsmooth~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
+    <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
+  </seealsolist>
+  <misc name="Discussion">
+    <entry name="Keywords">
+      <description>smooth, ramp</description>
+    </entry>
+  </misc>
+  <mcwrapper>
+    <mcwrappermethod name="applymessages"></mcwrappermethod>
+    <mcwrappermethod name="applynvalues"></mcwrappermethod>
+    <mcwrappermethod name="applyvalues"></mcwrappermethod>
+    <mcwrappermethod name="decide"></mcwrappermethod>
+    <mcwrappermethod name="deviate"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.linear"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_sine"></mcwrappermethod>
+    <mcwrappermethod name="exponential"></mcwrappermethod>
+    <mcwrappermethod name="generate"></mcwrappermethod>
+    <mcwrappermethod name="harmonic"></mcwrappermethod>
+    <mcwrappermethod name="increment"></mcwrappermethod>
+    <mcwrappermethod name="randomrange"></mcwrappermethod>
+    <mcwrappermethod name="replicatenvalues"></mcwrappermethod>
+    <mcwrappermethod name="replicatevalues"></mcwrappermethod>
+    <mcwrappermethod name="scaledexponential"></mcwrappermethod>
+    <mcwrappermethod name="setvalue"></mcwrappermethod>
+    <mcwrappermethod name="setvaluerange"></mcwrappermethod>
+    <mcwrappermethod name="smoothstep"></mcwrappermethod>
+    <mcwrappermethod name="spread"></mcwrappermethod>
+    <mcwrappermethod name="spreadexclusive"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludefirst"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludesecond"></mcwrappermethod>
+    <mcwrappermethod name="spreadinclusive"></mcwrappermethod>
+    <mcwrappermethod name="subharmonic"></mcwrappermethod>
+    <mcwrapperattr name="busymapname"></mcwrapperattr>
+    <mcwrapperattr name="bz"></mcwrapperattr>
+    <mcwrapperattr name="bzname"></mcwrapperattr>
+    <mcwrapperattr name="chans"></mcwrapperattr>
+    <mcwrapperattr name="fun"></mcwrapperattr>
+    <mcwrapperattr name="initialvalues"></mcwrapperattr>
+    <mcwrapperattr name="op"></mcwrapperattr>
+    <mcwrapperattr name="replicate"></mcwrapperattr>
+    <mcwrapperattr name="target"></mcwrapperattr>
+    <mcwrapperattr name="usebusymap"></mcwrapperattr>
+    <mcwrapperattr name="values"></mcwrapperattr>
+    <mcwrapperattr name="voiceprob"></mcwrapperattr>
+    <mcwrapperattr name="zero"></mcwrapperattr>
+  </mcwrapper>
+</c74object>

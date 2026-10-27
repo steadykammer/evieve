@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+<c74object name="mc.evi.quadosc~" module="evieve-ref" category="evieve">
+  <digest>Phase locked quadrature oscillator</digest>
+  <description>A quadrature oscillator which outputs phase synchronous cosine and sine waves.</description>
+  <metadatalist>
+    <metadata name="author">Pete Dowling</metadata>
+    <metadata name="tag">evieve</metadata>
+    <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Oscillator</metadata>
+    <metadata name="tag">evieve Modulation</metadata>
+    <metadata name="tag">evieve Source</metadata>
+  </metadatalist>
+  <inletlist>
+    <inlet id="0" type="signal/float">
+      <digest>Oscillator Frequency in Hz</digest>
+      <description>The frequency of the oscillators in Hz</description>
+    </inlet>
+    <inlet id="1" type="signal">
+      <digest>Sample Accurate Reset</digest>
+      <description>Reset the phase of the oscillators. This is a naive reset and will click.</description>
+    </inlet>
+  </inletlist>
+  <outletlist>
+    <outlet id="0" type="signal">
+      <digest>Cosine Output</digest>
+      <description>Cosine Output</description>
+    </outlet>
+    <outlet id="1" type="signal">
+      <digest>Sine Output</digest>
+      <description>Sine Output</description>
+    </outlet>
+    <outlet id="2" type="signal">
+      <digest>Cosine Sync Output</digest>
+      <description>If 'syncout' == 1, a sync signal corresponding the the cosine phase is output here on every cycle</description>
+    </outlet>
+    <outlet id="3" type="signal">
+      <digest>Sine Sync Output</digest>
+      <description>If 'syncout' == 1, a sync signal corresponding the the sine phase is output here on every cycle</description>
+    </outlet>
+  </outletlist>
+  <objarglist>
+    <objarg id="0" name="frequency" type="float" optional="1">
+      <digest>Initial frequency</digest>
+      <description>The initial frequency of the oscillators in Hz</description>
+    </objarg>
+    <objarg id="1" name="syncout" type="int" optional="1">
+      <digest>Add Sync Outlets 0/1 (default 0)</digest>
+      <description>Syncout can only be a typed in argument and is not dynamic. Syncout creates two additional outlets to the object for sync signals.</description>
+    </objarg>
+  </objarglist>
+  <methodlist>
+    <method name="int">
+      <arglist>
+        <arg name="int" type="int" optional="0"></arg>
+      </arglist>
+      <digest>Left inlet</digest>
+      <description>The frequency of the oscillators in Hz</description>
+    </method>
+    <method name="float">
+      <arglist>
+        <arg name="float" type="float" optional="0"></arg>
+      </arglist>
+      <digest>Left inlet</digest>
+      <description>The frequency of the oscillators in Hz</description>
+    </method>
+    <method name="clear">
+      <arglist></arglist>
+      <digest>Clears the internal state (like a reset)</digest>
+      <description>Message rate version of the right reset inlet</description>
+    </method>
+    <method name="signal">
+      <arglist></arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In left inlet, the frequency of the oscillators in Hz.
+				In right inlet, sample accurate reset of the ocillators phase.</description>
+    </method>
+  </methodlist>
+  <attributelist>
+    <attribute name="frequency" get="1" set="1" type="float" size="1" alias="freq">
+      <digest>Oscillator Frequency in Hz</digest>
+      <description>The frequency of the oscillators in Hz</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Oscillator Frequency in Hz"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="syncout" get="0" set="1" type="int" size="1">
+      <digest>Syncout mode 0/1 (0 = no sync outlets, the default, 1 = add sync outlets)</digest>
+      <description>
+        <m>syncout</m>
+can only be a typed in attribute and is not dynamic. Syncout creates two additional outlets to the object for sync signals.      </description>
+      <attributelist>
+        <attribute name="basic" get="0" set="1" type="int" size="1" value="0"></attribute>
+        <attribute name="label" get="0" set="0" type="symbol" size="1" value="Sync Outputs Mode 0/1"></attribute>
+      </attributelist>
+    </attribute>
+  </attributelist>
+  <examplelist>
+    <example caption="" img=""></example>
+  </examplelist>
+  <seealsolist>
+    <seealso name="evi.quadosc~"></seealso>
+    <seealso name="mc.evi.phasor0~"></seealso>
+    <seealso name="mc.evi.blitwaves~"></seealso>
+    <seealso name="mc.evi.4wave~"></seealso>
+    <seealso name="evi.4wave~"></seealso>
+    <seealso name="evi.blitwaves~"></seealso>
+    <seealso name="evi.phasor0~"></seealso>
+    <seealso name="evi_cossin" display="evi_cossin.genexpr" type="refpage"></seealso>
+  </seealsolist>
+  <mcwrapper>
+    <mcwrappermethod name="applymessages"></mcwrappermethod>
+    <mcwrappermethod name="applynvalues"></mcwrappermethod>
+    <mcwrappermethod name="applyvalues"></mcwrappermethod>
+    <mcwrappermethod name="decide"></mcwrappermethod>
+    <mcwrappermethod name="deviate"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.linear"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_sine"></mcwrappermethod>
+    <mcwrappermethod name="exponential"></mcwrappermethod>
+    <mcwrappermethod name="generate"></mcwrappermethod>
+    <mcwrappermethod name="harmonic"></mcwrappermethod>
+    <mcwrappermethod name="increment"></mcwrappermethod>
+    <mcwrappermethod name="randomrange"></mcwrappermethod>
+    <mcwrappermethod name="replicatenvalues"></mcwrappermethod>
+    <mcwrappermethod name="replicatevalues"></mcwrappermethod>
+    <mcwrappermethod name="scaledexponential"></mcwrappermethod>
+    <mcwrappermethod name="setvalue"></mcwrappermethod>
+    <mcwrappermethod name="setvaluerange"></mcwrappermethod>
+    <mcwrappermethod name="smoothstep"></mcwrappermethod>
+    <mcwrappermethod name="spread"></mcwrappermethod>
+    <mcwrappermethod name="spreadexclusive"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludefirst"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludesecond"></mcwrappermethod>
+    <mcwrappermethod name="spreadinclusive"></mcwrappermethod>
+    <mcwrappermethod name="subharmonic"></mcwrappermethod>
+    <mcwrapperattr name="busymapname"></mcwrapperattr>
+    <mcwrapperattr name="bz"></mcwrapperattr>
+    <mcwrapperattr name="bzname"></mcwrapperattr>
+    <mcwrapperattr name="chans"></mcwrapperattr>
+    <mcwrapperattr name="fun"></mcwrapperattr>
+    <mcwrapperattr name="initialvalues"></mcwrapperattr>
+    <mcwrapperattr name="op"></mcwrapperattr>
+    <mcwrapperattr name="replicate"></mcwrapperattr>
+    <mcwrapperattr name="target"></mcwrapperattr>
+    <mcwrapperattr name="usebusymap"></mcwrapperattr>
+    <mcwrapperattr name="values"></mcwrapperattr>
+    <mcwrapperattr name="voiceprob"></mcwrapperattr>
+    <mcwrapperattr name="zero"></mcwrapperattr>
+  </mcwrapper>
+</c74object>

@@ -753,5 +753,49 @@
         "type": "abstraction",
         "digest": "Create message lists with mcwrapper features \n",
         "description": "Create message lists with mcwrapper features. A simple hack using mc.gen to accept mcwrapper commands and output max message rate lists with the resultant data. Also see mcwrapper-group."
+    },
+    "mc.evi.cfsmooth~": {
+        "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
+        "description": "Based on Andy Simper's smoother, evi.cfsmooth~ tracks the input value via the bandpass output of an SVF filter and logarithmically updates. Smoothing is specified in both ramp time (ms) and filter cutoff (Hz)."
+    },
+    "mc.evi.expsmooth~": {
+        "digest": "Exponential signal smoother",
+        "description": "A simple and efficient ramp generator with exponential curve and ramp time specified in milliseconds."
+    },
+    "mc.evi.lagsmooth~": {
+        "digest": "Smooth signal ramp generator with logarithmic curve",
+        "description": "Complex ramp generator with smooth logarithmic curve that reaches it's destination within a threshold of -80dB."
+    },
+    "mc.evi.logahr~": {
+        "digest": "Attack/hold/release envelope follower",
+        "description": "Logarithmic attack/hold/release envelope follower / smoother."
+    },
+    "mc.evi.logattackdecay~": {
+        "digest": "Attack/decay envelope follower",
+        "description": "Logarithmic attack/decay envelope follower / smoother."
+    },
+    "mc.evi.logdecay~": {
+        "digest": "Decay envelope follower",
+        "description": "Logarithmic decay envelope follower / smoother."
+    },
+    "mc.evi.logsmooth~": {
+        "digest": "Logarithmic signal smoother",
+        "description": "A simple and extremely efficient ramp generator with logarithmic curve and ramp time specified in milliseconds."
+    },
+    "mc.evi.pan~": {
+        "digest": "Pan audio signals",
+        "description": "Pan input(s) to output(s) using an efficient cosine algorithm very close to a 'sqrt'."
+    },
+    "mc.evi.quadosc~": {
+        "digest": "Phase locked quadrature oscillator",
+        "description": "A quadrature oscillator which outputs phase synchronous cosine and sine waves."
+    },
+    "mc.evi.vactrol~": {
+        "digest": "Vactrol response time domain filter envelope",
+        "description": "Analog modelled vactrol opto isolator envelope emulation."
+    },
+    "mc.evi.xfade~": {
+        "digest": "Crossfade audio signals",
+        "description": "Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups are available."
     }
 }

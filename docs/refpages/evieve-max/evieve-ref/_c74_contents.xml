@@ -150,5 +150,16 @@
 <refpage name='evi.zeroxoscnoise~.maxref.xml'/>
 <refpage name='evi.zitaverb~.maxref.xml'/>
 <refpage name='mc.evi.bands~.maxref.xml'/>
+<refpage name='mc.evi.cfsmooth~.maxref.xml'/>
+<refpage name='mc.evi.expsmooth~.maxref.xml'/>
+<refpage name='mc.evi.lagsmooth~.maxref.xml'/>
 <refpage name='mc.evi.listgen.maxref.xml'/>
+<refpage name='mc.evi.logahr~.maxref.xml'/>
+<refpage name='mc.evi.logattackdecay~.maxref.xml'/>
+<refpage name='mc.evi.logdecay~.maxref.xml'/>
+<refpage name='mc.evi.logsmooth~.maxref.xml'/>
+<refpage name='mc.evi.pan~.maxref.xml'/>
+<refpage name='mc.evi.quadosc~.maxref.xml'/>
+<refpage name='mc.evi.vactrol~.maxref.xml'/>
+<refpage name='mc.evi.xfade~.maxref.xml'/>
 </root>

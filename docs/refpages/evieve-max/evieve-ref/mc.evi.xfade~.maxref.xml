@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+<c74object name="mc.evi.xfade~" module="evieve-ref" category="evieve">
+  <digest>Crossfade audio signals</digest>
+  <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'. A choice of mono or stereo setups are available.</description>
+  <metadatalist>
+    <metadata name="author">Pete Dowling</metadata>
+    <metadata name="tag">evieve</metadata>
+    <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Utility</metadata>
+  </metadatalist>
+  <inletlist>
+    <inlet id="0" type="signal">
+      <digest>Input 1</digest>
+      <description>Audio input 1</description>
+    </inlet>
+    <inlet id="1" type="signal">
+      <digest>Input 2</digest>
+      <description>Audio input 2</description>
+    </inlet>
+    <inlet id="2" type="signal/float">
+      <digest>Xfade Amount 0..1</digest>
+      <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'</description>
+    </inlet>
+  </inletlist>
+  <outletlist>
+    <outlet id="0" type="signal">
+      <digest>Xfaded Output</digest>
+      <description>Mono or Left Xfaded Output (depending on 'mode')</description>
+    </outlet>
+    <outlet id="1" type="signal">
+      <digest>Right Xfaded Output</digest>
+      <description>If 'mode' == 1 or 2, Right Xfaded Output</description>
+    </outlet>
+  </outletlist>
+  <objarglist>
+    <objarg id="1" name="xfade" type="float" optional="1">
+      <digest>Initial Crossfade value 0..1.</digest>
+      <description>A value in the range 0..1 sets the initial crossfade amount between the inputs. 0.5 = center.</description>
+    </objarg>
+    <objarg id="2" name="mode" type="int" optional="1">
+      <digest>Mode 0 or 1 or 2</digest>
+      <description>Mode can only be a typed in argument and is not dynamic. Mode switches between mono, swap and stereo inputs/outputs for the object. If mode == 2 new inlets appear for the additional inputs. If mode == 1 or 2 new outlets appear for the additional outputs.</description>
+    </objarg>
+  </objarglist>
+  <methodlist>
+    <method name="float">
+      <arglist>
+        <arg name="xfade" type="float" optional="1"></arg>
+      </arglist>
+      <digest>Right inlet</digest>
+      <description>In any mode, the far right inlet always accepts a float in the range 0..1 representing the Crossfade amount</description>
+    </method>
+    <method name="signal">
+      <arglist></arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>If 'mode' == 0 (mono, the default):
+					In left inlet, audio input 1 to be crossfaded.
+					In middle inlet, audio input 2 to be crossfaded.
+					In far right inlet, the Crossfade value 0..1.
+				If 'mode' == 1 (swap):
+					In left inlet, audio input 1 to be swap faded.
+					In middle inlet, audio input 2 to be swap faded.
+					In far right inlet, the Crossfade value 0..1.
+				If 'mode' == 2 (stereo):
+					In left inlet, audio 1 left input to be crossfaded.
+					In middle left inlet, audio 1 right input to be crossfaded.
+					In middle right inlet, audio 2 left input to be crossfaded.
+					In right inlet, audio 2 right input to be crossfaded.
+					In far right inlet, the Crossfade value 0..1.</description>
+    </method>
+  </methodlist>
+  <attributelist>
+    <attribute name="xfade" get="1" set="1" type="float" size="1" alias="crossfade">
+      <digest>Crossfade Amount 0..1</digest>
+      <description>Crossfades between inputs using an efficient cosine algorithm very close to a 'sqrt'</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Crossfade Amount 0..1"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="mode" get="0" set="1" type="int" size="1">
+      <digest>Mode 0, 1, 2 (0 = mono, the default, 1 = swap, 2 = stereo)</digest>
+      <description>
+        <m>mode</m>
+can only be a typed in attribute and is not dynamic. Mode switches between mono, swap and stereo inputs/outputs for the object. If mode == 2 new inlets appear for the additional inputs. If mode == 1 or 2 new outlets appear for the additional outputs.      </description>
+      <attributelist>
+        <attribute name="basic" get="0" set="1" type="int" size="1" value="0"></attribute>
+        <attribute name="label" get="0" set="0" type="symbol" size="1" value="Mode of Operation 0/1/2"></attribute>
+      </attributelist>
+    </attribute>
+  </attributelist>
+  <examplelist>
+    <example caption="" img=""></example>
+  </examplelist>
+  <seealsolist>
+    <seealso name="evi.xfade~"></seealso>
+    <seealso name="mc.evi.pan~"></seealso>
+    <seealso name="evi.pan~"></seealso>
+    <seealso name="evi_utilities" display="evi_utilities.genexpr" type="refpage"></seealso>
+  </seealsolist>
+  <mcwrapper>
+    <mcwrappermethod name="applymessages"></mcwrappermethod>
+    <mcwrappermethod name="applynvalues"></mcwrappermethod>
+    <mcwrappermethod name="applyvalues"></mcwrappermethod>
+    <mcwrappermethod name="decide"></mcwrappermethod>
+    <mcwrappermethod name="deviate"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.linear"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_sine"></mcwrappermethod>
+    <mcwrappermethod name="exponential"></mcwrappermethod>
+    <mcwrappermethod name="generate"></mcwrappermethod>
+    <mcwrappermethod name="harmonic"></mcwrappermethod>
+    <mcwrappermethod name="increment"></mcwrappermethod>
+    <mcwrappermethod name="randomrange"></mcwrappermethod>
+    <mcwrappermethod name="replicatenvalues"></mcwrappermethod>
+    <mcwrappermethod name="replicatevalues"></mcwrappermethod>
+    <mcwrappermethod name="scaledexponential"></mcwrappermethod>
+    <mcwrappermethod name="setvalue"></mcwrappermethod>
+    <mcwrappermethod name="setvaluerange"></mcwrappermethod>
+    <mcwrappermethod name="smoothstep"></mcwrappermethod>
+    <mcwrappermethod name="spread"></mcwrappermethod>
+    <mcwrappermethod name="spreadexclusive"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludefirst"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludesecond"></mcwrappermethod>
+    <mcwrappermethod name="spreadinclusive"></mcwrappermethod>
+    <mcwrappermethod name="subharmonic"></mcwrappermethod>
+    <mcwrapperattr name="busymapname"></mcwrapperattr>
+    <mcwrapperattr name="bz"></mcwrapperattr>
+    <mcwrapperattr name="bzname"></mcwrapperattr>
+    <mcwrapperattr name="chans"></mcwrapperattr>
+    <mcwrapperattr name="fun"></mcwrapperattr>
+    <mcwrapperattr name="initialvalues"></mcwrapperattr>
+    <mcwrapperattr name="op"></mcwrapperattr>
+    <mcwrapperattr name="replicate"></mcwrapperattr>
+    <mcwrapperattr name="target"></mcwrapperattr>
+    <mcwrapperattr name="usebusymap"></mcwrapperattr>
+    <mcwrapperattr name="values"></mcwrapperattr>
+    <mcwrapperattr name="voiceprob"></mcwrapperattr>
+    <mcwrapperattr name="zero"></mcwrapperattr>
+  </mcwrapper>
+</c74object>

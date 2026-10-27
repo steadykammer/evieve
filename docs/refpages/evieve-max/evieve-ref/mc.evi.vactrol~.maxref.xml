@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+<c74object name="mc.evi.vactrol~" module="evieve-ref" category="evieve">
+  <digest>Vactrol response time domain filter envelope</digest>
+  <description>Analog modelled vactrol opto isolator envelope emulation.</description>
+  <metadatalist>
+    <metadata name="author">Pete Dowling</metadata>
+    <metadata name="tag">evieve</metadata>
+    <metadata name="tag">evieve Externals</metadata>
+    <metadata name="tag">evieve Smooth</metadata>
+    <metadata name="tag">evieve Dynamics</metadata>
+  </metadatalist>
+  <inletlist>
+    <inlet id="0" type="signal">
+      <digest>Trigger Input</digest>
+      <description>Audio to trigger the envelope, typically an impulse.</description>
+    </inlet>
+    <inlet id="1" type="signal/float/int">
+      <digest>Envelope Rise Time in Samples</digest>
+      <description>Envelope Rise Time in Samples. evi.vactrol~ does not reach it's value in this time exactly.</description>
+    </inlet>
+    <inlet id="2" type="signal/float/int">
+      <digest>Envelope Fall Time in Samples</digest>
+      <description>Envelope Fall Time in Samples. evi.vactrol~ does not reach it's value in this time exactly. Retriggering the envelope keeps the output above zero.</description>
+    </inlet>
+  </inletlist>
+  <outletlist>
+    <outlet id="0" type="signal">
+      <digest>Vactrol Envelope</digest>
+      <description>Vactrol Envelope</description>
+    </outlet>
+  </outletlist>
+  <objarglist>
+    <objarg id="0" name="rise" type="float" optional="1">
+      <digest>Initial Rise Time in samples</digest>
+      <description>Amount of time the envelope takes to rise. evi.vactrol~ does not rise in this time exactly. This value represents the initial charge of the opto isolator.</description>
+    </objarg>
+    <objarg id="1" name="fall" type="float" optional="1">
+      <digest>Initial Fall Time in samples</digest>
+      <description>Amount of time the envelope takes to fall. evi.vactrol~ does not fall in this time exactly. This value relates to the voltage-like release of the opto isolator. Repeated triggers at the left inlet will keep the envelope high.</description>
+    </objarg>
+    <objarg id="2" name="scalar" type="float" optional="1">
+      <digest>Initial Scalar Multiplier</digest>
+      <description>Envelope Output Multiplier. This can be useful depending on trigger input method, otherwise should be '1'.</description>
+    </objarg>
+    <objarg id="3" name="shape" type="float" optional="1">
+      <digest>Initial Shape, normalised 0..1</digest>
+      <description>Shape changes the curvature of the filter, which also affects the peak and trough of the envelope. Lower values flatten the envelope, higher values sharpen the envelope.</description>
+    </objarg>
+  </objarglist>
+  <methodlist>
+    <method name="int">
+      <arglist>
+        <arg name="int" type="int" optional="1"></arg>
+      </arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
+    </method>
+    <method name="float">
+      <arglist>
+        <arg name="float" type="float" optional="1"></arg>
+      </arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
+    </method>
+    <method name="clear">
+      <arglist></arglist>
+      <digest>Clears the internal filter state</digest>
+      <description>This clears the state of the filter. This should never be needed :-)</description>
+    </method>
+    <method name="signal">
+      <arglist></arglist>
+      <digest>Behaviour depends on inlet</digest>
+      <description>In the left inlet, the trigger value.
+				In the middle inlet, rise time in samples.
+				In the right inlet, fall time in samples.</description>
+    </method>
+  </methodlist>
+  <attributelist>
+    <attribute name="fall" get="1" set="1" type="float" size="1" alias="down">
+      <digest>Fall Time in Samples</digest>
+      <description>Amount of time the envelope takes to fall. evi.vactrol~ does not fall in this time exactly. This value relates to the voltage-like release of the opto isolator. Repeated triggers at the left inlet will keep the envelope high.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Fall Time in Samples"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="fix" get="1" set="1" type="int" size="1">
+      <digest>Fix mode of the object, 0/1</digest>
+      <description>Fix changes between two objects and is instantiation only. If @fix = 0 (the default) the object has three inlets and can be controlled by these and also @rise, @fall, @shape and @scalar. If @fix = 1, the object is instantiated with only 1 inlet and has fixed values for rise, fall and shape (@scalar can still be used). Fix == 1 is cheaper to compute but less versatile.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Mode of Operation"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="rise" get="1" set="1" type="float" size="1" alias="up">
+      <digest>Rise Time in Samples</digest>
+      <description>Amount of time the envelope takes to rise. evi.vactrol~ does not rise in this time exactly. This value represents the initial charge of the opto isolator.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Rise Time in Samples"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="scalar" get="1" set="1" type="float" size="1" alias="mult">
+      <digest>Envelope Output Multiplier</digest>
+      <description>Envelope Output Multiplier. This can be useful depending on use case, otherwise should be '1'.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Envelope Output Multiplier"></attribute>
+      </attributelist>
+    </attribute>
+    <attribute name="shape" get="1" set="1" type="float" size="1" alias="curve">
+      <digest>Curvature of Envelope</digest>
+      <description>Shape changes the curvature of the filter, which also affects the peak and trough of the envelope. Lower values flatten the envelope, higher values sharpen the envelope.</description>
+      <attributelist>
+        <attribute name="basic" get="1" set="1" type="int" size="1" value="1"></attribute>
+        <attribute name="label" get="1" set="1" type="symbol" size="1" value="Curvature of Envelope"></attribute>
+      </attributelist>
+    </attribute>
+  </attributelist>
+  <examplelist>
+    <example caption="" img=""></example>
+  </examplelist>
+  <seealsolist>
+    <seealso name="evi.vactrol~"></seealso>
+    <seealso name="mc.evi.logahr~"></seealso>
+    <seealso name="mc.evi.logattackdecay~"></seealso>
+    <seealso name="mc.evi.logdecay~"></seealso>
+    <seealso name="mc.evi.logsmooth~"></seealso>
+    <seealso name="mc.evi.lagsmooth~"></seealso>
+    <seealso name="mc.evi.expsmooth~"></seealso>
+    <seealso name="mc.evi.cfsmooth~"></seealso>
+    <seealso name="mc.evi.trigholdgate~"></seealso>
+    <seealso name="evi.trigholdgate~"></seealso>
+    <seealso name="evi.cfsmooth~"></seealso>
+    <seealso name="evi.expsmooth~"></seealso>
+    <seealso name="evi.lagsmooth~"></seealso>
+    <seealso name="evi.logsmooth~"></seealso>
+    <seealso name="evi.logdecay~"></seealso>
+    <seealso name="evi.logattackdecay~"></seealso>
+    <seealso name="evi.logahr~"></seealso>
+    <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
+    <seealso name="evi_env" display="evi_env.genexpr" type="refpage"></seealso>
+  </seealsolist>
+  <mcwrapper>
+    <mcwrappermethod name="applymessages"></mcwrappermethod>
+    <mcwrappermethod name="applynvalues"></mcwrappermethod>
+    <mcwrappermethod name="applyvalues"></mcwrappermethod>
+    <mcwrappermethod name="decide"></mcwrappermethod>
+    <mcwrappermethod name="deviate"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_out_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.in_sine"></mcwrappermethod>
+    <mcwrappermethod name="ease.linear"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_back"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_bounce"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_circular"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_cubic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_elastic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_exponential"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quadratic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quartic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_quintic"></mcwrappermethod>
+    <mcwrappermethod name="ease.out_sine"></mcwrappermethod>
+    <mcwrappermethod name="exponential"></mcwrappermethod>
+    <mcwrappermethod name="generate"></mcwrappermethod>
+    <mcwrappermethod name="harmonic"></mcwrappermethod>
+    <mcwrappermethod name="increment"></mcwrappermethod>
+    <mcwrappermethod name="randomrange"></mcwrappermethod>
+    <mcwrappermethod name="replicatenvalues"></mcwrappermethod>
+    <mcwrappermethod name="replicatevalues"></mcwrappermethod>
+    <mcwrappermethod name="scaledexponential"></mcwrappermethod>
+    <mcwrappermethod name="setvalue"></mcwrappermethod>
+    <mcwrappermethod name="setvaluerange"></mcwrappermethod>
+    <mcwrappermethod name="smoothstep"></mcwrappermethod>
+    <mcwrappermethod name="spread"></mcwrappermethod>
+    <mcwrappermethod name="spreadexclusive"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludefirst"></mcwrappermethod>
+    <mcwrappermethod name="spreadincludesecond"></mcwrappermethod>
+    <mcwrappermethod name="spreadinclusive"></mcwrappermethod>
+    <mcwrappermethod name="subharmonic"></mcwrappermethod>
+    <mcwrapperattr name="busymapname"></mcwrapperattr>
+    <mcwrapperattr name="bz"></mcwrapperattr>
+    <mcwrapperattr name="bzname"></mcwrapperattr>
+    <mcwrapperattr name="chans"></mcwrapperattr>
+    <mcwrapperattr name="fun"></mcwrapperattr>
+    <mcwrapperattr name="initialvalues"></mcwrapperattr>
+    <mcwrapperattr name="op"></mcwrapperattr>
+    <mcwrapperattr name="replicate"></mcwrapperattr>
+    <mcwrapperattr name="target"></mcwrapperattr>
+    <mcwrapperattr name="usebusymap"></mcwrapperattr>
+    <mcwrapperattr name="values"></mcwrapperattr>
+    <mcwrapperattr name="voiceprob"></mcwrapperattr>
+    <mcwrapperattr name="zero"></mcwrapperattr>
+  </mcwrapper>
+</c74object>

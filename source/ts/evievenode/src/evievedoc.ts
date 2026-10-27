@@ -458,9 +458,11 @@ function testGetXml(prefix?: string)
 	};
 	const parser = new XMLParser(options);
 
-	const xmlData = fs.readFileSync('../test/evi.cfsmooth~.maxref.xml', 'utf8');
+	// const xmlData = fs.readFileSync('../test/evi.cfsmooth~.maxref.xml', 'utf8');
+	const xmlData = fs.readFileSync('../test/mc.evi.cfsmooth~.maxref.xml', 'utf8');
 	const result = parser.parse(xmlData);
-	fs.writeFileSync('../test/pete_testing_3.json', JSON.stringify(result, null, 4));
+	// fs.writeFileSync('../test/pete_testing_3.json', JSON.stringify(result, null, 4));
+	fs.writeFileSync('../test/pete_testing_4.json', JSON.stringify(result, null, 4));
 }
 
 function testBuildXml(/*jsonData: any, */prefix?: string)
@@ -507,6 +509,10 @@ async function autoCreateExternalsXml()
 		"maxattr_name": "tag"
 	};
 
+	const seeConfig: any = {
+		"maxattr_name": "evi"
+	};
+
 	const parseOptions = {
 		preserveOrder: false, // true = shit for getting values, good for rebuilding xml
 		ignoreAttributes: false,
@@ -528,6 +534,7 @@ async function autoCreateExternalsXml()
 		const xmlData = fs.readFileSync(`${refDir}/${file}`, 'utf8');
 		const jsonData = parser.parse(xmlData);
 		const outName = file.replace('_ref.xml', '.maxref.xml');
+		const outNameMc = `mc.${outName}`;
 
 		let thisXmlMetadataArray: {}[] = externalsXmlMetadataArray.slice();
 
@@ -554,6 +561,43 @@ async function autoCreateExternalsXml()
 		// jsonData.c74object.misc = externalsXmlMisc;
 		const editedData = builder.build(jsonData);
 		fs.writeFileSync(`${outDir}/${outName}`, editedData);
+		void max.post('Wrote external ref page for evieve', max.POST_LEVELS.INFO);
+
+		// Max requires additional MC ref pages for real externals in the wrapper
+
+		let signalObjectName = jsonData.c74object.maxattr_name;
+		jsonData.c74object.maxattr_name = `mc.${signalObjectName}`;
+
+		if (Object.hasOwn(jsonData.c74object, 'seealsolist')) {
+			const seeAlsoList = jsonData.c74object.seealsolist.seealso;
+			let seeAlsoArray = seeAlsoList.slice();
+			for (const see of seeAlsoList) {
+				if (see.maxattr_name.startsWith('evi.')) {
+					let thisSee: any = JSON.parse(JSON.stringify(seeConfig));
+					thisSee['maxattr_name'] = `mc.${see.maxattr_name}`;
+					seeAlsoArray.unshift(thisSee);
+				}
+			}
+			let selfSee: any = JSON.parse(JSON.stringify(seeConfig));
+			selfSee['maxattr_name'] = signalObjectName;
+			seeAlsoArray.unshift(selfSee);
+			jsonData.c74object.seealsolist.seealso = seeAlsoArray;
+		}
+
+		if (!Object.hasOwn(jsonData.c74object, 'mcwrapper')) {
+			jsonData.c74object.mcwrapper = {};
+			jsonData.c74object.mcwrapper.mcwrappermethod = [];
+			jsonData.c74object.mcwrapper.mcwrapperattr = [];
+		}
+
+		let thisXmlMcMethodArray: {}[] = externalsXmlMcMethodArray.slice();
+		let thisXmlMcAttrArray: {}[] = externalsXmlMcAttrArray.slice();
+		jsonData.c74object.mcwrapper.mcwrappermethod = thisXmlMcMethodArray;
+		jsonData.c74object.mcwrapper.mcwrapperattr = thisXmlMcAttrArray;
+
+		const editedDataMc = builder.build(jsonData);
+		fs.writeFileSync(`${outDir}/${outNameMc}`, editedDataMc);
+		void max.post('Wrote MC external ref page for evieve', max.POST_LEVELS.INFO);
 	}
 }
 
@@ -2958,7 +3002,8 @@ const externalsConfigTemplate = {
 	}
 };
 
-// must be in sync with 'attributeXmlPrefix' const
+// must be in sync with 'attributeXmlPrefix' const...
+
 const externalsXmlMetadata = [
 	{
 		"#text": "Pete Dowling",
@@ -3002,6 +3047,210 @@ const externalsXmlMisc = [
 	}
 ];
 */
+const externalsXmlMcMethodArray = [
+    {
+        "maxattr_name": "applymessages"
+    },
+    {
+        "maxattr_name": "applynvalues"
+    },
+    {
+        "maxattr_name": "applyvalues"
+    },
+    {
+        "maxattr_name": "decide"
+    },
+    {
+        "maxattr_name": "deviate"
+    },
+    {
+        "maxattr_name": "ease.in_back"
+    },
+    {
+        "maxattr_name": "ease.in_bounce"
+    },
+    {
+        "maxattr_name": "ease.in_circular"
+    },
+    {
+        "maxattr_name": "ease.in_cubic"
+    },
+    {
+        "maxattr_name": "ease.in_elastic"
+    },
+    {
+        "maxattr_name": "ease.in_exponential"
+    },
+    {
+        "maxattr_name": "ease.in_out_back"
+    },
+    {
+        "maxattr_name": "ease.in_out_bounce"
+    },
+    {
+        "maxattr_name": "ease.in_out_circular"
+    },
+    {
+        "maxattr_name": "ease.in_out_cubic"
+    },
+    {
+        "maxattr_name": "ease.in_out_elastic"
+    },
+    {
+        "maxattr_name": "ease.in_out_exponential"
+    },
+    {
+        "maxattr_name": "ease.in_out_quadratic"
+    },
+    {
+        "maxattr_name": "ease.in_out_quartic"
+    },
+    {
+        "maxattr_name": "ease.in_out_quintic"
+    },
+    {
+        "maxattr_name": "ease.in_out_sine"
+    },
+    {
+        "maxattr_name": "ease.in_quadratic"
+    },
+    {
+        "maxattr_name": "ease.in_quartic"
+    },
+    {
+        "maxattr_name": "ease.in_quintic"
+    },
+    {
+        "maxattr_name": "ease.in_sine"
+    },
+    {
+        "maxattr_name": "ease.linear"
+    },
+    {
+        "maxattr_name": "ease.out_back"
+    },
+    {
+        "maxattr_name": "ease.out_bounce"
+    },
+    {
+        "maxattr_name": "ease.out_circular"
+    },
+    {
+        "maxattr_name": "ease.out_cubic"
+    },
+    {
+        "maxattr_name": "ease.out_elastic"
+    },
+    {
+        "maxattr_name": "ease.out_exponential"
+    },
+    {
+        "maxattr_name": "ease.out_quadratic"
+    },
+    {
+        "maxattr_name": "ease.out_quartic"
+    },
+    {
+        "maxattr_name": "ease.out_quintic"
+    },
+    {
+        "maxattr_name": "ease.out_sine"
+    },
+    {
+        "maxattr_name": "exponential"
+    },
+    {
+        "maxattr_name": "generate"
+    },
+    {
+        "maxattr_name": "harmonic"
+    },
+    {
+        "maxattr_name": "increment"
+    },
+    {
+        "maxattr_name": "randomrange"
+    },
+    {
+        "maxattr_name": "replicatenvalues"
+    },
+    {
+        "maxattr_name": "replicatevalues"
+    },
+    {
+        "maxattr_name": "scaledexponential"
+    },
+    {
+        "maxattr_name": "setvalue"
+    },
+    {
+        "maxattr_name": "setvaluerange"
+    },
+    {
+        "maxattr_name": "smoothstep"
+    },
+    {
+        "maxattr_name": "spread"
+    },
+    {
+        "maxattr_name": "spreadexclusive"
+    },
+    {
+        "maxattr_name": "spreadincludefirst"
+    },
+    {
+        "maxattr_name": "spreadincludesecond"
+    },
+    {
+        "maxattr_name": "spreadinclusive"
+    },
+    {
+        "maxattr_name": "subharmonic"
+    }
+];
+
+const externalsXmlMcAttrArray =  [
+    {
+        "maxattr_name": "busymapname"
+    },
+    {
+        "maxattr_name": "bz"
+    },
+    {
+        "maxattr_name": "bzname"
+    },
+    {
+        "maxattr_name": "chans"
+    },
+    {
+        "maxattr_name": "fun"
+    },
+    {
+        "maxattr_name": "initialvalues"
+    },
+    {
+        "maxattr_name": "op"
+    },
+    {
+        "maxattr_name": "replicate"
+    },
+    {
+        "maxattr_name": "target"
+    },
+    {
+        "maxattr_name": "usebusymap"
+    },
+    {
+        "maxattr_name": "values"
+    },
+    {
+        "maxattr_name": "voiceprob"
+    },
+    {
+        "maxattr_name": "zero"
+    }
+];
+
 // some helpfiles have automatic general tabs covering an 'area'
 const areas = [
 	["biquad", `\"Biquad Filters in evieve\"`],

@@ -1049,11 +1049,88 @@
         "keywords": [],
         "seealso": [ "evi.formantfilter~", "evi.formantfilter.morph~", "evi.reson~" ]
     },
+    "mc.evi.cfsmooth~": {
+        "digest": "Signal smoother particularly well suited to smoothing filter cutoff frequencies",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth" ],
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.cfsmooth~", "mc.evi.logsmooth~", "mc.evi.lagsmooth~", "mc.evi.expsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
+    },
+    "mc.evi.expsmooth~": {
+        "digest": "Exponential signal smoother",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth" ],
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.expsmooth~", "mc.evi.logsmooth~", "mc.evi.lagsmooth~", "mc.evi.cfsmooth~", "evi.cfsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi_smooth" ]
+    },
+    "mc.evi.lagsmooth~": {
+        "digest": "Smooth signal ramp generator with logarithmic curve",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth" ],
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.lagsmooth~", "mc.evi.logsmooth~", "mc.evi.expsmooth~", "mc.evi.cfsmooth~", "evi.cfsmooth~", "evi.expsmooth~", "evi.logsmooth~", "evi_smooth" ]
+    },
     "mc.evi.listgen": {
         "digest": "Create message lists with mcwrapper features \n",
         "module": "evieve-ref",
         "category": [ "evieve", "evieve Abstractions", "evieve Control", "evieve Utility", "evieve Map" ],
         "keywords": [],
         "seealso": [ "mcwrapper-group" ]
+    },
+    "mc.evi.logahr~": {
+        "digest": "Attack/hold/release envelope follower",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth", "evieve Dynamics" ],
+        "keywords": [],
+        "seealso": [ "evi.logahr~", "mc.evi.logsmooth~", "mc.evi.logattackdecay~", "mc.evi.logdecay~", "evi.logdecay~", "evi.logattackdecay~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
+    },
+    "mc.evi.logattackdecay~": {
+        "digest": "Attack/decay envelope follower",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth", "evieve Dynamics" ],
+        "keywords": [],
+        "seealso": [ "evi.logattackdecay~", "mc.evi.logsmooth~", "mc.evi.logahr~", "mc.evi.logdecay~", "evi.logdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
+    },
+    "mc.evi.logdecay~": {
+        "digest": "Decay envelope follower",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth", "evieve Dynamics" ],
+        "keywords": [],
+        "seealso": [ "evi.logdecay~", "mc.evi.logsmooth~", "mc.evi.logahr~", "mc.evi.logattackdecay~", "evi.logattackdecay~", "evi.logahr~", "evi.logsmooth~", "evi_smooth", "evi_env" ]
+    },
+    "mc.evi.logsmooth~": {
+        "digest": "Logarithmic signal smoother",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth" ],
+        "keywords": [ "smooth", "ramp" ],
+        "seealso": [ "evi.logsmooth~", "mc.evi.logahr~", "mc.evi.logattackdecay~", "mc.evi.logdecay~", "mc.evi.lagsmooth~", "mc.evi.expsmooth~", "mc.evi.cfsmooth~", "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth" ]
+    },
+    "mc.evi.pan~": {
+        "digest": "Pan audio signals",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Utility" ],
+        "keywords": [],
+        "seealso": [ "evi.pan~", "mc.evi.xfade~", "evi.xfade~", "evi_utilities" ]
+    },
+    "mc.evi.quadosc~": {
+        "digest": "Phase locked quadrature oscillator",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Oscillator", "evieve Modulation", "evieve Source" ],
+        "keywords": [],
+        "seealso": [ "evi.quadosc~", "mc.evi.phasor0~", "mc.evi.blitwaves~", "mc.evi.4wave~", "evi.4wave~", "evi.blitwaves~", "evi.phasor0~", "evi_cossin" ]
+    },
+    "mc.evi.vactrol~": {
+        "digest": "Vactrol response time domain filter envelope",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Smooth", "evieve Dynamics" ],
+        "keywords": [],
+        "seealso": [ "evi.vactrol~", "mc.evi.logahr~", "mc.evi.logattackdecay~", "mc.evi.logdecay~", "mc.evi.logsmooth~", "mc.evi.lagsmooth~", "mc.evi.expsmooth~", "mc.evi.cfsmooth~", "mc.evi.trigholdgate~", "evi.trigholdgate~", "evi.cfsmooth~", "evi.expsmooth~", "evi.lagsmooth~", "evi.logsmooth~", "evi.logdecay~", "evi.logattackdecay~", "evi.logahr~", "evi_smooth", "evi_env" ]
+    },
+    "mc.evi.xfade~": {
+        "digest": "Crossfade audio signals",
+        "module": "evieve-ref",
+        "category": [ "evieve", "evieve Externals", "evieve Utility" ],
+        "keywords": [],
+        "seealso": [ "evi.xfade~", "mc.evi.pan~", "evi.pan~", "evi_utilities" ]
     }
 }
