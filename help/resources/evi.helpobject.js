@@ -118,13 +118,26 @@ function alphabeticalSort(a, b) {
 }
 alphabeticalSort.local = 1;
 const excludeObjects = [
+  // pete says
   "evi.list.interp",
   "evi.list.xfade",
   "evi.modalres~",
   "evi.tpqm",
   "evi.transratio",
   "mc.evi.bands~",
-  "mc.evi.listgen"
+  "mc.evi.listgen",
+  // special mc refs of externals
+  "mc.evi.cfsmooth~",
+  "mc.evi.expsmooth~",
+  "mc.evi.lagsmooth~",
+  "mc.evi.logahr~",
+  "mc.evi.logattackdecay~",
+  "mc.evi.logdecay~",
+  "mc.evi.logsmooth~",
+  "mc.evi.pan~",
+  "mc.evi.quadosc~",
+  "mc.evi.vactrol~",
+  "mc.evi.xfade~"
 ];
 const module = {};
 module.exports = {};
