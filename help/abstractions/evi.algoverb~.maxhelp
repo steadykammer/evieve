@@ -44,6 +44,170 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "hidden": 1,
+                                    "id": "obj-46",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "float", "int" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 59.0, 112.0, 390.0, 504.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 193.0, 87.5, 150.0, 47.0 ],
+                                                    "text": "rnbo compilation bug, 9.2.0 & 9.2.1\nhas been reported"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-43",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 141.0, 250.0, 58.0, 22.0 ],
+                                                    "text": "pipe 555"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-42",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "" ],
+                                                    "patching_rect": [ 50.0, 150.0, 36.0, 22.0 ],
+                                                    "text": "sel 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-41",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "int", "float", "int", "int" ],
+                                                    "patching_rect": [ 50.0, 100.0, 65.0, 22.0 ],
+                                                    "text": "dspstate~"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-40",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 250.0, 58.0, 22.0 ],
+                                                    "text": "pipe 666"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-39",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "float", "float", "int", "int" ],
+                                                    "patching_rect": [ 50.0, 200.0, 155.49999999999997, 22.0 ],
+                                                    "text": "t 0.46 0. 0 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-44",
+                                                    "index": 2,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.49999999999997, 330.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-45",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 50.0, 330.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-40", 0 ],
+                                                    "source": [ "obj-39", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-43", 0 ],
+                                                    "source": [ "obj-39", 2 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-44", 0 ],
+                                                    "source": [ "obj-39", 3 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-45", 0 ],
+                                                    "source": [ "obj-39", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-45", 0 ],
+                                                    "source": [ "obj-40", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-42", 0 ],
+                                                    "source": [ "obj-41", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-39", 0 ],
+                                                    "source": [ "obj-42", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-44", 0 ],
+                                                    "source": [ "obj-43", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 565.0, 335.0, 74.0, 23.0 ],
+                                    "text": "p rnboBUG"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-38",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -622,7 +786,7 @@
                             },
                             {
                                 "box": {
-                                    "autosave": 1,
+                                    "autosave": 0,
                                     "id": "obj-5",
                                     "inletInfo": {
                                         "IOInfo": [
@@ -694,13 +858,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "uidstyle": "auto",
                                                         "notecontroller": 0,
                                                         "args": [],
                                                         "polyphony": -1.0,
                                                         "exposevoiceparams": 0,
-                                                        "uidstyle": "auto",
-                                                        "voicecontrol": "simple",
-                                                        "receivemode": "local"
+                                                        "receivemode": "local",
+                                                        "voicecontrol": "simple"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1659,53 +1823,8 @@
                                     },
                                     "patching_rect": [ 265.0, 465.0, 281.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/higheqgain": {
-                                            "label": "higheqgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlysize": {
-                                            "label": "earlysize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/drywet": {
-                                            "label": "drywet",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/latediffusion": {
-                                            "label": "latediffusion",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/highdampfrequency": {
                                             "label": "highdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/higheqfrequency": {
-                                            "label": "higheqfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/moddepth": {
-                                            "label": "moddepth",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlylatehysterisis": {
-                                            "label": "earlylatehysterisis",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/presymmetry": {
-                                            "label": "presymmetry",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1714,48 +1833,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/earlylate": {
-                                            "label": "earlylate",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/loweqgain": {
-                                            "label": "loweqgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/latesize": {
-                                            "label": "latesize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/modrate": {
-                                            "label": "modrate",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/absorbtion": {
                                             "label": "absorbtion",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/predelay": {
-                                            "label": "predelay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlysymmetry": {
-                                            "label": "earlysymmetry",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowdampfrequency": {
-                                            "label": "lowdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/loweqfrequency": {
-                                            "label": "loweqfrequency",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1764,8 +1843,93 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
+                                        "evi_reverb/latediffusion": {
+                                            "label": "latediffusion",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylatehysterisis": {
+                                            "label": "earlylatehysterisis",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/latesize": {
+                                            "label": "latesize",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/lowdampfrequency": {
+                                            "label": "lowdampfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/highdampgain": {
+                                            "label": "highdampgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlysize": {
+                                            "label": "earlysize",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/higheqfrequency": {
+                                            "label": "higheqfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylate": {
+                                            "label": "earlylate",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/predelay": {
+                                            "label": "predelay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/lowdampgain": {
                                             "label": "lowdampgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/presymmetry": {
+                                            "label": "presymmetry",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/modrate": {
+                                            "label": "modrate",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/loweqfrequency": {
+                                            "label": "loweqfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/drywet": {
+                                            "label": "drywet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/moddepth": {
+                                            "label": "moddepth",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/loweqgain": {
+                                            "label": "loweqgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlysymmetry": {
+                                            "label": "earlysymmetry",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1774,8 +1938,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/highdampgain": {
-                                            "label": "highdampgain",
+                                        "evi_reverb/higheqgain": {
+                                            "label": "higheqgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1801,6 +1965,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "autosave": 0,
                                         "optimization": "O1",
                                         "parameter_enable": 1,
                                         "uuid": "e55382e3-c800-11f1-82e3-f2763d8d8369"
@@ -2210,6 +2375,20 @@
                                 "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-36", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-23", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-46", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-34", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-46", 0 ]
                                 }
                             },
                             {
@@ -3720,7 +3899,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 572.0, 587.0, 205.0, 22.0 ],
-                                    "text": "dump done"
+                                    "text": "eviAlgoverb::highDampGain -1.2"
                                 }
                             },
                             {

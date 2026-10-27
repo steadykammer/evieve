@@ -79,7 +79,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 1,
-                                    "outlettype": [ "" ],
+                                    "outlettype": [ "int" ],
                                     "patcher": {
                                         "fileversion": 1,
                                         "appversion": {
@@ -96,7 +96,28 @@
                                         "boxes": [
                                             {
                                                 "box": {
-                                                    "hidden": 1,
+                                                    "id": "obj-2",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 327.0, 92.5, 150.0, 47.0 ],
+                                                    "text": "rnbo compilation bug, 9.2.0 & 9.2.1\nhas been reported"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-1",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "int" ],
+                                                    "patching_rect": [ 256.0, 182.0, 29.5, 22.0 ],
+                                                    "text": "+"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-34",
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
@@ -108,7 +129,6 @@
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
                                                     "id": "obj-25",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
@@ -120,31 +140,28 @@
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
                                                     "id": "obj-33",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "int", "int" ],
                                                     "patching_rect": [ 161.5, 182.0, 32.0, 22.0 ],
-                                                    "text": "t 0 1"
+                                                    "text": "t 0 2"
                                                 }
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
                                                     "id": "obj-32",
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "int" ],
-                                                    "patching_rect": [ 256.0, 182.0, 35.0, 22.0 ],
+                                                    "patching_rect": [ 256.0, 143.0, 35.0, 22.0 ],
                                                     "text": "i 164"
                                                 }
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
                                                     "id": "obj-31",
                                                     "maxclass": "newobj",
                                                     "numinlets": 2,
@@ -157,7 +174,6 @@
                                             {
                                                 "box": {
                                                     "comment": "",
-                                                    "hidden": 1,
                                                     "id": "obj-30",
                                                     "index": 1,
                                                     "maxclass": "inlet",
@@ -170,7 +186,6 @@
                                             {
                                                 "box": {
                                                     "comment": "",
-                                                    "hidden": 1,
                                                     "id": "obj-35",
                                                     "index": 1,
                                                     "maxclass": "outlet",
@@ -183,61 +198,64 @@
                                         "lines": [
                                             {
                                                 "patchline": {
+                                                    "destination": [ "obj-31", 1 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
                                                     "destination": [ "obj-34", 0 ],
-                                                    "hidden": 1,
                                                     "source": [ "obj-25", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-32", 0 ],
-                                                    "disabled": 1,
-                                                    "hidden": 1,
                                                     "source": [ "obj-30", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-35", 0 ],
-                                                    "disabled": 1,
-                                                    "hidden": 1,
                                                     "source": [ "obj-31", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-31", 1 ],
-                                                    "hidden": 1,
+                                                    "destination": [ "obj-1", 1 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-32", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-1", 0 ],
+                                                    "order": 1,
                                                     "source": [ "obj-32", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-31", 0 ],
-                                                    "disabled": 1,
-                                                    "hidden": 1,
                                                     "source": [ "obj-33", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-35", 0 ],
-                                                    "disabled": 1,
-                                                    "hidden": 1,
                                                     "source": [ "obj-33", 1 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-33", 0 ],
-                                                    "hidden": 1,
                                                     "source": [ "obj-34", 0 ]
                                                 }
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 675.0, 531.0, 48.0, 23.0 ],
-                                    "text": "p BUG"
+                                    "patching_rect": [ 675.0, 531.0, 74.0, 23.0 ],
+                                    "text": "p rnboBUG"
                                 }
                             },
                             {
@@ -694,7 +712,7 @@
                             },
                             {
                                 "box": {
-                                    "autosave": 1,
+                                    "autosave": 0,
                                     "id": "obj-5",
                                     "inletInfo": {
                                         "IOInfo": [
@@ -766,13 +784,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 129.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "uidstyle": "auto",
                                                         "notecontroller": 0,
                                                         "args": [],
                                                         "polyphony": -1.0,
                                                         "exposevoiceparams": 0,
-                                                        "uidstyle": "auto",
-                                                        "voicecontrol": "simple",
-                                                        "receivemode": "local"
+                                                        "receivemode": "local",
+                                                        "voicecontrol": "simple"
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1599,26 +1617,6 @@
                                     },
                                     "patching_rect": [ 247.0, 450.0, 292.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/damping": {
-                                            "label": "damping",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/highgain": {
-                                            "label": "highgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/wet": {
-                                            "label": "wet",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/size": {
                                             "label": "size",
                                             "isEnum": 0,
@@ -1629,18 +1627,13 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/lowgain": {
-                                            "label": "lowgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/highfrequency": {
                                             "label": "highfrequency",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/dry": {
-                                            "label": "dry",
+                                        "evi_reverb/lowgain": {
+                                            "label": "lowgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1654,8 +1647,33 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
+                                        "evi_reverb/dry": {
+                                            "label": "dry",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/damping": {
+                                            "label": "damping",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/lowfrequency": {
                                             "label": "lowfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/wet": {
+                                            "label": "wet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/highgain": {
+                                            "label": "highgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1681,6 +1699,7 @@
                                         }
                                     },
                                     "saved_object_attributes": {
+                                        "autosave": 0,
                                         "optimization": "O1",
                                         "parameter_enable": 1,
                                         "uuid": "e55382e3-c800-11f1-82e3-f2763d8d8369"

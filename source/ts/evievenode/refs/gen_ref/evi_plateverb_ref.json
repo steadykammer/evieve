@@ -182,7 +182,7 @@
         {
             "name": "diffuse",
             "type": "float",
-            "digest": "@min 0, @max 1",
+            "digest": "@min 0.01, @max 0.999",
             "description": "Normalised 0..1, one of the original parameters. Amount of diffuseness in the reflections. Effects times of multiple embedded delay lines.",
             "default": {
                 "type": "float",
