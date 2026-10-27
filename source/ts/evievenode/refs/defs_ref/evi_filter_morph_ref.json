@@ -4,7 +4,7 @@
         "parent": "evi_filter_morph",
         "category": "evieve",
         "tilde": "~",
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of <o>evi.svf~</o>.",
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. Like a morphing version of <o>evi.svf~</o>.",
         "description": "Twopole TPT SVF morphing filter. The filter is a single section which can morph LP..BP..HP..NOTCH..LP via 0..1 'Morph' control (inlet 5) with a single outlet.",
         "discussion": "For more information about TPT SVFs and other filter types in evieve see the 'evieve filter' tab of the helpfile."
     },

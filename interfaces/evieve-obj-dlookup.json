@@ -231,7 +231,7 @@
     },
     "evi.filter.morph~": {
         "type": "define",
-        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. A morphing version of evi.svf~.",
+        "digest": "TPT SVF which can morph between LP..BP..HP..NOTCH..LP. Like a morphing version of evi.svf~.",
         "description": "evi.filter.morph~ is a 'max define' for the evi_filter_morph.gendsp gen~ abstraction. Because evi.filter.morph~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nTwopole TPT SVF morphing filter. The filter is a single section which can morph LP..BP..HP..NOTCH..LP via 0..1 'Morph' control (inlet 5) with a single outlet."
     },
     "evi.filter.notch~": {

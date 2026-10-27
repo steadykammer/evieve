@@ -1610,7 +1610,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1636,7 +1636,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -3623,7 +3623,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 672.0, 212.0, 153.0, 14.0 ],
-                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
+                                    "slidercolor": [ 0.11766886684884881, 0.13958052575864138, 0.19115887494946085, 1.0 ]
                                 }
                             },
                             {
@@ -5939,7 +5939,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -5965,7 +5965,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -6099,7 +6099,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 2,
-                                    "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "grad1": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "grad2": [ 0.208680531953877, 0.20868047419733, 0.208680489290039, 0.0 ],
                                     "id": "obj-7",
@@ -8273,7 +8273,7 @@
                                         }
                                     },
                                     "text": "Adaa <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -8386,7 +8386,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing\">https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -8426,7 +8426,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://vicanek.de/articles/AADistortion.pdf\">https://vicanek.de/articles/AADistortion.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -8466,7 +8466,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf\">https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -8476,10 +8476,10 @@
                                                                     "maxclass": "comment",
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
-                                                                    "patching_rect": [ 34.0, 19.0, 194.0, 20.0 ],
+                                                                    "patching_rect": [ 34.0, 19.0, 444.0, 20.0 ],
                                                                     "presentation": 1,
-                                                                    "presentation_rect": [ 34.0, 19.0, 194.0, 20.0 ],
-                                                                    "text": "A very limited Bibliography"
+                                                                    "presentation_rect": [ 34.0, 19.0, 444.0, 20.0 ],
+                                                                    "text": "A very limited Bibliography for antiderivative antialiasing techniques"
                                                                 }
                                                             },
                                                             {
@@ -8519,7 +8519,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf\">https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -9401,7 +9401,7 @@
                                         }
                                     },
                                     "text": "Core naive approximated functions exist in various files, such as <link href=\"; max html_ref evi_approx\">evi_approx.genexpr</link>, <link href=\"; max html_ref evi_tanh\">evi_tanh.genexpr</link> and <link href=\"; max html_ref evi_waveshaping\">evi_waveshaping.genexpr</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -9425,7 +9425,7 @@
                                         }
                                     },
                                     "text": "All 'adaa' working out is in the <link href=\"; max html_ref evi_adaa\">evi_adaa.genexpr</link> file",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -9449,7 +9449,7 @@
                                         }
                                     },
                                     "text": "Most adaa wrapping code is in the <link href=\"; max html_ref evi_saturators\">evi_saturators.genexpr</link> file",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -10608,7 +10608,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -10871,7 +10871,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -15934,7 +15934,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 702.0, 173.0, 153.0, 14.0 ],
-                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
+                                    "slidercolor": [ 0.11766886684884881, 0.13958052575864138, 0.19115887494946085, 1.0 ]
                                 }
                             },
                             {
@@ -18328,7 +18328,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -19156,7 +19156,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 733.0, 238.0, 149.0, 66.0 ],
+                                    "patching_rect": [ 733.0, 238.0, 150.0, 66.0 ],
                                     "text": "evi.hardclip~ is by default a static 2nd order adaa of a clipping function",
                                     "textjustification": 1
                                 }
@@ -20839,7 +20839,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0,
                                     "thickness3": 2.0
                                 }
@@ -21693,7 +21693,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -22572,7 +22572,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0,
                                     "thickness3": 2.0
                                 }
@@ -24475,7 +24475,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },

@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -36,7 +36,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -50,7 +50,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-52",
@@ -106,8 +106,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
-                                    "patching_rect": [ 1069.0, 572.0, 18.0, 205.0 ],
-                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
+                                    "patching_rect": [ 1069.0, 572.0, 18.0, 205.0 ]
                                 }
                             },
                             {
@@ -123,7 +122,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -268,7 +267,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -383,7 +382,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hidden": 1,
                                     "hint": "",
@@ -408,7 +407,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-34",
@@ -432,7 +431,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hidden": 1,
                                     "hint": "",
@@ -457,7 +456,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-75",
@@ -481,7 +480,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -505,7 +504,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-72",
@@ -531,7 +530,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -617,7 +616,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1102,7 +1101,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1389,7 +1388,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 1,
+                                    "value": 2,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1508,7 +1507,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.931948395395052, 0.771744459193783, 0.523883756405412, 1.0 ],
                                     "bubbleside": 3,
                                     "id": "obj-39",
                                     "maxclass": "comment",
@@ -1527,7 +1526,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.931948395395052, 0.771744459193783, 0.523883756405412, 1.0 ],
                                     "id": "obj-38",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1567,7 +1566,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -1789,8 +1788,8 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness": 2.0
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ],
+                                    "thickness3": 2.0
                                 }
                             },
                             {
@@ -1863,7 +1862,7 @@
                                         }
                                     },
                                     "text": "the large white toggle at #2 is automatically switching between linear and nonlinear every 2 seconds",
-                                    "textcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "textcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "varname": "digest_comment[1]"
                                 }
                             },
@@ -1885,7 +1884,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hidden": 1,
                                     "hint": "",
@@ -1911,7 +1910,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-83",
@@ -1938,7 +1937,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-82",
@@ -1963,7 +1962,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-81",
@@ -1988,7 +1987,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-80",
@@ -2013,7 +2012,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-79",
@@ -2375,7 +2374,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2389,7 +2388,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-2",
@@ -2445,7 +2444,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-43",
@@ -2469,7 +2468,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -2493,7 +2492,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-41",
@@ -2517,7 +2516,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-39",
@@ -2545,14 +2544,14 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 143.0, 474.0, 98.0, 20.0 ],
-                                    "text": "evi.svfsmooth~",
+                                    "patching_rect": [ 105.0, 474.0, 136.0, 20.0 ],
+                                    "text": "Filter (evi_svfsmooth)",
                                     "textjustification": 2
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -2580,8 +2579,8 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 143.0, 491.0, 98.0, 20.0 ],
-                                    "text": "Oscillator",
+                                    "patching_rect": [ 105.0, 491.0, 136.0, 20.0 ],
+                                    "text": "Oscillator (evi_rect)",
                                     "textjustification": 2
                                 }
                             },
@@ -2619,7 +2618,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 143.0, 458.0, 98.0, 20.0 ],
+                                    "patching_rect": [ 105.0, 458.0, 136.0, 20.0 ],
                                     "text": "Off",
                                     "textjustification": 2
                                 }
@@ -2762,7 +2761,7 @@
                                 "box": {
                                     "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "activelinecolor": [ 0.427450980392157, 0.843137254901961, 1.0, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -2774,6 +2773,11 @@
                                     "patching_rect": [ 682.0, 379.0, 130.0, 130.0 ],
                                     "rounded": 1.0,
                                     "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activelinecolor": {
+                                            "expression": "themecolor.live_value_bar"
+                                        }
+                                    },
                                     "vertical_divisions": 4
                                 }
                             },
@@ -2853,7 +2857,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3785,7 +3789,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -3905,7 +3909,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -3920,7 +3924,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
-                                    "text": "All evieve nonlinear SVFs are available identically in gen~. In this tab we make a fun woody resonant modulation routine in gen~ using the slow morphing capabilities of evi.svfsmooth~",
+                                    "text": "All evieve nonlinear SVFs are available identically in gen~. In this tab we make a fun woody resonant modulation routine in gen~ using the slow morphing capabilities of evi_svfsmooth",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -4094,7 +4098,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4186,7 +4190,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4358,7 +4362,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4390,7 +4394,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -4785,7 +4789,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4799,7 +4803,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-2",
@@ -4823,7 +4827,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -4860,7 +4864,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-42",
@@ -4903,7 +4907,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-24",
@@ -5054,7 +5058,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -5078,7 +5082,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-47",
@@ -5102,7 +5106,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-46",
@@ -5126,7 +5130,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-45",
@@ -5232,7 +5236,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5522,7 +5526,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
+                                    "activebgoncolor": [ 0.427450980392157, 0.843137254901961, 1.0, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -5581,7 +5585,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-75",
@@ -5605,7 +5609,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -5629,7 +5633,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -5676,7 +5680,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6038,7 +6042,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-27",
@@ -6062,7 +6066,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-26",
@@ -6086,7 +6090,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-25",
@@ -6380,12 +6384,12 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hidden": 1,
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
@@ -6412,7 +6416,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hidden": 1,
                                     "hint": "",
@@ -6813,7 +6817,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -6827,7 +6831,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-47",
@@ -6862,7 +6866,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-53",
@@ -6938,7 +6942,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-1",
@@ -7023,7 +7027,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> features a Notch, not a Bandpass",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7151,7 +7155,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7179,7 +7183,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7207,7 +7211,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7235,7 +7239,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7263,7 +7267,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7291,7 +7295,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7320,7 +7324,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -7440,7 +7444,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7464,7 +7468,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> includes unmorphed filters on additional outputs",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7488,7 +7492,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> includes a simultaneous 24dB output option",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -7977,7 +7981,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -7991,7 +7995,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-4",
@@ -8070,7 +8074,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -8288,7 +8292,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
+                                    "activebgoncolor": [ 0.427450980392157, 0.843137254901961, 1.0, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -8346,7 +8350,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-85",
@@ -8370,7 +8374,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-44",
@@ -8407,7 +8411,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-75",
@@ -8431,7 +8435,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-74",
@@ -8455,7 +8459,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-72",
@@ -8481,7 +8485,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-71",
@@ -8538,7 +8542,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-62",
@@ -8573,7 +8577,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-57",
@@ -8597,7 +8601,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-58",
@@ -8643,7 +8647,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-92",
@@ -8828,7 +8832,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9190,7 +9194,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-47",
@@ -9214,7 +9218,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-46",
@@ -9238,7 +9242,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-45",
@@ -9262,7 +9266,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-27",
@@ -9286,7 +9290,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-26",
@@ -9310,7 +9314,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.92549, 0.815686, 0.101961, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-25",
@@ -9602,7 +9606,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.129412, 0.129412, 0.129412, 1.0 ]
                                 }
                             },
                             {
@@ -9734,7 +9738,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-84",
@@ -9759,7 +9763,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "Turn Res up full and turn Osc Off to test Self Oscillation",
                                     "id": "obj-83",
@@ -9786,7 +9790,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-82",
@@ -9811,7 +9815,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-81",
@@ -9836,7 +9840,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-80",
@@ -9861,7 +9865,7 @@
                             {
                                 "box": {
                                     "background": 1,
-                                    "bgcolor": [ 1.0, 0.39215686274509803, 0.0, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.392156862745098, 0.0, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-79",

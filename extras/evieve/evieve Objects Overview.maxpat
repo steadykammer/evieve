@@ -46,11 +46,11 @@
                     "presentation_rect": [ 114.0, 80.0, 829.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
-                            "expression": "themecolor.theme_textcolor"
+                            "expression": "themecolor.theme_textcolor_inverse"
                         }
                     },
                     "text": "These are the evieve object examples available in Max, most are also available in gen~. For more evieve code explore the <link href=\"; max openhelp loadevieveGenExprIndex\">evieve GenExpr Index</link>.",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -246,7 +246,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 924, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -277,6 +277,18 @@
                         "subpatcher_template": "<none>",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-58",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "list", "bang" ],
+                                    "patching_rect": [ 1031.0, 204.0, 189.0, 22.0 ],
+                                    "text": "themecolor \"Comment Text Color\""
+                                }
+                            },
                             {
                                 "box": {
                                     "hidden": 1,
@@ -932,8 +944,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "list", "bang" ],
-                                    "patching_rect": [ 1007.0, 161.0, 189.0, 22.0 ],
-                                    "text": "themecolor \"Comment Text Color\""
+                                    "patching_rect": [ 1007.0, 161.0, 172.0, 22.0 ],
+                                    "text": "themecolor \"Object Text Color\""
                                 }
                             },
                             {
@@ -4439,7 +4451,13 @@
                     "patching_rect": [ 154.0, 51.0, 570.0, 64.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 105.0, 18.0, 844.0, 64.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        }
+                    },
                     "text": "evieve Objects Overview",
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "textjustification": 1
                 }
             },

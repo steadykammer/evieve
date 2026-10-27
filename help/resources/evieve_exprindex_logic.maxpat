@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -88,7 +88,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -189,7 +189,7 @@
                                     "fontname": "Lato",
                                     "fontsize": 14.0,
                                     "frozen_box_attributes": [ "presentation_rect" ],
-                                    "htabcolor": [ 0.09366004034220005, 0.09366000336552499, 0.09366001294931273, 1.0 ],
+                                    "htabcolor": [ 0.160784, 0.160784, 0.160784, 1.0 ],
                                     "id": "obj-55",
                                     "margin": 2,
                                     "maxclass": "tab",
@@ -213,7 +213,7 @@
                                     },
                                     "spacing_x": 2.0,
                                     "spacing_y": 2.0,
-                                    "tabcolor": [ 0.15302081646526963, 0.15302077294167057, 0.15302078435152547, 1.0 ],
+                                    "tabcolor": [ 0.223529, 0.223529, 0.223529, 1.0 ],
                                     "tabs": " ",
                                     "varname": "#0_seealso"
                                 }
@@ -374,7 +374,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1117,7 +1117,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2055,12 +2055,12 @@
                     "rounded": 2.0,
                     "saved_attribute_attributes": {
                         "textoncolor": {
-                            "expression": "themecolor.theme_textcolor"
+                            "expression": "themecolor.theme_textcolor_inverse"
                         }
                     },
                     "text": "Open Reference Page",
                     "texton": "Open Reference Page",
-                    "textoncolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                    "textoncolor": [ 0.968627, 0.968627, 0.968627, 1.0 ],
                     "usegradient": 0
                 }
             },
@@ -2227,7 +2227,7 @@
                     "fontname": "Lato",
                     "fontsize": 14.0,
                     "id": "obj-5",
-                    "items": "<empty>",
+                    "items": [ "(Select GenExpr File)", ",", "<separator>", ",", "evi_adaa.genexpr", ",", "evi_approx.genexpr", ",", "evi_biquads_coeffs.genexpr", ",", "evi_biquads.genexpr", ",", "evi_biquads_extras.genexpr", ",", "evi_biquads_filters.genexpr", ",", "evi_biquads_no_tilde.genexpr", ",", "evi_biquads_selectors.genexpr", ",", "evi_biquads_union.genexpr", ",", "evi_buchla.genexpr", ",", "evi_butterworth.genexpr", ",", "evi_clipping.genexpr", ",", "evi_core.genexpr", ",", "evi_cossin.genexpr", ",", "evi_counting.genexpr", ",", "evi_crossovers.genexpr", ",", "evi_dfm_lib.genexpr", ",", "evi_dynamics.genexpr", ",", "evi_env.genexpr", ",", "evi_evieve.genexpr", ",", "evi_fastskew.genexpr", ",", "evi_interp.genexpr", ",", "evi_lfo.genexpr", ",", "evi_lib.genexpr", ",", "evi_pade.genexpr", ",", "evi_polyblep.genexpr", ",", "evi_polyblep_four.genexpr", ",", "evi_polyblep_shapes.genexpr", ",", "evi_polyblep_two.genexpr", ",", "evi_polyblep_utility.genexpr", ",", "evi_ptr.genexpr", ",", "evi_rcfilters.genexpr", ",", "evi_resampling_templates.genexpr", ",", "evi_resbank.genexpr", ",", "evi_reverb_library.genexpr", ",", "evi_ringmod_enhanced.genexpr", ",", "evi_saturators.genexpr", ",", "evi_sinfold_lib.genexpr", ",", "evi_smooth_bank.genexpr", ",", "evi_smooth.genexpr", ",", "evi_sources.genexpr", ",", "evi_ssb.genexpr", ",", "evi_svfs.genexpr", ",", "evi_svfs_filters.genexpr", ",", "evi_svfs_lto.genexpr", ",", "evi_svfs_lto_extras.genexpr", ",", "evi_svfs_tpt.genexpr", ",", "evi_svfs_tpt_filters.genexpr", ",", "evi_tanh.genexpr", ",", "evi_trig.genexpr", ",", "evi_utilities.genexpr", ",", "evi_valves.genexpr", ",", "evi_warmer_lib.genexpr", ",", "evi_waveshaping.genexpr" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -2241,7 +2241,7 @@
                             "expression": "themecolor.theme_selectioncolor"
                         }
                     },
-                    "textcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ]
+                    "textcolor": [ 0.929412, 0.929412, 0.352941, 1.0 ]
                 }
             },
             {

@@ -47,7 +47,7 @@
                         }
                     },
                     "text": "Adaa <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -160,7 +160,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing\">https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -200,7 +200,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://vicanek.de/articles/AADistortion.pdf\">https://vicanek.de/articles/AADistortion.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -240,7 +240,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf\">https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -250,10 +250,10 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 34.0, 19.0, 194.0, 20.0 ],
+                                                    "patching_rect": [ 34.0, 19.0, 444.0, 20.0 ],
                                                     "presentation": 1,
-                                                    "presentation_rect": [ 34.0, 19.0, 194.0, 20.0 ],
-                                                    "text": "A very limited Bibliography"
+                                                    "presentation_rect": [ 34.0, 19.0, 444.0, 20.0 ],
+                                                    "text": "A very limited Bibliography for antiderivative antialiasing techniques"
                                                 }
                                             },
                                             {
@@ -293,7 +293,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf\">https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -672,7 +672,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.fold~\">evi.overdrive.fold~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -696,7 +696,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.wrap~\">evi.overdrive.wrap~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -720,7 +720,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output, optional envelope following",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
