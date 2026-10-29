@@ -23,22 +23,22 @@
                     "patching_rect": [ 48.0, 33.0, 167.0, 23.0 ],
                     "rnbo_classname": "param",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "sendinit": 0,
-                        "exponent": 1.0,
-                        "unit": "",
-                        "preset": 0,
                         "minimum": 0.0,
-                        "tonormalized": "",
-                        "order": "0",
+                        "unit": "",
+                        "sendinit": 0,
                         "displayname": "",
-                        "ctlin": -1.0,
-                        "fromnormalized": "",
+                        "order": "0",
+                        "preset": 0,
                         "steps": 2.0,
+                        "meta": "",
+                        "tonormalized": "",
                         "displayorder": "-",
-                        "maximum": 1.0
+                        "exponent": 1.0,
+                        "ctlin": -1.0,
+                        "maximum": 1.0,
+                        "fromnormalized": ""
                     },
-                    "rnbo_serial": 4,
+                    "rnbo_serial": 1,
                     "rnbo_uniqueid": "bypass",
                     "rnboinfo": {
                         "needsInstanceInfo": 1,
@@ -468,8 +468,8 @@
                                     "patching_rect": [ 320.0, 33.5, 28.0, 23.0 ],
                                     "rnbo_classname": "in",
                                     "rnbo_extra_attributes": {
-                                        "meta": "",
-                                        "comment": ""
+                                        "comment": "",
+                                        "meta": ""
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "in_obj-22",
@@ -548,8 +548,8 @@
                                     "patching_rect": [ 48.0, 33.0, 28.0, 23.0 ],
                                     "rnbo_classname": "in",
                                     "rnbo_extra_attributes": {
-                                        "meta": "",
-                                        "comment": ""
+                                        "comment": "",
+                                        "meta": ""
                                     },
                                     "rnbo_serial": 2,
                                     "rnbo_uniqueid": "in_obj-19",
@@ -637,8 +637,8 @@
                                     "patching_rect": [ 274.0, 313.0, 36.0, 23.0 ],
                                     "rnbo_classname": "out",
                                     "rnbo_extra_attributes": {
-                                        "meta": "",
-                                        "comment": ""
+                                        "comment": "",
+                                        "meta": ""
                                     },
                                     "rnbo_serial": 1,
                                     "rnbo_uniqueid": "out_obj-16",
@@ -1273,13 +1273,13 @@
                     "patching_rect": [ 48.0, 113.0, 91.0, 23.0 ],
                     "rnbo_classname": "p",
                     "rnbo_extra_attributes": {
+                        "exposevoiceparams": 0,
+                        "voicecontrol": "simple",
                         "uidstyle": "auto",
-                        "args": [],
+                        "notecontroller": 0,
                         "receivemode": "local",
                         "polyphony": -1.0,
-                        "exposevoiceparams": 0,
-                        "notecontroller": 0,
-                        "voicecontrol": "simple"
+                        "args": []
                     },
                     "rnbo_serial": 1,
                     "rnbo_uniqueid": "drywetbypass",
@@ -1547,19 +1547,19 @@
                     "patching_rect": [ 120.0, 73.0, 224.0, 23.0 ],
                     "rnbo_classname": "param",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "sendinit": 1,
-                        "exponent": 1.0,
                         "unit": "",
-                        "preset": 1,
-                        "tonormalized": "",
-                        "enum": "",
-                        "order": "0",
+                        "sendinit": 1,
                         "displayname": "",
-                        "ctlin": -1.0,
-                        "fromnormalized": "",
+                        "order": "0",
+                        "preset": 1,
                         "steps": 0.0,
-                        "displayorder": "-"
+                        "meta": "",
+                        "tonormalized": "",
+                        "displayorder": "-",
+                        "exponent": 1.0,
+                        "enum": "",
+                        "ctlin": -1.0,
+                        "fromnormalized": ""
                     },
                     "rnbo_serial": 2,
                     "rnbo_uniqueid": "drywet",
@@ -1966,8 +1966,8 @@
                     "patching_rect": [ 341.0, 209.0, 35.0, 23.0 ],
                     "rnbo_classname": "in~",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "comment": "Audio In Right"
+                        "comment": "Audio In Right",
+                        "meta": ""
                     },
                     "rnbo_serial": 1,
                     "rnbo_uniqueid": "in~_obj-4",
@@ -2059,8 +2059,8 @@
                     "patching_rect": [ 120.0, 209.0, 35.0, 23.0 ],
                     "rnbo_classname": "in~",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "comment": "Audio In Left"
+                        "comment": "Audio In Left",
+                        "meta": ""
                     },
                     "rnbo_serial": 2,
                     "rnbo_uniqueid": "in~_obj-3",
@@ -2151,8 +2151,8 @@
                     "patching_rect": [ 341.0, 289.0, 43.0, 23.0 ],
                     "rnbo_classname": "out~",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "comment": "Audio Out Right"
+                        "comment": "Audio Out Right",
+                        "meta": ""
                     },
                     "rnbo_serial": 1,
                     "rnbo_uniqueid": "out~_obj-2",
@@ -2244,8 +2244,8 @@
                     "patching_rect": [ 120.0, 289.0, 43.0, 23.0 ],
                     "rnbo_classname": "out~",
                     "rnbo_extra_attributes": {
-                        "meta": "",
-                        "comment": "Audio Out Left"
+                        "comment": "Audio Out Left",
+                        "meta": ""
                     },
                     "rnbo_serial": 2,
                     "rnbo_uniqueid": "out~_obj-1",
@@ -2358,8 +2358,8 @@
                                         "maxclass": "newobj",
                                         "text": "out 2 rvrb Right",
                                         "patching_rect": [ 947.0, 874.0, 91.0, 22.0 ],
-                                        "id": "obj-5",
                                         "numinlets": 1,
+                                        "id": "obj-5",
                                         "numoutlets": 0
                                     }
                                 },
@@ -2368,10 +2368,10 @@
                                         "maxclass": "newobj",
                                         "text": "in 1 in Left",
                                         "patching_rect": [ 49.0, 19.0, 64.0, 22.0 ],
-                                        "outlettype": [ "" ],
-                                        "id": "obj-1",
                                         "numinlets": 0,
-                                        "numoutlets": 1
+                                        "id": "obj-1",
+                                        "numoutlets": 1,
+                                        "outlettype": [ "" ]
                                     }
                                 },
                                 {
@@ -2379,22 +2379,22 @@
                                         "maxclass": "newobj",
                                         "text": "in 2 in Right",
                                         "patching_rect": [ 947.0, 19.0, 72.0, 22.0 ],
-                                        "outlettype": [ "" ],
-                                        "id": "obj-2",
                                         "numinlets": 0,
-                                        "numoutlets": 1
+                                        "id": "obj-2",
+                                        "numoutlets": 1,
+                                        "outlettype": [ "" ]
                                     }
                                 },
                                 {
                                     "box": {
                                         "maxclass": "codebox",
                                         "patching_rect": [ 49.0, 58.0, 917.0, 797.0 ],
-                                        "outlettype": [ "", "" ],
                                         "fontface": 0,
-                                        "id": "obj-3",
-                                        "fontsize": 12.0,
                                         "numinlets": 2,
+                                        "id": "obj-3",
                                         "numoutlets": 2,
+                                        "fontsize": 12.0,
+                                        "outlettype": [ "", "" ],
                                         "fontname": "<Monospaced>",
                                         "code": "\r\n// evi_mattaverb.gendsp by Pete for evieve\r\n// a simple allpass diffusion reverb with minimal controls interaction\r\n// true stereo input/output, no early reflections, designed wet and spacey but very dampable\r\n// based on ancient clever macroisations by my friend Matt Jackson, has elements of our Diffuse.amxd\r\n\r\n\r\n// lib\r\n\r\nrequire(\"evi_reverb_library.genexpr\");\r\n\r\n\r\n// declare\r\n\r\nHistory xL(0), xR(0);\t// align\r\n\r\nDelay fbStage(int(samplerate*0.082645042+1.5), 2, feedback=1);\r\n\r\nParam low(0.333333, min=0, max=1);\t// damp 0..1, none..100% damping ...\r\nParam high(0.666666, min=0, max=1);\t// ...\r\nParam damp(0, min=0, max=1);\t\t// 0/1 = one/two-pole damping filters (!! clicks)\r\nParam space(1, min=0, max=1);\t\t// 0/1 = yes/no to damping filters in feedback path (!! clicks)\r\nParam size(0.5, min=0, max=1);\t\t// % 0..1, small..large (does all reverby stuff in one knob)\r\nParam drywet(sqrt1_2, min=0, max=1);// % 0..1\r\n\r\n\r\n// param rate...\r\n\r\nd2 = int(damp);\r\ns1 = int(space);\r\ns0 = 1 - s1;\r\n\r\n// small amount of damping always present if space == 1\r\nmLow = s1 ? low : low * 0.803821;\r\nmHigh = (s1 ? sqrt(high) : high) * 0.803821 + (0.196179 * s1);\r\n\r\nhiPass, hiAtten, loPass, loAtten = filterParams(mLow, mHigh, 439);\r\ndampEqHighG, dampEqHighK = rcDampCoeffs0(loPass, loAtten);\r\ndampEqLowG, dampEqLowK = rcDampCoeffs0(hiPass, hiAtten);\r\n\r\nmSize = s1 ? size : sqrt(size);\r\nsizeL, sizeR, diff, rt60dB, modAmount, modSpread = sizeParams(mSize);\r\ntimeL = pitch2timeSamps(sizeL);\r\ntimeR = pitch2timeSamps(sizeR);\r\ndivRT60 = 1 / pitch2timeSamps(rt60dB);\r\n\r\nsmoothsamps = 0.03 * samplerate;\r\n\r\n\r\n// audio rate...\r\n\r\ndryWet = eviSline(drywet, (samplerate * 0.301));\r\n//iDryWet = 1 - dryWet;\r\n\r\nxL = in1 + 0;\r\nxR = in2 + 0;\r\nrvrbL = 0;//in1 * iDryWet;\r\nrvrbR = 0;//in2 * iDryWet;\r\n\r\nif (dryWet > 0)\t\t//\t//\t//\tSTART: cpu bypass if dryWet == 0 (stupid because cannot clear delay lines)\r\n{\r\n\r\nEqHighG, EqLowG = expsmoothBank2(dampEqHighG, dampEqLowG, 0.03);\r\nEqHighK = eviLine(dampEqHighK, smoothsamps);\r\nEqLowK = eviSline(dampEqLowK, (smoothsamps + smoothsamps));\r\nHighKatten =  EqHighK * 0.803821;\r\nLowKatten = EqLowK * 0.506392;\r\n\r\ndelayTimeL, delayTimeR = logsmoothBank2(timeL, timeR, 0.31);\r\ndiffusion, modA = logsmoothBank2(diff, modAmount, 0.601);\r\nsRT60, modS = expsmoothBank2(divRT60, modSpread, 0.29);\r\nmodF = ((1 - modS) * 0.111111) + 0.666666;\r\n\r\nmod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8 = eightModMatt(modF, modA, modS);\r\n\r\nfbDelayL = (delayTimeL * 1.48934) + mod4;\r\nfbDelayR = (delayTimeR * 1.48934) + mod8;\r\n\r\nrt60L = dbtoaApprox(maximum(((fbDelayL * sRT60) * -60), -144));\r\nrt60R = dbtoaApprox(maximum(((fbDelayR * sRT60) * -60), -144));\r\n\r\nfbL = fbStage.read(fbDelayL, 0, interp=\"spline\") * rt60L;\r\nfbR = fbStage.read(fbDelayR, 1, interp=\"spline\") * rt60R;\r\n\r\npreFdnL = xL + fbR;\r\npreFdnR = xR + fbL;\r\n\r\n// highshelfs/lowpasses\r\nif (EqHighK != 0) {\r\n\tpreFdnL\t= rcFilterDamp(preFdnL, EqHighG, EqHighK);\r\n\tpreFdnR\t= rcFilterDamp(preFdnR, EqHighG, EqHighK);\r\n\tif (d2) {\r\n\t\tpreFdnL\t= rcFilterDamp(preFdnL, EqHighG, HighKatten);\r\n\t\tpreFdnR\t= rcFilterDamp(preFdnR, EqHighG, HighKatten);\r\n\t}\r\n}\r\n\r\n// lowshelfs/highpasses\r\n//if (EqLowK != 0) {\t// cpu manage not click-free for low :-(\r\n\tpreFdnL\t= rcFilterDampHp(preFdnL, EqLowG, EqLowK);\r\n\tpreFdnR\t= rcFilterDampHp(preFdnR, EqLowG, EqLowK);\r\n\tif (d2) {\r\n\t\tpreFdnL\t= rcFilterDampHp(preFdnL, EqLowG, LowKatten);\r\n\t\tpreFdnR\t= rcFilterDampHp(preFdnR, EqLowG, LowKatten);\r\n\t}\r\n//}\r\n\r\nrvrbL = allpassDiffuseShort(preFdnL, ((delayTimeL * 0.506392) + mod1), diffusion);\r\nrvrbR = allpassDiffuseShort(preFdnR, ((delayTimeR * 0.506392) + mod5), diffusion);\r\n\r\nrvrbL = allpassDiffuseLong(rvrbL, ((delayTimeL * 0.803821) + mod2), diffusion);\r\nrvrbR = allpassDiffuseLong(rvrbR, ((delayTimeR * 0.803821) + mod6), diffusion);\r\n\r\n// + shelfs if (!space)\r\nrvrbL = allpassDiffuseDamp(rvrbL, (delayTimeL + mod3), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);\r\nrvrbR = allpassDiffuseDamp(rvrbR, (delayTimeR + mod7), diffusion, EqHighG, HighKatten, EqLowG, LowKatten, s0);\r\n\r\n}\t//\t//\t//\tEND: cpu bypass if dryWet == 0\r\n\r\nfbStage.write(fixdenorm(rvrbL), 0);\r\nfbStage.write(fixdenorm(rvrbR), 1);\r\n\r\nout1, out2 = xfadeQuartApproxStereo(xL, xR, dcblock(rvrbL), dcblock(rvrbR), dryWet);\r\n\r\n"
                                     }
@@ -2404,8 +2404,8 @@
                                         "maxclass": "newobj",
                                         "text": "out 1 rvrb Left",
                                         "patching_rect": [ 49.0, 874.0, 83.0, 22.0 ],
-                                        "id": "obj-4",
                                         "numinlets": 1,
+                                        "id": "obj-4",
                                         "numoutlets": 0
                                     }
                                 }
@@ -2595,6 +2595,7 @@
             },
             {
                 "box": {
+                    "hidden": 1,
                     "id": "obj-41",
                     "linecount": 2,
                     "maxclass": "comment",
