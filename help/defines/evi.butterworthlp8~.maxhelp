@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -67,7 +67,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -125,7 +125,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -151,7 +151,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -238,7 +238,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -262,7 +262,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -286,7 +286,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-8",
@@ -684,7 +684,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -722,7 +722,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -746,7 +746,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-1",
@@ -844,7 +844,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-16",
@@ -868,7 +868,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-17",
@@ -1163,7 +1163,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1177,7 +1177,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -1201,7 +1201,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -1225,7 +1225,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-8",
@@ -1363,7 +1363,7 @@
                                             "parameter_exponent": 3.333333,
                                             "parameter_initial": [ 4000.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[1]",
+                                            "parameter_longname": "live.numbox[4]",
                                             "parameter_mmax": 20000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Frequency",
@@ -1423,7 +1423,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1701,12 +1701,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1729,7 +1729,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-1",
@@ -1753,7 +1753,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-3",
@@ -1777,7 +1777,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-6",
@@ -1915,7 +1915,7 @@
                                             "parameter_exponent": 3.333333,
                                             "parameter_initial": [ 4000.0 ],
                                             "parameter_initial_enable": 1,
-                                            "parameter_longname": "live.numbox[2]",
+                                            "parameter_longname": "live.numbox[5]",
                                             "parameter_mmax": 20000.0,
                                             "parameter_modmode": 3,
                                             "parameter_shortname": "Frequency",
@@ -2073,10 +2073,10 @@
         "parameters": {
             "obj-10::obj-14": [ "live.gain~[3]", "live.gain~", 0 ],
             "obj-10::obj-15": [ "tab[1]", "tab", 0 ],
-            "obj-10::obj-17": [ "live.numbox[1]", "Frequency", 0 ],
+            "obj-10::obj-17": [ "live.numbox[4]", "Frequency", 0 ],
             "obj-11::obj-14": [ "live.gain~[4]", "live.gain~", 0 ],
             "obj-11::obj-15": [ "tab[2]", "tab", 0 ],
-            "obj-11::obj-17": [ "live.numbox[2]", "Frequency", 0 ],
+            "obj-11::obj-17": [ "live.numbox[5]", "Frequency", 0 ],
             "obj-2::obj-12": [ "live.gain~[2]", "live.gain~", 0 ],
             "obj-2::obj-14": [ "live.numbox", "Frequency", 0 ],
             "obj-2::obj-15": [ "tab", "tab", 0 ],

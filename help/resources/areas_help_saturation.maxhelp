@@ -122,7 +122,6 @@
                                         "subpatcher_template": "<none>",
                                         "cluebar": 2,
                                         "title": "Adaa Bibliography",
-                                        "visible": 1,
                                         "boxes": [
                                             {
                                                 "box": {

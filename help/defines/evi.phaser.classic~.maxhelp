@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -30,7 +30,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -333,7 +333,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -523,7 +523,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -547,7 +547,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-13",
@@ -1217,7 +1217,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1430,7 +1430,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1620,7 +1620,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -1644,7 +1644,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-13",
@@ -2282,7 +2282,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2348,7 +2348,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2538,7 +2538,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -2562,7 +2562,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-13",
@@ -3275,7 +3275,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3346,7 +3346,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3468,7 +3468,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3658,7 +3658,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -3682,7 +3682,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-13",
@@ -4216,7 +4216,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4228,6 +4228,132 @@
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-80",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
+                                        "gridonopen": 2,
+                                        "subpatcher_template": "sub",
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
+                                                    "text": "@listen does not work"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-78",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
+                                                    "text": "deferlow"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-77",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "list", "bang" ],
+                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
+                                                    "text": "themecolor"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-76",
+                                                    "maxclass": "button",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "bang" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-79",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-79", 0 ],
+                                                    "source": [ "obj-76", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-78", 0 ],
+                                                    "source": [ "obj-77", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-79", 0 ],
+                                                    "source": [ "obj-78", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 609.0, 20.0, 19.0, 23.0 ],
+                                    "text": "p"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-9",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 609.0, 70.0, 153.0, 23.0 ],
+                                    "text": "prepend activeslidercolor"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-19",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "" ],
+                                    "patching_rect": [ 609.0, 45.0, 146.0, 23.0 ],
+                                    "text": "getattr fgcolor @listen 1"
+                                }
+                            },
                             {
                                 "box": {
                                     "fontname": "Arial",
@@ -4314,7 +4440,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4702,6 +4828,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4713,6 +4840,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 576.0, 494.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_exponent": 3.333333,
                                             "parameter_initial": [ 61.0 ],
@@ -4781,6 +4911,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4792,6 +4923,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 625.0, 324.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_initial": [ 18.999999999999996 ],
                                             "parameter_initial_enable": 1,
@@ -4809,6 +4943,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4820,6 +4955,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 526.0, 324.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_initial": [ 3.0 ],
                                             "parameter_initial_enable": 1,
@@ -4837,6 +4975,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4848,6 +4987,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 576.0, 401.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_exponent": 2.222222,
                                             "parameter_initial": [ 1.9042982101910046 ],
@@ -4904,6 +5046,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4915,6 +5058,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 625.0, 149.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_initial": [ 0.31401574803149623 ],
                                             "parameter_initial_enable": 1,
@@ -4931,6 +5077,7 @@
                             },
                             {
                                 "box": {
+                                    "activeslidercolor": [ 0.262745, 0.462745, 0.847059, 1.0 ],
                                     "appearance": 2,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -4942,6 +5089,9 @@
                                     "parameter_enable": 1,
                                     "patching_rect": [ 526.0, 149.0, 51.0, 18.0 ],
                                     "saved_attribute_attributes": {
+                                        "activeslidercolor": {
+                                            "expression": ""
+                                        },
                                         "valueof": {
                                             "parameter_initial": [ 0.21559055118110246 ],
                                             "parameter_initial_enable": 1,
@@ -5065,7 +5215,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -5089,7 +5239,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-3",
@@ -5394,6 +5544,20 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-48", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-19", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-19", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-67", 3 ],
                                     "hidden": 1,
                                     "source": [ "obj-29", 0 ]
@@ -5468,6 +5632,61 @@
                                     "hidden": 1,
                                     "source": [ "obj-7", 0 ]
                                 }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-19", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-80", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-35", 0 ],
+                                    "hidden": 1,
+                                    "order": 5,
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-36", 0 ],
+                                    "hidden": 1,
+                                    "order": 1,
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-43", 0 ],
+                                    "hidden": 1,
+                                    "order": 4,
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-45", 0 ],
+                                    "hidden": 1,
+                                    "order": 0,
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-53", 0 ],
+                                    "hidden": 1,
+                                    "order": 2,
+                                    "source": [ "obj-9", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-7", 0 ],
+                                    "hidden": 1,
+                                    "order": 3,
+                                    "source": [ "obj-9", 0 ]
+                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -5491,7 +5710,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5535,7 +5754,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -5559,7 +5778,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
+                                    "bgcolor": [ 0.0, 0.580392156862745, 0.882352941176471, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-14",
@@ -5711,7 +5930,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },

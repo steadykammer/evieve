@@ -732,7 +732,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -753,7 +753,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -1298,7 +1298,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq3~\">evi.eq3~</link> and <link href=\"; max openhelp evi.eq3.stereo~\">evi.eq3.stereo~</link> are three band EQs where every parameter can be controlled at audio rate, including modulation",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -1322,7 +1322,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq5~\">evi.eq5~</link> and <link href=\"; max openhelp evi.eq8~\">evi.eq8~</link> use the same filters but with attributes control of all parameters",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -1346,7 +1346,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.filter.shelving~\">evi.filter.shelving~</link> is a two band low/high shelving EQ utility",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -1469,7 +1469,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1735,7 +1735,7 @@
                                         }
                                     },
                                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -1810,7 +1810,6 @@
                                                         "subpatcher_template": "<none>",
                                                         "cluebar": 2,
                                                         "title": "TPT Bibliography",
-                                                        "visible": 1,
                                                         "boxes": [
                                                             {
                                                                 "box": {
@@ -1837,7 +1836,7 @@
                                                                         }
                                                                     },
                                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1877,7 +1876,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1905,7 +1904,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1945,7 +1944,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1973,7 +1972,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2013,7 +2012,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2053,7 +2052,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2094,7 +2093,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2134,7 +2133,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2327,7 +2326,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -2462,7 +2461,7 @@
                                         }
                                     },
                                     "text": "Scroll to the bottom 'See Also' section of the <link href=\"; max html_ref evi_svfs\">evi_svfs.genexpr</link> reference page and you will find links to all of the different SVF GenExpr code files in evieve.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -3916,7 +3915,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -4014,7 +4013,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -4246,7 +4245,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -5352,7 +5351,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -5587,13 +5586,15 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activebgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "activelinecolor": [ 0.0, 0.0, 0.5019607843137255, 1.0 ],
+                                    "bgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-39",
+                                    "line_width": 2.0,
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -5810,6 +5811,7 @@
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
+                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "color": [ 0.0, 0.0, 0.502, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
@@ -5825,12 +5827,13 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
+                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "color": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
@@ -5846,12 +5849,13 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
+                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
@@ -5866,7 +5870,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -8579,7 +8583,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -9885,7 +9889,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {

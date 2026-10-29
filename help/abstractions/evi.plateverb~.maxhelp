@@ -39,7 +39,7 @@
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
-                        "showontab": 1,
+                        "showontab": 0,
                         "integercoordinates": 1,
                         "boxes": [
                             {
@@ -60,8 +60,19 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 59.0, 112.0, 1000.0, 780.0 ],
+                                        "rect": [ 59.0, 112.0, 596.0, 542.0 ],
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-28",
+                                                    "linecount": 3,
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 393.0, 275.5, 150.0, 47.0 ],
+                                                    "text": "rnbo compilation bug, 9.2.0 & 9.2.1\nhas been reported"
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-11",
@@ -70,7 +81,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "bang" ],
                                                     "parameter_enable": 0,
-                                                    "patching_rect": [ 354.0, 261.0, 24.0, 24.0 ]
+                                                    "patching_rect": [ 126.0, 174.0, 24.0, 24.0 ]
                                                 }
                                             },
                                             {
@@ -80,7 +91,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "int", "int" ],
-                                                    "patching_rect": [ 516.0, 322.0, 32.0, 22.0 ],
+                                                    "patching_rect": [ 288.0, 235.0, 32.0, 22.0 ],
                                                     "text": "t 0 1"
                                                 }
                                             },
@@ -91,7 +102,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 588.0, 243.0, 23.0, 22.0 ],
+                                                    "patching_rect": [ 360.0, 156.0, 23.0, 22.0 ],
                                                     "text": "t b"
                                                 }
                                             },
@@ -102,7 +113,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 580.0, 206.0, 67.0, 22.0 ],
+                                                    "patching_rect": [ 352.0, 119.0, 67.0, 22.0 ],
                                                     "text": "route start"
                                                 }
                                             },
@@ -115,7 +126,7 @@
                                                     "numinlets": 0,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 638.0, 128.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 410.0, 41.0, 30.0, 30.0 ]
                                                 }
                                             },
                                             {
@@ -125,7 +136,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "bang", "" ],
-                                                    "patching_rect": [ 411.0, 236.0, 34.0, 22.0 ],
+                                                    "patching_rect": [ 183.0, 149.0, 34.0, 22.0 ],
                                                     "text": "sel 1"
                                                 }
                                             },
@@ -136,7 +147,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 4,
                                                     "outlettype": [ "int", "float", "int", "int" ],
-                                                    "patching_rect": [ 405.0, 181.0, 61.0, 22.0 ],
+                                                    "patching_rect": [ 177.0, 94.0, 61.0, 22.0 ],
                                                     "text": "dspstate~"
                                                 }
                                             },
@@ -147,7 +158,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 301.0, 375.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 73.0, 288.0, 55.0, 22.0 ],
                                                     "text": "pipe 666"
                                                 }
                                             },
@@ -158,7 +169,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 432.0, 375.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 204.0, 288.0, 55.0, 22.0 ],
                                                     "text": "pipe 555"
                                                 }
                                             },
@@ -169,7 +180,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 3,
                                                     "outlettype": [ "float", "float", "bang" ],
-                                                    "patching_rect": [ 422.0, 289.0, 55.0, 22.0 ],
+                                                    "patching_rect": [ 194.0, 202.0, 55.0, 22.0 ],
                                                     "text": "t 0.3 0. b"
                                                 }
                                             },
@@ -181,7 +192,7 @@
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 577.0, 504.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 349.0, 417.0, 30.0, 30.0 ]
                                                 }
                                             },
                                             {
@@ -192,7 +203,7 @@
                                                     "maxclass": "outlet",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 353.0, 490.0, 30.0, 30.0 ]
+                                                    "patching_rect": [ 125.0, 403.0, 30.0, 30.0 ]
                                                 }
                                             }
                                         ],
@@ -765,13 +776,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "exposevoiceparams": 0,
+                                                        "voicecontrol": "simple",
                                                         "uidstyle": "auto",
                                                         "notecontroller": 0,
-                                                        "args": [],
-                                                        "polyphony": -1.0,
-                                                        "exposevoiceparams": 0,
                                                         "receivemode": "local",
-                                                        "voicecontrol": "simple"
+                                                        "polyphony": -1.0,
+                                                        "args": []
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1205,8 +1216,8 @@
                                                     "patching_rect": [ 397.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-4",
@@ -1298,8 +1309,8 @@
                                                     "patching_rect": [ 294.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "out~_obj-3",
@@ -1392,8 +1403,8 @@
                                                     "patching_rect": [ 397.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-2",
@@ -1485,8 +1496,8 @@
                                                     "patching_rect": [ 294.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in~_obj-1",
@@ -1598,6 +1609,41 @@
                                     },
                                     "patching_rect": [ 250.0, 435.0, 284.0, 23.0 ],
                                     "rnboattrcache": {
+                                        "evi_reverb/damp": {
+                                            "label": "damp",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/wet": {
+                                            "label": "wet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/diffuse": {
+                                            "label": "diffuse",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/highgain": {
+                                            "label": "highgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/highfrequency": {
+                                            "label": "highfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/lowfrequency": {
+                                            "label": "lowfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/decay": {
                                             "label": "decay",
                                             "isEnum": 0,
@@ -1608,18 +1654,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/damp": {
-                                            "label": "damp",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/highfrequency": {
-                                            "label": "highfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowgain": {
-                                            "label": "lowgain",
+                                        "evi_reverb/pan": {
+                                            "label": "pan",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1628,33 +1664,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/diffuse": {
-                                            "label": "diffuse",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowfrequency": {
-                                            "label": "lowfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/pan": {
-                                            "label": "pan",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/wet": {
-                                            "label": "wet",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/highgain": {
-                                            "label": "highgain",
+                                        "evi_reverb/lowgain": {
+                                            "label": "lowgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -5569,6 +5580,16 @@
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 229.0, 125.0, 71.0, 23.0 ],
                     "text": "route bang"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-17",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 473.0, 361.0, 180.0, 21.0 ],
+                    "text": "^^ temp disabled"
                 }
             },
             {

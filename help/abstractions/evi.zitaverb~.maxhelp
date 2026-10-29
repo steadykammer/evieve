@@ -39,7 +39,7 @@
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
-                        "showontab": 1,
+                        "showontab": 0,
                         "integercoordinates": 1,
                         "boxes": [
                             {
@@ -548,13 +548,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "exposevoiceparams": 0,
+                                                        "voicecontrol": "simple",
                                                         "uidstyle": "auto",
                                                         "notecontroller": 0,
-                                                        "args": [],
-                                                        "polyphony": -1.0,
-                                                        "exposevoiceparams": 0,
                                                         "receivemode": "local",
-                                                        "voicecontrol": "simple"
+                                                        "polyphony": -1.0,
+                                                        "args": []
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -976,8 +976,8 @@
                                                     "patching_rect": [ 397.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-4",
@@ -1069,8 +1069,8 @@
                                                     "patching_rect": [ 294.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "out~_obj-3",
@@ -1163,8 +1163,8 @@
                                                     "patching_rect": [ 397.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-2",
@@ -1256,8 +1256,8 @@
                                                     "patching_rect": [ 294.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in~_obj-1",
@@ -1369,33 +1369,8 @@
                                     },
                                     "patching_rect": [ 265.0, 450.0, 276.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/eq2cutoff": {
-                                            "label": "eq2cutoff",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/damp": {
                                             "label": "damp",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/eq1cutoff": {
-                                            "label": "eq1cutoff",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/predelay": {
-                                            "label": "predelay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/eq1gain": {
-                                            "label": "eq1gain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowdecay": {
-                                            "label": "lowdecay",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1404,18 +1379,43 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/drywet": {
-                                            "label": "drywet",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/eq2gain": {
-                                            "label": "eq2gain",
+                                        "evi_reverb/eq1gain": {
+                                            "label": "eq1gain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
                                         "evi_reverb/crossover": {
                                             "label": "crossover",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/eq1cutoff": {
+                                            "label": "eq1cutoff",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/drywet": {
+                                            "label": "drywet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/lowdecay": {
+                                            "label": "lowdecay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/eq2cutoff": {
+                                            "label": "eq2cutoff",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/predelay": {
+                                            "label": "predelay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/eq2gain": {
+                                            "label": "eq2gain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -4146,6 +4146,16 @@
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 229.0, 125.0, 71.0, 23.0 ],
                     "text": "route bang"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 448.0, 361.0, 205.0, 21.0 ],
+                    "text": "^^ temp disabled"
                 }
             },
             {

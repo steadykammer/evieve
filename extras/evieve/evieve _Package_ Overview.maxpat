@@ -89,8 +89,8 @@
                                     },
                                     "text": "Projects and AMXDs",
                                     "texton": "Projects and AMXDs",
-                                    "textoncolor": [ 0.5746819173620666, 0.7467304293728035, 1.0, 1.0 ],
-                                    "textovercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "textoncolor": [ 0.0, 0.33962210660915293, 0.8755540412134832, 1.0 ],
+                                    "textovercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "usetextovercolor": 1,
                                     "valuepopuplabel": 1
                                 }
@@ -207,8 +207,8 @@
                                     },
                                     "text": "evieve Objects Overview",
                                     "texton": "evieve Objects Overview",
-                                    "textoncolor": [ 0.5746819173620666, 0.7467304293728035, 1.0, 1.0 ],
-                                    "textovercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "textoncolor": [ 0.0, 0.33962210660915293, 0.8755540412134832, 1.0 ],
+                                    "textovercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "usetextovercolor": 1,
                                     "valuepopuplabel": 1
                                 }
@@ -238,8 +238,8 @@
                                     },
                                     "text": "evieve GenExpr Index",
                                     "texton": "evieveGenExprIndex",
-                                    "textoncolor": [ 0.5746819173620666, 0.7467304293728035, 1.0, 1.0 ],
-                                    "textovercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "textoncolor": [ 0.0, 0.33962210660915293, 0.8755540412134832, 1.0 ],
+                                    "textovercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "usetextovercolor": 1,
                                     "valuepopuplabel": 1
                                 }
@@ -286,7 +286,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "bubbleside": 0,
                                     "id": "obj-35",
                                     "maxclass": "comment",
@@ -389,9 +389,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 2 Reset (Param has changed)",
                                                                         "patching_rect": [ 756.0, 807.0, 189.0, 22.0 ],
-                                                                        "numoutlets": 0,
                                                                         "numinlets": 1,
-                                                                        "id": "obj-7"
+                                                                        "id": "obj-7",
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -399,10 +399,10 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 2 (signal/float) Shape (linear gain 1..100) @default 1 @min 1 @max 100",
                                                                         "patching_rect": [ 539.0, 19.0, 406.0, 22.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-5"
+                                                                        "id": "obj-5",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
@@ -410,23 +410,23 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal) Input Signal",
                                                                         "patching_rect": [ 49.0, 19.0, 137.0, 22.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-1"
+                                                                        "id": "obj-1",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 49.0, 58.0, 896.0, 732.0 ],
-                                                                        "numoutlets": 2,
-                                                                        "outlettype": [ "", "" ],
-                                                                        "fontname": "<Monospaced>",
                                                                         "fontface": 0,
                                                                         "numinlets": 2,
                                                                         "id": "obj-3",
+                                                                        "numoutlets": 2,
                                                                         "fontsize": 12.0,
+                                                                        "outlettype": [ "", "" ],
+                                                                        "fontname": "<Monospaced>",
                                                                         "code": "\r\n// this is an antialiased atan(x) (with gain compensation wrapper)\r\n// for saturating your audio, not for Maths.\r\n\r\nrequire(\"evi_saturators.genexpr\");\n\r\n// This gain compensation wrapper around the atan() function makes a great non-linear\r\n// shaper. Many thanks to Volker Böhm. With no antialiasing it sounds like crap, but here\r\n// the atan(x)s in the functions required here are antialiased and much nicer.\r\natanDrive(drive)\r\n{\n\tpre = maximum(drive, 1);\n\tpost = maximum((1 / atanA(drive)), 0.1);// naive approx for control rate\n\treturn pre, post;\r\n}\n\r\nHistory\treset(1);\r\n\r\n//Param\tshape(1, min=1, max=100);\t\t\t// linear gain, 0..40 dB\r\n//Param\tsmoothshape(22.666, min=0, max=333);// ms\r\nParam\thfcompensate(1, min=0, max=1);\t\t// default on\r\nParam\taa(3, min=0, max=5);\t\t\t\t// default Adaa2\r\nadaaxx\t= int(aa);\r\nhfcomp\t= int(hfcompensate);\r\n//smooth\t= smoothshape * 0.001;\t\t\t// secs\r\n\r\nresetaa\t= delta(change(adaaxx)) < 0;\r\nresethf\t= delta(change(hfcomp)) < 0;\r\nreset\t= resetaa + resethf;\r\n\r\ningain, outgain = atanDrive(in2);           // must smooth in2 externally\r\nataninput = in1 * ingain;// + bias;\r\natanoutput\t= 0;\r\nif (adaaxx == 1) {\r\n\tatanoutput = atanAdaa1_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 2) {\r\n\tatanoutput = atanAdaa1_4x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 3) {\t// default\r\n\tatanoutput = dcblock(atanAdaa2(ataninput, reset));\r\n} else if (adaaxx == 4) {\r\n\tatanoutput = atanAdaa2_2x_6POINT(ataninput, reset);\r\n} else if (adaaxx == 5) {\r\n\tatanoutput = atanAdaa2_4x_6POINT(ataninput, reset);\r\n} else {\t\t\t\t\t// (adaaxx == 0)\r\n\tatanoutput = dcblock(atanAdaa1(ataninput, reset));\r\n}\r\n\r\nif (hfcomp) {\r\n\tatanoutput = decorelate(atanoutput);\r\n}\r\n\r\nout1\t= atanoutput * outgain;// * HALFPI;\r\nout2\t= reset;\r\n\r\n"
                                                                     }
                                                                 },
@@ -435,9 +435,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 (signal) Atan(x) Output - antialiased for your audio not for Maths",
                                                                         "patching_rect": [ 49.0, 807.0, 381.0, 22.0 ],
-                                                                        "numoutlets": 0,
                                                                         "numinlets": 1,
-                                                                        "id": "obj-4"
+                                                                        "id": "obj-4",
+                                                                        "numoutlets": 0
                                                                     }
                                                                 }
                                                             ],
@@ -1076,10 +1076,10 @@
                                                                         "text": "in 4 (signal/float) Q @default 0.707107",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 637.0, 13.0, 114.0, 35.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-6"
+                                                                        "id": "obj-6",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
@@ -1088,10 +1088,10 @@
                                                                         "text": "in 3 (signal/float) Gain in dB @min -30 @max 30 @default 0",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 436.0, 13.0, 179.0, 35.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-5"
+                                                                        "id": "obj-5",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
@@ -1099,10 +1099,10 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal) Input",
                                                                         "patching_rect": [ 34.0, 19.0, 101.0, 22.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-1"
+                                                                        "id": "obj-1",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
@@ -1111,10 +1111,10 @@
                                                                         "text": "in 2 (signal/float) Cutoff in Hz @min 1 @max samplerate*0.5",
                                                                         "linecount": 2,
                                                                         "patching_rect": [ 235.0, 13.0, 175.0, 35.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
                                                                         "numinlets": 0,
-                                                                        "id": "obj-2"
+                                                                        "id": "obj-2",
+                                                                        "numoutlets": 1,
+                                                                        "outlettype": [ "" ]
                                                                     }
                                                                 },
                                                                 {
@@ -1122,22 +1122,22 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 (signal) Filter Output",
                                                                         "patching_rect": [ 34.0, 553.0, 147.0, 22.0 ],
-                                                                        "numoutlets": 0,
                                                                         "numinlets": 1,
-                                                                        "id": "obj-4"
+                                                                        "id": "obj-4",
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 34.0, 58.0, 622.0, 478.0 ],
-                                                                        "numoutlets": 1,
-                                                                        "outlettype": [ "" ],
-                                                                        "fontname": "<Monospaced>",
                                                                         "fontface": 0,
                                                                         "numinlets": 4,
                                                                         "id": "obj-3",
+                                                                        "numoutlets": 1,
                                                                         "fontsize": 12.0,
+                                                                        "outlettype": [ "" ],
+                                                                        "fontname": "<Monospaced>",
                                                                         "code": "\r\nrequire(\"evi_svfs_tpt.genexpr\");\r\n\r\nParam   smooth(0., min=0, max=333);\r\nParam   filter(7, min=0, max=12);\r\nfilt    = int(filter);\r\nreset   = delta(change(filt)) < 0;\r\n\r\n/*\n\tIndex\tFilter\n\n\t0 \t\tBypass\n\t1 \t\tLowpass\n\t2 \t\tHighpass\n\t3 \t\tBandpass\n\t4 \t\tPeak\n\t5 \t\tNotch\n\t6 \t\tResonant\n\t7 \t\tBell            // (default)\n\t8 \t\tBellAdaptiveQ\n\t9 \t\tLowshelf\n\t10 \t\tHighshelf\n\t11 \t\tTilt\n\t12 \t\tAllpass\n*/\n\r\n                            //   hz,  db,  Q\r\nout1    = eviFilterTptReset(in1, in2, in3, in4, filt, reset, smooth=smooth);\r\n\r\n"
                                                                     }
                                                                 },
@@ -1147,10 +1147,10 @@
                                                                         "text": "^^ note, Q is clamped in core code for this generalised filter",
                                                                         "linecount": 5,
                                                                         "patching_rect": [ 658.0, 58.0, 93.0, 74.0 ],
-                                                                        "numoutlets": 0,
-                                                                        "hidden": 1,
                                                                         "numinlets": 1,
-                                                                        "id": "obj-8"
+                                                                        "id": "obj-8",
+                                                                        "hidden": 1,
+                                                                        "numoutlets": 0
                                                                     }
                                                                 }
                                                             ],
@@ -1385,13 +1385,13 @@
                                     "presentation": 1,
                                     "presentation_rect": [ 1145.0, 142.0, 104.0, 22.0 ],
                                     "rnboattrcache": {
-                                        "evi_filter/filter": {
-                                            "label": "filter",
+                                        "evi_filter/smooth": {
+                                            "label": "smooth",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_filter/smooth": {
-                                            "label": "smooth",
+                                        "evi_filter/filter": {
+                                            "label": "filter",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         }
@@ -2114,7 +2114,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "bubbleside": 0,
                                     "id": "obj-15",
                                     "maxclass": "comment",
@@ -2135,7 +2135,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "bubbleside": 0,
                                     "id": "obj-14",
                                     "maxclass": "comment",
@@ -2156,7 +2156,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "bubbleside": 0,
                                     "id": "obj-13",
                                     "maxclass": "comment",
@@ -2177,7 +2177,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "bubbleside": 0,
                                     "id": "obj-12",
                                     "maxclass": "comment",
@@ -2431,7 +2431,7 @@
                                                         }
                                                     },
                                                     "text": "...but if you look in the Code sidebar you will see that gen~ unpacks the code contained inside the abstraction versions...",
-                                                    "textcolor": [ 0.4904921114938933, 0.6819244478854937, 0.5100669514757755, 1.0 ],
+                                                    "textcolor": [ 0.0, 0.2752971744695382, 0.0, 1.0 ],
                                                     "textjustification": 1
                                                 }
                                             },
@@ -2704,7 +2704,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "background": 1,
-                                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
+                                    "bgcolor": [ 0.716, 0.733, 0.75, 1.0 ],
                                     "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 0.0 ],
                                     "id": "obj-65",
                                     "maxclass": "panel",
@@ -2771,7 +2771,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bordercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-43",
@@ -2796,7 +2796,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-41",
@@ -2821,7 +2821,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-42",
@@ -2858,7 +2858,7 @@
                                         }
                                     },
                                     "text": "The basic principle of evieve patching:",
-                                    "textcolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ]
+                                    "textcolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ]
                                 }
                             }
                         ],
@@ -2941,7 +2941,7 @@
                                     "patching_rect": [ 679.0, 337.0, 170.0, 53.0 ],
                                     "presentation": 1,
                                     "presentation_linecount": 3,
-                                    "presentation_rect": [ 591.0, 340.0, 170.0, 53.0 ],
+                                    "presentation_rect": [ 679.0, 337.0, 170.0, 53.0 ],
                                     "text": "Overview of all the Objects available in Max (& gen~) patching",
                                     "textjustification": 1
                                 }
@@ -2959,7 +2959,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 672.0, 403.0, 184.0, 26.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 584.0, 406.0, 184.0, 26.0 ],
+                                    "presentation_rect": [ 672.0, 403.0, 184.0, 26.0 ],
                                     "rounded": 4.0,
                                     "saved_attribute_attributes": {
                                         "textoncolor": {
@@ -2971,8 +2971,8 @@
                                     },
                                     "text": "evieve Objects Overview",
                                     "texton": "evieve Objects Overview",
-                                    "textoncolor": [ 0.5746819173620666, 0.7467304293728035, 1.0, 1.0 ],
-                                    "textovercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "textoncolor": [ 0.0, 0.33962210660915293, 0.8755540412134832, 1.0 ],
+                                    "textovercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "usetextovercolor": 1,
                                     "valuepopuplabel": 1
                                 }
@@ -2990,7 +2990,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 451.0, 403.0, 167.0, 26.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 363.0, 406.0, 167.0, 26.0 ],
+                                    "presentation_rect": [ 451.0, 403.0, 167.0, 26.0 ],
                                     "rounded": 4.0,
                                     "saved_attribute_attributes": {
                                         "textoncolor": {
@@ -3002,8 +3002,8 @@
                                     },
                                     "text": "evieve GenExpr Index",
                                     "texton": "evieveGenExprIndex",
-                                    "textoncolor": [ 0.5746819173620666, 0.7467304293728035, 1.0, 1.0 ],
-                                    "textovercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "textoncolor": [ 0.0, 0.33962210660915293, 0.8755540412134832, 1.0 ],
+                                    "textovercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "usetextovercolor": 1,
                                     "valuepopuplabel": 1
                                 }
@@ -3043,7 +3043,7 @@
                                     "patching_rect": [ 435.0, 329.0, 202.0, 69.0 ],
                                     "presentation": 1,
                                     "presentation_linecount": 4,
-                                    "presentation_rect": [ 347.0, 332.0, 202.0, 69.0 ],
+                                    "presentation_rect": [ 435.0, 329.0, 202.0, 69.0 ],
                                     "text": "Launch the 'evieve GenExpr Index' to learn about every function in the evieve .genexpr files system",
                                     "textjustification": 1
                                 }
@@ -3064,7 +3064,7 @@
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 944.0, 241.0, 298.0, 42.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 944.0, 244.0, 298.0, 42.0 ],
+                                    "presentation_rect": [ 944.0, 241.0, 298.0, 42.0 ],
                                     "preservehref": 1,
                                     "saved_attribute_attributes": {
                                         "textcolor": {
@@ -3072,7 +3072,7 @@
                                         }
                                     },
                                     "text": "By Pete Dowling a.k.a. 'stkr'. © Peter Dowling 2026, <link href=\"; max openhelp doesnotexist\">license: GPLv3</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                 }
                             },
                             {
@@ -3387,7 +3387,7 @@
                                                                         }
                                                                     },
                                                                     "text": "evieve is released under the <b>GPLv3 license</b>, copyright © Peter Dowling 2026.\nThis means that it is licensed for non-commercial use only.\nFor license details see 'license.txt' in the root of the Package, or access it via the Max 'Package Manager' <link href=\"; max packagebrowser evieve\">entry for evieve</link>. Otherwise see <link href=\"; max launchbrowser https://www.gnu.org/licenses/\">https://www.gnu.org/licenses/</link>.",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -3484,7 +3484,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 54.0, 103.0, 219.0, 141.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 54.0, 98.0, 219.0, 141.0 ],
+                                    "presentation_rect": [ 54.0, 103.0, 219.0, 141.0 ],
                                     "tabs": [ "asj", "dronegarden", "monosynth", "offcoastplayground", "polysynth" ]
                                 }
                             },
@@ -4017,7 +4017,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 317.0, 103.0, 219.0, 141.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 317.0, 98.0, 219.0, 141.0 ],
+                                    "presentation_rect": [ 317.0, 103.0, 219.0, 141.0 ],
                                     "tabs": [ "Biquads/TPT SVFs", "Linear TPT Filters", "Nonlinear Korg Filters", "Nonlinear Ladder Filters", "Nonlinear SVFs", "Saturation and Aliasing", "Smoothers" ]
                                 }
                             },
@@ -4166,7 +4166,7 @@
                                     "patching_rect": [ 940.0, 62.0, 331.0, 47.0 ],
                                     "presentation": 1,
                                     "presentation_linecount": 3,
-                                    "presentation_rect": [ 940.0, 65.0, 331.0, 47.0 ],
+                                    "presentation_rect": [ 940.0, 62.0, 331.0, 47.0 ],
                                     "text": "A library of GenExpr audio code with a particular focus on linear and nonlinear filtering, antialiased saturation and signal smoothing."
                                 }
                             },
@@ -4180,7 +4180,7 @@
                                     "patching_rect": [ 940.0, 116.0, 331.0, 114.0 ],
                                     "presentation": 1,
                                     "presentation_linecount": 8,
-                                    "presentation_rect": [ 940.0, 119.0, 331.0, 114.0 ],
+                                    "presentation_rect": [ 940.0, 116.0, 331.0, 114.0 ],
                                     "text": "The evieve package aims to be as ordinary as possible - generic and easily reusable audio code but for using directly inside of '.genexpr' & 'codebox' etc, organised into source files for usage via 'require()'.\n\nSome of the code has been (largely automatically) extrapolated to 'gen~' and 'MSP' abstractions and therefore may be useful in those environments as well."
                                 }
                             },
@@ -4198,7 +4198,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 578.0, 103.0, 295.0, 141.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 578.0, 98.0, 295.0, 141.0 ],
+                                    "presentation_rect": [ 578.0, 103.0, 295.0, 141.0 ],
                                     "tabs": [ "Linear Filters", "Nonlinear Filters", "Crossover Filters", "MSP Substitutions", "Oscillators and Sources", "Reverbs", "Saturation", "Signal Smoothing" ]
                                 }
                             },
@@ -4216,7 +4216,7 @@
                                     "patching_rect": [ 21.0, 292.5, 194.0, 194.0 ],
                                     "pic": "peter_icon.png",
                                     "presentation": 1,
-                                    "presentation_rect": [ 20.0, 19.0, 80.0, 80.0 ]
+                                    "presentation_rect": [ 21.0, 292.5, 194.0, 194.0 ]
                                 }
                             },
                             {
@@ -4230,7 +4230,7 @@
                                     "orientation": 0,
                                     "patching_rect": [ 286.0, 92.0, 19.0, 164.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 286.0, 87.0, 19.0, 164.0 ]
+                                    "presentation_rect": [ 286.0, 92.0, 19.0, 164.0 ]
                                 }
                             },
                             {
@@ -4244,7 +4244,7 @@
                                     "orientation": 0,
                                     "patching_rect": [ 547.0, 92.0, 19.0, 164.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 547.0, 87.0, 19.0, 164.0 ]
+                                    "presentation_rect": [ 547.0, 92.0, 19.0, 164.0 ]
                                 }
                             },
                             {
@@ -4258,7 +4258,7 @@
                                     "orientation": 0,
                                     "patching_rect": [ 635.0, 308.0, 19.0, 164.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 547.0, 311.0, 19.0, 164.0 ]
+                                    "presentation_rect": [ 635.0, 308.0, 19.0, 164.0 ]
                                 }
                             },
                             {
@@ -4273,6 +4273,8 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 197.0, 2.0, 116.0, 40.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 197.0, 2.0, 116.0, 40.0 ],
                                     "text": "evieve Patching",
                                     "textjustification": 1
                                 }
@@ -4287,7 +4289,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 54.0, 61.0, 219.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 54.0, 31.0, 219.0, 24.0 ],
+                                    "presentation_rect": [ 54.0, 61.0, 219.0, 24.0 ],
                                     "text": "Example Patchers:"
                                 }
                             },
@@ -4301,7 +4303,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 317.0, 61.0, 219.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 317.0, 31.0, 219.0, 24.0 ],
+                                    "presentation_rect": [ 317.0, 61.0, 219.0, 24.0 ],
                                     "text": "Comparison Patchers:"
                                 }
                             },
@@ -4315,7 +4317,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 940.0, 28.0, 331.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 940.0, 31.0, 331.0, 24.0 ],
+                                    "presentation_rect": [ 940.0, 28.0, 331.0, 24.0 ],
                                     "text": "About"
                                 }
                             },
@@ -4329,7 +4331,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 578.0, 61.0, 295.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 578.0, 31.0, 295.0, 24.0 ],
+                                    "presentation_rect": [ 578.0, 61.0, 295.0, 24.0 ],
                                     "text": "Topics Overviews:"
                                 }
                             },
@@ -4343,6 +4345,9 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 908.0, 398.0, 171.0, 37.0 ],
+                                    "presentation": 1,
+                                    "presentation_linecount": 2,
+                                    "presentation_rect": [ 908.0, 398.0, 171.0, 37.0 ],
                                     "text": "... but there is lots of other content to explore, too",
                                     "textjustification": 1
                                 }
@@ -4358,6 +4363,9 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 269.0, 398.0, 134.0, 37.0 ],
+                                    "presentation": 1,
+                                    "presentation_linecount": 2,
+                                    "presentation_rect": [ 269.0, 398.0, 134.0, 37.0 ],
                                     "text": "evieve is about GenExpr code ...",
                                     "textjustification": 1
                                 }
@@ -4367,7 +4375,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bordercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-31",
@@ -4377,7 +4385,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 21.0, 54.0, 885.0, 223.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 21.0, 57.0, 885.0, 223.0 ],
+                                    "presentation_rect": [ 21.0, 54.0, 885.0, 223.0 ],
                                     "proportion": 0.5,
                                     "rounded": 4,
                                     "saved_attribute_attributes": {
@@ -4392,7 +4400,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
+                                    "bordercolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-43",
@@ -4402,7 +4410,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 405.0, 294.0, 501.0, 191.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 317.0, 297.0, 501.0, 191.0 ],
+                                    "presentation_rect": [ 405.0, 294.0, 501.0, 191.0 ],
                                     "proportion": 0.5,
                                     "rounded": 4,
                                     "saved_attribute_attributes": {
@@ -4417,7 +4425,7 @@
                                     "angle": 270.0,
                                     "background": 1,
                                     "border": 1,
-                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                     "grad1": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "grad2": [ 0.172137149796092, 0.172137100044002, 0.172137113045018, 0.0 ],
                                     "id": "obj-36",
@@ -4427,7 +4435,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 925.0, 54.0, 374.0, 223.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 925.0, 57.0, 374.0, 223.0 ],
+                                    "presentation_rect": [ 925.0, 54.0, 374.0, 223.0 ],
                                     "proportion": 0.5,
                                     "rounded": 4,
                                     "saved_attribute_attributes": {
@@ -4560,7 +4568,7 @@
                         }
                     },
                     "text": "By Pete Dowling a.k.a. 'stkr'. © Peter Dowling 2026, <link href=\"; max openhelp doesnotexist\">license: GPLv3</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                 }
             },
             {
@@ -4867,7 +4875,7 @@
                                                         }
                                                     },
                                                     "text": "evieve is released under the <b>GPLv3 license</b>, copyright © Peter Dowling 2026.\nThis means that it is licensed for non-commercial use only.\nFor license details see 'license.txt' in the root of the Package, or access it via the Max 'Package Manager' <link href=\"; max packagebrowser evieve\">entry for evieve</link>. Otherwise see <link href=\"; max launchbrowser https://www.gnu.org/licenses/\">https://www.gnu.org/licenses/</link>.",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
                                                 }
                                             },
                                             {

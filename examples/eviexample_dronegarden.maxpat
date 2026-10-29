@@ -357,9 +357,10 @@
             },
             {
                 "box": {
-                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
-                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                    "activelinecolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
+                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
                     "grid": 3,
                     "horizonal_divisions": 8,
                     "horizontal_divisions": 8,
@@ -373,19 +374,43 @@
                     "presentation_rect": [ 182.0, 475.0, 130.0, 130.0 ],
                     "rounded": 1.0,
                     "samples": 48000.0,
+                    "saved_attribute_attributes": {
+                        "activebgcolor": {
+                            "expression": "themecolor.theme_bgcolor"
+                        },
+                        "activegridcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
+                        "activelinecolor": {
+                            "expression": "themecolor.theme_selectioncolor"
+                        },
+                        "bgcolor": {
+                            "expression": "themecolor.theme_bgcolor"
+                        }
+                    },
                     "vertical_divisions": 4
                 }
             },
             {
                 "box": {
+                    "fgcolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
                     "id": "obj-40",
+                    "markercolor": [ 0.7550474760424134, 0.7743149292213349, 0.7939830498018119, 1.0 ],
                     "maxclass": "spectroscope~",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 400.0, 639.0, 300.0, 72.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 314.0, 475.0, 322.0, 130.0 ]
+                    "presentation_rect": [ 314.0, 475.0, 322.0, 130.0 ],
+                    "saved_attribute_attributes": {
+                        "fgcolor": {
+                            "expression": "themecolor.theme_selectioncolor"
+                        },
+                        "markercolor": {
+                            "expression": "themecolor.theme_elementcolor"
+                        }
+                    }
                 }
             },
             {
@@ -401,9 +426,10 @@
             },
             {
                 "box": {
-                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
-                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                    "activelinecolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
+                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
                     "grid": 3,
                     "horizonal_divisions": 8,
                     "horizontal_divisions": 8,
@@ -417,19 +443,43 @@
                     "presentation_rect": [ 182.0, 343.0, 130.0, 130.0 ],
                     "rounded": 1.0,
                     "samples": 48000.0,
+                    "saved_attribute_attributes": {
+                        "activebgcolor": {
+                            "expression": "themecolor.theme_bgcolor"
+                        },
+                        "activegridcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
+                        "activelinecolor": {
+                            "expression": "themecolor.theme_selectioncolor"
+                        },
+                        "bgcolor": {
+                            "expression": "themecolor.theme_bgcolor"
+                        }
+                    },
                     "vertical_divisions": 4
                 }
             },
             {
                 "box": {
+                    "fgcolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
                     "id": "obj-4",
+                    "markercolor": [ 0.7550474760424134, 0.7743149292213349, 0.7939830498018119, 1.0 ],
                     "maxclass": "spectroscope~",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 400.0, 565.0, 300.0, 72.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 314.0, 343.0, 322.0, 130.0 ]
+                    "presentation_rect": [ 314.0, 343.0, 322.0, 130.0 ],
+                    "saved_attribute_attributes": {
+                        "fgcolor": {
+                            "expression": "themecolor.theme_selectioncolor"
+                        },
+                        "markercolor": {
+                            "expression": "themecolor.theme_elementcolor"
+                        }
+                    }
                 }
             },
             {
@@ -804,6 +854,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 314.0, 170.0, 322.0, 51.0 ],
                     "saved_attribute_attributes": {
+                        "slidercolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "valueof": {
                             "parameter_initial": [ -6.0 ],
                             "parameter_initial_enable": 1,
@@ -816,6 +869,7 @@
                             "parameter_unitstyle": 4
                         }
                     },
+                    "slidercolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                     "varname": "mc.live.gain~"
                 }
             },
@@ -8358,7 +8412,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "stellar5"
+                                                    "text": "parizek_lt13"
                                                 }
                                             },
                                             {

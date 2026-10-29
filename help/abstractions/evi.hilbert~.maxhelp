@@ -177,7 +177,7 @@
                                     "patching_rect": [ 233.0, 468.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -20.0 ],
+                                            "parameter_initial": [ -3.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[4]",
                                             "parameter_mmax": 6.0,
@@ -396,8 +396,8 @@
                                                     "patching_rect": [ 445.0, 246.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-17",
@@ -488,8 +488,8 @@
                                                     "patching_rect": [ 558.0, 411.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-16",
@@ -581,8 +581,8 @@
                                                     "patching_rect": [ 219.0, 411.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "out~_obj-15",
@@ -688,8 +688,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 2 (signal) Sine Output",
                                                                         "patching_rect": [ 475.0, 293.0, 145.0, 22.0 ],
-                                                                        "id": "obj-5",
                                                                         "numinlets": 1,
+                                                                        "id": "obj-5",
                                                                         "numoutlets": 0
                                                                     }
                                                                 },
@@ -698,8 +698,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal/float) Frequency in Hz",
                                                                         "patching_rect": [ 48.0, 34.0, 187.0, 22.0 ],
-                                                                        "id": "obj-1",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-1",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -709,8 +709,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 2 (signal) Reset Naive",
                                                                         "patching_rect": [ 481.0, 34.0, 139.0, 22.0 ],
-                                                                        "id": "obj-2",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-2",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -719,13 +719,13 @@
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 48.0, 73.0, 572.0, 202.0 ],
-                                                                        "fontsize": 12.0,
-                                                                        "id": "obj-3",
-                                                                        "fontname": "<Monospaced>",
-                                                                        "numinlets": 2,
-                                                                        "numoutlets": 2,
                                                                         "fontface": 0,
+                                                                        "numinlets": 2,
+                                                                        "id": "obj-3",
+                                                                        "numoutlets": 2,
+                                                                        "fontsize": 12.0,
                                                                         "outlettype": [ "", "" ],
+                                                                        "fontname": "<Monospaced>",
                                                                         "code": "\r\nrequire(\"evi_cossin.genexpr\");\r\n\r\n\r\n// This 'eviQuadOsc()' function is the equivalent of [evi.quadosc~]\r\nout1, out2 = eviQuadOsc(in1, in2);\r\n\r\n\r\n// @see also: 'eviQuadOscSync()', 'evi_quadosc_sync', 'evi.quadosc~'"
                                                                     }
                                                                 },
@@ -734,8 +734,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 (signal) Cosine Output",
                                                                         "patching_rect": [ 48.0, 293.0, 158.0, 22.0 ],
-                                                                        "id": "obj-4",
                                                                         "numinlets": 1,
+                                                                        "id": "obj-4",
                                                                         "numoutlets": 0
                                                                     }
                                                                 }
@@ -929,8 +929,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 2",
                                                                         "patching_rect": [ 643.0, 514.0, 35.0, 22.0 ],
-                                                                        "id": "obj-7",
                                                                         "numinlets": 1,
+                                                                        "id": "obj-7",
                                                                         "numoutlets": 0
                                                                     }
                                                                 },
@@ -939,8 +939,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 4",
                                                                         "patching_rect": [ 643.0, 56.0, 28.0, 22.0 ],
-                                                                        "id": "obj-6",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-6",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -950,8 +950,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 3",
                                                                         "patching_rect": [ 450.0, 56.0, 28.0, 22.0 ],
-                                                                        "id": "obj-5",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-5",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -961,8 +961,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1",
                                                                         "patching_rect": [ 65.0, 56.0, 28.0, 22.0 ],
-                                                                        "id": "obj-1",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-1",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -972,8 +972,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 2",
                                                                         "patching_rect": [ 258.0, 56.0, 28.0, 22.0 ],
-                                                                        "id": "obj-2",
                                                                         "numinlets": 0,
+                                                                        "id": "obj-2",
                                                                         "numoutlets": 1,
                                                                         "outlettype": [ "" ]
                                                                     }
@@ -982,13 +982,13 @@
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 65.0, 110.0, 597.0, 372.0 ],
-                                                                        "fontsize": 12.0,
-                                                                        "id": "obj-3",
-                                                                        "fontname": "<Monospaced>",
-                                                                        "numinlets": 4,
-                                                                        "numoutlets": 2,
                                                                         "fontface": 0,
+                                                                        "numinlets": 4,
+                                                                        "id": "obj-3",
+                                                                        "numoutlets": 2,
+                                                                        "fontsize": 12.0,
                                                                         "outlettype": [ "", "" ],
+                                                                        "fontname": "<Monospaced>",
                                                                         "code": "\r\nrequire(\"evi_ssb.genexpr\");\r\n\r\nusb, lsb, cosam, sinam\t= complexRing(in1, in2, in3, in4);\r\n\r\nout1 = usb;\r\nout2 = lsb;\r\n\r\n/*\r\n    NOTE: for real frequency shifters, @see:\r\n    'evi_freqshift_hilbert.gendsp' or [evi.freqshift.hilbert~]\r\n    and\r\n    'evi_freqshift_weaver.gendsp' or [evi.freqshift.weaver~]\r\n*/\r\n\r\n"
                                                                     }
                                                                 },
@@ -997,8 +997,8 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1",
                                                                         "patching_rect": [ 65.0, 514.0, 35.0, 22.0 ],
-                                                                        "id": "obj-4",
                                                                         "numinlets": 1,
+                                                                        "id": "obj-4",
                                                                         "numoutlets": 0
                                                                     }
                                                                 }
@@ -1006,26 +1006,8 @@
                                                             "lines": [
                                                                 {
                                                                     "patchline": {
-                                                                        "source": [ "obj-6", 0 ],
-                                                                        "destination": [ "obj-3", 3 ]
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "patchline": {
-                                                                        "source": [ "obj-5", 0 ],
-                                                                        "destination": [ "obj-3", 2 ]
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "patchline": {
-                                                                        "source": [ "obj-3", 1 ],
-                                                                        "destination": [ "obj-7", 0 ]
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "patchline": {
-                                                                        "source": [ "obj-3", 0 ],
-                                                                        "destination": [ "obj-4", 0 ]
+                                                                        "source": [ "obj-1", 0 ],
+                                                                        "destination": [ "obj-3", 0 ]
                                                                     }
                                                                 },
                                                                 {
@@ -1036,8 +1018,26 @@
                                                                 },
                                                                 {
                                                                     "patchline": {
-                                                                        "source": [ "obj-1", 0 ],
-                                                                        "destination": [ "obj-3", 0 ]
+                                                                        "source": [ "obj-3", 0 ],
+                                                                        "destination": [ "obj-4", 0 ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "patchline": {
+                                                                        "source": [ "obj-3", 1 ],
+                                                                        "destination": [ "obj-7", 0 ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "patchline": {
+                                                                        "source": [ "obj-5", 0 ],
+                                                                        "destination": [ "obj-3", 2 ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "patchline": {
+                                                                        "source": [ "obj-6", 0 ],
+                                                                        "destination": [ "obj-3", 3 ]
                                                                     }
                                                                 }
                                                             ]
@@ -1214,13 +1214,13 @@
                                                     "patching_rect": [ 219.0, 246.0, 132.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
-                                                        "notecontroller": 0,
-                                                        "args": [],
-                                                        "polyphony": -1.0,
                                                         "exposevoiceparams": 0,
-                                                        "uidstyle": "auto",
                                                         "voicecontrol": "simple",
-                                                        "receivemode": "local"
+                                                        "uidstyle": "auto",
+                                                        "notecontroller": 0,
+                                                        "receivemode": "local",
+                                                        "polyphony": -1.0,
+                                                        "args": []
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1467,8 +1467,8 @@
                                                     "patching_rect": [ 219.0, 191.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in~_obj-1",

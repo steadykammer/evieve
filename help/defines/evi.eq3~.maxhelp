@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -30,7 +30,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -448,7 +448,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1021,7 +1021,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1079,7 +1079,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1103,7 +1103,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 436.0, 409.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 421.0, 409.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 2.0,
@@ -1133,7 +1133,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 436.0, 391.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 421.0, 391.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -1162,7 +1162,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 436.0, 373.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 421.0, 373.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -1187,7 +1187,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 485.0, 408.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 470.0, 408.0, 35.0, 21.0 ],
                                     "text": "Q"
                                 }
                             },
@@ -1197,7 +1197,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 485.0, 390.0, 36.0, 21.0 ],
+                                    "patching_rect": [ 470.0, 390.0, 36.0, 21.0 ],
                                     "text": "Gain"
                                 }
                             },
@@ -1207,7 +1207,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 485.0, 372.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 470.0, 372.0, 35.0, 21.0 ],
                                     "text": "Freq"
                                 }
                             },
@@ -1222,7 +1222,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 298.0, 409.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 283.0, 409.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 2.0,
@@ -1252,7 +1252,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 298.0, 391.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 283.0, 391.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -1281,7 +1281,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 298.0, 373.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 283.0, 373.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -1306,7 +1306,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 347.0, 408.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 332.0, 408.0, 35.0, 21.0 ],
                                     "text": "Q"
                                 }
                             },
@@ -1316,7 +1316,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 347.0, 390.0, 36.0, 21.0 ],
+                                    "patching_rect": [ 332.0, 390.0, 36.0, 21.0 ],
                                     "text": "Gain"
                                 }
                             },
@@ -1326,7 +1326,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 347.0, 372.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 332.0, 372.0, 35.0, 21.0 ],
                                     "text": "Freq"
                                 }
                             },
@@ -1341,7 +1341,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 160.0, 409.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 145.0, 409.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 2.0,
@@ -1371,7 +1371,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 160.0, 391.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 145.0, 391.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ 0.0 ],
@@ -1400,7 +1400,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "float" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 160.0, 373.0, 50.0, 17.0 ],
+                                    "patching_rect": [ 145.0, 373.0, 50.0, 17.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_exponent": 4.0,
@@ -1425,7 +1425,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 209.0, 408.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 194.0, 408.0, 35.0, 21.0 ],
                                     "text": "Q"
                                 }
                             },
@@ -1435,7 +1435,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 209.0, 390.0, 36.0, 21.0 ],
+                                    "patching_rect": [ 194.0, 390.0, 36.0, 21.0 ],
                                     "text": "Gain"
                                 }
                             },
@@ -1445,7 +1445,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 209.0, 372.0, 35.0, 21.0 ],
+                                    "patching_rect": [ 194.0, 372.0, 35.0, 21.0 ],
                                     "text": "Freq"
                                 }
                             },
@@ -1995,7 +1995,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2951,7 +2951,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3470,7 +3470,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3689,7 +3689,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -4147,12 +4147,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -4373,7 +4373,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -4727,12 +4727,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

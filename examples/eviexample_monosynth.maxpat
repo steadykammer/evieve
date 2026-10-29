@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -28,7 +28,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -156,12 +156,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 297.0, 92.0, 359.0, 405.0 ],
+                        "rect": [ 134.0, 165.0, 359.0, 405.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -189,7 +189,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -680,12 +680,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 92.0, 688.0, 300.0 ],
+                        "rect": [ 134.0, 165.0, 688.0, 300.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -701,7 +701,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -901,7 +901,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -1853,7 +1853,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1874,7 +1874,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2315,7 +2315,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2422,7 +2422,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2444,7 +2444,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -3201,7 +3201,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3223,7 +3223,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -3898,7 +3898,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -3920,7 +3920,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -4614,7 +4614,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5251,7 +5251,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5570,7 +5570,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5673,7 +5673,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -5803,7 +5803,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6989,7 +6989,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -8160,6 +8160,7 @@
                                     "shadowblend": 0.5,
                                     "shadoworientation": 1,
                                     "signed": 1,
+                                    "slidercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "spacing": 4,
                                     "thickness": 3,
                                     "varname": "multislider"
@@ -8168,7 +8169,7 @@
                             {
                                 "box": {
                                     "angle": 270.0,
-                                    "bgcolor": [ 0.12549019607843137, 0.12549019607843137, 0.12549019607843137, 1.0 ],
+                                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 0.0 ],
                                     "id": "obj-41",
                                     "maxclass": "panel",
@@ -8179,7 +8180,12 @@
                                     "presentation": 1,
                                     "presentation_rect": [ 29.0, 48.0, 24.0, 102.0 ],
                                     "proportion": 0.39,
-                                    "rounded": 1
+                                    "rounded": 1,
+                                    "saved_attribute_attributes": {
+                                        "bgfillcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    }
                                 }
                             },
                             {
@@ -8218,6 +8224,7 @@
                                     "shadowblend": 0.5,
                                     "shadoworientation": 1,
                                     "signed": 1,
+                                    "slidercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "spacing": 4,
                                     "thickness": 3,
                                     "varname": "multislider[1]"
@@ -8226,7 +8233,7 @@
                             {
                                 "box": {
                                     "angle": 270.0,
-                                    "bgcolor": [ 0.12549019607843137, 0.12549019607843137, 0.12549019607843137, 1.0 ],
+                                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 0.0 ],
                                     "id": "obj-42",
                                     "maxclass": "panel",
@@ -8237,12 +8244,17 @@
                                     "presentation": 1,
                                     "presentation_rect": [ 1.0, 48.0, 24.0, 102.0 ],
                                     "proportion": 0.39,
-                                    "rounded": 1
+                                    "rounded": 1,
+                                    "saved_attribute_attributes": {
+                                        "bgfillcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    }
                                 }
                             },
                             {
                                 "box": {
-                                    "blackkeycolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "blackkeycolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "hkeycolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "id": "obj-142",
                                     "inputmode": 2,
@@ -8256,6 +8268,9 @@
                                     "presentation": 1,
                                     "presentation_rect": [ 57.0, 48.0, 700.0, 102.0 ],
                                     "saved_attribute_attributes": {
+                                        "blackkeycolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "hkeycolor": {
                                             "expression": "themecolor.theme_color"
                                         },
@@ -8273,6 +8288,7 @@
                                             "parameter_type": 1
                                         }
                                     },
+                                    "selectioncolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
                                     "varname": "kslider"
                                 }
                             },
@@ -8479,6 +8495,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-8",
@@ -8502,6 +8519,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-7",
@@ -8525,6 +8543,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-6",
@@ -8548,6 +8567,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-9",
@@ -8571,6 +8591,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-10",
@@ -8594,6 +8615,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-11",
@@ -8617,6 +8639,7 @@
                                 "box": {
                                     "angle": 270.0,
                                     "border": 1,
+                                    "bordercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                     "id": "obj-12",
@@ -9061,6 +9084,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 867.0, 448.0, 52.0, 176.0 ],
                     "saved_attribute_attributes": {
+                        "slidercolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "valueof": {
                             "parameter_initial": [ -6.0 ],
                             "parameter_initial_enable": 1,
@@ -9073,6 +9099,7 @@
                             "parameter_unitstyle": 4
                         }
                     },
+                    "slidercolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                     "thickness": 10,
                     "varname": "live.gain~"
                 }
@@ -9093,6 +9120,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 154.0, 198.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 0.0 ],
                             "parameter_initial_enable": 1,
@@ -9105,6 +9135,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[21]"
@@ -9126,6 +9157,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 94.0, 198.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 0.0 ],
                             "parameter_initial_enable": 1,
@@ -9138,6 +9172,7 @@
                             "parameter_unitstyle": 0
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[22]"
@@ -9155,7 +9190,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -10069,6 +10104,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 613.0, 256.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 1.0 ],
                             "parameter_initial_enable": 1,
@@ -10080,6 +10118,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[15]"
@@ -10129,6 +10168,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 518.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 9.0 ],
                             "parameter_initial_enable": 1,
@@ -10140,6 +10182,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[18]"
@@ -10189,6 +10232,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 518.0, 272.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 9.0 ],
                             "parameter_initial_enable": 1,
@@ -10200,6 +10246,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[19]"
@@ -10249,6 +10296,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 518.0, 198.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 1.0 ],
                             "parameter_initial_enable": 1,
@@ -10260,6 +10310,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[20]"
@@ -10287,7 +10338,13 @@
                     "patching_rect": [ 201.0, 464.0, 32.0, 24.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 862.0, 234.0, 32.0, 24.0 ],
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        }
+                    },
                     "text": "+",
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "textjustification": 1
                 }
             },
@@ -10306,6 +10363,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 79.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 1.0 ],
                             "parameter_initial_enable": 1,
@@ -10317,6 +10377,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[16]"
@@ -10337,6 +10398,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 169.0, 272.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 1.0 ],
                             "parameter_initial_enable": 1,
@@ -10348,6 +10412,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[14]"
@@ -10471,6 +10536,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 738.0, 197.0, 50.0, 57.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 45.0 ],
                             "parameter_initial_enable": 1,
@@ -10484,6 +10552,7 @@
                         }
                     },
                     "shownumber": 0,
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[13]"
@@ -10504,6 +10573,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 789.0, 202.0, 60.0, 42.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 3.0 ],
                             "parameter_initial_enable": 1,
@@ -10516,6 +10588,7 @@
                         }
                     },
                     "shownumber": 0,
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[12]"
@@ -10621,6 +10694,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 794.0, 256.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_exponent": 4.444444,
                             "parameter_initial": [ 600.0 ],
@@ -10634,6 +10710,7 @@
                             "parameter_unitstyle": 2
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[9]"
@@ -10654,6 +10731,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 738.0, 256.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_exponent": 4.444444,
                             "parameter_initial": [ 1.0 ],
@@ -10667,6 +10747,7 @@
                             "parameter_unitstyle": 2
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[10]"
@@ -10687,6 +10768,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 853.0, 256.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 3.0 ],
                             "parameter_initial_enable": 1,
@@ -10698,6 +10782,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[11]"
@@ -10747,6 +10832,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 794.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_exponent": 4.444444,
                             "parameter_initial": [ 600.0 ],
@@ -10760,6 +10848,7 @@
                             "parameter_unitstyle": 2
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[8]"
@@ -10780,6 +10869,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 738.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_exponent": 4.444444,
                             "parameter_initial": [ 4.0 ],
@@ -10793,6 +10885,7 @@
                             "parameter_unitstyle": 2
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[7]"
@@ -10813,6 +10906,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 853.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 9.0 ],
                             "parameter_initial_enable": 1,
@@ -10824,6 +10920,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[6]"
@@ -10845,6 +10942,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 842.0, 202.0, 72.0, 42.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 5.0 ],
                             "parameter_initial_enable": 1,
@@ -10858,6 +10958,7 @@
                         }
                     },
                     "shownumber": 0,
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial"
@@ -10879,6 +10980,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 320.0, 272.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 0.0 ],
                             "parameter_initial_enable": 1,
@@ -10891,6 +10995,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[2]"
@@ -10912,6 +11017,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 268.0, 272.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_enum": [ "32'", "16'", "8'", "4'", "2'" ],
                             "parameter_initial": [ 1.0 ],
@@ -10924,6 +11032,7 @@
                             "parameter_unitstyle": 9
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[1]"
@@ -10945,6 +11054,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 320.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_initial": [ 0.0 ],
                             "parameter_initial_enable": 1,
@@ -10957,6 +11069,7 @@
                             "parameter_unitstyle": 1
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[5]"
@@ -10978,6 +11091,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 267.0, 346.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_enum": [ "LO", "32'", "16'", "8'", "4'" ],
                             "parameter_initial": [ 3.0 ],
@@ -10990,6 +11106,7 @@
                             "parameter_unitstyle": 9
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[4]"
@@ -11011,6 +11128,9 @@
                     "presentation": 1,
                     "presentation_rect": [ 268.0, 198.0, 51.0, 55.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor_inverse"
+                        },
                         "valueof": {
                             "parameter_enum": [ "32'", "16'", "8'", "4'", "2'" ],
                             "parameter_initial": [ 0.0 ],
@@ -11023,6 +11143,7 @@
                             "parameter_unitstyle": 9
                         }
                     },
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                     "valuepopup": 1,
                     "valuepopuplabel": 1,
                     "varname": "live.dial[3]"
@@ -11091,7 +11212,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                     "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
                     "id": "obj-62",
                     "maxclass": "panel",
@@ -11104,6 +11225,9 @@
                     "proportion": 0.5,
                     "rounded": 2,
                     "saved_attribute_attributes": {
+                        "bgfillcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "bordercolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
@@ -11114,7 +11238,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                     "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
                     "id": "obj-61",
                     "maxclass": "panel",
@@ -11127,6 +11251,9 @@
                     "proportion": 0.5,
                     "rounded": 2,
                     "saved_attribute_attributes": {
+                        "bgfillcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "bordercolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
@@ -11137,7 +11264,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                     "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
                     "id": "obj-58",
                     "maxclass": "panel",
@@ -11150,6 +11277,9 @@
                     "proportion": 0.5,
                     "rounded": 2,
                     "saved_attribute_attributes": {
+                        "bgfillcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "bordercolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
@@ -11160,7 +11290,7 @@
                 "box": {
                     "angle": 270.0,
                     "background": 1,
-                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                    "bgcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                     "bordercolor": [ 0.85, 0.85, 0.85, 1.0 ],
                     "id": "obj-56",
                     "maxclass": "panel",
@@ -11173,6 +11303,9 @@
                     "proportion": 0.5,
                     "rounded": 2,
                     "saved_attribute_attributes": {
+                        "bgfillcolor": {
+                            "expression": "themecolor.theme_stripecolor"
+                        },
                         "bordercolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
