@@ -4,12 +4,12 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 100.0, 100.0, 660.0, 568.0 ],
+        "rect": [ 63.0, 100.0, 674.0, 578.0 ],
         "openrect": [ 0.0, 0.0, 660.0, 568.0 ],
         "openrectmode": 0,
         "bglocked": 1,
@@ -26,6 +26,204 @@
         "integercoordinates": 1,
         "title": "Noise Sources in evieve",
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-17",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 584.0, 599.0, 67.0, 22.0 ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "minimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 63, 100, 737, 678, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "text": "thispatcher"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-18",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 604.0, 533.0, 19.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 487.0, 188.0, 19.0, 22.0 ],
+                    "text": "0"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-23",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 584.0, 533.0, 19.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 467.0, 188.0, 19.0, 22.0 ],
+                    "text": "1"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-28",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 1,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 175.0, 245.0, 880.0, 521.0 ],
+                        "subpatcher_template": "<none>",
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-69",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 409.0, 268.0, 415.0, 22.0 ],
+                                    "text": "window flags zoom, window flags minimize, window flags grow, window exec"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-68",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "bang", "bang", "" ],
+                                    "patching_rect": [ 396.0, 86.0, 44.0, 22.0 ],
+                                    "text": "sel 1 0"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-67",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "bang", "bang" ],
+                                    "patching_rect": [ 53.0, 170.0, 32.0, 22.0 ],
+                                    "text": "t b b"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-66",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 53.0, 209.0, 84.0, 22.0 ],
+                                    "text": "savewindow 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-63",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 149.0, 208.0, 316.0, 22.0 ],
+                                    "text": "window flags nozoom, window flags nogrow, window exec"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-70",
+                                    "index": 1,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 396.0, 40.0000005, 30.0, 30.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-71",
+                                    "index": 1,
+                                    "maxclass": "outlet",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 149.0, 443.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-63", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-66", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-63", 0 ],
+                                    "source": [ "obj-67", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-66", 0 ],
+                                    "source": [ "obj-67", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-67", 0 ],
+                                    "source": [ "obj-68", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-69", 0 ],
+                                    "source": [ "obj-68", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-69", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-68", 0 ],
+                                    "source": [ "obj-70", 0 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 584.0, 575.0, 59.0, 22.0 ],
+                    "text": "p window"
+                }
+            },
             {
                 "box": {
                     "bgmode": 0,
@@ -102,7 +300,7 @@
                         }
                     },
                     "text": "<link href=\"; max html_ref evi_rand\">evi_rand</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -126,7 +324,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.randy~\">evi.randy~</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -162,7 +360,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -336,7 +534,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.gaussiannoise~\">evi.gaussiannoise~</link> gaussian distributed noise source - surprising how often we need this!",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -360,7 +558,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.velvetnoise~\">evi.velvetnoise~</link> morphs between \"sparse noise\" (similar to \"audiodust\") and \"velvet noise\" (useful in reverbs)",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -384,7 +582,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.audiodust~\">evi.audiodust~</link> is useful as a spikey noise/trigger source or as a  modulation core",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -409,7 +607,7 @@
                         }
                     },
                     "text": "For more gen noise, see the Todd Ingalls code: <link href=\"; max launchbrowser https://github.com/testcase/gen_noise\">GitHub</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -433,7 +631,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -765,6 +963,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-28", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-18", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-11", 0 ],
                     "midpoints": [ 118.5, 220.92578125, 558.5, 220.92578125 ],
                     "source": [ "obj-2", 0 ]
@@ -779,9 +984,23 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-28", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-23", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-34", 0 ],
                     "hidden": 1,
                     "source": [ "obj-26", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-17", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-28", 0 ]
                 }
             },
             {

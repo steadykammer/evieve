@@ -2871,7 +2871,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 250.0, 118.0, 163.0, 22.0 ],
-                                                    "text": "list.reg otherGenAbstractions"
+                                                    "text": "list.reg evieveOtherGenAbstractions"
                                                 }
                                             },
                                             {

@@ -399,8 +399,8 @@
                                             },
                                             {
                                                 "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
                                                     "grid": 3,
                                                     "horizonal_divisions": 8,
@@ -743,319 +743,6 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-17",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 260.0, 445.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-16",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -1089,319 +776,6 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-6",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 58.0, 445.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
@@ -1422,319 +796,6 @@
                                     },
                                     "text": "1",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-15",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 461.0, 445.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
                                 }
                             },
                             {
@@ -1783,6 +844,132 @@
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
                                     "text": "The vactrol will behave differently depending on the triggering method used.",
                                     "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-5",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 58.0, 445.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-6",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 260.0, 445.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-8",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 461.0, 445.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
                                 }
                             },
                             {
@@ -1871,19 +1058,19 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-17", 0 ],
+                                    "destination": [ "obj-6", 0 ],
                                     "source": [ "obj-19", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-6", 0 ],
+                                    "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-20", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-15", 0 ],
+                                    "destination": [ "obj-8", 0 ],
                                     "source": [ "obj-21", 0 ]
                                 }
                             },
@@ -2419,211 +1606,6 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "hidden": 1,
-                                    "id": "obj-7",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "bang", "" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 59.0, 112.0, 772.0, 358.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 209.0, 178.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 178.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-3",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 209.0, 40.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-8",
-                                                    "index": 1,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 261.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-14",
-                                                    "index": 2,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 209.0, 261.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 547.0, 187.0, 150.0, 20.0 ],
-                                                    "text": "@listen does not work"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-78",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 485.0, 115.0, 54.0, 22.0 ],
-                                                    "text": "deferlow"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-77",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "list", "bang" ],
-                                                    "patching_rect": [ 432.0, 76.0, 68.0, 22.0 ],
-                                                    "text": "themecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-76",
-                                                    "maxclass": "button",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "parameter_enable": 0,
-                                                    "patching_rect": [ 541.0, 147.0, 24.0, 24.0 ]
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-14", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-14", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-3", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-8", 0 ],
-                                                    "source": [ "obj-76", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-78", 0 ],
-                                                    "source": [ "obj-77", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-8", 0 ],
-                                                    "source": [ "obj-78", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 403.0, 552.0, 30.0, 23.0 ],
-                                    "text": "p"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-26",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 562.0, 591.0, 150.0, 23.0 ],
-                                    "text": "getattr bgcolor @listen 1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "hidden": 1,
-                                    "id": "obj-29",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 403.0, 591.0, 135.0, 23.0 ],
-                                    "text": "getattr color @listen 1"
-                                }
-                            },
-                            {
-                                "box": {
                                     "bubble": 1,
                                     "id": "obj-13",
                                     "maxclass": "comment",
@@ -2672,23 +1654,41 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-34",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 620.0, 418.0, 130.0, 130.0 ],
                                     "range": [ 0.0, 1.0 ],
-                                    "rounded": 1.0,
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
                                     "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
                                         "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
                                             "expression": "themecolor.theme_stripecolor"
                                         }
                                     },
@@ -2757,23 +1757,41 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-24",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 43.0, 418.0, 130.0, 130.0 ],
                                     "range": [ 0.0, 1.0 ],
-                                    "rounded": 1.0,
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
                                     "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
                                         "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
                                             "expression": "themecolor.theme_stripecolor"
                                         }
                                     },
@@ -2926,23 +1944,41 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-21",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 458.0, 418.0, 130.0, 130.0 ],
                                     "range": [ 0.0, 1.0 ],
-                                    "rounded": 1.0,
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
                                     "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
                                         "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
                                             "expression": "themecolor.theme_stripecolor"
                                         }
                                     },
@@ -3037,23 +2073,41 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-17",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 206.0, 418.0, 130.0, 130.0 ],
                                     "range": [ 0.0, 1.0 ],
-                                    "rounded": 1.0,
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
                                     "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
                                         "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
                                             "expression": "themecolor.theme_stripecolor"
                                         }
                                     },
@@ -3281,20 +2335,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-27", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-26", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-7", 1 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-26", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-17", 0 ],
                                     "midpoints": [ 467.5, 409.5, 215.5, 409.5 ],
                                     "order": 2,
@@ -3326,21 +2366,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-18", 0 ],
-                                    "hidden": 1,
-                                    "source": [ "obj-29", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-7", 0 ],
-                                    "hidden": 1,
-                                    "midpoints": [ 412.5, 624.0, 393.08984375, 624.0, 393.08984375, 542.0, 412.5, 542.0 ],
-                                    "source": [ "obj-29", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-1", 0 ],
                                     "midpoints": [ 286.5, 365.0, 215.5, 365.0 ],
                                     "source": [ "obj-3", 0 ]
@@ -3350,54 +2375,6 @@
                                 "patchline": {
                                     "destination": [ "obj-34", 0 ],
                                     "source": [ "obj-31", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "hidden": 1,
-                                    "order": 2,
-                                    "source": [ "obj-7", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-21", 0 ],
-                                    "hidden": 1,
-                                    "order": 1,
-                                    "source": [ "obj-7", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-24", 0 ],
-                                    "hidden": 1,
-                                    "order": 3,
-                                    "source": [ "obj-7", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-26", 0 ],
-                                    "hidden": 1,
-                                    "order": 0,
-                                    "source": [ "obj-7", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-29", 0 ],
-                                    "hidden": 1,
-                                    "order": 1,
-                                    "source": [ "obj-7", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-34", 0 ],
-                                    "hidden": 1,
-                                    "order": 0,
-                                    "source": [ "obj-7", 1 ]
                                 }
                             },
                             {
@@ -4620,328 +3597,16 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-3",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 465.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "dontreplace": 1,
                                     "id": "obj-14",
                                     "ignoreclick": 1,
+                                    "linecount": 2,
                                     "maxclass": "message",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 285.0, 281.0, 199.0, 23.0 ],
-                                    "text": "0.090107 0.369001 0.406514"
+                                    "patching_rect": [ 285.0, 281.0, 199.0, 38.0 ],
+                                    "text": "0.325139 0.372696 0.433061 0.750983"
                                 }
                             },
                             {
@@ -5234,319 +3899,6 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-18",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 81.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-17",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -5565,319 +3917,6 @@
                                     "outlettype": [ "signal", "int" ],
                                     "patching_rect": [ 223.0, 281.0, 44.0, 23.0 ],
                                     "text": "what~"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-12",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
                                 }
                             },
                             {
@@ -5915,6 +3954,132 @@
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
                                     "text": "The evi.vactrol~ algorithm is also available inside the gen~ environment",
                                     "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-32",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 81.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-18",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 223.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-20",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 465.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
                                 }
                             },
                             {
@@ -6240,7 +4405,7 @@
                         "lines": [
                             {
                                 "patchline": {
-                                    "destination": [ "obj-18", 0 ],
+                                    "destination": [ "obj-32", 0 ],
                                     "midpoints": [ 232.5, 321.5859375, 90.5, 321.5859375 ],
                                     "order": 1,
                                     "source": [ "obj-1", 0 ]
@@ -6277,13 +4442,13 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-12", 0 ],
+                                    "destination": [ "obj-18", 0 ],
                                     "source": [ "obj-5", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
+                                    "destination": [ "obj-20", 0 ],
                                     "source": [ "obj-5", 1 ]
                                 }
                             },
@@ -6427,319 +4592,6 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-19",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 476.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-16",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
@@ -6773,319 +4625,6 @@
                             },
                             {
                                 "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-18",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 81.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-17",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -7104,319 +4643,6 @@
                                     "outlettype": [ "signal", "int" ],
                                     "patching_rect": [ 223.0, 237.0, 145.0, 23.0 ],
                                     "text": "what~ 0.5 0.75 0.8 0.85"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgmode": 0,
-                                    "border": 0,
-                                    "clickthrough": 0,
-                                    "embed": 1,
-                                    "enablehscroll": 0,
-                                    "enablevscroll": 0,
-                                    "id": "obj-12",
-                                    "lockeddragscroll": 0,
-                                    "lockedsize": 0,
-                                    "maxclass": "bpatcher",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "offset": [ 0.0, 0.0 ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 2,
-                                            "revision": 1,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 999.0, 491.0, 548.0, 357.0 ],
-                                        "openinpresentation": 1,
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-6",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 123.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-5",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 42.0, 37.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-4",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 247.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-2",
-                                                    "maxclass": "spectroscope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 413.0, 193.0, 85.0, 100.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 348.0, 119.0, 136.0, 22.0 ],
-                                                    "text": "prepend activebgcolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-23",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 348.0, 80.0, 150.0, 22.0 ],
-                                                    "text": "getattr bgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-80",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 2,
-                                                            "revision": 1,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 34.0, 100.0, 397.0, 424.0 ],
-                                                        "gridonopen": 2,
-                                                        "subpatcher_template": "sub",
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-2",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 186.0, 308.0, 150.0, 20.0 ],
-                                                                    "text": "@listen does not work"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-78",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 103.0, 139.0, 54.0, 22.0 ],
-                                                                    "text": "deferlow"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-77",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "list", "bang" ],
-                                                                    "patching_rect": [ 50.0, 100.0, 68.0, 22.0 ],
-                                                                    "text": "themecolor"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "obj-76",
-                                                                    "maxclass": "button",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "parameter_enable": 0,
-                                                                    "patching_rect": [ 159.0, 171.0, 24.0, 24.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "",
-                                                                    "id": "obj-79",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 125.0, 255.0, 30.0, 30.0 ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-76", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-78", 0 ],
-                                                                    "source": [ "obj-77", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "obj-79", 0 ],
-                                                                    "source": [ "obj-78", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 189.0, 41.0, 19.0, 22.0 ],
-                                                    "text": "p"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-24",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 189.0, 119.0, 142.0, 22.0 ],
-                                                    "text": "prepend activelinecolor"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "obj-27",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 189.0, 80.0, 135.0, 22.0 ],
-                                                    "text": "getattr fgcolor @listen 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                                    "grid": 3,
-                                                    "horizonal_divisions": 8,
-                                                    "horizontal_divisions": 8,
-                                                    "id": "obj-33",
-                                                    "maxclass": "live.scope~",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 42.0, 193.0, 100.0, 100.0 ],
-                                                    "presentation": 1,
-                                                    "presentation_rect": [ 0.0, 0.0, 130.0, 130.0 ],
-                                                    "rounded": 1.0,
-                                                    "samples": 48000.0,
-                                                    "saved_attribute_attributes": {
-                                                        "activegridcolor": {
-                                                            "expression": "themecolor.theme_stripecolor"
-                                                        }
-                                                    },
-                                                    "vertical_divisions": 4
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-1", 0 ],
-                                                    "source": [ "obj-23", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-2", 0 ],
-                                                    "source": [ "obj-23", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-24", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-24", 0 ],
-                                                    "source": [ "obj-27", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-4", 0 ],
-                                                    "source": [ "obj-27", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 0 ],
-                                                    "source": [ "obj-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-33", 1 ],
-                                                    "source": [ "obj-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-23", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "obj-27", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-80", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 223.0, 376.0, 130.0, 130.0 ],
-                                    "viewvisibility": 1
                                 }
                             },
                             {
@@ -7454,6 +4680,132 @@
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
                                     "text": "The evi.vactrol~ algorithm can also be used inside GenExpr code",
                                     "varname": "digest_comment"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-32",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 81.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-10",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 223.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
+                                }
+                            },
+                            {
+                                "box": {
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "grid": 3,
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "horizonal_divisions": 8,
+                                    "horizontal_divisions": 8,
+                                    "id": "obj-12",
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "maxclass": "live.scope~",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "patching_rect": [ 476.0, 376.0, 130.0, 130.0 ],
+                                    "rounded": 0.0,
+                                    "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
+                                    "vertical_divisions": 4
                                 }
                             },
                             {
@@ -7639,7 +4991,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-18", 0 ],
+                                    "destination": [ "obj-32", 0 ],
                                     "midpoints": [ 232.5, 321.5859375, 90.5, 321.5859375 ],
                                     "order": 2,
                                     "source": [ "obj-1", 0 ]
@@ -7692,13 +5044,13 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-12", 0 ],
+                                    "destination": [ "obj-10", 0 ],
                                     "source": [ "obj-5", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-19", 0 ],
+                                    "destination": [ "obj-12", 0 ],
                                     "source": [ "obj-5", 1 ]
                                 }
                             }

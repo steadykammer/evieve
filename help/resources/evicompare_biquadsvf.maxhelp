@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -80,7 +80,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -114,7 +114,7 @@
                                         }
                                     },
                                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -129,7 +129,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -171,7 +171,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -215,7 +215,7 @@
                                                                         }
                                                                     },
                                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -255,7 +255,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -283,7 +283,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -323,7 +323,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -351,7 +351,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -391,7 +391,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -431,7 +431,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -472,7 +472,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -512,7 +512,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -552,7 +552,7 @@
                                                                         "appversion": {
                                                                             "major": 9,
                                                                             "minor": 2,
-                                                                            "revision": 0,
+                                                                            "revision": 1,
                                                                             "architecture": "x64",
                                                                             "modernui": 1
                                                                         },
@@ -705,7 +705,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -832,7 +832,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -987,7 +987,7 @@
                                         }
                                     },
                                     "text": "Scroll to the bottom 'See Also' section of the <link href=\"; max html_ref evi_svfs\">evi_svfs.genexpr</link> reference page and you will find links to all of the different SVF GenExpr code files in evieve, as well as a link to the Biquads code.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1014,7 +1014,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1198,7 +1198,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1376,7 +1376,7 @@
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 159.0, 164.0, 207.0, 67.0 ],
-                                    "tabs": [ "evieve Linear TPT SVF Filters", "All evieve Biquads" ]
+                                    "tabs": [ "evieve Linear TPT SVF Filters", "evieve Biquads" ]
                                 }
                             },
                             {
@@ -1512,7 +1512,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1569,7 +1569,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1699,7 +1699,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1971,7 +1971,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2007,7 +2007,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_biquads_filters\">evi_biquads_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -2101,7 +2101,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_svfs_filters\">evi_svfs_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             }
                                         ],
@@ -2916,7 +2916,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2969,7 +2969,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -3120,7 +3120,7 @@
                                                         }
                                                     },
                                                     "text": "Taken from the <link href=\"; max openhelp reson~\">reson~</link> helpfile",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -3135,7 +3135,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -4170,7 +4170,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -4312,7 +4312,7 @@
                                         }
                                     },
                                     "text": "In this tab we compare how the Biquad and the TPT SVF handle audio rate modulation very differently. <link href=\"; max openhelp doesnotexist\">Be very careful to follow the instructions exactly as we dangerously blow up a filter</link> (spoiler alert, the Biquad) <b>and we must protect our ears</b>.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -4708,7 +4708,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -4823,7 +4823,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5267,7 +5267,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -5925,7 +5925,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6324,7 +6324,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -7418,7 +7418,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -7457,7 +7457,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -7499,7 +7499,7 @@
                                                         "appversion": {
                                                             "major": 9,
                                                             "minor": 2,
-                                                            "revision": 0,
+                                                            "revision": 1,
                                                             "architecture": "x64",
                                                             "modernui": 1
                                                         },
@@ -8057,7 +8057,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9069,7 +9069,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -9185,7 +9185,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9707,7 +9707,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -10080,7 +10080,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -10116,7 +10116,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_svfs_tpt_filters\">evi_svfs_tpt_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -10140,7 +10140,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_biquads_coeffs\">evi_biquads_coeffs.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                 }
                                             },
                                             {
@@ -10317,7 +10317,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -10708,7 +10708,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -10808,7 +10808,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },

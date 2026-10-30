@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 3,
-            "revision": 0,
+            "minor": 2,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -25,6 +25,204 @@
         "integercoordinates": 1,
         "title": "Reverbs in evieve",
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 2,
+                    "outlettype": [ "", "" ],
+                    "patching_rect": [ 576.0, 483.0, 67.0, 22.0 ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "minimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 63, 100, 723, 668, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "text": "thispatcher"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-32",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 596.0, 430.0, 19.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 487.0, 188.0, 19.0, 22.0 ],
+                    "text": "0"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-33",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 576.0, 430.0, 19.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 467.0, 188.0, 19.0, 22.0 ],
+                    "text": "1"
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-34",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 1,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 175.0, 245.0, 880.0, 521.0 ],
+                        "subpatcher_template": "<none>",
+                        "integercoordinates": 1,
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-69",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 409.0, 268.0, 415.0, 22.0 ],
+                                    "text": "window flags zoom, window flags minimize, window flags grow, window exec"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-68",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "bang", "bang", "" ],
+                                    "patching_rect": [ 396.0, 86.0, 44.0, 22.0 ],
+                                    "text": "sel 1 0"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-67",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "bang", "bang" ],
+                                    "patching_rect": [ 53.0, 170.0, 32.0, 22.0 ],
+                                    "text": "t b b"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-66",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 53.0, 209.0, 84.0, 22.0 ],
+                                    "text": "savewindow 1"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-63",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 149.0, 208.0, 316.0, 22.0 ],
+                                    "text": "window flags nozoom, window flags nogrow, window exec"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-70",
+                                    "index": 1,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 396.0, 40.0000005, 30.0, 30.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-71",
+                                    "index": 1,
+                                    "maxclass": "outlet",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 149.0, 443.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-63", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-66", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-63", 0 ],
+                                    "source": [ "obj-67", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-66", 0 ],
+                                    "source": [ "obj-67", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-67", 0 ],
+                                    "source": [ "obj-68", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-69", 0 ],
+                                    "source": [ "obj-68", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-71", 0 ],
+                                    "source": [ "obj-69", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-68", 0 ],
+                                    "source": [ "obj-70", 0 ]
+                                }
+                            }
+                        ],
+                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                    },
+                    "patching_rect": [ 576.0, 459.0, 59.0, 22.0 ],
+                    "text": "p window"
+                }
+            },
             {
                 "box": {
                     "fontface": 2,
@@ -52,7 +250,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 417.0, 370.0, 83.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -72,7 +269,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 120.0, 370.0, 83.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -92,7 +288,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 309.0, 527.0, 69.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -112,7 +307,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 573.0, 146.0, 69.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -132,7 +326,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 120.0, 161.0, 83.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -152,7 +345,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 72.0, 514.0, 83.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -191,7 +383,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 351.0, 173.0, 69.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_syntax_attrargcolor"
@@ -223,7 +414,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.algoverb~\">algoverb~</link> - probably the best sounding one, but you pay for it",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -247,7 +438,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.mattaverb~\">mattaverb~</link> - a good compromise between the above and the algoverb, very few controls needed, cleverly tuned",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -271,7 +462,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.backverb~\">backverb~</link> - probably the most fun one, ursa major space station",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -295,7 +486,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.zitaverb~\">zitaverb~</link> - stereo in / stereo out 8x8 feedback delay network with nested allpasses. Has a proper 'room' quality, but also the ability to almost 'forever sustain' (very long decays) whilst maintaining it's 'room' feeling. Decays can be controlled separately low / high",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -319,7 +510,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.sustainverb~\">sustainverb~</link> - stereo in / stereo (or multi) out 16x16 feedback delay network with extras to add more reverby options. Does the 'forever sustain' trick in a very smooth and sexy digital way",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -343,7 +534,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.gigaverb~\">gigaverb~</link> - mono in / stereo out feedback delay network with allpass diffusion, smooth and rich",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -367,7 +558,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.plateverb~\">plateverb~</link> - \"yafr2\" from MSP. \"Plate reverb, in the style of Griesinger\", by Randy Jones. This version with dry/wet and eq added, as well \nas modifications for better filtering, interpolation, smoothing, etc",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -391,7 +582,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.freezeverb~\">freezeverb~</link> - basic Schroeder / Moorer reverb model based on famous Jezar 'freeverb' tuning, with optional buttery smooth 'freeze' effect",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                 }
             },
             {
@@ -685,7 +876,29 @@
                 }
             }
         ],
-        "lines": [],
+        "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-34", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-32", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-34", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-33", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-34", 0 ]
+                }
+            }
+        ],
         "autosave": 0,
         "toolbaradditions": [ "audiosolo", "audiomute" ]
     }

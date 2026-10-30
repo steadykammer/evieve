@@ -732,7 +732,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -753,7 +753,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1298,7 +1298,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq3~\">evi.eq3~</link> and <link href=\"; max openhelp evi.eq3.stereo~\">evi.eq3.stereo~</link> are three band EQs where every parameter can be controlled at audio rate, including modulation",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1322,7 +1322,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq5~\">evi.eq5~</link> and <link href=\"; max openhelp evi.eq8~\">evi.eq8~</link> use the same filters but with attributes control of all parameters",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1346,7 +1346,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.filter.shelving~\">evi.filter.shelving~</link> is a two band low/high shelving EQ utility",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1469,7 +1469,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -1706,7 +1706,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1735,7 +1735,7 @@
                                         }
                                     },
                                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1836,7 +1836,7 @@
                                                                         }
                                                                     },
                                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1876,7 +1876,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1904,7 +1904,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1944,7 +1944,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1972,7 +1972,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2012,7 +2012,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2052,7 +2052,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2093,7 +2093,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2133,7 +2133,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2461,7 +2461,7 @@
                                         }
                                     },
                                     "text": "Scroll to the bottom 'See Also' section of the <link href=\"; max html_ref evi_svfs\">evi_svfs.genexpr</link> reference page and you will find links to all of the different SVF GenExpr code files in evieve.",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -2984,7 +2984,7 @@
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 159.0, 164.0, 207.0, 101.0 ],
-                                    "tabs": [ "All evieve Linear TPT SVF Filters", "All evieve Biquads", "Compare Biquads / TPT Filters" ]
+                                    "tabs": [ "evieve Linear TPT SVF Filters", "evieve Biquads", "Compare Biquads / TPT Filters" ]
                                 }
                             },
                             {
@@ -3915,7 +3915,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -4013,7 +4013,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -4245,7 +4245,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -5351,7 +5351,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -5827,7 +5827,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -5849,7 +5849,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -5870,7 +5870,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -8583,7 +8583,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -9889,7 +9889,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
