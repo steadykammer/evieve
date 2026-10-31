@@ -13,7 +13,7 @@
          <br />
         evi_overdrive_env is also available in MSP as: <o>evi.overdrive.env~</o>. <br />
          <br />
-	    A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation. <br />
+	    A memoryless nonlinear approximation with antiderivative antialiasing and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation. <br />
     </description>
     <methodlist />
     <constructorlist>

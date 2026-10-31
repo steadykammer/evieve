@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -67,7 +67,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -125,7 +125,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -648,18 +648,40 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 401.0, 335.0, 30.0, 23.0 ],
+                                    "text": "0."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-5",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 368.0, 335.0, 31.0, 23.0 ],
+                                    "text": "-10."
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-32",
@@ -935,12 +957,18 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "bubbleside": 2,
                                     "id": "obj-40",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 296.0, 292.0, 70.0, 40.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.live_value_bar"
+                                        }
+                                    },
                                     "text": "High gain",
                                     "textjustification": 1
                                 }
@@ -1003,12 +1031,12 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 59.0, 119.0, 335.0, 312.0 ],
+                                        "rect": [ 59.0, 119.0, 376.0, 312.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1029,8 +1057,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 91.0, 140.0, 199.0, 22.0 ],
-                                                    "text": "mc.evi.expsmooth~ 1. 11 @chans 2"
+                                                    "patching_rect": [ 91.0, 140.0, 239.0, 22.0 ],
+                                                    "text": "mc.evi.expsmooth~ 0.316228 11 @chans 2"
                                                 }
                                             },
                                             {
@@ -1132,7 +1160,7 @@
                                     "patching_rect": [ 306.0, 337.0, 56.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -10.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[9]",
                                             "parameter_mmax": 20.0,
@@ -1158,7 +1186,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1376,7 +1404,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.cross~ is also available as an 'mc' Object",
+                                    "text": "evi.cross~ is also available as an 'mc' Object. (High gain initialises at -10 dB).",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -1504,6 +1532,12 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-5", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-3", 0 ],
                                     "hidden": 1,
                                     "order": 2,
@@ -1524,6 +1558,12 @@
                                     "hidden": 1,
                                     "order": 1,
                                     "source": [ "obj-55", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-9", 0 ]
                                 }
                             }
                         ],
@@ -1548,7 +1588,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1879,7 +1919,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2104,7 +2144,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2435,7 +2475,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2663,7 +2703,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },

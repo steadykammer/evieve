@@ -4,7 +4,7 @@
         "child": "evi.overdrive.env~",
         "category": "evieve",
         "digest": "Antialiased passive tanh-like input/output saturation with optional envelope follower",
-        "description": "A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation."
+        "description": "A memoryless nonlinear approximation with antiderivative antialiasing and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation."
     },
     "constructor": {
         "inlets": "input, gain"

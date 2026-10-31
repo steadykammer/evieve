@@ -125,6 +125,7 @@
   </examplelist>
   <seealsolist>
     <seealso name="evi.vactrol~"></seealso>
+    <seealso name="mc.evi.lpg~"></seealso>
     <seealso name="mc.evi.logahr~"></seealso>
     <seealso name="mc.evi.logattackdecay~"></seealso>
     <seealso name="mc.evi.logdecay~"></seealso>
@@ -141,6 +142,7 @@
     <seealso name="evi.logdecay~"></seealso>
     <seealso name="evi.logattackdecay~"></seealso>
     <seealso name="evi.logahr~"></seealso>
+    <seealso name="evi.lpg~"></seealso>
     <seealso name="evi_smooth" display="evi_smooth.genexpr" type="refpage"></seealso>
     <seealso name="evi_env" display="evi_env.genexpr" type="refpage"></seealso>
   </seealsolist>

@@ -200,7 +200,7 @@
                             },
                             {
                                 "box": {
-                                    "args": [ "@module", 3 ],
+                                    "args": [ "@module", 3, "@vol", 0.0 ],
                                     "bgmode": 0,
                                     "border": 0,
                                     "clickthrough": 0,
@@ -474,7 +474,7 @@
                                     "patching_rect": [ 140.0, 545.0, 140.0, 35.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -30.0 ],
+                                            "parameter_initial": [ -20.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~",
                                             "parameter_mmax": 6.0,
@@ -1336,7 +1336,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1485,7 +1485,7 @@
                                     "patching_rect": [ 223.0, 431.0, 140.0, 35.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -30.0 ],
+                                            "parameter_initial": [ -20.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -1539,16 +1539,16 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activebgcolor": [ 0.95, 0.95, 0.95, 1.0 ],
+                                    "activegridcolor": [ 0.88618143642005, 0.8861812302637995, 0.8861812841357214, 1.0 ],
                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "bgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "grid": 3,
-                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "gridcolor": [ 0.88618143642005, 0.8861812302637995, 0.8861812841357214, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-3",
-                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "linecolor": [ 0.88618143642005, 0.8861812302637995, 0.8861812841357214, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,

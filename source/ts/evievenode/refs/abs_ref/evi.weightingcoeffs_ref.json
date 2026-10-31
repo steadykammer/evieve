@@ -3,7 +3,7 @@
         "name": "evi.weightingcoeffs",
         "category": "evieve",
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for <o>cascade~</o>",
-        "description": "<o>evi.weightingcoeffs</o> is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates and can therefore be used in a downsampled <o>poly~</o> (for example).",
+        "description": "<o>evi.weightingcoeffs</o> is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates so can be used in a downsampled <o>poly~</o> (for example).",
         "discussion": "The coefficients used in this object are just created using the IRCAM <o>spat5.weightingfilter</o> external. This was needed outside of a 'spat5' context. You should look into the 'spat5' package - it is excellent."
     },
     "metadata": {

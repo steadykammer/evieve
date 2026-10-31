@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -30,7 +30,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -694,7 +694,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -765,7 +765,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1258,18 +1258,57 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "disabled": [ 0, 0, 0 ],
+                                    "id": "obj-22",
+                                    "itemtype": 0,
+                                    "maxclass": "radiogroup",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "parameter_enable": 1,
+                                    "patching_rect": [ 81.0, 389.0, 18.0, 50.0 ],
+                                    "saved_attribute_attributes": {
+                                        "valueof": {
+                                            "parameter_enum": [ "0", "1" ],
+                                            "parameter_initial": [ 2.0 ],
+                                            "parameter_initial_enable": 1,
+                                            "parameter_longname": "radiogroup",
+                                            "parameter_mmax": 1,
+                                            "parameter_modmode": 0,
+                                            "parameter_shortname": "radiogroup",
+                                            "parameter_type": 2
+                                        }
+                                    },
+                                    "size": 3,
+                                    "value": 2,
+                                    "varname": "radiogroup"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-14",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "multichannelsignal" ],
+                                    "patching_rect": [ 81.0, 457.0, 193.0, 23.0 ],
+                                    "text": "mc.selector~ 2 2 @ramptime 99"
+                                }
+                            },
                             {
                                 "box": {
                                     "fontface": 0,
@@ -1281,8 +1320,8 @@
                                     "numinlets": 2,
                                     "numoutlets": 3,
                                     "outlettype": [ "multichannelsignal", "float", "int" ],
-                                    "patching_rect": [ 516.0, 436.0, 92.0, 35.0 ],
-                                    "sig": 0.0
+                                    "patching_rect": [ 580.0, 396.0, 92.0, 35.0 ],
+                                    "sig": [ 0.0, 0.0 ]
                                 }
                             },
                             {
@@ -1292,7 +1331,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 399.0, 227.0, 134.0, 23.0 ],
+                                    "patching_rect": [ 514.0, 187.0, 134.0, 23.0 ],
                                     "text": "metro 1110 @active 1"
                                 }
                             },
@@ -1303,7 +1342,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 4,
                                     "outlettype": [ "bang", "int", "bang", "int" ],
-                                    "patching_rect": [ 399.0, 267.0, 63.0, 23.0 ],
+                                    "patching_rect": [ 514.0, 227.0, 63.0, 23.0 ],
                                     "text": "t b 2 b 1"
                                 }
                             },
@@ -1314,7 +1353,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 2,
                                     "outlettype": [ "setvalue", "int" ],
-                                    "patching_rect": [ 399.0, 347.0, 63.0, 23.0 ],
+                                    "patching_rect": [ 514.0, 307.0, 63.0, 23.0 ],
                                     "text": "mc.target"
                                 }
                             },
@@ -1325,7 +1364,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 399.0, 307.0, 171.0, 23.0 ],
+                                    "patching_rect": [ 514.0, 267.0, 171.0, 23.0 ],
                                     "text": "expr sqrt(noise() * 0.5 + 0.5)"
                                 }
                             },
@@ -1336,7 +1375,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 399.0, 387.0, 223.0, 23.0 ],
+                                    "patching_rect": [ 514.0, 347.0, 223.0, 23.0 ],
                                     "text": "mc.evi.expsmooth~ 0.5 33 @chans 2"
                                 }
                             },
@@ -1353,7 +1392,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 118.0, 565.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 59.0, 580.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1371,7 +1410,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 308.0, 497.0, 300.0, 100.0 ]
+                                    "patching_rect": [ 249.0, 512.0, 300.0, 100.0 ]
                                 }
                             },
                             {
@@ -1380,7 +1419,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 68.0, 443.0, 70.0, 21.0 ],
+                                    "patching_rect": [ 185.0, 403.0, 70.0, 21.0 ],
                                     "text": "stereo",
                                     "textjustification": 2
                                 }
@@ -1397,7 +1436,7 @@
                                     "orientation": 1,
                                     "outlettype": [ "multichannelsignal", "", "float", "list" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 140.0, 497.0, 136.0, 38.0 ],
+                                    "patching_rect": [ 81.0, 512.0, 136.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_initial": [ -6.0 ],
@@ -1422,7 +1461,7 @@
                                     "maxclass": "mc.ezdac~",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 140.0, 552.0, 45.0, 45.0 ],
+                                    "patching_rect": [ 81.0, 567.0, 45.0, 45.0 ],
                                     "varname": "mc_dac[1]"
                                 }
                             },
@@ -1439,7 +1478,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 118.0, 229.0, 20.0, 20.0 ],
+                                    "patching_rect": [ 233.0, 189.0, 20.0, 20.0 ],
                                     "rounded": 60.0,
                                     "saved_attribute_attributes": {
                                         "bgcolor": {
@@ -1484,7 +1523,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "signal", "", "dictionary" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 140.0, 211.0, 229.0, 56.0 ],
+                                    "patching_rect": [ 255.0, 171.0, 229.0, 56.0 ],
                                     "quality": "basic",
                                     "saved_attribute_attributes": {
                                         "candicane2": {
@@ -1536,6 +1575,18 @@
                             },
                             {
                                 "box": {
+                                    "id": "obj-24",
+                                    "linecount": 3,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 40.0, 389.0, 39.0, 50.0 ],
+                                    "text": "Off\nDry\nWet",
+                                    "textjustification": 2
+                                }
+                            },
+                            {
+                                "box": {
                                     "background": 1,
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
@@ -1555,7 +1606,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 140.0, 442.0, 278.0, 23.0 ],
+                                    "patching_rect": [ 255.0, 402.0, 278.0, 23.0 ],
                                     "text": "mc.evi.clipasym~ @bounds 0 @smooth 0",
                                     "varname": "evieveObjectMc"
                                 }
@@ -1570,7 +1621,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 187.0, 562.0, 86.0, 25.0 ],
+                                    "patching_rect": [ 128.0, 577.0, 86.0, 25.0 ],
                                     "text": "Audio On",
                                     "textjustification": 1,
                                     "varname": "comment_dac"
@@ -1594,7 +1645,15 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-14", 1 ],
+                                    "order": 1,
+                                    "source": [ "obj-11", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
+                                    "order": 0,
                                     "source": [ "obj-11", 0 ]
                                 }
                             },
@@ -1624,8 +1683,28 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "order": 1,
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-13", 0 ],
                                     "source": [ "obj-19", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-14", 0 ],
+                                    "source": [ "obj-22", 0 ]
                                 }
                             },
                             {
@@ -1636,15 +1715,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-10", 0 ],
-                                    "order": 0,
-                                    "source": [ "obj-5", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "order": 1,
+                                    "destination": [ "obj-14", 2 ],
                                     "source": [ "obj-5", 0 ]
                                 }
                             },
@@ -1682,7 +1753,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1845,7 +1916,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2054,7 +2125,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2157,6 +2228,7 @@
             }
         ],
         "parameters": {
+            "obj-10::obj-22": [ "radiogroup", "radiogroup", 0 ],
             "obj-10::obj-3": [ "mc.live.gain~", "mc.live.gain~", 0 ],
             "obj-11::obj-27": [ "live.gain~[2]", "live.gain~", 0 ],
             "obj-13::obj-12": [ "number[5]", "number[5]", 0 ],

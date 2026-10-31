@@ -636,7 +636,7 @@
                                     "maxclass": "dict.view",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 402.0, 413.0, 315.0, 145.0 ]
+                                    "patching_rect": [ 402.0, 398.0, 315.0, 160.0 ]
                                 }
                             },
                             {
@@ -751,7 +751,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 592.0, 413.0, 125.0, 23.0 ],
+                                    "patching_rect": [ 592.0, 398.0, 125.0, 23.0 ],
                                     "text": "dictionary #0_empty"
                                 }
                             },
@@ -762,7 +762,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 680.0, 388.0, 37.0, 23.0 ],
+                                    "patching_rect": [ 680.0, 373.0, 37.0, 23.0 ],
                                     "text": "clear"
                                 }
                             },

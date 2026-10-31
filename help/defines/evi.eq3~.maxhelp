@@ -58,7 +58,7 @@
                                     "patching_rect": [ 142.0, 537.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -12.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[4]",
                                             "parameter_mmax": 6.0,
@@ -2979,7 +2979,7 @@
                                     "patching_rect": [ 223.0, 515.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -12.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -4175,7 +4175,7 @@
                                     "patching_rect": [ 223.0, 519.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -12.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[2]",
                                             "parameter_mmax": 6.0,
@@ -4732,7 +4732,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

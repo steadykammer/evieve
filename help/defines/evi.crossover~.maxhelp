@@ -44,6 +44,28 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-16",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 328.0, 335.0, 30.0, 23.0 ],
+                                    "text": "0."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-14",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 295.0, 335.0, 31.0, 23.0 ],
+                                    "text": "-10."
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-12",
                                     "maxclass": "newobj",
                                     "numinlets": 2,
@@ -69,7 +91,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-52",
@@ -93,7 +115,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-10",
@@ -117,7 +139,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-51",
@@ -268,12 +290,18 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "bubbleside": 2,
                                     "id": "obj-40",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 223.0, 292.0, 70.0, 40.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.live_value_bar"
+                                        }
+                                    },
                                     "text": "High gain",
                                     "textjustification": 1
                                 }
@@ -341,7 +369,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 59.0, 119.0, 257.0, 312.0 ],
+                                        "rect": [ 59.0, 119.0, 298.0, 312.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -362,8 +390,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
-                                                    "patching_rect": [ 91.0, 140.0, 122.0, 22.0 ],
-                                                    "text": "evi.expsmooth~ 1. 11"
+                                                    "patching_rect": [ 91.0, 140.0, 162.0, 22.0 ],
+                                                    "text": "evi.expsmooth~ 0.316228 11"
                                                 }
                                             },
                                             {
@@ -465,7 +493,7 @@
                                     "patching_rect": [ 233.0, 337.0, 56.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -10.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[6]",
                                             "parameter_mmax": 20.0,
@@ -731,11 +759,12 @@
                                     "fontname": "Lato",
                                     "fontsize": 13.0,
                                     "id": "obj-4",
+                                    "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "The crossover can be updated at audio rate and the filter remains stable and sums as expected.",
+                                    "patching_rect": [ 10.0, 70.0, 660.0, 38.0 ],
+                                    "text": "The crossover can be updated at audio rate and the filter remains stable and sums as expected. (High gain initialises at -10 dB).",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -785,8 +814,20 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-14", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-20", 1 ],
                                     "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-16", 0 ]
                                 }
                             },
                             {
@@ -1019,7 +1060,7 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -1043,7 +1084,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -1067,7 +1108,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-3",
@@ -1508,7 +1549,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1517,7 +1558,29 @@
                         "boxes": [
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "id": "obj-7",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 401.0, 334.0, 30.0, 23.0 ],
+                                    "text": "0."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "message",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 368.0, 334.0, 31.0, 23.0 ],
+                                    "text": "-10."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -1623,7 +1686,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-18",
@@ -1672,7 +1735,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-10",
@@ -1696,7 +1759,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-51",
@@ -1846,12 +1909,18 @@
                             {
                                 "box": {
                                     "bubble": 1,
+                                    "bubble_outlinecolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "bubbleside": 2,
                                     "id": "obj-40",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 296.0, 292.0, 70.0, 40.0 ],
+                                    "saved_attribute_attributes": {
+                                        "bubble_outlinecolor": {
+                                            "expression": "themecolor.live_value_bar"
+                                        }
+                                    },
                                     "text": "High gain",
                                     "textjustification": 1
                                 }
@@ -1919,7 +1988,7 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 59.0, 119.0, 335.0, 312.0 ],
+                                        "rect": [ 59.0, 119.0, 376.0, 312.0 ],
                                         "integercoordinates": 1,
                                         "boxes": [
                                             {
@@ -1940,8 +2009,8 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 91.0, 140.0, 199.0, 22.0 ],
-                                                    "text": "mc.evi.expsmooth~ 1. 11 @chans 2"
+                                                    "patching_rect": [ 91.0, 140.0, 239.0, 22.0 ],
+                                                    "text": "mc.evi.expsmooth~ 0.316228 11 @chans 2"
                                                 }
                                             },
                                             {
@@ -2043,7 +2112,7 @@
                                     "patching_rect": [ 306.0, 337.0, 56.0, 18.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -10.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.numbox[9]",
                                             "parameter_mmax": 20.0,
@@ -2287,7 +2356,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 10.0, 70.0, 660.0, 22.0 ],
-                                    "text": "evi.crossover~ is also available as an 'mc' Object",
+                                    "text": "evi.crossover~ is also available as an 'mc' Object. (High gain initialises at -10 dB).",
                                     "varname": "digest_comment"
                                 }
                             },
@@ -2448,6 +2517,18 @@
                                     "order": 1,
                                     "source": [ "obj-55", 0 ]
                                 }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-26", 0 ],
+                                    "source": [ "obj-9", 0 ]
+                                }
                             }
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
@@ -2499,7 +2580,7 @@
                                     "patching_rect": [ 193.0, 411.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -6.0 ],
+                                            "parameter_initial": [ -12.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[3]",
                                             "parameter_mmax": 6.0,
@@ -2528,7 +2609,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-21",
@@ -2552,7 +2633,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-1",
@@ -2576,7 +2657,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -2600,7 +2681,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -2624,7 +2705,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-13",
@@ -2741,7 +2822,7 @@
                             },
                             {
                                 "box": {
-                                    "activedialcolor": [ 0.0, 0.45098039215686275, 0.5137254901960784, 1.0 ],
+                                    "activedialcolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
@@ -3457,7 +3538,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-26",
@@ -3481,7 +3562,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-1",
@@ -3499,7 +3580,7 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "4",
+                                    "text": "3",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
@@ -3555,7 +3636,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-67",
@@ -3573,13 +3654,13 @@
                                             "expression": "themecolor.lesson_step_circle"
                                         }
                                     },
-                                    "text": "3",
+                                    "text": "4",
                                     "textcolor": [ 0.34902, 0.34902, 0.34902, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-66",
@@ -3603,7 +3684,7 @@
                             },
                             {
                                 "box": {
-                                    "bgcolor": [ 1.0, 0.6784313725490196, 0.33725490196078434, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.65, 0.05, 1.0 ],
                                     "fontname": "Arial Bold",
                                     "hint": "",
                                     "id": "obj-18",
@@ -3697,7 +3778,7 @@
                             },
                             {
                                 "box": {
-                                    "activedialcolor": [ 0.0, 0.45098039215686275, 0.5137254901960784, 1.0 ],
+                                    "activedialcolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "appearance": 3,
                                     "fontname": "Arial",
                                     "fontsize": 13.0,

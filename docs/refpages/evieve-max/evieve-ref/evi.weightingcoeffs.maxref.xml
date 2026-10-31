@@ -6,7 +6,7 @@
 		Compute coefficients for A-weighting and other analytical filters and output for <o>cascade~</o> <br />
 	</digest>
 	<description>
-		<o>evi.weightingcoeffs</o> is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates and can therefore be used in a downsampled <o>poly~</o> (for example). <br />
+		<o>evi.weightingcoeffs</o> is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates so can be used in a downsampled <o>poly~</o> (for example). <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

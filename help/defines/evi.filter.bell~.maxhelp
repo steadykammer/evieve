@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -67,7 +67,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -125,7 +125,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -467,7 +467,7 @@
                                     "patching_rect": [ 140.0, 481.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -18.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~",
                                             "parameter_mmax": 6.0,
@@ -700,12 +700,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1049,7 +1049,7 @@
                                     "patching_rect": [ 217.0, 468.0, 136.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -18.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "mc.live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -1252,7 +1252,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1556,7 +1556,7 @@
                                     "patching_rect": [ 178.0, 482.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -18.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -1634,7 +1634,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -1953,7 +1953,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2257,7 +2257,7 @@
                                     "patching_rect": [ 178.0, 482.0, 123.0, 32.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ -12.0 ],
+                                            "parameter_initial": [ -18.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[2]",
                                             "parameter_mmax": 6.0,
@@ -2335,7 +2335,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2572,12 +2572,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

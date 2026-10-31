@@ -457,7 +457,7 @@
     "evi.overdrive.env~": {
         "type": "define",
         "digest": "Antialiased passive tanh-like input/output saturation with optional envelope follower",
-        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation."
+        "description": "evi.overdrive.env~ is a 'max define' for the evi_overdrive_env.gendsp gen~ abstraction. Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a gen~ object does. \n\nA memoryless nonlinear approximation with antiderivative antialiasing and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation."
     },
     "evi.overdrive.fold~": {
         "type": "define",
@@ -722,7 +722,7 @@
     "evi.weightingcoeffs": {
         "type": "abstraction",
         "digest": "Compute coefficients for A-weighting and other analytical filters and output for cascade~ \n",
-        "description": "evi.weightingcoeffs is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates and can therefore be used in a downsampled poly~ (for example)."
+        "description": "evi.weightingcoeffs is simply a lookup table and is therefore extremely efficient. Coefficients are available for a wide range of samplerates so can be used in a downsampled poly~ (for example)."
     },
     "evi.xfade~": {
         "type": "external",

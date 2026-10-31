@@ -41,7 +41,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -898,11 +898,12 @@
                             {
                                 "box": {
                                     "bgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                                    "fontface": 0,
                                     "id": "obj-53",
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 841.0, 462.0, 109.0, 20.0 ],
+                                    "patching_rect": [ 841.0, 462.0, 110.0, 20.0 ],
                                     "text": "evi.filter.morph~",
                                     "textcolor": [ 0.0, 0.0, 0.502, 1.0 ],
                                     "textjustification": 1
@@ -1389,7 +1390,7 @@
                                         }
                                     },
                                     "size": 3,
-                                    "value": 2,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -1412,7 +1413,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "signal" ],
                                     "patching_rect": [ 715.0, 431.0, 74.0, 22.0 ],
-                                    "text": "*~ 0.707107"
+                                    "text": "*~ 0.707946"
                                 }
                             },
                             {
@@ -1789,8 +1790,8 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
-                                    "thickness3": 2.0
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ],
+                                    "thickness": 2.0
                                 }
                             },
                             {
@@ -2380,7 +2381,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -2425,10 +2426,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
-                                    "bgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
+                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -2741,10 +2742,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.5019607843137255, 0.5019607843137255, 0.0, 1.0 ],
-                                    "bgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
+                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -2784,10 +2785,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
-                                    "activelinecolor": [ 0.21605064302403149, 0.3613444303989495, 0.5443540355301909, 1.0 ],
-                                    "bgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activelinecolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
+                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -3945,7 +3946,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ],
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -5543,7 +5544,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.21605064302403149, 0.3613444303989495, 0.5443540355301909, 1.0 ],
+                                    "activebgoncolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -6401,7 +6402,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -6458,16 +6459,16 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.65, 0.675, 0.7, 1.0 ],
-                                    "activegridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                    "bgcolor": [ 0.716, 0.733, 0.75, 1.0 ],
+                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
                                     "grid": 3,
-                                    "gridcolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-21",
-                                    "linecolor": [ 0.6119762305329474, 0.6303627994116404, 0.6488824629219533, 1.0 ],
+                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -7086,7 +7087,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> features a Notch, not a Bandpass",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7214,7 +7215,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7242,7 +7243,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7270,7 +7271,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7298,7 +7299,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7326,7 +7327,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7354,7 +7355,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7503,7 +7504,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7527,7 +7528,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> includes unmorphed filters on additional outputs",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7551,7 +7552,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> includes a simultaneous 24dB output option",
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -8351,7 +8352,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.21605064302403149, 0.3613444303989495, 0.5443540355301909, 1.0 ],
+                                    "activebgoncolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -9665,7 +9666,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.15, 0.15, 0.15, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {

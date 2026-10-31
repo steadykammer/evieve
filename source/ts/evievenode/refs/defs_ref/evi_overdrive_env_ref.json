@@ -5,7 +5,7 @@
         "category": "evieve",
         "tilde": "~",
         "digest": "Antialiased passive tanh-like input/output saturation with optional envelope follower",
-        "description": "A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation.",
+        "description": "A memoryless nonlinear approximation with antiderivative antialiasing and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation.",
         "discussion": "For more information about evieve Overdrive processors and other saturation types see the 'evieve overdrive' tab of the helpfile. For more envelope following based saturation see <o>evi.valve~</o>."
     },
     "metadata": {

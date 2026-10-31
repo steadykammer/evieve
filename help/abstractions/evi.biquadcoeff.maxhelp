@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -472,9 +472,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 5 b2 (FB2)",
                                                                         "patching_rect": [ 802.0, 811.0, 85.0, 22.0 ],
+                                                                        "id": "obj-9",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
-                                                                        "id": "obj-9"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -482,9 +482,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 4 b1 (FB1)",
                                                                         "patching_rect": [ 614.0, 811.0, 85.0, 22.0 ],
+                                                                        "id": "obj-8",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
-                                                                        "id": "obj-8"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -492,9 +492,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 3 a2 (FF2)",
                                                                         "patching_rect": [ 426.0, 811.0, 85.0, 22.0 ],
+                                                                        "id": "obj-7",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
-                                                                        "id": "obj-7"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -502,9 +502,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 2 a1 (FF1)",
                                                                         "patching_rect": [ 238.0, 811.0, 85.0, 22.0 ],
+                                                                        "id": "obj-6",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
-                                                                        "id": "obj-6"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -512,9 +512,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 3 (signal/float) Q or S @default 0.707107",
                                                                         "patching_rect": [ 649.0, 19.0, 239.0, 22.0 ],
+                                                                        "id": "obj-5",
                                                                         "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-5",
                                                                         "outlettype": [ "" ]
                                                                     }
                                                                 },
@@ -523,9 +523,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 1 (signal/float) Cutoff or Center @default 1000",
                                                                         "patching_rect": [ 50.0, 19.0, 267.0, 22.0 ],
+                                                                        "id": "obj-1",
                                                                         "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-1",
                                                                         "outlettype": [ "" ]
                                                                     }
                                                                 },
@@ -534,9 +534,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "in 2 (signal/float) Gain @default 0",
                                                                         "patching_rect": [ 426.0, 19.0, 187.0, 22.0 ],
+                                                                        "id": "obj-2",
                                                                         "numinlets": 0,
                                                                         "numoutlets": 1,
-                                                                        "id": "obj-2",
                                                                         "outlettype": [ "" ]
                                                                     }
                                                                 },
@@ -544,13 +544,13 @@
                                                                     "box": {
                                                                         "maxclass": "codebox",
                                                                         "patching_rect": [ 50.0, 58.0, 771.0, 736.0 ],
-                                                                        "numinlets": 3,
-                                                                        "fontface": 0,
-                                                                        "numoutlets": 5,
                                                                         "id": "obj-3",
-                                                                        "outlettype": [ "", "", "", "", "" ],
                                                                         "fontsize": 12.0,
+                                                                        "numinlets": 3,
                                                                         "fontname": "<Monospaced>",
+                                                                        "numoutlets": 5,
+                                                                        "fontface": 0,
+                                                                        "outlettype": [ "", "", "", "", "" ],
                                                                         "code": "\r\n// evieve Biquad Coefficients Calculators\r\n\r\nrequire(\"evi_biquads_union\");\n\r\n// eviBiquadCoeff(index, cutoff, gain, Q)\n/*\n    index   calculator                              \tparameters\n    0       bypass                                  \tnone\n\t1\t\teviBiquadCoeffLowpass \t\t\t\t\t\tcutoff, Q\n\t2\t\teviBiquadCoeffHighpass \t\t\t\t\t\tcutoff, Q\n\t3\t\teviBiquadCoeffBandpass \t\t\t\t\t\tcutoff, Q\n\t4\t\teviBiquadCoeffNotch \t\t\t\t\t\tcutoff, Q\n\t5\t\teviBiquadCoeffPeakNotch \t\t\t\t\tcutoff, gain, Q\n\t6\t\teviBiquadCoeffLowshelfMSP \t\t\t\t\tcutoff, gain, Q\n\t7\t\teviBiquadCoeffLowshelfCookbook \t\t\t\tcutoff, gain, Q\n\t8\t\teviBiquadCoeffHighshelfMSP \t\t\t\t\tcutoff, gain, Q\n\t9\t\teviBiquadCoeffHighshelfCookbook \t\t\tcutoff, gain, Q\n\t10\t\teviBiquadCoeffResonant \t\t\t\t\t\tcutoff, Q\n\t11\t\teviBiquadCoeffBp \t\t\t\t\t\t\tcutoff, Q\n\t12\t\teviBiquadCoeffAllpass \t\t\t\t\t\tcutoff, Q\n\t13\t\teviBiquadCoeffLowpassGain \t\t\t\t\tcutoff, gain, Q\n\t14\t\teviBiquadCoeffHighpassGain \t\t\t\t\tcutoff, gain, Q\n\t15\t\teviBiquadCoeffBandpassGain \t\t\t\t\tcutoff, gain, Q\n\t16\t\teviBiquadCoeffNotchGain \t\t\t\t\tcutoff, gain, Q\n\t17\t\teviBiquadCoeffResonantGain \t\t\t\t\tcutoff, gain, Q\n\t18\t\teviBiquadCoeffBpGain \t\t\t\t\t\tcutoff, gain, Q\n\t19\t\teviBiquadCoeffAllpassGain \t\t\t\t\tcutoff, gain, Q\n\t20\t\teviBiquadCoeffLowpassAnalog1\t\t\t\tcutoff, Q\n\t21 \t\teviBiquadCoeffLowpassAnalog2\t\t\t\tcutoff, Q\n\t22 \t\teviBiquadCoeffHighpassAnalog\t\t\t\tcutoff, Q\n\t23\t\teviBiquadCoeffBandpassAnalog \t\t\t\tcutoff, Q\n\t24\t\teviBiquadCoeffBandpassGainAnalog \t\t\tcutoff, gain, Q\n\t25 \t\teviBiquadCoeffNotchAnalog \t\t\t\t\tcutoff, Q\n\t26\t\teviBiquadCoeffPeakNotchAnalog1 \t\t\t\tcutoff, gain, Q\n\t27\t\teviBiquadCoeffPeakNotchAnalog2 \t\t\t\tcutoff, gain, Q\n\t28 \t\teviBiquadCoeffLowshelfAnalog1\t\t\t\tcutoff, gain, Q\n\t29\t\teviBiquadCoeffLowshelfAnalog2 \t\t\t\tcutoff, gain\n\t30 \t\teviBiquadCoeffHighshelfAnalog1\t\t\t\tcutoff, gain, Q\n\t31\t\teviBiquadCoeffHighshelfAnalog2 \t\t\t\tcutoff, gain\n\t32 \t\teviBiquadCoeffResonantAnalog\t\t\t\tcutoff, Q\n\t33\t\teviBiquadCoeffButterworthLowpass \t\t\tcutoff\n\t34\t\teviBiquadCoeffButterworthHighpass \t\t\tcutoff\n\t35\t\teviBiquadCoeffButterworthBandpass \t\t\tcutoff, Q\n\t36\t\teviBiquadCoeffButterworthBandreject \t\tcutoff, Q\n\t37\t\teviBiquadCoeffButterworthLowpassGain \t\tcutoff, gain\n\t38\t\teviBiquadCoeffButterworthHighpassGain \t\tcutoff, gain\n\t39\t\teviBiquadCoeffButterworthBandpassGain \t\tcutoff, gain, Q\n\t40\t\teviBiquadCoeffButterworthBandrejectGain \tcutoff, gain, Q\n*/\n\nParam   cutoffunits(0, min=0, max=1);   // 0 = in Hz (default), 1 = in Pitch\r\nParam   gainunits(1, min=0, max=1);     // 0 = linear gain, 1 = gain in dB (default)\r\nParam   filter(0, min=0, max=40);\r\nfilt    = int(filter);\r\ngunits  = int(gainunits);\r\ncfunits = int(cutoffunits);\r\n\r\nQ       = maximum(in3, 0.1);            // standard biquad clipping\r\n\r\ngain    = 1;\r\nif (gunits) {\r\n    gain    = dbtoa(in2);\r\n} else {\r\n    gain    = in2;\r\n}\r\n//gain  = clip(gain, 0.0625, 16);       // like [filtergraph~] ±24dB\r\n\r\ncutoff  = 1000;\r\nif (cfunits) {\r\n    cutoff  = mtof(in1);\r\n} else {\r\n    cutoff  = in1;\r\n}\r\ncutoff  = maximum(cutoff, 10);\r\n\r\nout1, out2, out3, out4, out5    = eviBiquadCoeff(filt, cutoff, gain, Q);\r\n\r\n"
                                                                     }
                                                                 },
@@ -559,9 +559,9 @@
                                                                         "maxclass": "newobj",
                                                                         "text": "out 1 a0 (FF0)",
                                                                         "patching_rect": [ 50.0, 811.0, 85.0, 22.0 ],
+                                                                        "id": "obj-4",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
-                                                                        "id": "obj-4"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -569,10 +569,10 @@
                                                                         "maxclass": "comment",
                                                                         "text": "default Hz",
                                                                         "patching_rect": [ 252.0, 39.0, 67.0, 20.0 ],
+                                                                        "id": "obj-12",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
                                                                         "textjustification": 2,
-                                                                        "id": "obj-12"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 },
                                                                 {
@@ -580,10 +580,10 @@
                                                                         "maxclass": "comment",
                                                                         "text": "default dB",
                                                                         "patching_rect": [ 548.0, 39.0, 67.0, 20.0 ],
+                                                                        "id": "obj-11",
                                                                         "numinlets": 1,
-                                                                        "numoutlets": 0,
                                                                         "textjustification": 2,
-                                                                        "id": "obj-11"
+                                                                        "numoutlets": 0
                                                                     }
                                                                 }
                                                             ],
@@ -1342,13 +1342,13 @@
                                                     "patching_rect": [ 294.0, 252.0, 129.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "voicecontrol": "simple",
+                                                        "receivemode": "local",
+                                                        "args": [],
                                                         "uidstyle": "auto",
                                                         "polyphony": -1.0,
                                                         "exposevoiceparams": 0,
-                                                        "args": [],
-                                                        "receivemode": "local",
-                                                        "notecontroller": 0,
-                                                        "voicecontrol": "simple"
+                                                        "notecontroller": 0
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_coeff",
@@ -1756,7 +1756,7 @@
                                             "parsestring": "\"Linear\" \"dB\""
                                         }
                                     },
-                                    "rnboversion": "1.4.6-beta.1",
+                                    "rnboversion": "1.4.6",
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
@@ -2237,7 +2237,7 @@
                                     "edit_gainmode": 1,
                                     "edit_mode": 3,
                                     "fontface": 0,
-                                    "frozen_box_attributes": [ "edit_analog", "edit_gainmode", "edit_mode" ],
+                                    "frozen_box_attributes": [ "edit_mode", "edit_analog", "edit_gainmode" ],
                                     "id": "obj-3",
                                     "ignoreclick": 1,
                                     "maxclass": "filtergraph~",

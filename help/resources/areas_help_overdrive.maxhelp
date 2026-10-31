@@ -323,6 +323,19 @@
                                         "boxes": [
                                             {
                                                 "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 476.0, 271.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1112, 635, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
                                                     "id": "obj-14",
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
@@ -677,19 +690,6 @@
                                             },
                                             {
                                                 "box": {
-                                                    "hidden": 1,
-                                                    "id": "obj-59",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 476.0, 271.0, 67.0, 22.0 ],
-                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
-                                                    "text": "thispatcher"
-                                                }
-                                            },
-                                            {
-                                                "box": {
                                                     "comment": "",
                                                     "hidden": 1,
                                                     "id": "obj-6",
@@ -719,7 +719,7 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-59", 0 ],
+                                                    "destination": [ "obj-2", 0 ],
                                                     "hidden": 1,
                                                     "source": [ "obj-72", 0 ]
                                                 }

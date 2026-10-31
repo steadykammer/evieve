@@ -9,7 +9,7 @@
 		<b>evi.overdrive.env~</b> is a 'max define' for the <o>evi_overdrive_env</o>.gendsp gen~ abstraction.
 		Because evi.overdrive.env~ is a 'max define' it also accepts all messages and attributes that a <o>gen~</o> object does. <br />
 		<br />
-		A memoryless nonlinear approximation with antiderivative and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation. <br />
+		A memoryless nonlinear approximation with antiderivative antialiasing and oversampled processing. Can handle high gain input and remains well antialiased. An optional envelope follower allows for dynamic saturation. <br />
 	</description>
 	<!--METADATA-->
 	<metadatalist>

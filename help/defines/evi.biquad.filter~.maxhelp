@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -67,7 +67,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -125,7 +125,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -426,7 +426,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 140.0, 266.0, 100.0, 23.0 ],
+                                    "patching_rect": [ 140.0, 266.0, 133.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "lowpass", "highpass", "bandpass", "bandstop", "peaknotch", "lowshelf", "lowshelfcookbook", "highshelf", "highshelfcookbook", "resonant", "bp", "allpass", "gainlpass", "gainhpass", "gainbpass", "gainbstop", "gainresonant", "gainbp", "gainapass", "lowpassanalog1", "lowpassanalog2", "highpassanalog", "bandpassanalog", "gainbpassanalog", "notchanalog", "peaknotchanalog1", "peaknotchanalog2", "lowshelfanalog1", "lowshelfanalog2", "highshelfanalog1", "highshelfanalog2", "resonantanalog", "butterlowpass", "butterhighpass", "butterbandpass", "butterbandreject", "buttergainlpass", "buttergainhpass", "buttergainbpass", "buttergainbreject" ],
@@ -449,7 +449,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 244.0, 261.0, 117.0, 36.0 ],
+                                    "patching_rect": [ 275.0, 260.0, 117.0, 36.0 ],
                                     "text": "more types than MSP [filtercoeff~]"
                                 }
                             },
@@ -673,12 +673,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1414,12 +1414,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -1672,7 +1672,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 127.0, 160.0, 120.0, 21.0 ],
+                                    "patching_rect": [ 137.0, 159.0, 133.0, 21.0 ],
                                     "text": "all available filters",
                                     "textjustification": 1
                                 }
@@ -1701,7 +1701,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 137.0, 182.0, 100.0, 23.0 ],
+                                    "patching_rect": [ 137.0, 182.0, 133.0, 23.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "bypass", "lowpass", "highpass", "bandpass", "bandstop", "peaknotch", "lowshelf", "lowshelfcookbook", "highshelf", "highshelfcookbook", "resonant", "bp", "allpass", "gainlpass", "gainhpass", "gainbpass", "gainbstop", "gainresonant", "gainbp", "gainapass", "lowpassanalog1", "lowpassanalog2", "highpassanalog", "bandpassanalog", "gainbpassanalog", "notchanalog", "peaknotchanalog1", "peaknotchanalog2", "lowshelfanalog1", "lowshelfanalog2", "highshelfanalog1", "highshelfanalog2", "resonantanalog", "butterlowpass", "butterhighpass", "butterbandpass", "butterbandreject", "buttergainlpass", "buttergainhpass", "buttergainbpass", "buttergainbreject" ],
@@ -1776,7 +1776,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2049,7 +2049,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2404,7 +2404,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -2607,7 +2607,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },

@@ -714,13 +714,13 @@
                                                     "patching_rect": [ 294.0, 268.0, 122.0, 23.0 ],
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
+                                                        "args": [],
+                                                        "polyphony": -1.0,
+                                                        "receivemode": "local",
                                                         "exposevoiceparams": 0,
                                                         "voicecontrol": "simple",
                                                         "uidstyle": "auto",
-                                                        "notecontroller": 0,
-                                                        "receivemode": "local",
-                                                        "polyphony": -1.0,
-                                                        "args": []
+                                                        "notecontroller": 0
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1190,8 +1190,8 @@
                                                     "patching_rect": [ 397.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "comment": "",
-                                                        "meta": ""
+                                                        "meta": "",
+                                                        "comment": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-4",
@@ -1283,8 +1283,8 @@
                                                     "patching_rect": [ 294.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "comment": "",
-                                                        "meta": ""
+                                                        "meta": "",
+                                                        "comment": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "out~_obj-3",
@@ -1377,8 +1377,8 @@
                                                     "patching_rect": [ 397.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "comment": "",
-                                                        "meta": ""
+                                                        "meta": "",
+                                                        "comment": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-2",
@@ -1470,8 +1470,8 @@
                                                     "patching_rect": [ 294.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "comment": "",
-                                                        "meta": ""
+                                                        "meta": "",
+                                                        "comment": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in~_obj-1",
@@ -1583,23 +1583,8 @@
                                     },
                                     "patching_rect": [ 250.0, 435.0, 281.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/wet": {
-                                            "label": "wet",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/early": {
-                                            "label": "early",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/damping": {
-                                            "label": "damping",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/spread": {
-                                            "label": "spread",
+                                        "evi_reverb/dry": {
+                                            "label": "dry",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1613,8 +1598,13 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
+                                        "evi_reverb/lowfrequency": {
+                                            "label": "lowfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/reverb": {
+                                            "label": "reverb",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1623,8 +1613,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/lowfrequency": {
-                                            "label": "lowfrequency",
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1633,18 +1623,18 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
+                                        "evi_reverb/wet": {
+                                            "label": "wet",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/spread": {
+                                            "label": "spread",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
                                         "evi_reverb/size": {
                                             "label": "size",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/dry": {
-                                            "label": "dry",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/bandwidth": {
-                                            "label": "bandwidth",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1653,8 +1643,18 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/reverb": {
-                                            "label": "reverb",
+                                        "evi_reverb/damping": {
+                                            "label": "damping",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/bandwidth": {
+                                            "label": "bandwidth",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/early": {
+                                            "label": "early",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1669,7 +1669,7 @@
                                             "parsestring": "\"mono\" \"stereo\" \"2channel\""
                                         }
                                     },
-                                    "rnboversion": "1.4.6-beta.1",
+                                    "rnboversion": "1.4.6",
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
@@ -2205,7 +2205,7 @@
                                     "patching_rect": [ 114.0, 572.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[1]",
                                             "parameter_mmax": 6.0,
@@ -4439,7 +4439,7 @@
                                     "patching_rect": [ 134.0, 529.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[6]",
                                             "parameter_mmax": 6.0,
@@ -5919,7 +5919,7 @@
                                     "patching_rect": [ 140.0, 414.0, 136.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "mc.live.gain~",
                                             "parameter_mmax": 6.0,
@@ -6337,7 +6337,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -6359,7 +6359,7 @@
                                     "patching_rect": [ 223.0, 504.0, 123.0, 38.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
-                                            "parameter_initial": [ 0.0 ],
+                                            "parameter_initial": [ -6.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "live.gain~[2]",
                                             "parameter_mmax": 6.0,
