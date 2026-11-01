@@ -92,7 +92,7 @@
                     "patching_rect": [ 25.0, 190.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 154.0, 400.0, 30.0 ],
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.0 ]
                 }
             },
             {
@@ -130,7 +130,7 @@
                     "patching_rect": [ 25.0, 144.0, 399.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 112.0, 400.0, 30.0 ],
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.0 ]
                 }
             },
             {
@@ -144,7 +144,7 @@
                     "patching_rect": [ 25.0, 236.0, 401.0, 30.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 199.0, 401.0, 30.0 ],
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.0 ]
                 }
             },
             {
@@ -158,7 +158,7 @@
                     "patching_rect": [ 25.0, 374.0, 404.0, 26.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 547.0, 349.0, 404.0, 26.0 ],
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.0 ]
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.0 ]
                 }
             },
             {
@@ -174,7 +174,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 577.0, 453.0, 356.0, 26.0 ],
                     "text": "← hover for info, click for helpfile",
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.555 ],
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.555 ],
                     "varname": "helpText"
                 }
             },
@@ -191,7 +191,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 577.0, 114.0, 356.0, 26.0 ],
                     "text": "← select category here",
-                    "textcolor": [ 0.85, 0.85, 0.85, 0.555 ],
+                    "textcolor": [ 0.9, 0.9, 0.9, 0.555 ],
                     "varname": "selectText"
                 }
             },
@@ -218,6 +218,7 @@
                     "annotation": "Select category here",
                     "annotation_name": "evieve Objects Categories",
                     "fontname": "Lato",
+                    "fontsize": 14.0,
                     "frozen_box_attributes": [ "items" ],
                     "id": "obj-6",
                     "items": "<empty>",
@@ -226,9 +227,9 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 622.0, 373.0, 153.0, 23.0 ],
+                    "patching_rect": [ 622.0, 373.0, 153.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 20.0, 116.0, 511.0, 23.0 ],
+                    "presentation_rect": [ 20.0, 115.0, 511.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_selectioncolor"
@@ -246,7 +247,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 649.0, 582.0, 74.0, 22.0 ],
-                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 923, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 40, 98, 1007, 924, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
             },
@@ -2870,7 +2871,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 250.0, 118.0, 163.0, 22.0 ],
+                                                    "patching_rect": [ 250.0, 118.0, 201.0, 22.0 ],
                                                     "text": "list.reg evieveOtherGenAbstractions"
                                                 }
                                             },

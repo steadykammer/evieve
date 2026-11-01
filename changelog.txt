@@ -1,0 +1,31 @@
+
+evieve 0.6.2, November 2026
+-------------
+
+Fixed bugs:
+
+- evi.freezeverb~ would click on very first use of bypass message (fixed with correct init)
+- 'eviLine()' (evi_line) and 'eviSline()' (evi_sline) would not recover from input==0. correctly when used in smooth phase resets (for example)
+- 'evieve Examples: Drone Garden' had incorrect parameter mappings to mcs.evi.sustainverb~
+
+New features:
+
+- 11 '.rnbopat' examples added to collection and mostly documented (reverbs and formants abstractions)
+- new 'evieve Gen Additions' category added to 'evieve Objects Overview' to more fully expose previously 'hidden' abstractions
+
+Improvements:
+
+- 'ZDF' and 'Adaa' bibliographies added to be user package facing rather than hidden in .genexpr source code
+- overviews, examples and helpfiles have better 'Theme Colour' switching behaviour (now properly mapped dynamic colours) as far as is possible with Max themes :-)
+- in Max 9.2.1 or later all evieve 'mc.' documentation will now work properly
+- various documentation cleanups
+- clarify details in 'readme.md'
+
+
+evieve 0.6.0, October 2026
+-------------
+
+- Max 9.2.0
+- first public release in the Max Package Manager
+
+

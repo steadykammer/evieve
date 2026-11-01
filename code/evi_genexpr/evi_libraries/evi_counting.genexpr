@@ -234,10 +234,10 @@ rateCycle(mainphase, multiplier, reset)
 	return phase;
 }
 
-// almost pointless, use native rate() instead
+// totally pointless **, use native rate() instead
 // sync: 0 = lock, 1 = off, 2 = cycle <<-- MSP / Gen native ordering, not me !
 eviRate(mainphase, multiplier, reset, sync=0)
-{							// ^^ so that we can reset phase when sync source changes
+{							// ^^ ** so that we can reset phase when sync source changes in real time
     thisrate = 0;
     if (sync == 1) {
         thisrate = rateOff(mainphase, multiplier, reset);
@@ -330,7 +330,7 @@ eviRamp0(trig)
 
 	thisphase = wrap(jump, 0, 1);
 	ramp = powsah ? latch(thisphase, (delta(powsah) > 0)) : thisphase;
-	syncstart = delta(ramp) < 0;
+	syncstart = delta(ramp) < 0; // the problem with this is that it does not fire on very very first click
 
 	// increment
 	incr = (1000 / duration) / SAMPLERATE;
@@ -340,14 +340,14 @@ eviRamp0(trig)
 	firstgate = gate(firsttrig, incr);  // is zero on load
 	increment = selector((zr + 1), firstgate, incrlatch);
 
-	// this minimum() 0.999 is a horrid hack gen~ bug fix
+	// this minimum() 0.999 is a horrid hack gen~ bug fix, i think, or maybe it is an evieve bug?
 	// if SR <= 44.1kHz (works fine without @ SR >= 48kHz)
 	end = ramp < minimum((1 - increment), 0.999);   // if not loop, stop phase at end
 	end0 = end == 0;
 	syncend = delta(end) < 0;
 
 	ramptrigger = gate((end0 || rt), trigger);
-	carrycount = accum(syncstart, ramptrigger) - 1;
+	carrycount = accum(syncstart, ramptrigger) - 1;	// defaults to -1, bad?
 
 	jump = ramptrigger ? 0 : (powsah ? 0 : (latch(lp, (syncstart + syncend)) ? increment : (increment * end))) + thisphase;
 
@@ -384,7 +384,7 @@ eviRamp1(trig, duration)    // duration = ramp duration IN SAMPLES in 'eviRamp1(
 
 	thisphase = wrap(jump, 0, 1);
 	ramp = powsah ? latch(thisphase, (delta(powsah) > 0)) : thisphase;
-	syncstart = delta(ramp) < 0;
+	syncstart = delta(ramp) < 0; // the problem with this is that it does not fire on very very first click
 
 	// increment
 	incr = duration / SAMPLERATE; // !!
@@ -394,14 +394,14 @@ eviRamp1(trig, duration)    // duration = ramp duration IN SAMPLES in 'eviRamp1(
 	firstgate = gate(firsttrig, incr);  // is zero on load
 	increment = selector((zr + 1), firstgate, incrlatch);
 
-	// this minimum() 0.999 is a horrid hack gen~ bug fix
+	// this minimum() 0.999 is a horrid hack gen~ bug fix, i think, or maybe it is an evieve bug?
 	// if SR <= 44.1kHz (works fine without @ SR >= 48kHz)
 	end = ramp < minimum((1 - increment), 0.999);   // if not loop, stop phase at end
 	end0 = end == 0;
 	syncend = delta(end) < 0;
 
 	ramptrigger = gate((end0 || rt), trigger);
-	carrycount = accum(syncstart, ramptrigger) - 1;
+	carrycount = accum(syncstart, ramptrigger) - 1;	// defaults to -1, bad?
 
 	jump = ramptrigger ? 0 : (powsah ? 0 : (latch(lp, (syncstart + syncend)) ? increment : (increment * end))) + thisphase;
 

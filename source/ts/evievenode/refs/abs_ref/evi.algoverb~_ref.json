@@ -61,7 +61,7 @@
                 }
             ],
             "digest": "In left inlet, bypass message to evi.algoverb~",
-            "description": "'bypass 1' will smoothly bypass the reverb to dry."
+            "description": "'bypass 1' will smoothly bypass the reverb to dry, but CPU stays on."
         },
         {
             "name": "mute",
@@ -74,7 +74,7 @@
                 }
             ],
             "digest": "In left inlet, mute message to evi.algoverb~",
-            "description": "'mute 1' will smoothly bypass and cpu mute the reverb."
+            "description": "'mute 1' will bypass and cpu mute the reverb, but might click."
         },
         {
             "name": "pattrstorage",

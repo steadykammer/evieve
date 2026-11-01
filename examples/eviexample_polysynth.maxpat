@@ -115,8 +115,8 @@
                     "outlettype": [ "", "", "", "" ],
                     "patching_rect": [ 268.0, 340.0, 56.0, 22.0 ],
                     "restore": {
-                        "synthGlide": [ 0.0 ],
-                        "synthReverb": [ 2.0 ],
+                        "synthGlide": [ 20.0 ],
+                        "synthReverb": [ 10.0 ],
                         "synthVolume": [ -9.0 ]
                     },
                     "restore_extra": {
@@ -1037,9 +1037,9 @@
                                     "patching_rect": [ 506.0, 274.0, 56.0, 22.0 ],
                                     "restore": {
                                         "synthEnvAttack": [ 10.000000000000002 ],
-                                        "synthEnvDecay": [ 68.17825234187256 ],
+                                        "synthEnvDecay": [ 100.0 ],
                                         "synthEnvHold": [ 0.0 ],
-                                        "synthEnvRelease": [ 107.09263878871963 ],
+                                        "synthEnvRelease": [ 299.99999999999994 ],
                                         "synthEnvSustain": [ 70.7107 ]
                                     },
                                     "restore_extra": {
@@ -1500,7 +1500,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 100.0, 1043.0, 712.0 ],
+                        "rect": [ 661.0, 93.0, 1043.0, 712.0 ],
                         "openinpresentation": 1,
                         "integercoordinates": 1,
                         "boxes": [
@@ -1694,7 +1694,7 @@
                                     "parameter_mappable": 0,
                                     "patching_rect": [ 33.0, 37.0, 15.0, 15.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 145.0, 3.0, 15.0, 15.0 ],
+                                    "presentation_rect": [ 145.0, 1.0, 15.0, 15.0 ],
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_enum": [ "off", "on" ],
@@ -3232,15 +3232,15 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 960.0, 35.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "filterCutoff": [ 59.842519685039406 ],
-                                        "filterCutoffKeytrack": [ 100.0 ],
-                                        "filterEnvAttack": [ 195.55146885066813 ],
-                                        "filterEnvDecay": [ 0.0 ],
-                                        "filterEnvDelay": [ 167.64833529667018 ],
-                                        "filterEnvRange": [ -99.99999999999999 ],
-                                        "filterEnvSustain": [ 100.0 ],
-                                        "filterResonance": [ 100.0 ],
-                                        "filterTypeMorph": [ 100.0 ]
+                                        "filterCutoff": [ 56.37795275590554 ],
+                                        "filterCutoffKeytrack": [ 50.0 ],
+                                        "filterEnvAttack": [ 100.0 ],
+                                        "filterEnvDecay": [ 199.99999999999997 ],
+                                        "filterEnvDelay": [ 0.0 ],
+                                        "filterEnvRange": [ 33.0 ],
+                                        "filterEnvSustain": [ 49.99999999999999 ],
+                                        "filterResonance": [ 58.0 ],
+                                        "filterTypeMorph": [ 0.0 ]
                                     },
                                     "restore_extra": {
                                         "filterCutoff": {
@@ -3477,7 +3477,7 @@
                                     "patching_rect": [ 577.0, 245.0, 32.0, 24.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 239.0, 37.0, 32.0, 24.0 ],
-                                    "text": "-",
+                                    "text": "+",
                                     "textjustification": 1
                                 }
                             },
@@ -4370,12 +4370,12 @@
                                     "outlettype": [ "", "", "", "" ],
                                     "patching_rect": [ 157.0, 49.0, 56.0, 22.0 ],
                                     "restore": {
-                                        "oscEnv": [ 463.9578399156797 ],
-                                        "oscMod": [ 100.0 ],
-                                        "oscShape": [ 0.0 ],
-                                        "oscUnisonAmount": [ 100.0 ],
-                                        "oscUnisonType": [ 3.0 ],
-                                        "oscUnisonVoices": [ 8.0 ]
+                                        "oscEnv": [ 99.99999999999999 ],
+                                        "oscMod": [ 33.0 ],
+                                        "oscShape": [ 66.0 ],
+                                        "oscUnisonAmount": [ 10.000000000000002 ],
+                                        "oscUnisonType": [ 1.0 ],
+                                        "oscUnisonVoices": [ 2.0 ]
                                     },
                                     "restore_extra": {
                                         "oscEnv": {

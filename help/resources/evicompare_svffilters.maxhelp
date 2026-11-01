@@ -41,7 +41,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -107,7 +107,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "float", "int" ],
                                     "patching_rect": [ 1069.0, 572.0, 18.0, 205.0 ],
-                                    "slidercolor": [ 0.0, 0.0, 0.0, 1.0 ]
+                                    "slidercolor": [ 0.07934807936557703, 0.07934804057876954, 0.0793480505472888, 1.0 ]
                                 }
                             },
                             {
@@ -1509,7 +1509,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
                                     "bubbleside": 3,
                                     "id": "obj-39",
                                     "maxclass": "comment",
@@ -1528,7 +1528,7 @@
                             {
                                 "box": {
                                     "bubble": 1,
-                                    "bubble_outlinecolor": [ 0.5260711419871651, 0.2993418383639915, 0.0, 1.0 ],
+                                    "bubble_outlinecolor": [ 0.9565903523274274, 0.7661489178616099, 0.4528340909165927, 1.0 ],
                                     "id": "obj-38",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1790,7 +1790,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ],
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
                                     "thickness": 2.0
                                 }
                             },
@@ -2426,10 +2426,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "activelinecolor": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
-                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -2742,10 +2742,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "activelinecolor": [ 0.5019607843137255, 0.5019607843137255, 0.0, 1.0 ],
-                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -2785,10 +2785,10 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
-                                    "activelinecolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
-                                    "bgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
+                                    "activelinecolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
+                                    "bgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
                                     "grid": 3,
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
@@ -3946,7 +3946,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ],
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
                                     "thickness2": 2.0
                                 }
                             },
@@ -4140,7 +4140,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1297.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1297.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -4705,6 +4705,19 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 531.0, 164.0, 138.0, 134.0 ],
                                     "tabs": [ "evi.svfsynth~", "evi.svfsmooth~", "evi.arpnotch~", "evi.filter.morph~" ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "arrows": 2,
+                                    "background": 1,
+                                    "border": 4.0,
+                                    "id": "obj-1",
+                                    "justification": 1,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 141.0, 372.0, 40.0, 12.0 ]
                                 }
                             },
                             {
@@ -5544,7 +5557,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
+                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -6402,7 +6415,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -6459,16 +6472,16 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
-                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
+                                    "activelinecolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
+                                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
                                     "grid": 3,
-                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "gridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-21",
-                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "linecolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -7087,7 +7100,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> features a Notch, not a Bandpass",
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7215,7 +7228,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7243,7 +7256,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7271,7 +7284,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7299,7 +7312,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7327,7 +7340,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7355,7 +7368,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7504,7 +7517,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7528,7 +7541,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> includes unmorphed filters on additional outputs",
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -7552,7 +7565,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> includes a simultaneous 24dB output option",
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -8352,7 +8365,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
+                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-41",
@@ -9666,7 +9679,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {

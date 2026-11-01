@@ -41,7 +41,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
+                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -584,7 +584,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -1357,6 +1357,19 @@
                                         "autowatch": 1
                                     }
                                 }
+                            },
+                            {
+                                "box": {
+                                    "arrows": 2,
+                                    "background": 1,
+                                    "border": 4.0,
+                                    "id": "obj-1",
+                                    "justification": 1,
+                                    "maxclass": "live.line",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 141.0, 372.0, 40.0, 12.0 ]
+                                }
                             }
                         ],
                         "lines": [
@@ -1606,16 +1619,16 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.81, 0.85, 0.89, 1.0 ],
-                                    "activegridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
-                                    "activelinecolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
-                                    "bgcolor": [ 0.9, 0.925, 0.95, 1.0 ],
+                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
+                                    "activegridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
+                                    "activelinecolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
+                                    "bgcolor": [ 0.235, 0.235, 0.235, 1.0 ],
                                     "grid": 3,
-                                    "gridcolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "gridcolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-28",
-                                    "linecolor": [ 0.7825334907544452, 0.8119908491066286, 0.8417447760294193, 1.0 ],
+                                    "linecolor": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
@@ -2634,7 +2647,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {
@@ -3060,7 +3073,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1305.0, 796.0 ],
+                        "rect": [ 20.0, 111.0, 1305.0, 796.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -4206,7 +4219,7 @@
                             },
                             {
                                 "box": {
-                                    "activebgoncolor": [ 0.27858439328144563, 0.41703022099530024, 0.6047875039780954, 1.0 ],
+                                    "activebgoncolor": [ 0.5944737054102633, 0.7205606304199135, 0.9283090506954977, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 13.0,
                                     "id": "obj-43",
@@ -4731,7 +4744,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
+                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                                 }
                             },
                             {

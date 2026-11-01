@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -859,12 +859,12 @@
                                                     "rnbo_classname": "p",
                                                     "rnbo_extra_attributes": {
                                                         "uidstyle": "auto",
+                                                        "voicecontrol": "simple",
                                                         "notecontroller": 0,
                                                         "args": [],
-                                                        "polyphony": -1.0,
-                                                        "exposevoiceparams": 0,
                                                         "receivemode": "local",
-                                                        "voicecontrol": "simple"
+                                                        "polyphony": -1.0,
+                                                        "exposevoiceparams": 0
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "evi_reverb",
@@ -1430,8 +1430,8 @@
                                                     "patching_rect": [ 397.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "out~_obj-4",
@@ -1523,8 +1523,8 @@
                                                     "patching_rect": [ 294.0, 323.0, 43.0, 23.0 ],
                                                     "rnbo_classname": "out~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "out~_obj-3",
@@ -1617,8 +1617,8 @@
                                                     "patching_rect": [ 397.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 1,
                                                     "rnbo_uniqueid": "in~_obj-2",
@@ -1710,8 +1710,8 @@
                                                     "patching_rect": [ 294.0, 213.0, 35.0, 23.0 ],
                                                     "rnbo_classname": "in~",
                                                     "rnbo_extra_attributes": {
-                                                        "meta": "",
-                                                        "comment": ""
+                                                        "comment": "",
+                                                        "meta": ""
                                                     },
                                                     "rnbo_serial": 2,
                                                     "rnbo_uniqueid": "in~_obj-1",
@@ -1823,18 +1823,8 @@
                                     },
                                     "patching_rect": [ 265.0, 465.0, 281.0, 23.0 ],
                                     "rnboattrcache": {
-                                        "evi_reverb/highdampfrequency": {
-                                            "label": "highdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/decay": {
-                                            "label": "decay",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/absorbtion": {
-                                            "label": "absorbtion",
+                                        "evi_reverb/loweqgain": {
+                                            "label": "loweqgain",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1843,48 +1833,8 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/latediffusion": {
-                                            "label": "latediffusion",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlylatehysterisis": {
-                                            "label": "earlylatehysterisis",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/latesize": {
-                                            "label": "latesize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/lowdampfrequency": {
-                                            "label": "lowdampfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
                                         "evi_reverb/highdampgain": {
                                             "label": "highdampgain",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlysize": {
-                                            "label": "earlysize",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/higheqfrequency": {
-                                            "label": "higheqfrequency",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/earlylate": {
-                                            "label": "earlylate",
-                                            "isEnum": 0,
-                                            "parsestring": ""
-                                        },
-                                        "evi_reverb/predelay": {
-                                            "label": "predelay",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1893,13 +1843,28 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/smoothtime": {
-                                            "label": "smoothtime",
+                                        "evi_reverb/drywet": {
+                                            "label": "drywet",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/presymmetry": {
-                                            "label": "presymmetry",
+                                        "evi_reverb/higheqgain": {
+                                            "label": "higheqgain",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/decay": {
+                                            "label": "decay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/latesize": {
+                                            "label": "latesize",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylate": {
+                                            "label": "earlylate",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1908,13 +1873,23 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/loweqfrequency": {
-                                            "label": "loweqfrequency",
+                                        "evi_reverb/earlysymmetry": {
+                                            "label": "earlysymmetry",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/drywet": {
-                                            "label": "drywet",
+                                        "evi_reverb/latediffusion": {
+                                            "label": "latediffusion",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlysize": {
+                                            "label": "earlysize",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/smoothtime": {
+                                            "label": "smoothtime",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1923,13 +1898,23 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/loweqgain": {
-                                            "label": "loweqgain",
+                                        "evi_reverb/absorbtion": {
+                                            "label": "absorbtion",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/earlysymmetry": {
-                                            "label": "earlysymmetry",
+                                        "evi_reverb/lowdampfrequency": {
+                                            "label": "lowdampfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/predelay": {
+                                            "label": "predelay",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/loweqfrequency": {
+                                            "label": "loweqfrequency",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1938,8 +1923,23 @@
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
-                                        "evi_reverb/higheqgain": {
-                                            "label": "higheqgain",
+                                        "evi_reverb/highdampfrequency": {
+                                            "label": "highdampfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/earlylatehysterisis": {
+                                            "label": "earlylatehysterisis",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/higheqfrequency": {
+                                            "label": "higheqfrequency",
+                                            "isEnum": 0,
+                                            "parsestring": ""
+                                        },
+                                        "evi_reverb/presymmetry": {
+                                            "label": "presymmetry",
                                             "isEnum": 0,
                                             "parsestring": ""
                                         },
@@ -1954,7 +1954,7 @@
                                             "parsestring": "\"off\" \"on\""
                                         }
                                     },
-                                    "rnboversion": "1.4.6-beta.1",
+                                    "rnboversion": "1.4.6",
                                     "saved_attribute_attributes": {
                                         "valueof": {
                                             "parameter_invisible": 1,
@@ -2492,7 +2492,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -3232,13 +3232,16 @@
                             },
                             {
                                 "box": {
+                                    "hint": "Clicks, but CPU turns Off",
                                     "id": "obj-52",
                                     "maxclass": "toggle",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 355.0, 563.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 355.0, 563.0, 20.0, 20.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -3359,13 +3362,16 @@
                             },
                             {
                                 "box": {
+                                    "hint": "Smooth, CPU stays On",
                                     "id": "obj-24",
                                     "maxclass": "toggle",
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 443.0, 563.0, 20.0, 20.0 ]
+                                    "patching_rect": [ 443.0, 563.0, 20.0, 20.0 ],
+                                    "valuepopup": 1,
+                                    "valuepopuplabel": 1
                                 }
                             },
                             {
@@ -3899,7 +3905,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 572.0, 587.0, 205.0, 22.0 ],
-                                    "text": "eviAlgoverb::highDampGain -1.2"
+                                    "text": "mute 0"
                                 }
                             },
                             {
@@ -5075,7 +5081,7 @@
                                         }
                                     },
                                     "text": "SIZE",
-                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                    "textcolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ]
                                 }
                             },
                             {
@@ -5243,7 +5249,7 @@
                                         }
                                     },
                                     "text": "STATE",
-                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
+                                    "textcolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ],
                                     "textjustification": 2
                                 }
                             },
@@ -5261,7 +5267,7 @@
                                         }
                                     },
                                     "text": "REVERB",
-                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                    "textcolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ]
                                 }
                             },
                             {
@@ -5278,7 +5284,7 @@
                                         }
                                     },
                                     "text": "EQ",
-                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                    "textcolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ]
                                 }
                             },
                             {
@@ -5295,7 +5301,7 @@
                                         }
                                     },
                                     "text": "DAMP",
-                                    "textcolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ]
+                                    "textcolor": [ 0.15017656899675316, 0.3070829270469606, 0.48494811788450226, 1.0 ]
                                 }
                             }
                         ],

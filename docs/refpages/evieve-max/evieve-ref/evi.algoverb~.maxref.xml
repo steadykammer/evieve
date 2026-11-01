@@ -76,7 +76,7 @@
 				In left inlet, bypass message to evi.algoverb~
 			</digest>
 			<description>
-				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry.
+				&#x27;bypass 1&#x27; will smoothly bypass the reverb to dry, but CPU stays on.
 			</description>
 		</method>
 		<method name="mute">
@@ -87,7 +87,7 @@
 				In left inlet, mute message to evi.algoverb~
 			</digest>
 			<description>
-				&#x27;mute 1&#x27; will smoothly bypass and cpu mute the reverb.
+				&#x27;mute 1&#x27; will bypass and cpu mute the reverb, but might click.
 			</description>
 		</method>
 		<method name="pattrstorage">

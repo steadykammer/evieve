@@ -546,7 +546,7 @@ ramptwo(x, u, d, p)
 
 // exact destinations (unlike all above smoothers)
 
-// like MSP [line~], exact destination
+// like MSP [line~], exact destination, thanks to Graham Wakefield for @resetmode fix
 eviLine(target, duration)				// target, duration in samples
 {
 	History val(0), init(1);
@@ -558,7 +558,7 @@ eviLine(target, duration)				// target, duration in samples
 	return  lin, (ramp == 1);
 }
 
-// exact destination, with S-curve
+// exact destination, with S-curve, thanks to Graham Wakefield for @resetmode fix
 eviSline(target, duration)				// target, duration in samples
 {
 	History	value(0), init(1);
@@ -676,7 +676,7 @@ eviRampsmoothUpdate(input, frampup, frampdown)		// input, up in samples, down in
 
 // a bit like the linear [go.slewlimit2] by graham wakefield (thanks).
 // a bit like 'eviRampsmooth()', but not exactly the same (time is not constant),
-// but much much cheaper than all the MSP-like functions in this file.
+// but much much cheaper than all the MSP-like functions in this .genexpr file.
 eviRamplimit(target, upsamples, downsamples)
 {
     History slew(0), init(1);
@@ -731,7 +731,7 @@ eviCurve(target, duration, curvature)		// target, duration in samples, curvature
 
 	value, notify = 0;
 	// per sample calculation
-	if (samplesremain > 0.5) {				// still ramping
+	if (samplesremain > 0.5) {				// still ramping, theoreticallay this should be sub sample accurate?
 		value	= v;
 		notify	= init;	
 		// compute next ramp sample

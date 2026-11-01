@@ -75,7 +75,7 @@ Param	lowshelfK(0., min=-3, max=1);				// -3=shelfboost..0=bypass..shelf..1=pass
 // special
 Param	freeze(0, min=0, max=2);					// select, the reason we are here
 Param	bypass(0, min=0, max=1);					// also cpu-off, but no reset in gen~ !
-History	passH(0);									// latch bypass smoother
+History	passH(1);									// latch bypass smoother (note init)
 //History	clear(0);								// TODO
 
 

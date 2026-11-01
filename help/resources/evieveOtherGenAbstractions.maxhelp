@@ -456,6 +456,20 @@
                             {
                                 "box": {
                                     "background": 1,
+                                    "bubble": 1,
+                                    "bubbleside": 2,
+                                    "hidden": 1,
+                                    "id": "obj-2",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 822.0, 27.0, 29.0, 39.0 ],
+                                    "textjustification": 1
+                                }
+                            },
+                            {
+                                "box": {
+                                    "background": 1,
                                     "fontface": 1,
                                     "id": "obj-45",
                                     "maxclass": "comment",

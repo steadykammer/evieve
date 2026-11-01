@@ -26,13 +26,710 @@
         "boxes": [
             {
                 "box": {
+                    "border": 0,
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 14.0,
+                    "hint": "",
+                    "id": "obj-74",
+                    "linkbold": 1,
+                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                    "maxclass": "markup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 586.0, 585.0, 207.0, 20.0 ],
+                    "preservehref": 1,
+                    "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": "themecolor.theme_textcolor"
+                        }
+                    },
+                    "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-78",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patcher": {
+                        "fileversion": 1,
+                        "appversion": {
+                            "major": 9,
+                            "minor": 2,
+                            "revision": 1,
+                            "architecture": "x64",
+                            "modernui": 1
+                        },
+                        "classnamespace": "box",
+                        "rect": [ 508.0, 204.0, 207.0, 270.0 ],
+                        "gridonopen": 2,
+                        "subpatcher_template": "sub",
+                        "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-76",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "open" ],
+                                    "patching_rect": [ 50.0, 90.66666666666667, 42.0, 22.0 ],
+                                    "text": "t open"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-75",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 50.0, 133.33333333333334, 51.0, 22.0 ],
+                                    "text": "pcontrol"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "obj-73",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "openrect": [ 526.0, 213.0, 840.0, 660.0 ],
+                                        "openrectmode": 0,
+                                        "openinpresentation": 1,
+                                        "gridonopen": 2,
+                                        "toolbarvisible": 0,
+                                        "lefttoolbarpinned": 2,
+                                        "toptoolbarpinned": 2,
+                                        "righttoolbarpinned": 2,
+                                        "bottomtoolbarpinned": 2,
+                                        "toolbars_unpinned_last_save": 15,
+                                        "subpatcher_template": "<none>",
+                                        "cluebar": 2,
+                                        "title": "TPT Bibliography",
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-20",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 38.0, 588.0, 700.0, 35.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 38.0, 588.0, 700.0, 35.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-16",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 520.0, 150.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 520.0, 150.0, 20.0 ],
+                                                    "text": "Vadim Zavalishin"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-17",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 553.0, 704.0, 31.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 553.0, 704.0, 31.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-13",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 465.0, 367.0, 23.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 465.0, 367.0, 23.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-14",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 401.0, 150.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 401.0, 150.0, 20.0 ],
+                                                    "text": "Urs Heckman"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-15",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 434.0, 261.0, 24.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 434.0, 261.0, 24.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-10",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 344.0, 794.0, 25.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 344.0, 794.0, 25.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-11",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 280.0, 150.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 280.0, 150.0, 20.0 ],
+                                                    "text": "Raph Levien"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-12",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 313.0, 704.0, 25.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 313.0, 704.0, 25.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-8",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 190.0, 150.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 190.0, 150.0, 20.0 ],
+                                                    "text": "Aaron Wishnick"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-9",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 223.0, 525.0, 25.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 223.0, 525.0, 25.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontface": 1,
+                                                    "id": "obj-7",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 19.0, 194.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 19.0, 194.0, 20.0 ],
+                                                    "text": "A very limited Bibliography"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-5",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 135.0, 367.0, 23.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 135.0, 367.0, 23.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 34.0, 71.0, 150.0, 20.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 71.0, 150.0, 20.0 ],
+                                                    "text": "Andrew Simper"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "border": 0,
+                                                    "evaluatehref": 1,
+                                                    "fontface": 0,
+                                                    "fontname": "Arial",
+                                                    "fontsize": 12.0,
+                                                    "hint": "",
+                                                    "id": "obj-1",
+                                                    "linkbold": 1,
+                                                    "linkcolor": [ 0.20392156862745098, 0.4745098039215686, 0.7803921568627451, 1.0 ],
+                                                    "maxclass": "markup",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 34.0, 104.0, 248.0, 29.0 ],
+                                                    "presentation": 1,
+                                                    "presentation_rect": [ 34.0, 104.0, 248.0, 29.0 ],
+                                                    "preservehref": 1,
+                                                    "saved_attribute_attributes": {
+                                                        "textcolor": {
+                                                            "expression": "themecolor.theme_textcolor"
+                                                        }
+                                                    },
+                                                    "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
+                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-70",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 459.0, 142.0, 19.0, 22.0 ],
+                                                    "text": "0"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-69",
+                                                    "maxclass": "message",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 439.0, 142.0, 19.0, 22.0 ],
+                                                    "text": "1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-72",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patcher": {
+                                                        "fileversion": 1,
+                                                        "appversion": {
+                                                            "major": 9,
+                                                            "minor": 2,
+                                                            "revision": 1,
+                                                            "architecture": "x64",
+                                                            "modernui": 1
+                                                        },
+                                                        "classnamespace": "box",
+                                                        "rect": [ 175.0, 245.0, 880.0, 521.0 ],
+                                                        "subpatcher_template": "<none>",
+                                                        "integercoordinates": 1,
+                                                        "boxes": [
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-69",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 409.0, 268.0, 415.0, 22.0 ],
+                                                                    "text": "window flags zoom, window flags minimize, window flags grow, window exec"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-68",
+                                                                    "maxclass": "newobj",
+                                                                    "numinlets": 3,
+                                                                    "numoutlets": 3,
+                                                                    "outlettype": [ "bang", "bang", "" ],
+                                                                    "patching_rect": [ 396.0, 86.0, 44.0, 22.0 ],
+                                                                    "text": "sel 1 0"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-67",
+                                                                    "maxclass": "newobj",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 2,
+                                                                    "outlettype": [ "bang", "bang" ],
+                                                                    "patching_rect": [ 53.0, 170.0, 32.0, 22.0 ],
+                                                                    "text": "t b b"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-66",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 53.0, 209.0, 84.0, 22.0 ],
+                                                                    "text": "savewindow 1"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "id": "obj-63",
+                                                                    "maxclass": "message",
+                                                                    "numinlets": 2,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 149.0, 208.0, 455.0, 22.0 ],
+                                                                    "text": "window flags nozoom, window flags nominimize, window flags nogrow, window exec"
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "comment": "",
+                                                                    "id": "obj-70",
+                                                                    "index": 1,
+                                                                    "maxclass": "inlet",
+                                                                    "numinlets": 0,
+                                                                    "numoutlets": 1,
+                                                                    "outlettype": [ "" ],
+                                                                    "patching_rect": [ 396.0, 40.0000005, 30.0, 30.0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "box": {
+                                                                    "comment": "",
+                                                                    "id": "obj-71",
+                                                                    "index": 1,
+                                                                    "maxclass": "outlet",
+                                                                    "numinlets": 1,
+                                                                    "numoutlets": 0,
+                                                                    "patching_rect": [ 149.0, 443.0, 30.0, 30.0 ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "lines": [
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-63", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-66", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-63", 0 ],
+                                                                    "source": [ "obj-67", 1 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-66", 0 ],
+                                                                    "source": [ "obj-67", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-67", 0 ],
+                                                                    "source": [ "obj-68", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-69", 0 ],
+                                                                    "source": [ "obj-68", 1 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-71", 0 ],
+                                                                    "source": [ "obj-69", 0 ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "patchline": {
+                                                                    "destination": [ "obj-68", 0 ],
+                                                                    "source": [ "obj-70", 0 ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                                                    },
+                                                    "patching_rect": [ 439.0, 164.0, 59.0, 22.0 ],
+                                                    "text": "p window"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "hidden": 1,
+                                                    "id": "obj-59",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "", "" ],
+                                                    "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "text": "thispatcher"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "hidden": 1,
+                                                    "id": "obj-6",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 476.0, 83.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-72", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-69", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-72", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-70", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-59", 0 ],
+                                                    "hidden": 1,
+                                                    "source": [ "obj-72", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 50.0, 176.0, 83.0, 22.0 ],
+                                    "text": "p bibliography"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "comment": "",
+                                    "id": "obj-77",
+                                    "index": 1,
+                                    "maxclass": "inlet",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
+                                }
+                            }
+                        ],
+                        "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-73", 0 ],
+                                    "source": [ "obj-75", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-75", 0 ],
+                                    "source": [ "obj-76", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-76", 0 ],
+                                    "source": [ "obj-77", 0 ]
+                                }
+                            }
+                        ]
+                    },
+                    "patching_rect": [ 586.0, 632.0, 83.0, 22.0 ],
+                    "text": "p bibliography"
+                }
+            },
+            {
+                "box": {
                     "hidden": 1,
                     "id": "obj-7",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 741.0, 632.0, 67.0, 22.0 ],
+                    "patching_rect": [ 726.0, 632.0, 67.0, 22.0 ],
                     "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "minimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 63, 100, 875, 776, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                     "text": "thispatcher"
                 }
@@ -45,7 +742,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 761.0, 566.0, 19.0, 22.0 ],
+                    "patching_rect": [ 746.0, 566.0, 19.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 487.0, 188.0, 19.0, 22.0 ],
                     "text": "0"
@@ -59,7 +756,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 741.0, 566.0, 19.0, 22.0 ],
+                    "patching_rect": [ 726.0, 566.0, 19.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 467.0, 188.0, 19.0, 22.0 ],
                     "text": "1"
@@ -218,7 +915,7 @@
                         ],
                         "toolbaradditions": [ "audiosolo", "audiomute" ]
                     },
-                    "patching_rect": [ 741.0, 601.0, 59.0, 22.0 ],
+                    "patching_rect": [ 726.0, 601.0, 59.0, 22.0 ],
                     "text": "p window"
                 }
             },
@@ -527,14 +1224,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 584.0, 269.0, 29.0 ],
+                    "patching_rect": [ 265.0, 584.0, 269.0, 29.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.skfinputmix~\">evi.skfinputmix~</link> input mixing Sallen Key",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -551,14 +1248,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 545.0, 190.0, 18.0 ],
+                    "patching_rect": [ 265.0, 545.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lpg~\">evi.lpg~</link> Buchla LPG",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -575,14 +1272,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 503.0, 244.0, 26.0 ],
+                    "patching_rect": [ 265.0, 503.0, 244.0, 26.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.tone.macro~\">evi.tone.macro~</link> nonlinear tone control",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -599,14 +1296,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 467.0, 190.0, 18.0 ],
+                    "patching_rect": [ 265.0, 467.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.rcfilter~\">evi.rcfilter~</link> nonlinear onepole",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -623,14 +1320,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 428.0, 190.0, 18.0 ],
+                    "patching_rect": [ 265.0, 428.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> 12dB ladder",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -647,14 +1344,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 277.0, 237.0, 32.0 ],
+                    "patching_rect": [ 265.0, 277.0, 237.0, 32.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link> transistor ladder",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -671,14 +1368,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 238.0, 209.0, 18.0 ],
+                    "patching_rect": [ 265.0, 238.0, 209.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link> transistor ladder",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -695,14 +1392,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 199.0, 190.0, 18.0 ],
+                    "patching_rect": [ 265.0, 199.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link> moog ladder",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -719,14 +1416,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 160.0, 190.0, 18.0 ],
+                    "patching_rect": [ 265.0, 160.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link> diode ladder",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -743,14 +1440,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 545.0, 208.0, 31.0 ],
+                    "patching_rect": [ 34.0, 545.0, 208.0, 31.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.dfm~\">evi.dfm~</link> old school MS20 filter",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -767,14 +1464,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 504.0, 208.0, 25.0 ],
+                    "patching_rect": [ 34.0, 504.0, 208.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20.select~\">evi.korgms20.select~</link> MS20 filter",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -791,14 +1488,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 467.0, 190.0, 18.0 ],
+                    "patching_rect": [ 34.0, 467.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20~\">evi.korgms20~</link> MS20 filter",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -815,14 +1512,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 428.0, 190.0, 18.0 ],
+                    "patching_rect": [ 34.0, 428.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms10~\">evi.korgms10~</link> MS10 filter",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -839,14 +1536,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 238.0, 190.0, 18.0 ],
+                    "patching_rect": [ 34.0, 238.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> morphing SVF",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -863,14 +1560,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 199.0, 190.0, 18.0 ],
+                    "patching_rect": [ 34.0, 199.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> morphing SVF",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -887,14 +1584,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 160.0, 190.0, 18.0 ],
+                    "patching_rect": [ 34.0, 160.0, 190.0, 18.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> morphing SVF",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -911,14 +1608,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 380.0, 181.0, 31.0 ],
+                    "patching_rect": [ 34.0, 380.0, 181.0, 31.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_korg\">Korg</link> MS (Sallen and Key)",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -935,14 +1632,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 280.0, 114.0, 69.0, 19.0 ],
+                    "patching_rect": [ 265.0, 114.0, 69.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_ladder\">Ladder</link>s",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -959,14 +1656,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 49.0, 113.0, 69.0, 19.0 ],
+                    "patching_rect": [ 34.0, 113.0, 69.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": "themecolor.theme_textcolor"
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_svf\">SVF</link>s",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
                 }
             },
             {
@@ -977,7 +1674,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 49.0, 34.0, 457.0, 36.0 ],
+                    "patching_rect": [ 34.0, 34.0, 457.0, 36.0 ],
                     "text": "Nonlinear filters in evieve. Filters are TPT filters with nonlinearities, self-oscillation, variable slopes, filter interpolation and oversampling options"
                 }
             },
@@ -988,7 +1685,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 280.0, 377.0, 60.0, 21.0 ],
+                    "patching_rect": [ 265.0, 377.0, 60.0, 21.0 ],
                     "text": "Other"
                 }
             },
@@ -1000,7 +1697,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 551.0, 545.0, 190.0, 21.0 ],
+                    "patching_rect": [ 551.0, 544.0, 190.0, 21.0 ],
                     "text": "Linear TPT Filters in evieve",
                     "texton": "Linear TPT Filters in evieve"
                 }
@@ -1336,6 +2033,13 @@
                     "destination": [ "obj-7", 0 ],
                     "hidden": 1,
                     "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-78", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-74", 0 ]
                 }
             }
         ],
