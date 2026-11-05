@@ -4209,6 +4209,28 @@
                 "auto": true
             }
         },
+        "evi_swan_options.gendsp": {
+            "define": {
+                "object": true,
+                "msp": "evi.swan~",
+                "mcwrapper": true
+            },
+            "ref": {
+                "gen": true,
+                "msp": false
+            },
+            "helpfile": {
+                "msp": false,
+                "gentab": false,
+                "genexprtab": false,
+                "areaonly": false,
+                "areas": []
+            },
+            "db": {
+                "browser": false,
+                "auto": false
+            }
+        },
         "evi_tan.gendsp": {
             "define": {
                 "object": false,

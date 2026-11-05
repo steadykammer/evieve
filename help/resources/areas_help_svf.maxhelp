@@ -359,7 +359,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> - a nonlinear SVF Notch filter which can morph between LP..Notch..HP, as a partial emulation of the ARP 1047 filter/resonator",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -383,7 +383,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> - oversampled SVF with a choice of 12dB and 24dB outputs and interpolation between Lowpass, Bandpass and Highpass filters",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -407,7 +407,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> - a cheap nonlinear multimode SVF with simultaneous outputs for when you need a quick cheap synth filter, morphing @outlet 0 via the 'morph' attribute.",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -555,6 +555,16 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 86.0, 42.0, 234.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-14",

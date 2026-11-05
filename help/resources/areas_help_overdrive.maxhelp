@@ -245,7 +245,7 @@
                         }
                     },
                     "text": "Adaa <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -330,7 +330,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 476.0, 271.0, 67.0, 22.0 ],
-                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1112, 635, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                     "text": "thispatcher"
                                                 }
                                             },
@@ -371,7 +371,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing\">https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -411,7 +411,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://vicanek.de/articles/AADistortion.pdf\">https://vicanek.de/articles/AADistortion.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -451,7 +451,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf\">https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -504,7 +504,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf\">https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -870,7 +870,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.fold~\">evi.overdrive.fold~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -894,7 +894,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.wrap~\">evi.overdrive.wrap~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -918,7 +918,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output, optional envelope following",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1028,6 +1028,16 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 101.0, 40.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-5",

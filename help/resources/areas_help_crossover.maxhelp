@@ -288,7 +288,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.crossover.sum~\">evi.crossover.sum~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -312,7 +312,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.crossover.3band~\">evi.crossover.3band~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -336,7 +336,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.crossover.allpass~\">evi.crossover.allpass~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -360,7 +360,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.crossover~\">evi.crossover~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -384,7 +384,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.cross~\">evi.cross~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -584,6 +584,16 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-8",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 79.0, 59.0, 201.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-14",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -716,7 +726,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 79.0, 59.0, 191.0, 20.0 ],
+                                    "patching_rect": [ 79.0, 37.0, 191.0, 20.0 ],
                                     "text": "evieve crossover filters in gen~"
                                 }
                             }

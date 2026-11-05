@@ -35,7 +35,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
+                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,
@@ -156,20 +156,43 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 0.125, 0.125, 0.125, 1.0 ],
-                                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                                    "activelinecolor": [ 0.6196078431372549, 0.7450980392156863, 0.9529411764705882, 1.0 ],
+                                    "activebgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "activegridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "activelinecolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
+                                    "bgcolor": [ 0.24, 0.26, 0.31, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-19",
+                                    "linecolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "patching_rect": [ 540.0, 482.0, 130.0, 130.0 ],
-                                    "rounded": 1.0,
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "activelinecolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
                                     "vertical_divisions": 4
                                 }
                             },
@@ -1795,7 +1818,7 @@
                             {
                                 "box": {
                                     "bgcolor": [ 0.125, 0.125, 0.125, 0.0 ],
-                                    "fgcolor": [ 1.0, 0.0, 0.0, 0.0 ],
+                                    "fgcolor": [ 1.0, 0.0, 0.0, 1.0 ],
                                     "id": "obj-23",
                                     "markercolor": [ 0.221327066888467, 0.221327006361825, 0.221327022178404, 0.0 ],
                                     "maxclass": "spectroscope~",
@@ -3818,7 +3841,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 55.0, 126.0, 802.0, 669.0 ],
+                        "rect": [ 0.0, 26.0, 802.0, 669.0 ],
                         "bglocked": 1,
                         "default_fontsize": 13.0,
                         "gridonopen": 2,

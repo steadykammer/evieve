@@ -323,7 +323,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> - novel two pole (12dB) nonlinear ladder with allpass alignment",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -347,7 +347,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link> - unlike above 'transistor' ladders which scale with resonance, this is a diode ladder filter which peaks with resonance, like a Roland 303",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -371,7 +371,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link> - transistor Ladder filter with variable poles output choices",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -395,7 +395,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link> - transistor Ladder filter tuned hot and aggressive for dirty synths",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -419,7 +419,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link> - clean, in tune and versatile transistor Ladder filter for all situations, a high quality Moog emulation",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -601,6 +601,16 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-5",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 116.0, 38.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-3",

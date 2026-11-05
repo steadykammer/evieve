@@ -340,7 +340,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> nonlinear alternative to evi.svf~",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -364,7 +364,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> nonlinear alternative to evi.lores~",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -388,7 +388,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.damp~\">evi.damp~</link> actually closer to MSP [onepole~]",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -412,7 +412,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.rcfilter~\">evi.rcfilter~</link> nonlinear alternative to evi.onepole~",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -436,7 +436,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.teeth~\">evi.teeth~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -460,7 +460,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.comb~\">evi.comb~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -484,7 +484,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.allpass~\">evi.allpass~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -508,7 +508,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.hilbert~\">evi.hilbert~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -532,7 +532,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.phaseshift~\">evi.phaseshift~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -556,7 +556,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.cross~\">evi.cross~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -580,7 +580,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svf~\">evi.svf~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -604,7 +604,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lores~\">evi.lores~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -628,7 +628,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.reson~\">evi.reson~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -652,7 +652,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.onepole~\">evi.onepole~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -676,7 +676,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.vcf~\">evi.vcf~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -700,7 +700,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.butterworthlp6~\">evi.butterworthlp6~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -724,7 +724,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.bp~\">evi.bp~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -859,6 +859,16 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-3",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 277.0, 59.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-2",

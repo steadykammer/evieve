@@ -122,6 +122,7 @@ const excludeObjects = [
   "evi.list.interp",
   "evi.list.xfade",
   "evi.modalres~",
+  "evi.swan~",
   "evi.tpqm",
   "evi.transratio",
   "mc.evi.bands~",

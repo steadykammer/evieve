@@ -332,6 +332,9 @@ max define mc.evi.svfsmooth~ mc.gen~ @gen evi_svfsmooth.gendsp @chans 2;
 max define evi.svfsynth~ gen~ @gen evi_svfsynth.gendsp;
 max define mc.evi.svfsynth~ mc.gen~ @gen evi_svfsynth.gendsp @chans 2;
 
+max define evi.swan~ gen~ @gen evi_swan_options.gendsp;
+max define mc.evi.swan~ mc.gen~ @gen evi_swan_options.gendsp @chans 2;
+
 max define evi.teeth~ gen~ @gen evi_teeth.gendsp;
 max define mc.evi.teeth~ mc.gen~ @gen evi_teeth.gendsp @chans 2;
 

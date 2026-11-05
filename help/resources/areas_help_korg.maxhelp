@@ -322,7 +322,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.dfm~\">evi.dfm~</link> - famous legacy Z-1 (not TPT) old style filter, but still very usable",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -346,7 +346,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20.select~\">evi.korgms20.select~</link> - the 'KLM' OTA chip was found in the later MS-20s and other Korg synthesisers - it is different to the earlier 'Korg 35' single-amplifier unbuffered Korg chip found in the earlier MS-20s and MS-10 and also in the 'monotron' series",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -370,7 +370,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20~\">evi.korgms20~</link> - 'Korg OTA', sits inbetween the more broken [evi.korgms10~] and the more stable [evi.korgms20.select~], it is aggressive but predictable",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -394,7 +394,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms10~\">evi.korgms10~</link> - 'Korg 35', an erratic, out-of-control and out-of-tune aggressive filter for experiments and fun times",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -544,6 +544,16 @@
                         "boxes": [
                             {
                                 "box": {
+                                    "id": "obj-2",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 116.0, 38.0, 201.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
+                            {
+                                "box": {
                                     "id": "obj-11",
                                     "linecount": 4,
                                     "maxclass": "comment",
@@ -551,17 +561,6 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 116.0, 343.0, 150.0, 60.0 ],
                                     "text": "does not work in gen~ alone as requires external LUT, @see the MSP abstraction"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "obj-9",
-                                    "maxclass": "newobj",
-                                    "numinlets": 4,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "", "" ],
-                                    "patching_rect": [ 116.0, 405.0, 51.0, 22.0 ],
-                                    "text": "evi_dfm"
                                 }
                             },
                             {

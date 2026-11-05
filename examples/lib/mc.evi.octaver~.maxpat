@@ -4,12 +4,12 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 342.0, 92.0, 1169.0, 763.0 ],
+        "rect": [ 134.0, 165.0, 1169.0, 763.0 ],
         "gridonopen": 2,
         "subpatcher_template": "sub",
         "boxes": [
@@ -25,7 +25,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -128,7 +128,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -290,12 +290,12 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 100.0, 868.0, 579.0 ],
+                        "rect": [ 307.0, 300.0, 334.0, 394.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "boxes": [
@@ -306,7 +306,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 50.0, 100.0, 67.0, 22.0 ],
+                                    "patching_rect": [ 50.00000000000023, 96.0, 67.0, 22.0 ],
                                     "text": "clip 1 1000"
                                 }
                             },
@@ -328,7 +328,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 308.0, 182.0, 95.0, 22.0 ],
+                                    "patching_rect": [ 155.0, 197.0, 95.0, 22.0 ],
                                     "text": "prepend smooth"
                                 }
                             },
@@ -352,7 +352,7 @@
                                     "maxclass": "outlet",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 50.00000000000023, 264.0, 30.0, 30.0 ]
+                                    "patching_rect": [ 60.5, 279.0, 30.0, 30.0 ]
                                 }
                             },
                             {
@@ -363,7 +363,7 @@
                                     "maxclass": "outlet",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 343.0, 264.0, 30.0, 30.0 ]
+                                    "patching_rect": [ 155.0, 279.0, 30.0, 30.0 ]
                                 }
                             }
                         ],
@@ -417,7 +417,7 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(anything) messages to mc.evi.octaver~",
                     "id": "obj-67",
                     "index": 0,
                     "maxclass": "inlet",
@@ -439,7 +439,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -583,7 +583,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -727,7 +727,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -871,7 +871,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1139,7 +1139,7 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(multichannel-signal) octaver audio output",
                     "id": "obj-18",
                     "index": 0,
                     "maxclass": "outlet",
@@ -1172,7 +1172,7 @@
             },
             {
                 "box": {
-                    "comment": "",
+                    "comment": "(multichannel-signal) mc audio input",
                     "id": "obj-15",
                     "index": 0,
                     "maxclass": "inlet",
@@ -1433,6 +1433,16 @@
                     "outlettype": [ "multichannelsignal" ],
                     "patching_rect": [ 41.0, 479.0, 158.0, 22.0 ],
                     "text": "mc.evi.rcfilter~ @smooth 20"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-24",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 73.0, 46.0, 116.0, 20.0 ],
+                    "text": "mc audio input"
                 }
             }
         ],

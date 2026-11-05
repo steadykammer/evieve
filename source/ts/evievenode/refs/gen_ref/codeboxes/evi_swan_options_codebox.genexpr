@@ -1,0 +1,69 @@
+
+// 'switch & ramp' with options, overexpensive evieve style
+
+quartParOneApprox(modphase)
+{
+	x0		=  modphase - 0.5;
+	// first quarter    // -0.8284271247461903 = 2 - 4*sqrt1_2
+	quart	= -0.8284271247461903 * x0 * x0 + sqrt1_2;
+	sinq1	=  quart + x0;
+	cosq1	=  quart - x0;
+
+	return	cosq1, sinq1;
+}
+
+eviScurve(segment)
+{
+	s2		= segment * segment;
+	rec		= 1 - segment;
+	r2		= rec * rec;
+	return	(segment < 0.5) ? (s2 + s2) : (1 - (r2 + r2));
+}
+
+History ramp(0);
+
+Param   outblock(1, min=0, max=1); // dcblock output? (not always needed)
+Param   shape(0, min=0, max=1); // curve through zero? (very strange option)
+Param   curve(0, min=0, max=3); // type: 0=lin, 1=scurve, 2=cos, 3=decay
+Param   time(240, min=1, max=samplerate*0.25); // ramp time in samples
+crv     = int(curve);
+shp     = bool(shape);
+ob      = bool(outblock);
+
+x = in1;
+trig = delta(in2) < 0;
+latchedin = latch(delta(x), trig);
+
+crv = latch(crv, trig);
+shp = latch(shp, trig);
+ob = latch(ob, trig);
+
+ramped = 0;
+if (crv == 1) { // scurve
+    ramp = maximum((trig ? 1 : (ramp-1/time)), 0);
+    scurve = eviScurve(ramp);
+    scurve = shp ? dcblock(scurve) : scurve;
+    ramped = (latchedin * scurve);
+}
+else if (crv == 2) { // cos
+    ramp = maximum((trig ? 1 : (ramp-1/time)), 0);
+    coscurve = quartParOneApprox(1-ramp);
+    coscurve = shp ? dcblock(coscurve) : coscurve;
+    ramped = (latchedin * coscurve);
+}
+else if (crv == 3) { // decay (with hold segment), careful
+    retime = sampstoms(time) * 0.2; // :-(
+    dcurve = evi_logdecay(evi_trigholdgate(trig, hold=retime), retime);
+    dcurve = shp ? dcblock(dcurve) : dcurve;
+    ramped = (latchedin * dcurve);
+}
+else { // linear (default & cheapest)
+    ramp = maximum((trig ? 1 : (ramp-1/time)), 0);
+    rshape = shp ? dcblock(ramp) : ramp;
+    ramped = (latchedin * rshape);
+}
+
+y = (x - ramped);
+out1 = ob ? dcblock(y) : y;
+out2 = ramped;
+

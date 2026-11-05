@@ -2635,7 +2635,8 @@ function createMaxKeyCommands()
 		"commands": {
 			"genTilde": {
 				"letterKey": "g",
-				"insertText": "\"newobj @text gen~ \"", // + space
+				// "insertText": "\"newobj @text gen~ \"", // old pete style, nobody likes it
+				"insertText": "gen~ ", // + space (for pete)
 				"instructText": "\"gen~ object...\""
 			},
 			"genCodebox": {

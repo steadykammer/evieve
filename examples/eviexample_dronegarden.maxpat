@@ -395,7 +395,6 @@
                 "box": {
                     "fgcolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
                     "id": "obj-40",
-                    "markercolor": [ 0.7550474760424134, 0.7743149292213349, 0.7939830498018119, 1.0 ],
                     "maxclass": "spectroscope~",
                     "numinlets": 2,
                     "numoutlets": 1,
@@ -464,7 +463,6 @@
                 "box": {
                     "fgcolor": [ 0.6671826308940297, 0.48502144276180176, 0.09603193242408192, 1.0 ],
                     "id": "obj-4",
-                    "markercolor": [ 0.7550474760424134, 0.7743149292213349, 0.7939830498018119, 1.0 ],
                     "maxclass": "spectroscope~",
                     "numinlets": 2,
                     "numoutlets": 1,
@@ -6438,24 +6436,13 @@
                                             },
                                             {
                                                 "box": {
-                                                    "id": "obj-84",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 84.0, 127.0, 55.0, 22.0 ],
-                                                    "text": "mc.<~ 0."
-                                                }
-                                            },
-                                            {
-                                                "box": {
                                                     "id": "obj-83",
                                                     "maxclass": "newobj",
                                                     "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "multichannelsignal" ],
-                                                    "patching_rect": [ 84.0, 88.0, 61.0, 22.0 ],
-                                                    "text": "mc.delta~"
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "multichannelsignal", "", "" ],
+                                                    "patching_rect": [ 84.0, 127.0, 60.0, 22.0 ],
+                                                    "text": "mc.what~"
                                                 }
                                             },
                                             {
@@ -6526,23 +6513,17 @@
                                             },
                                             {
                                                 "patchline": {
-                                                    "destination": [ "obj-84", 0 ],
-                                                    "source": [ "obj-83", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
                                                     "destination": [ "obj-1", 0 ],
                                                     "midpoints": [ 93.5, 164.64453125, 182.5, 164.64453125 ],
                                                     "order": 0,
-                                                    "source": [ "obj-84", 0 ]
+                                                    "source": [ "obj-83", 0 ]
                                                 }
                                             },
                                             {
                                                 "patchline": {
                                                     "destination": [ "obj-89", 0 ],
                                                     "order": 1,
-                                                    "source": [ "obj-84", 0 ]
+                                                    "source": [ "obj-83", 0 ]
                                                 }
                                             },
                                             {
@@ -8412,7 +8393,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 47.0, 663.0, 224.0, 22.0 ],
-                                                    "text": "parizek_lt13"
+                                                    "text": "ptolemy_hominv2"
                                                 }
                                             },
                                             {
@@ -8927,24 +8908,13 @@
                             },
                             {
                                 "box": {
-                                    "id": "obj-98",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 1286.0, 229.0, 55.0, 22.0 ],
-                                    "text": "mc.<~ 0."
-                                }
-                            },
-                            {
-                                "box": {
                                     "id": "obj-99",
                                     "maxclass": "newobj",
                                     "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "multichannelsignal" ],
-                                    "patching_rect": [ 1286.0, 190.0, 61.0, 22.0 ],
-                                    "text": "mc.delta~"
+                                    "numoutlets": 3,
+                                    "outlettype": [ "multichannelsignal", "", "" ],
+                                    "patching_rect": [ 1286.0, 229.0, 60.0, 22.0 ],
+                                    "text": "mc.what~"
                                 }
                             },
                             {
@@ -9728,19 +9698,13 @@
                                     "destination": [ "obj-133", 1 ],
                                     "midpoints": [ 1295.5, 260.1171875, 1351.0, 260.1171875, 1351.0, 489.4296875, 1194.5, 489.4296875 ],
                                     "order": 1,
-                                    "source": [ "obj-98", 0 ]
+                                    "source": [ "obj-99", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-36", 1 ],
                                     "order": 0,
-                                    "source": [ "obj-98", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-98", 0 ],
                                     "source": [ "obj-99", 0 ]
                                 }
                             }

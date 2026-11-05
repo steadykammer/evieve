@@ -300,7 +300,7 @@
                         }
                     },
                     "text": "<link href=\"; max html_ref evi_rand\">evi_rand</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -324,7 +324,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.randy~\">evi.randy~</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -370,6 +370,16 @@
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-9",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 255.0, 261.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-8",
@@ -534,7 +544,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.gaussiannoise~\">evi.gaussiannoise~</link> gaussian distributed noise source - surprising how often we need this!",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -558,7 +568,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.velvetnoise~\">evi.velvetnoise~</link> morphs between \"sparse noise\" (similar to \"audiodust\") and \"velvet noise\" (useful in reverbs)",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -582,7 +592,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.audiodust~\">evi.audiodust~</link> is useful as a spikey noise/trigger source or as a  modulation core",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -607,7 +617,7 @@
                         }
                     },
                     "text": "For more gen noise, see the Todd Ingalls code: <link href=\"; max launchbrowser https://github.com/testcase/gen_noise\">GitHub</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {

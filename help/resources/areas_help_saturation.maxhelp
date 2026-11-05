@@ -245,7 +245,7 @@
                         }
                     },
                     "text": "Adaa <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -330,7 +330,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 476.0, 271.0, 67.0, 22.0 ],
-                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1127, 634, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                     "text": "thispatcher"
                                                 }
                                             },
@@ -371,7 +371,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing\">https://github.com/ryukau/filter_notes/tree/master/antiderivative_antialiasing</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -411,7 +411,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://vicanek.de/articles/AADistortion.pdf\">https://vicanek.de/articles/AADistortion.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -451,7 +451,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf\">https://www.hsu-hh.de/ant/wp-content/uploads/sites/699/2020/10/DAFx2019_paper_4.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -504,7 +504,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf\">https://dafx.de/paper-archive/2016/dafxpapers/20-DAFx-16_paper_41-PN.pdf</link>",
-                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -819,7 +819,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.valve~\">evi.valve~</link> dynamic analog emulated valve distortion (diode) with asymmetry and envelope following",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -843,7 +843,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.softclip~\">evi.softclip~</link> antialiased soft clipping utility",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -867,7 +867,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.hardclip~\">evi.hardclip~</link> antialiased hard clipping utility",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -891,7 +891,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.clipper~\">evi.clipper~</link> hard, soft, diode and asymmetric clipping",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -915,7 +915,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.squeeze~\">evi.squeeze~</link> quadratic signal shaper",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -939,7 +939,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.softstatic~\">evi.softstatic~</link> soft clipping harmonics generator",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -963,7 +963,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.rectify~\">evi.rectify~</link> half wave signal rectification",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1093,7 +1093,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.shaper~\">evi.shaper~</link> even/odd harmonics",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1117,7 +1117,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.sinfold~\">evi.sinfold~</link> sine waveshaping",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1141,7 +1141,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.clipasym~\">evi.clipasym~</link> asymmetric distortion",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1165,7 +1165,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.fold~\">evi.overdrive.fold~</link> with 'Drive' input, as well as input/output gain wrapping and shaping filtering options",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1189,7 +1189,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.wrap~\">evi.overdrive.wrap~</link> with 'Shape' input to control saturation (similar behaviour to MSP [overdrive~])",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1213,7 +1213,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.overdrive.env~\">evi.overdrive.env~</link> passive overdrive, tanh-like input/output, optional envelope following",
-                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1318,11 +1318,21 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 695.0, 100.0, 503.0, 732.0 ],
+                        "rect": [ 695.0, 100.0, 503.0, 751.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-5",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 128.0, 38.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-7",
@@ -1330,7 +1340,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 616.0, 358.0, 47.0 ],
+                                    "patching_rect": [ 128.0, 631.0, 358.0, 47.0 ],
                                     "text": "evi_overdrive_env = evi.overdrive.env~\nevi_overdrive_wrap = evi.overdrive.wrap~\nevi_overdrive_fold = evi.overdrive.fold~"
                                 }
                             },
@@ -1340,7 +1350,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 526.0, 162.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 541.0, 162.0, 20.0 ],
                                     "text": "evi_softclip = evi.softclip~"
                                 }
                             },
@@ -1350,7 +1360,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 487.0, 162.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 502.0, 162.0, 20.0 ],
                                     "text": "evi_hardclip = evi.hardclip~"
                                 }
                             },
@@ -1360,7 +1370,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 357.0, 154.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 372.0, 154.0, 20.0 ],
                                     "text": "evi_sinfold = evi.sinfold~"
                                 }
                             },
@@ -1370,7 +1380,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 318.0, 155.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 333.0, 155.0, 20.0 ],
                                     "text": "evi_shaper = evi.shaper~"
                                 }
                             },
@@ -1380,7 +1390,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 207.0, 279.0, 100.0, 20.0 ],
+                                    "patching_rect": [ 207.0, 294.0, 100.0, 20.0 ],
                                     "text": "= evi.clipasym~"
                                 }
                             },
@@ -1390,7 +1400,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 188.0, 164.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 203.0, 164.0, 20.0 ],
                                     "text": "evi_squeeze = evi.squeeze~"
                                 }
                             },
@@ -1400,7 +1410,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 149.0, 197.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 164.0, 197.0, 20.0 ],
                                     "text": "evi_softstatic = evi.softstatic~"
                                 }
                             },
@@ -1410,7 +1420,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 192.0, 110.0, 86.0, 20.0 ],
+                                    "patching_rect": [ 192.0, 125.0, 86.0, 20.0 ],
                                     "text": "= evi.rectify~"
                                 }
                             },
@@ -1420,7 +1430,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 195.0, 448.0, 95.0, 20.0 ],
+                                    "patching_rect": [ 195.0, 463.0, 95.0, 20.0 ],
                                     "text": "= evi.clipper~"
                                 }
                             },
@@ -1430,7 +1440,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 680.0, 358.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 695.0, 358.0, 20.0 ],
                                     "text": "evi_valve = evi.valve~"
                                 }
                             },
@@ -1440,7 +1450,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 579.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 594.0, 150.0, 20.0 ],
                                     "text": "See Also"
                                 }
                             },
@@ -1450,7 +1460,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 410.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 425.0, 150.0, 20.0 ],
                                     "text": "High Gain"
                                 }
                             },
@@ -1460,7 +1470,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 241.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 256.0, 150.0, 20.0 ],
                                     "text": "Dynamic"
                                 }
                             },
@@ -1470,7 +1480,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 128.0, 72.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 128.0, 87.0, 150.0, 20.0 ],
                                     "text": "Passive"
                                 }
                             },
@@ -1481,7 +1491,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 109.0, 63.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 124.0, 63.0, 22.0 ],
                                     "text": "evi_rectify"
                                 }
                             },
@@ -1492,7 +1502,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 447.0, 66.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 462.0, 66.0, 22.0 ],
                                     "text": "evi_clipper"
                                 }
                             },
@@ -1503,7 +1513,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 128.0, 278.0, 77.0, 22.0 ],
+                                    "patching_rect": [ 128.0, 293.0, 77.0, 22.0 ],
                                     "text": "evi_clipasym"
                                 }
                             },
@@ -1536,7 +1546,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 19.0, 71.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 19.0, 86.0, 35.0, 22.0 ],
                                     "text": "out 1"
                                 }
                             }

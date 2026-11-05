@@ -121,6 +121,7 @@ max objectfile mc.evi.svf~ mc.wrapper~ evi.svf~ mc;
 max objectfile mc.evi.svfinputmix~ mc.wrapper~ evi.svfinputmix~ mc;
 max objectfile mc.evi.svfsmooth~ mc.wrapper~ evi.svfsmooth~ mc;
 max objectfile mc.evi.svfsynth~ mc.wrapper~ evi.svfsynth~ mc;
+max objectfile mc.evi.swan~ mc.wrapper~ evi.swan~ mc;
 max objectfile mc.evi.teeth~ mc.wrapper~ evi.teeth~ mc;
 max objectfile mc.evi.tone.macro~ mc.wrapper~ evi.tone.macro~ mc;
 max objectfile mc.evi.tremolo~ mc.wrapper~ evi.tremolo~ mc;

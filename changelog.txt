@@ -1,4 +1,19 @@
 
+evieve 0.6.4, December 2026
+-------------
+
+Fixed bugs:
+
+
+New features:
+
+
+Improvements:
+
+- more tidying up of content for dynamic colours / clarity / etc
+
+
+
 evieve 0.6.2, November 2026
 -------------
 

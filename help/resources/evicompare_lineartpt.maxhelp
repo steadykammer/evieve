@@ -718,42 +718,115 @@
                             {
                                 "box": {
                                     "amprange": [ -100.0, 10.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "curvestyle": 3,
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-3",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 598.0, 410.0, 400.0, 188.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness": 2.0
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "amprange": [ -100.0, 10.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "curvestyle": 3,
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-2",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 58.0, 410.0, 400.0, 188.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1298,7 +1371,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq3~\">evi.eq3~</link> and <link href=\"; max openhelp evi.eq3.stereo~\">evi.eq3.stereo~</link> are three band EQs where every parameter can be controlled at audio rate, including modulation",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1322,7 +1395,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.eq5~\">evi.eq5~</link> and <link href=\"; max openhelp evi.eq8~\">evi.eq8~</link> use the same filters but with attributes control of all parameters",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1346,7 +1419,7 @@
                                         }
                                     },
                                     "text": "<link href=\"; max openhelp evi.filter.shelving~\">evi.filter.shelving~</link> is a two band low/high shelving EQ utility",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1454,23 +1527,58 @@
                             {
                                 "box": {
                                     "amprange": [ -100.0, 10.0 ],
-                                    "color": [ 0.502, 0.0, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "curvestyle": 2,
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-15",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 387.0, 465.0, 471.0, 188.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness": 2.0
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1706,7 +1814,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
+                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
@@ -1735,7 +1843,7 @@
                                         }
                                     },
                                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -1836,7 +1944,7 @@
                                                                         }
                                                                     },
                                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1876,7 +1984,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1904,7 +2012,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1944,7 +2052,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -1972,7 +2080,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2012,7 +2120,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2052,7 +2160,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2093,7 +2201,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2133,7 +2241,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -2326,7 +2434,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -2461,7 +2569,7 @@
                                         }
                                     },
                                     "text": "Scroll to the bottom 'See Also' section of the <link href=\"; max html_ref evi_svfs\">evi_svfs.genexpr</link> reference page and you will find links to all of the different SVF GenExpr code files in evieve.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -3901,21 +4009,57 @@
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-23",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 500.0, 557.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -3998,22 +4142,57 @@
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
-                                    "color": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.0, 0.5882352941176471, 0.0, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-11",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 705.0, 261.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -4231,21 +4410,57 @@
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-26",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 73.0, 261.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -5351,13 +5566,281 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1114.0, 764.0 ],
+                        "rect": [ 63.0, 126.0, 1114.0, 764.0 ],
                         "bglocked": 1,
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "showontab": 1,
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-54",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 811.0, 100.0, 61.0, 22.0 ],
+                                    "text": "pipe 1000"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-53",
+                                    "maxclass": "newobj",
+                                    "numinlets": 2,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "bang", "" ],
+                                    "patching_rect": [ 796.0, 61.0, 34.0, 22.0 ],
+                                    "text": "sel 0"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-51",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "int" ],
+                                    "patching_rect": [ 796.0, 28.0, 40.0, 22.0 ],
+                                    "text": "active"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-7",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "float", "float", "float" ],
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 2,
+                                            "revision": 1,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 34.0, 100.0, 449.0, 380.0 ],
+                                        "gridonopen": 2,
+                                        "subpatcher_template": "sub",
+                                        "integercoordinates": 1,
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-5",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "bang" ],
+                                                    "patching_rect": [ 151.0, 150.0, 65.0, 22.0 ],
+                                                    "text": "onebang 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-4",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "float" ],
+                                                    "patching_rect": [ 151.0, 202.0, 25.0, 22.0 ],
+                                                    "text": "t 4."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "" ],
+                                                    "patching_rect": [ 151.0, 100.0, 34.0, 22.0 ],
+                                                    "text": "sel 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 4,
+                                                    "outlettype": [ "int", "float", "int", "int" ],
+                                                    "patching_rect": [ 151.0, 48.0, 61.0, 22.0 ],
+                                                    "text": "dspstate~"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 3,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 282.0, 312.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-12",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 3,
+                                                    "outlettype": [ "float", "float", "float" ],
+                                                    "patching_rect": [ 50.0, 202.0, 79.0, 22.0 ],
+                                                    "text": "t 500. 0. 4."
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-9",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "bang" ],
+                                                    "patching_rect": [ 50.0, 150.0, 65.0, 22.0 ],
+                                                    "text": "onebang 1"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "obj-7",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 2,
+                                                    "numoutlets": 2,
+                                                    "outlettype": [ "bang", "" ],
+                                                    "patching_rect": [ 50.0, 100.0, 65.0, 22.0 ],
+                                                    "text": "sel 0"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-14",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 50.0, 40.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-17",
+                                                    "index": 1,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 110.0, 312.0, 30.0, 30.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-18",
+                                                    "index": 2,
+                                                    "maxclass": "outlet",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 196.0, 312.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-1", 0 ],
+                                                    "source": [ "obj-12", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-17", 0 ],
+                                                    "source": [ "obj-12", 2 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-18", 0 ],
+                                                    "source": [ "obj-12", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-7", 0 ],
+                                                    "source": [ "obj-14", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "source": [ "obj-2", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-5", 0 ],
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-17", 0 ],
+                                                    "source": [ "obj-4", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-4", 0 ],
+                                                    "source": [ "obj-5", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-9", 1 ],
+                                                    "source": [ "obj-7", 1 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-9", 0 ],
+                                                    "source": [ "obj-7", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-12", 0 ],
+                                                    "source": [ "obj-9", 0 ]
+                                                }
+                                            }
+                                        ],
+                                        "toolbaradditions": [ "audiosolo", "audiomute" ]
+                                    },
+                                    "patching_rect": [ 875.0, 100.0, 40.0, 22.0 ],
+                                    "text": "p"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "hidden": 1,
+                                    "id": "obj-15",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 3,
+                                    "outlettype": [ "", "", "" ],
+                                    "patching_rect": [ 875.0, 61.0, 131.0, 22.0 ],
+                                    "text": "getattr active @listen 1"
+                                }
+                            },
                             {
                                 "box": {
                                     "bubble": 1,
@@ -5586,22 +6069,40 @@
                             },
                             {
                                 "box": {
-                                    "activebgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "activegridcolor": [ 0.22, 0.22, 0.22, 1.0 ],
-                                    "activelinecolor": [ 0.0, 0.0, 0.5019607843137255, 1.0 ],
-                                    "bgcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                                    "activebgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "activegridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "activelinecolor": [ 0.2784313725490196, 0.3333333333333333, 0.6392156862745098, 1.0 ],
+                                    "bgcolor": [ 0.24, 0.26, 0.31, 1.0 ],
                                     "grid": 3,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "horizonal_divisions": 8,
                                     "horizontal_divisions": 8,
                                     "id": "obj-39",
-                                    "line_width": 2.0,
+                                    "linecolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "maxclass": "live.scope~",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
-                                    "patching_rect": [ 718.0, 597.0, 123.0, 123.0 ],
-                                    "rounded": 1.0,
+                                    "patching_rect": [ 718.0, 597.0, 124.0, 124.0 ],
+                                    "rounded": 0.0,
                                     "samples": 48000.0,
+                                    "saved_attribute_attributes": {
+                                        "activebgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "activegridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_editing_bgcolor"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "linecolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        }
+                                    },
                                     "vertical_divisions": 4
                                 }
                             },
@@ -5771,7 +6272,7 @@
                                         }
                                     },
                                     "size": 4,
-                                    "value": 0,
+                                    "value": 1,
                                     "varname": "radiogroup"
                                 }
                             },
@@ -5811,66 +6312,169 @@
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
-                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "color": [ 0.0, 0.0, 0.502, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.2784313725490196, 0.3333333333333333, 0.6392156862745098, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-28",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 416.0, 577.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
-                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "color": [ 0.0, 0.5019607843137255, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.0, 0.5882352941176471, 0.0, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-27",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 662.0, 302.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
                                 "box": {
                                     "amprange": [ -80.0, 0.0 ],
-                                    "bordercolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-26",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 160.0, 302.0, 300.0, 150.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -6001,19 +6605,6 @@
                                             },
                                             {
                                                 "box": {
-                                                    "bubble": 1,
-                                                    "id": "obj-12",
-                                                    "linecount": 2,
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 447.0, 258.0, 212.0, 37.0 ],
-                                                    "text": "Turn off @smooth (default on) if audio rate modulating the 4th inlet",
-                                                    "textjustification": 1
-                                                }
-                                            },
-                                            {
-                                                "box": {
                                                     "id": "obj-10",
                                                     "maxclass": "newobj",
                                                     "numinlets": 0,
@@ -6075,7 +6666,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 286.0, 265.0, 159.0, 22.0 ],
-                                                    "text": "evi_filter_morph @smooth 0"
+                                                    "text": "evi_filter_morph"
                                                 }
                                             },
                                             {
@@ -7756,6 +8347,20 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-14", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-15", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-7", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-15", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-5", 0 ],
                                     "source": [ "obj-16", 0 ]
                                 }
@@ -7905,6 +8510,27 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-53", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-51", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-54", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-53", 1 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-48", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-54", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-2", 0 ],
                                     "order": 0,
                                     "source": [ "obj-6", 0 ]
@@ -7916,6 +8542,27 @@
                                     "hidden": 1,
                                     "order": 1,
                                     "source": [ "obj-6", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-10", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-7", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-11", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-7", 2 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "obj-9", 0 ],
+                                    "hidden": 1,
+                                    "source": [ "obj-7", 1 ]
                                 }
                             },
                             {
@@ -8568,23 +9215,57 @@
                             {
                                 "box": {
                                     "amprange": [ -100.0, 10.0 ],
-                                    "color": [ 0.502, 0.0, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.14901960784313725, 0.2162552670897126, 0.5764705882352941, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-15",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 450.0, 557.0, 400.0, 188.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ],
-                                    "thickness": 2.0
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {
@@ -9619,7 +10300,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 412.0, 554.0, 164.0, 20.0 ],
                                     "text": "evi.filter~",
-                                    "textcolor": [ 0.502, 0.0, 0.0, 1.0 ]
+                                    "textcolor": [ 0.7058823529411765, 0.1843137254901961, 0.19215686274509805, 1.0 ]
                                 }
                             },
                             {
@@ -9631,7 +10312,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 619.0, 554.0, 161.0, 20.0 ],
                                     "text": "evi.filter.eq~",
-                                    "textcolor": [ 0.0, 0.0, 0.5019607843137255, 1.0 ],
+                                    "textcolor": [ 0.2784313725490196, 0.3333333333333333, 0.6392156862745098, 1.0 ],
                                     "textjustification": 2
                                 }
                             },
@@ -9874,22 +10555,58 @@
                             {
                                 "box": {
                                     "amprange": [ -100.0, 10.0 ],
-                                    "color": [ 0.502, 0.0, 0.0, 1.0 ],
+                                    "bgcolor": [ 0.15, 0.17, 0.22, 1.0 ],
+                                    "bordercolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "color": [ 0.7057284007352941, 0.18495169000766423, 0.1914948009290656, 1.0 ],
+                                    "color2": [ 0.0, 0.5869083442452323, 0.0, 1.0 ],
+                                    "color3": [ 0.2784313725490196, 0.3333333333333333, 0.6392156862745098, 1.0 ],
+                                    "color4": [ 0.6116896286412173, 0.6135822610294118, 0.0025210457137809124, 1.0 ],
+                                    "displaytextcolor": [ 0.9, 0.9, 0.9, 1.0 ],
                                     "fontface": 0,
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
+                                    "gridcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
                                     "id": "obj-15",
+                                    "markercolor": [ 0.6189349783285454, 0.744701397656435, 0.9537501082553762, 1.0 ],
                                     "maxclass": "spectrumdraw~",
+                                    "mousedatapos": 3,
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 381.0, 535.0, 400.0, 188.0 ],
                                     "saved_attribute_attributes": {
+                                        "bgcolor": {
+                                            "expression": "themecolor.theme_bgcolor"
+                                        },
+                                        "bordercolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "displaytextcolor": {
+                                            "expression": "themecolor.theme_textcolor_inverse"
+                                        },
+                                        "gridcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
+                                        "markercolor": {
+                                            "expression": "themecolor.theme_color"
+                                        },
+                                        "selectcolor": {
+                                            "expression": "themecolor.theme_selectioncolor"
+                                        },
+                                        "textboxcolor": {
+                                            "expression": "themecolor.theme_stripecolor"
+                                        },
                                         "textcolor": {
                                             "expression": "themecolor.theme_textcolor"
+                                        },
+                                        "tickcolor": {
+                                            "expression": "themecolor.formatpalette_inherited_on"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "selectcolor": [ 0.922234290352602, 0.7100720052641699, 0.3297583419657164, 1.0 ],
+                                    "textboxcolor": [ 0.18734464918766006, 0.20129428935446375, 0.23982421911245905, 1.0 ],
+                                    "textcolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                    "tickcolor": [ 0.9, 0.9, 0.9, 1.0 ]
                                 }
                             },
                             {

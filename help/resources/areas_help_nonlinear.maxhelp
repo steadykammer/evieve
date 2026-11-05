@@ -46,7 +46,7 @@
                         }
                     },
                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -147,7 +147,7 @@
                                                         }
                                                     },
                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -187,7 +187,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -215,7 +215,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -255,7 +255,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -283,7 +283,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -323,7 +323,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -363,7 +363,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -404,7 +404,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -444,7 +444,7 @@
                                                         }
                                                     },
                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -637,7 +637,7 @@
                                                     "numoutlets": 2,
                                                     "outlettype": [ "", "" ],
                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                     "text": "thispatcher"
                                                 }
                                             },
@@ -1231,7 +1231,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.skfinputmix~\">evi.skfinputmix~</link> input mixing Sallen Key",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1255,7 +1255,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lpg~\">evi.lpg~</link> Buchla LPG",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1279,7 +1279,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.tone.macro~\">evi.tone.macro~</link> nonlinear tone control",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1303,7 +1303,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.rcfilter~\">evi.rcfilter~</link> nonlinear onepole",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1327,7 +1327,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.lorez~\">evi.lorez~</link> 12dB ladder",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1351,7 +1351,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.transistor~\">evi.ladder.transistor~</link> transistor ladder",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1375,7 +1375,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.poles~\">evi.ladder.poles~</link> transistor ladder",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1399,7 +1399,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.moog~\">evi.ladder.moog~</link> moog ladder",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1423,7 +1423,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.ladder.diode~\">evi.ladder.diode~</link> diode ladder",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1447,7 +1447,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.dfm~\">evi.dfm~</link> old school MS20 filter",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1471,7 +1471,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20.select~\">evi.korgms20.select~</link> MS20 filter",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1495,7 +1495,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms20~\">evi.korgms20~</link> MS20 filter",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1519,7 +1519,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.korgms10~\">evi.korgms10~</link> MS10 filter",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1543,7 +1543,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsynth~\">evi.svfsynth~</link> morphing SVF",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1567,7 +1567,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.svfsmooth~\">evi.svfsmooth~</link> morphing SVF",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1591,7 +1591,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp evi.arpnotch~\">evi.arpnotch~</link> morphing SVF",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1615,7 +1615,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_korg\">Korg</link> MS (Sallen and Key)",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1639,7 +1639,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_ladder\">Ladder</link>s",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1663,7 +1663,7 @@
                         }
                     },
                     "text": "<link href=\"; max openhelp areas_help_svf\">SVF</link>s",
-                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                 }
             },
             {
@@ -1720,11 +1720,21 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 568.0, 193.0, 589.0, 570.0 ],
+                        "rect": [ 674.0, 200.0, 589.0, 570.0 ],
                         "gridonopen": 2,
                         "subpatcher_template": "sub",
                         "integercoordinates": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-23",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 166.0, 20.0, 196.0, 20.0 ],
+                                    "text": "(right-click for reference pages)"
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-19",
@@ -1732,7 +1742,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 167.0, 453.0, 130.0, 60.0 ],
+                                    "patching_rect": [ 167.0, 468.0, 130.0, 60.0 ],
                                     "text": "[evi_dfm] does not work in gen~ alone as it requires an external LUT"
                                 }
                             },
@@ -1743,7 +1753,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 3,
                                     "outlettype": [ "", "", "" ],
-                                    "patching_rect": [ 382.0, 453.0, 89.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 468.0, 89.0, 22.0 ],
                                     "text": "evi_lpg_buchla"
                                 }
                             },
@@ -1754,7 +1764,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 382.0, 492.0, 91.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 507.0, 91.0, 22.0 ],
                                     "text": "evi_skfinputmix"
                                 }
                             },
@@ -1764,7 +1774,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 382.0, 300.0, 57.0, 20.0 ],
+                                    "patching_rect": [ 382.0, 315.0, 57.0, 20.0 ],
                                     "text": "Other"
                                 }
                             },
@@ -1774,7 +1784,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 166.0, 66.0, 76.0, 20.0 ],
+                                    "patching_rect": [ 166.0, 81.0, 76.0, 20.0 ],
                                     "text": "SVFs"
                                 }
                             },
@@ -1784,7 +1794,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 319.0, 66.0, 99.0, 20.0 ],
+                                    "patching_rect": [ 319.0, 81.0, 99.0, 20.0 ],
                                     "text": "Ladders"
                                 }
                             },
@@ -1794,7 +1804,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 167.0, 300.0, 145.0, 20.0 ],
+                                    "patching_rect": [ 167.0, 315.0, 145.0, 20.0 ],
                                     "text": "Korg MS (Sallen&Key)"
                                 }
                             },
@@ -1805,7 +1815,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 382.0, 414.0, 94.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 429.0, 94.0, 22.0 ],
                                     "text": "evi_tone_macro"
                                 }
                             },
@@ -1816,7 +1826,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 167.0, 180.0, 75.0, 22.0 ],
+                                    "patching_rect": [ 167.0, 195.0, 75.0, 22.0 ],
                                     "text": "evi_svfsynth"
                                 }
                             },
@@ -1827,7 +1837,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 5,
                                     "outlettype": [ "", "", "", "", "" ],
-                                    "patching_rect": [ 166.0, 141.0, 85.0, 22.0 ],
+                                    "patching_rect": [ 166.0, 156.0, 85.0, 22.0 ],
                                     "text": "evi_svfsmooth"
                                 }
                             },
@@ -1838,7 +1848,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 382.0, 375.0, 63.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 390.0, 63.0, 22.0 ],
                                     "text": "evi_rcfilter"
                                 }
                             },
@@ -1849,7 +1859,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 382.0, 337.0, 57.0, 22.0 ],
+                                    "patching_rect": [ 382.0, 352.0, 57.0, 22.0 ],
                                     "text": "evi_lorez"
                                 }
                             },
@@ -1860,7 +1870,7 @@
                                     "numinlets": 5,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 319.0, 220.0, 120.0, 22.0 ],
+                                    "patching_rect": [ 319.0, 235.0, 120.0, 22.0 ],
                                     "text": "evi_ladder_transistor"
                                 }
                             },
@@ -1871,7 +1881,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 318.0, 181.0, 99.0, 22.0 ],
+                                    "patching_rect": [ 318.0, 196.0, 99.0, 22.0 ],
                                     "text": "evi_ladder_poles"
                                 }
                             },
@@ -1882,7 +1892,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 318.0, 142.0, 101.0, 22.0 ],
+                                    "patching_rect": [ 318.0, 157.0, 101.0, 22.0 ],
                                     "text": "evi_ladder_moog"
                                 }
                             },
@@ -1893,7 +1903,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 167.0, 415.0, 121.0, 22.0 ],
+                                    "patching_rect": [ 167.0, 430.0, 121.0, 22.0 ],
                                     "text": "evi_korgms20_select"
                                 }
                             },
@@ -1904,7 +1914,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
-                                    "patching_rect": [ 167.0, 376.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 167.0, 391.0, 83.0, 22.0 ],
                                     "text": "evi_korgms20"
                                 }
                             },
@@ -1915,7 +1925,7 @@
                                     "numinlets": 3,
                                     "numoutlets": 4,
                                     "outlettype": [ "", "", "", "" ],
-                                    "patching_rect": [ 167.0, 337.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 167.0, 352.0, 83.0, 22.0 ],
                                     "text": "evi_korgms10"
                                 }
                             },
@@ -1926,7 +1936,7 @@
                                     "numinlets": 4,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 166.0, 103.0, 77.0, 22.0 ],
+                                    "patching_rect": [ 166.0, 118.0, 77.0, 22.0 ],
                                     "text": "evi_arpnotch"
                                 }
                             },
@@ -1949,7 +1959,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 19.0, 103.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 19.0, 118.0, 35.0, 22.0 ],
                                     "text": "out 1"
                                 }
                             },
@@ -1960,7 +1970,7 @@
                                     "numinlets": 5,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 318.0, 103.0, 100.0, 22.0 ],
+                                    "patching_rect": [ 318.0, 118.0, 100.0, 22.0 ],
                                     "text": "evi_ladder_diode"
                                 }
                             }

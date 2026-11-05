@@ -1,0 +1,109 @@
+{
+    "object": {
+        "name": "evi_swan_options",
+        "child": "evi.swan~",
+        "category": "evieve",
+        "digest": "Switch and Ramp implementation",
+        "description": "Miller Puckette's famous 'Switch and Ramp' de-clicking algorithm, implemented with various options for different use cases."
+    },
+    "constructor": {
+        "inlets": "input, sync"
+    },
+    "includes": [],
+    "inlets": [
+        {
+            "id": 1,
+            "name": "input",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "to de-click",
+            "digest": "Audio input requiring de-clicking"
+        },
+        {
+            "id": 2,
+            "name": "sync",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Trigger",
+            "digest": "Sync input (e.g. phasor 0..1) to create sync signal for triggering the de-clicking algorithm"
+        }
+    ],
+    "outlets": [
+        {
+            "id": 1,
+            "name": "de-clicked",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "Output",
+            "digest": "Audio output as input but with de-clicking applied"
+        },
+        {
+            "id": 2,
+            "name": "ramp",
+            "type": "float",
+            "optional": 1,
+            "digestauto": "",
+            "digest": "The currently selected ramp type output on de-click, post amplitude correction"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "curve",
+            "type": "int",
+            "digest": "@min 0, @max 3",
+            "description": "Select de-click ramp type; 0=linear exact timing (default and most sensible choice), 1=scurve, like linear (exact time destination) but s-curved, 2=cosine, like linear (exact time destination) but cosine shaped, 3=decay, a bit strange, logarithmic with hold stage, dangerous as not exact timing",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "outblock",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "Dcblock audio output off/on (default on)",
+            "default": {
+                "type": "int",
+                "value": "1"
+            }
+        },
+        {
+            "name": "shape",
+            "type": "int",
+            "digest": "@min 0, @max 1",
+            "description": "Add a strange zero-crossing curve blip to the ramp, default off",
+            "default": {
+                "type": "int",
+                "value": "0"
+            }
+        },
+        {
+            "name": "time",
+            "type": "int",
+            "digest": "@min 1, @max samplerate*0.25",
+            "description": "De-clicking ramp time in samples",
+            "default": {
+                "type": "int",
+                "value": "240"
+            }
+        }
+    ],
+    "seealso": [
+        {
+            "name": "evi_phasor0",
+            "display": "evi_phasor0"
+        },
+        {
+            "name": "evi_ramp0",
+            "display": "evi_ramp0"
+        },
+        {
+            "name": "evi_randy",
+            "display": "evi_randy"
+        },
+        {
+            "name": "evi_zeroxcount",
+            "display": "evi_zeroxcount"
+        }
+    ]
+}

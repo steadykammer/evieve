@@ -106,7 +106,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 833.0, 543.0, 207.0, 20.0 ],
+                                    "patching_rect": [ 833.0, 573.0, 207.0, 20.0 ],
                                     "preservehref": 1,
                                     "saved_attribute_attributes": {
                                         "textcolor": {
@@ -114,7 +114,7 @@
                                         }
                                     },
                                     "text": "TPT (ZDF) <link href=\"; max openhelp doesnotexist\">Bibliography</link>",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -215,7 +215,7 @@
                                                                         }
                                                                     },
                                                                     "text": "Annoyingly NI change the address of the book whenever he updates it, so you might need to google to get the latest version. If it is not there, try: <link href=\"; max launchbrowser https://www.discodsp.net/VAFilterDesign_2.1.2.pdf\">https://www.discodsp.net/VAFilterDesign_2.1.2.pdf</link>, but it is unclear if this will be updated in the future.",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -255,7 +255,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf\">https://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.1.2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -283,7 +283,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com/one-pole-monster\">https://urs.silvrback.com/one-pole-monster</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -323,7 +323,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://urs.silvrback.com\">https://urs.silvrback.com</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -351,7 +351,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Second%20order%20sections%20in%20matrix%20form.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -391,7 +391,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb\">https://github.com/google/music-synthesizer-for-android/blob/master/lab/Zero%20delay%20the%20easy%20way.ipynb</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -431,7 +431,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf\">http://www.dafx14.fau.de/papers/dafx14_aaron_wishnick_time_varying_filters_for_.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -472,7 +472,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf\">https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -512,7 +512,7 @@
                                                                         }
                                                                     },
                                                                     "text": "<link href=\"; max launchbrowser http://cytomic.com/technical-papers\">http://cytomic.com/technical-papers</link>",
-                                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                                 }
                                                             },
                                                             {
@@ -705,7 +705,7 @@
                                                                     "numoutlets": 2,
                                                                     "outlettype": [ "", "" ],
                                                                     "patching_rect": [ 439.0, 188.0, 67.0, 22.0 ],
-                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "window", "flags", "nogrow", "close", "nozoom", "nofloat", "menu", "nominimize", ";", "#Q", "window", "constrain", 50, 50, 32768, 32768, ";", "#Q", "window", "size", 526, 213, 1366, 873, ";", "#Q", "window", "title", ";", "#Q", "window", "exec", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
+                                                                    "save": [ "#N", "thispatcher", ";", "#Q", "savewindow", 1, ";", "#Q", "end", ";" ],
                                                                     "text": "thispatcher"
                                                                 }
                                                             },
@@ -785,7 +785,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 833.0, 577.0, 83.0, 22.0 ],
+                                    "patching_rect": [ 833.0, 607.0, 83.0, 22.0 ],
                                     "text": "p bibliography"
                                 }
                             },
@@ -837,11 +837,33 @@
                                             "modernui": 1
                                         },
                                         "classnamespace": "dsp.gen",
-                                        "rect": [ 408.0, 361.0, 738.0, 446.0 ],
+                                        "rect": [ 408.0, 361.0, 738.0, 481.0 ],
                                         "gridonopen": 2,
                                         "subpatcher_template": "sub",
                                         "integercoordinates": 1,
                                         "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-2",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 336.0, 71.0, 201.0, 20.0 ],
+                                                    "presentation_linecount": 2,
+                                                    "text": "(right-click for reference pages)"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "fontface": 2,
+                                                    "id": "obj-3",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 186.0, 412.0, 434.0, 20.0 ],
+                                                    "text": "@see the 'evieve Objects Overview' from your 'Extras' menu for more..."
+                                                }
+                                            },
                                             {
                                                 "box": {
                                                     "id": "obj-13",
@@ -951,7 +973,7 @@
                                         ],
                                         "lines": []
                                     },
-                                    "patching_rect": [ 823.0, 254.0, 171.0, 22.0 ],
+                                    "patching_rect": [ 823.0, 224.0, 171.0, 22.0 ],
                                     "text": "gen~ @title availibilty_in_gen~"
                                 }
                             },
@@ -987,7 +1009,7 @@
                                         }
                                     },
                                     "text": "Scroll to the bottom 'See Also' section of the <link href=\"; max html_ref evi_svfs\">evi_svfs.genexpr</link> reference page and you will find links to all of the different SVF GenExpr code files in evieve, as well as a link to the Biquads code.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -2007,7 +2029,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_biquads_filters\">evi_biquads_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -2101,7 +2123,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_svfs_filters\">evi_svfs_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             }
                                         ],
@@ -3120,7 +3142,7 @@
                                                         }
                                                     },
                                                     "text": "Taken from the <link href=\"; max openhelp reson~\">reson~</link> helpfile",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -4170,7 +4192,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -4312,7 +4334,7 @@
                                         }
                                     },
                                     "text": "In this tab we compare how the Biquad and the TPT SVF handle audio rate modulation very differently. <link href=\"; max openhelp doesnotexist\">Be very careful to follow the instructions exactly as we dangerously blow up a filter</link> (spoiler alert, the Biquad) <b>and we must protect our ears</b>.",
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -7418,7 +7440,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -8438,7 +8460,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-11",
@@ -8463,7 +8485,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-10",
@@ -8488,7 +8510,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-9",
@@ -8513,7 +8535,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-8",
@@ -8538,7 +8560,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-7",
@@ -8563,7 +8585,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-42",
@@ -8588,7 +8610,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-6",
@@ -10116,7 +10138,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_svfs_tpt_filters\">evi_svfs_tpt_filters.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -10140,7 +10162,7 @@
                                                         }
                                                     },
                                                     "text": "from the <link href=\"; max html_ref evi_biquads_coeffs\">evi_biquads_coeffs.genexpr</link> file",
-                                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                                 }
                                             },
                                             {
@@ -10708,7 +10730,7 @@
                                             "expression": "themecolor.theme_textcolor"
                                         }
                                     },
-                                    "textcolor": [ 0.85, 0.85, 0.85, 1.0 ]
+                                    "textcolor": [ 0.25, 0.25, 0.25, 1.0 ]
                                 }
                             },
                             {
@@ -11156,7 +11178,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-11",
@@ -11181,7 +11203,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-10",
@@ -11206,7 +11228,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-9",
@@ -11231,7 +11253,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-8",
@@ -11256,7 +11278,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-7",
@@ -11281,7 +11303,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-42",
@@ -11306,7 +11328,7 @@
                                                     "angle": 270.0,
                                                     "background": 1,
                                                     "border": 2,
-                                                    "bordercolor": [ 0.9, 0.9, 0.9, 1.0 ],
+                                                    "bordercolor": [ 0.05, 0.05, 0.05, 1.0 ],
                                                     "grad1": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "grad2": [ 0.17213714979609188, 0.1721371000440022, 0.17213711304501805, 0.0 ],
                                                     "id": "obj-6",

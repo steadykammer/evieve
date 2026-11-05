@@ -121,6 +121,7 @@ max oblist "evieve Gen Abstractions" evi.svf~;
 max oblist "evieve Gen Abstractions" evi.svfinputmix~;
 max oblist "evieve Gen Abstractions" evi.svfsmooth~;
 max oblist "evieve Gen Abstractions" evi.svfsynth~;
+max oblist "evieve Gen Abstractions" evi.swan~;
 max oblist "evieve Gen Abstractions" evi.teeth~;
 max oblist "evieve Gen Abstractions" evi.tone.macro~;
 max oblist "evieve Gen Abstractions" evi.tremolo~;
